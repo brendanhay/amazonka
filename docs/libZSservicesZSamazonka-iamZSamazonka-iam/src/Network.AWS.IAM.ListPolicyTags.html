@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListPolicyTags' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679442628"><span id="local-6989586621679442629"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPolicyTags"><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-var">ListPolicyTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPolicyTags%27"><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-var">ListPolicyTags'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679442637"><span id="local-6989586621679442638"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPolicyTags"><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-var">ListPolicyTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPolicyTags%27"><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-var">ListPolicyTags'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3ApolicyArn%3AListPolicyTags%27"><span class="annot"><span class="annottext">ListPolicyTags -&gt; Text
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3ApolicyArn%3AListPolicyTags%27"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679442620"><span id="local-6989586621679442622"><span class="annot"><span class="annottext">ListPolicyTags -&gt; ListPolicyTags -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679442629"><span id="local-6989586621679442631"><span class="annot"><span class="annottext">ListPolicyTags -&gt; ListPolicyTags -&gt; Bool
 (ListPolicyTags -&gt; ListPolicyTags -&gt; Bool)
 -&gt; (ListPolicyTags -&gt; ListPolicyTags -&gt; Bool) -&gt; Eq ListPolicyTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListPolicyTags -&gt; ListPolicyTags -&gt; Bool
 == :: ListPolicyTags -&gt; ListPolicyTags -&gt; Bool
 $c== :: ListPolicyTags -&gt; ListPolicyTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442611"><span id="local-6989586621679442613"><span id="local-6989586621679442615"><span id="local-6989586621679442617"><span class="annot"><span class="annottext">ReadPrec [ListPolicyTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442620"><span id="local-6989586621679442622"><span id="local-6989586621679442624"><span id="local-6989586621679442626"><span class="annot"><span class="annottext">ReadPrec [ListPolicyTags]
 ReadPrec ListPolicyTags
 Int -&gt; ReadS ListPolicyTags
 ReadS [ListPolicyTags]
@@ -110,7 +110,7 @@ readList :: ReadS [ListPolicyTags]
 $creadList :: ReadS [ListPolicyTags]
 readsPrec :: Int -&gt; ReadS ListPolicyTags
 $creadsPrec :: Int -&gt; ReadS ListPolicyTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442604"><span id="local-6989586621679442606"><span id="local-6989586621679442608"><span class="annot"><span class="annottext">Int -&gt; ListPolicyTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442613"><span id="local-6989586621679442615"><span id="local-6989586621679442617"><span class="annot"><span class="annottext">Int -&gt; ListPolicyTags -&gt; ShowS
 [ListPolicyTags] -&gt; ShowS
 ListPolicyTags -&gt; String
 (Int -&gt; ListPolicyTags -&gt; ShowS)
@@ -170,8 +170,8 @@ $cfrom :: forall x. ListPolicyTags -&gt; Rep ListPolicyTags x
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span>
 </span><span id="line-117"></span><span id="newListPolicyTags"><span class="annot"><span class="annottext">newListPolicyTags :: Text -&gt; ListPolicyTags
-</span><a href="Network.AWS.IAM.ListPolicyTags.html#newListPolicyTags"><span class="hs-identifier hs-var hs-var">newListPolicyTags</span></a></span></span><span> </span><span id="local-6989586621679442599"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442599"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListPolicyTags.html#newListPolicyTags"><span class="hs-identifier hs-var hs-var">newListPolicyTags</span></a></span></span><span> </span><span id="local-6989586621679442608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679442608"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">ListPolicyTags' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListPolicyTags
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListPolicyTags' :: Maybe Text
@@ -184,7 +184,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyArn:ListPolicyTags' :: Text
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3ApolicyArn%3AListPolicyTags%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442599"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
+</span><a href="#local-6989586621679442608"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
@@ -198,16 +198,16 @@ forall a. Maybe a
 -&gt; (ListPolicyTags -&gt; Maybe Text -&gt; ListPolicyTags)
 -&gt; Lens ListPolicyTags ListPolicyTags (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442596"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442605"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListPolicyTags' :: ListPolicyTags -&gt; Maybe Text
-</span><a href="#local-6989586621679442596"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442596"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442595"><span class="annot"><span class="annottext">s :: ListPolicyTags
-</span><a href="#local-6989586621679442595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442594"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTags
-</span><a href="#local-6989586621679442595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListPolicyTags' :: Maybe Text
+</span><a href="#local-6989586621679442605"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679442605"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442604"><span class="annot"><span class="annottext">s :: ListPolicyTags
+</span><a href="#local-6989586621679442604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679442603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTags
+</span><a href="#local-6989586621679442604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListPolicyTags' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3Amarker%3AListPolicyTags%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679442603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
@@ -226,16 +226,16 @@ $sel:marker:ListPolicyTags' :: ListPolicyTags -&gt; Maybe Text
 -&gt; Lens
      ListPolicyTags ListPolicyTags (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442593"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442602"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListPolicyTags' :: ListPolicyTags -&gt; Maybe Natural
-</span><a href="#local-6989586621679442593"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679442593"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442592"><span class="annot"><span class="annottext">s :: ListPolicyTags
-</span><a href="#local-6989586621679442592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442591"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679442591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTags
-</span><a href="#local-6989586621679442592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListPolicyTags' :: Maybe Natural
+</span><a href="#local-6989586621679442602"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679442602"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442601"><span class="annot"><span class="annottext">s :: ListPolicyTags
+</span><a href="#local-6989586621679442601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442600"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679442600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTags
+</span><a href="#local-6989586621679442601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListPolicyTags' :: Maybe Natural
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3AmaxItems%3AListPolicyTags%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679442591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679442600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The ARN of the IAM customer managed policy whose tags you want to see.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
@@ -249,27 +249,27 @@ $sel:maxItems:ListPolicyTags' :: ListPolicyTags -&gt; Maybe Natural
 -&gt; (ListPolicyTags -&gt; Text -&gt; ListPolicyTags)
 -&gt; Lens ListPolicyTags ListPolicyTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442590"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442599"><span class="annot"><span class="annottext">Text
 policyArn :: Text
 $sel:policyArn:ListPolicyTags' :: ListPolicyTags -&gt; Text
-</span><a href="#local-6989586621679442590"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442590"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442589"><span class="annot"><span class="annottext">s :: ListPolicyTags
-</span><a href="#local-6989586621679442589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442588"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTags
-</span><a href="#local-6989586621679442589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:ListPolicyTags' :: Text
+</span><a href="#local-6989586621679442599"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679442599"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442598"><span class="annot"><span class="annottext">s :: ListPolicyTags
+</span><a href="#local-6989586621679442598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442597"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679442597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTags
+</span><a href="#local-6989586621679442598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:ListPolicyTags' :: Text
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3ApolicyArn%3AListPolicyTags%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679442597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-154"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679442584"><span class="annot"><span class="annottext">request :: ListPolicyTags -&gt; Request ListPolicyTags
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679442593"><span class="annot"><span class="annottext">request :: ListPolicyTags -&gt; Request ListPolicyTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPolicyTags -&gt; Request ListPolicyTags
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679442580"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679442589"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListPolicyTags
 -&gt; ClientResponse ClientBody
@@ -298,10 +298,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListPolicyTagsResult&quot;</span></span><span>
-</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679442577"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442577"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679442576"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679442576"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679442575"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679442575"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679442586"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679442586"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679442585"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679442585"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679442584"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679442584"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; [Tag] -&gt; ListPolicyTagsResponse
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-var">ListPolicyTagsResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -311,7 +311,7 @@ Text
      String (Maybe Bool -&gt; Int -&gt; [Tag] -&gt; ListPolicyTagsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679442575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679442584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -321,7 +321,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; [Tag] -&gt; ListPolicyTagsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679442575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679442584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -334,12 +334,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442577"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679442586"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Tag] -&gt; ListPolicyTagsResponse)
 -&gt; Either String [Tag] -&gt; Either String ListPolicyTagsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679442575"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679442584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -357,12 +357,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-167"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442565"><span id="local-6989586621679442567"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442574"><span id="local-6989586621679442576"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679442558"><span class="annot"><span class="annottext">toHeaders :: ListPolicyTags -&gt; ResponseHeaders
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679442567"><span class="annot"><span class="annottext">toHeaders :: ListPolicyTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPolicyTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -370,15 +370,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679442553"><span class="annot"><span class="annottext">toPath :: ListPolicyTags -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679442562"><span class="annot"><span class="annottext">toPath :: ListPolicyTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPolicyTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags"><span class="hs-identifier hs-type">ListPolicyTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679442549"><span class="annot"><span class="annottext">toQuery :: ListPolicyTags -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442545"><span id="local-6989586621679442546"><span id="local-6989586621679442547"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679442558"><span class="annot"><span class="annottext">toQuery :: ListPolicyTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTags%27"><span class="hs-identifier hs-type">ListPolicyTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442554"><span id="local-6989586621679442555"><span id="local-6989586621679442556"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 policyArn :: Text
@@ -387,7 +387,7 @@ marker :: Maybe Text
 $sel:policyArn:ListPolicyTags' :: ListPolicyTags -&gt; Text
 $sel:maxItems:ListPolicyTags' :: ListPolicyTags -&gt; Maybe Natural
 $sel:marker:ListPolicyTags' :: ListPolicyTags -&gt; Maybe Text
-</span><a href="#local-6989586621679442545"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679442554"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -407,21 +407,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442547"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679442556"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679442546"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679442555"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PolicyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442545"><span class="hs-identifier hs-var">policyArn</span></a></span><span>
+</span><a href="#local-6989586621679442554"><span class="hs-identifier hs-var">policyArn</span></a></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | /See:/ 'newListPolicyTagsResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621679442542"><span id="local-6989586621679442543"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPolicyTagsResponse"><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-var">ListPolicyTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPolicyTagsResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-var">ListPolicyTagsResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span id="local-6989586621679442551"><span id="local-6989586621679442552"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPolicyTagsResponse"><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-var">ListPolicyTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPolicyTagsResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-var">ListPolicyTagsResponse'</span></a></span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-comment">-- request.</span><span>
@@ -446,7 +446,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-212"></span><span>    </span><span id="%24sel%3Atags%3AListPolicyTagsResponse%27"><span class="annot"><span class="annottext">ListPolicyTagsResponse -&gt; [Tag]
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3Atags%3AListPolicyTagsResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-214"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679442534"><span id="local-6989586621679442536"><span class="annot"><span class="annottext">ListPolicyTagsResponse -&gt; ListPolicyTagsResponse -&gt; Bool
+</span><span id="line-214"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679442543"><span id="local-6989586621679442545"><span class="annot"><span class="annottext">ListPolicyTagsResponse -&gt; ListPolicyTagsResponse -&gt; Bool
 (ListPolicyTagsResponse -&gt; ListPolicyTagsResponse -&gt; Bool)
 -&gt; (ListPolicyTagsResponse -&gt; ListPolicyTagsResponse -&gt; Bool)
 -&gt; Eq ListPolicyTagsResponse
@@ -455,7 +455,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListPolicyTagsResponse -&gt; ListPolicyTagsResponse -&gt; Bool
 == :: ListPolicyTagsResponse -&gt; ListPolicyTagsResponse -&gt; Bool
 $c== :: ListPolicyTagsResponse -&gt; ListPolicyTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442526"><span id="local-6989586621679442528"><span id="local-6989586621679442530"><span id="local-6989586621679442532"><span class="annot"><span class="annottext">ReadPrec [ListPolicyTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442535"><span id="local-6989586621679442537"><span id="local-6989586621679442539"><span id="local-6989586621679442541"><span class="annot"><span class="annottext">ReadPrec [ListPolicyTagsResponse]
 ReadPrec ListPolicyTagsResponse
 Int -&gt; ReadS ListPolicyTagsResponse
 ReadS [ListPolicyTagsResponse]
@@ -475,7 +475,7 @@ readList :: ReadS [ListPolicyTagsResponse]
 $creadList :: ReadS [ListPolicyTagsResponse]
 readsPrec :: Int -&gt; ReadS ListPolicyTagsResponse
 $creadsPrec :: Int -&gt; ReadS ListPolicyTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442520"><span id="local-6989586621679442522"><span id="local-6989586621679442524"><span class="annot"><span class="annottext">Int -&gt; ListPolicyTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442529"><span id="local-6989586621679442531"><span id="local-6989586621679442533"><span class="annot"><span class="annottext">Int -&gt; ListPolicyTagsResponse -&gt; ShowS
 [ListPolicyTagsResponse] -&gt; ShowS
 ListPolicyTagsResponse -&gt; String
 (Int -&gt; ListPolicyTagsResponse -&gt; ShowS)
@@ -533,8 +533,8 @@ $cfrom :: forall x. ListPolicyTagsResponse -&gt; Rep ListPolicyTagsResponse x
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span>
 </span><span id="line-246"></span><span id="newListPolicyTagsResponse"><span class="annot"><span class="annottext">newListPolicyTagsResponse :: Int -&gt; ListPolicyTagsResponse
-</span><a href="Network.AWS.IAM.ListPolicyTags.html#newListPolicyTagsResponse"><span class="hs-identifier hs-var hs-var">newListPolicyTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679442517"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442517"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListPolicyTags.html#newListPolicyTagsResponse"><span class="hs-identifier hs-var hs-var">newListPolicyTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679442526"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679442526"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">ListPolicyTagsResponse' :: Maybe Text -&gt; Maybe Bool -&gt; Int -&gt; [Tag] -&gt; ListPolicyTagsResponse
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListPolicyTagsResponse' :: Maybe Text
@@ -547,7 +547,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPolicyTagsResponse' :: Int
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3AhttpStatus%3AListPolicyTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442517"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679442526"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ListPolicyTagsResponse' :: [Tag]
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3Atags%3AListPolicyTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -568,16 +568,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442516"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442525"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListPolicyTagsResponse' :: ListPolicyTagsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679442516"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442516"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442515"><span class="annot"><span class="annottext">s :: ListPolicyTagsResponse
-</span><a href="#local-6989586621679442515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442514"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTagsResponse
-</span><a href="#local-6989586621679442515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListPolicyTagsResponse' :: Maybe Text
+</span><a href="#local-6989586621679442525"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679442525"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442524"><span class="annot"><span class="annottext">s :: ListPolicyTagsResponse
+</span><a href="#local-6989586621679442524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442523"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679442523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTagsResponse
+</span><a href="#local-6989586621679442524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListPolicyTagsResponse' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3Amarker%3AListPolicyTagsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679442523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
@@ -597,16 +597,16 @@ $sel:marker:ListPolicyTagsResponse' :: ListPolicyTagsResponse -&gt; Maybe Text
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442513"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442522"><span class="annot"><span class="annottext">Maybe Bool
 isTruncated :: Maybe Bool
 $sel:isTruncated:ListPolicyTagsResponse' :: ListPolicyTagsResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679442513"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679442513"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442512"><span class="annot"><span class="annottext">s :: ListPolicyTagsResponse
-</span><a href="#local-6989586621679442512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442511"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679442511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTagsResponse
-</span><a href="#local-6989586621679442512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListPolicyTagsResponse' :: Maybe Bool
+</span><a href="#local-6989586621679442522"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679442522"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442521"><span class="annot"><span class="annottext">s :: ListPolicyTagsResponse
+</span><a href="#local-6989586621679442521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442520"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679442520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTagsResponse
+</span><a href="#local-6989586621679442521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListPolicyTagsResponse' :: Maybe Bool
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3AisTruncated%3AListPolicyTagsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679442511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679442520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#listPolicyTagsResponse_httpStatus"><span class="hs-identifier hs-type">listPolicyTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -616,16 +616,16 @@ $sel:isTruncated:ListPolicyTagsResponse' :: ListPolicyTagsResponse -&gt; Maybe B
 -&gt; (ListPolicyTagsResponse -&gt; Int -&gt; ListPolicyTagsResponse)
 -&gt; Lens ListPolicyTagsResponse ListPolicyTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442510"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442519"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListPolicyTagsResponse' :: ListPolicyTagsResponse -&gt; Int
-</span><a href="#local-6989586621679442510"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442510"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442509"><span class="annot"><span class="annottext">s :: ListPolicyTagsResponse
-</span><a href="#local-6989586621679442509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442508"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTagsResponse
-</span><a href="#local-6989586621679442509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPolicyTagsResponse' :: Int
+</span><a href="#local-6989586621679442519"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679442519"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442518"><span class="annot"><span class="annottext">s :: ListPolicyTagsResponse
+</span><a href="#local-6989586621679442518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442517"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679442517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTagsResponse
+</span><a href="#local-6989586621679442518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPolicyTagsResponse' :: Int
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3AhttpStatus%3AListPolicyTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679442517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | The list of tags that are currently attached to the IAM customer managed</span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- policy. Each tag consists of a key name and an associated value. If no</span><span>
@@ -638,16 +638,16 @@ $sel:httpStatus:ListPolicyTagsResponse' :: ListPolicyTagsResponse -&gt; Int
 -&gt; (ListPolicyTagsResponse -&gt; [Tag] -&gt; ListPolicyTagsResponse)
 -&gt; Lens ListPolicyTagsResponse ListPolicyTagsResponse [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442507"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442516"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:ListPolicyTagsResponse' :: ListPolicyTagsResponse -&gt; [Tag]
-</span><a href="#local-6989586621679442507"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679442507"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442506"><span class="annot"><span class="annottext">s :: ListPolicyTagsResponse
-</span><a href="#local-6989586621679442506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442505"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679442505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTagsResponse
-</span><a href="#local-6989586621679442506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListPolicyTagsResponse' :: [Tag]
+</span><a href="#local-6989586621679442516"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679442516"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442515"><span class="annot"><span class="annottext">s :: ListPolicyTagsResponse
+</span><a href="#local-6989586621679442515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse%27"><span class="hs-identifier hs-type">ListPolicyTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442514"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679442514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPolicyTagsResponse
+</span><a href="#local-6989586621679442515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListPolicyTagsResponse' :: [Tag]
 </span><a href="Network.AWS.IAM.ListPolicyTags.html#%24sel%3Atags%3AListPolicyTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679442505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
+</span><a href="#local-6989586621679442514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
  -&gt; ListPolicyTagsResponse -&gt; f ListPolicyTagsResponse)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
@@ -658,5 +658,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-280"></span><span>
-</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListPolicyTags.html#ListPolicyTagsResponse"><span class="hs-identifier hs-type">ListPolicyTagsResponse</span></a></span></span><span>
 </span><span id="line-282"></span></pre></body></html>

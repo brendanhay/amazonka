@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679300472"><span id="local-6989586621679300473"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SnapshotStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotStatus.html#SnapshotStatus"><span class="hs-identifier hs-var">SnapshotStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnapshotStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotStatus.html#SnapshotStatus%27"><span class="hs-identifier hs-var">SnapshotStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679300481"><span id="local-6989586621679300482"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SnapshotStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotStatus.html#SnapshotStatus"><span class="hs-identifier hs-var">SnapshotStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SnapshotStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SnapshotStatus.html#SnapshotStatus%27"><span class="hs-identifier hs-var">SnapshotStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSnapshotStatus"><span class="annot"><span class="annottext">SnapshotStatus -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.SnapshotStatus.html#fromSnapshotStatus"><span class="hs-identifier hs-var hs-var">fromSnapshotStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300464"><span id="local-6989586621679300466"><span id="local-6989586621679300468"><span class="annot"><span class="annottext">Int -&gt; SnapshotStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300473"><span id="local-6989586621679300475"><span id="local-6989586621679300477"><span class="annot"><span class="annottext">Int -&gt; SnapshotStatus -&gt; ShowS
 [SnapshotStatus] -&gt; ShowS
 SnapshotStatus -&gt; String
 (Int -&gt; SnapshotStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SnapshotStatus -&gt; String
 showsPrec :: Int -&gt; SnapshotStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; SnapshotStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679300455"><span id="local-6989586621679300457"><span id="local-6989586621679300459"><span id="local-6989586621679300461"><span class="annot"><span class="annottext">ReadPrec [SnapshotStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679300464"><span id="local-6989586621679300466"><span id="local-6989586621679300468"><span id="local-6989586621679300470"><span class="annot"><span class="annottext">ReadPrec [SnapshotStatus]
 ReadPrec SnapshotStatus
 Int -&gt; ReadS SnapshotStatus
 ReadS [SnapshotStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SnapshotStatus]
 readsPrec :: Int -&gt; ReadS SnapshotStatus
 $creadsPrec :: Int -&gt; ReadS SnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679300450"><span id="local-6989586621679300452"><span class="annot"><span class="annottext">SnapshotStatus -&gt; SnapshotStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679300459"><span id="local-6989586621679300461"><span class="annot"><span class="annottext">SnapshotStatus -&gt; SnapshotStatus -&gt; Bool
 (SnapshotStatus -&gt; SnapshotStatus -&gt; Bool)
 -&gt; (SnapshotStatus -&gt; SnapshotStatus -&gt; Bool) -&gt; Eq SnapshotStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: SnapshotStatus -&gt; SnapshotStatus -&gt; Bool
 == :: SnapshotStatus -&gt; SnapshotStatus -&gt; Bool
 $c== :: SnapshotStatus -&gt; SnapshotStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679300434"><span id="local-6989586621679300436"><span id="local-6989586621679300438"><span id="local-6989586621679300440"><span id="local-6989586621679300442"><span id="local-6989586621679300444"><span id="local-6989586621679300446"><span class="annot"><span class="annottext">Eq SnapshotStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679300443"><span id="local-6989586621679300445"><span id="local-6989586621679300447"><span id="local-6989586621679300449"><span id="local-6989586621679300451"><span id="local-6989586621679300453"><span id="local-6989586621679300455"><span class="annot"><span class="annottext">Eq SnapshotStatus
 Eq SnapshotStatus
 -&gt; (SnapshotStatus -&gt; SnapshotStatus -&gt; Ordering)
 -&gt; (SnapshotStatus -&gt; SnapshotStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SnapshotStatus -&gt; Rep SnapshotStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300426"><span id="local-6989586621679300428"><span class="annot"><span class="annottext">Int -&gt; SnapshotStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300435"><span id="local-6989586621679300437"><span class="annot"><span class="annottext">Int -&gt; SnapshotStatus -&gt; Int
 SnapshotStatus -&gt; Int
 (Int -&gt; SnapshotStatus -&gt; Int)
 -&gt; (SnapshotStatus -&gt; Int) -&gt; Hashable SnapshotStatus
@@ -143,50 +143,50 @@ $chash :: SnapshotStatus -&gt; Int
 hashWithSalt :: Int -&gt; SnapshotStatus -&gt; Int
 $chashWithSalt :: Int -&gt; SnapshotStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679300423"><span class="annot"><span class="annottext">SnapshotStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679300432"><span class="annot"><span class="annottext">SnapshotStatus -&gt; ()
 (SnapshotStatus -&gt; ()) -&gt; NFData SnapshotStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SnapshotStatus -&gt; ()
 $crnf :: SnapshotStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679300420"><span class="annot"><span class="annottext">Text -&gt; Either String SnapshotStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679300429"><span class="annot"><span class="annottext">Text -&gt; Either String SnapshotStatus
 (Text -&gt; Either String SnapshotStatus) -&gt; FromText SnapshotStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SnapshotStatus
 $cfromText :: Text -&gt; Either String SnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679300417"><span class="annot"><span class="annottext">SnapshotStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679300426"><span class="annot"><span class="annottext">SnapshotStatus -&gt; Text
 (SnapshotStatus -&gt; Text) -&gt; ToText SnapshotStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SnapshotStatus -&gt; Text
 $ctoText :: SnapshotStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679300414"><span class="annot"><span class="annottext">SnapshotStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679300423"><span class="annot"><span class="annottext">SnapshotStatus -&gt; ByteString
 (SnapshotStatus -&gt; ByteString) -&gt; ToByteString SnapshotStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SnapshotStatus -&gt; ByteString
 $ctoBS :: SnapshotStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679300411"><span class="annot"><span class="annottext">SnapshotStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679300420"><span class="annot"><span class="annottext">SnapshotStatus -&gt; ByteStringBuilder
 (SnapshotStatus -&gt; ByteStringBuilder) -&gt; ToLog SnapshotStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SnapshotStatus -&gt; ByteStringBuilder
 $cbuild :: SnapshotStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679300408"><span class="annot"><span class="annottext">HeaderName -&gt; SnapshotStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679300417"><span class="annot"><span class="annottext">HeaderName -&gt; SnapshotStatus -&gt; [Header]
 (HeaderName -&gt; SnapshotStatus -&gt; [Header])
 -&gt; ToHeader SnapshotStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SnapshotStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SnapshotStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679300405"><span class="annot"><span class="annottext">SnapshotStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679300414"><span class="annot"><span class="annottext">SnapshotStatus -&gt; QueryString
 (SnapshotStatus -&gt; QueryString) -&gt; ToQuery SnapshotStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SnapshotStatus -&gt; QueryString
 $ctoQuery :: SnapshotStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679300400"><span id="local-6989586621679300402"><span class="annot"><span class="annottext">Value -&gt; Parser [SnapshotStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679300409"><span id="local-6989586621679300411"><span class="annot"><span class="annottext">Value -&gt; Parser [SnapshotStatus]
 Value -&gt; Parser SnapshotStatus
 (Value -&gt; Parser SnapshotStatus)
 -&gt; (Value -&gt; Parser [SnapshotStatus]) -&gt; FromJSON SnapshotStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [SnapshotStatus]
 parseJSON :: Value -&gt; Parser SnapshotStatus
 $cparseJSON :: Value -&gt; Parser SnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679300395"><span id="local-6989586621679300397"><span class="annot"><span class="annottext">FromJSONKeyFunction [SnapshotStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679300404"><span id="local-6989586621679300406"><span class="annot"><span class="annottext">FromJSONKeyFunction [SnapshotStatus]
 FromJSONKeyFunction SnapshotStatus
 FromJSONKeyFunction SnapshotStatus
 -&gt; FromJSONKeyFunction [SnapshotStatus]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SnapshotStatus]
 fromJSONKey :: FromJSONKeyFunction SnapshotStatus
 $cfromJSONKey :: FromJSONKeyFunction SnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679300386"><span id="local-6989586621679300388"><span id="local-6989586621679300390"><span id="local-6989586621679300392"><span class="annot"><span class="annottext">[SnapshotStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679300395"><span id="local-6989586621679300397"><span id="local-6989586621679300399"><span id="local-6989586621679300401"><span class="annot"><span class="annottext">[SnapshotStatus] -&gt; Encoding
 [SnapshotStatus] -&gt; Value
 SnapshotStatus -&gt; Encoding
 SnapshotStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: SnapshotStatus -&gt; Encoding
 toJSON :: SnapshotStatus -&gt; Value
 $ctoJSON :: SnapshotStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679300381"><span id="local-6989586621679300383"><span class="annot"><span class="annottext">ToJSONKeyFunction [SnapshotStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679300390"><span id="local-6989586621679300392"><span class="annot"><span class="annottext">ToJSONKeyFunction [SnapshotStatus]
 ToJSONKeyFunction SnapshotStatus
 ToJSONKeyFunction SnapshotStatus
 -&gt; ToJSONKeyFunction [SnapshotStatus] -&gt; ToJSONKey SnapshotStatus
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SnapshotStatus]
 toJSONKey :: ToJSONKeyFunction SnapshotStatus
 $ctoJSONKey :: ToJSONKeyFunction SnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300378"><span class="annot"><span class="annottext">[Node] -&gt; Either String SnapshotStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300387"><span class="annot"><span class="annottext">[Node] -&gt; Either String SnapshotStatus
 ([Node] -&gt; Either String SnapshotStatus) -&gt; FromXML SnapshotStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SnapshotStatus
 $cparseXML :: [Node] -&gt; Either String SnapshotStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679300375"><span class="annot"><span class="annottext">SnapshotStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679300384"><span class="annot"><span class="annottext">SnapshotStatus -&gt; XML
 (SnapshotStatus -&gt; XML) -&gt; ToXML SnapshotStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SnapshotStatus -&gt; XML

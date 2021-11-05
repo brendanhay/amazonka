@@ -1,0 +1,865 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.SearchDashboards</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Searches for dashboards that belong to a user.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation is eventually consistent. The results are best effort and</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- may not reflect very recent updates and changes.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.SearchDashboards</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier">SearchDashboards</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#newSearchDashboards"><span class="hs-identifier">newSearchDashboards</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_nextToken"><span class="hs-identifier">searchDashboards_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_maxResults"><span class="hs-identifier">searchDashboards_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_awsAccountId"><span class="hs-identifier">searchDashboards_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_filters"><span class="hs-identifier">searchDashboards_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier">SearchDashboardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#newSearchDashboardsResponse"><span class="hs-identifier">newSearchDashboardsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_requestId"><span class="hs-identifier">searchDashboardsResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_nextToken"><span class="hs-identifier">searchDashboardsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_dashboardSummaryList"><span class="hs-identifier">searchDashboardsResponse_dashboardSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_status"><span class="hs-identifier">searchDashboardsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newSearchDashboards' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679575532"><span id="local-6989586621679575533"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchDashboards"><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-var">SearchDashboards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchDashboards%27"><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-var">SearchDashboards'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchDashboards%27"><span class="annot"><span class="annottext">SearchDashboards -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AnextToken%3ASearchDashboards%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchDashboards%27"><span class="annot"><span class="annottext">SearchDashboards -&gt; Maybe Natural
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AmaxResults%3ASearchDashboards%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the user whose</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- dashboards you\'re searching for.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AawsAccountId%3ASearchDashboards%27"><span class="annot"><span class="annottext">SearchDashboards -&gt; Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AawsAccountId%3ASearchDashboards%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The filters to apply to the search. Currently, you can search only by</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- user name, for example,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @\&quot;Filters\&quot;: [ { \&quot;Name\&quot;: \&quot;QUICKSIGHT_USER\&quot;, \&quot;Operator\&quot;: \&quot;StringEquals\&quot;, \&quot;Value\&quot;: \&quot;arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\&quot; } ]@</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Afilters%3ASearchDashboards%27"><span class="annot"><span class="annottext">SearchDashboards -&gt; NonEmpty DashboardSearchFilter
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3Afilters%3ASearchDashboards%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575523"><span id="local-6989586621679575525"><span class="annot"><span class="annottext">SearchDashboards -&gt; SearchDashboards -&gt; Bool
+(SearchDashboards -&gt; SearchDashboards -&gt; Bool)
+-&gt; (SearchDashboards -&gt; SearchDashboards -&gt; Bool)
+-&gt; Eq SearchDashboards
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchDashboards -&gt; SearchDashboards -&gt; Bool
+$c/= :: SearchDashboards -&gt; SearchDashboards -&gt; Bool
+== :: SearchDashboards -&gt; SearchDashboards -&gt; Bool
+$c== :: SearchDashboards -&gt; SearchDashboards -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575514"><span id="local-6989586621679575516"><span id="local-6989586621679575518"><span id="local-6989586621679575520"><span class="annot"><span class="annottext">ReadPrec [SearchDashboards]
+ReadPrec SearchDashboards
+Int -&gt; ReadS SearchDashboards
+ReadS [SearchDashboards]
+(Int -&gt; ReadS SearchDashboards)
+-&gt; ReadS [SearchDashboards]
+-&gt; ReadPrec SearchDashboards
+-&gt; ReadPrec [SearchDashboards]
+-&gt; Read SearchDashboards
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchDashboards]
+$creadListPrec :: ReadPrec [SearchDashboards]
+readPrec :: ReadPrec SearchDashboards
+$creadPrec :: ReadPrec SearchDashboards
+readList :: ReadS [SearchDashboards]
+$creadList :: ReadS [SearchDashboards]
+readsPrec :: Int -&gt; ReadS SearchDashboards
+$creadsPrec :: Int -&gt; ReadS SearchDashboards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575507"><span id="local-6989586621679575509"><span id="local-6989586621679575511"><span class="annot"><span class="annottext">Int -&gt; SearchDashboards -&gt; ShowS
+[SearchDashboards] -&gt; ShowS
+SearchDashboards -&gt; String
+(Int -&gt; SearchDashboards -&gt; ShowS)
+-&gt; (SearchDashboards -&gt; String)
+-&gt; ([SearchDashboards] -&gt; ShowS)
+-&gt; Show SearchDashboards
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchDashboards] -&gt; ShowS
+$cshowList :: [SearchDashboards] -&gt; ShowS
+show :: SearchDashboards -&gt; String
+$cshow :: SearchDashboards -&gt; String
+showsPrec :: Int -&gt; SearchDashboards -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchDashboards -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchDashboards -&gt; Rep SearchDashboards x)
+-&gt; (forall x. Rep SearchDashboards x -&gt; SearchDashboards)
+-&gt; Generic SearchDashboards
+forall x. Rep SearchDashboards x -&gt; SearchDashboards
+forall x. SearchDashboards -&gt; Rep SearchDashboards x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchDashboards x -&gt; SearchDashboards
+$cfrom :: forall x. SearchDashboards -&gt; Rep SearchDashboards x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'SearchDashboards' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'nextToken', 'searchDashboards_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'maxResults', 'searchDashboards_maxResults' - The maximum number of results to be returned per request.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'awsAccountId', 'searchDashboards_awsAccountId' - The ID of the Amazon Web Services account that contains the user whose</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- dashboards you\'re searching for.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'filters', 'searchDashboards_filters' - The filters to apply to the search. Currently, you can search only by</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- user name, for example,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @\&quot;Filters\&quot;: [ { \&quot;Name\&quot;: \&quot;QUICKSIGHT_USER\&quot;, \&quot;Operator\&quot;: \&quot;StringEquals\&quot;, \&quot;Value\&quot;: \&quot;arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\&quot; } ]@</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#newSearchDashboards"><span class="hs-identifier hs-type">newSearchDashboards</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'filters'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span>
+</span><span id="line-101"></span><span id="newSearchDashboards"><span class="annot"><span class="annottext">newSearchDashboards :: Text -&gt; NonEmpty DashboardSearchFilter -&gt; SearchDashboards
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#newSearchDashboards"><span class="hs-identifier hs-var hs-var">newSearchDashboards</span></a></span></span><span> </span><span id="local-6989586621679575502"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575502"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679575501"><span class="annot"><span class="annottext">NonEmpty DashboardSearchFilter
+</span><a href="#local-6989586621679575501"><span class="hs-identifier hs-var">pFilters_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">SearchDashboards' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; NonEmpty DashboardSearchFilter
+-&gt; SearchDashboards
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SearchDashboards' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AnextToken%3ASearchDashboards%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchDashboards' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AmaxResults%3ASearchDashboards%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:SearchDashboards' :: Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AawsAccountId%3ASearchDashboards%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575502"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:SearchDashboards' :: NonEmpty DashboardSearchFilter
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3Afilters%3ASearchDashboards%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty DashboardSearchFilter)
+  (Identity (NonEmpty DashboardSearchFilter))
+-&gt; Tagged
+     (NonEmpty DashboardSearchFilter)
+     (Identity (NonEmpty DashboardSearchFilter))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty DashboardSearchFilter)
+   (Identity (NonEmpty DashboardSearchFilter))
+ -&gt; Tagged
+      (NonEmpty DashboardSearchFilter)
+      (Identity (NonEmpty DashboardSearchFilter)))
+-&gt; NonEmpty DashboardSearchFilter -&gt; NonEmpty DashboardSearchFilter
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty DashboardSearchFilter
+</span><a href="#local-6989586621679575501"><span class="hs-identifier hs-var">pFilters_</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_nextToken"><span class="hs-identifier hs-type">searchDashboards_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="searchDashboards_nextToken"><span class="annot"><span class="annottext">searchDashboards_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchDashboards -&gt; f SearchDashboards
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_nextToken"><span class="hs-identifier hs-var hs-var">searchDashboards_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchDashboards -&gt; Maybe Text)
+-&gt; (SearchDashboards -&gt; Maybe Text -&gt; SearchDashboards)
+-&gt; Lens SearchDashboards SearchDashboards (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575497"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchDashboards' :: SearchDashboards -&gt; Maybe Text
+</span><a href="#local-6989586621679575497"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575497"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575496"><span class="annot"><span class="annottext">s :: SearchDashboards
+</span><a href="#local-6989586621679575496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575495"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchDashboards
+</span><a href="#local-6989586621679575496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchDashboards' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AnextToken%3ASearchDashboards%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_maxResults"><span class="hs-identifier hs-type">searchDashboards_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="searchDashboards_maxResults"><span class="annot"><span class="annottext">searchDashboards_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchDashboards -&gt; f SearchDashboards
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_maxResults"><span class="hs-identifier hs-var hs-var">searchDashboards_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchDashboards -&gt; Maybe Natural)
+-&gt; (SearchDashboards -&gt; Maybe Natural -&gt; SearchDashboards)
+-&gt; Lens
+     SearchDashboards SearchDashboards (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575494"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchDashboards' :: SearchDashboards -&gt; Maybe Natural
+</span><a href="#local-6989586621679575494"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679575494"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575493"><span class="annot"><span class="annottext">s :: SearchDashboards
+</span><a href="#local-6989586621679575493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575492"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679575492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchDashboards
+</span><a href="#local-6989586621679575493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchDashboards' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AmaxResults%3ASearchDashboards%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679575492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the user whose</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- dashboards you\'re searching for.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_awsAccountId"><span class="hs-identifier hs-type">searchDashboards_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="searchDashboards_awsAccountId"><span class="annot"><span class="annottext">searchDashboards_awsAccountId :: (Text -&gt; f Text) -&gt; SearchDashboards -&gt; f SearchDashboards
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_awsAccountId"><span class="hs-identifier hs-var hs-var">searchDashboards_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchDashboards -&gt; Text)
+-&gt; (SearchDashboards -&gt; Text -&gt; SearchDashboards)
+-&gt; Lens SearchDashboards SearchDashboards Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575491"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:SearchDashboards' :: SearchDashboards -&gt; Text
+</span><a href="#local-6989586621679575491"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575491"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575490"><span class="annot"><span class="annottext">s :: SearchDashboards
+</span><a href="#local-6989586621679575490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575489"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchDashboards
+</span><a href="#local-6989586621679575490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:SearchDashboards' :: Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AawsAccountId%3ASearchDashboards%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The filters to apply to the search. Currently, you can search only by</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- user name, for example,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @\&quot;Filters\&quot;: [ { \&quot;Name\&quot;: \&quot;QUICKSIGHT_USER\&quot;, \&quot;Operator\&quot;: \&quot;StringEquals\&quot;, \&quot;Value\&quot;: \&quot;arn:aws:quicksight:us-east-1:1:user\/default\/UserName1\&quot; } ]@</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_filters"><span class="hs-identifier hs-type">searchDashboards_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardSearchFilter.html#DashboardSearchFilter"><span class="hs-identifier hs-type">DashboardSearchFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="searchDashboards_filters"><span class="annot"><span class="annottext">searchDashboards_filters :: (NonEmpty DashboardSearchFilter
+ -&gt; f (NonEmpty DashboardSearchFilter))
+-&gt; SearchDashboards -&gt; f SearchDashboards
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_filters"><span class="hs-identifier hs-var hs-var">searchDashboards_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchDashboards -&gt; NonEmpty DashboardSearchFilter)
+-&gt; (SearchDashboards
+    -&gt; NonEmpty DashboardSearchFilter -&gt; SearchDashboards)
+-&gt; Lens
+     SearchDashboards
+     SearchDashboards
+     (NonEmpty DashboardSearchFilter)
+     (NonEmpty DashboardSearchFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575488"><span class="annot"><span class="annottext">NonEmpty DashboardSearchFilter
+filters :: NonEmpty DashboardSearchFilter
+$sel:filters:SearchDashboards' :: SearchDashboards -&gt; NonEmpty DashboardSearchFilter
+</span><a href="#local-6989586621679575488"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty DashboardSearchFilter
+</span><a href="#local-6989586621679575488"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575487"><span class="annot"><span class="annottext">s :: SearchDashboards
+</span><a href="#local-6989586621679575487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575486"><span class="annot"><span class="annottext">NonEmpty DashboardSearchFilter
+</span><a href="#local-6989586621679575486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchDashboards
+</span><a href="#local-6989586621679575487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchDashboards' :: NonEmpty DashboardSearchFilter
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3Afilters%3ASearchDashboards%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty DashboardSearchFilter
+</span><a href="#local-6989586621679575486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty DashboardSearchFilter
+  -&gt; f (NonEmpty DashboardSearchFilter))
+ -&gt; SearchDashboards -&gt; f SearchDashboards)
+-&gt; ((NonEmpty DashboardSearchFilter
+     -&gt; f (NonEmpty DashboardSearchFilter))
+    -&gt; NonEmpty DashboardSearchFilter
+    -&gt; f (NonEmpty DashboardSearchFilter))
+-&gt; (NonEmpty DashboardSearchFilter
+    -&gt; f (NonEmpty DashboardSearchFilter))
+-&gt; SearchDashboards
+-&gt; f SearchDashboards
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty DashboardSearchFilter
+ -&gt; f (NonEmpty DashboardSearchFilter))
+-&gt; NonEmpty DashboardSearchFilter
+-&gt; f (NonEmpty DashboardSearchFilter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679575481"><span class="annot"><span class="annottext">page :: SearchDashboards
+-&gt; AWSResponse SearchDashboards -&gt; Maybe SearchDashboards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679575479"><span class="annot"><span class="annottext">SearchDashboards
+</span><a href="#local-6989586621679575479"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679575478"><span class="annot"><span class="annottext">AWSResponse SearchDashboards
+</span><a href="#local-6989586621679575478"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchDashboards
+SearchDashboardsResponse
+</span><a href="#local-6989586621679575478"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">SearchDashboardsResponse
+-&gt; Getting (First Text) SearchDashboardsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchDashboardsResponse
+-&gt; Const (First Text) SearchDashboardsResponse
+Lens' SearchDashboardsResponse (Maybe Text)
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_nextToken"><span class="hs-identifier hs-var">searchDashboardsResponse_nextToken</span></a></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchDashboardsResponse
+ -&gt; Const (First Text) SearchDashboardsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchDashboardsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchDashboards
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-138"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchDashboards
+SearchDashboardsResponse
+</span><a href="#local-6989586621679575478"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">SearchDashboardsResponse
+-&gt; Getting
+     (First [DashboardSummary])
+     SearchDashboardsResponse
+     [DashboardSummary]
+-&gt; Maybe [DashboardSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [DashboardSummary]
+ -&gt; Const (First [DashboardSummary]) (Maybe [DashboardSummary]))
+-&gt; SearchDashboardsResponse
+-&gt; Const (First [DashboardSummary]) SearchDashboardsResponse
+Lens' SearchDashboardsResponse (Maybe [DashboardSummary])
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_dashboardSummaryList"><span class="hs-identifier hs-var">searchDashboardsResponse_dashboardSummaryList</span></a></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [DashboardSummary]
+  -&gt; Const (First [DashboardSummary]) (Maybe [DashboardSummary]))
+ -&gt; SearchDashboardsResponse
+ -&gt; Const (First [DashboardSummary]) SearchDashboardsResponse)
+-&gt; (([DashboardSummary]
+     -&gt; Const (First [DashboardSummary]) [DashboardSummary])
+    -&gt; Maybe [DashboardSummary]
+    -&gt; Const (First [DashboardSummary]) (Maybe [DashboardSummary]))
+-&gt; Getting
+     (First [DashboardSummary])
+     SearchDashboardsResponse
+     [DashboardSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DashboardSummary]
+ -&gt; Const (First [DashboardSummary]) [DashboardSummary])
+-&gt; Maybe [DashboardSummary]
+-&gt; Const (First [DashboardSummary]) (Maybe [DashboardSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-141"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchDashboards
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">SearchDashboards -&gt; Maybe SearchDashboards
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(SearchDashboards -&gt; Maybe SearchDashboards)
+-&gt; SearchDashboards -&gt; Maybe SearchDashboards
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">SearchDashboards
+</span><a href="#local-6989586621679575479"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">SearchDashboards
+-&gt; (SearchDashboards -&gt; SearchDashboards) -&gt; SearchDashboards
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; SearchDashboards -&gt; Identity SearchDashboards
+Lens SearchDashboards SearchDashboards (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboards_nextToken"><span class="hs-identifier hs-var">searchDashboards_nextToken</span></a></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; SearchDashboards -&gt; Identity SearchDashboards)
+-&gt; Maybe Text -&gt; SearchDashboards -&gt; SearchDashboards
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchDashboards
+SearchDashboardsResponse
+</span><a href="#local-6989586621679575478"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">SearchDashboardsResponse
+-&gt; Getting (First Text) SearchDashboardsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchDashboardsResponse
+-&gt; Const (First Text) SearchDashboardsResponse
+Lens' SearchDashboardsResponse (Maybe Text)
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_nextToken"><span class="hs-identifier hs-var">searchDashboardsResponse_nextToken</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchDashboardsResponse
+ -&gt; Const (First Text) SearchDashboardsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchDashboardsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679575469"><span class="annot"><span class="annottext">request :: SearchDashboards -&gt; Request SearchDashboards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchDashboards -&gt; Request SearchDashboards
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679575465"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SearchDashboards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchDashboards)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SearchDashboards))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SearchDashboards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchDashboards)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679575462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575462"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679575461"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679575461"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679575460"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679575460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [DashboardSummary]
+-&gt; Int
+-&gt; SearchDashboardsResponse
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-var">SearchDashboardsResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [DashboardSummary]
+ -&gt; Int
+ -&gt; SearchDashboardsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [DashboardSummary] -&gt; Int -&gt; SearchDashboardsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679575460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [DashboardSummary] -&gt; Int -&gt; SearchDashboardsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [DashboardSummary] -&gt; Int -&gt; SearchDashboardsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679575460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DashboardSummary] -&gt; Int -&gt; SearchDashboardsResponse)
+-&gt; Either String (Maybe [DashboardSummary])
+-&gt; Either String (Int -&gt; SearchDashboardsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679575460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DashboardSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DashboardSummaryList&quot;</span></span><span>
+</span><span id="line-163"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DashboardSummary]))
+-&gt; Maybe [DashboardSummary]
+-&gt; Either String (Maybe [DashboardSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SearchDashboardsResponse)
+-&gt; Either String Int -&gt; Either String SearchDashboardsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575462"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575451"><span id="local-6989586621679575453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679575444"><span class="annot"><span class="annottext">toHeaders :: SearchDashboards -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchDashboards -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-179"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575434"><span id="local-6989586621679575436"><span id="local-6989586621679575438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679575432"><span class="annot"><span class="annottext">toJSON :: SearchDashboards -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575427"><span id="local-6989586621679575428"><span id="local-6989586621679575429"><span id="local-6989586621679575430"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+NonEmpty DashboardSearchFilter
+Text
+filters :: NonEmpty DashboardSearchFilter
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:filters:SearchDashboards' :: SearchDashboards -&gt; NonEmpty DashboardSearchFilter
+$sel:awsAccountId:SearchDashboards' :: SearchDashboards -&gt; Text
+$sel:maxResults:SearchDashboards' :: SearchDashboards -&gt; Maybe Natural
+$sel:nextToken:SearchDashboards' :: SearchDashboards -&gt; Maybe Text
+</span><a href="#local-6989586621679575427"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575430"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679575429"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty DashboardSearchFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty DashboardSearchFilter
+</span><a href="#local-6989586621679575427"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679575421"><span class="annot"><span class="annottext">toPath :: SearchDashboards -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards%27"><span class="hs-identifier hs-type">SearchDashboards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575416"><span id="local-6989586621679575417"><span id="local-6989586621679575418"><span id="local-6989586621679575419"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+NonEmpty DashboardSearchFilter
+Text
+filters :: NonEmpty DashboardSearchFilter
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:filters:SearchDashboards' :: SearchDashboards -&gt; NonEmpty DashboardSearchFilter
+$sel:awsAccountId:SearchDashboards' :: SearchDashboards -&gt; Text
+$sel:maxResults:SearchDashboards' :: SearchDashboards -&gt; Maybe Natural
+$sel:nextToken:SearchDashboards' :: SearchDashboards -&gt; Maybe Text
+</span><a href="#local-6989586621679575416"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575417"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/search/dashboards&quot;</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboards"><span class="hs-identifier hs-type">SearchDashboards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679575412"><span class="annot"><span class="annottext">toQuery :: SearchDashboards -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchDashboards -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newSearchDashboardsResponse' smart constructor.</span><span>
+</span><span id="line-205"></span><span id="local-6989586621679575409"><span id="local-6989586621679575410"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchDashboardsResponse"><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-var">SearchDashboardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchDashboardsResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-var">SearchDashboardsResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3ArequestId%3ASearchDashboardsResponse%27"><span class="annot"><span class="annottext">SearchDashboardsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3ArequestId%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchDashboardsResponse%27"><span class="annot"><span class="annottext">SearchDashboardsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AnextToken%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The list of dashboards owned by the user specified in @Filters@ in your</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AdashboardSummaryList%3ASearchDashboardsResponse%27"><span class="annot"><span class="annottext">SearchDashboardsResponse -&gt; Maybe [DashboardSummary]
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AdashboardSummaryList%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var hs-var">dashboardSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardSummary.html#DashboardSummary"><span class="hs-identifier hs-type">DashboardSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3Astatus%3ASearchDashboardsResponse%27"><span class="annot"><span class="annottext">SearchDashboardsResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3Astatus%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575401"><span id="local-6989586621679575403"><span class="annot"><span class="annottext">SearchDashboardsResponse -&gt; SearchDashboardsResponse -&gt; Bool
+(SearchDashboardsResponse -&gt; SearchDashboardsResponse -&gt; Bool)
+-&gt; (SearchDashboardsResponse -&gt; SearchDashboardsResponse -&gt; Bool)
+-&gt; Eq SearchDashboardsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchDashboardsResponse -&gt; SearchDashboardsResponse -&gt; Bool
+$c/= :: SearchDashboardsResponse -&gt; SearchDashboardsResponse -&gt; Bool
+== :: SearchDashboardsResponse -&gt; SearchDashboardsResponse -&gt; Bool
+$c== :: SearchDashboardsResponse -&gt; SearchDashboardsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575393"><span id="local-6989586621679575395"><span id="local-6989586621679575397"><span id="local-6989586621679575399"><span class="annot"><span class="annottext">ReadPrec [SearchDashboardsResponse]
+ReadPrec SearchDashboardsResponse
+Int -&gt; ReadS SearchDashboardsResponse
+ReadS [SearchDashboardsResponse]
+(Int -&gt; ReadS SearchDashboardsResponse)
+-&gt; ReadS [SearchDashboardsResponse]
+-&gt; ReadPrec SearchDashboardsResponse
+-&gt; ReadPrec [SearchDashboardsResponse]
+-&gt; Read SearchDashboardsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchDashboardsResponse]
+$creadListPrec :: ReadPrec [SearchDashboardsResponse]
+readPrec :: ReadPrec SearchDashboardsResponse
+$creadPrec :: ReadPrec SearchDashboardsResponse
+readList :: ReadS [SearchDashboardsResponse]
+$creadList :: ReadS [SearchDashboardsResponse]
+readsPrec :: Int -&gt; ReadS SearchDashboardsResponse
+$creadsPrec :: Int -&gt; ReadS SearchDashboardsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575387"><span id="local-6989586621679575389"><span id="local-6989586621679575391"><span class="annot"><span class="annottext">Int -&gt; SearchDashboardsResponse -&gt; ShowS
+[SearchDashboardsResponse] -&gt; ShowS
+SearchDashboardsResponse -&gt; String
+(Int -&gt; SearchDashboardsResponse -&gt; ShowS)
+-&gt; (SearchDashboardsResponse -&gt; String)
+-&gt; ([SearchDashboardsResponse] -&gt; ShowS)
+-&gt; Show SearchDashboardsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchDashboardsResponse] -&gt; ShowS
+$cshowList :: [SearchDashboardsResponse] -&gt; ShowS
+show :: SearchDashboardsResponse -&gt; String
+$cshow :: SearchDashboardsResponse -&gt; String
+showsPrec :: Int -&gt; SearchDashboardsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchDashboardsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SearchDashboardsResponse -&gt; Rep SearchDashboardsResponse x)
+-&gt; (forall x.
+    Rep SearchDashboardsResponse x -&gt; SearchDashboardsResponse)
+-&gt; Generic SearchDashboardsResponse
+forall x.
+Rep SearchDashboardsResponse x -&gt; SearchDashboardsResponse
+forall x.
+SearchDashboardsResponse -&gt; Rep SearchDashboardsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SearchDashboardsResponse x -&gt; SearchDashboardsResponse
+$cfrom :: forall x.
+SearchDashboardsResponse -&gt; Rep SearchDashboardsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Create a value of 'SearchDashboardsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'requestId', 'searchDashboardsResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'nextToken', 'searchDashboardsResponse_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'dashboardSummaryList', 'searchDashboardsResponse_dashboardSummaryList' - The list of dashboards owned by the user specified in @Filters@ in your</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'status', 'searchDashboardsResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#newSearchDashboardsResponse"><span class="hs-identifier hs-type">newSearchDashboardsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span>
+</span><span id="line-240"></span><span id="newSearchDashboardsResponse"><span class="annot"><span class="annottext">newSearchDashboardsResponse :: Int -&gt; SearchDashboardsResponse
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#newSearchDashboardsResponse"><span class="hs-identifier hs-var hs-var">newSearchDashboardsResponse</span></a></span></span><span> </span><span id="local-6989586621679575384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575384"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">SearchDashboardsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [DashboardSummary]
+-&gt; Int
+-&gt; SearchDashboardsResponse
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-type">SearchDashboardsResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:SearchDashboardsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3ArequestId%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchDashboardsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AnextToken%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashboardSummaryList:SearchDashboardsResponse' :: Maybe [DashboardSummary]
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AdashboardSummaryList%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var">dashboardSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:SearchDashboardsResponse' :: Int
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3Astatus%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575384"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_requestId"><span class="hs-identifier hs-type">searchDashboardsResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="searchDashboardsResponse_requestId"><span class="annot"><span class="annottext">searchDashboardsResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchDashboardsResponse -&gt; f SearchDashboardsResponse
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_requestId"><span class="hs-identifier hs-var hs-var">searchDashboardsResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchDashboardsResponse -&gt; Maybe Text)
+-&gt; (SearchDashboardsResponse
+    -&gt; Maybe Text -&gt; SearchDashboardsResponse)
+-&gt; Lens' SearchDashboardsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-type">SearchDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575383"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:SearchDashboardsResponse' :: SearchDashboardsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679575383"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575383"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575382"><span class="annot"><span class="annottext">s :: SearchDashboardsResponse
+</span><a href="#local-6989586621679575382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-type">SearchDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchDashboardsResponse
+</span><a href="#local-6989586621679575382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:SearchDashboardsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3ArequestId%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_nextToken"><span class="hs-identifier hs-type">searchDashboardsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="searchDashboardsResponse_nextToken"><span class="annot"><span class="annottext">searchDashboardsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchDashboardsResponse -&gt; f SearchDashboardsResponse
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_nextToken"><span class="hs-identifier hs-var hs-var">searchDashboardsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchDashboardsResponse -&gt; Maybe Text)
+-&gt; (SearchDashboardsResponse
+    -&gt; Maybe Text -&gt; SearchDashboardsResponse)
+-&gt; Lens' SearchDashboardsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-type">SearchDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575380"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchDashboardsResponse' :: SearchDashboardsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679575380"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575380"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575379"><span class="annot"><span class="annottext">s :: SearchDashboardsResponse
+</span><a href="#local-6989586621679575379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-type">SearchDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575378"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchDashboardsResponse
+</span><a href="#local-6989586621679575379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchDashboardsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AnextToken%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The list of dashboards owned by the user specified in @Filters@ in your</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_dashboardSummaryList"><span class="hs-identifier hs-type">searchDashboardsResponse_dashboardSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardSummary.html#DashboardSummary"><span class="hs-identifier hs-type">DashboardSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="searchDashboardsResponse_dashboardSummaryList"><span class="annot"><span class="annottext">searchDashboardsResponse_dashboardSummaryList :: (Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+-&gt; SearchDashboardsResponse -&gt; f SearchDashboardsResponse
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_dashboardSummaryList"><span class="hs-identifier hs-var hs-var">searchDashboardsResponse_dashboardSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchDashboardsResponse -&gt; Maybe [DashboardSummary])
+-&gt; (SearchDashboardsResponse
+    -&gt; Maybe [DashboardSummary] -&gt; SearchDashboardsResponse)
+-&gt; Lens' SearchDashboardsResponse (Maybe [DashboardSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-type">SearchDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575377"><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+dashboardSummaryList :: Maybe [DashboardSummary]
+$sel:dashboardSummaryList:SearchDashboardsResponse' :: SearchDashboardsResponse -&gt; Maybe [DashboardSummary]
+</span><a href="#local-6989586621679575377"><span class="hs-identifier hs-var hs-var">dashboardSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+</span><a href="#local-6989586621679575377"><span class="hs-identifier hs-var">dashboardSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575376"><span class="annot"><span class="annottext">s :: SearchDashboardsResponse
+</span><a href="#local-6989586621679575376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-type">SearchDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575375"><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+</span><a href="#local-6989586621679575375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchDashboardsResponse
+</span><a href="#local-6989586621679575376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardSummaryList:SearchDashboardsResponse' :: Maybe [DashboardSummary]
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3AdashboardSummaryList%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var">dashboardSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardSummary]
+</span><a href="#local-6989586621679575375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+ -&gt; SearchDashboardsResponse -&gt; f SearchDashboardsResponse)
+-&gt; ((Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+    -&gt; Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+-&gt; (Maybe [DashboardSummary] -&gt; f (Maybe [DashboardSummary]))
+-&gt; SearchDashboardsResponse
+-&gt; f SearchDashboardsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DashboardSummary]
+  [DashboardSummary]
+  [DashboardSummary]
+  [DashboardSummary]
+-&gt; Iso
+     (Maybe [DashboardSummary])
+     (Maybe [DashboardSummary])
+     (Maybe [DashboardSummary])
+     (Maybe [DashboardSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DashboardSummary]
+  [DashboardSummary]
+  [DashboardSummary]
+  [DashboardSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_status"><span class="hs-identifier hs-type">searchDashboardsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-265"></span><span id="searchDashboardsResponse_status"><span class="annot"><span class="annottext">searchDashboardsResponse_status :: (Int -&gt; f Int)
+-&gt; SearchDashboardsResponse -&gt; f SearchDashboardsResponse
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#searchDashboardsResponse_status"><span class="hs-identifier hs-var hs-var">searchDashboardsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchDashboardsResponse -&gt; Int)
+-&gt; (SearchDashboardsResponse -&gt; Int -&gt; SearchDashboardsResponse)
+-&gt; Lens SearchDashboardsResponse SearchDashboardsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-type">SearchDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575373"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:SearchDashboardsResponse' :: SearchDashboardsResponse -&gt; Int
+</span><a href="#local-6989586621679575373"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575373"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575372"><span class="annot"><span class="annottext">s :: SearchDashboardsResponse
+</span><a href="#local-6989586621679575372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse%27"><span class="hs-identifier hs-type">SearchDashboardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchDashboardsResponse
+</span><a href="#local-6989586621679575372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SearchDashboardsResponse' :: Int
+</span><a href="Network.AWS.QuickSight.SearchDashboards.html#%24sel%3Astatus%3ASearchDashboardsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.SearchDashboards.html#SearchDashboardsResponse"><span class="hs-identifier hs-type">SearchDashboardsResponse</span></a></span></span><span>
+</span><span id="line-268"></span></pre></body></html>

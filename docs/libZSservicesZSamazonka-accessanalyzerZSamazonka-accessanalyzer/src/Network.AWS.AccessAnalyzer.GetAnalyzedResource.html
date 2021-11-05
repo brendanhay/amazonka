@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AccessAnalyzer.GetAnalyzedResource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about a resource that was analyzed.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AccessAnalyzer.GetAnalyzedResource</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier">GetAnalyzedResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#newGetAnalyzedResource"><span class="hs-identifier">newGetAnalyzedResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResource_analyzerArn"><span class="hs-identifier">getAnalyzedResource_analyzerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResource_resourceArn"><span class="hs-identifier">getAnalyzedResource_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse"><span class="hs-identifier">GetAnalyzedResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#newGetAnalyzedResourceResponse"><span class="hs-identifier">newGetAnalyzedResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResourceResponse_resource"><span class="hs-identifier">getAnalyzedResourceResponse_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResourceResponse_httpStatus"><span class="hs-identifier">getAnalyzedResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | Retrieves an analyzed resource.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newGetAnalyzedResource' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679257375"><span id="local-6989586621679257376"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAnalyzedResource"><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-var">GetAnalyzedResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAnalyzedResource%27"><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource%27"><span class="hs-identifier hs-var">GetAnalyzedResource'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer&gt;</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- to retrieve information from.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AanalyzerArn%3AGetAnalyzedResource%27"><span class="annot"><span class="annottext">GetAnalyzedResource -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3AanalyzerArn%3AGetAnalyzedResource%27"><span class="hs-identifier hs-var hs-var">analyzerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ARN of the resource to retrieve information about.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AresourceArn%3AGetAnalyzedResource%27"><span class="annot"><span class="annottext">GetAnalyzedResource -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3AresourceArn%3AGetAnalyzedResource%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257368"><span id="local-6989586621679257370"><span class="annot"><span class="annottext">GetAnalyzedResource -&gt; GetAnalyzedResource -&gt; Bool
+(GetAnalyzedResource -&gt; GetAnalyzedResource -&gt; Bool)
+-&gt; (GetAnalyzedResource -&gt; GetAnalyzedResource -&gt; Bool)
+-&gt; Eq GetAnalyzedResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAnalyzedResource -&gt; GetAnalyzedResource -&gt; Bool
+$c/= :: GetAnalyzedResource -&gt; GetAnalyzedResource -&gt; Bool
+== :: GetAnalyzedResource -&gt; GetAnalyzedResource -&gt; Bool
+$c== :: GetAnalyzedResource -&gt; GetAnalyzedResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257359"><span id="local-6989586621679257361"><span id="local-6989586621679257363"><span id="local-6989586621679257365"><span class="annot"><span class="annottext">ReadPrec [GetAnalyzedResource]
+ReadPrec GetAnalyzedResource
+Int -&gt; ReadS GetAnalyzedResource
+ReadS [GetAnalyzedResource]
+(Int -&gt; ReadS GetAnalyzedResource)
+-&gt; ReadS [GetAnalyzedResource]
+-&gt; ReadPrec GetAnalyzedResource
+-&gt; ReadPrec [GetAnalyzedResource]
+-&gt; Read GetAnalyzedResource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAnalyzedResource]
+$creadListPrec :: ReadPrec [GetAnalyzedResource]
+readPrec :: ReadPrec GetAnalyzedResource
+$creadPrec :: ReadPrec GetAnalyzedResource
+readList :: ReadS [GetAnalyzedResource]
+$creadList :: ReadS [GetAnalyzedResource]
+readsPrec :: Int -&gt; ReadS GetAnalyzedResource
+$creadsPrec :: Int -&gt; ReadS GetAnalyzedResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257352"><span id="local-6989586621679257354"><span id="local-6989586621679257356"><span class="annot"><span class="annottext">Int -&gt; GetAnalyzedResource -&gt; ShowS
+[GetAnalyzedResource] -&gt; ShowS
+GetAnalyzedResource -&gt; String
+(Int -&gt; GetAnalyzedResource -&gt; ShowS)
+-&gt; (GetAnalyzedResource -&gt; String)
+-&gt; ([GetAnalyzedResource] -&gt; ShowS)
+-&gt; Show GetAnalyzedResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAnalyzedResource] -&gt; ShowS
+$cshowList :: [GetAnalyzedResource] -&gt; ShowS
+show :: GetAnalyzedResource -&gt; String
+$cshow :: GetAnalyzedResource -&gt; String
+showsPrec :: Int -&gt; GetAnalyzedResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAnalyzedResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetAnalyzedResource -&gt; Rep GetAnalyzedResource x)
+-&gt; (forall x. Rep GetAnalyzedResource x -&gt; GetAnalyzedResource)
+-&gt; Generic GetAnalyzedResource
+forall x. Rep GetAnalyzedResource x -&gt; GetAnalyzedResource
+forall x. GetAnalyzedResource -&gt; Rep GetAnalyzedResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetAnalyzedResource x -&gt; GetAnalyzedResource
+$cfrom :: forall x. GetAnalyzedResource -&gt; Rep GetAnalyzedResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'GetAnalyzedResource' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'analyzerArn', 'getAnalyzedResource_analyzerArn' - The</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer&gt;</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- to retrieve information from.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'resourceArn', 'getAnalyzedResource_resourceArn' - The ARN of the resource to retrieve information about.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#newGetAnalyzedResource"><span class="hs-identifier hs-type">newGetAnalyzedResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'analyzerArn'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span>
+</span><span id="line-82"></span><span id="newGetAnalyzedResource"><span class="annot"><span class="annottext">newGetAnalyzedResource :: Text -&gt; Text -&gt; GetAnalyzedResource
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#newGetAnalyzedResource"><span class="hs-identifier hs-var hs-var">newGetAnalyzedResource</span></a></span></span><span> </span><span id="local-6989586621679257347"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257347"><span class="hs-identifier hs-var">pAnalyzerArn_</span></a></span></span><span> </span><span id="local-6989586621679257346"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257346"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">GetAnalyzedResource' :: Text -&gt; Text -&gt; GetAnalyzedResource
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource%27"><span class="hs-identifier hs-type">GetAnalyzedResource'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:analyzerArn:GetAnalyzedResource' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3AanalyzerArn%3AGetAnalyzedResource%27"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257347"><span class="hs-identifier hs-var">pAnalyzerArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:GetAnalyzedResource' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3AresourceArn%3AGetAnalyzedResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257346"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer&gt;</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- to retrieve information from.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResource_analyzerArn"><span class="hs-identifier hs-type">getAnalyzedResource_analyzerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="getAnalyzedResource_analyzerArn"><span class="annot"><span class="annottext">getAnalyzedResource_analyzerArn :: (Text -&gt; f Text) -&gt; GetAnalyzedResource -&gt; f GetAnalyzedResource
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResource_analyzerArn"><span class="hs-identifier hs-var hs-var">getAnalyzedResource_analyzerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAnalyzedResource -&gt; Text)
+-&gt; (GetAnalyzedResource -&gt; Text -&gt; GetAnalyzedResource)
+-&gt; Lens GetAnalyzedResource GetAnalyzedResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource%27"><span class="hs-identifier hs-type">GetAnalyzedResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257343"><span class="annot"><span class="annottext">Text
+analyzerArn :: Text
+$sel:analyzerArn:GetAnalyzedResource' :: GetAnalyzedResource -&gt; Text
+</span><a href="#local-6989586621679257343"><span class="hs-identifier hs-var hs-var">analyzerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257343"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257342"><span class="annot"><span class="annottext">s :: GetAnalyzedResource
+</span><a href="#local-6989586621679257342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource%27"><span class="hs-identifier hs-type">GetAnalyzedResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAnalyzedResource
+</span><a href="#local-6989586621679257342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyzerArn:GetAnalyzedResource' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3AanalyzerArn%3AGetAnalyzedResource%27"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ARN of the resource to retrieve information about.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResource_resourceArn"><span class="hs-identifier hs-type">getAnalyzedResource_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="getAnalyzedResource_resourceArn"><span class="annot"><span class="annottext">getAnalyzedResource_resourceArn :: (Text -&gt; f Text) -&gt; GetAnalyzedResource -&gt; f GetAnalyzedResource
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResource_resourceArn"><span class="hs-identifier hs-var hs-var">getAnalyzedResource_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAnalyzedResource -&gt; Text)
+-&gt; (GetAnalyzedResource -&gt; Text -&gt; GetAnalyzedResource)
+-&gt; Lens GetAnalyzedResource GetAnalyzedResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource%27"><span class="hs-identifier hs-type">GetAnalyzedResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257340"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:GetAnalyzedResource' :: GetAnalyzedResource -&gt; Text
+</span><a href="#local-6989586621679257340"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257340"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257339"><span class="annot"><span class="annottext">s :: GetAnalyzedResource
+</span><a href="#local-6989586621679257339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource%27"><span class="hs-identifier hs-type">GetAnalyzedResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAnalyzedResource
+</span><a href="#local-6989586621679257339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetAnalyzedResource' :: Text
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3AresourceArn%3AGetAnalyzedResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679257334"><span class="annot"><span class="annottext">request :: GetAnalyzedResource -&gt; Request GetAnalyzedResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAnalyzedResource -&gt; Request GetAnalyzedResource
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AccessAnalyzer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679257330"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetAnalyzedResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetAnalyzedResource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetAnalyzedResource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetAnalyzedResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetAnalyzedResource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257327"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257327"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679257326"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679257326"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679257325"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257325"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe AnalyzedResource -&gt; Int -&gt; GetAnalyzedResourceResponse
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse%27"><span class="hs-identifier hs-var">GetAnalyzedResourceResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AnalyzedResource -&gt; Int -&gt; GetAnalyzedResourceResponse)
+-&gt; Either String (Maybe AnalyzedResource)
+-&gt; Either String (Int -&gt; GetAnalyzedResourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AnalyzedResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetAnalyzedResourceResponse)
+-&gt; Either String Int -&gt; Either String GetAnalyzedResourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257327"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257317"><span id="local-6989586621679257319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679257310"><span class="annot"><span class="annottext">toHeaders :: GetAnalyzedResource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAnalyzedResource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679257304"><span class="annot"><span class="annottext">toPath :: GetAnalyzedResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAnalyzedResource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/analyzed-resource&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource"><span class="hs-identifier hs-type">GetAnalyzedResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679257300"><span class="annot"><span class="annottext">toQuery :: GetAnalyzedResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResource%27"><span class="hs-identifier hs-type">GetAnalyzedResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257297"><span id="local-6989586621679257298"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+analyzerArn :: Text
+$sel:resourceArn:GetAnalyzedResource' :: GetAnalyzedResource -&gt; Text
+$sel:analyzerArn:GetAnalyzedResource' :: GetAnalyzedResource -&gt; Text
+</span><a href="#local-6989586621679257297"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;analyzerArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257298"><span class="hs-identifier hs-var">analyzerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;resourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257297"><span class="hs-identifier hs-var">resourceArn</span></a></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The response to the request.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- /See:/ 'newGetAnalyzedResourceResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679257294"><span id="local-6989586621679257295"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAnalyzedResourceResponse"><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse"><span class="hs-identifier hs-var">GetAnalyzedResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAnalyzedResourceResponse%27"><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse%27"><span class="hs-identifier hs-var">GetAnalyzedResourceResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An @AnalyzedResource@ object that contains information that IAM Access</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- Analyzer found when it analyzed the resource.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3Aresource%3AGetAnalyzedResourceResponse%27"><span class="annot"><span class="annottext">GetAnalyzedResourceResponse -&gt; Maybe AnalyzedResource
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3Aresource%3AGetAnalyzedResourceResponse%27"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzedResource.html#AnalyzedResource"><span class="hs-identifier hs-type">AnalyzedResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAnalyzedResourceResponse%27"><span class="annot"><span class="annottext">GetAnalyzedResourceResponse -&gt; Int
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3AhttpStatus%3AGetAnalyzedResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257288"><span id="local-6989586621679257290"><span class="annot"><span class="annottext">GetAnalyzedResourceResponse -&gt; GetAnalyzedResourceResponse -&gt; Bool
+(GetAnalyzedResourceResponse
+ -&gt; GetAnalyzedResourceResponse -&gt; Bool)
+-&gt; (GetAnalyzedResourceResponse
+    -&gt; GetAnalyzedResourceResponse -&gt; Bool)
+-&gt; Eq GetAnalyzedResourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAnalyzedResourceResponse -&gt; GetAnalyzedResourceResponse -&gt; Bool
+$c/= :: GetAnalyzedResourceResponse -&gt; GetAnalyzedResourceResponse -&gt; Bool
+== :: GetAnalyzedResourceResponse -&gt; GetAnalyzedResourceResponse -&gt; Bool
+$c== :: GetAnalyzedResourceResponse -&gt; GetAnalyzedResourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257280"><span id="local-6989586621679257282"><span id="local-6989586621679257284"><span id="local-6989586621679257286"><span class="annot"><span class="annottext">ReadPrec [GetAnalyzedResourceResponse]
+ReadPrec GetAnalyzedResourceResponse
+Int -&gt; ReadS GetAnalyzedResourceResponse
+ReadS [GetAnalyzedResourceResponse]
+(Int -&gt; ReadS GetAnalyzedResourceResponse)
+-&gt; ReadS [GetAnalyzedResourceResponse]
+-&gt; ReadPrec GetAnalyzedResourceResponse
+-&gt; ReadPrec [GetAnalyzedResourceResponse]
+-&gt; Read GetAnalyzedResourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAnalyzedResourceResponse]
+$creadListPrec :: ReadPrec [GetAnalyzedResourceResponse]
+readPrec :: ReadPrec GetAnalyzedResourceResponse
+$creadPrec :: ReadPrec GetAnalyzedResourceResponse
+readList :: ReadS [GetAnalyzedResourceResponse]
+$creadList :: ReadS [GetAnalyzedResourceResponse]
+readsPrec :: Int -&gt; ReadS GetAnalyzedResourceResponse
+$creadsPrec :: Int -&gt; ReadS GetAnalyzedResourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257274"><span id="local-6989586621679257276"><span id="local-6989586621679257278"><span class="annot"><span class="annottext">Int -&gt; GetAnalyzedResourceResponse -&gt; ShowS
+[GetAnalyzedResourceResponse] -&gt; ShowS
+GetAnalyzedResourceResponse -&gt; String
+(Int -&gt; GetAnalyzedResourceResponse -&gt; ShowS)
+-&gt; (GetAnalyzedResourceResponse -&gt; String)
+-&gt; ([GetAnalyzedResourceResponse] -&gt; ShowS)
+-&gt; Show GetAnalyzedResourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAnalyzedResourceResponse] -&gt; ShowS
+$cshowList :: [GetAnalyzedResourceResponse] -&gt; ShowS
+show :: GetAnalyzedResourceResponse -&gt; String
+$cshow :: GetAnalyzedResourceResponse -&gt; String
+showsPrec :: Int -&gt; GetAnalyzedResourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAnalyzedResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetAnalyzedResourceResponse -&gt; Rep GetAnalyzedResourceResponse x)
+-&gt; (forall x.
+    Rep GetAnalyzedResourceResponse x -&gt; GetAnalyzedResourceResponse)
+-&gt; Generic GetAnalyzedResourceResponse
+forall x.
+Rep GetAnalyzedResourceResponse x -&gt; GetAnalyzedResourceResponse
+forall x.
+GetAnalyzedResourceResponse -&gt; Rep GetAnalyzedResourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetAnalyzedResourceResponse x -&gt; GetAnalyzedResourceResponse
+$cfrom :: forall x.
+GetAnalyzedResourceResponse -&gt; Rep GetAnalyzedResourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'GetAnalyzedResourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'resource', 'getAnalyzedResourceResponse_resource' - An @AnalyzedResource@ object that contains information that IAM Access</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Analyzer found when it analyzed the resource.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'httpStatus', 'getAnalyzedResourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#newGetAnalyzedResourceResponse"><span class="hs-identifier hs-type">newGetAnalyzedResourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse</span></a></span><span>
+</span><span id="line-164"></span><span id="newGetAnalyzedResourceResponse"><span class="annot"><span class="annottext">newGetAnalyzedResourceResponse :: Int -&gt; GetAnalyzedResourceResponse
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#newGetAnalyzedResourceResponse"><span class="hs-identifier hs-var hs-var">newGetAnalyzedResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679257271"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257271"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">GetAnalyzedResourceResponse' :: Maybe AnalyzedResource -&gt; Int -&gt; GetAnalyzedResourceResponse
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse%27"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse'</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resource:GetAnalyzedResourceResponse' :: Maybe AnalyzedResource
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3Aresource%3AGetAnalyzedResourceResponse%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Maybe AnalyzedResource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAnalyzedResourceResponse' :: Int
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3AhttpStatus%3AGetAnalyzedResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257271"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | An @AnalyzedResource@ object that contains information that IAM Access</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Analyzer found when it analyzed the resource.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResourceResponse_resource"><span class="hs-identifier hs-type">getAnalyzedResourceResponse_resource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.AnalyzedResource.html#AnalyzedResource"><span class="hs-identifier hs-type">AnalyzedResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="getAnalyzedResourceResponse_resource"><span class="annot"><span class="annottext">getAnalyzedResourceResponse_resource :: (Maybe AnalyzedResource -&gt; f (Maybe AnalyzedResource))
+-&gt; GetAnalyzedResourceResponse -&gt; f GetAnalyzedResourceResponse
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResourceResponse_resource"><span class="hs-identifier hs-var hs-var">getAnalyzedResourceResponse_resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAnalyzedResourceResponse -&gt; Maybe AnalyzedResource)
+-&gt; (GetAnalyzedResourceResponse
+    -&gt; Maybe AnalyzedResource -&gt; GetAnalyzedResourceResponse)
+-&gt; Lens
+     GetAnalyzedResourceResponse
+     GetAnalyzedResourceResponse
+     (Maybe AnalyzedResource)
+     (Maybe AnalyzedResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse%27"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257270"><span class="annot"><span class="annottext">Maybe AnalyzedResource
+resource :: Maybe AnalyzedResource
+$sel:resource:GetAnalyzedResourceResponse' :: GetAnalyzedResourceResponse -&gt; Maybe AnalyzedResource
+</span><a href="#local-6989586621679257270"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyzedResource
+</span><a href="#local-6989586621679257270"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257269"><span class="annot"><span class="annottext">s :: GetAnalyzedResourceResponse
+</span><a href="#local-6989586621679257269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse%27"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257268"><span class="annot"><span class="annottext">Maybe AnalyzedResource
+</span><a href="#local-6989586621679257268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAnalyzedResourceResponse
+</span><a href="#local-6989586621679257269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:GetAnalyzedResourceResponse' :: Maybe AnalyzedResource
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3Aresource%3AGetAnalyzedResourceResponse%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyzedResource
+</span><a href="#local-6989586621679257268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResourceResponse_httpStatus"><span class="hs-identifier hs-type">getAnalyzedResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span id="getAnalyzedResourceResponse_httpStatus"><span class="annot"><span class="annottext">getAnalyzedResourceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetAnalyzedResourceResponse -&gt; f GetAnalyzedResourceResponse
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#getAnalyzedResourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getAnalyzedResourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAnalyzedResourceResponse -&gt; Int)
+-&gt; (GetAnalyzedResourceResponse
+    -&gt; Int -&gt; GetAnalyzedResourceResponse)
+-&gt; Lens
+     GetAnalyzedResourceResponse GetAnalyzedResourceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse%27"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257267"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetAnalyzedResourceResponse' :: GetAnalyzedResourceResponse -&gt; Int
+</span><a href="#local-6989586621679257267"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257267"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257266"><span class="annot"><span class="annottext">s :: GetAnalyzedResourceResponse
+</span><a href="#local-6989586621679257266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse%27"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257265"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAnalyzedResourceResponse
+</span><a href="#local-6989586621679257266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAnalyzedResourceResponse' :: Int
+</span><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#%24sel%3AhttpStatus%3AGetAnalyzedResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.GetAnalyzedResource.html#GetAnalyzedResourceResponse"><span class="hs-identifier hs-type">GetAnalyzedResourceResponse</span></a></span></span><span>
+</span><span id="line-181"></span></pre></body></html>

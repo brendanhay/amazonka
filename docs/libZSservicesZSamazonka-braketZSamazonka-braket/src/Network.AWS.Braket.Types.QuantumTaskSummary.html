@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Braket.Types.QuantumTaskSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Braket.Types.QuantumTaskSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskStatus.html"><span class="hs-identifier">Network.AWS.Braket.Types.QuantumTaskStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Includes information about a quantum task.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newQuantumTaskSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679161592"><span id="local-6989586621679161593"></span></span><span class="hs-keyword">data</span><span> </span><span id="QuantumTaskSummary"><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-var">QuantumTaskSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QuantumTaskSummary%27"><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-var">QuantumTaskSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time at which the task finished.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AendedAt%3AQuantumTaskSummary%27"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AendedAt%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var hs-var">endedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Displays the key, value pairs of tags associated with this quantum task.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atags%3AQuantumTaskSummary%27"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3Atags%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time at which the task was created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreatedAt%3AQuantumTaskSummary%27"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; POSIX
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AcreatedAt%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ARN of the device the task ran on.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdeviceArn%3AQuantumTaskSummary%27"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AdeviceArn%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The S3 bucket where the task result file is stored..</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AoutputS3Bucket%3AQuantumTaskSummary%27"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AoutputS3Bucket%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var hs-var">outputS3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The folder in the S3 bucket where the task result file is stored.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AoutputS3Directory%3AQuantumTaskSummary%27"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AoutputS3Directory%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var hs-var">outputS3Directory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ARN of the task.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AquantumTaskArn%3AQuantumTaskSummary%27"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AquantumTaskArn%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var hs-var">quantumTaskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The shots used for the task.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Ashots%3AQuantumTaskSummary%27"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; Integer
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3Ashots%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var hs-var">shots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The status of the task.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Astatus%3AQuantumTaskSummary%27"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; QuantumTaskStatus
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3Astatus%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679161578"><span id="local-6989586621679161580"><span class="annot"><span class="annottext">QuantumTaskSummary -&gt; QuantumTaskSummary -&gt; Bool
+(QuantumTaskSummary -&gt; QuantumTaskSummary -&gt; Bool)
+-&gt; (QuantumTaskSummary -&gt; QuantumTaskSummary -&gt; Bool)
+-&gt; Eq QuantumTaskSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: QuantumTaskSummary -&gt; QuantumTaskSummary -&gt; Bool
+$c/= :: QuantumTaskSummary -&gt; QuantumTaskSummary -&gt; Bool
+== :: QuantumTaskSummary -&gt; QuantumTaskSummary -&gt; Bool
+$c== :: QuantumTaskSummary -&gt; QuantumTaskSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161569"><span id="local-6989586621679161571"><span id="local-6989586621679161573"><span id="local-6989586621679161575"><span class="annot"><span class="annottext">ReadPrec [QuantumTaskSummary]
+ReadPrec QuantumTaskSummary
+Int -&gt; ReadS QuantumTaskSummary
+ReadS [QuantumTaskSummary]
+(Int -&gt; ReadS QuantumTaskSummary)
+-&gt; ReadS [QuantumTaskSummary]
+-&gt; ReadPrec QuantumTaskSummary
+-&gt; ReadPrec [QuantumTaskSummary]
+-&gt; Read QuantumTaskSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [QuantumTaskSummary]
+$creadListPrec :: ReadPrec [QuantumTaskSummary]
+readPrec :: ReadPrec QuantumTaskSummary
+$creadPrec :: ReadPrec QuantumTaskSummary
+readList :: ReadS [QuantumTaskSummary]
+$creadList :: ReadS [QuantumTaskSummary]
+readsPrec :: Int -&gt; ReadS QuantumTaskSummary
+$creadsPrec :: Int -&gt; ReadS QuantumTaskSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679161562"><span id="local-6989586621679161564"><span id="local-6989586621679161566"><span class="annot"><span class="annottext">Int -&gt; QuantumTaskSummary -&gt; ShowS
+[QuantumTaskSummary] -&gt; ShowS
+QuantumTaskSummary -&gt; String
+(Int -&gt; QuantumTaskSummary -&gt; ShowS)
+-&gt; (QuantumTaskSummary -&gt; String)
+-&gt; ([QuantumTaskSummary] -&gt; ShowS)
+-&gt; Show QuantumTaskSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [QuantumTaskSummary] -&gt; ShowS
+$cshowList :: [QuantumTaskSummary] -&gt; ShowS
+show :: QuantumTaskSummary -&gt; String
+$cshow :: QuantumTaskSummary -&gt; String
+showsPrec :: Int -&gt; QuantumTaskSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; QuantumTaskSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. QuantumTaskSummary -&gt; Rep QuantumTaskSummary x)
+-&gt; (forall x. Rep QuantumTaskSummary x -&gt; QuantumTaskSummary)
+-&gt; Generic QuantumTaskSummary
+forall x. Rep QuantumTaskSummary x -&gt; QuantumTaskSummary
+forall x. QuantumTaskSummary -&gt; Rep QuantumTaskSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep QuantumTaskSummary x -&gt; QuantumTaskSummary
+$cfrom :: forall x. QuantumTaskSummary -&gt; Rep QuantumTaskSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'QuantumTaskSummary' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'endedAt', 'quantumTaskSummary_endedAt' - The time at which the task finished.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'tags', 'quantumTaskSummary_tags' - Displays the key, value pairs of tags associated with this quantum task.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'createdAt', 'quantumTaskSummary_createdAt' - The time at which the task was created.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'deviceArn', 'quantumTaskSummary_deviceArn' - The ARN of the device the task ran on.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'outputS3Bucket', 'quantumTaskSummary_outputS3Bucket' - The S3 bucket where the task result file is stored..</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'outputS3Directory', 'quantumTaskSummary_outputS3Directory' - The folder in the S3 bucket where the task result file is stored.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'quantumTaskArn', 'quantumTaskSummary_quantumTaskArn' - The ARN of the task.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'shots', 'quantumTaskSummary_shots' - The shots used for the task.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'status', 'quantumTaskSummary_status' - The status of the task.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#newQuantumTaskSummary"><span class="hs-identifier hs-type">newQuantumTaskSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'deviceArn'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'outputS3Bucket'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'outputS3Directory'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'quantumTaskArn'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'shots'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span>
+</span><span id="line-93"></span><span id="newQuantumTaskSummary"><span class="annot"><span class="annottext">newQuantumTaskSummary :: UTCTime
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; QuantumTaskStatus
+-&gt; QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#newQuantumTaskSummary"><span class="hs-identifier hs-var hs-var">newQuantumTaskSummary</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679161556"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679161556"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679161555"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161555"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679161554"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161554"><span class="hs-identifier hs-var">pOutputS3Bucket_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679161553"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161553"><span class="hs-identifier hs-var">pOutputS3Directory_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679161552"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161552"><span class="hs-identifier hs-var">pQuantumTaskArn_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679161551"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679161551"><span class="hs-identifier hs-var">pShots_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679161550"><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679161550"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">QuantumTaskSummary' :: Maybe POSIX
+-&gt; Maybe (HashMap Text Text)
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; QuantumTaskStatus
+-&gt; QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endedAt:QuantumTaskSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AendedAt%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">endedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:QuantumTaskSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3Atags%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:QuantumTaskSummary' :: POSIX
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AcreatedAt%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679161556"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceArn:QuantumTaskSummary' :: Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AdeviceArn%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161555"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputS3Bucket:QuantumTaskSummary' :: Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AoutputS3Bucket%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">outputS3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161554"><span class="hs-identifier hs-var">pOutputS3Bucket_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputS3Directory:QuantumTaskSummary' :: Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AoutputS3Directory%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">outputS3Directory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161553"><span class="hs-identifier hs-var">pOutputS3Directory_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:quantumTaskArn:QuantumTaskSummary' :: Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AquantumTaskArn%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161552"><span class="hs-identifier hs-var">pQuantumTaskArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:shots:QuantumTaskSummary' :: Integer
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3Ashots%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">shots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679161551"><span class="hs-identifier hs-var">pShots_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:QuantumTaskSummary' :: QuantumTaskStatus
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3Astatus%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679161550"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The time at which the task finished.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_endedAt"><span class="hs-identifier hs-type">quantumTaskSummary_endedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="quantumTaskSummary_endedAt"><span class="annot"><span class="annottext">quantumTaskSummary_endedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_endedAt"><span class="hs-identifier hs-var hs-var">quantumTaskSummary_endedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuantumTaskSummary -&gt; Maybe POSIX)
+-&gt; (QuantumTaskSummary -&gt; Maybe POSIX -&gt; QuantumTaskSummary)
+-&gt; Lens
+     QuantumTaskSummary QuantumTaskSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161544"><span class="annot"><span class="annottext">Maybe POSIX
+endedAt :: Maybe POSIX
+$sel:endedAt:QuantumTaskSummary' :: QuantumTaskSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679161544"><span class="hs-identifier hs-var hs-var">endedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679161544"><span class="hs-identifier hs-var">endedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161543"><span class="annot"><span class="annottext">s :: QuantumTaskSummary
+</span><a href="#local-6989586621679161543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161542"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679161542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskSummary
+</span><a href="#local-6989586621679161543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endedAt:QuantumTaskSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AendedAt%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">endedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679161542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; QuantumTaskSummary
+-&gt; f QuantumTaskSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Displays the key, value pairs of tags associated with this quantum task.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_tags"><span class="hs-identifier hs-type">quantumTaskSummary_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="quantumTaskSummary_tags"><span class="annot"><span class="annottext">quantumTaskSummary_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_tags"><span class="hs-identifier hs-var hs-var">quantumTaskSummary_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuantumTaskSummary -&gt; Maybe (HashMap Text Text))
+-&gt; (QuantumTaskSummary
+    -&gt; Maybe (HashMap Text Text) -&gt; QuantumTaskSummary)
+-&gt; Lens
+     QuantumTaskSummary
+     QuantumTaskSummary
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161538"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:QuantumTaskSummary' :: QuantumTaskSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679161538"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679161538"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161537"><span class="annot"><span class="annottext">s :: QuantumTaskSummary
+</span><a href="#local-6989586621679161537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161536"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679161536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskSummary
+</span><a href="#local-6989586621679161537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:QuantumTaskSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3Atags%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679161536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; QuantumTaskSummary
+-&gt; f QuantumTaskSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The time at which the task was created.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_createdAt"><span class="hs-identifier hs-type">quantumTaskSummary_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-123"></span><span id="quantumTaskSummary_createdAt"><span class="annot"><span class="annottext">quantumTaskSummary_createdAt :: (UTCTime -&gt; f UTCTime)
+-&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_createdAt"><span class="hs-identifier hs-var hs-var">quantumTaskSummary_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuantumTaskSummary -&gt; POSIX)
+-&gt; (QuantumTaskSummary -&gt; POSIX -&gt; QuantumTaskSummary)
+-&gt; Lens QuantumTaskSummary QuantumTaskSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161533"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:QuantumTaskSummary' :: QuantumTaskSummary -&gt; POSIX
+</span><a href="#local-6989586621679161533"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679161533"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161532"><span class="annot"><span class="annottext">s :: QuantumTaskSummary
+</span><a href="#local-6989586621679161532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161531"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679161531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskSummary
+</span><a href="#local-6989586621679161532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:QuantumTaskSummary' :: POSIX
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AcreatedAt%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679161531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; QuantumTaskSummary
+-&gt; f QuantumTaskSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The ARN of the device the task ran on.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_deviceArn"><span class="hs-identifier hs-type">quantumTaskSummary_deviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="quantumTaskSummary_deviceArn"><span class="annot"><span class="annottext">quantumTaskSummary_deviceArn :: (Text -&gt; f Text) -&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_deviceArn"><span class="hs-identifier hs-var hs-var">quantumTaskSummary_deviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuantumTaskSummary -&gt; Text)
+-&gt; (QuantumTaskSummary -&gt; Text -&gt; QuantumTaskSummary)
+-&gt; Lens QuantumTaskSummary QuantumTaskSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161529"><span class="annot"><span class="annottext">Text
+deviceArn :: Text
+$sel:deviceArn:QuantumTaskSummary' :: QuantumTaskSummary -&gt; Text
+</span><a href="#local-6989586621679161529"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161529"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161528"><span class="annot"><span class="annottext">s :: QuantumTaskSummary
+</span><a href="#local-6989586621679161528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskSummary
+</span><a href="#local-6989586621679161528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:QuantumTaskSummary' :: Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AdeviceArn%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The S3 bucket where the task result file is stored..</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_outputS3Bucket"><span class="hs-identifier hs-type">quantumTaskSummary_outputS3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="quantumTaskSummary_outputS3Bucket"><span class="annot"><span class="annottext">quantumTaskSummary_outputS3Bucket :: (Text -&gt; f Text) -&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_outputS3Bucket"><span class="hs-identifier hs-var hs-var">quantumTaskSummary_outputS3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuantumTaskSummary -&gt; Text)
+-&gt; (QuantumTaskSummary -&gt; Text -&gt; QuantumTaskSummary)
+-&gt; Lens QuantumTaskSummary QuantumTaskSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161525"><span class="annot"><span class="annottext">Text
+outputS3Bucket :: Text
+$sel:outputS3Bucket:QuantumTaskSummary' :: QuantumTaskSummary -&gt; Text
+</span><a href="#local-6989586621679161525"><span class="hs-identifier hs-var hs-var">outputS3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161525"><span class="hs-identifier hs-var">outputS3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161524"><span class="annot"><span class="annottext">s :: QuantumTaskSummary
+</span><a href="#local-6989586621679161524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161523"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskSummary
+</span><a href="#local-6989586621679161524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputS3Bucket:QuantumTaskSummary' :: Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AoutputS3Bucket%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">outputS3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The folder in the S3 bucket where the task result file is stored.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_outputS3Directory"><span class="hs-identifier hs-type">quantumTaskSummary_outputS3Directory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="quantumTaskSummary_outputS3Directory"><span class="annot"><span class="annottext">quantumTaskSummary_outputS3Directory :: (Text -&gt; f Text) -&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_outputS3Directory"><span class="hs-identifier hs-var hs-var">quantumTaskSummary_outputS3Directory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuantumTaskSummary -&gt; Text)
+-&gt; (QuantumTaskSummary -&gt; Text -&gt; QuantumTaskSummary)
+-&gt; Lens QuantumTaskSummary QuantumTaskSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161521"><span class="annot"><span class="annottext">Text
+outputS3Directory :: Text
+$sel:outputS3Directory:QuantumTaskSummary' :: QuantumTaskSummary -&gt; Text
+</span><a href="#local-6989586621679161521"><span class="hs-identifier hs-var hs-var">outputS3Directory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161521"><span class="hs-identifier hs-var">outputS3Directory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161520"><span class="annot"><span class="annottext">s :: QuantumTaskSummary
+</span><a href="#local-6989586621679161520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskSummary
+</span><a href="#local-6989586621679161520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputS3Directory:QuantumTaskSummary' :: Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AoutputS3Directory%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">outputS3Directory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The ARN of the task.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_quantumTaskArn"><span class="hs-identifier hs-type">quantumTaskSummary_quantumTaskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-139"></span><span id="quantumTaskSummary_quantumTaskArn"><span class="annot"><span class="annottext">quantumTaskSummary_quantumTaskArn :: (Text -&gt; f Text) -&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_quantumTaskArn"><span class="hs-identifier hs-var hs-var">quantumTaskSummary_quantumTaskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuantumTaskSummary -&gt; Text)
+-&gt; (QuantumTaskSummary -&gt; Text -&gt; QuantumTaskSummary)
+-&gt; Lens QuantumTaskSummary QuantumTaskSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161517"><span class="annot"><span class="annottext">Text
+quantumTaskArn :: Text
+$sel:quantumTaskArn:QuantumTaskSummary' :: QuantumTaskSummary -&gt; Text
+</span><a href="#local-6989586621679161517"><span class="hs-identifier hs-var hs-var">quantumTaskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161517"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161516"><span class="annot"><span class="annottext">s :: QuantumTaskSummary
+</span><a href="#local-6989586621679161516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161515"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskSummary
+</span><a href="#local-6989586621679161516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantumTaskArn:QuantumTaskSummary' :: Text
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3AquantumTaskArn%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">quantumTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679161515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The shots used for the task.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_shots"><span class="hs-identifier hs-type">quantumTaskSummary_shots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-143"></span><span id="quantumTaskSummary_shots"><span class="annot"><span class="annottext">quantumTaskSummary_shots :: (Integer -&gt; f Integer)
+-&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_shots"><span class="hs-identifier hs-var hs-var">quantumTaskSummary_shots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuantumTaskSummary -&gt; Integer)
+-&gt; (QuantumTaskSummary -&gt; Integer -&gt; QuantumTaskSummary)
+-&gt; Lens QuantumTaskSummary QuantumTaskSummary Integer Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161513"><span class="annot"><span class="annottext">Integer
+shots :: Integer
+$sel:shots:QuantumTaskSummary' :: QuantumTaskSummary -&gt; Integer
+</span><a href="#local-6989586621679161513"><span class="hs-identifier hs-var hs-var">shots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679161513"><span class="hs-identifier hs-var">shots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161512"><span class="annot"><span class="annottext">s :: QuantumTaskSummary
+</span><a href="#local-6989586621679161512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161511"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679161511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskSummary
+</span><a href="#local-6989586621679161512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shots:QuantumTaskSummary' :: Integer
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3Ashots%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">shots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679161511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The status of the task.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_status"><span class="hs-identifier hs-type">quantumTaskSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskStatus.html#QuantumTaskStatus"><span class="hs-identifier hs-type">QuantumTaskStatus</span></a></span><span>
+</span><span id="line-147"></span><span id="quantumTaskSummary_status"><span class="annot"><span class="annottext">quantumTaskSummary_status :: (QuantumTaskStatus -&gt; f QuantumTaskStatus)
+-&gt; QuantumTaskSummary -&gt; f QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#quantumTaskSummary_status"><span class="hs-identifier hs-var hs-var">quantumTaskSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QuantumTaskSummary -&gt; QuantumTaskStatus)
+-&gt; (QuantumTaskSummary -&gt; QuantumTaskStatus -&gt; QuantumTaskSummary)
+-&gt; Lens
+     QuantumTaskSummary
+     QuantumTaskSummary
+     QuantumTaskStatus
+     QuantumTaskStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679161509"><span class="annot"><span class="annottext">QuantumTaskStatus
+status :: QuantumTaskStatus
+$sel:status:QuantumTaskSummary' :: QuantumTaskSummary -&gt; QuantumTaskStatus
+</span><a href="#local-6989586621679161509"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679161509"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679161508"><span class="annot"><span class="annottext">s :: QuantumTaskSummary
+</span><a href="#local-6989586621679161508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-type">QuantumTaskSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679161507"><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679161507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QuantumTaskSummary
+</span><a href="#local-6989586621679161508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:QuantumTaskSummary' :: QuantumTaskStatus
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#%24sel%3Astatus%3AQuantumTaskSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QuantumTaskStatus
+</span><a href="#local-6989586621679161507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161504"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679161502"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QuantumTaskSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser QuantumTaskSummary)
+-&gt; Value
+-&gt; Parser QuantumTaskSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;QuantumTaskSummary&quot;</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679161499"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe (HashMap Text Text)
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Integer
+-&gt; QuantumTaskStatus
+-&gt; QuantumTaskSummary
+</span><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary%27"><span class="hs-identifier hs-var">QuantumTaskSummary'</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Integer
+ -&gt; QuantumTaskStatus
+ -&gt; QuantumTaskSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; QuantumTaskSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; QuantumTaskSummary)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; QuantumTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; QuantumTaskSummary)
+-&gt; Parser POSIX
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; QuantumTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; QuantumTaskSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Integer
+      -&gt; QuantumTaskStatus
+      -&gt; QuantumTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Integer
+   -&gt; QuantumTaskStatus
+   -&gt; QuantumTaskSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text -&gt; Integer -&gt; QuantumTaskStatus -&gt; QuantumTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputS3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text -&gt; Integer -&gt; QuantumTaskStatus -&gt; QuantumTaskSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; Integer -&gt; QuantumTaskStatus -&gt; QuantumTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;outputS3Directory&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Integer -&gt; QuantumTaskStatus -&gt; QuantumTaskSummary)
+-&gt; Parser Text
+-&gt; Parser (Integer -&gt; QuantumTaskStatus -&gt; QuantumTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;quantumTaskArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; QuantumTaskStatus -&gt; QuantumTaskSummary)
+-&gt; Parser Integer
+-&gt; Parser (QuantumTaskStatus -&gt; QuantumTaskSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;shots&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (QuantumTaskStatus -&gt; QuantumTaskSummary)
+-&gt; Parser QuantumTaskStatus -&gt; Parser QuantumTaskSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679161499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser QuantumTaskStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161491"><span id="local-6989586621679161493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679161488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.QuantumTaskSummary.html#QuantumTaskSummary"><span class="hs-identifier hs-type">QuantumTaskSummary</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

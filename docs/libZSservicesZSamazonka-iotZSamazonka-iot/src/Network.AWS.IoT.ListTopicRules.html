@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-comment">-- | The input for the ListTopicRules operation.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newListTopicRules' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679816776"><span id="local-6989586621679816777"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTopicRules"><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-var">ListTopicRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTopicRules%27"><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-var">ListTopicRules'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679816785"><span id="local-6989586621679816786"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTopicRules"><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-var">ListTopicRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTopicRules%27"><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-var">ListTopicRules'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the rule is disabled.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AruleDisabled%3AListTopicRules%27"><span class="annot"><span class="annottext">ListTopicRules -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3AruleDisabled%3AListTopicRules%27"><span class="hs-identifier hs-var hs-var">ruleDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTopicRules%27"><span class="annot"><span class="annottext">ListTopicRules -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3AmaxResults%3AListTopicRules%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816767"><span id="local-6989586621679816769"><span class="annot"><span class="annottext">ListTopicRules -&gt; ListTopicRules -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816776"><span id="local-6989586621679816778"><span class="annot"><span class="annottext">ListTopicRules -&gt; ListTopicRules -&gt; Bool
 (ListTopicRules -&gt; ListTopicRules -&gt; Bool)
 -&gt; (ListTopicRules -&gt; ListTopicRules -&gt; Bool) -&gt; Eq ListTopicRules
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTopicRules -&gt; ListTopicRules -&gt; Bool
 == :: ListTopicRules -&gt; ListTopicRules -&gt; Bool
 $c== :: ListTopicRules -&gt; ListTopicRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816758"><span id="local-6989586621679816760"><span id="local-6989586621679816762"><span id="local-6989586621679816764"><span class="annot"><span class="annottext">ReadPrec [ListTopicRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816767"><span id="local-6989586621679816769"><span id="local-6989586621679816771"><span id="local-6989586621679816773"><span class="annot"><span class="annottext">ReadPrec [ListTopicRules]
 ReadPrec ListTopicRules
 Int -&gt; ReadS ListTopicRules
 ReadS [ListTopicRules]
@@ -103,7 +103,7 @@ readList :: ReadS [ListTopicRules]
 $creadList :: ReadS [ListTopicRules]
 readsPrec :: Int -&gt; ReadS ListTopicRules
 $creadsPrec :: Int -&gt; ReadS ListTopicRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816751"><span id="local-6989586621679816753"><span id="local-6989586621679816755"><span class="annot"><span class="annottext">Int -&gt; ListTopicRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816760"><span id="local-6989586621679816762"><span id="local-6989586621679816764"><span class="annot"><span class="annottext">Int -&gt; ListTopicRules -&gt; ShowS
 [ListTopicRules] -&gt; ShowS
 ListTopicRules -&gt; String
 (Int -&gt; ListTopicRules -&gt; ShowS)
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; (ListTopicRules -&gt; Maybe Bool -&gt; ListTopicRules)
 -&gt; Lens ListTopicRules ListTopicRules (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816745"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816754"><span class="annot"><span class="annottext">Maybe Bool
 ruleDisabled :: Maybe Bool
 $sel:ruleDisabled:ListTopicRules' :: ListTopicRules -&gt; Maybe Bool
-</span><a href="#local-6989586621679816745"><span class="hs-identifier hs-var hs-var">ruleDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679816745"><span class="hs-identifier hs-var">ruleDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816744"><span class="annot"><span class="annottext">s :: ListTopicRules
-</span><a href="#local-6989586621679816744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816743"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679816743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRules
-</span><a href="#local-6989586621679816744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleDisabled:ListTopicRules' :: Maybe Bool
+</span><a href="#local-6989586621679816754"><span class="hs-identifier hs-var hs-var">ruleDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679816754"><span class="hs-identifier hs-var">ruleDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816753"><span class="annot"><span class="annottext">s :: ListTopicRules
+</span><a href="#local-6989586621679816753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816752"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679816752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRules
+</span><a href="#local-6989586621679816753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleDisabled:ListTopicRules' :: Maybe Bool
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3AruleDisabled%3AListTopicRules%27"><span class="hs-identifier hs-var">ruleDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679816743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The topic.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#listTopicRules_topic"><span class="hs-identifier hs-type">listTopicRules_topic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -198,16 +198,16 @@ $sel:ruleDisabled:ListTopicRules' :: ListTopicRules -&gt; Maybe Bool
 -&gt; (ListTopicRules -&gt; Maybe Text -&gt; ListTopicRules)
 -&gt; Lens ListTopicRules ListTopicRules (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816742"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816751"><span class="annot"><span class="annottext">Maybe Text
 topic :: Maybe Text
 $sel:topic:ListTopicRules' :: ListTopicRules -&gt; Maybe Text
-</span><a href="#local-6989586621679816742"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816742"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816741"><span class="annot"><span class="annottext">s :: ListTopicRules
-</span><a href="#local-6989586621679816741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816740"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRules
-</span><a href="#local-6989586621679816741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:ListTopicRules' :: Maybe Text
+</span><a href="#local-6989586621679816751"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816751"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816750"><span class="annot"><span class="annottext">s :: ListTopicRules
+</span><a href="#local-6989586621679816750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRules
+</span><a href="#local-6989586621679816750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:ListTopicRules' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3Atopic%3AListTopicRules%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
@@ -219,16 +219,16 @@ $sel:topic:ListTopicRules' :: ListTopicRules -&gt; Maybe Text
 -&gt; (ListTopicRules -&gt; Maybe Text -&gt; ListTopicRules)
 -&gt; Lens ListTopicRules ListTopicRules (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816739"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816748"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTopicRules' :: ListTopicRules -&gt; Maybe Text
-</span><a href="#local-6989586621679816739"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816739"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816738"><span class="annot"><span class="annottext">s :: ListTopicRules
-</span><a href="#local-6989586621679816738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816737"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRules
-</span><a href="#local-6989586621679816738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTopicRules' :: Maybe Text
+</span><a href="#local-6989586621679816748"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816748"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816747"><span class="annot"><span class="annottext">s :: ListTopicRules
+</span><a href="#local-6989586621679816747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816746"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRules
+</span><a href="#local-6989586621679816747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTopicRules' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3AnextToken%3AListTopicRules%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#listTopicRules_maxResults"><span class="hs-identifier hs-type">listTopicRules_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -239,29 +239,29 @@ $sel:nextToken:ListTopicRules' :: ListTopicRules -&gt; Maybe Text
 -&gt; Lens
      ListTopicRules ListTopicRules (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816736"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816745"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListTopicRules' :: ListTopicRules -&gt; Maybe Natural
-</span><a href="#local-6989586621679816736"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679816736"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816735"><span class="annot"><span class="annottext">s :: ListTopicRules
-</span><a href="#local-6989586621679816735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816734"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679816734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRules
-</span><a href="#local-6989586621679816735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTopicRules' :: Maybe Natural
+</span><a href="#local-6989586621679816745"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679816745"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816744"><span class="annot"><span class="annottext">s :: ListTopicRules
+</span><a href="#local-6989586621679816744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816743"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679816743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRules
+</span><a href="#local-6989586621679816744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTopicRules' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3AmaxResults%3AListTopicRules%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679816734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679816730"><span class="annot"><span class="annottext">page :: ListTopicRules
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679816739"><span class="annot"><span class="annottext">page :: ListTopicRules
 -&gt; AWSResponse ListTopicRules -&gt; Maybe ListTopicRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679816728"><span class="annot"><span class="annottext">ListTopicRules
-</span><a href="#local-6989586621679816728"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679816727"><span class="annot"><span class="annottext">AWSResponse ListTopicRules
-</span><a href="#local-6989586621679816727"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679816737"><span class="annot"><span class="annottext">ListTopicRules
+</span><a href="#local-6989586621679816737"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679816736"><span class="annot"><span class="annottext">AWSResponse ListTopicRules
+</span><a href="#local-6989586621679816736"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTopicRules
 ListTopicRulesResponse
-</span><a href="#local-6989586621679816727"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679816736"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">ListTopicRulesResponse
 -&gt; Getting (First Text) ListTopicRulesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -290,7 +290,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-130"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTopicRules
 ListTopicRulesResponse
-</span><a href="#local-6989586621679816727"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679816736"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">ListTopicRulesResponse
 -&gt; Getting
      (First [TopicRuleListItem])
@@ -335,7 +335,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ListTopicRules
-</span><a href="#local-6989586621679816728"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679816737"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">ListTopicRules
 -&gt; (ListTopicRules -&gt; ListTopicRules) -&gt; ListTopicRules
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -349,7 +349,7 @@ Lens ListTopicRules ListTopicRules (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTopicRules
 ListTopicRulesResponse
-</span><a href="#local-6989586621679816727"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679816736"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">ListTopicRulesResponse
 -&gt; Getting (First Text) ListTopicRulesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -373,12 +373,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679816717"><span class="annot"><span class="annottext">request :: ListTopicRules -&gt; Request ListTopicRules
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679816726"><span class="annot"><span class="annottext">request :: ListTopicRules -&gt; Request ListTopicRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTopicRules -&gt; Request ListTopicRules
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679816713"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679816722"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTopicRules
 -&gt; ClientResponse ClientBody
@@ -402,10 +402,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679816710"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816710"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679816709"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679816709"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679816708"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679816719"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679816719"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679816718"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679816718"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679816717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679816717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TopicRuleListItem]
 -&gt; Maybe Text -&gt; Int -&gt; ListTopicRulesResponse
 </span><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-var">ListTopicRulesResponse'</span></a></span><span>
@@ -415,7 +415,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListTopicRulesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TopicRuleListItem]))
+</span><a href="#local-6989586621679816717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TopicRuleListItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TopicRuleListItem]))
@@ -430,7 +430,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListTopicRulesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679816717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -442,15 +442,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816710"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816719"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816699"><span id="local-6989586621679816701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816708"><span id="local-6989586621679816710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679816692"><span class="annot"><span class="annottext">toHeaders :: ListTopicRules -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679816701"><span class="annot"><span class="annottext">toHeaders :: ListTopicRules -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTopicRules -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -458,15 +458,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679816687"><span class="annot"><span class="annottext">toPath :: ListTopicRules -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679816696"><span class="annot"><span class="annottext">toPath :: ListTopicRules -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTopicRules -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/rules&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules"><span class="hs-identifier hs-type">ListTopicRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679816683"><span class="annot"><span class="annottext">toQuery :: ListTopicRules -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816678"><span id="local-6989586621679816679"><span id="local-6989586621679816680"><span id="local-6989586621679816681"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679816692"><span class="annot"><span class="annottext">toQuery :: ListTopicRules -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRules%27"><span class="hs-identifier hs-type">ListTopicRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816687"><span id="local-6989586621679816688"><span id="local-6989586621679816689"><span id="local-6989586621679816690"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
@@ -477,7 +477,7 @@ $sel:maxResults:ListTopicRules' :: ListTopicRules -&gt; Maybe Natural
 $sel:nextToken:ListTopicRules' :: ListTopicRules -&gt; Maybe Text
 $sel:topic:ListTopicRules' :: ListTopicRules -&gt; Maybe Text
 $sel:ruleDisabled:ListTopicRules' :: ListTopicRules -&gt; Maybe Bool
-</span><a href="#local-6989586621679816678"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679816687"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -485,28 +485,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ruleDisabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679816681"><span class="hs-identifier hs-var">ruleDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679816690"><span class="hs-identifier hs-var">ruleDisabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;topic&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816680"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679816689"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816679"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679816688"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679816678"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679816687"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The output from the ListTopicRules operation.</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- /See:/ 'newListTopicRulesResponse' smart constructor.</span><span>
-</span><span id="line-177"></span><span id="local-6989586621679816675"><span id="local-6989586621679816676"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTopicRulesResponse"><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-var">ListTopicRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTopicRulesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-var">ListTopicRulesResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span id="local-6989586621679816684"><span id="local-6989586621679816685"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTopicRulesResponse"><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-var">ListTopicRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTopicRulesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-var">ListTopicRulesResponse'</span></a></span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rules.</span><span>
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3Arules%3AListTopicRulesResponse%27"><span class="annot"><span class="annottext">ListTopicRulesResponse -&gt; Maybe [TopicRuleListItem]
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3Arules%3AListTopicRulesResponse%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleListItem.html#TopicRuleListItem"><span class="hs-identifier hs-type">TopicRuleListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -518,7 +518,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTopicRulesResponse%27"><span class="annot"><span class="annottext">ListTopicRulesResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3AhttpStatus%3AListTopicRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816668"><span id="local-6989586621679816670"><span class="annot"><span class="annottext">ListTopicRulesResponse -&gt; ListTopicRulesResponse -&gt; Bool
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816677"><span id="local-6989586621679816679"><span class="annot"><span class="annottext">ListTopicRulesResponse -&gt; ListTopicRulesResponse -&gt; Bool
 (ListTopicRulesResponse -&gt; ListTopicRulesResponse -&gt; Bool)
 -&gt; (ListTopicRulesResponse -&gt; ListTopicRulesResponse -&gt; Bool)
 -&gt; Eq ListTopicRulesResponse
@@ -527,7 +527,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTopicRulesResponse -&gt; ListTopicRulesResponse -&gt; Bool
 == :: ListTopicRulesResponse -&gt; ListTopicRulesResponse -&gt; Bool
 $c== :: ListTopicRulesResponse -&gt; ListTopicRulesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816660"><span id="local-6989586621679816662"><span id="local-6989586621679816664"><span id="local-6989586621679816666"><span class="annot"><span class="annottext">ReadPrec [ListTopicRulesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816669"><span id="local-6989586621679816671"><span id="local-6989586621679816673"><span id="local-6989586621679816675"><span class="annot"><span class="annottext">ReadPrec [ListTopicRulesResponse]
 ReadPrec ListTopicRulesResponse
 Int -&gt; ReadS ListTopicRulesResponse
 ReadS [ListTopicRulesResponse]
@@ -547,7 +547,7 @@ readList :: ReadS [ListTopicRulesResponse]
 $creadList :: ReadS [ListTopicRulesResponse]
 readsPrec :: Int -&gt; ReadS ListTopicRulesResponse
 $creadsPrec :: Int -&gt; ReadS ListTopicRulesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816654"><span id="local-6989586621679816656"><span id="local-6989586621679816658"><span class="annot"><span class="annottext">Int -&gt; ListTopicRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816663"><span id="local-6989586621679816665"><span id="local-6989586621679816667"><span class="annot"><span class="annottext">Int -&gt; ListTopicRulesResponse -&gt; ShowS
 [ListTopicRulesResponse] -&gt; ShowS
 ListTopicRulesResponse -&gt; String
 (Int -&gt; ListTopicRulesResponse -&gt; ShowS)
@@ -593,8 +593,8 @@ $cfrom :: forall x. ListTopicRulesResponse -&gt; Rep ListTopicRulesResponse x
 </span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span><span>
 </span><span id="line-206"></span><span id="newListTopicRulesResponse"><span class="annot"><span class="annottext">newListTopicRulesResponse :: Int -&gt; ListTopicRulesResponse
-</span><a href="Network.AWS.IoT.ListTopicRules.html#newListTopicRulesResponse"><span class="hs-identifier hs-var hs-var">newListTopicRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679816651"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816651"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListTopicRules.html#newListTopicRulesResponse"><span class="hs-identifier hs-var hs-var">newListTopicRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679816660"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679816660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">ListTopicRulesResponse' :: Maybe [TopicRuleListItem]
 -&gt; Maybe Text -&gt; Int -&gt; ListTopicRulesResponse
 </span><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span>
@@ -608,7 +608,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTopicRulesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3AhttpStatus%3AListTopicRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816651"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679816660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The rules.</span><span>
@@ -620,16 +620,16 @@ forall a. Maybe a
     -&gt; Maybe [TopicRuleListItem] -&gt; ListTopicRulesResponse)
 -&gt; Lens' ListTopicRulesResponse (Maybe [TopicRuleListItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816650"><span class="annot"><span class="annottext">Maybe [TopicRuleListItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816659"><span class="annot"><span class="annottext">Maybe [TopicRuleListItem]
 rules :: Maybe [TopicRuleListItem]
 $sel:rules:ListTopicRulesResponse' :: ListTopicRulesResponse -&gt; Maybe [TopicRuleListItem]
-</span><a href="#local-6989586621679816650"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TopicRuleListItem]
-</span><a href="#local-6989586621679816650"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816649"><span class="annot"><span class="annottext">s :: ListTopicRulesResponse
-</span><a href="#local-6989586621679816649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816648"><span class="annot"><span class="annottext">Maybe [TopicRuleListItem]
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRulesResponse
-</span><a href="#local-6989586621679816649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListTopicRulesResponse' :: Maybe [TopicRuleListItem]
+</span><a href="#local-6989586621679816659"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TopicRuleListItem]
+</span><a href="#local-6989586621679816659"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816658"><span class="annot"><span class="annottext">s :: ListTopicRulesResponse
+</span><a href="#local-6989586621679816658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816657"><span class="annot"><span class="annottext">Maybe [TopicRuleListItem]
+</span><a href="#local-6989586621679816657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRulesResponse
+</span><a href="#local-6989586621679816658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListTopicRulesResponse' :: Maybe [TopicRuleListItem]
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3Arules%3AListTopicRulesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TopicRuleListItem]
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TopicRuleListItem] -&gt; f (Maybe [TopicRuleListItem]))
+</span><a href="#local-6989586621679816657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TopicRuleListItem] -&gt; f (Maybe [TopicRuleListItem]))
  -&gt; ListTopicRulesResponse -&gt; f ListTopicRulesResponse)
 -&gt; ((Maybe [TopicRuleListItem] -&gt; f (Maybe [TopicRuleListItem]))
     -&gt; Maybe [TopicRuleListItem] -&gt; f (Maybe [TopicRuleListItem]))
@@ -667,16 +667,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListTopicRulesResponse -&gt; Maybe Text -&gt; ListTopicRulesResponse)
 -&gt; Lens' ListTopicRulesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816645"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816654"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTopicRulesResponse' :: ListTopicRulesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679816645"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816645"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816644"><span class="annot"><span class="annottext">s :: ListTopicRulesResponse
-</span><a href="#local-6989586621679816644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816643"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRulesResponse
-</span><a href="#local-6989586621679816644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTopicRulesResponse' :: Maybe Text
+</span><a href="#local-6989586621679816654"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816654"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816653"><span class="annot"><span class="annottext">s :: ListTopicRulesResponse
+</span><a href="#local-6989586621679816653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816652"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRulesResponse
+</span><a href="#local-6989586621679816653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTopicRulesResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3AnextToken%3AListTopicRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-223"></span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#listTopicRulesResponse_httpStatus"><span class="hs-identifier hs-type">listTopicRulesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -686,16 +686,16 @@ $sel:nextToken:ListTopicRulesResponse' :: ListTopicRulesResponse -&gt; Maybe Tex
 -&gt; (ListTopicRulesResponse -&gt; Int -&gt; ListTopicRulesResponse)
 -&gt; Lens ListTopicRulesResponse ListTopicRulesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816642"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816651"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTopicRulesResponse' :: ListTopicRulesResponse -&gt; Int
-</span><a href="#local-6989586621679816642"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816642"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816641"><span class="annot"><span class="annottext">s :: ListTopicRulesResponse
-</span><a href="#local-6989586621679816641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816640"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRulesResponse
-</span><a href="#local-6989586621679816641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTopicRulesResponse' :: Int
+</span><a href="#local-6989586621679816651"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679816651"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816650"><span class="annot"><span class="annottext">s :: ListTopicRulesResponse
+</span><a href="#local-6989586621679816650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse%27"><span class="hs-identifier hs-type">ListTopicRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816649"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679816649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicRulesResponse
+</span><a href="#local-6989586621679816650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTopicRulesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListTopicRules.html#%24sel%3AhttpStatus%3AListTopicRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTopicRules.html#ListTopicRulesResponse"><span class="hs-identifier hs-type">ListTopicRulesResponse</span></a></span></span><span>
 </span><span id="line-227"></span></pre></body></html>

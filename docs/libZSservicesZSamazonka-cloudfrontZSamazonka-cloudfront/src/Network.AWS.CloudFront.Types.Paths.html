@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPaths' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679397267"><span id="local-6989586621679397268"></span></span><span class="hs-keyword">data</span><span> </span><span id="Paths"><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-var">Paths</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Paths%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-var">Paths'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679397276"><span id="local-6989586621679397277"></span></span><span class="hs-keyword">data</span><span> </span><span id="Paths"><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-var">Paths</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Paths%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-var">Paths'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains a list of the paths that you want to</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- invalidate.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aitems%3APaths%27"><span class="annot"><span class="annottext">Paths -&gt; Maybe [Text]
@@ -39,14 +39,14 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aquantity%3APaths%27"><span class="annot"><span class="annottext">Paths -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.Paths.html#%24sel%3Aquantity%3APaths%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397260"><span id="local-6989586621679397262"><span class="annot"><span class="annottext">Paths -&gt; Paths -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397269"><span id="local-6989586621679397271"><span class="annot"><span class="annottext">Paths -&gt; Paths -&gt; Bool
 (Paths -&gt; Paths -&gt; Bool) -&gt; (Paths -&gt; Paths -&gt; Bool) -&gt; Eq Paths
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Paths -&gt; Paths -&gt; Bool
 $c/= :: Paths -&gt; Paths -&gt; Bool
 == :: Paths -&gt; Paths -&gt; Bool
 $c== :: Paths -&gt; Paths -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397251"><span id="local-6989586621679397253"><span id="local-6989586621679397255"><span id="local-6989586621679397257"><span class="annot"><span class="annottext">ReadPrec [Paths]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397260"><span id="local-6989586621679397262"><span id="local-6989586621679397264"><span id="local-6989586621679397266"><span class="annot"><span class="annottext">ReadPrec [Paths]
 ReadPrec Paths
 Int -&gt; ReadS Paths
 ReadS [Paths]
@@ -66,7 +66,7 @@ readList :: ReadS [Paths]
 $creadList :: ReadS [Paths]
 readsPrec :: Int -&gt; ReadS Paths
 $creadsPrec :: Int -&gt; ReadS Paths
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397244"><span id="local-6989586621679397246"><span id="local-6989586621679397248"><span class="annot"><span class="annottext">Int -&gt; Paths -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397253"><span id="local-6989586621679397255"><span id="local-6989586621679397257"><span class="annot"><span class="annottext">Int -&gt; Paths -&gt; ShowS
 [Paths] -&gt; ShowS
 Paths -&gt; String
 (Int -&gt; Paths -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. Paths -&gt; Rep Paths x
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span><span>
 </span><span id="line-59"></span><span id="newPaths"><span class="annot"><span class="annottext">newPaths :: Int -&gt; Paths
-</span><a href="Network.AWS.CloudFront.Types.Paths.html#newPaths"><span class="hs-identifier hs-var hs-var">newPaths</span></a></span></span><span> </span><span id="local-6989586621679397238"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397238"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.Paths.html#newPaths"><span class="hs-identifier hs-var hs-var">newPaths</span></a></span></span><span> </span><span id="local-6989586621679397247"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397247"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">Paths' :: Maybe [Text] -&gt; Int -&gt; Paths
 </span><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:Paths' :: Maybe [Text]
@@ -117,7 +117,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:Paths' :: Int
 </span><a href="Network.AWS.CloudFront.Types.Paths.html#%24sel%3Aquantity%3APaths%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397238"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679397247"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | A complex type that contains a list of the paths that you want to</span><span>
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (Paths -&gt; Maybe [Text] -&gt; Paths)
 -&gt; Lens Paths Paths (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397234"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397243"><span class="annot"><span class="annottext">Maybe [Text]
 items :: Maybe [Text]
 $sel:items:Paths' :: Paths -&gt; Maybe [Text]
-</span><a href="#local-6989586621679397234"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397234"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397233"><span class="annot"><span class="annottext">s :: Paths
-</span><a href="#local-6989586621679397233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397232"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Paths
-</span><a href="#local-6989586621679397233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:Paths' :: Maybe [Text]
+</span><a href="#local-6989586621679397243"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397243"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397242"><span class="annot"><span class="annottext">s :: Paths
+</span><a href="#local-6989586621679397242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397241"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Paths
+</span><a href="#local-6989586621679397242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:Paths' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.Paths.html#%24sel%3Aitems%3APaths%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Paths -&gt; f Paths)
+</span><a href="#local-6989586621679397241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Paths -&gt; f Paths)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -160,28 +160,28 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><a href="Network.AWS.CloudFront.Types.Paths.html#paths_quantity"><span class="hs-identifier hs-var hs-var">paths_quantity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Paths -&gt; Int)
 -&gt; (Paths -&gt; Int -&gt; Paths) -&gt; Lens Paths Paths Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397227"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397236"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:Paths' :: Paths -&gt; Int
-</span><a href="#local-6989586621679397227"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397227"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397226"><span class="annot"><span class="annottext">s :: Paths
-</span><a href="#local-6989586621679397226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397225"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Paths
-</span><a href="#local-6989586621679397226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:Paths' :: Int
+</span><a href="#local-6989586621679397236"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397236"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397235"><span class="annot"><span class="annottext">s :: Paths
+</span><a href="#local-6989586621679397235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397234"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Paths
+</span><a href="#local-6989586621679397235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:Paths' :: Int
 </span><a href="Network.AWS.CloudFront.Types.Paths.html#%24sel%3Aquantity%3APaths%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679397222"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Paths
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397220"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397220"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679397231"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Paths
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397229"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679397229"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Int -&gt; Paths
 </span><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-var">Paths'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Int -&gt; Paths)
 -&gt; Either String (Maybe [Text]) -&gt; Either String (Int -&gt; Paths)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679397229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -207,24 +207,24 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Int -&gt; Either String Paths
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679397229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397210"><span id="local-6989586621679397212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397219"><span id="local-6989586621679397221"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths"><span class="hs-identifier hs-type">Paths</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679397203"><span class="annot"><span class="annottext">toXML :: Paths -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397200"><span id="local-6989586621679397201"><span class="annot"><span class="annottext">Int
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679397212"><span class="annot"><span class="annottext">toXML :: Paths -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Paths.html#Paths%27"><span class="hs-identifier hs-type">Paths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397209"><span id="local-6989586621679397210"><span class="annot"><span class="annottext">Int
 Maybe [Text]
 quantity :: Int
 items :: Maybe [Text]
 $sel:quantity:Paths' :: Paths -&gt; Int
 $sel:items:Paths' :: Paths -&gt; Maybe [Text]
-</span><a href="#local-6989586621679397200"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397209"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -240,11 +240,11 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; XML) -&gt; Maybe [Text] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397201"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397210"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679397200"><span class="hs-identifier hs-var">quantity</span></a></span><span>
+</span><a href="#local-6989586621679397209"><span class="hs-identifier hs-var">quantity</span></a></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span></pre></body></html>

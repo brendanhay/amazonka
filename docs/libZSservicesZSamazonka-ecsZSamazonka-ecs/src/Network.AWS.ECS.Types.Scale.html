@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- keep running in the task set.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScale' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679459785"><span id="local-6989586621679459786"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scale"><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-var">Scale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scale%27"><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-var">Scale'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679459794"><span id="local-6989586621679459795"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scale"><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-var">Scale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scale%27"><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-var">Scale'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value, specified as a percent total of a service\'s @desiredCount@,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to scale the task set. Accepted values are numbers between 0 and 100.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AScale%27"><span class="annot"><span class="annottext">Scale -&gt; Maybe Double
@@ -37,14 +37,14 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aunit%3AScale%27"><span class="annot"><span class="annottext">Scale -&gt; Maybe ScaleUnit
 </span><a href="Network.AWS.ECS.Types.Scale.html#%24sel%3Aunit%3AScale%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ScaleUnit.html#ScaleUnit"><span class="hs-identifier hs-type">ScaleUnit</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459778"><span id="local-6989586621679459780"><span class="annot"><span class="annottext">Scale -&gt; Scale -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459787"><span id="local-6989586621679459789"><span class="annot"><span class="annottext">Scale -&gt; Scale -&gt; Bool
 (Scale -&gt; Scale -&gt; Bool) -&gt; (Scale -&gt; Scale -&gt; Bool) -&gt; Eq Scale
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Scale -&gt; Scale -&gt; Bool
 $c/= :: Scale -&gt; Scale -&gt; Bool
 == :: Scale -&gt; Scale -&gt; Bool
 $c== :: Scale -&gt; Scale -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459769"><span id="local-6989586621679459771"><span id="local-6989586621679459773"><span id="local-6989586621679459775"><span class="annot"><span class="annottext">ReadPrec [Scale]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459778"><span id="local-6989586621679459780"><span id="local-6989586621679459782"><span id="local-6989586621679459784"><span class="annot"><span class="annottext">ReadPrec [Scale]
 ReadPrec Scale
 Int -&gt; ReadS Scale
 ReadS [Scale]
@@ -64,7 +64,7 @@ readList :: ReadS [Scale]
 $creadList :: ReadS [Scale]
 readsPrec :: Int -&gt; ReadS Scale
 $creadsPrec :: Int -&gt; ReadS Scale
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459762"><span id="local-6989586621679459764"><span id="local-6989586621679459766"><span class="annot"><span class="annottext">Int -&gt; Scale -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459771"><span id="local-6989586621679459773"><span id="local-6989586621679459775"><span class="annot"><span class="annottext">Int -&gt; Scale -&gt; ShowS
 [Scale] -&gt; ShowS
 Scale -&gt; String
 (Int -&gt; Scale -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (Scale -&gt; Maybe Double -&gt; Scale)
 -&gt; Lens Scale Scale (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459753"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459762"><span class="annot"><span class="annottext">Maybe Double
 value :: Maybe Double
 $sel:value:Scale' :: Scale -&gt; Maybe Double
-</span><a href="#local-6989586621679459753"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679459753"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459752"><span class="annot"><span class="annottext">s :: Scale
-</span><a href="#local-6989586621679459752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459751"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679459751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scale
-</span><a href="#local-6989586621679459752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Scale' :: Maybe Double
+</span><a href="#local-6989586621679459762"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679459762"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459761"><span class="annot"><span class="annottext">s :: Scale
+</span><a href="#local-6989586621679459761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459760"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679459760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scale
+</span><a href="#local-6989586621679459761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Scale' :: Maybe Double
 </span><a href="Network.AWS.ECS.Types.Scale.html#%24sel%3Avalue%3AScale%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679459751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The unit of measure for the scale value.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#scale_unit"><span class="hs-identifier hs-type">scale_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ScaleUnit.html#ScaleUnit"><span class="hs-identifier hs-type">ScaleUnit</span></a></span><span class="hs-special">)</span><span>
@@ -141,59 +141,59 @@ $sel:value:Scale' :: Scale -&gt; Maybe Double
 -&gt; (Scale -&gt; Maybe ScaleUnit -&gt; Scale)
 -&gt; Lens Scale Scale (Maybe ScaleUnit) (Maybe ScaleUnit)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459749"><span class="annot"><span class="annottext">Maybe ScaleUnit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459758"><span class="annot"><span class="annottext">Maybe ScaleUnit
 unit :: Maybe ScaleUnit
 $sel:unit:Scale' :: Scale -&gt; Maybe ScaleUnit
-</span><a href="#local-6989586621679459749"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScaleUnit
-</span><a href="#local-6989586621679459749"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459748"><span class="annot"><span class="annottext">s :: Scale
-</span><a href="#local-6989586621679459748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459747"><span class="annot"><span class="annottext">Maybe ScaleUnit
-</span><a href="#local-6989586621679459747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scale
-</span><a href="#local-6989586621679459748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:Scale' :: Maybe ScaleUnit
+</span><a href="#local-6989586621679459758"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScaleUnit
+</span><a href="#local-6989586621679459758"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459757"><span class="annot"><span class="annottext">s :: Scale
+</span><a href="#local-6989586621679459757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459756"><span class="annot"><span class="annottext">Maybe ScaleUnit
+</span><a href="#local-6989586621679459756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scale
+</span><a href="#local-6989586621679459757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:Scale' :: Maybe ScaleUnit
 </span><a href="Network.AWS.ECS.Types.Scale.html#%24sel%3Aunit%3AScale%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScaleUnit
-</span><a href="#local-6989586621679459747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459744"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679459742"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scale
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459753"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679459751"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scale
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Scale) -&gt; Value -&gt; Parser Scale
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Scale&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459739"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459739"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459748"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679459748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe ScaleUnit -&gt; Scale
 </span><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-var">Scale'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe ScaleUnit -&gt; Scale)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe ScaleUnit -&gt; Scale)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459739"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679459748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe ScaleUnit -&gt; Scale)
 -&gt; Parser (Maybe ScaleUnit) -&gt; Parser Scale
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459739"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScaleUnit)
+</span><a href="#local-6989586621679459748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScaleUnit)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459733"><span id="local-6989586621679459735"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459742"><span id="local-6989586621679459744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459722"><span id="local-6989586621679459724"><span id="local-6989586621679459726"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679459720"><span class="annot"><span class="annottext">toJSON :: Scale -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459717"><span id="local-6989586621679459718"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459731"><span id="local-6989586621679459733"><span id="local-6989586621679459735"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale"><span class="hs-identifier hs-type">Scale</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679459729"><span class="annot"><span class="annottext">toJSON :: Scale -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Scale.html#Scale%27"><span class="hs-identifier hs-type">Scale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459726"><span id="local-6989586621679459727"><span class="annot"><span class="annottext">Maybe Double
 Maybe ScaleUnit
 unit :: Maybe ScaleUnit
 value :: Maybe Double
 $sel:unit:Scale' :: Scale -&gt; Maybe ScaleUnit
 $sel:value:Scale' :: Scale -&gt; Maybe Double
-</span><a href="#local-6989586621679459717"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679459726"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -205,14 +205,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679459718"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459727"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScaleUnit -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ScaleUnit -&gt; Pair) -&gt; Maybe ScaleUnit -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScaleUnit
-</span><a href="#local-6989586621679459717"><span class="hs-keyword hs-var">unit</span></a></span><span>
+</span><a href="#local-6989586621679459726"><span class="hs-keyword hs-var">unit</span></a></span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

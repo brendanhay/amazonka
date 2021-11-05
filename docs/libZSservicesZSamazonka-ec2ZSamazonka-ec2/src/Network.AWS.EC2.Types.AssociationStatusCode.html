@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621681087235"><span id="local-6989586621681087236"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationStatusCode"><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatusCode.html#AssociationStatusCode"><span class="hs-identifier hs-var">AssociationStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationStatusCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatusCode.html#AssociationStatusCode%27"><span class="hs-identifier hs-var">AssociationStatusCode'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681087244"><span id="local-6989586621681087245"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationStatusCode"><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatusCode.html#AssociationStatusCode"><span class="hs-identifier hs-var">AssociationStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationStatusCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatusCode.html#AssociationStatusCode%27"><span class="hs-identifier hs-var">AssociationStatusCode'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssociationStatusCode"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AssociationStatusCode.html#fromAssociationStatusCode"><span class="hs-identifier hs-var hs-var">fromAssociationStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681087227"><span id="local-6989586621681087229"><span id="local-6989586621681087231"><span class="annot"><span class="annottext">Int -&gt; AssociationStatusCode -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681087236"><span id="local-6989586621681087238"><span id="local-6989586621681087240"><span class="annot"><span class="annottext">Int -&gt; AssociationStatusCode -&gt; ShowS
 [AssociationStatusCode] -&gt; ShowS
 AssociationStatusCode -&gt; String
 (Int -&gt; AssociationStatusCode -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: AssociationStatusCode -&gt; String
 showsPrec :: Int -&gt; AssociationStatusCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; AssociationStatusCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681087218"><span id="local-6989586621681087220"><span id="local-6989586621681087222"><span id="local-6989586621681087224"><span class="annot"><span class="annottext">ReadPrec [AssociationStatusCode]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681087227"><span id="local-6989586621681087229"><span id="local-6989586621681087231"><span id="local-6989586621681087233"><span class="annot"><span class="annottext">ReadPrec [AssociationStatusCode]
 ReadPrec AssociationStatusCode
 Int -&gt; ReadS AssociationStatusCode
 ReadS [AssociationStatusCode]
@@ -76,7 +76,7 @@ $creadList :: ReadS [AssociationStatusCode]
 readsPrec :: Int -&gt; ReadS AssociationStatusCode
 $creadsPrec :: Int -&gt; ReadS AssociationStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681087213"><span id="local-6989586621681087215"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; AssociationStatusCode -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681087222"><span id="local-6989586621681087224"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; AssociationStatusCode -&gt; Bool
 (AssociationStatusCode -&gt; AssociationStatusCode -&gt; Bool)
 -&gt; (AssociationStatusCode -&gt; AssociationStatusCode -&gt; Bool)
 -&gt; Eq AssociationStatusCode
@@ -86,7 +86,7 @@ $c/= :: AssociationStatusCode -&gt; AssociationStatusCode -&gt; Bool
 == :: AssociationStatusCode -&gt; AssociationStatusCode -&gt; Bool
 $c== :: AssociationStatusCode -&gt; AssociationStatusCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681087197"><span id="local-6989586621681087199"><span id="local-6989586621681087201"><span id="local-6989586621681087203"><span id="local-6989586621681087205"><span id="local-6989586621681087207"><span id="local-6989586621681087209"><span class="annot"><span class="annottext">Eq AssociationStatusCode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681087206"><span id="local-6989586621681087208"><span id="local-6989586621681087210"><span id="local-6989586621681087212"><span id="local-6989586621681087214"><span id="local-6989586621681087216"><span id="local-6989586621681087218"><span class="annot"><span class="annottext">Eq AssociationStatusCode
 Eq AssociationStatusCode
 -&gt; (AssociationStatusCode -&gt; AssociationStatusCode -&gt; Ordering)
 -&gt; (AssociationStatusCode -&gt; AssociationStatusCode -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. AssociationStatusCode -&gt; Rep AssociationStatusCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681087189"><span id="local-6989586621681087191"><span class="annot"><span class="annottext">Int -&gt; AssociationStatusCode -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681087198"><span id="local-6989586621681087200"><span class="annot"><span class="annottext">Int -&gt; AssociationStatusCode -&gt; Int
 AssociationStatusCode -&gt; Int
 (Int -&gt; AssociationStatusCode -&gt; Int)
 -&gt; (AssociationStatusCode -&gt; Int) -&gt; Hashable AssociationStatusCode
@@ -154,54 +154,54 @@ $chash :: AssociationStatusCode -&gt; Int
 hashWithSalt :: Int -&gt; AssociationStatusCode -&gt; Int
 $chashWithSalt :: Int -&gt; AssociationStatusCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681087186"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681087195"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; ()
 (AssociationStatusCode -&gt; ()) -&gt; NFData AssociationStatusCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AssociationStatusCode -&gt; ()
 $crnf :: AssociationStatusCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681087183"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationStatusCode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681087192"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationStatusCode
 (Text -&gt; Either String AssociationStatusCode)
 -&gt; FromText AssociationStatusCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AssociationStatusCode
 $cfromText :: Text -&gt; Either String AssociationStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681087180"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681087189"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; Text
 (AssociationStatusCode -&gt; Text) -&gt; ToText AssociationStatusCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AssociationStatusCode -&gt; Text
 $ctoText :: AssociationStatusCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681087177"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681087186"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; ByteString
 (AssociationStatusCode -&gt; ByteString)
 -&gt; ToByteString AssociationStatusCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AssociationStatusCode -&gt; ByteString
 $ctoBS :: AssociationStatusCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681087174"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681087183"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; ByteStringBuilder
 (AssociationStatusCode -&gt; ByteStringBuilder)
 -&gt; ToLog AssociationStatusCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AssociationStatusCode -&gt; ByteStringBuilder
 $cbuild :: AssociationStatusCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681087171"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationStatusCode -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681087180"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationStatusCode -&gt; [Header]
 (HeaderName -&gt; AssociationStatusCode -&gt; [Header])
 -&gt; ToHeader AssociationStatusCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AssociationStatusCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AssociationStatusCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681087168"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681087177"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; QueryString
 (AssociationStatusCode -&gt; QueryString)
 -&gt; ToQuery AssociationStatusCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AssociationStatusCode -&gt; QueryString
 $ctoQuery :: AssociationStatusCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681087163"><span id="local-6989586621681087165"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationStatusCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681087172"><span id="local-6989586621681087174"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationStatusCode]
 Value -&gt; Parser AssociationStatusCode
 (Value -&gt; Parser AssociationStatusCode)
 -&gt; (Value -&gt; Parser [AssociationStatusCode])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [AssociationStatusCode]
 parseJSON :: Value -&gt; Parser AssociationStatusCode
 $cparseJSON :: Value -&gt; Parser AssociationStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681087158"><span id="local-6989586621681087160"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationStatusCode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681087167"><span id="local-6989586621681087169"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationStatusCode]
 FromJSONKeyFunction AssociationStatusCode
 FromJSONKeyFunction AssociationStatusCode
 -&gt; FromJSONKeyFunction [AssociationStatusCode]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AssociationStatusCode]
 fromJSONKey :: FromJSONKeyFunction AssociationStatusCode
 $cfromJSONKey :: FromJSONKeyFunction AssociationStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681087149"><span id="local-6989586621681087151"><span id="local-6989586621681087153"><span id="local-6989586621681087155"><span class="annot"><span class="annottext">[AssociationStatusCode] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681087158"><span id="local-6989586621681087160"><span id="local-6989586621681087162"><span id="local-6989586621681087164"><span class="annot"><span class="annottext">[AssociationStatusCode] -&gt; Encoding
 [AssociationStatusCode] -&gt; Value
 AssociationStatusCode -&gt; Encoding
 AssociationStatusCode -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: AssociationStatusCode -&gt; Encoding
 toJSON :: AssociationStatusCode -&gt; Value
 $ctoJSON :: AssociationStatusCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681087144"><span id="local-6989586621681087146"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationStatusCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681087153"><span id="local-6989586621681087155"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationStatusCode]
 ToJSONKeyFunction AssociationStatusCode
 ToJSONKeyFunction AssociationStatusCode
 -&gt; ToJSONKeyFunction [AssociationStatusCode]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AssociationStatusCode]
 toJSONKey :: ToJSONKeyFunction AssociationStatusCode
 $ctoJSONKey :: ToJSONKeyFunction AssociationStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681087141"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationStatusCode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681087150"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationStatusCode
 ([Node] -&gt; Either String AssociationStatusCode)
 -&gt; FromXML AssociationStatusCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AssociationStatusCode
 $cparseXML :: [Node] -&gt; Either String AssociationStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681087138"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681087147"><span class="annot"><span class="annottext">AssociationStatusCode -&gt; XML
 (AssociationStatusCode -&gt; XML) -&gt; ToXML AssociationStatusCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AssociationStatusCode -&gt; XML

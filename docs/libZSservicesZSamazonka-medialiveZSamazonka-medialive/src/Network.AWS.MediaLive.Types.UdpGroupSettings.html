@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Udp Group Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUdpGroupSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679928630"><span id="local-6989586621679928631"></span></span><span class="hs-keyword">data</span><span> </span><span id="UdpGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-var">UdpGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UdpGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-var">UdpGroupSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679928639"><span id="local-6989586621679928640"></span></span><span class="hs-keyword">data</span><span> </span><span id="UdpGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-var">UdpGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UdpGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-var">UdpGroupSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Timed Metadata interval in seconds.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtimedMetadataId3Period%3AUdpGroupSettings%27"><span class="annot"><span class="annottext">UdpGroupSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#%24sel%3AtimedMetadataId3Period%3AUdpGroupSettings%27"><span class="hs-identifier hs-var hs-var">timedMetadataId3Period</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AtimedMetadataId3Frame%3AUdpGroupSettings%27"><span class="annot"><span class="annottext">UdpGroupSettings -&gt; Maybe UdpTimedMetadataId3Frame
 </span><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#%24sel%3AtimedMetadataId3Frame%3AUdpGroupSettings%27"><span class="hs-identifier hs-var hs-var">timedMetadataId3Frame</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpTimedMetadataId3Frame.html#UdpTimedMetadataId3Frame"><span class="hs-identifier hs-type">UdpTimedMetadataId3Frame</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679928622"><span id="local-6989586621679928624"><span class="annot"><span class="annottext">UdpGroupSettings -&gt; UdpGroupSettings -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679928631"><span id="local-6989586621679928633"><span class="annot"><span class="annottext">UdpGroupSettings -&gt; UdpGroupSettings -&gt; Bool
 (UdpGroupSettings -&gt; UdpGroupSettings -&gt; Bool)
 -&gt; (UdpGroupSettings -&gt; UdpGroupSettings -&gt; Bool)
 -&gt; Eq UdpGroupSettings
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UdpGroupSettings -&gt; UdpGroupSettings -&gt; Bool
 == :: UdpGroupSettings -&gt; UdpGroupSettings -&gt; Bool
 $c== :: UdpGroupSettings -&gt; UdpGroupSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679928613"><span id="local-6989586621679928615"><span id="local-6989586621679928617"><span id="local-6989586621679928619"><span class="annot"><span class="annottext">ReadPrec [UdpGroupSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679928622"><span id="local-6989586621679928624"><span id="local-6989586621679928626"><span id="local-6989586621679928628"><span class="annot"><span class="annottext">ReadPrec [UdpGroupSettings]
 ReadPrec UdpGroupSettings
 Int -&gt; ReadS UdpGroupSettings
 ReadS [UdpGroupSettings]
@@ -75,7 +75,7 @@ readList :: ReadS [UdpGroupSettings]
 $creadList :: ReadS [UdpGroupSettings]
 readsPrec :: Int -&gt; ReadS UdpGroupSettings
 $creadsPrec :: Int -&gt; ReadS UdpGroupSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679928606"><span id="local-6989586621679928608"><span id="local-6989586621679928610"><span class="annot"><span class="annottext">Int -&gt; UdpGroupSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679928615"><span id="local-6989586621679928617"><span id="local-6989586621679928619"><span class="annot"><span class="annottext">Int -&gt; UdpGroupSettings -&gt; ShowS
 [UdpGroupSettings] -&gt; ShowS
 UdpGroupSettings -&gt; String
 (Int -&gt; UdpGroupSettings -&gt; ShowS)
@@ -154,16 +154,16 @@ forall a. Maybe a
 -&gt; Lens
      UdpGroupSettings UdpGroupSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928597"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928606"><span class="annot"><span class="annottext">Maybe Natural
 timedMetadataId3Period :: Maybe Natural
 $sel:timedMetadataId3Period:UdpGroupSettings' :: UdpGroupSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679928597"><span class="hs-identifier hs-var hs-var">timedMetadataId3Period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679928597"><span class="hs-identifier hs-var">timedMetadataId3Period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679928596"><span class="annot"><span class="annottext">s :: UdpGroupSettings
-</span><a href="#local-6989586621679928596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679928595"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679928595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpGroupSettings
-</span><a href="#local-6989586621679928596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataId3Period:UdpGroupSettings' :: Maybe Natural
+</span><a href="#local-6989586621679928606"><span class="hs-identifier hs-var hs-var">timedMetadataId3Period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679928606"><span class="hs-identifier hs-var">timedMetadataId3Period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679928605"><span class="annot"><span class="annottext">s :: UdpGroupSettings
+</span><a href="#local-6989586621679928605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679928604"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679928604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpGroupSettings
+</span><a href="#local-6989586621679928605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataId3Period:UdpGroupSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#%24sel%3AtimedMetadataId3Period%3AUdpGroupSettings%27"><span class="hs-identifier hs-var">timedMetadataId3Period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679928595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679928604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | Specifies behavior of last resort when input video is lost, and no more</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- backup inputs are available. When dropTs is selected the entire</span><span>
@@ -186,16 +186,16 @@ $sel:timedMetadataId3Period:UdpGroupSettings' :: UdpGroupSettings -&gt; Maybe Na
      (Maybe InputLossActionForUdpOut)
      (Maybe InputLossActionForUdpOut)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928593"><span class="annot"><span class="annottext">Maybe InputLossActionForUdpOut
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928602"><span class="annot"><span class="annottext">Maybe InputLossActionForUdpOut
 inputLossAction :: Maybe InputLossActionForUdpOut
 $sel:inputLossAction:UdpGroupSettings' :: UdpGroupSettings -&gt; Maybe InputLossActionForUdpOut
-</span><a href="#local-6989586621679928593"><span class="hs-identifier hs-var hs-var">inputLossAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossActionForUdpOut
-</span><a href="#local-6989586621679928593"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679928592"><span class="annot"><span class="annottext">s :: UdpGroupSettings
-</span><a href="#local-6989586621679928592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679928591"><span class="annot"><span class="annottext">Maybe InputLossActionForUdpOut
-</span><a href="#local-6989586621679928591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpGroupSettings
-</span><a href="#local-6989586621679928592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossAction:UdpGroupSettings' :: Maybe InputLossActionForUdpOut
+</span><a href="#local-6989586621679928602"><span class="hs-identifier hs-var hs-var">inputLossAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossActionForUdpOut
+</span><a href="#local-6989586621679928602"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679928601"><span class="annot"><span class="annottext">s :: UdpGroupSettings
+</span><a href="#local-6989586621679928601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679928600"><span class="annot"><span class="annottext">Maybe InputLossActionForUdpOut
+</span><a href="#local-6989586621679928600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpGroupSettings
+</span><a href="#local-6989586621679928601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossAction:UdpGroupSettings' :: Maybe InputLossActionForUdpOut
 </span><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#%24sel%3AinputLossAction%3AUdpGroupSettings%27"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossActionForUdpOut
-</span><a href="#local-6989586621679928591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679928600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Indicates ID3 frame that has the timecode.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#udpGroupSettings_timedMetadataId3Frame"><span class="hs-identifier hs-type">udpGroupSettings_timedMetadataId3Frame</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpTimedMetadataId3Frame.html#UdpTimedMetadataId3Frame"><span class="hs-identifier hs-type">UdpTimedMetadataId3Frame</span></a></span><span class="hs-special">)</span><span>
@@ -211,19 +211,19 @@ $sel:inputLossAction:UdpGroupSettings' :: UdpGroupSettings -&gt; Maybe InputLoss
      (Maybe UdpTimedMetadataId3Frame)
      (Maybe UdpTimedMetadataId3Frame)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928589"><span class="annot"><span class="annottext">Maybe UdpTimedMetadataId3Frame
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928598"><span class="annot"><span class="annottext">Maybe UdpTimedMetadataId3Frame
 timedMetadataId3Frame :: Maybe UdpTimedMetadataId3Frame
 $sel:timedMetadataId3Frame:UdpGroupSettings' :: UdpGroupSettings -&gt; Maybe UdpTimedMetadataId3Frame
-</span><a href="#local-6989586621679928589"><span class="hs-identifier hs-var hs-var">timedMetadataId3Frame</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UdpTimedMetadataId3Frame
-</span><a href="#local-6989586621679928589"><span class="hs-identifier hs-var">timedMetadataId3Frame</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679928588"><span class="annot"><span class="annottext">s :: UdpGroupSettings
-</span><a href="#local-6989586621679928588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679928587"><span class="annot"><span class="annottext">Maybe UdpTimedMetadataId3Frame
-</span><a href="#local-6989586621679928587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpGroupSettings
-</span><a href="#local-6989586621679928588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataId3Frame:UdpGroupSettings' :: Maybe UdpTimedMetadataId3Frame
+</span><a href="#local-6989586621679928598"><span class="hs-identifier hs-var hs-var">timedMetadataId3Frame</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UdpTimedMetadataId3Frame
+</span><a href="#local-6989586621679928598"><span class="hs-identifier hs-var">timedMetadataId3Frame</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679928597"><span class="annot"><span class="annottext">s :: UdpGroupSettings
+</span><a href="#local-6989586621679928597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679928596"><span class="annot"><span class="annottext">Maybe UdpTimedMetadataId3Frame
+</span><a href="#local-6989586621679928596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UdpGroupSettings
+</span><a href="#local-6989586621679928597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timedMetadataId3Frame:UdpGroupSettings' :: Maybe UdpTimedMetadataId3Frame
 </span><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#%24sel%3AtimedMetadataId3Frame%3AUdpGroupSettings%27"><span class="hs-identifier hs-var">timedMetadataId3Frame</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UdpTimedMetadataId3Frame
-</span><a href="#local-6989586621679928587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679928596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928584"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679928582"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UdpGroupSettings
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928593"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679928591"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UdpGroupSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UdpGroupSettings)
@@ -233,8 +233,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UdpGroupSettings&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679928579"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679928579"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679928588"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679928588"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe InputLossActionForUdpOut
 -&gt; Maybe UdpTimedMetadataId3Frame
@@ -250,7 +250,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe UdpTimedMetadataId3Frame -&gt; UdpGroupSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679928579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679928588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataId3Period&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,7 +261,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe UdpTimedMetadataId3Frame -&gt; UdpGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679928579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLossActionForUdpOut)
+</span><a href="#local-6989586621679928588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLossActionForUdpOut)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputLossAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,19 +270,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser UdpGroupSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679928579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UdpTimedMetadataId3Frame)
+</span><a href="#local-6989586621679928588"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UdpTimedMetadataId3Frame)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataId3Frame&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928573"><span id="local-6989586621679928575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928582"><span id="local-6989586621679928584"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928562"><span id="local-6989586621679928564"><span id="local-6989586621679928566"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679928560"><span class="annot"><span class="annottext">toJSON :: UdpGroupSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928556"><span id="local-6989586621679928557"><span id="local-6989586621679928558"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928571"><span id="local-6989586621679928573"><span id="local-6989586621679928575"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings"><span class="hs-identifier hs-type">UdpGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679928569"><span class="annot"><span class="annottext">toJSON :: UdpGroupSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.UdpGroupSettings.html#UdpGroupSettings%27"><span class="hs-identifier hs-type">UdpGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928565"><span id="local-6989586621679928566"><span id="local-6989586621679928567"><span class="annot"><span class="annottext">Maybe Natural
 Maybe InputLossActionForUdpOut
 Maybe UdpTimedMetadataId3Frame
 timedMetadataId3Frame :: Maybe UdpTimedMetadataId3Frame
@@ -291,7 +291,7 @@ timedMetadataId3Period :: Maybe Natural
 $sel:timedMetadataId3Frame:UdpGroupSettings' :: UdpGroupSettings -&gt; Maybe UdpTimedMetadataId3Frame
 $sel:inputLossAction:UdpGroupSettings' :: UdpGroupSettings -&gt; Maybe InputLossActionForUdpOut
 $sel:timedMetadataId3Period:UdpGroupSettings' :: UdpGroupSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679928556"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679928565"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,7 +304,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679928558"><span class="hs-identifier hs-var">timedMetadataId3Period</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679928567"><span class="hs-identifier hs-var">timedMetadataId3Period</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputLossAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputLossActionForUdpOut -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -313,7 +313,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe InputLossActionForUdpOut -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLossActionForUdpOut
-</span><a href="#local-6989586621679928557"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679928566"><span class="hs-identifier hs-var">inputLossAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timedMetadataId3Frame&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UdpTimedMetadataId3Frame -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -322,7 +322,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe UdpTimedMetadataId3Frame -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UdpTimedMetadataId3Frame
-</span><a href="#local-6989586621679928556"><span class="hs-identifier hs-var">timedMetadataId3Frame</span></a></span><span>
+</span><a href="#local-6989586621679928565"><span class="hs-identifier hs-var">timedMetadataId3Frame</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span></pre></body></html>

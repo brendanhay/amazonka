@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A list of categorical hyperparameters to tune.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCategoricalParameterRange' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680297211"><span id="local-6989586621680297212"></span></span><span class="hs-keyword">data</span><span> </span><span id="CategoricalParameterRange"><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-var">CategoricalParameterRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CategoricalParameterRange%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-var">CategoricalParameterRange'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680297220"><span id="local-6989586621680297221"></span></span><span class="hs-keyword">data</span><span> </span><span id="CategoricalParameterRange"><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-var">CategoricalParameterRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CategoricalParameterRange%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-var">CategoricalParameterRange'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the categorical hyperparameter to tune.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3ACategoricalParameterRange%27"><span class="annot"><span class="annottext">CategoricalParameterRange -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#%24sel%3Aname%3ACategoricalParameterRange%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalues%3ACategoricalParameterRange%27"><span class="annot"><span class="annottext">CategoricalParameterRange -&gt; NonEmpty Text
 </span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#%24sel%3Avalues%3ACategoricalParameterRange%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680297204"><span id="local-6989586621680297206"><span class="annot"><span class="annottext">CategoricalParameterRange -&gt; CategoricalParameterRange -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680297213"><span id="local-6989586621680297215"><span class="annot"><span class="annottext">CategoricalParameterRange -&gt; CategoricalParameterRange -&gt; Bool
 (CategoricalParameterRange -&gt; CategoricalParameterRange -&gt; Bool)
 -&gt; (CategoricalParameterRange -&gt; CategoricalParameterRange -&gt; Bool)
 -&gt; Eq CategoricalParameterRange
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CategoricalParameterRange -&gt; CategoricalParameterRange -&gt; Bool
 == :: CategoricalParameterRange -&gt; CategoricalParameterRange -&gt; Bool
 $c== :: CategoricalParameterRange -&gt; CategoricalParameterRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680297195"><span id="local-6989586621680297197"><span id="local-6989586621680297199"><span id="local-6989586621680297201"><span class="annot"><span class="annottext">ReadPrec [CategoricalParameterRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680297204"><span id="local-6989586621680297206"><span id="local-6989586621680297208"><span id="local-6989586621680297210"><span class="annot"><span class="annottext">ReadPrec [CategoricalParameterRange]
 ReadPrec CategoricalParameterRange
 Int -&gt; ReadS CategoricalParameterRange
 ReadS [CategoricalParameterRange]
@@ -63,7 +63,7 @@ readList :: ReadS [CategoricalParameterRange]
 $creadList :: ReadS [CategoricalParameterRange]
 readsPrec :: Int -&gt; ReadS CategoricalParameterRange
 $creadsPrec :: Int -&gt; ReadS CategoricalParameterRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680297188"><span id="local-6989586621680297190"><span id="local-6989586621680297192"><span class="annot"><span class="annottext">Int -&gt; CategoricalParameterRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680297197"><span id="local-6989586621680297199"><span id="local-6989586621680297201"><span class="annot"><span class="annottext">Int -&gt; CategoricalParameterRange -&gt; ShowS
 [CategoricalParameterRange] -&gt; ShowS
 CategoricalParameterRange -&gt; String
 (Int -&gt; CategoricalParameterRange -&gt; ShowS)
@@ -113,14 +113,14 @@ CategoricalParameterRange -&gt; Rep CategoricalParameterRange x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span><span>
 </span><span id="line-54"></span><span id="newCategoricalParameterRange"><span class="annot"><span class="annottext">newCategoricalParameterRange :: Text -&gt; NonEmpty Text -&gt; CategoricalParameterRange
-</span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#newCategoricalParameterRange"><span class="hs-identifier hs-var hs-var">newCategoricalParameterRange</span></a></span></span><span> </span><span id="local-6989586621680297182"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297182"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680297181"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680297181"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#newCategoricalParameterRange"><span class="hs-identifier hs-var hs-var">newCategoricalParameterRange</span></a></span></span><span> </span><span id="local-6989586621680297191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680297191"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680297190"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621680297190"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">CategoricalParameterRange' :: Text -&gt; NonEmpty Text -&gt; CategoricalParameterRange
 </span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CategoricalParameterRange' :: Text
 </span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#%24sel%3Aname%3ACategoricalParameterRange%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297182"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680297191"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:CategoricalParameterRange' :: NonEmpty Text
 </span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#%24sel%3Avalues%3ACategoricalParameterRange%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -130,7 +130,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680297181"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
+</span><a href="#local-6989586621680297190"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The name of the categorical hyperparameter to tune.</span><span>
@@ -142,16 +142,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      CategoricalParameterRange CategoricalParameterRange Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297175"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297184"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CategoricalParameterRange' :: CategoricalParameterRange -&gt; Text
-</span><a href="#local-6989586621680297175"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297175"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680297174"><span class="annot"><span class="annottext">s :: CategoricalParameterRange
-</span><a href="#local-6989586621680297174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680297173"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CategoricalParameterRange
-</span><a href="#local-6989586621680297174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CategoricalParameterRange' :: Text
+</span><a href="#local-6989586621680297184"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680297184"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680297183"><span class="annot"><span class="annottext">s :: CategoricalParameterRange
+</span><a href="#local-6989586621680297183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680297182"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680297182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CategoricalParameterRange
+</span><a href="#local-6989586621680297183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CategoricalParameterRange' :: Text
 </span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#%24sel%3Aname%3ACategoricalParameterRange%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680297182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | A list of the categories for the hyperparameter.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#categoricalParameterRange_values"><span class="hs-identifier hs-type">categoricalParameterRange_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -166,16 +166,16 @@ $sel:name:CategoricalParameterRange' :: CategoricalParameterRange -&gt; Text
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297171"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297180"><span class="annot"><span class="annottext">NonEmpty Text
 values :: NonEmpty Text
 $sel:values:CategoricalParameterRange' :: CategoricalParameterRange -&gt; NonEmpty Text
-</span><a href="#local-6989586621680297171"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680297171"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680297170"><span class="annot"><span class="annottext">s :: CategoricalParameterRange
-</span><a href="#local-6989586621680297170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680297169"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680297169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CategoricalParameterRange
-</span><a href="#local-6989586621680297170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:CategoricalParameterRange' :: NonEmpty Text
+</span><a href="#local-6989586621680297180"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621680297180"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680297179"><span class="annot"><span class="annottext">s :: CategoricalParameterRange
+</span><a href="#local-6989586621680297179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680297178"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621680297178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CategoricalParameterRange
+</span><a href="#local-6989586621680297179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:CategoricalParameterRange' :: NonEmpty Text
 </span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#%24sel%3Avalues%3ACategoricalParameterRange%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680297169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621680297178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; CategoricalParameterRange -&gt; f CategoricalParameterRange)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -188,8 +188,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297165"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621680297163"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CategoricalParameterRange
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297174"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621680297172"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CategoricalParameterRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CategoricalParameterRange)
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CategoricalParameterRange&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680297160"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680297160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680297169"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680297169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; CategoricalParameterRange
 </span><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-var">CategoricalParameterRange'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; NonEmpty Text -&gt; CategoricalParameterRange)
@@ -208,32 +208,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (NonEmpty Text -&gt; CategoricalParameterRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680297160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680297169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (NonEmpty Text -&gt; CategoricalParameterRange)
 -&gt; Parser (NonEmpty Text) -&gt; Parser CategoricalParameterRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680297160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621680297169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297154"><span id="local-6989586621680297156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297163"><span id="local-6989586621680297165"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297143"><span id="local-6989586621680297145"><span id="local-6989586621680297147"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621680297141"><span class="annot"><span class="annottext">toJSON :: CategoricalParameterRange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297138"><span id="local-6989586621680297139"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680297152"><span id="local-6989586621680297154"><span id="local-6989586621680297156"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange"><span class="hs-identifier hs-type">CategoricalParameterRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621680297150"><span class="annot"><span class="annottext">toJSON :: CategoricalParameterRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CategoricalParameterRange.html#CategoricalParameterRange%27"><span class="hs-identifier hs-type">CategoricalParameterRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680297147"><span id="local-6989586621680297148"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 values :: NonEmpty Text
 name :: Text
 $sel:values:CategoricalParameterRange' :: CategoricalParameterRange -&gt; NonEmpty Text
 $sel:name:CategoricalParameterRange' :: CategoricalParameterRange -&gt; Text
-</span><a href="#local-6989586621680297138"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680297147"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,14 +245,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680297139"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680297148"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621680297138"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680297147"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEvents.Types.Event</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEvents.Types.Event</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.Action</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specifies the @actions@ to be performed when the @condition@ evaluates</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- to TRUE.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEvent' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679246143"><span id="local-6989586621679246144"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The actions to be performed.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aactions%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe [Action]
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#%24sel%3Aactions%3AEvent%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Optional. The Boolean expression that, when TRUE, causes the @actions@</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- to be performed. If not present, the actions are performed (=TRUE). If</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the expression result is not a Boolean value, the actions are not</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- performed (=FALSE).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Acondition%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#%24sel%3Acondition%3AEvent%27"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the event.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AeventName%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Text
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#%24sel%3AeventName%3AEvent%27"><span class="hs-identifier hs-var hs-var">eventName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246135"><span id="local-6989586621679246137"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
+(Event -&gt; Event -&gt; Bool) -&gt; (Event -&gt; Event -&gt; Bool) -&gt; Eq Event
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Event -&gt; Event -&gt; Bool
+$c/= :: Event -&gt; Event -&gt; Bool
+== :: Event -&gt; Event -&gt; Bool
+$c== :: Event -&gt; Event -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246126"><span id="local-6989586621679246128"><span id="local-6989586621679246130"><span id="local-6989586621679246132"><span class="annot"><span class="annottext">ReadPrec [Event]
+ReadPrec Event
+Int -&gt; ReadS Event
+ReadS [Event]
+(Int -&gt; ReadS Event)
+-&gt; ReadS [Event]
+-&gt; ReadPrec Event
+-&gt; ReadPrec [Event]
+-&gt; Read Event
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Event]
+$creadListPrec :: ReadPrec [Event]
+readPrec :: ReadPrec Event
+$creadPrec :: ReadPrec Event
+readList :: ReadS [Event]
+$creadList :: ReadS [Event]
+readsPrec :: Int -&gt; ReadS Event
+$creadsPrec :: Int -&gt; ReadS Event
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246119"><span id="local-6989586621679246121"><span id="local-6989586621679246123"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
+[Event] -&gt; ShowS
+Event -&gt; String
+(Int -&gt; Event -&gt; ShowS)
+-&gt; (Event -&gt; String) -&gt; ([Event] -&gt; ShowS) -&gt; Show Event
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Event] -&gt; ShowS
+$cshowList :: [Event] -&gt; ShowS
+show :: Event -&gt; String
+$cshow :: Event -&gt; String
+showsPrec :: Int -&gt; Event -&gt; ShowS
+$cshowsPrec :: Int -&gt; Event -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Event -&gt; Rep Event x)
+-&gt; (forall x. Rep Event x -&gt; Event) -&gt; Generic Event
+forall x. Rep Event x -&gt; Event
+forall x. Event -&gt; Rep Event x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Event x -&gt; Event
+$cfrom :: forall x. Event -&gt; Rep Event x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'Event' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'actions', 'event_actions' - The actions to be performed.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'condition', 'event_condition' - Optional. The Boolean expression that, when TRUE, causes the @actions@</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- to be performed. If not present, the actions are performed (=TRUE). If</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- the expression result is not a Boolean value, the actions are not</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- performed (=FALSE).</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'eventName', 'event_eventName' - The name of the event.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#newEvent"><span class="hs-identifier hs-type">newEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'eventName'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span>
+</span><span id="line-64"></span><span id="newEvent"><span class="annot"><span class="annottext">newEvent :: Text -&gt; Event
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#newEvent"><span class="hs-identifier hs-var hs-var">newEvent</span></a></span></span><span> </span><span id="local-6989586621679246113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246113"><span class="hs-identifier hs-var">pEventName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">Event' :: Maybe [Action] -&gt; Maybe Text -&gt; Text -&gt; Event
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actions:Event' :: Maybe [Action]
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#%24sel%3Aactions%3AEvent%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:condition:Event' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#%24sel%3Acondition%3AEvent%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventName:Event' :: Text
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#%24sel%3AeventName%3AEvent%27"><span class="hs-identifier hs-var">eventName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246113"><span class="hs-identifier hs-var">pEventName_</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The actions to be performed.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#event_actions"><span class="hs-identifier hs-type">event_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="event_actions"><span class="annot"><span class="annottext">event_actions :: (Maybe [Action] -&gt; f (Maybe [Action])) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#event_actions"><span class="hs-identifier hs-var hs-var">event_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe [Action])
+-&gt; (Event -&gt; Maybe [Action] -&gt; Event)
+-&gt; Lens Event Event (Maybe [Action]) (Maybe [Action])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246109"><span class="annot"><span class="annottext">Maybe [Action]
+actions :: Maybe [Action]
+$sel:actions:Event' :: Event -&gt; Maybe [Action]
+</span><a href="#local-6989586621679246109"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679246109"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246108"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679246108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246107"><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679246107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679246108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:Event' :: Maybe [Action]
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#%24sel%3Aactions%3AEvent%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679246107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Action] -&gt; f (Maybe [Action])) -&gt; Event -&gt; f Event)
+-&gt; ((Maybe [Action] -&gt; f (Maybe [Action]))
+    -&gt; Maybe [Action] -&gt; f (Maybe [Action]))
+-&gt; (Maybe [Action] -&gt; f (Maybe [Action]))
+-&gt; Event
+-&gt; f Event
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Action] [Action] [Action] [Action]
+-&gt; Iso
+     (Maybe [Action]) (Maybe [Action]) (Maybe [Action]) (Maybe [Action])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Action] [Action] [Action] [Action]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Optional. The Boolean expression that, when TRUE, causes the @actions@</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- to be performed. If not present, the actions are performed (=TRUE). If</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the expression result is not a Boolean value, the actions are not</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- performed (=FALSE).</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#event_condition"><span class="hs-identifier hs-type">event_condition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="event_condition"><span class="annot"><span class="annottext">event_condition :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#event_condition"><span class="hs-identifier hs-var hs-var">event_condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
+-&gt; (Event -&gt; Maybe Text -&gt; Event)
+-&gt; Lens Event Event (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246102"><span class="annot"><span class="annottext">Maybe Text
+condition :: Maybe Text
+$sel:condition:Event' :: Event -&gt; Maybe Text
+</span><a href="#local-6989586621679246102"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246102"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246101"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679246101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246100"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679246101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:Event' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#%24sel%3Acondition%3AEvent%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the event.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#event_eventName"><span class="hs-identifier hs-type">event_eventName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="event_eventName"><span class="annot"><span class="annottext">event_eventName :: (Text -&gt; f Text) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#event_eventName"><span class="hs-identifier hs-var hs-var">event_eventName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Text)
+-&gt; (Event -&gt; Text -&gt; Event) -&gt; Lens Event Event Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246098"><span class="annot"><span class="annottext">Text
+eventName :: Text
+$sel:eventName:Event' :: Event -&gt; Text
+</span><a href="#local-6989586621679246098"><span class="hs-identifier hs-var hs-var">eventName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246098"><span class="hs-identifier hs-var">eventName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246097"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679246097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246096"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679246097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventName:Event' :: Text
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#%24sel%3AeventName%3AEvent%27"><span class="hs-identifier hs-var">eventName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246093"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679246091"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Event
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Event) -&gt; Value -&gt; Parser Event
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Event&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246088"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Action] -&gt; Maybe Text -&gt; Text -&gt; Event
+</span><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Action] -&gt; Maybe Text -&gt; Text -&gt; Event)
+-&gt; Parser (Maybe [Action]) -&gt; Parser (Maybe Text -&gt; Text -&gt; Event)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Action]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Action]))
+-&gt; Maybe [Action] -&gt; Parser (Maybe [Action])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Event)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Event)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;condition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Event) -&gt; Parser Text -&gt; Parser Event
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246080"><span id="local-6989586621679246082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246069"><span id="local-6989586621679246071"><span id="local-6989586621679246073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679246067"><span class="annot"><span class="annottext">toJSON :: Event -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246063"><span id="local-6989586621679246064"><span id="local-6989586621679246065"><span class="annot"><span class="annottext">Maybe [Action]
+Maybe Text
+Text
+eventName :: Text
+condition :: Maybe Text
+actions :: Maybe [Action]
+$sel:eventName:Event' :: Event -&gt; Text
+$sel:condition:Event' :: Event -&gt; Maybe Text
+$sel:actions:Event' :: Event -&gt; Maybe [Action]
+</span><a href="#local-6989586621679246063"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Action] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Action] -&gt; Pair) -&gt; Maybe [Action] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Action]
+</span><a href="#local-6989586621679246065"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;condition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246064"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246063"><span class="hs-identifier hs-var">eventName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span></pre></body></html>

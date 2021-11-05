@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- bucket where you want to store the results of this request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newS3OutputUrl' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679814610"><span id="local-6989586621679814611"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3OutputUrl"><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-var">S3OutputUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3OutputUrl%27"><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl%27"><span class="hs-identifier hs-var">S3OutputUrl'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679814619"><span id="local-6989586621679814620"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3OutputUrl"><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-var">S3OutputUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3OutputUrl%27"><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl%27"><span class="hs-identifier hs-var">S3OutputUrl'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A URL for an S3 bucket where you want to store the results of this</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AoutputUrl%3AS3OutputUrl%27"><span class="annot"><span class="annottext">S3OutputUrl -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.S3OutputUrl.html#%24sel%3AoutputUrl%3AS3OutputUrl%27"><span class="hs-identifier hs-var hs-var">outputUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814604"><span id="local-6989586621679814606"><span class="annot"><span class="annottext">S3OutputUrl -&gt; S3OutputUrl -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814613"><span id="local-6989586621679814615"><span class="annot"><span class="annottext">S3OutputUrl -&gt; S3OutputUrl -&gt; Bool
 (S3OutputUrl -&gt; S3OutputUrl -&gt; Bool)
 -&gt; (S3OutputUrl -&gt; S3OutputUrl -&gt; Bool) -&gt; Eq S3OutputUrl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3OutputUrl -&gt; S3OutputUrl -&gt; Bool
 == :: S3OutputUrl -&gt; S3OutputUrl -&gt; Bool
 $c== :: S3OutputUrl -&gt; S3OutputUrl -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814595"><span id="local-6989586621679814597"><span id="local-6989586621679814599"><span id="local-6989586621679814601"><span class="annot"><span class="annottext">ReadPrec [S3OutputUrl]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814604"><span id="local-6989586621679814606"><span id="local-6989586621679814608"><span id="local-6989586621679814610"><span class="annot"><span class="annottext">ReadPrec [S3OutputUrl]
 ReadPrec S3OutputUrl
 Int -&gt; ReadS S3OutputUrl
 ReadS [S3OutputUrl]
@@ -61,7 +61,7 @@ readList :: ReadS [S3OutputUrl]
 $creadList :: ReadS [S3OutputUrl]
 readsPrec :: Int -&gt; ReadS S3OutputUrl
 $creadsPrec :: Int -&gt; ReadS S3OutputUrl
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814588"><span id="local-6989586621679814590"><span id="local-6989586621679814592"><span class="annot"><span class="annottext">Int -&gt; S3OutputUrl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814597"><span id="local-6989586621679814599"><span id="local-6989586621679814601"><span class="annot"><span class="annottext">Int -&gt; S3OutputUrl -&gt; ShowS
 [S3OutputUrl] -&gt; ShowS
 S3OutputUrl -&gt; String
 (Int -&gt; S3OutputUrl -&gt; ShowS)
@@ -115,19 +115,19 @@ forall a. Maybe a
 -&gt; (S3OutputUrl -&gt; Maybe Text -&gt; S3OutputUrl)
 -&gt; Lens S3OutputUrl S3OutputUrl (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl%27"><span class="hs-identifier hs-type">S3OutputUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814579"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl%27"><span class="hs-identifier hs-type">S3OutputUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814588"><span class="annot"><span class="annottext">Maybe Text
 outputUrl :: Maybe Text
 $sel:outputUrl:S3OutputUrl' :: S3OutputUrl -&gt; Maybe Text
-</span><a href="#local-6989586621679814579"><span class="hs-identifier hs-var hs-var">outputUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814579"><span class="hs-identifier hs-var">outputUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814578"><span class="annot"><span class="annottext">s :: S3OutputUrl
-</span><a href="#local-6989586621679814578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl%27"><span class="hs-identifier hs-type">S3OutputUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814577"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3OutputUrl
-</span><a href="#local-6989586621679814578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputUrl:S3OutputUrl' :: Maybe Text
+</span><a href="#local-6989586621679814588"><span class="hs-identifier hs-var hs-var">outputUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814588"><span class="hs-identifier hs-var">outputUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814587"><span class="annot"><span class="annottext">s :: S3OutputUrl
+</span><a href="#local-6989586621679814587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl%27"><span class="hs-identifier hs-type">S3OutputUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814586"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3OutputUrl
+</span><a href="#local-6989586621679814587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputUrl:S3OutputUrl' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.S3OutputUrl.html#%24sel%3AoutputUrl%3AS3OutputUrl%27"><span class="hs-identifier hs-var">outputUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-type">S3OutputUrl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-type">S3OutputUrl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814574"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-type">S3OutputUrl</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679814572"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3OutputUrl
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814583"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-type">S3OutputUrl</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679814581"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3OutputUrl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3OutputUrl) -&gt; Value -&gt; Parser S3OutputUrl
@@ -135,20 +135,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3OutputUrl&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814569"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814578"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; S3OutputUrl
 </span><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl%27"><span class="hs-identifier hs-var">S3OutputUrl'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; S3OutputUrl)
 -&gt; Parser (Maybe Text) -&gt; Parser S3OutputUrl
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814563"><span id="local-6989586621679814565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-type">S3OutputUrl</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814572"><span id="local-6989586621679814574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-type">S3OutputUrl</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-type">S3OutputUrl</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-type">S3OutputUrl</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

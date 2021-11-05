@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.ListSchemas</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the list of schemas associated with the account. The response</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- provides the properties for each schema, including the Amazon Resource</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Name (ARN). For more information on schemas, see CreateSchema.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.ListSchemas</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#newListSchemas"><span class="hs-identifier">newListSchemas</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemas_nextToken"><span class="hs-identifier">listSchemas_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemas_maxResults"><span class="hs-identifier">listSchemas_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier">ListSchemasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#newListSchemasResponse"><span class="hs-identifier">newListSchemasResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_schemas"><span class="hs-identifier">listSchemasResponse_schemas</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier">listSchemasResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_httpStatus"><span class="hs-identifier">listSchemasResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.html"><span class="hs-identifier">Network.AWS.Personalize.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListSchemas' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679276333"><span id="local-6989586621679276334"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSchemas"><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-var">ListSchemas</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSchemas%27"><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-var">ListSchemas'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token returned from the previous call to @ListSchemas@ for getting the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- next set of schemas (if they exist).</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AnextToken%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of schemas to return.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListSchemas%27"><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe Natural
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AmaxResults%3AListSchemas%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276326"><span id="local-6989586621679276328"><span class="annot"><span class="annottext">ListSchemas -&gt; ListSchemas -&gt; Bool
+(ListSchemas -&gt; ListSchemas -&gt; Bool)
+-&gt; (ListSchemas -&gt; ListSchemas -&gt; Bool) -&gt; Eq ListSchemas
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSchemas -&gt; ListSchemas -&gt; Bool
+$c/= :: ListSchemas -&gt; ListSchemas -&gt; Bool
+== :: ListSchemas -&gt; ListSchemas -&gt; Bool
+$c== :: ListSchemas -&gt; ListSchemas -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276317"><span id="local-6989586621679276319"><span id="local-6989586621679276321"><span id="local-6989586621679276323"><span class="annot"><span class="annottext">ReadPrec [ListSchemas]
+ReadPrec ListSchemas
+Int -&gt; ReadS ListSchemas
+ReadS [ListSchemas]
+(Int -&gt; ReadS ListSchemas)
+-&gt; ReadS [ListSchemas]
+-&gt; ReadPrec ListSchemas
+-&gt; ReadPrec [ListSchemas]
+-&gt; Read ListSchemas
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSchemas]
+$creadListPrec :: ReadPrec [ListSchemas]
+readPrec :: ReadPrec ListSchemas
+$creadPrec :: ReadPrec ListSchemas
+readList :: ReadS [ListSchemas]
+$creadList :: ReadS [ListSchemas]
+readsPrec :: Int -&gt; ReadS ListSchemas
+$creadsPrec :: Int -&gt; ReadS ListSchemas
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276310"><span id="local-6989586621679276312"><span id="local-6989586621679276314"><span class="annot"><span class="annottext">Int -&gt; ListSchemas -&gt; ShowS
+[ListSchemas] -&gt; ShowS
+ListSchemas -&gt; String
+(Int -&gt; ListSchemas -&gt; ShowS)
+-&gt; (ListSchemas -&gt; String)
+-&gt; ([ListSchemas] -&gt; ShowS)
+-&gt; Show ListSchemas
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSchemas] -&gt; ShowS
+$cshowList :: [ListSchemas] -&gt; ShowS
+show :: ListSchemas -&gt; String
+$cshow :: ListSchemas -&gt; String
+showsPrec :: Int -&gt; ListSchemas -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSchemas -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListSchemas -&gt; Rep ListSchemas x)
+-&gt; (forall x. Rep ListSchemas x -&gt; ListSchemas)
+-&gt; Generic ListSchemas
+forall x. Rep ListSchemas x -&gt; ListSchemas
+forall x. ListSchemas -&gt; Rep ListSchemas x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListSchemas x -&gt; ListSchemas
+$cfrom :: forall x. ListSchemas -&gt; Rep ListSchemas x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ListSchemas' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nextToken', 'listSchemas_nextToken' - A token returned from the previous call to @ListSchemas@ for getting the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- next set of schemas (if they exist).</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listSchemas_maxResults' - The maximum number of schemas to return.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#newListSchemas"><span class="hs-identifier hs-type">newListSchemas</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span>
+</span><span id="line-79"></span><span id="newListSchemas"><span class="annot"><span class="annottext">newListSchemas :: ListSchemas
+</span><a href="Network.AWS.Personalize.ListSchemas.html#newListSchemas"><span class="hs-identifier hs-var hs-var">newListSchemas</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListSchemas' :: Maybe Text -&gt; Maybe Natural -&gt; ListSchemas
+</span><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListSchemas' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AnextToken%3AListSchemas%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListSchemas' :: Maybe Natural
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AmaxResults%3AListSchemas%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | A token returned from the previous call to @ListSchemas@ for getting the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- next set of schemas (if they exist).</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemas_nextToken"><span class="hs-identifier hs-type">listSchemas_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="listSchemas_nextToken"><span class="annot"><span class="annottext">listSchemas_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Network.AWS.Personalize.ListSchemas.html#listSchemas_nextToken"><span class="hs-identifier hs-var hs-var">listSchemas_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe Text)
+-&gt; (ListSchemas -&gt; Maybe Text -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276304"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSchemas' :: ListSchemas -&gt; Maybe Text
+</span><a href="#local-6989586621679276304"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276304"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276303"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679276303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276302"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679276303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSchemas' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AnextToken%3AListSchemas%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The maximum number of schemas to return.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemas_maxResults"><span class="hs-identifier hs-type">listSchemas_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="listSchemas_maxResults"><span class="annot"><span class="annottext">listSchemas_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListSchemas -&gt; f ListSchemas
+</span><a href="Network.AWS.Personalize.ListSchemas.html#listSchemas_maxResults"><span class="hs-identifier hs-var hs-var">listSchemas_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe Natural)
+-&gt; (ListSchemas -&gt; Maybe Natural -&gt; ListSchemas)
+-&gt; Lens ListSchemas ListSchemas (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276301"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListSchemas' :: ListSchemas -&gt; Maybe Natural
+</span><a href="#local-6989586621679276301"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679276301"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276300"><span class="annot"><span class="annottext">s :: ListSchemas
+</span><a href="#local-6989586621679276300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276299"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679276299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679276300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListSchemas' :: Maybe Natural
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AmaxResults%3AListSchemas%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679276299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679276295"><span class="annot"><span class="annottext">page :: ListSchemas -&gt; AWSResponse ListSchemas -&gt; Maybe ListSchemas
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679276293"><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679276293"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679276292"><span class="annot"><span class="annottext">AWSResponse ListSchemas
+</span><a href="#local-6989586621679276292"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-97"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSchemas
+ListSchemasResponse
+</span><a href="#local-6989586621679276292"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">ListSchemasResponse
+-&gt; Getting (First Text) ListSchemasResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListSchemasResponse -&gt; Const (First Text) ListSchemasResponse
+Lens' ListSchemasResponse (Maybe Text)
+</span><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier hs-var">listSchemasResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListSchemasResponse -&gt; Const (First Text) ListSchemasResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListSchemasResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-99"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListSchemas
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSchemaSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSchemas
+ListSchemasResponse
+</span><a href="#local-6989586621679276292"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ListSchemasResponse
+-&gt; Getting
+     (First [DatasetSchemaSummary])
+     ListSchemasResponse
+     [DatasetSchemaSummary]
+-&gt; Maybe [DatasetSchemaSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [DatasetSchemaSummary]
+ -&gt; Const
+      (First [DatasetSchemaSummary]) (Maybe [DatasetSchemaSummary]))
+-&gt; ListSchemasResponse
+-&gt; Const (First [DatasetSchemaSummary]) ListSchemasResponse
+Lens' ListSchemasResponse (Maybe [DatasetSchemaSummary])
+</span><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_schemas"><span class="hs-identifier hs-var">listSchemasResponse_schemas</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [DatasetSchemaSummary]
+  -&gt; Const
+       (First [DatasetSchemaSummary]) (Maybe [DatasetSchemaSummary]))
+ -&gt; ListSchemasResponse
+ -&gt; Const (First [DatasetSchemaSummary]) ListSchemasResponse)
+-&gt; (([DatasetSchemaSummary]
+     -&gt; Const (First [DatasetSchemaSummary]) [DatasetSchemaSummary])
+    -&gt; Maybe [DatasetSchemaSummary]
+    -&gt; Const
+         (First [DatasetSchemaSummary]) (Maybe [DatasetSchemaSummary]))
+-&gt; Getting
+     (First [DatasetSchemaSummary])
+     ListSchemasResponse
+     [DatasetSchemaSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DatasetSchemaSummary]
+ -&gt; Const (First [DatasetSchemaSummary]) [DatasetSchemaSummary])
+-&gt; Maybe [DatasetSchemaSummary]
+-&gt; Const
+     (First [DatasetSchemaSummary]) (Maybe [DatasetSchemaSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListSchemas
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">ListSchemas -&gt; Maybe ListSchemas
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListSchemas -&gt; Maybe ListSchemas)
+-&gt; ListSchemas -&gt; Maybe ListSchemas
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">ListSchemas
+</span><a href="#local-6989586621679276293"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">ListSchemas -&gt; (ListSchemas -&gt; ListSchemas) -&gt; ListSchemas
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListSchemas -&gt; Identity ListSchemas
+Lens ListSchemas ListSchemas (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.Personalize.ListSchemas.html#listSchemas_nextToken"><span class="hs-identifier hs-var">listSchemas_nextToken</span></a></span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListSchemas -&gt; Identity ListSchemas)
+-&gt; Maybe Text -&gt; ListSchemas -&gt; ListSchemas
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListSchemas
+ListSchemasResponse
+</span><a href="#local-6989586621679276292"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ListSchemasResponse
+-&gt; Getting (First Text) ListSchemasResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListSchemasResponse -&gt; Const (First Text) ListSchemasResponse
+Lens' ListSchemasResponse (Maybe Text)
+</span><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier hs-var">listSchemasResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListSchemasResponse -&gt; Const (First Text) ListSchemasResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListSchemasResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679276282"><span class="annot"><span class="annottext">request :: ListSchemas -&gt; Request ListSchemas
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSchemas -&gt; Request ListSchemas
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Personalize.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679276278"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListSchemas
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSchemas)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListSchemas))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListSchemas
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListSchemas)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276275"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276275"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679276274"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679276274"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679276273"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276273"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DatasetSchemaSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListSchemasResponse
+</span><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-var">ListSchemasResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DatasetSchemaSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListSchemasResponse)
+-&gt; Either String (Maybe [DatasetSchemaSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListSchemasResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [DatasetSchemaSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;schemas&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DatasetSchemaSummary]))
+-&gt; Maybe [DatasetSchemaSummary]
+-&gt; Either String (Maybe [DatasetSchemaSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSchemaSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListSchemasResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListSchemasResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListSchemasResponse)
+-&gt; Either String Int -&gt; Either String ListSchemasResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276275"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276264"><span id="local-6989586621679276266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679276257"><span class="annot"><span class="annottext">toHeaders :: ListSchemas -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSchemas -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonPersonalize.ListSchemas&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276247"><span id="local-6989586621679276249"><span id="local-6989586621679276251"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679276245"><span class="annot"><span class="annottext">toJSON :: ListSchemas -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas%27"><span class="hs-identifier hs-type">ListSchemas'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276242"><span id="local-6989586621679276243"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListSchemas' :: ListSchemas -&gt; Maybe Natural
+$sel:nextToken:ListSchemas' :: ListSchemas -&gt; Maybe Text
+</span><a href="#local-6989586621679276242"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276243"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679276242"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679276236"><span class="annot"><span class="annottext">toPath :: ListSchemas -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListSchemas -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemas"><span class="hs-identifier hs-type">ListSchemas</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679276232"><span class="annot"><span class="annottext">toQuery :: ListSchemas -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListSchemas -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newListSchemasResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679276229"><span id="local-6989586621679276230"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSchemasResponse"><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-var">ListSchemasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSchemasResponse%27"><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-var">ListSchemasResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of schemas.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3Aschemas%3AListSchemasResponse%27"><span class="annot"><span class="annottext">ListSchemasResponse -&gt; Maybe [DatasetSchemaSummary]
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3Aschemas%3AListSchemasResponse%27"><span class="hs-identifier hs-var hs-var">schemas</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetSchemaSummary.html#DatasetSchemaSummary"><span class="hs-identifier hs-type">DatasetSchemaSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | A token used to get the next set of schemas (if they exist).</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AnextToken%3AListSchemasResponse%27"><span class="annot"><span class="annottext">ListSchemasResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AnextToken%3AListSchemasResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSchemasResponse%27"><span class="annot"><span class="annottext">ListSchemasResponse -&gt; Int
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AhttpStatus%3AListSchemasResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276222"><span id="local-6989586621679276224"><span class="annot"><span class="annottext">ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+(ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool)
+-&gt; (ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool)
+-&gt; Eq ListSchemasResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+$c/= :: ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+== :: ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+$c== :: ListSchemasResponse -&gt; ListSchemasResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276214"><span id="local-6989586621679276216"><span id="local-6989586621679276218"><span id="local-6989586621679276220"><span class="annot"><span class="annottext">ReadPrec [ListSchemasResponse]
+ReadPrec ListSchemasResponse
+Int -&gt; ReadS ListSchemasResponse
+ReadS [ListSchemasResponse]
+(Int -&gt; ReadS ListSchemasResponse)
+-&gt; ReadS [ListSchemasResponse]
+-&gt; ReadPrec ListSchemasResponse
+-&gt; ReadPrec [ListSchemasResponse]
+-&gt; Read ListSchemasResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListSchemasResponse]
+$creadListPrec :: ReadPrec [ListSchemasResponse]
+readPrec :: ReadPrec ListSchemasResponse
+$creadPrec :: ReadPrec ListSchemasResponse
+readList :: ReadS [ListSchemasResponse]
+$creadList :: ReadS [ListSchemasResponse]
+readsPrec :: Int -&gt; ReadS ListSchemasResponse
+$creadsPrec :: Int -&gt; ReadS ListSchemasResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276208"><span id="local-6989586621679276210"><span id="local-6989586621679276212"><span class="annot"><span class="annottext">Int -&gt; ListSchemasResponse -&gt; ShowS
+[ListSchemasResponse] -&gt; ShowS
+ListSchemasResponse -&gt; String
+(Int -&gt; ListSchemasResponse -&gt; ShowS)
+-&gt; (ListSchemasResponse -&gt; String)
+-&gt; ([ListSchemasResponse] -&gt; ShowS)
+-&gt; Show ListSchemasResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListSchemasResponse] -&gt; ShowS
+$cshowList :: [ListSchemasResponse] -&gt; ShowS
+show :: ListSchemasResponse -&gt; String
+$cshow :: ListSchemasResponse -&gt; String
+showsPrec :: Int -&gt; ListSchemasResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListSchemasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListSchemasResponse -&gt; Rep ListSchemasResponse x)
+-&gt; (forall x. Rep ListSchemasResponse x -&gt; ListSchemasResponse)
+-&gt; Generic ListSchemasResponse
+forall x. Rep ListSchemasResponse x -&gt; ListSchemasResponse
+forall x. ListSchemasResponse -&gt; Rep ListSchemasResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListSchemasResponse x -&gt; ListSchemasResponse
+$cfrom :: forall x. ListSchemasResponse -&gt; Rep ListSchemasResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'ListSchemasResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'schemas', 'listSchemasResponse_schemas' - A list of schemas.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'nextToken', 'listSchemasResponse_nextToken' - A token used to get the next set of schemas (if they exist).</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'listSchemasResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#newListSchemasResponse"><span class="hs-identifier hs-type">newListSchemasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span>
+</span><span id="line-187"></span><span id="newListSchemasResponse"><span class="annot"><span class="annottext">newListSchemasResponse :: Int -&gt; ListSchemasResponse
+</span><a href="Network.AWS.Personalize.ListSchemas.html#newListSchemasResponse"><span class="hs-identifier hs-var hs-var">newListSchemasResponse</span></a></span></span><span> </span><span id="local-6989586621679276205"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276205"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">ListSchemasResponse' :: Maybe [DatasetSchemaSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListSchemasResponse
+</span><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemas:ListSchemasResponse' :: Maybe [DatasetSchemaSummary]
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3Aschemas%3AListSchemasResponse%27"><span class="hs-identifier hs-var">schemas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSchemaSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListSchemasResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AnextToken%3AListSchemasResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSchemasResponse' :: Int
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AhttpStatus%3AListSchemasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276205"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | A list of schemas.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_schemas"><span class="hs-identifier hs-type">listSchemasResponse_schemas</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetSchemaSummary.html#DatasetSchemaSummary"><span class="hs-identifier hs-type">DatasetSchemaSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="listSchemasResponse_schemas"><span class="annot"><span class="annottext">listSchemasResponse_schemas :: (Maybe [DatasetSchemaSummary] -&gt; f (Maybe [DatasetSchemaSummary]))
+-&gt; ListSchemasResponse -&gt; f ListSchemasResponse
+</span><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_schemas"><span class="hs-identifier hs-var hs-var">listSchemasResponse_schemas</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemasResponse -&gt; Maybe [DatasetSchemaSummary])
+-&gt; (ListSchemasResponse
+    -&gt; Maybe [DatasetSchemaSummary] -&gt; ListSchemasResponse)
+-&gt; Lens' ListSchemasResponse (Maybe [DatasetSchemaSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276204"><span class="annot"><span class="annottext">Maybe [DatasetSchemaSummary]
+schemas :: Maybe [DatasetSchemaSummary]
+$sel:schemas:ListSchemasResponse' :: ListSchemasResponse -&gt; Maybe [DatasetSchemaSummary]
+</span><a href="#local-6989586621679276204"><span class="hs-identifier hs-var hs-var">schemas</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSchemaSummary]
+</span><a href="#local-6989586621679276204"><span class="hs-identifier hs-var">schemas</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276203"><span class="annot"><span class="annottext">s :: ListSchemasResponse
+</span><a href="#local-6989586621679276203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276202"><span class="annot"><span class="annottext">Maybe [DatasetSchemaSummary]
+</span><a href="#local-6989586621679276202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemasResponse
+</span><a href="#local-6989586621679276203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemas:ListSchemasResponse' :: Maybe [DatasetSchemaSummary]
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3Aschemas%3AListSchemasResponse%27"><span class="hs-identifier hs-var">schemas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetSchemaSummary]
+</span><a href="#local-6989586621679276202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatasetSchemaSummary] -&gt; f (Maybe [DatasetSchemaSummary]))
+ -&gt; ListSchemasResponse -&gt; f ListSchemasResponse)
+-&gt; ((Maybe [DatasetSchemaSummary]
+     -&gt; f (Maybe [DatasetSchemaSummary]))
+    -&gt; Maybe [DatasetSchemaSummary]
+    -&gt; f (Maybe [DatasetSchemaSummary]))
+-&gt; (Maybe [DatasetSchemaSummary]
+    -&gt; f (Maybe [DatasetSchemaSummary]))
+-&gt; ListSchemasResponse
+-&gt; f ListSchemasResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DatasetSchemaSummary]
+  [DatasetSchemaSummary]
+  [DatasetSchemaSummary]
+  [DatasetSchemaSummary]
+-&gt; Iso
+     (Maybe [DatasetSchemaSummary])
+     (Maybe [DatasetSchemaSummary])
+     (Maybe [DatasetSchemaSummary])
+     (Maybe [DatasetSchemaSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DatasetSchemaSummary]
+  [DatasetSchemaSummary]
+  [DatasetSchemaSummary]
+  [DatasetSchemaSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | A token used to get the next set of schemas (if they exist).</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier hs-type">listSchemasResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="listSchemasResponse_nextToken"><span class="annot"><span class="annottext">listSchemasResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListSchemasResponse -&gt; f ListSchemasResponse
+</span><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_nextToken"><span class="hs-identifier hs-var hs-var">listSchemasResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemasResponse -&gt; Maybe Text)
+-&gt; (ListSchemasResponse -&gt; Maybe Text -&gt; ListSchemasResponse)
+-&gt; Lens' ListSchemasResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276199"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSchemasResponse' :: ListSchemasResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679276199"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276199"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276198"><span class="annot"><span class="annottext">s :: ListSchemasResponse
+</span><a href="#local-6989586621679276198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276197"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemasResponse
+</span><a href="#local-6989586621679276198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSchemasResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AnextToken%3AListSchemasResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_httpStatus"><span class="hs-identifier hs-type">listSchemasResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="listSchemasResponse_httpStatus"><span class="annot"><span class="annottext">listSchemasResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListSchemasResponse -&gt; f ListSchemasResponse
+</span><a href="Network.AWS.Personalize.ListSchemas.html#listSchemasResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listSchemasResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSchemasResponse -&gt; Int)
+-&gt; (ListSchemasResponse -&gt; Int -&gt; ListSchemasResponse)
+-&gt; Lens ListSchemasResponse ListSchemasResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276196"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListSchemasResponse' :: ListSchemasResponse -&gt; Int
+</span><a href="#local-6989586621679276196"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276196"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276195"><span class="annot"><span class="annottext">s :: ListSchemasResponse
+</span><a href="#local-6989586621679276195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse%27"><span class="hs-identifier hs-type">ListSchemasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276194"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSchemasResponse
+</span><a href="#local-6989586621679276195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSchemasResponse' :: Int
+</span><a href="Network.AWS.Personalize.ListSchemas.html#%24sel%3AhttpStatus%3AListSchemasResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.ListSchemas.html#ListSchemasResponse"><span class="hs-identifier hs-type">ListSchemasResponse</span></a></span></span><span>
+</span><span id="line-207"></span></pre></body></html>

@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- your inputs can have up to one video selector.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newVideoSelector' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621680013652"><span id="local-6989586621680013653"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoSelector"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-var">VideoSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelector%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-var">VideoSelector'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680013661"><span id="local-6989586621680013662"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoSelector"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-var">VideoSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelector%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-var">VideoSelector'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Selects a specific program from within a multi-program transport stream.</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Note that Quad 4K is not currently supported.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AprogramNumber%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe Int
@@ -117,7 +117,7 @@
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AsampleRange%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe InputSampleRange
 </span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AsampleRange%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">sampleRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputSampleRange.html#InputSampleRange"><span class="hs-identifier hs-type">InputSampleRange</span></a></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680013639"><span id="local-6989586621680013641"><span class="annot"><span class="annottext">VideoSelector -&gt; VideoSelector -&gt; Bool
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680013648"><span id="local-6989586621680013650"><span class="annot"><span class="annottext">VideoSelector -&gt; VideoSelector -&gt; Bool
 (VideoSelector -&gt; VideoSelector -&gt; Bool)
 -&gt; (VideoSelector -&gt; VideoSelector -&gt; Bool) -&gt; Eq VideoSelector
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -125,7 +125,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VideoSelector -&gt; VideoSelector -&gt; Bool
 == :: VideoSelector -&gt; VideoSelector -&gt; Bool
 $c== :: VideoSelector -&gt; VideoSelector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013630"><span id="local-6989586621680013632"><span id="local-6989586621680013634"><span id="local-6989586621680013636"><span class="annot"><span class="annottext">ReadPrec [VideoSelector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013639"><span id="local-6989586621680013641"><span id="local-6989586621680013643"><span id="local-6989586621680013645"><span class="annot"><span class="annottext">ReadPrec [VideoSelector]
 ReadPrec VideoSelector
 Int -&gt; ReadS VideoSelector
 ReadS [VideoSelector]
@@ -145,7 +145,7 @@ readList :: ReadS [VideoSelector]
 $creadList :: ReadS [VideoSelector]
 readsPrec :: Int -&gt; ReadS VideoSelector
 $creadsPrec :: Int -&gt; ReadS VideoSelector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013623"><span id="local-6989586621680013625"><span id="local-6989586621680013627"><span class="annot"><span class="annottext">Int -&gt; VideoSelector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013632"><span id="local-6989586621680013634"><span id="local-6989586621680013636"><span class="annot"><span class="annottext">Int -&gt; VideoSelector -&gt; ShowS
 [VideoSelector] -&gt; ShowS
 VideoSelector -&gt; String
 (Int -&gt; VideoSelector -&gt; ShowS)
@@ -308,16 +308,16 @@ forall a. Maybe a
 -&gt; (VideoSelector -&gt; Maybe Int -&gt; VideoSelector)
 -&gt; Lens VideoSelector VideoSelector (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013614"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013623"><span class="annot"><span class="annottext">Maybe Int
 programNumber :: Maybe Int
 $sel:programNumber:VideoSelector' :: VideoSelector -&gt; Maybe Int
-</span><a href="#local-6989586621680013614"><span class="hs-identifier hs-var hs-var">programNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680013614"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013613"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621680013613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013612"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680013612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621680013613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programNumber:VideoSelector' :: Maybe Int
+</span><a href="#local-6989586621680013623"><span class="hs-identifier hs-var hs-var">programNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680013623"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013622"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680013622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013621"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680013621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680013622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programNumber:VideoSelector' :: Maybe Int
 </span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AprogramNumber%3AVideoSelector%27"><span class="hs-identifier hs-var">programNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680013612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | Ignore this setting unless this input is a QuickTime animation with an</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- alpha channel. Use this setting to create separate Key and Fill outputs.</span><span>
@@ -336,16 +336,16 @@ $sel:programNumber:VideoSelector' :: VideoSelector -&gt; Maybe Int
      (Maybe AlphaBehavior)
      (Maybe AlphaBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013610"><span class="annot"><span class="annottext">Maybe AlphaBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013619"><span class="annot"><span class="annottext">Maybe AlphaBehavior
 alphaBehavior :: Maybe AlphaBehavior
 $sel:alphaBehavior:VideoSelector' :: VideoSelector -&gt; Maybe AlphaBehavior
-</span><a href="#local-6989586621680013610"><span class="hs-identifier hs-var hs-var">alphaBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlphaBehavior
-</span><a href="#local-6989586621680013610"><span class="hs-identifier hs-var">alphaBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013609"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621680013609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013608"><span class="annot"><span class="annottext">Maybe AlphaBehavior
-</span><a href="#local-6989586621680013608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621680013609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alphaBehavior:VideoSelector' :: Maybe AlphaBehavior
+</span><a href="#local-6989586621680013619"><span class="hs-identifier hs-var hs-var">alphaBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlphaBehavior
+</span><a href="#local-6989586621680013619"><span class="hs-identifier hs-var">alphaBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013618"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680013618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013617"><span class="annot"><span class="annottext">Maybe AlphaBehavior
+</span><a href="#local-6989586621680013617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680013618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alphaBehavior:VideoSelector' :: Maybe AlphaBehavior
 </span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AalphaBehavior%3AVideoSelector%27"><span class="hs-identifier hs-var">alphaBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlphaBehavior
-</span><a href="#local-6989586621680013608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | There are two sources for color metadata, the input file and the job</span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- input settings Color space (ColorSpace) and HDR master display</span><span>
@@ -368,16 +368,16 @@ $sel:alphaBehavior:VideoSelector' :: VideoSelector -&gt; Maybe AlphaBehavior
      (Maybe ColorSpaceUsage)
      (Maybe ColorSpaceUsage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013606"><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013615"><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
 colorSpaceUsage :: Maybe ColorSpaceUsage
 $sel:colorSpaceUsage:VideoSelector' :: VideoSelector -&gt; Maybe ColorSpaceUsage
-</span><a href="#local-6989586621680013606"><span class="hs-identifier hs-var hs-var">colorSpaceUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
-</span><a href="#local-6989586621680013606"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013605"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621680013605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013604"><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
-</span><a href="#local-6989586621680013604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621680013605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpaceUsage:VideoSelector' :: Maybe ColorSpaceUsage
+</span><a href="#local-6989586621680013615"><span class="hs-identifier hs-var hs-var">colorSpaceUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+</span><a href="#local-6989586621680013615"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013614"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680013614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013613"><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
+</span><a href="#local-6989586621680013613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680013614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpaceUsage:VideoSelector' :: Maybe ColorSpaceUsage
 </span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
-</span><a href="#local-6989586621680013604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | Use these settings to provide HDR 10 metadata that is missing or</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- inaccurate in your input video. Appropriate values vary depending on the</span><span>
@@ -403,16 +403,16 @@ $sel:colorSpaceUsage:VideoSelector' :: VideoSelector -&gt; Maybe ColorSpaceUsage
      (Maybe Hdr10Metadata)
      (Maybe Hdr10Metadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013602"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013611"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
 hdr10Metadata :: Maybe Hdr10Metadata
 $sel:hdr10Metadata:VideoSelector' :: VideoSelector -&gt; Maybe Hdr10Metadata
-</span><a href="#local-6989586621680013602"><span class="hs-identifier hs-var hs-var">hdr10Metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
-</span><a href="#local-6989586621680013602"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013601"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621680013601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013600"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
-</span><a href="#local-6989586621680013600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621680013601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdr10Metadata:VideoSelector' :: Maybe Hdr10Metadata
+</span><a href="#local-6989586621680013611"><span class="hs-identifier hs-var hs-var">hdr10Metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><a href="#local-6989586621680013611"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013610"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680013610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013609"><span class="annot"><span class="annottext">Maybe Hdr10Metadata
+</span><a href="#local-6989586621680013609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680013610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdr10Metadata:VideoSelector' :: Maybe Hdr10Metadata
 </span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Ahdr10Metadata%3AVideoSelector%27"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
-</span><a href="#local-6989586621680013600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | Use PID (Pid) to select specific video data from an input file. Specify</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- this value as an integer; the system automatically converts it to the</span><span>
@@ -426,16 +426,16 @@ $sel:hdr10Metadata:VideoSelector' :: VideoSelector -&gt; Maybe Hdr10Metadata
 -&gt; (VideoSelector -&gt; Maybe Natural -&gt; VideoSelector)
 -&gt; Lens VideoSelector VideoSelector (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013598"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013607"><span class="annot"><span class="annottext">Maybe Natural
 pid :: Maybe Natural
 $sel:pid:VideoSelector' :: VideoSelector -&gt; Maybe Natural
-</span><a href="#local-6989586621680013598"><span class="hs-identifier hs-var hs-var">pid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013598"><span class="hs-identifier hs-var">pid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013597"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621680013597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013596"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621680013597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pid:VideoSelector' :: Maybe Natural
+</span><a href="#local-6989586621680013607"><span class="hs-identifier hs-var hs-var">pid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680013607"><span class="hs-identifier hs-var">pid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013606"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680013606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013605"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680013605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680013606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pid:VideoSelector' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Apid%3AVideoSelector%27"><span class="hs-identifier hs-var">pid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | Use Rotate (InputRotate) to specify how the service rotates your video.</span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- You can choose automatic rotation or specify a rotation. You can specify</span><span>
@@ -455,16 +455,16 @@ $sel:pid:VideoSelector' :: VideoSelector -&gt; Maybe Natural
 -&gt; Lens
      VideoSelector VideoSelector (Maybe InputRotate) (Maybe InputRotate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013594"><span class="annot"><span class="annottext">Maybe InputRotate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013603"><span class="annot"><span class="annottext">Maybe InputRotate
 rotate :: Maybe InputRotate
 $sel:rotate:VideoSelector' :: VideoSelector -&gt; Maybe InputRotate
-</span><a href="#local-6989586621680013594"><span class="hs-identifier hs-var hs-var">rotate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputRotate
-</span><a href="#local-6989586621680013594"><span class="hs-identifier hs-var">rotate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013593"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621680013593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013592"><span class="annot"><span class="annottext">Maybe InputRotate
-</span><a href="#local-6989586621680013592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621680013593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rotate:VideoSelector' :: Maybe InputRotate
+</span><a href="#local-6989586621680013603"><span class="hs-identifier hs-var hs-var">rotate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputRotate
+</span><a href="#local-6989586621680013603"><span class="hs-identifier hs-var">rotate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013602"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680013602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013601"><span class="annot"><span class="annottext">Maybe InputRotate
+</span><a href="#local-6989586621680013601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680013602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rotate:VideoSelector' :: Maybe InputRotate
 </span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3Arotate%3AVideoSelector%27"><span class="hs-identifier hs-var">rotate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputRotate
-</span><a href="#local-6989586621680013592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>
 </span><span id="line-273"></span><span class="hs-comment">-- | If your input video has accurate color space metadata, or if you don\'t</span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- know about color space, leave this set to the default value Follow</span><span>
@@ -485,16 +485,16 @@ $sel:rotate:VideoSelector' :: VideoSelector -&gt; Maybe InputRotate
 -&gt; Lens
      VideoSelector VideoSelector (Maybe ColorSpace) (Maybe ColorSpace)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013590"><span class="annot"><span class="annottext">Maybe ColorSpace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013599"><span class="annot"><span class="annottext">Maybe ColorSpace
 colorSpace :: Maybe ColorSpace
 $sel:colorSpace:VideoSelector' :: VideoSelector -&gt; Maybe ColorSpace
-</span><a href="#local-6989586621680013590"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpace
-</span><a href="#local-6989586621680013590"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013589"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621680013589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013588"><span class="annot"><span class="annottext">Maybe ColorSpace
-</span><a href="#local-6989586621680013588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621680013589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpace:VideoSelector' :: Maybe ColorSpace
+</span><a href="#local-6989586621680013599"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpace
+</span><a href="#local-6989586621680013599"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013598"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680013598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013597"><span class="annot"><span class="annottext">Maybe ColorSpace
+</span><a href="#local-6989586621680013597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680013598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpace:VideoSelector' :: Maybe ColorSpace
 </span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AcolorSpace%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpace
-</span><a href="#local-6989586621680013588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | If the sample range metadata in your input video is accurate, or if you</span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- don\'t know about sample range, keep the default value, Follow (FOLLOW),</span><span>
@@ -516,19 +516,19 @@ $sel:colorSpace:VideoSelector' :: VideoSelector -&gt; Maybe ColorSpace
      (Maybe InputSampleRange)
      (Maybe InputSampleRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013586"><span class="annot"><span class="annottext">Maybe InputSampleRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013595"><span class="annot"><span class="annottext">Maybe InputSampleRange
 sampleRange :: Maybe InputSampleRange
 $sel:sampleRange:VideoSelector' :: VideoSelector -&gt; Maybe InputSampleRange
-</span><a href="#local-6989586621680013586"><span class="hs-identifier hs-var hs-var">sampleRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSampleRange
-</span><a href="#local-6989586621680013586"><span class="hs-identifier hs-var">sampleRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013585"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013584"><span class="annot"><span class="annottext">Maybe InputSampleRange
-</span><a href="#local-6989586621680013584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRange:VideoSelector' :: Maybe InputSampleRange
+</span><a href="#local-6989586621680013595"><span class="hs-identifier hs-var hs-var">sampleRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSampleRange
+</span><a href="#local-6989586621680013595"><span class="hs-identifier hs-var">sampleRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013594"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621680013594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013593"><span class="annot"><span class="annottext">Maybe InputSampleRange
+</span><a href="#local-6989586621680013593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621680013594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRange:VideoSelector' :: Maybe InputSampleRange
 </span><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#%24sel%3AsampleRange%3AVideoSelector%27"><span class="hs-identifier hs-var">sampleRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSampleRange
-</span><a href="#local-6989586621680013584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680013593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
-</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013581"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-300"></span><span>  </span><span id="local-6989586621680013579"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoSelector
+</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013590"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621680013588"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoSelector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-301"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VideoSelector)
@@ -538,8 +538,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VideoSelector&quot;</span></span><span>
-</span><span id="line-303"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680013576"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013576"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680013585"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-304"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe AlphaBehavior
 -&gt; Maybe ColorSpaceUsage
@@ -571,7 +571,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;programNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -595,7 +595,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AlphaBehavior)
+</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AlphaBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;alphaBehavior&quot;</span></span><span class="hs-special">)</span><span>
@@ -617,7 +617,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorSpaceUsage)
+</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorSpaceUsage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpaceUsage&quot;</span></span><span class="hs-special">)</span><span>
@@ -637,7 +637,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Hdr10Metadata)
+</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Hdr10Metadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hdr10Metadata&quot;</span></span><span class="hs-special">)</span><span>
@@ -653,7 +653,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe ColorSpace -&gt; Maybe InputSampleRange -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pid&quot;</span></span><span class="hs-special">)</span><span>
@@ -665,7 +665,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe ColorSpace -&gt; Maybe InputSampleRange -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputRotate)
+</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputRotate)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rotate&quot;</span></span><span class="hs-special">)</span><span>
@@ -675,7 +675,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputSampleRange -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorSpace)
+</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColorSpace)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpace&quot;</span></span><span class="hs-special">)</span><span>
@@ -683,19 +683,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputSampleRange) -&gt; Parser VideoSelector
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680013576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputSampleRange)
+</span><a href="#local-6989586621680013585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputSampleRange)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRange&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-314"></span><span>
-</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013570"><span id="local-6989586621680013572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013579"><span id="local-6989586621680013581"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span><span>
 </span><span id="line-316"></span><span>
-</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span>
 </span><span id="line-318"></span><span>
-</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013559"><span id="local-6989586621680013561"><span id="local-6989586621680013563"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621680013557"><span class="annot"><span class="annottext">toJSON :: VideoSelector -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013548"><span id="local-6989586621680013549"><span id="local-6989586621680013550"><span id="local-6989586621680013551"><span id="local-6989586621680013552"><span id="local-6989586621680013553"><span id="local-6989586621680013554"><span id="local-6989586621680013555"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013568"><span id="local-6989586621680013570"><span id="local-6989586621680013572"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621680013566"><span class="annot"><span class="annottext">toJSON :: VideoSelector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013557"><span id="local-6989586621680013558"><span id="local-6989586621680013559"><span id="local-6989586621680013560"><span id="local-6989586621680013561"><span id="local-6989586621680013562"><span id="local-6989586621680013563"><span id="local-6989586621680013564"><span class="annot"><span class="annottext">Maybe Int
 Maybe Natural
 Maybe AlphaBehavior
 Maybe ColorSpace
@@ -719,7 +719,7 @@ $sel:hdr10Metadata:VideoSelector' :: VideoSelector -&gt; Maybe Hdr10Metadata
 $sel:colorSpaceUsage:VideoSelector' :: VideoSelector -&gt; Maybe ColorSpaceUsage
 $sel:alphaBehavior:VideoSelector' :: VideoSelector -&gt; Maybe AlphaBehavior
 $sel:programNumber:VideoSelector' :: VideoSelector -&gt; Maybe Int
-</span><a href="#local-6989586621680013548"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680013557"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -731,14 +731,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621680013555"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680013564"><span class="hs-identifier hs-var">programNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-324"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;alphaBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AlphaBehavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AlphaBehavior -&gt; Pair) -&gt; Maybe AlphaBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AlphaBehavior
-</span><a href="#local-6989586621680013554"><span class="hs-identifier hs-var">alphaBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680013563"><span class="hs-identifier hs-var">alphaBehavior</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-325"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpaceUsage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ColorSpaceUsage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -746,42 +746,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-326"></span><span>              </span><span class="annot"><span class="annottext">(ColorSpaceUsage -&gt; Pair) -&gt; Maybe ColorSpaceUsage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpaceUsage
-</span><a href="#local-6989586621680013553"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680013562"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-327"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hdr10Metadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Hdr10Metadata -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Hdr10Metadata -&gt; Pair) -&gt; Maybe Hdr10Metadata -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Metadata
-</span><a href="#local-6989586621680013552"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680013561"><span class="hs-identifier hs-var">hdr10Metadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-328"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680013551"><span class="hs-identifier hs-var">pid</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680013560"><span class="hs-identifier hs-var">pid</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-329"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rotate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputRotate -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputRotate -&gt; Pair) -&gt; Maybe InputRotate -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputRotate
-</span><a href="#local-6989586621680013550"><span class="hs-identifier hs-var">rotate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680013559"><span class="hs-identifier hs-var">rotate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-330"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ColorSpace -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ColorSpace -&gt; Pair) -&gt; Maybe ColorSpace -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ColorSpace
-</span><a href="#local-6989586621680013549"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680013558"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-331"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputSampleRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputSampleRange -&gt; Pair) -&gt; Maybe InputSampleRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputSampleRange
-</span><a href="#local-6989586621680013548"><span class="hs-identifier hs-var">sampleRange</span></a></span><span>
+</span><a href="#local-6989586621680013557"><span class="hs-identifier hs-var">sampleRange</span></a></span><span>
 </span><span id="line-332"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-333"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span></pre></body></html>

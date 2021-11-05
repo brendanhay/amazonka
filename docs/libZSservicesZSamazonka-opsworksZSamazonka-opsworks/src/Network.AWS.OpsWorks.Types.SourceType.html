@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679377533"><span id="local-6989586621679377534"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SourceType"><span class="annot"><a href="Network.AWS.OpsWorks.Types.SourceType.html#SourceType"><span class="hs-identifier hs-var">SourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceType%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.SourceType.html#SourceType%27"><span class="hs-identifier hs-var">SourceType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679377542"><span id="local-6989586621679377543"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SourceType"><span class="annot"><a href="Network.AWS.OpsWorks.Types.SourceType.html#SourceType"><span class="hs-identifier hs-var">SourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceType%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.SourceType.html#SourceType%27"><span class="hs-identifier hs-var">SourceType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSourceType"><span class="annot"><span class="annottext">SourceType -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.SourceType.html#fromSourceType"><span class="hs-identifier hs-var hs-var">fromSourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377525"><span id="local-6989586621679377527"><span id="local-6989586621679377529"><span class="annot"><span class="annottext">Int -&gt; SourceType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377534"><span id="local-6989586621679377536"><span id="local-6989586621679377538"><span class="annot"><span class="annottext">Int -&gt; SourceType -&gt; ShowS
 [SourceType] -&gt; ShowS
 SourceType -&gt; String
 (Int -&gt; SourceType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: SourceType -&gt; String
 showsPrec :: Int -&gt; SourceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SourceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679377516"><span id="local-6989586621679377518"><span id="local-6989586621679377520"><span id="local-6989586621679377522"><span class="annot"><span class="annottext">ReadPrec [SourceType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679377525"><span id="local-6989586621679377527"><span id="local-6989586621679377529"><span id="local-6989586621679377531"><span class="annot"><span class="annottext">ReadPrec [SourceType]
 ReadPrec SourceType
 Int -&gt; ReadS SourceType
 ReadS [SourceType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [SourceType]
 readsPrec :: Int -&gt; ReadS SourceType
 $creadsPrec :: Int -&gt; ReadS SourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679377511"><span id="local-6989586621679377513"><span class="annot"><span class="annottext">SourceType -&gt; SourceType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679377520"><span id="local-6989586621679377522"><span class="annot"><span class="annottext">SourceType -&gt; SourceType -&gt; Bool
 (SourceType -&gt; SourceType -&gt; Bool)
 -&gt; (SourceType -&gt; SourceType -&gt; Bool) -&gt; Eq SourceType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: SourceType -&gt; SourceType -&gt; Bool
 == :: SourceType -&gt; SourceType -&gt; Bool
 $c== :: SourceType -&gt; SourceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679377495"><span id="local-6989586621679377497"><span id="local-6989586621679377499"><span id="local-6989586621679377501"><span id="local-6989586621679377503"><span id="local-6989586621679377505"><span id="local-6989586621679377507"><span class="annot"><span class="annottext">Eq SourceType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679377504"><span id="local-6989586621679377506"><span id="local-6989586621679377508"><span id="local-6989586621679377510"><span id="local-6989586621679377512"><span id="local-6989586621679377514"><span id="local-6989586621679377516"><span class="annot"><span class="annottext">Eq SourceType
 Eq SourceType
 -&gt; (SourceType -&gt; SourceType -&gt; Ordering)
 -&gt; (SourceType -&gt; SourceType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SourceType -&gt; Rep SourceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377487"><span id="local-6989586621679377489"><span class="annot"><span class="annottext">Int -&gt; SourceType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377496"><span id="local-6989586621679377498"><span class="annot"><span class="annottext">Int -&gt; SourceType -&gt; Int
 SourceType -&gt; Int
 (Int -&gt; SourceType -&gt; Int)
 -&gt; (SourceType -&gt; Int) -&gt; Hashable SourceType
@@ -143,49 +143,49 @@ $chash :: SourceType -&gt; Int
 hashWithSalt :: Int -&gt; SourceType -&gt; Int
 $chashWithSalt :: Int -&gt; SourceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377484"><span class="annot"><span class="annottext">SourceType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377493"><span class="annot"><span class="annottext">SourceType -&gt; ()
 (SourceType -&gt; ()) -&gt; NFData SourceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SourceType -&gt; ()
 $crnf :: SourceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377481"><span class="annot"><span class="annottext">Text -&gt; Either String SourceType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377490"><span class="annot"><span class="annottext">Text -&gt; Either String SourceType
 (Text -&gt; Either String SourceType) -&gt; FromText SourceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SourceType
 $cfromText :: Text -&gt; Either String SourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377478"><span class="annot"><span class="annottext">SourceType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377487"><span class="annot"><span class="annottext">SourceType -&gt; Text
 (SourceType -&gt; Text) -&gt; ToText SourceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SourceType -&gt; Text
 $ctoText :: SourceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377475"><span class="annot"><span class="annottext">SourceType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377484"><span class="annot"><span class="annottext">SourceType -&gt; ByteString
 (SourceType -&gt; ByteString) -&gt; ToByteString SourceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SourceType -&gt; ByteString
 $ctoBS :: SourceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377472"><span class="annot"><span class="annottext">SourceType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377481"><span class="annot"><span class="annottext">SourceType -&gt; ByteStringBuilder
 (SourceType -&gt; ByteStringBuilder) -&gt; ToLog SourceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SourceType -&gt; ByteStringBuilder
 $cbuild :: SourceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377469"><span class="annot"><span class="annottext">HeaderName -&gt; SourceType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377478"><span class="annot"><span class="annottext">HeaderName -&gt; SourceType -&gt; [Header]
 (HeaderName -&gt; SourceType -&gt; [Header]) -&gt; ToHeader SourceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SourceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SourceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377466"><span class="annot"><span class="annottext">SourceType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377475"><span class="annot"><span class="annottext">SourceType -&gt; QueryString
 (SourceType -&gt; QueryString) -&gt; ToQuery SourceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SourceType -&gt; QueryString
 $ctoQuery :: SourceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377461"><span id="local-6989586621679377463"><span class="annot"><span class="annottext">Value -&gt; Parser [SourceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377470"><span id="local-6989586621679377472"><span class="annot"><span class="annottext">Value -&gt; Parser [SourceType]
 Value -&gt; Parser SourceType
 (Value -&gt; Parser SourceType)
 -&gt; (Value -&gt; Parser [SourceType]) -&gt; FromJSON SourceType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [SourceType]
 parseJSON :: Value -&gt; Parser SourceType
 $cparseJSON :: Value -&gt; Parser SourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377456"><span id="local-6989586621679377458"><span class="annot"><span class="annottext">FromJSONKeyFunction [SourceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377465"><span id="local-6989586621679377467"><span class="annot"><span class="annottext">FromJSONKeyFunction [SourceType]
 FromJSONKeyFunction SourceType
 FromJSONKeyFunction SourceType
 -&gt; FromJSONKeyFunction [SourceType] -&gt; FromJSONKey SourceType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SourceType]
 fromJSONKey :: FromJSONKeyFunction SourceType
 $cfromJSONKey :: FromJSONKeyFunction SourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377447"><span id="local-6989586621679377449"><span id="local-6989586621679377451"><span id="local-6989586621679377453"><span class="annot"><span class="annottext">[SourceType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377456"><span id="local-6989586621679377458"><span id="local-6989586621679377460"><span id="local-6989586621679377462"><span class="annot"><span class="annottext">[SourceType] -&gt; Encoding
 [SourceType] -&gt; Value
 SourceType -&gt; Encoding
 SourceType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: SourceType -&gt; Encoding
 toJSON :: SourceType -&gt; Value
 $ctoJSON :: SourceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679377442"><span id="local-6989586621679377444"><span class="annot"><span class="annottext">ToJSONKeyFunction [SourceType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679377451"><span id="local-6989586621679377453"><span class="annot"><span class="annottext">ToJSONKeyFunction [SourceType]
 ToJSONKeyFunction SourceType
 ToJSONKeyFunction SourceType
 -&gt; ToJSONKeyFunction [SourceType] -&gt; ToJSONKey SourceType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SourceType]
 toJSONKey :: ToJSONKeyFunction SourceType
 $ctoJSONKey :: ToJSONKeyFunction SourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679377439"><span class="annot"><span class="annottext">[Node] -&gt; Either String SourceType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679377448"><span class="annot"><span class="annottext">[Node] -&gt; Either String SourceType
 ([Node] -&gt; Either String SourceType) -&gt; FromXML SourceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SourceType
 $cparseXML :: [Node] -&gt; Either String SourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679377436"><span class="annot"><span class="annottext">SourceType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679377445"><span class="annot"><span class="annottext">SourceType -&gt; XML
 (SourceType -&gt; XML) -&gt; ToXML SourceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SourceType -&gt; XML

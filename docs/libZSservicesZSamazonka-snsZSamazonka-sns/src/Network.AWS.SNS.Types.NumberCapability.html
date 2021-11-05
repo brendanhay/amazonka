@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | Enum listing out all supported number capabilities.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679191630"><span id="local-6989586621679191631"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NumberCapability"><span class="annot"><a href="Network.AWS.SNS.Types.NumberCapability.html#NumberCapability"><span class="hs-identifier hs-var">NumberCapability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NumberCapability%27"><span class="annot"><a href="Network.AWS.SNS.Types.NumberCapability.html#NumberCapability%27"><span class="hs-identifier hs-var">NumberCapability'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679191639"><span id="local-6989586621679191640"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NumberCapability"><span class="annot"><a href="Network.AWS.SNS.Types.NumberCapability.html#NumberCapability"><span class="hs-identifier hs-var">NumberCapability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NumberCapability%27"><span class="annot"><a href="Network.AWS.SNS.Types.NumberCapability.html#NumberCapability%27"><span class="hs-identifier hs-var">NumberCapability'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNumberCapability"><span class="annot"><span class="annottext">NumberCapability -&gt; Text
 </span><a href="Network.AWS.SNS.Types.NumberCapability.html#fromNumberCapability"><span class="hs-identifier hs-var hs-var">fromNumberCapability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679191622"><span id="local-6989586621679191624"><span id="local-6989586621679191626"><span class="annot"><span class="annottext">Int -&gt; NumberCapability -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679191631"><span id="local-6989586621679191633"><span id="local-6989586621679191635"><span class="annot"><span class="annottext">Int -&gt; NumberCapability -&gt; ShowS
 [NumberCapability] -&gt; ShowS
 NumberCapability -&gt; String
 (Int -&gt; NumberCapability -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: NumberCapability -&gt; String
 showsPrec :: Int -&gt; NumberCapability -&gt; ShowS
 $cshowsPrec :: Int -&gt; NumberCapability -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679191613"><span id="local-6989586621679191615"><span id="local-6989586621679191617"><span id="local-6989586621679191619"><span class="annot"><span class="annottext">ReadPrec [NumberCapability]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679191622"><span id="local-6989586621679191624"><span id="local-6989586621679191626"><span id="local-6989586621679191628"><span class="annot"><span class="annottext">ReadPrec [NumberCapability]
 ReadPrec NumberCapability
 Int -&gt; ReadS NumberCapability
 ReadS [NumberCapability]
@@ -74,7 +74,7 @@ $creadList :: ReadS [NumberCapability]
 readsPrec :: Int -&gt; ReadS NumberCapability
 $creadsPrec :: Int -&gt; ReadS NumberCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679191608"><span id="local-6989586621679191610"><span class="annot"><span class="annottext">NumberCapability -&gt; NumberCapability -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679191617"><span id="local-6989586621679191619"><span class="annot"><span class="annottext">NumberCapability -&gt; NumberCapability -&gt; Bool
 (NumberCapability -&gt; NumberCapability -&gt; Bool)
 -&gt; (NumberCapability -&gt; NumberCapability -&gt; Bool)
 -&gt; Eq NumberCapability
@@ -84,7 +84,7 @@ $c/= :: NumberCapability -&gt; NumberCapability -&gt; Bool
 == :: NumberCapability -&gt; NumberCapability -&gt; Bool
 $c== :: NumberCapability -&gt; NumberCapability -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679191592"><span id="local-6989586621679191594"><span id="local-6989586621679191596"><span id="local-6989586621679191598"><span id="local-6989586621679191600"><span id="local-6989586621679191602"><span id="local-6989586621679191604"><span class="annot"><span class="annottext">Eq NumberCapability
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679191601"><span id="local-6989586621679191603"><span id="local-6989586621679191605"><span id="local-6989586621679191607"><span id="local-6989586621679191609"><span id="local-6989586621679191611"><span id="local-6989586621679191613"><span class="annot"><span class="annottext">Eq NumberCapability
 Eq NumberCapability
 -&gt; (NumberCapability -&gt; NumberCapability -&gt; Ordering)
 -&gt; (NumberCapability -&gt; NumberCapability -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. NumberCapability -&gt; Rep NumberCapability x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679191584"><span id="local-6989586621679191586"><span class="annot"><span class="annottext">Int -&gt; NumberCapability -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679191593"><span id="local-6989586621679191595"><span class="annot"><span class="annottext">Int -&gt; NumberCapability -&gt; Int
 NumberCapability -&gt; Int
 (Int -&gt; NumberCapability -&gt; Int)
 -&gt; (NumberCapability -&gt; Int) -&gt; Hashable NumberCapability
@@ -145,51 +145,51 @@ $chash :: NumberCapability -&gt; Int
 hashWithSalt :: Int -&gt; NumberCapability -&gt; Int
 $chashWithSalt :: Int -&gt; NumberCapability -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679191581"><span class="annot"><span class="annottext">NumberCapability -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679191590"><span class="annot"><span class="annottext">NumberCapability -&gt; ()
 (NumberCapability -&gt; ()) -&gt; NFData NumberCapability
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NumberCapability -&gt; ()
 $crnf :: NumberCapability -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679191578"><span class="annot"><span class="annottext">Text -&gt; Either String NumberCapability
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679191587"><span class="annot"><span class="annottext">Text -&gt; Either String NumberCapability
 (Text -&gt; Either String NumberCapability)
 -&gt; FromText NumberCapability
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NumberCapability
 $cfromText :: Text -&gt; Either String NumberCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679191575"><span class="annot"><span class="annottext">NumberCapability -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679191584"><span class="annot"><span class="annottext">NumberCapability -&gt; Text
 (NumberCapability -&gt; Text) -&gt; ToText NumberCapability
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NumberCapability -&gt; Text
 $ctoText :: NumberCapability -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679191572"><span class="annot"><span class="annottext">NumberCapability -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679191581"><span class="annot"><span class="annottext">NumberCapability -&gt; ByteString
 (NumberCapability -&gt; ByteString) -&gt; ToByteString NumberCapability
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NumberCapability -&gt; ByteString
 $ctoBS :: NumberCapability -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679191569"><span class="annot"><span class="annottext">NumberCapability -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679191578"><span class="annot"><span class="annottext">NumberCapability -&gt; ByteStringBuilder
 (NumberCapability -&gt; ByteStringBuilder) -&gt; ToLog NumberCapability
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NumberCapability -&gt; ByteStringBuilder
 $cbuild :: NumberCapability -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679191566"><span class="annot"><span class="annottext">HeaderName -&gt; NumberCapability -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679191575"><span class="annot"><span class="annottext">HeaderName -&gt; NumberCapability -&gt; [Header]
 (HeaderName -&gt; NumberCapability -&gt; [Header])
 -&gt; ToHeader NumberCapability
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NumberCapability -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NumberCapability -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679191563"><span class="annot"><span class="annottext">NumberCapability -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679191572"><span class="annot"><span class="annottext">NumberCapability -&gt; QueryString
 (NumberCapability -&gt; QueryString) -&gt; ToQuery NumberCapability
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NumberCapability -&gt; QueryString
 $ctoQuery :: NumberCapability -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679191558"><span id="local-6989586621679191560"><span class="annot"><span class="annottext">Value -&gt; Parser [NumberCapability]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679191567"><span id="local-6989586621679191569"><span class="annot"><span class="annottext">Value -&gt; Parser [NumberCapability]
 Value -&gt; Parser NumberCapability
 (Value -&gt; Parser NumberCapability)
 -&gt; (Value -&gt; Parser [NumberCapability])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [NumberCapability]
 parseJSON :: Value -&gt; Parser NumberCapability
 $cparseJSON :: Value -&gt; Parser NumberCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679191553"><span id="local-6989586621679191555"><span class="annot"><span class="annottext">FromJSONKeyFunction [NumberCapability]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679191562"><span id="local-6989586621679191564"><span class="annot"><span class="annottext">FromJSONKeyFunction [NumberCapability]
 FromJSONKeyFunction NumberCapability
 FromJSONKeyFunction NumberCapability
 -&gt; FromJSONKeyFunction [NumberCapability]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NumberCapability]
 fromJSONKey :: FromJSONKeyFunction NumberCapability
 $cfromJSONKey :: FromJSONKeyFunction NumberCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679191544"><span id="local-6989586621679191546"><span id="local-6989586621679191548"><span id="local-6989586621679191550"><span class="annot"><span class="annottext">[NumberCapability] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679191553"><span id="local-6989586621679191555"><span id="local-6989586621679191557"><span id="local-6989586621679191559"><span class="annot"><span class="annottext">[NumberCapability] -&gt; Encoding
 [NumberCapability] -&gt; Value
 NumberCapability -&gt; Encoding
 NumberCapability -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: NumberCapability -&gt; Encoding
 toJSON :: NumberCapability -&gt; Value
 $ctoJSON :: NumberCapability -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679191539"><span id="local-6989586621679191541"><span class="annot"><span class="annottext">ToJSONKeyFunction [NumberCapability]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679191548"><span id="local-6989586621679191550"><span class="annot"><span class="annottext">ToJSONKeyFunction [NumberCapability]
 ToJSONKeyFunction NumberCapability
 ToJSONKeyFunction NumberCapability
 -&gt; ToJSONKeyFunction [NumberCapability]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NumberCapability]
 toJSONKey :: ToJSONKeyFunction NumberCapability
 $ctoJSONKey :: ToJSONKeyFunction NumberCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679191536"><span class="annot"><span class="annottext">[Node] -&gt; Either String NumberCapability
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679191545"><span class="annot"><span class="annottext">[Node] -&gt; Either String NumberCapability
 ([Node] -&gt; Either String NumberCapability)
 -&gt; FromXML NumberCapability
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NumberCapability
 $cparseXML :: [Node] -&gt; Either String NumberCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679191533"><span class="annot"><span class="annottext">NumberCapability -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679191542"><span class="annot"><span class="annottext">NumberCapability -&gt; XML
 (NumberCapability -&gt; XML) -&gt; ToXML NumberCapability
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NumberCapability -&gt; XML

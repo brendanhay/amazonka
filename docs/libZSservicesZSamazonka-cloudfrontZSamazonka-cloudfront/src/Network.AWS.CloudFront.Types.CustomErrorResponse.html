@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newCustomErrorResponse' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679389001"><span id="local-6989586621679389002"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomErrorResponse"><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-var">CustomErrorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomErrorResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-var">CustomErrorResponse'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679389010"><span id="local-6989586621679389011"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomErrorResponse"><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-var">CustomErrorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomErrorResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-var">CustomErrorResponse'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path to the custom error page that you want CloudFront to return to</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- a viewer when your origin returns the HTTP status code specified by</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @ErrorCode@, for example, @\/4xx-errors\/403-forbidden.html@. If you</span><span>
@@ -101,7 +101,7 @@
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3AerrorCode%3ACustomErrorResponse%27"><span class="annot"><span class="annottext">CustomErrorResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#%24sel%3AerrorCode%3ACustomErrorResponse%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388992"><span id="local-6989586621679388994"><span class="annot"><span class="annottext">CustomErrorResponse -&gt; CustomErrorResponse -&gt; Bool
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389001"><span id="local-6989586621679389003"><span class="annot"><span class="annottext">CustomErrorResponse -&gt; CustomErrorResponse -&gt; Bool
 (CustomErrorResponse -&gt; CustomErrorResponse -&gt; Bool)
 -&gt; (CustomErrorResponse -&gt; CustomErrorResponse -&gt; Bool)
 -&gt; Eq CustomErrorResponse
@@ -110,7 +110,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CustomErrorResponse -&gt; CustomErrorResponse -&gt; Bool
 == :: CustomErrorResponse -&gt; CustomErrorResponse -&gt; Bool
 $c== :: CustomErrorResponse -&gt; CustomErrorResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388983"><span id="local-6989586621679388985"><span id="local-6989586621679388987"><span id="local-6989586621679388989"><span class="annot"><span class="annottext">ReadPrec [CustomErrorResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388992"><span id="local-6989586621679388994"><span id="local-6989586621679388996"><span id="local-6989586621679388998"><span class="annot"><span class="annottext">ReadPrec [CustomErrorResponse]
 ReadPrec CustomErrorResponse
 Int -&gt; ReadS CustomErrorResponse
 ReadS [CustomErrorResponse]
@@ -130,7 +130,7 @@ readList :: ReadS [CustomErrorResponse]
 $creadList :: ReadS [CustomErrorResponse]
 readsPrec :: Int -&gt; ReadS CustomErrorResponse
 $creadsPrec :: Int -&gt; ReadS CustomErrorResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388976"><span id="local-6989586621679388978"><span id="local-6989586621679388980"><span class="annot"><span class="annottext">Int -&gt; CustomErrorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388985"><span id="local-6989586621679388987"><span id="local-6989586621679388989"><span class="annot"><span class="annottext">Int -&gt; CustomErrorResponse -&gt; ShowS
 [CustomErrorResponse] -&gt; ShowS
 CustomErrorResponse -&gt; String
 (Int -&gt; CustomErrorResponse -&gt; ShowS)
@@ -226,8 +226,8 @@ $cfrom :: forall x. CustomErrorResponse -&gt; Rep CustomErrorResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newCustomErrorResponse"><span class="annot"><span class="annottext">newCustomErrorResponse :: Int -&gt; CustomErrorResponse
-</span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#newCustomErrorResponse"><span class="hs-identifier hs-var hs-var">newCustomErrorResponse</span></a></span></span><span> </span><span id="local-6989586621679388970"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388970"><span class="hs-identifier hs-var">pErrorCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#newCustomErrorResponse"><span class="hs-identifier hs-var hs-var">newCustomErrorResponse</span></a></span></span><span> </span><span id="local-6989586621679388979"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388979"><span class="hs-identifier hs-var">pErrorCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">CustomErrorResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Integer -&gt; Int -&gt; CustomErrorResponse
 </span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span>
@@ -246,7 +246,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:CustomErrorResponse' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#%24sel%3AerrorCode%3ACustomErrorResponse%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388970"><span class="hs-identifier hs-var">pErrorCode_</span></a></span><span>
+</span><a href="#local-6989586621679388979"><span class="hs-identifier hs-var">pErrorCode_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The path to the custom error page that you want CloudFront to return to</span><span>
@@ -281,16 +281,16 @@ forall a. Maybe a
 -&gt; Lens
      CustomErrorResponse CustomErrorResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388966"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388975"><span class="annot"><span class="annottext">Maybe Text
 responsePagePath :: Maybe Text
 $sel:responsePagePath:CustomErrorResponse' :: CustomErrorResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679388966"><span class="hs-identifier hs-var hs-var">responsePagePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388966"><span class="hs-identifier hs-var">responsePagePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388965"><span class="annot"><span class="annottext">s :: CustomErrorResponse
-</span><a href="#local-6989586621679388965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388964"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponse
-</span><a href="#local-6989586621679388965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responsePagePath:CustomErrorResponse' :: Maybe Text
+</span><a href="#local-6989586621679388975"><span class="hs-identifier hs-var hs-var">responsePagePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388975"><span class="hs-identifier hs-var">responsePagePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388974"><span class="annot"><span class="annottext">s :: CustomErrorResponse
+</span><a href="#local-6989586621679388974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388973"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponse
+</span><a href="#local-6989586621679388974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responsePagePath:CustomErrorResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#%24sel%3AresponsePagePath%3ACustomErrorResponse%27"><span class="hs-identifier hs-var">responsePagePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The HTTP status code that you want CloudFront to return to the viewer</span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- along with the custom error page. There are a variety of reasons that</span><span>
@@ -319,16 +319,16 @@ $sel:responsePagePath:CustomErrorResponse' :: CustomErrorResponse -&gt; Maybe Te
 -&gt; Lens
      CustomErrorResponse CustomErrorResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388971"><span class="annot"><span class="annottext">Maybe Text
 responseCode :: Maybe Text
 $sel:responseCode:CustomErrorResponse' :: CustomErrorResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679388962"><span class="hs-identifier hs-var hs-var">responseCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388962"><span class="hs-identifier hs-var">responseCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388961"><span class="annot"><span class="annottext">s :: CustomErrorResponse
-</span><a href="#local-6989586621679388961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponse
-</span><a href="#local-6989586621679388961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCode:CustomErrorResponse' :: Maybe Text
+</span><a href="#local-6989586621679388971"><span class="hs-identifier hs-var hs-var">responseCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388971"><span class="hs-identifier hs-var">responseCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388970"><span class="annot"><span class="annottext">s :: CustomErrorResponse
+</span><a href="#local-6989586621679388970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388969"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponse
+</span><a href="#local-6989586621679388970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCode:CustomErrorResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#%24sel%3AresponseCode%3ACustomErrorResponse%27"><span class="hs-identifier hs-var">responseCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The minimum amount of time, in seconds, that you want CloudFront to</span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- cache the HTTP status code specified in @ErrorCode@. When this time</span><span>
@@ -350,16 +350,16 @@ $sel:responseCode:CustomErrorResponse' :: CustomErrorResponse -&gt; Maybe Text
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388958"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388967"><span class="annot"><span class="annottext">Maybe Integer
 errorCachingMinTTL :: Maybe Integer
 $sel:errorCachingMinTTL:CustomErrorResponse' :: CustomErrorResponse -&gt; Maybe Integer
-</span><a href="#local-6989586621679388958"><span class="hs-identifier hs-var hs-var">errorCachingMinTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679388958"><span class="hs-identifier hs-var">errorCachingMinTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388957"><span class="annot"><span class="annottext">s :: CustomErrorResponse
-</span><a href="#local-6989586621679388957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388956"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679388956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponse
-</span><a href="#local-6989586621679388957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCachingMinTTL:CustomErrorResponse' :: Maybe Integer
+</span><a href="#local-6989586621679388967"><span class="hs-identifier hs-var hs-var">errorCachingMinTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388967"><span class="hs-identifier hs-var">errorCachingMinTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388966"><span class="annot"><span class="annottext">s :: CustomErrorResponse
+</span><a href="#local-6989586621679388966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388965"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679388965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponse
+</span><a href="#local-6989586621679388966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCachingMinTTL:CustomErrorResponse' :: Maybe Integer
 </span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#%24sel%3AerrorCachingMinTTL%3ACustomErrorResponse%27"><span class="hs-identifier hs-var">errorCachingMinTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679388956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The HTTP status code for which you want to specify a custom error page</span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- and\/or a caching duration.</span><span>
@@ -369,21 +369,21 @@ $sel:errorCachingMinTTL:CustomErrorResponse' :: CustomErrorResponse -&gt; Maybe 
 -&gt; (CustomErrorResponse -&gt; Int -&gt; CustomErrorResponse)
 -&gt; Lens CustomErrorResponse CustomErrorResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388954"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388963"><span class="annot"><span class="annottext">Int
 errorCode :: Int
 $sel:errorCode:CustomErrorResponse' :: CustomErrorResponse -&gt; Int
-</span><a href="#local-6989586621679388954"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388954"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388953"><span class="annot"><span class="annottext">s :: CustomErrorResponse
-</span><a href="#local-6989586621679388953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388952"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponse
-</span><a href="#local-6989586621679388953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:CustomErrorResponse' :: Int
+</span><a href="#local-6989586621679388963"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388963"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388962"><span class="annot"><span class="annottext">s :: CustomErrorResponse
+</span><a href="#local-6989586621679388962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388961"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomErrorResponse
+</span><a href="#local-6989586621679388962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:CustomErrorResponse' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#%24sel%3AerrorCode%3ACustomErrorResponse%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679388949"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CustomErrorResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679388947"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388947"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679388958"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CustomErrorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679388956"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679388956"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Integer -&gt; Int -&gt; CustomErrorResponse
 </span><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-var">CustomErrorResponse'</span></a></span><span>
@@ -394,7 +394,7 @@ $sel:errorCode:CustomErrorResponse' :: CustomErrorResponse -&gt; Int
      String (Maybe Text -&gt; Maybe Integer -&gt; Int -&gt; CustomErrorResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679388956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResponsePagePath&quot;</span></span><span class="hs-special">)</span><span>
@@ -404,7 +404,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Integer -&gt; Int -&gt; CustomErrorResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679388956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResponseCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -413,7 +413,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CustomErrorResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679388956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorCachingMinTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -421,18 +421,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Int -&gt; Either String CustomErrorResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679388956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388940"><span id="local-6989586621679388942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span></span></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388949"><span id="local-6989586621679388951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span></span></span><span>
 </span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span></span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse"><span class="hs-identifier hs-type">CustomErrorResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621679388933"><span class="annot"><span class="annottext">toXML :: CustomErrorResponse -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388928"><span id="local-6989586621679388929"><span id="local-6989586621679388930"><span id="local-6989586621679388931"><span class="annot"><span class="annottext">Int
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679388942"><span class="annot"><span class="annottext">toXML :: CustomErrorResponse -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomErrorResponse.html#CustomErrorResponse%27"><span class="hs-identifier hs-type">CustomErrorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388937"><span id="local-6989586621679388938"><span id="local-6989586621679388939"><span id="local-6989586621679388940"><span class="annot"><span class="annottext">Int
 Maybe Integer
 Maybe Text
 errorCode :: Int
@@ -443,7 +443,7 @@ $sel:errorCode:CustomErrorResponse' :: CustomErrorResponse -&gt; Int
 $sel:errorCachingMinTTL:CustomErrorResponse' :: CustomErrorResponse -&gt; Maybe Integer
 $sel:responseCode:CustomErrorResponse' :: CustomErrorResponse -&gt; Maybe Text
 $sel:responsePagePath:CustomErrorResponse' :: CustomErrorResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679388928"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388937"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-260"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -451,21 +451,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ResponsePagePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388931"><span class="hs-identifier hs-var">responsePagePath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388940"><span class="hs-identifier hs-var">responsePagePath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ResponseCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388930"><span class="hs-identifier hs-var">responseCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388939"><span class="hs-identifier hs-var">responseCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ErrorCachingMinTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679388929"><span class="hs-identifier hs-var">errorCachingMinTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388938"><span class="hs-identifier hs-var">errorCachingMinTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388928"><span class="hs-identifier hs-var">errorCode</span></a></span><span>
+</span><a href="#local-6989586621679388937"><span class="hs-identifier hs-var">errorCode</span></a></span><span>
 </span><span id="line-265"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-266"></span></pre></body></html>

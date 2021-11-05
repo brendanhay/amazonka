@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newStopPipelineExecution' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679286044"><span id="local-6989586621679286045"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopPipelineExecution"><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-var">StopPipelineExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopPipelineExecution%27"><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-var">StopPipelineExecution'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679286053"><span id="local-6989586621679286054"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopPipelineExecution"><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-var">StopPipelineExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopPipelineExecution%27"><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-var">StopPipelineExecution'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this option to stop the pipeline execution by abandoning, rather</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- than finishing, in-progress actions.</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3AStopPipelineExecution%27"><span class="annot"><span class="annottext">StopPipelineExecution -&gt; Text
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3ApipelineExecutionId%3AStopPipelineExecution%27"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286035"><span id="local-6989586621679286037"><span class="annot"><span class="annottext">StopPipelineExecution -&gt; StopPipelineExecution -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286044"><span id="local-6989586621679286046"><span class="annot"><span class="annottext">StopPipelineExecution -&gt; StopPipelineExecution -&gt; Bool
 (StopPipelineExecution -&gt; StopPipelineExecution -&gt; Bool)
 -&gt; (StopPipelineExecution -&gt; StopPipelineExecution -&gt; Bool)
 -&gt; Eq StopPipelineExecution
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopPipelineExecution -&gt; StopPipelineExecution -&gt; Bool
 == :: StopPipelineExecution -&gt; StopPipelineExecution -&gt; Bool
 $c== :: StopPipelineExecution -&gt; StopPipelineExecution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286026"><span id="local-6989586621679286028"><span id="local-6989586621679286030"><span id="local-6989586621679286032"><span class="annot"><span class="annottext">ReadPrec [StopPipelineExecution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286035"><span id="local-6989586621679286037"><span id="local-6989586621679286039"><span id="local-6989586621679286041"><span class="annot"><span class="annottext">ReadPrec [StopPipelineExecution]
 ReadPrec StopPipelineExecution
 Int -&gt; ReadS StopPipelineExecution
 ReadS [StopPipelineExecution]
@@ -104,7 +104,7 @@ readList :: ReadS [StopPipelineExecution]
 $creadList :: ReadS [StopPipelineExecution]
 readsPrec :: Int -&gt; ReadS StopPipelineExecution
 $creadsPrec :: Int -&gt; ReadS StopPipelineExecution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286019"><span id="local-6989586621679286021"><span id="local-6989586621679286023"><span class="annot"><span class="annottext">Int -&gt; StopPipelineExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286028"><span id="local-6989586621679286030"><span id="local-6989586621679286032"><span class="annot"><span class="annottext">Int -&gt; StopPipelineExecution -&gt; ShowS
 [StopPipelineExecution] -&gt; ShowS
 StopPipelineExecution -&gt; String
 (Int -&gt; StopPipelineExecution -&gt; ShowS)
@@ -159,10 +159,10 @@ $cfrom :: forall x. StopPipelineExecution -&gt; Rep StopPipelineExecution x
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span>
 </span><span id="line-103"></span><span id="newStopPipelineExecution"><span class="annot"><span class="annottext">newStopPipelineExecution :: Text -&gt; Text -&gt; StopPipelineExecution
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#newStopPipelineExecution"><span class="hs-identifier hs-var hs-var">newStopPipelineExecution</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679286014"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286014"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679286013"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286013"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679286023"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286023"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679286022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286022"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">StopPipelineExecution' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; StopPipelineExecution
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:abandon:StopPipelineExecution' :: Maybe Bool
@@ -175,10 +175,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:pipelineName:StopPipelineExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3ApipelineName%3AStopPipelineExecution%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286014"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679286023"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:StopPipelineExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3ApipelineExecutionId%3AStopPipelineExecution%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286013"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span><span>
+</span><a href="#local-6989586621679286022"><span class="hs-identifier hs-var">pPipelineExecutionId_</span></a></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Use this option to stop the pipeline execution by abandoning, rather</span><span>
@@ -196,16 +196,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286010"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286019"><span class="annot"><span class="annottext">Maybe Bool
 abandon :: Maybe Bool
 $sel:abandon:StopPipelineExecution' :: StopPipelineExecution -&gt; Maybe Bool
-</span><a href="#local-6989586621679286010"><span class="hs-identifier hs-var hs-var">abandon</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679286010"><span class="hs-identifier hs-var">abandon</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286009"><span class="annot"><span class="annottext">s :: StopPipelineExecution
-</span><a href="#local-6989586621679286009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286008"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679286008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecution
-</span><a href="#local-6989586621679286009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abandon:StopPipelineExecution' :: Maybe Bool
+</span><a href="#local-6989586621679286019"><span class="hs-identifier hs-var hs-var">abandon</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679286019"><span class="hs-identifier hs-var">abandon</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286018"><span class="annot"><span class="annottext">s :: StopPipelineExecution
+</span><a href="#local-6989586621679286018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286017"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679286017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecution
+</span><a href="#local-6989586621679286018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abandon:StopPipelineExecution' :: Maybe Bool
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3Aabandon%3AStopPipelineExecution%27"><span class="hs-identifier hs-var">abandon</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679286008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Use this option to enter comments, such as the reason the pipeline was</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- stopped.</span><span>
@@ -220,16 +220,16 @@ $sel:abandon:StopPipelineExecution' :: StopPipelineExecution -&gt; Maybe Bool
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286007"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286016"><span class="annot"><span class="annottext">Maybe Text
 reason :: Maybe Text
 $sel:reason:StopPipelineExecution' :: StopPipelineExecution -&gt; Maybe Text
-</span><a href="#local-6989586621679286007"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286007"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286006"><span class="annot"><span class="annottext">s :: StopPipelineExecution
-</span><a href="#local-6989586621679286006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286005"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecution
-</span><a href="#local-6989586621679286006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:StopPipelineExecution' :: Maybe Text
+</span><a href="#local-6989586621679286016"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286016"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286015"><span class="annot"><span class="annottext">s :: StopPipelineExecution
+</span><a href="#local-6989586621679286015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286014"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecution
+</span><a href="#local-6989586621679286015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:StopPipelineExecution' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3Areason%3AStopPipelineExecution%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The name of the pipeline to stop.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#stopPipelineExecution_pipelineName"><span class="hs-identifier hs-type">stopPipelineExecution_pipelineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -239,16 +239,16 @@ $sel:reason:StopPipelineExecution' :: StopPipelineExecution -&gt; Maybe Text
 -&gt; (StopPipelineExecution -&gt; Text -&gt; StopPipelineExecution)
 -&gt; Lens StopPipelineExecution StopPipelineExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286004"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286013"><span class="annot"><span class="annottext">Text
 pipelineName :: Text
 $sel:pipelineName:StopPipelineExecution' :: StopPipelineExecution -&gt; Text
-</span><a href="#local-6989586621679286004"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286004"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286003"><span class="annot"><span class="annottext">s :: StopPipelineExecution
-</span><a href="#local-6989586621679286003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286002"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecution
-</span><a href="#local-6989586621679286003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:StopPipelineExecution' :: Text
+</span><a href="#local-6989586621679286013"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286013"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286012"><span class="annot"><span class="annottext">s :: StopPipelineExecution
+</span><a href="#local-6989586621679286012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecution
+</span><a href="#local-6989586621679286012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:StopPipelineExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3ApipelineName%3AStopPipelineExecution%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The ID of the pipeline execution to be stopped in the current stage. Use</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- the @GetPipelineState@ action to retrieve the current</span><span>
@@ -260,27 +260,27 @@ $sel:pipelineName:StopPipelineExecution' :: StopPipelineExecution -&gt; Text
 -&gt; (StopPipelineExecution -&gt; Text -&gt; StopPipelineExecution)
 -&gt; Lens StopPipelineExecution StopPipelineExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286001"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286010"><span class="annot"><span class="annottext">Text
 pipelineExecutionId :: Text
 $sel:pipelineExecutionId:StopPipelineExecution' :: StopPipelineExecution -&gt; Text
-</span><a href="#local-6989586621679286001"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286001"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286000"><span class="annot"><span class="annottext">s :: StopPipelineExecution
-</span><a href="#local-6989586621679286000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285999"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecution
-</span><a href="#local-6989586621679286000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:StopPipelineExecution' :: Text
+</span><a href="#local-6989586621679286010"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286010"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286009"><span class="annot"><span class="annottext">s :: StopPipelineExecution
+</span><a href="#local-6989586621679286009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286008"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecution
+</span><a href="#local-6989586621679286009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:StopPipelineExecution' :: Text
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3ApipelineExecutionId%3AStopPipelineExecution%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-137"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-type">StopPipelineExecutionResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679285995"><span class="annot"><span class="annottext">request :: StopPipelineExecution -&gt; Request StopPipelineExecution
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679286004"><span class="annot"><span class="annottext">request :: StopPipelineExecution -&gt; Request StopPipelineExecution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopPipelineExecution -&gt; Request StopPipelineExecution
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679285991"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679286000"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopPipelineExecution
 -&gt; ClientResponse ClientBody
@@ -306,10 +306,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679285988"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285988"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679285987"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679285987"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679285986"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679285986"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679285997"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285997"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679285996"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679285996"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679285995"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679285995"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StopPipelineExecutionResponse
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-var">StopPipelineExecutionResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StopPipelineExecutionResponse)
@@ -317,7 +317,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StopPipelineExecutionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679285986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679285995"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -329,15 +329,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285988"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285997"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285978"><span id="local-6989586621679285980"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285987"><span id="local-6989586621679285989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679285971"><span class="annot"><span class="annottext">toHeaders :: StopPipelineExecution -&gt; ResponseHeaders
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679285980"><span class="annot"><span class="annottext">toHeaders :: StopPipelineExecution -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopPipelineExecution -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -364,9 +364,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285961"><span id="local-6989586621679285963"><span id="local-6989586621679285965"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679285959"><span class="annot"><span class="annottext">toJSON :: StopPipelineExecution -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285954"><span id="local-6989586621679285955"><span id="local-6989586621679285956"><span id="local-6989586621679285957"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285970"><span id="local-6989586621679285972"><span id="local-6989586621679285974"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679285968"><span class="annot"><span class="annottext">toJSON :: StopPipelineExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution%27"><span class="hs-identifier hs-type">StopPipelineExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285963"><span id="local-6989586621679285964"><span id="local-6989586621679285965"><span id="local-6989586621679285966"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 pipelineExecutionId :: Text
@@ -377,7 +377,7 @@ $sel:pipelineExecutionId:StopPipelineExecution' :: StopPipelineExecution -&gt; T
 $sel:pipelineName:StopPipelineExecution' :: StopPipelineExecution -&gt; Text
 $sel:reason:StopPipelineExecution' :: StopPipelineExecution -&gt; Maybe Text
 $sel:abandon:StopPipelineExecution' :: StopPipelineExecution -&gt; Maybe Bool
-</span><a href="#local-6989586621679285954"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679285963"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -389,21 +389,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679285957"><span class="hs-identifier hs-var">abandon</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679285966"><span class="hs-identifier hs-var">abandon</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reason&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285956"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679285965"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285955"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679285964"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -411,19 +411,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pipelineExecutionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285954"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285963"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679285948"><span class="annot"><span class="annottext">toPath :: StopPipelineExecution -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679285957"><span class="annot"><span class="annottext">toPath :: StopPipelineExecution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopPipelineExecution -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecution"><span class="hs-identifier hs-type">StopPipelineExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679285944"><span class="annot"><span class="annottext">toQuery :: StopPipelineExecution -&gt; QueryString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679285953"><span class="annot"><span class="annottext">toQuery :: StopPipelineExecution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopPipelineExecution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -431,7 +431,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newStopPipelineExecutionResponse' smart constructor.</span><span>
-</span><span id="line-186"></span><span id="local-6989586621679285941"><span id="local-6989586621679285942"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopPipelineExecutionResponse"><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-var">StopPipelineExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopPipelineExecutionResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-var">StopPipelineExecutionResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span id="local-6989586621679285950"><span id="local-6989586621679285951"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopPipelineExecutionResponse"><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-var">StopPipelineExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopPipelineExecutionResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-var">StopPipelineExecutionResponse'</span></a></span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique system-generated ID of the pipeline execution that was</span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-comment">-- stopped.</span><span>
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3ApipelineExecutionId%3AStopPipelineExecutionResponse%27"><span class="annot"><span class="annottext">StopPipelineExecutionResponse -&gt; Maybe Text
@@ -440,7 +440,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopPipelineExecutionResponse%27"><span class="annot"><span class="annottext">StopPipelineExecutionResponse -&gt; Int
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3AhttpStatus%3AStopPipelineExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285935"><span id="local-6989586621679285937"><span class="annot"><span class="annottext">StopPipelineExecutionResponse
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285944"><span id="local-6989586621679285946"><span class="annot"><span class="annottext">StopPipelineExecutionResponse
 -&gt; StopPipelineExecutionResponse -&gt; Bool
 (StopPipelineExecutionResponse
  -&gt; StopPipelineExecutionResponse -&gt; Bool)
@@ -456,7 +456,7 @@ $c/= :: StopPipelineExecutionResponse
 -&gt; StopPipelineExecutionResponse -&gt; Bool
 $c== :: StopPipelineExecutionResponse
 -&gt; StopPipelineExecutionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285927"><span id="local-6989586621679285929"><span id="local-6989586621679285931"><span id="local-6989586621679285933"><span class="annot"><span class="annottext">ReadPrec [StopPipelineExecutionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285936"><span id="local-6989586621679285938"><span id="local-6989586621679285940"><span id="local-6989586621679285942"><span class="annot"><span class="annottext">ReadPrec [StopPipelineExecutionResponse]
 ReadPrec StopPipelineExecutionResponse
 Int -&gt; ReadS StopPipelineExecutionResponse
 ReadS [StopPipelineExecutionResponse]
@@ -476,7 +476,7 @@ readList :: ReadS [StopPipelineExecutionResponse]
 $creadList :: ReadS [StopPipelineExecutionResponse]
 readsPrec :: Int -&gt; ReadS StopPipelineExecutionResponse
 $creadsPrec :: Int -&gt; ReadS StopPipelineExecutionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285921"><span id="local-6989586621679285923"><span id="local-6989586621679285925"><span class="annot"><span class="annottext">Int -&gt; StopPipelineExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285930"><span id="local-6989586621679285932"><span id="local-6989586621679285934"><span class="annot"><span class="annottext">Int -&gt; StopPipelineExecutionResponse -&gt; ShowS
 [StopPipelineExecutionResponse] -&gt; ShowS
 StopPipelineExecutionResponse -&gt; String
 (Int -&gt; StopPipelineExecutionResponse -&gt; ShowS)
@@ -531,8 +531,8 @@ StopPipelineExecutionResponse
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-type">StopPipelineExecutionResponse</span></a></span><span>
 </span><span id="line-211"></span><span id="newStopPipelineExecutionResponse"><span class="annot"><span class="annottext">newStopPipelineExecutionResponse :: Int -&gt; StopPipelineExecutionResponse
-</span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#newStopPipelineExecutionResponse"><span class="hs-identifier hs-var hs-var">newStopPipelineExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679285918"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285918"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#newStopPipelineExecutionResponse"><span class="hs-identifier hs-var hs-var">newStopPipelineExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679285927"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285927"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">StopPipelineExecutionResponse' :: Maybe Text -&gt; Int -&gt; StopPipelineExecutionResponse
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-type">StopPipelineExecutionResponse'</span></a></span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:StopPipelineExecutionResponse' :: Maybe Text
@@ -542,7 +542,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopPipelineExecutionResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3AhttpStatus%3AStopPipelineExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285918"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679285927"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The unique system-generated ID of the pipeline execution that was</span><span>
@@ -559,16 +559,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-type">StopPipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285917"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-type">StopPipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285926"><span class="annot"><span class="annottext">Maybe Text
 pipelineExecutionId :: Maybe Text
 $sel:pipelineExecutionId:StopPipelineExecutionResponse' :: StopPipelineExecutionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679285917"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285917"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285916"><span class="annot"><span class="annottext">s :: StopPipelineExecutionResponse
-</span><a href="#local-6989586621679285916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-type">StopPipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285915"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecutionResponse
-</span><a href="#local-6989586621679285916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:StopPipelineExecutionResponse' :: Maybe Text
+</span><a href="#local-6989586621679285926"><span class="hs-identifier hs-var hs-var">pipelineExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285926"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285925"><span class="annot"><span class="annottext">s :: StopPipelineExecutionResponse
+</span><a href="#local-6989586621679285925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-type">StopPipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285924"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecutionResponse
+</span><a href="#local-6989586621679285925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionId:StopPipelineExecutionResponse' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3ApipelineExecutionId%3AStopPipelineExecutionResponse%27"><span class="hs-identifier hs-var">pipelineExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-type">StopPipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-type">StopPipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#stopPipelineExecutionResponse_httpStatus"><span class="hs-identifier hs-type">stopPipelineExecutionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-type">StopPipelineExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -580,16 +580,16 @@ $sel:pipelineExecutionId:StopPipelineExecutionResponse' :: StopPipelineExecution
 -&gt; Lens
      StopPipelineExecutionResponse StopPipelineExecutionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-type">StopPipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285914"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-type">StopPipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285923"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopPipelineExecutionResponse' :: StopPipelineExecutionResponse -&gt; Int
-</span><a href="#local-6989586621679285914"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285914"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285913"><span class="annot"><span class="annottext">s :: StopPipelineExecutionResponse
-</span><a href="#local-6989586621679285913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-type">StopPipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285912"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecutionResponse
-</span><a href="#local-6989586621679285913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopPipelineExecutionResponse' :: Int
+</span><a href="#local-6989586621679285923"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285923"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285922"><span class="annot"><span class="annottext">s :: StopPipelineExecutionResponse
+</span><a href="#local-6989586621679285922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse%27"><span class="hs-identifier hs-type">StopPipelineExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285921"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopPipelineExecutionResponse
+</span><a href="#local-6989586621679285922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopPipelineExecutionResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#%24sel%3AhttpStatus%3AStopPipelineExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-type">StopPipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-type">StopPipelineExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-type">StopPipelineExecutionResponse</span></a></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.StopPipelineExecution.html#StopPipelineExecutionResponse"><span class="hs-identifier hs-type">StopPipelineExecutionResponse</span></a></span></span><span>
 </span><span id="line-228"></span></pre></body></html>

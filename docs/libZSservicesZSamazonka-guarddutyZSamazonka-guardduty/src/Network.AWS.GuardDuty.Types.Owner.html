@@ -26,21 +26,21 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information on the owner of the bucket.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOwner' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679298494"><span id="local-6989586621679298495"></span></span><span class="hs-keyword">data</span><span> </span><span id="Owner"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-var">Owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Owner%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner%27"><span class="hs-identifier hs-var">Owner'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679298503"><span id="local-6989586621679298504"></span></span><span class="hs-keyword">data</span><span> </span><span id="Owner"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-var">Owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Owner%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner%27"><span class="hs-identifier hs-var">Owner'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The canonical user ID of the bucket owner. For information about</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- locating your canonical user ID see</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId Finding Your Account Canonical User ID.&gt;</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aid%3AOwner%27"><span class="annot"><span class="annottext">Owner -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Owner.html#%24sel%3Aid%3AOwner%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298488"><span id="local-6989586621679298490"><span class="annot"><span class="annottext">Owner -&gt; Owner -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298497"><span id="local-6989586621679298499"><span class="annot"><span class="annottext">Owner -&gt; Owner -&gt; Bool
 (Owner -&gt; Owner -&gt; Bool) -&gt; (Owner -&gt; Owner -&gt; Bool) -&gt; Eq Owner
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Owner -&gt; Owner -&gt; Bool
 $c/= :: Owner -&gt; Owner -&gt; Bool
 == :: Owner -&gt; Owner -&gt; Bool
 $c== :: Owner -&gt; Owner -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298479"><span id="local-6989586621679298481"><span id="local-6989586621679298483"><span id="local-6989586621679298485"><span class="annot"><span class="annottext">ReadPrec [Owner]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298488"><span id="local-6989586621679298490"><span id="local-6989586621679298492"><span id="local-6989586621679298494"><span class="annot"><span class="annottext">ReadPrec [Owner]
 ReadPrec Owner
 Int -&gt; ReadS Owner
 ReadS [Owner]
@@ -60,7 +60,7 @@ readList :: ReadS [Owner]
 $creadList :: ReadS [Owner]
 readsPrec :: Int -&gt; ReadS Owner
 $creadsPrec :: Int -&gt; ReadS Owner
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298472"><span id="local-6989586621679298474"><span id="local-6989586621679298476"><span class="annot"><span class="annottext">Int -&gt; Owner -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298481"><span id="local-6989586621679298483"><span id="local-6989586621679298485"><span class="annot"><span class="annottext">Int -&gt; Owner -&gt; ShowS
 [Owner] -&gt; ShowS
 Owner -&gt; String
 (Int -&gt; Owner -&gt; ShowS)
@@ -112,36 +112,36 @@ forall a. Maybe a
 -&gt; (Owner -&gt; Maybe Text -&gt; Owner)
 -&gt; Lens Owner Owner (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner%27"><span class="hs-identifier hs-type">Owner'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298463"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner%27"><span class="hs-identifier hs-type">Owner'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298472"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Owner' :: Owner -&gt; Maybe Text
-</span><a href="#local-6989586621679298463"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298463"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298462"><span class="annot"><span class="annottext">s :: Owner
-</span><a href="#local-6989586621679298462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner%27"><span class="hs-identifier hs-type">Owner'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298461"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Owner
-</span><a href="#local-6989586621679298462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Owner' :: Maybe Text
+</span><a href="#local-6989586621679298472"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298472"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298471"><span class="annot"><span class="annottext">s :: Owner
+</span><a href="#local-6989586621679298471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner%27"><span class="hs-identifier hs-type">Owner'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298470"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Owner
+</span><a href="#local-6989586621679298471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Owner' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Owner.html#%24sel%3Aid%3AOwner%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298458"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679298456"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Owner
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298467"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679298465"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Owner
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Owner) -&gt; Value -&gt; Parser Owner
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298453"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Owner
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298462"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298462"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Owner
 </span><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner%27"><span class="hs-identifier hs-var">Owner'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Owner) -&gt; Parser (Maybe Text) -&gt; Parser Owner
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679298462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298447"><span id="local-6989586621679298449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298456"><span id="local-6989586621679298458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Owner.html#Owner"><span class="hs-identifier hs-type">Owner</span></a></span></span><span>
 </span><span id="line-67"></span></pre></body></html>

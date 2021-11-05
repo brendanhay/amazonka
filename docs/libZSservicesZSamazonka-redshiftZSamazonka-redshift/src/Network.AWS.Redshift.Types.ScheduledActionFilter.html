@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A set of elements to filter the returned scheduled actions.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScheduledActionFilter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679497055"><span id="local-6989586621679497056"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduledActionFilter"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-var">ScheduledActionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledActionFilter%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-var">ScheduledActionFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679497064"><span id="local-6989586621679497065"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduledActionFilter"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-var">ScheduledActionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledActionFilter%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-var">ScheduledActionFilter'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of element to filter.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AScheduledActionFilter%27"><span class="annot"><span class="annottext">ScheduledActionFilter -&gt; ScheduledActionFilterName
 </span><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#%24sel%3Aname%3AScheduledActionFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilterName.html#ScheduledActionFilterName"><span class="hs-identifier hs-type">ScheduledActionFilterName</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalues%3AScheduledActionFilter%27"><span class="annot"><span class="annottext">ScheduledActionFilter -&gt; [Text]
 </span><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#%24sel%3Avalues%3AScheduledActionFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679497048"><span id="local-6989586621679497050"><span class="annot"><span class="annottext">ScheduledActionFilter -&gt; ScheduledActionFilter -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679497057"><span id="local-6989586621679497059"><span class="annot"><span class="annottext">ScheduledActionFilter -&gt; ScheduledActionFilter -&gt; Bool
 (ScheduledActionFilter -&gt; ScheduledActionFilter -&gt; Bool)
 -&gt; (ScheduledActionFilter -&gt; ScheduledActionFilter -&gt; Bool)
 -&gt; Eq ScheduledActionFilter
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScheduledActionFilter -&gt; ScheduledActionFilter -&gt; Bool
 == :: ScheduledActionFilter -&gt; ScheduledActionFilter -&gt; Bool
 $c== :: ScheduledActionFilter -&gt; ScheduledActionFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679497039"><span id="local-6989586621679497041"><span id="local-6989586621679497043"><span id="local-6989586621679497045"><span class="annot"><span class="annottext">ReadPrec [ScheduledActionFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679497048"><span id="local-6989586621679497050"><span id="local-6989586621679497052"><span id="local-6989586621679497054"><span class="annot"><span class="annottext">ReadPrec [ScheduledActionFilter]
 ReadPrec ScheduledActionFilter
 Int -&gt; ReadS ScheduledActionFilter
 ReadS [ScheduledActionFilter]
@@ -66,7 +66,7 @@ readList :: ReadS [ScheduledActionFilter]
 $creadList :: ReadS [ScheduledActionFilter]
 readsPrec :: Int -&gt; ReadS ScheduledActionFilter
 $creadsPrec :: Int -&gt; ReadS ScheduledActionFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679497032"><span id="local-6989586621679497034"><span id="local-6989586621679497036"><span class="annot"><span class="annottext">Int -&gt; ScheduledActionFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679497041"><span id="local-6989586621679497043"><span id="local-6989586621679497045"><span class="annot"><span class="annottext">Int -&gt; ScheduledActionFilter -&gt; ShowS
 [ScheduledActionFilter] -&gt; ShowS
 ScheduledActionFilter -&gt; String
 (Int -&gt; ScheduledActionFilter -&gt; ShowS)
@@ -109,13 +109,13 @@ $cfrom :: forall x. ScheduledActionFilter -&gt; Rep ScheduledActionFilter x
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilterName.html#ScheduledActionFilterName"><span class="hs-identifier hs-type">ScheduledActionFilterName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span><span>
 </span><span id="line-56"></span><span id="newScheduledActionFilter"><span class="annot"><span class="annottext">newScheduledActionFilter :: ScheduledActionFilterName -&gt; ScheduledActionFilter
-</span><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#newScheduledActionFilter"><span class="hs-identifier hs-var hs-var">newScheduledActionFilter</span></a></span></span><span> </span><span id="local-6989586621679497026"><span class="annot"><span class="annottext">ScheduledActionFilterName
-</span><a href="#local-6989586621679497026"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#newScheduledActionFilter"><span class="hs-identifier hs-var hs-var">newScheduledActionFilter</span></a></span></span><span> </span><span id="local-6989586621679497035"><span class="annot"><span class="annottext">ScheduledActionFilterName
+</span><a href="#local-6989586621679497035"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">ScheduledActionFilter' :: ScheduledActionFilterName -&gt; [Text] -&gt; ScheduledActionFilter
 </span><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:ScheduledActionFilter' :: ScheduledActionFilterName
 </span><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#%24sel%3Aname%3AScheduledActionFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScheduledActionFilterName
-</span><a href="#local-6989586621679497026"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679497035"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:ScheduledActionFilter' :: [Text]
 </span><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#%24sel%3Avalues%3AScheduledActionFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -135,16 +135,16 @@ forall a. Monoid a =&gt; a
      ScheduledActionFilterName
      ScheduledActionFilterName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497022"><span class="annot"><span class="annottext">ScheduledActionFilterName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497031"><span class="annot"><span class="annottext">ScheduledActionFilterName
 name :: ScheduledActionFilterName
 $sel:name:ScheduledActionFilter' :: ScheduledActionFilter -&gt; ScheduledActionFilterName
-</span><a href="#local-6989586621679497022"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledActionFilterName
-</span><a href="#local-6989586621679497022"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497021"><span class="annot"><span class="annottext">s :: ScheduledActionFilter
-</span><a href="#local-6989586621679497021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497020"><span class="annot"><span class="annottext">ScheduledActionFilterName
-</span><a href="#local-6989586621679497020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledActionFilter
-</span><a href="#local-6989586621679497021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ScheduledActionFilter' :: ScheduledActionFilterName
+</span><a href="#local-6989586621679497031"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledActionFilterName
+</span><a href="#local-6989586621679497031"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497030"><span class="annot"><span class="annottext">s :: ScheduledActionFilter
+</span><a href="#local-6989586621679497030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497029"><span class="annot"><span class="annottext">ScheduledActionFilterName
+</span><a href="#local-6989586621679497029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledActionFilter
+</span><a href="#local-6989586621679497030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ScheduledActionFilter' :: ScheduledActionFilterName
 </span><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#%24sel%3Aname%3AScheduledActionFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScheduledActionFilterName
-</span><a href="#local-6989586621679497020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679497029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | List of values. Compare if the value (of type defined by @Name@) equals</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- an item in the list of scheduled actions.</span><span>
@@ -155,16 +155,16 @@ $sel:name:ScheduledActionFilter' :: ScheduledActionFilter -&gt; ScheduledActionF
 -&gt; (ScheduledActionFilter -&gt; [Text] -&gt; ScheduledActionFilter)
 -&gt; Lens ScheduledActionFilter ScheduledActionFilter [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497018"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497027"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:ScheduledActionFilter' :: ScheduledActionFilter -&gt; [Text]
-</span><a href="#local-6989586621679497018"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679497018"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497017"><span class="annot"><span class="annottext">s :: ScheduledActionFilter
-</span><a href="#local-6989586621679497017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497016"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679497016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledActionFilter
-</span><a href="#local-6989586621679497017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ScheduledActionFilter' :: [Text]
+</span><a href="#local-6989586621679497027"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679497027"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679497026"><span class="annot"><span class="annottext">s :: ScheduledActionFilter
+</span><a href="#local-6989586621679497026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679497025"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679497025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledActionFilter
+</span><a href="#local-6989586621679497026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ScheduledActionFilter' :: [Text]
 </span><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#%24sel%3Avalues%3AScheduledActionFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679497016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679497025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ScheduledActionFilter -&gt; f ScheduledActionFilter)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -175,19 +175,19 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679497010"><span id="local-6989586621679497012"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679497019"><span id="local-6989586621679497021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679497007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679497016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter"><span class="hs-identifier hs-type">ScheduledActionFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679497003"><span class="annot"><span class="annottext">toQuery :: ScheduledActionFilter -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497000"><span id="local-6989586621679497001"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679497012"><span class="annot"><span class="annottext">toQuery :: ScheduledActionFilter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ScheduledActionFilter.html#ScheduledActionFilter%27"><span class="hs-identifier hs-type">ScheduledActionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679497009"><span id="local-6989586621679497010"><span class="annot"><span class="annottext">[Text]
 ScheduledActionFilterName
 values :: [Text]
 name :: ScheduledActionFilterName
 $sel:values:ScheduledActionFilter' :: ScheduledActionFilter -&gt; [Text]
 $sel:name:ScheduledActionFilter' :: ScheduledActionFilter -&gt; ScheduledActionFilterName
-</span><a href="#local-6989586621679497000"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679497009"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -195,7 +195,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ScheduledActionFilterName -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ScheduledActionFilterName
-</span><a href="#local-6989586621679497001"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679497010"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -205,6 +205,6 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;item&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679497000"><span class="hs-identifier hs-var">values</span></a></span><span>
+</span><a href="#local-6989586621679497009"><span class="hs-identifier hs-var">values</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span></pre></body></html>

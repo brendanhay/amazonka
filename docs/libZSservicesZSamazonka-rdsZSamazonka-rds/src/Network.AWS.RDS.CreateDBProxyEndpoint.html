@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateDBProxyEndpoint' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679801528"><span id="local-6989586621679801529"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBProxyEndpoint"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-var">CreateDBProxyEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBProxyEndpoint%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">CreateDBProxyEndpoint'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679801537"><span id="local-6989586621679801538"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBProxyEndpoint"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-var">CreateDBProxyEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBProxyEndpoint%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">CreateDBProxyEndpoint'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that indicates whether the DB proxy endpoint can be used for</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- read\/write or read-only operations. The default is @READ_WRITE@.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AtargetRole%3ACreateDBProxyEndpoint%27"><span class="annot"><span class="annottext">CreateDBProxyEndpoint -&gt; Maybe DBProxyEndpointTargetRole
@@ -81,7 +81,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AvpcSubnetIds%3ACreateDBProxyEndpoint%27"><span class="annot"><span class="annottext">CreateDBProxyEndpoint -&gt; [Text]
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AvpcSubnetIds%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var hs-var">vpcSubnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679801517"><span id="local-6989586621679801519"><span class="annot"><span class="annottext">CreateDBProxyEndpoint -&gt; CreateDBProxyEndpoint -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679801526"><span id="local-6989586621679801528"><span class="annot"><span class="annottext">CreateDBProxyEndpoint -&gt; CreateDBProxyEndpoint -&gt; Bool
 (CreateDBProxyEndpoint -&gt; CreateDBProxyEndpoint -&gt; Bool)
 -&gt; (CreateDBProxyEndpoint -&gt; CreateDBProxyEndpoint -&gt; Bool)
 -&gt; Eq CreateDBProxyEndpoint
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDBProxyEndpoint -&gt; CreateDBProxyEndpoint -&gt; Bool
 == :: CreateDBProxyEndpoint -&gt; CreateDBProxyEndpoint -&gt; Bool
 $c== :: CreateDBProxyEndpoint -&gt; CreateDBProxyEndpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801508"><span id="local-6989586621679801510"><span id="local-6989586621679801512"><span id="local-6989586621679801514"><span class="annot"><span class="annottext">ReadPrec [CreateDBProxyEndpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801517"><span id="local-6989586621679801519"><span id="local-6989586621679801521"><span id="local-6989586621679801523"><span class="annot"><span class="annottext">ReadPrec [CreateDBProxyEndpoint]
 ReadPrec CreateDBProxyEndpoint
 Int -&gt; ReadS CreateDBProxyEndpoint
 ReadS [CreateDBProxyEndpoint]
@@ -110,7 +110,7 @@ readList :: ReadS [CreateDBProxyEndpoint]
 $creadList :: ReadS [CreateDBProxyEndpoint]
 readsPrec :: Int -&gt; ReadS CreateDBProxyEndpoint
 $creadsPrec :: Int -&gt; ReadS CreateDBProxyEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801501"><span id="local-6989586621679801503"><span id="local-6989586621679801505"><span class="annot"><span class="annottext">Int -&gt; CreateDBProxyEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801510"><span id="local-6989586621679801512"><span id="local-6989586621679801514"><span class="annot"><span class="annottext">Int -&gt; CreateDBProxyEndpoint -&gt; ShowS
 [CreateDBProxyEndpoint] -&gt; ShowS
 CreateDBProxyEndpoint -&gt; String
 (Int -&gt; CreateDBProxyEndpoint -&gt; ShowS)
@@ -169,10 +169,10 @@ $cfrom :: forall x. CreateDBProxyEndpoint -&gt; Rep CreateDBProxyEndpoint x
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span>
 </span><span id="line-111"></span><span id="newCreateDBProxyEndpoint"><span class="annot"><span class="annottext">newCreateDBProxyEndpoint :: Text -&gt; Text -&gt; CreateDBProxyEndpoint
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#newCreateDBProxyEndpoint"><span class="hs-identifier hs-var hs-var">newCreateDBProxyEndpoint</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679801496"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801496"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679801495"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801495"><span class="hs-identifier hs-var">pDBProxyEndpointName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679801505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801505"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679801504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801504"><span class="hs-identifier hs-var">pDBProxyEndpointName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint' :: Maybe DBProxyEndpointTargetRole
 -&gt; Maybe [Text]
 -&gt; Maybe [Tag]
@@ -196,10 +196,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbProxyName:CreateDBProxyEndpoint' :: Text
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AdbProxyName%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801496"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679801505"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbProxyEndpointName:CreateDBProxyEndpoint' :: Text
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AdbProxyEndpointName%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">dbProxyEndpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801495"><span class="hs-identifier hs-var">pDBProxyEndpointName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679801504"><span class="hs-identifier hs-var">pDBProxyEndpointName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:vpcSubnetIds:CreateDBProxyEndpoint' :: [Text]
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AvpcSubnetIds%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -221,16 +221,16 @@ forall a. Monoid a =&gt; a
      (Maybe DBProxyEndpointTargetRole)
      (Maybe DBProxyEndpointTargetRole)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801492"><span class="annot"><span class="annottext">Maybe DBProxyEndpointTargetRole
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801501"><span class="annot"><span class="annottext">Maybe DBProxyEndpointTargetRole
 targetRole :: Maybe DBProxyEndpointTargetRole
 $sel:targetRole:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Maybe DBProxyEndpointTargetRole
-</span><a href="#local-6989586621679801492"><span class="hs-identifier hs-var hs-var">targetRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxyEndpointTargetRole
-</span><a href="#local-6989586621679801492"><span class="hs-identifier hs-var">targetRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801491"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801490"><span class="annot"><span class="annottext">Maybe DBProxyEndpointTargetRole
-</span><a href="#local-6989586621679801490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetRole:CreateDBProxyEndpoint' :: Maybe DBProxyEndpointTargetRole
+</span><a href="#local-6989586621679801501"><span class="hs-identifier hs-var hs-var">targetRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxyEndpointTargetRole
+</span><a href="#local-6989586621679801501"><span class="hs-identifier hs-var">targetRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801500"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801499"><span class="annot"><span class="annottext">Maybe DBProxyEndpointTargetRole
+</span><a href="#local-6989586621679801499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetRole:CreateDBProxyEndpoint' :: Maybe DBProxyEndpointTargetRole
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AtargetRole%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">targetRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxyEndpointTargetRole
-</span><a href="#local-6989586621679801490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The VPC security group IDs for the DB proxy endpoint that you create.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- You can specify a different set of security group IDs than for the</span><span>
@@ -247,16 +247,16 @@ $sel:targetRole:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Maybe DBPr
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801489"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801498"><span class="annot"><span class="annottext">Maybe [Text]
 vpcSecurityGroupIds :: Maybe [Text]
 $sel:vpcSecurityGroupIds:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Maybe [Text]
-</span><a href="#local-6989586621679801489"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679801489"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801488"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801487"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679801487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupIds:CreateDBProxyEndpoint' :: Maybe [Text]
+</span><a href="#local-6989586621679801498"><span class="hs-identifier hs-var hs-var">vpcSecurityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679801498"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801497"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801496"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679801496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSecurityGroupIds:CreateDBProxyEndpoint' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AvpcSecurityGroupIds%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679801487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679801496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CreateDBProxyEndpoint -&gt; f CreateDBProxyEndpoint)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -285,16 +285,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801483"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801492"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679801483"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679801483"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801482"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801481"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679801481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDBProxyEndpoint' :: Maybe [Tag]
+</span><a href="#local-6989586621679801492"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679801492"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801491"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801490"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679801490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDBProxyEndpoint' :: Maybe [Tag]
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3Atags%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679801481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679801490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateDBProxyEndpoint -&gt; f CreateDBProxyEndpoint)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -320,16 +320,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateDBProxyEndpoint -&gt; Text -&gt; CreateDBProxyEndpoint)
 -&gt; Lens CreateDBProxyEndpoint CreateDBProxyEndpoint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801480"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801489"><span class="annot"><span class="annottext">Text
 dbProxyName :: Text
 $sel:dbProxyName:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Text
-</span><a href="#local-6989586621679801480"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801480"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801479"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801478"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:CreateDBProxyEndpoint' :: Text
+</span><a href="#local-6989586621679801489"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801489"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801488"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801487"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:CreateDBProxyEndpoint' :: Text
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AdbProxyName%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The name of the DB proxy endpoint to create.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#createDBProxyEndpoint_dbProxyEndpointName"><span class="hs-identifier hs-type">createDBProxyEndpoint_dbProxyEndpointName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -339,16 +339,16 @@ $sel:dbProxyName:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Text
 -&gt; (CreateDBProxyEndpoint -&gt; Text -&gt; CreateDBProxyEndpoint)
 -&gt; Lens CreateDBProxyEndpoint CreateDBProxyEndpoint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801477"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801486"><span class="annot"><span class="annottext">Text
 dbProxyEndpointName :: Text
 $sel:dbProxyEndpointName:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Text
-</span><a href="#local-6989586621679801477"><span class="hs-identifier hs-var hs-var">dbProxyEndpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801477"><span class="hs-identifier hs-var">dbProxyEndpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801476"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801475"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyEndpointName:CreateDBProxyEndpoint' :: Text
+</span><a href="#local-6989586621679801486"><span class="hs-identifier hs-var hs-var">dbProxyEndpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801486"><span class="hs-identifier hs-var">dbProxyEndpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801485"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801484"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679801484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyEndpointName:CreateDBProxyEndpoint' :: Text
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AdbProxyEndpointName%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">dbProxyEndpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The VPC subnet IDs for the DB proxy endpoint that you create. You can</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- specify a different set of subnet IDs than for the original DB proxy.</span><span>
@@ -359,16 +359,16 @@ $sel:dbProxyEndpointName:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; T
 -&gt; (CreateDBProxyEndpoint -&gt; [Text] -&gt; CreateDBProxyEndpoint)
 -&gt; Lens CreateDBProxyEndpoint CreateDBProxyEndpoint [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801474"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801483"><span class="annot"><span class="annottext">[Text]
 vpcSubnetIds :: [Text]
 $sel:vpcSubnetIds:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; [Text]
-</span><a href="#local-6989586621679801474"><span class="hs-identifier hs-var hs-var">vpcSubnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679801474"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801473"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801472"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679801472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
-</span><a href="#local-6989586621679801473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSubnetIds:CreateDBProxyEndpoint' :: [Text]
+</span><a href="#local-6989586621679801483"><span class="hs-identifier hs-var hs-var">vpcSubnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679801483"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801482"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801481"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679801481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpoint
+</span><a href="#local-6989586621679801482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcSubnetIds:CreateDBProxyEndpoint' :: [Text]
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AvpcSubnetIds%3ACreateDBProxyEndpoint%27"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679801472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679801481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; CreateDBProxyEndpoint -&gt; f CreateDBProxyEndpoint)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -383,12 +383,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-156"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679801468"><span class="annot"><span class="annottext">request :: CreateDBProxyEndpoint -&gt; Request CreateDBProxyEndpoint
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679801477"><span class="annot"><span class="annottext">request :: CreateDBProxyEndpoint -&gt; Request CreateDBProxyEndpoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDBProxyEndpoint -&gt; Request CreateDBProxyEndpoint
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679801464"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679801473"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDBProxyEndpoint
 -&gt; ClientResponse ClientBody
@@ -419,10 +419,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateDBProxyEndpointResult&quot;</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679801461"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679801461"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679801460"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679801460"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679801459"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679801459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679801470"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679801470"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679801469"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679801469"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679801468"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679801468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBProxyEndpoint -&gt; Int -&gt; CreateDBProxyEndpointResponse
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-var">CreateDBProxyEndpointResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBProxyEndpoint -&gt; Int -&gt; CreateDBProxyEndpointResponse)
@@ -430,7 +430,7 @@ Text
 -&gt; Either String (Int -&gt; CreateDBProxyEndpointResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679801459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBProxyEndpoint)
+</span><a href="#local-6989586621679801468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBProxyEndpoint)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBProxyEndpoint&quot;</span></span><span class="hs-special">)</span><span>
@@ -442,15 +442,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679801461"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801470"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801451"><span id="local-6989586621679801453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801460"><span id="local-6989586621679801462"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span></span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679801444"><span class="annot"><span class="annottext">toHeaders :: CreateDBProxyEndpoint -&gt; ResponseHeaders
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679801453"><span class="annot"><span class="annottext">toHeaders :: CreateDBProxyEndpoint -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDBProxyEndpoint -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -458,15 +458,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679801439"><span class="annot"><span class="annottext">toPath :: CreateDBProxyEndpoint -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679801448"><span class="annot"><span class="annottext">toPath :: CreateDBProxyEndpoint -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDBProxyEndpoint -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint"><span class="hs-identifier hs-type">CreateDBProxyEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679801435"><span class="annot"><span class="annottext">toQuery :: CreateDBProxyEndpoint -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801428"><span id="local-6989586621679801429"><span id="local-6989586621679801430"><span id="local-6989586621679801431"><span id="local-6989586621679801432"><span id="local-6989586621679801433"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679801444"><span class="annot"><span class="annottext">toQuery :: CreateDBProxyEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpoint%27"><span class="hs-identifier hs-type">CreateDBProxyEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801437"><span id="local-6989586621679801438"><span id="local-6989586621679801439"><span id="local-6989586621679801440"><span id="local-6989586621679801441"><span id="local-6989586621679801442"><span class="annot"><span class="annottext">[Text]
 Maybe [Text]
 Maybe [Tag]
 Maybe DBProxyEndpointTargetRole
@@ -483,7 +483,7 @@ $sel:dbProxyName:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Text
 $sel:tags:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Maybe [Tag]
 $sel:vpcSecurityGroupIds:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Maybe [Text]
 $sel:targetRole:CreateDBProxyEndpoint' :: CreateDBProxyEndpoint -&gt; Maybe DBProxyEndpointTargetRole
-</span><a href="#local-6989586621679801428"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679801437"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -503,7 +503,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;TargetRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe DBProxyEndpointTargetRole -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe DBProxyEndpointTargetRole
-</span><a href="#local-6989586621679801433"><span class="hs-identifier hs-var">targetRole</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679801442"><span class="hs-identifier hs-var">targetRole</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VpcSecurityGroupIds&quot;</span></span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -520,7 +520,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-189"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679801432"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span>
+</span><a href="#local-6989586621679801441"><span class="hs-identifier hs-var">vpcSecurityGroupIds</span></a></span><span>
 </span><span id="line-190"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span>
@@ -537,17 +537,17 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679801431"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679801440"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBProxyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801430"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679801439"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBProxyEndpointName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679801429"><span class="hs-identifier hs-var">dbProxyEndpointName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679801438"><span class="hs-identifier hs-var">dbProxyEndpointName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VpcSubnetIds&quot;</span></span><span>
 </span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -558,11 +558,11 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679801428"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span>
+</span><a href="#local-6989586621679801437"><span class="hs-identifier hs-var">vpcSubnetIds</span></a></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | /See:/ 'newCreateDBProxyEndpointResponse' smart constructor.</span><span>
-</span><span id="line-201"></span><span id="local-6989586621679801424"><span id="local-6989586621679801425"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBProxyEndpointResponse"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-var">CreateDBProxyEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBProxyEndpointResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-var">CreateDBProxyEndpointResponse'</span></a></span></span><span>
+</span><span id="line-201"></span><span id="local-6989586621679801433"><span id="local-6989586621679801434"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDBProxyEndpointResponse"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-var">CreateDBProxyEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDBProxyEndpointResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-var">CreateDBProxyEndpointResponse'</span></a></span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @DBProxyEndpoint@ object that is created by the API operation. The</span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-comment">-- DB proxy endpoint that you create might provide capabilities such as</span><span>
 </span><span id="line-204"></span><span>    </span><span class="hs-comment">-- read\/write or read-only operations, or using a different VPC than the</span><span>
@@ -573,7 +573,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-208"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDBProxyEndpointResponse%27"><span class="annot"><span class="annottext">CreateDBProxyEndpointResponse -&gt; Int
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AhttpStatus%3ACreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679801418"><span id="local-6989586621679801420"><span class="annot"><span class="annottext">CreateDBProxyEndpointResponse
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679801427"><span id="local-6989586621679801429"><span class="annot"><span class="annottext">CreateDBProxyEndpointResponse
 -&gt; CreateDBProxyEndpointResponse -&gt; Bool
 (CreateDBProxyEndpointResponse
  -&gt; CreateDBProxyEndpointResponse -&gt; Bool)
@@ -589,7 +589,7 @@ $c/= :: CreateDBProxyEndpointResponse
 -&gt; CreateDBProxyEndpointResponse -&gt; Bool
 $c== :: CreateDBProxyEndpointResponse
 -&gt; CreateDBProxyEndpointResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801410"><span id="local-6989586621679801412"><span id="local-6989586621679801414"><span id="local-6989586621679801416"><span class="annot"><span class="annottext">ReadPrec [CreateDBProxyEndpointResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801419"><span id="local-6989586621679801421"><span id="local-6989586621679801423"><span id="local-6989586621679801425"><span class="annot"><span class="annottext">ReadPrec [CreateDBProxyEndpointResponse]
 ReadPrec CreateDBProxyEndpointResponse
 Int -&gt; ReadS CreateDBProxyEndpointResponse
 ReadS [CreateDBProxyEndpointResponse]
@@ -609,7 +609,7 @@ readList :: ReadS [CreateDBProxyEndpointResponse]
 $creadList :: ReadS [CreateDBProxyEndpointResponse]
 readsPrec :: Int -&gt; ReadS CreateDBProxyEndpointResponse
 $creadsPrec :: Int -&gt; ReadS CreateDBProxyEndpointResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801404"><span id="local-6989586621679801406"><span id="local-6989586621679801408"><span class="annot"><span class="annottext">Int -&gt; CreateDBProxyEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801413"><span id="local-6989586621679801415"><span id="local-6989586621679801417"><span class="annot"><span class="annottext">Int -&gt; CreateDBProxyEndpointResponse -&gt; ShowS
 [CreateDBProxyEndpointResponse] -&gt; ShowS
 CreateDBProxyEndpointResponse -&gt; String
 (Int -&gt; CreateDBProxyEndpointResponse -&gt; ShowS)
@@ -666,8 +666,8 @@ CreateDBProxyEndpointResponse
 </span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse</span></a></span><span>
 </span><span id="line-230"></span><span id="newCreateDBProxyEndpointResponse"><span class="annot"><span class="annottext">newCreateDBProxyEndpointResponse :: Int -&gt; CreateDBProxyEndpointResponse
-</span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#newCreateDBProxyEndpointResponse"><span class="hs-identifier hs-var hs-var">newCreateDBProxyEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679801401"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679801401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#newCreateDBProxyEndpointResponse"><span class="hs-identifier hs-var hs-var">newCreateDBProxyEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679801410"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679801410"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">CreateDBProxyEndpointResponse' :: Maybe DBProxyEndpoint -&gt; Int -&gt; CreateDBProxyEndpointResponse
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse'</span></a></span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbProxyEndpoint:CreateDBProxyEndpointResponse' :: Maybe DBProxyEndpoint
@@ -677,7 +677,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBProxyEndpointResponse' :: Int
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AhttpStatus%3ACreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679801401"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679801410"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-235"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The @DBProxyEndpoint@ object that is created by the API operation. The</span><span>
@@ -696,16 +696,16 @@ forall a. Maybe a
      (Maybe DBProxyEndpoint)
      (Maybe DBProxyEndpoint)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801400"><span class="annot"><span class="annottext">Maybe DBProxyEndpoint
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801409"><span class="annot"><span class="annottext">Maybe DBProxyEndpoint
 dbProxyEndpoint :: Maybe DBProxyEndpoint
 $sel:dbProxyEndpoint:CreateDBProxyEndpointResponse' :: CreateDBProxyEndpointResponse -&gt; Maybe DBProxyEndpoint
-</span><a href="#local-6989586621679801400"><span class="hs-identifier hs-var hs-var">dbProxyEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxyEndpoint
-</span><a href="#local-6989586621679801400"><span class="hs-identifier hs-var">dbProxyEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801399"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpointResponse
-</span><a href="#local-6989586621679801399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801398"><span class="annot"><span class="annottext">Maybe DBProxyEndpoint
-</span><a href="#local-6989586621679801398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpointResponse
-</span><a href="#local-6989586621679801399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyEndpoint:CreateDBProxyEndpointResponse' :: Maybe DBProxyEndpoint
+</span><a href="#local-6989586621679801409"><span class="hs-identifier hs-var hs-var">dbProxyEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxyEndpoint
+</span><a href="#local-6989586621679801409"><span class="hs-identifier hs-var">dbProxyEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801408"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpointResponse
+</span><a href="#local-6989586621679801408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801407"><span class="annot"><span class="annottext">Maybe DBProxyEndpoint
+</span><a href="#local-6989586621679801407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpointResponse
+</span><a href="#local-6989586621679801408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyEndpoint:CreateDBProxyEndpointResponse' :: Maybe DBProxyEndpoint
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AdbProxyEndpoint%3ACreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-var">dbProxyEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBProxyEndpoint
-</span><a href="#local-6989586621679801398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-245"></span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#createDBProxyEndpointResponse_httpStatus"><span class="hs-identifier hs-type">createDBProxyEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -717,16 +717,16 @@ $sel:dbProxyEndpoint:CreateDBProxyEndpointResponse' :: CreateDBProxyEndpointResp
 -&gt; Lens
      CreateDBProxyEndpointResponse CreateDBProxyEndpointResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801397"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801406"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDBProxyEndpointResponse' :: CreateDBProxyEndpointResponse -&gt; Int
-</span><a href="#local-6989586621679801397"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679801397"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801396"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpointResponse
-</span><a href="#local-6989586621679801396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801395"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679801395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpointResponse
-</span><a href="#local-6989586621679801396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBProxyEndpointResponse' :: Int
+</span><a href="#local-6989586621679801406"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679801406"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801405"><span class="annot"><span class="annottext">s :: CreateDBProxyEndpointResponse
+</span><a href="#local-6989586621679801405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801404"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679801404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDBProxyEndpointResponse
+</span><a href="#local-6989586621679801405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDBProxyEndpointResponse' :: Int
 </span><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#%24sel%3AhttpStatus%3ACreateDBProxyEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679801395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse</span></a></span></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateDBProxyEndpoint.html#CreateDBProxyEndpointResponse"><span class="hs-identifier hs-type">CreateDBProxyEndpointResponse</span></a></span></span><span>
 </span><span id="line-249"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a key pair.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newKeyPair' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679788771"><span id="local-6989586621679788772"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPair"><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-var">KeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPair%27"><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-var">KeyPair'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679788780"><span id="local-6989586621679788781"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPair"><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-var">KeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPair%27"><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-var">KeyPair'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The private key.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AprivateKey%3AKeyPair%27"><span class="annot"><span class="annottext">KeyPair -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.IoT.Types.KeyPair.html#%24sel%3AprivateKey%3AKeyPair%27"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ApublicKey%3AKeyPair%27"><span class="annot"><span class="annottext">KeyPair -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.KeyPair.html#%24sel%3ApublicKey%3AKeyPair%27"><span class="hs-identifier hs-var hs-var">publicKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679788764"><span id="local-6989586621679788766"><span class="annot"><span class="annottext">KeyPair -&gt; KeyPair -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679788773"><span id="local-6989586621679788775"><span class="annot"><span class="annottext">KeyPair -&gt; KeyPair -&gt; Bool
 (KeyPair -&gt; KeyPair -&gt; Bool)
 -&gt; (KeyPair -&gt; KeyPair -&gt; Bool) -&gt; Eq KeyPair
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyPair -&gt; KeyPair -&gt; Bool
 == :: KeyPair -&gt; KeyPair -&gt; Bool
 $c== :: KeyPair -&gt; KeyPair -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788757"><span id="local-6989586621679788759"><span id="local-6989586621679788761"><span class="annot"><span class="annottext">Int -&gt; KeyPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788766"><span id="local-6989586621679788768"><span id="local-6989586621679788770"><span class="annot"><span class="annottext">Int -&gt; KeyPair -&gt; ShowS
 [KeyPair] -&gt; ShowS
 KeyPair -&gt; String
 (Int -&gt; KeyPair -&gt; ShowS)
@@ -100,16 +100,16 @@ forall a. Maybe a
 -&gt; Lens
      KeyPair KeyPair (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788748"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788757"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 privateKey :: Maybe (Sensitive Text)
 $sel:privateKey:KeyPair' :: KeyPair -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679788748"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679788748"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788747"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679788747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788746"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679788746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679788747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKey:KeyPair' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679788757"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679788757"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788756"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679788756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788755"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679788755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679788756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKey:KeyPair' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.IoT.Types.KeyPair.html#%24sel%3AprivateKey%3AKeyPair%27"><span class="hs-identifier hs-var">privateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679788746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679788755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; KeyPair -&gt; f KeyPair)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -137,27 +137,27 @@ forall a. Iso' (Sensitive a) a
 -&gt; (KeyPair -&gt; Maybe Text -&gt; KeyPair)
 -&gt; Lens KeyPair KeyPair (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788741"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788750"><span class="annot"><span class="annottext">Maybe Text
 publicKey :: Maybe Text
 $sel:publicKey:KeyPair' :: KeyPair -&gt; Maybe Text
-</span><a href="#local-6989586621679788741"><span class="hs-identifier hs-var hs-var">publicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788741"><span class="hs-identifier hs-var">publicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788740"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679788740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788739"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679788740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKey:KeyPair' :: Maybe Text
+</span><a href="#local-6989586621679788750"><span class="hs-identifier hs-var hs-var">publicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788750"><span class="hs-identifier hs-var">publicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788749"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679788749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788748"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679788749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKey:KeyPair' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.KeyPair.html#%24sel%3ApublicKey%3AKeyPair%27"><span class="hs-identifier hs-var">publicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679788748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788736"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679788734"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyPair
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788745"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679788743"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyPair
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser KeyPair) -&gt; Value -&gt; Parser KeyPair
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KeyPair&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679788731"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788731"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679788740"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679788740"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text) -&gt; Maybe Text -&gt; KeyPair
 </span><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-var">KeyPair'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text) -&gt; Maybe Text -&gt; KeyPair)
@@ -165,7 +165,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; KeyPair)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679788740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrivateKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -173,13 +173,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser KeyPair
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679788740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PublicKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788725"><span id="local-6989586621679788727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788734"><span id="local-6989586621679788736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName"><span class="hs-identifier">FindingStatisticsSortAttributeName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName_Count"><span class="hs-identifier">FindingStatisticsSortAttributeName_Count</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName_GroupKey"><span class="hs-identifier">FindingStatisticsSortAttributeName_GroupKey</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The grouping to sort the results by. Valid values are:</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679387551"><span id="local-6989586621679387552"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FindingStatisticsSortAttributeName"><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName"><span class="hs-identifier hs-var">FindingStatisticsSortAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingStatisticsSortAttributeName%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName%27"><span class="hs-identifier hs-var">FindingStatisticsSortAttributeName'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFindingStatisticsSortAttributeName"><span class="annot"><span class="annottext">FindingStatisticsSortAttributeName -&gt; Text
+</span><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#fromFindingStatisticsSortAttributeName"><span class="hs-identifier hs-var hs-var">fromFindingStatisticsSortAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387543"><span id="local-6989586621679387545"><span id="local-6989586621679387547"><span class="annot"><span class="annottext">Int -&gt; FindingStatisticsSortAttributeName -&gt; ShowS
+[FindingStatisticsSortAttributeName] -&gt; ShowS
+FindingStatisticsSortAttributeName -&gt; String
+(Int -&gt; FindingStatisticsSortAttributeName -&gt; ShowS)
+-&gt; (FindingStatisticsSortAttributeName -&gt; String)
+-&gt; ([FindingStatisticsSortAttributeName] -&gt; ShowS)
+-&gt; Show FindingStatisticsSortAttributeName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FindingStatisticsSortAttributeName] -&gt; ShowS
+$cshowList :: [FindingStatisticsSortAttributeName] -&gt; ShowS
+show :: FindingStatisticsSortAttributeName -&gt; String
+$cshow :: FindingStatisticsSortAttributeName -&gt; String
+showsPrec :: Int -&gt; FindingStatisticsSortAttributeName -&gt; ShowS
+$cshowsPrec :: Int -&gt; FindingStatisticsSortAttributeName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679387534"><span id="local-6989586621679387536"><span id="local-6989586621679387538"><span id="local-6989586621679387540"><span class="annot"><span class="annottext">ReadPrec [FindingStatisticsSortAttributeName]
+ReadPrec FindingStatisticsSortAttributeName
+Int -&gt; ReadS FindingStatisticsSortAttributeName
+ReadS [FindingStatisticsSortAttributeName]
+(Int -&gt; ReadS FindingStatisticsSortAttributeName)
+-&gt; ReadS [FindingStatisticsSortAttributeName]
+-&gt; ReadPrec FindingStatisticsSortAttributeName
+-&gt; ReadPrec [FindingStatisticsSortAttributeName]
+-&gt; Read FindingStatisticsSortAttributeName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FindingStatisticsSortAttributeName]
+$creadListPrec :: ReadPrec [FindingStatisticsSortAttributeName]
+readPrec :: ReadPrec FindingStatisticsSortAttributeName
+$creadPrec :: ReadPrec FindingStatisticsSortAttributeName
+readList :: ReadS [FindingStatisticsSortAttributeName]
+$creadList :: ReadS [FindingStatisticsSortAttributeName]
+readsPrec :: Int -&gt; ReadS FindingStatisticsSortAttributeName
+$creadsPrec :: Int -&gt; ReadS FindingStatisticsSortAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679387529"><span id="local-6989586621679387531"><span class="annot"><span class="annottext">FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+(FindingStatisticsSortAttributeName
+ -&gt; FindingStatisticsSortAttributeName -&gt; Bool)
+-&gt; (FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName -&gt; Bool)
+-&gt; Eq FindingStatisticsSortAttributeName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+$c/= :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+== :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+$c== :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679387513"><span id="local-6989586621679387515"><span id="local-6989586621679387517"><span id="local-6989586621679387519"><span id="local-6989586621679387521"><span id="local-6989586621679387523"><span id="local-6989586621679387525"><span class="annot"><span class="annottext">Eq FindingStatisticsSortAttributeName
+Eq FindingStatisticsSortAttributeName
+-&gt; (FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName -&gt; Ordering)
+-&gt; (FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName -&gt; Bool)
+-&gt; (FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName -&gt; Bool)
+-&gt; (FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName -&gt; Bool)
+-&gt; (FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName -&gt; Bool)
+-&gt; (FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName)
+-&gt; (FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName
+    -&gt; FindingStatisticsSortAttributeName)
+-&gt; Ord FindingStatisticsSortAttributeName
+FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Ordering
+FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+$cmin :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+max :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+$cmax :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName
+&gt;= :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+$c&gt;= :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+&gt; :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+$c&gt; :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+&lt;= :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+$c&lt;= :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+&lt; :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+$c&lt; :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Bool
+compare :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Ordering
+$ccompare :: FindingStatisticsSortAttributeName
+-&gt; FindingStatisticsSortAttributeName -&gt; Ordering
+$cp1Ord :: Eq FindingStatisticsSortAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ FindingStatisticsSortAttributeName
+ -&gt; Rep FindingStatisticsSortAttributeName x)
+-&gt; (forall x.
+    Rep FindingStatisticsSortAttributeName x
+    -&gt; FindingStatisticsSortAttributeName)
+-&gt; Generic FindingStatisticsSortAttributeName
+forall x.
+Rep FindingStatisticsSortAttributeName x
+-&gt; FindingStatisticsSortAttributeName
+forall x.
+FindingStatisticsSortAttributeName
+-&gt; Rep FindingStatisticsSortAttributeName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FindingStatisticsSortAttributeName x
+-&gt; FindingStatisticsSortAttributeName
+$cfrom :: forall x.
+FindingStatisticsSortAttributeName
+-&gt; Rep FindingStatisticsSortAttributeName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679387505"><span id="local-6989586621679387507"><span class="annot"><span class="annottext">Int -&gt; FindingStatisticsSortAttributeName -&gt; Int
+FindingStatisticsSortAttributeName -&gt; Int
+(Int -&gt; FindingStatisticsSortAttributeName -&gt; Int)
+-&gt; (FindingStatisticsSortAttributeName -&gt; Int)
+-&gt; Hashable FindingStatisticsSortAttributeName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FindingStatisticsSortAttributeName -&gt; Int
+$chash :: FindingStatisticsSortAttributeName -&gt; Int
+hashWithSalt :: Int -&gt; FindingStatisticsSortAttributeName -&gt; Int
+$chashWithSalt :: Int -&gt; FindingStatisticsSortAttributeName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679387502"><span class="annot"><span class="annottext">FindingStatisticsSortAttributeName -&gt; ()
+(FindingStatisticsSortAttributeName -&gt; ())
+-&gt; NFData FindingStatisticsSortAttributeName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FindingStatisticsSortAttributeName -&gt; ()
+$crnf :: FindingStatisticsSortAttributeName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679387499"><span class="annot"><span class="annottext">Text -&gt; Either String FindingStatisticsSortAttributeName
+(Text -&gt; Either String FindingStatisticsSortAttributeName)
+-&gt; FromText FindingStatisticsSortAttributeName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FindingStatisticsSortAttributeName
+$cfromText :: Text -&gt; Either String FindingStatisticsSortAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679387496"><span class="annot"><span class="annottext">FindingStatisticsSortAttributeName -&gt; Text
+(FindingStatisticsSortAttributeName -&gt; Text)
+-&gt; ToText FindingStatisticsSortAttributeName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FindingStatisticsSortAttributeName -&gt; Text
+$ctoText :: FindingStatisticsSortAttributeName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679387493"><span class="annot"><span class="annottext">FindingStatisticsSortAttributeName -&gt; ByteString
+(FindingStatisticsSortAttributeName -&gt; ByteString)
+-&gt; ToByteString FindingStatisticsSortAttributeName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FindingStatisticsSortAttributeName -&gt; ByteString
+$ctoBS :: FindingStatisticsSortAttributeName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679387490"><span class="annot"><span class="annottext">FindingStatisticsSortAttributeName -&gt; ByteStringBuilder
+(FindingStatisticsSortAttributeName -&gt; ByteStringBuilder)
+-&gt; ToLog FindingStatisticsSortAttributeName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FindingStatisticsSortAttributeName -&gt; ByteStringBuilder
+$cbuild :: FindingStatisticsSortAttributeName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679387487"><span class="annot"><span class="annottext">HeaderName -&gt; FindingStatisticsSortAttributeName -&gt; [Header]
+(HeaderName -&gt; FindingStatisticsSortAttributeName -&gt; [Header])
+-&gt; ToHeader FindingStatisticsSortAttributeName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FindingStatisticsSortAttributeName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FindingStatisticsSortAttributeName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679387484"><span class="annot"><span class="annottext">FindingStatisticsSortAttributeName -&gt; QueryString
+(FindingStatisticsSortAttributeName -&gt; QueryString)
+-&gt; ToQuery FindingStatisticsSortAttributeName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FindingStatisticsSortAttributeName -&gt; QueryString
+$ctoQuery :: FindingStatisticsSortAttributeName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679387479"><span id="local-6989586621679387481"><span class="annot"><span class="annottext">Value -&gt; Parser [FindingStatisticsSortAttributeName]
+Value -&gt; Parser FindingStatisticsSortAttributeName
+(Value -&gt; Parser FindingStatisticsSortAttributeName)
+-&gt; (Value -&gt; Parser [FindingStatisticsSortAttributeName])
+-&gt; FromJSON FindingStatisticsSortAttributeName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FindingStatisticsSortAttributeName]
+$cparseJSONList :: Value -&gt; Parser [FindingStatisticsSortAttributeName]
+parseJSON :: Value -&gt; Parser FindingStatisticsSortAttributeName
+$cparseJSON :: Value -&gt; Parser FindingStatisticsSortAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679387474"><span id="local-6989586621679387476"><span class="annot"><span class="annottext">FromJSONKeyFunction [FindingStatisticsSortAttributeName]
+FromJSONKeyFunction FindingStatisticsSortAttributeName
+FromJSONKeyFunction FindingStatisticsSortAttributeName
+-&gt; FromJSONKeyFunction [FindingStatisticsSortAttributeName]
+-&gt; FromJSONKey FindingStatisticsSortAttributeName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FindingStatisticsSortAttributeName]
+$cfromJSONKeyList :: FromJSONKeyFunction [FindingStatisticsSortAttributeName]
+fromJSONKey :: FromJSONKeyFunction FindingStatisticsSortAttributeName
+$cfromJSONKey :: FromJSONKeyFunction FindingStatisticsSortAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679387465"><span id="local-6989586621679387467"><span id="local-6989586621679387469"><span id="local-6989586621679387471"><span class="annot"><span class="annottext">[FindingStatisticsSortAttributeName] -&gt; Encoding
+[FindingStatisticsSortAttributeName] -&gt; Value
+FindingStatisticsSortAttributeName -&gt; Encoding
+FindingStatisticsSortAttributeName -&gt; Value
+(FindingStatisticsSortAttributeName -&gt; Value)
+-&gt; (FindingStatisticsSortAttributeName -&gt; Encoding)
+-&gt; ([FindingStatisticsSortAttributeName] -&gt; Value)
+-&gt; ([FindingStatisticsSortAttributeName] -&gt; Encoding)
+-&gt; ToJSON FindingStatisticsSortAttributeName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FindingStatisticsSortAttributeName] -&gt; Encoding
+$ctoEncodingList :: [FindingStatisticsSortAttributeName] -&gt; Encoding
+toJSONList :: [FindingStatisticsSortAttributeName] -&gt; Value
+$ctoJSONList :: [FindingStatisticsSortAttributeName] -&gt; Value
+toEncoding :: FindingStatisticsSortAttributeName -&gt; Encoding
+$ctoEncoding :: FindingStatisticsSortAttributeName -&gt; Encoding
+toJSON :: FindingStatisticsSortAttributeName -&gt; Value
+$ctoJSON :: FindingStatisticsSortAttributeName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679387460"><span id="local-6989586621679387462"><span class="annot"><span class="annottext">ToJSONKeyFunction [FindingStatisticsSortAttributeName]
+ToJSONKeyFunction FindingStatisticsSortAttributeName
+ToJSONKeyFunction FindingStatisticsSortAttributeName
+-&gt; ToJSONKeyFunction [FindingStatisticsSortAttributeName]
+-&gt; ToJSONKey FindingStatisticsSortAttributeName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FindingStatisticsSortAttributeName]
+$ctoJSONKeyList :: ToJSONKeyFunction [FindingStatisticsSortAttributeName]
+toJSONKey :: ToJSONKeyFunction FindingStatisticsSortAttributeName
+$ctoJSONKey :: ToJSONKeyFunction FindingStatisticsSortAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679387457"><span class="annot"><span class="annottext">[Node] -&gt; Either String FindingStatisticsSortAttributeName
+([Node] -&gt; Either String FindingStatisticsSortAttributeName)
+-&gt; FromXML FindingStatisticsSortAttributeName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FindingStatisticsSortAttributeName
+$cparseXML :: [Node] -&gt; Either String FindingStatisticsSortAttributeName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679387454"><span class="annot"><span class="annottext">FindingStatisticsSortAttributeName -&gt; XML
+(FindingStatisticsSortAttributeName -&gt; XML)
+-&gt; ToXML FindingStatisticsSortAttributeName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FindingStatisticsSortAttributeName -&gt; XML
+$ctoXML :: FindingStatisticsSortAttributeName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName_Count"><span class="hs-identifier hs-type">FindingStatisticsSortAttributeName_Count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName"><span class="hs-identifier hs-type">FindingStatisticsSortAttributeName</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFindingStatisticsSortAttributeName_Count"><span id="%24mFindingStatisticsSortAttributeName_Count"><span id="FindingStatisticsSortAttributeName_Count"><span class="annot"><span class="annottext">$bFindingStatisticsSortAttributeName_Count :: FindingStatisticsSortAttributeName
+$mFindingStatisticsSortAttributeName_Count :: forall r.
+FindingStatisticsSortAttributeName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#%24bFindingStatisticsSortAttributeName_Count"><span class="hs-identifier hs-var hs-var hs-var">FindingStatisticsSortAttributeName_Count</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName%27"><span class="hs-identifier hs-type">FindingStatisticsSortAttributeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;count&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName_GroupKey"><span class="hs-identifier hs-type">FindingStatisticsSortAttributeName_GroupKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName"><span class="hs-identifier hs-type">FindingStatisticsSortAttributeName</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFindingStatisticsSortAttributeName_GroupKey"><span id="%24mFindingStatisticsSortAttributeName_GroupKey"><span id="FindingStatisticsSortAttributeName_GroupKey"><span class="annot"><span class="annottext">$bFindingStatisticsSortAttributeName_GroupKey :: FindingStatisticsSortAttributeName
+$mFindingStatisticsSortAttributeName_GroupKey :: forall r.
+FindingStatisticsSortAttributeName
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#%24bFindingStatisticsSortAttributeName_GroupKey"><span class="hs-identifier hs-var hs-var hs-var">FindingStatisticsSortAttributeName_GroupKey</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName%27"><span class="hs-identifier hs-type">FindingStatisticsSortAttributeName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;groupKey&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName_Count"><span class="hs-pragma hs-type">FindingStatisticsSortAttributeName_Count</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName_GroupKey"><span class="hs-pragma hs-type">FindingStatisticsSortAttributeName_GroupKey</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.FindingStatisticsSortAttributeName.html#FindingStatisticsSortAttributeName%27"><span class="hs-pragma hs-type">FindingStatisticsSortAttributeName'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

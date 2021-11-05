@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679606047"><span id="local-6989586621679606048"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudFormationStackRecordSourceType"><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType.html#CloudFormationStackRecordSourceType"><span class="hs-identifier hs-var">CloudFormationStackRecordSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudFormationStackRecordSourceType%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType.html#CloudFormationStackRecordSourceType%27"><span class="hs-identifier hs-var">CloudFormationStackRecordSourceType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679606056"><span id="local-6989586621679606057"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudFormationStackRecordSourceType"><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType.html#CloudFormationStackRecordSourceType"><span class="hs-identifier hs-var">CloudFormationStackRecordSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudFormationStackRecordSourceType%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType.html#CloudFormationStackRecordSourceType%27"><span class="hs-identifier hs-var">CloudFormationStackRecordSourceType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCloudFormationStackRecordSourceType"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType.html#fromCloudFormationStackRecordSourceType"><span class="hs-identifier hs-var hs-var">fromCloudFormationStackRecordSourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606039"><span id="local-6989586621679606041"><span id="local-6989586621679606043"><span class="annot"><span class="annottext">Int -&gt; CloudFormationStackRecordSourceType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606048"><span id="local-6989586621679606050"><span id="local-6989586621679606052"><span class="annot"><span class="annottext">Int -&gt; CloudFormationStackRecordSourceType -&gt; ShowS
 [CloudFormationStackRecordSourceType] -&gt; ShowS
 CloudFormationStackRecordSourceType -&gt; String
 (Int -&gt; CloudFormationStackRecordSourceType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: CloudFormationStackRecordSourceType -&gt; String
 showsPrec :: Int -&gt; CloudFormationStackRecordSourceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CloudFormationStackRecordSourceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679606030"><span id="local-6989586621679606032"><span id="local-6989586621679606034"><span id="local-6989586621679606036"><span class="annot"><span class="annottext">ReadPrec [CloudFormationStackRecordSourceType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679606039"><span id="local-6989586621679606041"><span id="local-6989586621679606043"><span id="local-6989586621679606045"><span class="annot"><span class="annottext">ReadPrec [CloudFormationStackRecordSourceType]
 ReadPrec CloudFormationStackRecordSourceType
 Int -&gt; ReadS CloudFormationStackRecordSourceType
 ReadS [CloudFormationStackRecordSourceType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [CloudFormationStackRecordSourceType]
 readsPrec :: Int -&gt; ReadS CloudFormationStackRecordSourceType
 $creadsPrec :: Int -&gt; ReadS CloudFormationStackRecordSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679606025"><span id="local-6989586621679606027"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679606034"><span id="local-6989586621679606036"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType
 -&gt; CloudFormationStackRecordSourceType -&gt; Bool
 (CloudFormationStackRecordSourceType
  -&gt; CloudFormationStackRecordSourceType -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: CloudFormationStackRecordSourceType
 $c== :: CloudFormationStackRecordSourceType
 -&gt; CloudFormationStackRecordSourceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679606009"><span id="local-6989586621679606011"><span id="local-6989586621679606013"><span id="local-6989586621679606015"><span id="local-6989586621679606017"><span id="local-6989586621679606019"><span id="local-6989586621679606021"><span class="annot"><span class="annottext">Eq CloudFormationStackRecordSourceType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679606018"><span id="local-6989586621679606020"><span id="local-6989586621679606022"><span id="local-6989586621679606024"><span id="local-6989586621679606026"><span id="local-6989586621679606028"><span id="local-6989586621679606030"><span class="annot"><span class="annottext">Eq CloudFormationStackRecordSourceType
 Eq CloudFormationStackRecordSourceType
 -&gt; (CloudFormationStackRecordSourceType
     -&gt; CloudFormationStackRecordSourceType -&gt; Ordering)
@@ -182,7 +182,7 @@ CloudFormationStackRecordSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606001"><span id="local-6989586621679606003"><span class="annot"><span class="annottext">Int -&gt; CloudFormationStackRecordSourceType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679606010"><span id="local-6989586621679606012"><span class="annot"><span class="annottext">Int -&gt; CloudFormationStackRecordSourceType -&gt; Int
 CloudFormationStackRecordSourceType -&gt; Int
 (Int -&gt; CloudFormationStackRecordSourceType -&gt; Int)
 -&gt; (CloudFormationStackRecordSourceType -&gt; Int)
@@ -193,56 +193,56 @@ $chash :: CloudFormationStackRecordSourceType -&gt; Int
 hashWithSalt :: Int -&gt; CloudFormationStackRecordSourceType -&gt; Int
 $chashWithSalt :: Int -&gt; CloudFormationStackRecordSourceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679605998"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679606007"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; ()
 (CloudFormationStackRecordSourceType -&gt; ())
 -&gt; NFData CloudFormationStackRecordSourceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CloudFormationStackRecordSourceType -&gt; ()
 $crnf :: CloudFormationStackRecordSourceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679605995"><span class="annot"><span class="annottext">Text -&gt; Either String CloudFormationStackRecordSourceType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679606004"><span class="annot"><span class="annottext">Text -&gt; Either String CloudFormationStackRecordSourceType
 (Text -&gt; Either String CloudFormationStackRecordSourceType)
 -&gt; FromText CloudFormationStackRecordSourceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CloudFormationStackRecordSourceType
 $cfromText :: Text -&gt; Either String CloudFormationStackRecordSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679605992"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679606001"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; Text
 (CloudFormationStackRecordSourceType -&gt; Text)
 -&gt; ToText CloudFormationStackRecordSourceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CloudFormationStackRecordSourceType -&gt; Text
 $ctoText :: CloudFormationStackRecordSourceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679605989"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679605998"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; ByteString
 (CloudFormationStackRecordSourceType -&gt; ByteString)
 -&gt; ToByteString CloudFormationStackRecordSourceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CloudFormationStackRecordSourceType -&gt; ByteString
 $ctoBS :: CloudFormationStackRecordSourceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679605986"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679605995"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; ByteStringBuilder
 (CloudFormationStackRecordSourceType -&gt; ByteStringBuilder)
 -&gt; ToLog CloudFormationStackRecordSourceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CloudFormationStackRecordSourceType -&gt; ByteStringBuilder
 $cbuild :: CloudFormationStackRecordSourceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679605983"><span class="annot"><span class="annottext">HeaderName -&gt; CloudFormationStackRecordSourceType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679605992"><span class="annot"><span class="annottext">HeaderName -&gt; CloudFormationStackRecordSourceType -&gt; [Header]
 (HeaderName -&gt; CloudFormationStackRecordSourceType -&gt; [Header])
 -&gt; ToHeader CloudFormationStackRecordSourceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CloudFormationStackRecordSourceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CloudFormationStackRecordSourceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679605980"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679605989"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; QueryString
 (CloudFormationStackRecordSourceType -&gt; QueryString)
 -&gt; ToQuery CloudFormationStackRecordSourceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CloudFormationStackRecordSourceType -&gt; QueryString
 $ctoQuery :: CloudFormationStackRecordSourceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679605975"><span id="local-6989586621679605977"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudFormationStackRecordSourceType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679605984"><span id="local-6989586621679605986"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudFormationStackRecordSourceType]
 Value -&gt; Parser CloudFormationStackRecordSourceType
 (Value -&gt; Parser CloudFormationStackRecordSourceType)
 -&gt; (Value -&gt; Parser [CloudFormationStackRecordSourceType])
@@ -254,7 +254,7 @@ $cparseJSONList :: Value -&gt; Parser [CloudFormationStackRecordSourceType]
 parseJSON :: Value -&gt; Parser CloudFormationStackRecordSourceType
 $cparseJSON :: Value -&gt; Parser CloudFormationStackRecordSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679605970"><span id="local-6989586621679605972"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudFormationStackRecordSourceType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679605979"><span id="local-6989586621679605981"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudFormationStackRecordSourceType]
 FromJSONKeyFunction CloudFormationStackRecordSourceType
 FromJSONKeyFunction CloudFormationStackRecordSourceType
 -&gt; FromJSONKeyFunction [CloudFormationStackRecordSourceType]
@@ -266,7 +266,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CloudFormationStackRecordSourceType]
 fromJSONKey :: FromJSONKeyFunction CloudFormationStackRecordSourceType
 $cfromJSONKey :: FromJSONKeyFunction CloudFormationStackRecordSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679605961"><span id="local-6989586621679605963"><span id="local-6989586621679605965"><span id="local-6989586621679605967"><span class="annot"><span class="annottext">[CloudFormationStackRecordSourceType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679605970"><span id="local-6989586621679605972"><span id="local-6989586621679605974"><span id="local-6989586621679605976"><span class="annot"><span class="annottext">[CloudFormationStackRecordSourceType] -&gt; Encoding
 [CloudFormationStackRecordSourceType] -&gt; Value
 CloudFormationStackRecordSourceType -&gt; Encoding
 CloudFormationStackRecordSourceType -&gt; Value
@@ -290,7 +290,7 @@ $ctoEncoding :: CloudFormationStackRecordSourceType -&gt; Encoding
 toJSON :: CloudFormationStackRecordSourceType -&gt; Value
 $ctoJSON :: CloudFormationStackRecordSourceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679605956"><span id="local-6989586621679605958"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudFormationStackRecordSourceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679605965"><span id="local-6989586621679605967"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudFormationStackRecordSourceType]
 ToJSONKeyFunction CloudFormationStackRecordSourceType
 ToJSONKeyFunction CloudFormationStackRecordSourceType
 -&gt; ToJSONKeyFunction [CloudFormationStackRecordSourceType]
@@ -302,14 +302,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CloudFormationStackRecordSourceType]
 toJSONKey :: ToJSONKeyFunction CloudFormationStackRecordSourceType
 $ctoJSONKey :: ToJSONKeyFunction CloudFormationStackRecordSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679605953"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudFormationStackRecordSourceType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679605962"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudFormationStackRecordSourceType
 ([Node] -&gt; Either String CloudFormationStackRecordSourceType)
 -&gt; FromXML CloudFormationStackRecordSourceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CloudFormationStackRecordSourceType
 $cparseXML :: [Node] -&gt; Either String CloudFormationStackRecordSourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679605950"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679605959"><span class="annot"><span class="annottext">CloudFormationStackRecordSourceType -&gt; XML
 (CloudFormationStackRecordSourceType -&gt; XML)
 -&gt; ToXML CloudFormationStackRecordSourceType
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -32,10 +32,10 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679266600"><span id="local-6989586621679266601"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LogType"><span class="annot"><a href="Network.AWS.EKS.Types.LogType.html#LogType"><span class="hs-identifier hs-var">LogType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogType%27"><span class="annot"><a href="Network.AWS.EKS.Types.LogType.html#LogType%27"><span class="hs-identifier hs-var">LogType'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromLogType"><span class="annot"><span class="annottext">LogType -&gt; Text
+</span><span id="line-35"></span><span id="local-6989586621679266609"><span id="local-6989586621679266610"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LogType"><span class="annot"><a href="Network.AWS.EKS.Types.LogType.html#LogType"><span class="hs-identifier hs-var">LogType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogType%27"><span class="annot"><a href="Network.AWS.EKS.Types.LogType.html#LogType%27"><span class="hs-identifier hs-var">LogType'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromLogType"><span class="annot"><span class="annottext">LogType -&gt; Text
 </span><a href="Network.AWS.EKS.Types.LogType.html#fromLogType"><span class="hs-identifier hs-var hs-var">fromLogType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679266592"><span id="local-6989586621679266594"><span id="local-6989586621679266596"><span class="annot"><span class="annottext">Int -&gt; LogType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679266601"><span id="local-6989586621679266603"><span id="local-6989586621679266605"><span class="annot"><span class="annottext">Int -&gt; LogType -&gt; ShowS
 [LogType] -&gt; ShowS
 LogType -&gt; String
 (Int -&gt; LogType -&gt; ShowS)
@@ -49,7 +49,7 @@ $cshow :: LogType -&gt; String
 showsPrec :: Int -&gt; LogType -&gt; ShowS
 $cshowsPrec :: Int -&gt; LogType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679266583"><span id="local-6989586621679266585"><span id="local-6989586621679266587"><span id="local-6989586621679266589"><span class="annot"><span class="annottext">ReadPrec [LogType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679266592"><span id="local-6989586621679266594"><span id="local-6989586621679266596"><span id="local-6989586621679266598"><span class="annot"><span class="annottext">ReadPrec [LogType]
 ReadPrec LogType
 Int -&gt; ReadS LogType
 ReadS [LogType]
@@ -70,7 +70,7 @@ $creadList :: ReadS [LogType]
 readsPrec :: Int -&gt; ReadS LogType
 $creadsPrec :: Int -&gt; ReadS LogType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679266578"><span id="local-6989586621679266580"><span class="annot"><span class="annottext">LogType -&gt; LogType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679266587"><span id="local-6989586621679266589"><span class="annot"><span class="annottext">LogType -&gt; LogType -&gt; Bool
 (LogType -&gt; LogType -&gt; Bool)
 -&gt; (LogType -&gt; LogType -&gt; Bool) -&gt; Eq LogType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ $c/= :: LogType -&gt; LogType -&gt; Bool
 == :: LogType -&gt; LogType -&gt; Bool
 $c== :: LogType -&gt; LogType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679266562"><span id="local-6989586621679266564"><span id="local-6989586621679266566"><span id="local-6989586621679266568"><span id="local-6989586621679266570"><span id="local-6989586621679266572"><span id="local-6989586621679266574"><span class="annot"><span class="annottext">Eq LogType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679266571"><span id="local-6989586621679266573"><span id="local-6989586621679266575"><span id="local-6989586621679266577"><span id="local-6989586621679266579"><span id="local-6989586621679266581"><span id="local-6989586621679266583"><span class="annot"><span class="annottext">Eq LogType
 Eq LogType
 -&gt; (LogType -&gt; LogType -&gt; Ordering)
 -&gt; (LogType -&gt; LogType -&gt; Bool)
@@ -129,7 +129,7 @@ $cfrom :: forall x. LogType -&gt; Rep LogType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679266554"><span id="local-6989586621679266556"><span class="annot"><span class="annottext">Int -&gt; LogType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679266563"><span id="local-6989586621679266565"><span class="annot"><span class="annottext">Int -&gt; LogType -&gt; Int
 LogType -&gt; Int
 (Int -&gt; LogType -&gt; Int) -&gt; (LogType -&gt; Int) -&gt; Hashable LogType
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -138,49 +138,49 @@ $chash :: LogType -&gt; Int
 hashWithSalt :: Int -&gt; LogType -&gt; Int
 $chashWithSalt :: Int -&gt; LogType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679266551"><span class="annot"><span class="annottext">LogType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679266560"><span class="annot"><span class="annottext">LogType -&gt; ()
 (LogType -&gt; ()) -&gt; NFData LogType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LogType -&gt; ()
 $crnf :: LogType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679266548"><span class="annot"><span class="annottext">Text -&gt; Either String LogType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679266557"><span class="annot"><span class="annottext">Text -&gt; Either String LogType
 (Text -&gt; Either String LogType) -&gt; FromText LogType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LogType
 $cfromText :: Text -&gt; Either String LogType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679266545"><span class="annot"><span class="annottext">LogType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679266554"><span class="annot"><span class="annottext">LogType -&gt; Text
 (LogType -&gt; Text) -&gt; ToText LogType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LogType -&gt; Text
 $ctoText :: LogType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679266542"><span class="annot"><span class="annottext">LogType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679266551"><span class="annot"><span class="annottext">LogType -&gt; ByteString
 (LogType -&gt; ByteString) -&gt; ToByteString LogType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LogType -&gt; ByteString
 $ctoBS :: LogType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679266539"><span class="annot"><span class="annottext">LogType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679266548"><span class="annot"><span class="annottext">LogType -&gt; ByteStringBuilder
 (LogType -&gt; ByteStringBuilder) -&gt; ToLog LogType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LogType -&gt; ByteStringBuilder
 $cbuild :: LogType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679266536"><span class="annot"><span class="annottext">HeaderName -&gt; LogType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679266545"><span class="annot"><span class="annottext">HeaderName -&gt; LogType -&gt; [Header]
 (HeaderName -&gt; LogType -&gt; [Header]) -&gt; ToHeader LogType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LogType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LogType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679266533"><span class="annot"><span class="annottext">LogType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679266542"><span class="annot"><span class="annottext">LogType -&gt; QueryString
 (LogType -&gt; QueryString) -&gt; ToQuery LogType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LogType -&gt; QueryString
 $ctoQuery :: LogType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679266528"><span id="local-6989586621679266530"><span class="annot"><span class="annottext">Value -&gt; Parser [LogType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679266537"><span id="local-6989586621679266539"><span class="annot"><span class="annottext">Value -&gt; Parser [LogType]
 Value -&gt; Parser LogType
 (Value -&gt; Parser LogType)
 -&gt; (Value -&gt; Parser [LogType]) -&gt; FromJSON LogType
@@ -191,7 +191,7 @@ $cparseJSONList :: Value -&gt; Parser [LogType]
 parseJSON :: Value -&gt; Parser LogType
 $cparseJSON :: Value -&gt; Parser LogType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679266523"><span id="local-6989586621679266525"><span class="annot"><span class="annottext">FromJSONKeyFunction [LogType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679266532"><span id="local-6989586621679266534"><span class="annot"><span class="annottext">FromJSONKeyFunction [LogType]
 FromJSONKeyFunction LogType
 FromJSONKeyFunction LogType
 -&gt; FromJSONKeyFunction [LogType] -&gt; FromJSONKey LogType
@@ -202,7 +202,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LogType]
 fromJSONKey :: FromJSONKeyFunction LogType
 $cfromJSONKey :: FromJSONKeyFunction LogType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679266514"><span id="local-6989586621679266516"><span id="local-6989586621679266518"><span id="local-6989586621679266520"><span class="annot"><span class="annottext">[LogType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679266523"><span id="local-6989586621679266525"><span id="local-6989586621679266527"><span id="local-6989586621679266529"><span class="annot"><span class="annottext">[LogType] -&gt; Encoding
 [LogType] -&gt; Value
 LogType -&gt; Encoding
 LogType -&gt; Value
@@ -226,7 +226,7 @@ $ctoEncoding :: LogType -&gt; Encoding
 toJSON :: LogType -&gt; Value
 $ctoJSON :: LogType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679266509"><span id="local-6989586621679266511"><span class="annot"><span class="annottext">ToJSONKeyFunction [LogType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679266518"><span id="local-6989586621679266520"><span class="annot"><span class="annottext">ToJSONKeyFunction [LogType]
 ToJSONKeyFunction LogType
 ToJSONKeyFunction LogType
 -&gt; ToJSONKeyFunction [LogType] -&gt; ToJSONKey LogType
@@ -237,13 +237,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LogType]
 toJSONKey :: ToJSONKeyFunction LogType
 $ctoJSONKey :: ToJSONKeyFunction LogType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679266506"><span class="annot"><span class="annottext">[Node] -&gt; Either String LogType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679266515"><span class="annot"><span class="annottext">[Node] -&gt; Either String LogType
 ([Node] -&gt; Either String LogType) -&gt; FromXML LogType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LogType
 $cparseXML :: [Node] -&gt; Either String LogType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679266503"><span class="annot"><span class="annottext">LogType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679266512"><span class="annot"><span class="annottext">LogType -&gt; XML
 (LogType -&gt; XML) -&gt; ToXML LogType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LogType -&gt; XML

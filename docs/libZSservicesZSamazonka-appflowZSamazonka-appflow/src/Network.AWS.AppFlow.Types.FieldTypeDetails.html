@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.FieldTypeDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.FieldTypeDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.Operator.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.Operator</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains details regarding the supported field type and the operators</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- that can be applied for filtering.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFieldTypeDetails' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679319053"><span id="local-6989586621679319054"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldTypeDetails"><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-var">FieldTypeDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldTypeDetails%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails%27"><span class="hs-identifier hs-var">FieldTypeDetails'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of values that a field can contain. For example, a Boolean</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @fieldType@ can have two values: \&quot;true\&quot; and \&quot;false\&quot;.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsupportedValues%3AFieldTypeDetails%27"><span class="annot"><span class="annottext">FieldTypeDetails -&gt; Maybe [Text]
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#%24sel%3AsupportedValues%3AFieldTypeDetails%27"><span class="hs-identifier hs-var hs-var">supportedValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of field, such as string, integer, date, and so on.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AfieldType%3AFieldTypeDetails%27"><span class="annot"><span class="annottext">FieldTypeDetails -&gt; Text
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#%24sel%3AfieldType%3AFieldTypeDetails%27"><span class="hs-identifier hs-var hs-var">fieldType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The list of operators supported by a field.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AfilterOperators%3AFieldTypeDetails%27"><span class="annot"><span class="annottext">FieldTypeDetails -&gt; [Operator]
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#%24sel%3AfilterOperators%3AFieldTypeDetails%27"><span class="hs-identifier hs-var hs-var">filterOperators</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppFlow.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319045"><span id="local-6989586621679319047"><span class="annot"><span class="annottext">FieldTypeDetails -&gt; FieldTypeDetails -&gt; Bool
+(FieldTypeDetails -&gt; FieldTypeDetails -&gt; Bool)
+-&gt; (FieldTypeDetails -&gt; FieldTypeDetails -&gt; Bool)
+-&gt; Eq FieldTypeDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FieldTypeDetails -&gt; FieldTypeDetails -&gt; Bool
+$c/= :: FieldTypeDetails -&gt; FieldTypeDetails -&gt; Bool
+== :: FieldTypeDetails -&gt; FieldTypeDetails -&gt; Bool
+$c== :: FieldTypeDetails -&gt; FieldTypeDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319036"><span id="local-6989586621679319038"><span id="local-6989586621679319040"><span id="local-6989586621679319042"><span class="annot"><span class="annottext">ReadPrec [FieldTypeDetails]
+ReadPrec FieldTypeDetails
+Int -&gt; ReadS FieldTypeDetails
+ReadS [FieldTypeDetails]
+(Int -&gt; ReadS FieldTypeDetails)
+-&gt; ReadS [FieldTypeDetails]
+-&gt; ReadPrec FieldTypeDetails
+-&gt; ReadPrec [FieldTypeDetails]
+-&gt; Read FieldTypeDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FieldTypeDetails]
+$creadListPrec :: ReadPrec [FieldTypeDetails]
+readPrec :: ReadPrec FieldTypeDetails
+$creadPrec :: ReadPrec FieldTypeDetails
+readList :: ReadS [FieldTypeDetails]
+$creadList :: ReadS [FieldTypeDetails]
+readsPrec :: Int -&gt; ReadS FieldTypeDetails
+$creadsPrec :: Int -&gt; ReadS FieldTypeDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319029"><span id="local-6989586621679319031"><span id="local-6989586621679319033"><span class="annot"><span class="annottext">Int -&gt; FieldTypeDetails -&gt; ShowS
+[FieldTypeDetails] -&gt; ShowS
+FieldTypeDetails -&gt; String
+(Int -&gt; FieldTypeDetails -&gt; ShowS)
+-&gt; (FieldTypeDetails -&gt; String)
+-&gt; ([FieldTypeDetails] -&gt; ShowS)
+-&gt; Show FieldTypeDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FieldTypeDetails] -&gt; ShowS
+$cshowList :: [FieldTypeDetails] -&gt; ShowS
+show :: FieldTypeDetails -&gt; String
+$cshow :: FieldTypeDetails -&gt; String
+showsPrec :: Int -&gt; FieldTypeDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; FieldTypeDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FieldTypeDetails -&gt; Rep FieldTypeDetails x)
+-&gt; (forall x. Rep FieldTypeDetails x -&gt; FieldTypeDetails)
+-&gt; Generic FieldTypeDetails
+forall x. Rep FieldTypeDetails x -&gt; FieldTypeDetails
+forall x. FieldTypeDetails -&gt; Rep FieldTypeDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FieldTypeDetails x -&gt; FieldTypeDetails
+$cfrom :: forall x. FieldTypeDetails -&gt; Rep FieldTypeDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'FieldTypeDetails' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'supportedValues', 'fieldTypeDetails_supportedValues' - The list of values that a field can contain. For example, a Boolean</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- @fieldType@ can have two values: \&quot;true\&quot; and \&quot;false\&quot;.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'fieldType', 'fieldTypeDetails_fieldType' - The type of field, such as string, integer, date, and so on.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'filterOperators', 'fieldTypeDetails_filterOperators' - The list of operators supported by a field.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#newFieldTypeDetails"><span class="hs-identifier hs-type">newFieldTypeDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'fieldType'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span><span>
+</span><span id="line-60"></span><span id="newFieldTypeDetails"><span class="annot"><span class="annottext">newFieldTypeDetails :: Text -&gt; FieldTypeDetails
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#newFieldTypeDetails"><span class="hs-identifier hs-var hs-var">newFieldTypeDetails</span></a></span></span><span> </span><span id="local-6989586621679319023"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319023"><span class="hs-identifier hs-var">pFieldType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">FieldTypeDetails' :: Maybe [Text] -&gt; Text -&gt; [Operator] -&gt; FieldTypeDetails
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails%27"><span class="hs-identifier hs-type">FieldTypeDetails'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:supportedValues:FieldTypeDetails' :: Maybe [Text]
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#%24sel%3AsupportedValues%3AFieldTypeDetails%27"><span class="hs-identifier hs-var">supportedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:fieldType:FieldTypeDetails' :: Text
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#%24sel%3AfieldType%3AFieldTypeDetails%27"><span class="hs-identifier hs-var">fieldType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319023"><span class="hs-identifier hs-var">pFieldType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterOperators:FieldTypeDetails' :: [Operator]
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#%24sel%3AfilterOperators%3AFieldTypeDetails%27"><span class="hs-identifier hs-var">filterOperators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Operator]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The list of values that a field can contain. For example, a Boolean</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- @fieldType@ can have two values: \&quot;true\&quot; and \&quot;false\&quot;.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#fieldTypeDetails_supportedValues"><span class="hs-identifier hs-type">fieldTypeDetails_supportedValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="fieldTypeDetails_supportedValues"><span class="annot"><span class="annottext">fieldTypeDetails_supportedValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FieldTypeDetails -&gt; f FieldTypeDetails
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#fieldTypeDetails_supportedValues"><span class="hs-identifier hs-var hs-var">fieldTypeDetails_supportedValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldTypeDetails -&gt; Maybe [Text])
+-&gt; (FieldTypeDetails -&gt; Maybe [Text] -&gt; FieldTypeDetails)
+-&gt; Lens
+     FieldTypeDetails FieldTypeDetails (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails%27"><span class="hs-identifier hs-type">FieldTypeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319019"><span class="annot"><span class="annottext">Maybe [Text]
+supportedValues :: Maybe [Text]
+$sel:supportedValues:FieldTypeDetails' :: FieldTypeDetails -&gt; Maybe [Text]
+</span><a href="#local-6989586621679319019"><span class="hs-identifier hs-var hs-var">supportedValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679319019"><span class="hs-identifier hs-var">supportedValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319018"><span class="annot"><span class="annottext">s :: FieldTypeDetails
+</span><a href="#local-6989586621679319018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails%27"><span class="hs-identifier hs-type">FieldTypeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319017"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679319017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldTypeDetails
+</span><a href="#local-6989586621679319018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedValues:FieldTypeDetails' :: Maybe [Text]
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#%24sel%3AsupportedValues%3AFieldTypeDetails%27"><span class="hs-identifier hs-var">supportedValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679319017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; FieldTypeDetails -&gt; f FieldTypeDetails)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FieldTypeDetails
+-&gt; f FieldTypeDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The type of field, such as string, integer, date, and so on.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#fieldTypeDetails_fieldType"><span class="hs-identifier hs-type">fieldTypeDetails_fieldType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="fieldTypeDetails_fieldType"><span class="annot"><span class="annottext">fieldTypeDetails_fieldType :: (Text -&gt; f Text) -&gt; FieldTypeDetails -&gt; f FieldTypeDetails
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#fieldTypeDetails_fieldType"><span class="hs-identifier hs-var hs-var">fieldTypeDetails_fieldType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldTypeDetails -&gt; Text)
+-&gt; (FieldTypeDetails -&gt; Text -&gt; FieldTypeDetails)
+-&gt; Lens FieldTypeDetails FieldTypeDetails Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails%27"><span class="hs-identifier hs-type">FieldTypeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319012"><span class="annot"><span class="annottext">Text
+fieldType :: Text
+$sel:fieldType:FieldTypeDetails' :: FieldTypeDetails -&gt; Text
+</span><a href="#local-6989586621679319012"><span class="hs-identifier hs-var hs-var">fieldType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319012"><span class="hs-identifier hs-var">fieldType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319011"><span class="annot"><span class="annottext">s :: FieldTypeDetails
+</span><a href="#local-6989586621679319011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails%27"><span class="hs-identifier hs-type">FieldTypeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319010"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldTypeDetails
+</span><a href="#local-6989586621679319011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldType:FieldTypeDetails' :: Text
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#%24sel%3AfieldType%3AFieldTypeDetails%27"><span class="hs-identifier hs-var">fieldType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The list of operators supported by a field.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#fieldTypeDetails_filterOperators"><span class="hs-identifier hs-type">fieldTypeDetails_filterOperators</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppFlow.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-79"></span><span id="fieldTypeDetails_filterOperators"><span class="annot"><span class="annottext">fieldTypeDetails_filterOperators :: ([Operator] -&gt; f [Operator])
+-&gt; FieldTypeDetails -&gt; f FieldTypeDetails
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#fieldTypeDetails_filterOperators"><span class="hs-identifier hs-var hs-var">fieldTypeDetails_filterOperators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldTypeDetails -&gt; [Operator])
+-&gt; (FieldTypeDetails -&gt; [Operator] -&gt; FieldTypeDetails)
+-&gt; Lens FieldTypeDetails FieldTypeDetails [Operator] [Operator]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails%27"><span class="hs-identifier hs-type">FieldTypeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319008"><span class="annot"><span class="annottext">[Operator]
+filterOperators :: [Operator]
+$sel:filterOperators:FieldTypeDetails' :: FieldTypeDetails -&gt; [Operator]
+</span><a href="#local-6989586621679319008"><span class="hs-identifier hs-var hs-var">filterOperators</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Operator]
+</span><a href="#local-6989586621679319008"><span class="hs-identifier hs-var">filterOperators</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319007"><span class="annot"><span class="annottext">s :: FieldTypeDetails
+</span><a href="#local-6989586621679319007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails%27"><span class="hs-identifier hs-type">FieldTypeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319006"><span class="annot"><span class="annottext">[Operator]
+</span><a href="#local-6989586621679319006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldTypeDetails
+</span><a href="#local-6989586621679319007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterOperators:FieldTypeDetails' :: [Operator]
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#%24sel%3AfilterOperators%3AFieldTypeDetails%27"><span class="hs-identifier hs-var">filterOperators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Operator]
+</span><a href="#local-6989586621679319006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Operator] -&gt; f [Operator])
+ -&gt; FieldTypeDetails -&gt; f FieldTypeDetails)
+-&gt; (([Operator] -&gt; f [Operator]) -&gt; [Operator] -&gt; f [Operator])
+-&gt; ([Operator] -&gt; f [Operator])
+-&gt; FieldTypeDetails
+-&gt; f FieldTypeDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Operator] -&gt; f [Operator]) -&gt; [Operator] -&gt; f [Operator]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319003"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679319001"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FieldTypeDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FieldTypeDetails)
+-&gt; Value
+-&gt; Parser FieldTypeDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FieldTypeDetails&quot;</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679318998"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318998"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Text -&gt; [Operator] -&gt; FieldTypeDetails
+</span><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails%27"><span class="hs-identifier hs-var">FieldTypeDetails'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Text -&gt; [Operator] -&gt; FieldTypeDetails)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Text -&gt; [Operator] -&gt; FieldTypeDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportedValues&quot;</span></span><span>
+</span><span id="line-88"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-89"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [Operator] -&gt; FieldTypeDetails)
+-&gt; Parser Text -&gt; Parser ([Operator] -&gt; FieldTypeDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fieldType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Operator] -&gt; FieldTypeDetails)
+-&gt; Parser [Operator] -&gt; Parser FieldTypeDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318998"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Operator])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filterOperators&quot;</span></span><span>
+</span><span id="line-92"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [Operator]) -&gt; [Operator] -&gt; Parser [Operator]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Operator]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-93"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318990"><span id="local-6989586621679318992"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318987"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.FieldTypeDetails.html#FieldTypeDetails"><span class="hs-identifier hs-type">FieldTypeDetails</span></a></span></span><span>
+</span><span id="line-99"></span></pre></body></html>

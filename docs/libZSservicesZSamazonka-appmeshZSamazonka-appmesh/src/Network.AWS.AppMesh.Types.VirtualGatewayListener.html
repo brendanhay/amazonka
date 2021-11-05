@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.VirtualGatewayListener</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualGatewayListener</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayConnectionPool.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualGatewayConnectionPool</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayHealthCheckPolicy.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualGatewayHealthCheckPolicy</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTls.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualGatewayListenerTls</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortMapping.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualGatewayPortMapping</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An object that represents a listener for a virtual gateway.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newVirtualGatewayListener' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679337848"><span id="local-6989586621679337849"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualGatewayListener"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-var">VirtualGatewayListener</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualGatewayListener%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-var">VirtualGatewayListener'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The health check information for the listener.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AhealthCheck%3AVirtualGatewayListener%27"><span class="annot"><span class="annottext">VirtualGatewayListener -&gt; Maybe VirtualGatewayHealthCheckPolicy
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3AhealthCheck%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayHealthCheckPolicy.html#VirtualGatewayHealthCheckPolicy"><span class="hs-identifier hs-type">VirtualGatewayHealthCheckPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The connection pool information for the virtual gateway listener.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AconnectionPool%3AVirtualGatewayListener%27"><span class="annot"><span class="annottext">VirtualGatewayListener -&gt; Maybe VirtualGatewayConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3AconnectionPool%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var hs-var">connectionPool</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayConnectionPool.html#VirtualGatewayConnectionPool"><span class="hs-identifier hs-type">VirtualGatewayConnectionPool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A reference to an object that represents the Transport Layer Security</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- (TLS) properties for the listener.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atls%3AVirtualGatewayListener%27"><span class="annot"><span class="annottext">VirtualGatewayListener -&gt; Maybe VirtualGatewayListenerTls
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3Atls%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var hs-var">tls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTls.html#VirtualGatewayListenerTls"><span class="hs-identifier hs-type">VirtualGatewayListenerTls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The port mapping information for the listener.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AportMapping%3AVirtualGatewayListener%27"><span class="annot"><span class="annottext">VirtualGatewayListener -&gt; VirtualGatewayPortMapping
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3AportMapping%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var hs-var">portMapping</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortMapping.html#VirtualGatewayPortMapping"><span class="hs-identifier hs-type">VirtualGatewayPortMapping</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337839"><span id="local-6989586621679337841"><span class="annot"><span class="annottext">VirtualGatewayListener -&gt; VirtualGatewayListener -&gt; Bool
+(VirtualGatewayListener -&gt; VirtualGatewayListener -&gt; Bool)
+-&gt; (VirtualGatewayListener -&gt; VirtualGatewayListener -&gt; Bool)
+-&gt; Eq VirtualGatewayListener
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualGatewayListener -&gt; VirtualGatewayListener -&gt; Bool
+$c/= :: VirtualGatewayListener -&gt; VirtualGatewayListener -&gt; Bool
+== :: VirtualGatewayListener -&gt; VirtualGatewayListener -&gt; Bool
+$c== :: VirtualGatewayListener -&gt; VirtualGatewayListener -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337830"><span id="local-6989586621679337832"><span id="local-6989586621679337834"><span id="local-6989586621679337836"><span class="annot"><span class="annottext">ReadPrec [VirtualGatewayListener]
+ReadPrec VirtualGatewayListener
+Int -&gt; ReadS VirtualGatewayListener
+ReadS [VirtualGatewayListener]
+(Int -&gt; ReadS VirtualGatewayListener)
+-&gt; ReadS [VirtualGatewayListener]
+-&gt; ReadPrec VirtualGatewayListener
+-&gt; ReadPrec [VirtualGatewayListener]
+-&gt; Read VirtualGatewayListener
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualGatewayListener]
+$creadListPrec :: ReadPrec [VirtualGatewayListener]
+readPrec :: ReadPrec VirtualGatewayListener
+$creadPrec :: ReadPrec VirtualGatewayListener
+readList :: ReadS [VirtualGatewayListener]
+$creadList :: ReadS [VirtualGatewayListener]
+readsPrec :: Int -&gt; ReadS VirtualGatewayListener
+$creadsPrec :: Int -&gt; ReadS VirtualGatewayListener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337823"><span id="local-6989586621679337825"><span id="local-6989586621679337827"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayListener -&gt; ShowS
+[VirtualGatewayListener] -&gt; ShowS
+VirtualGatewayListener -&gt; String
+(Int -&gt; VirtualGatewayListener -&gt; ShowS)
+-&gt; (VirtualGatewayListener -&gt; String)
+-&gt; ([VirtualGatewayListener] -&gt; ShowS)
+-&gt; Show VirtualGatewayListener
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualGatewayListener] -&gt; ShowS
+$cshowList :: [VirtualGatewayListener] -&gt; ShowS
+show :: VirtualGatewayListener -&gt; String
+$cshow :: VirtualGatewayListener -&gt; String
+showsPrec :: Int -&gt; VirtualGatewayListener -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualGatewayListener -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VirtualGatewayListener -&gt; Rep VirtualGatewayListener x)
+-&gt; (forall x.
+    Rep VirtualGatewayListener x -&gt; VirtualGatewayListener)
+-&gt; Generic VirtualGatewayListener
+forall x. Rep VirtualGatewayListener x -&gt; VirtualGatewayListener
+forall x. VirtualGatewayListener -&gt; Rep VirtualGatewayListener x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VirtualGatewayListener x -&gt; VirtualGatewayListener
+$cfrom :: forall x. VirtualGatewayListener -&gt; Rep VirtualGatewayListener x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'VirtualGatewayListener' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'healthCheck', 'virtualGatewayListener_healthCheck' - The health check information for the listener.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'connectionPool', 'virtualGatewayListener_connectionPool' - The connection pool information for the virtual gateway listener.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'tls', 'virtualGatewayListener_tls' - A reference to an object that represents the Transport Layer Security</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- (TLS) properties for the listener.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'portMapping', 'virtualGatewayListener_portMapping' - The port mapping information for the listener.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#newVirtualGatewayListener"><span class="hs-identifier hs-type">newVirtualGatewayListener</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'portMapping'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortMapping.html#VirtualGatewayPortMapping"><span class="hs-identifier hs-type">VirtualGatewayPortMapping</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span><span>
+</span><span id="line-66"></span><span id="newVirtualGatewayListener"><span class="annot"><span class="annottext">newVirtualGatewayListener :: VirtualGatewayPortMapping -&gt; VirtualGatewayListener
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#newVirtualGatewayListener"><span class="hs-identifier hs-var hs-var">newVirtualGatewayListener</span></a></span></span><span> </span><span id="local-6989586621679337817"><span class="annot"><span class="annottext">VirtualGatewayPortMapping
+</span><a href="#local-6989586621679337817"><span class="hs-identifier hs-var">pPortMapping_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">VirtualGatewayListener' :: Maybe VirtualGatewayHealthCheckPolicy
+-&gt; Maybe VirtualGatewayConnectionPool
+-&gt; Maybe VirtualGatewayListenerTls
+-&gt; VirtualGatewayPortMapping
+-&gt; VirtualGatewayListener
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:healthCheck:VirtualGatewayListener' :: Maybe VirtualGatewayHealthCheckPolicy
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3AhealthCheck%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe VirtualGatewayHealthCheckPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionPool:VirtualGatewayListener' :: Maybe VirtualGatewayConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3AconnectionPool%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var">connectionPool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayConnectionPool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:tls:VirtualGatewayListener' :: Maybe VirtualGatewayListenerTls
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3Atls%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var">tls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayListenerTls
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:portMapping:VirtualGatewayListener' :: VirtualGatewayPortMapping
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3AportMapping%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var">portMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayPortMapping
+</span><a href="#local-6989586621679337817"><span class="hs-identifier hs-var">pPortMapping_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The health check information for the listener.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#virtualGatewayListener_healthCheck"><span class="hs-identifier hs-type">virtualGatewayListener_healthCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayHealthCheckPolicy.html#VirtualGatewayHealthCheckPolicy"><span class="hs-identifier hs-type">VirtualGatewayHealthCheckPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="virtualGatewayListener_healthCheck"><span class="annot"><span class="annottext">virtualGatewayListener_healthCheck :: (Maybe VirtualGatewayHealthCheckPolicy
+ -&gt; f (Maybe VirtualGatewayHealthCheckPolicy))
+-&gt; VirtualGatewayListener -&gt; f VirtualGatewayListener
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#virtualGatewayListener_healthCheck"><span class="hs-identifier hs-var hs-var">virtualGatewayListener_healthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayListener -&gt; Maybe VirtualGatewayHealthCheckPolicy)
+-&gt; (VirtualGatewayListener
+    -&gt; Maybe VirtualGatewayHealthCheckPolicy -&gt; VirtualGatewayListener)
+-&gt; Lens
+     VirtualGatewayListener
+     VirtualGatewayListener
+     (Maybe VirtualGatewayHealthCheckPolicy)
+     (Maybe VirtualGatewayHealthCheckPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337813"><span class="annot"><span class="annottext">Maybe VirtualGatewayHealthCheckPolicy
+healthCheck :: Maybe VirtualGatewayHealthCheckPolicy
+$sel:healthCheck:VirtualGatewayListener' :: VirtualGatewayListener -&gt; Maybe VirtualGatewayHealthCheckPolicy
+</span><a href="#local-6989586621679337813"><span class="hs-identifier hs-var hs-var">healthCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayHealthCheckPolicy
+</span><a href="#local-6989586621679337813"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337812"><span class="annot"><span class="annottext">s :: VirtualGatewayListener
+</span><a href="#local-6989586621679337812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337811"><span class="annot"><span class="annottext">Maybe VirtualGatewayHealthCheckPolicy
+</span><a href="#local-6989586621679337811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayListener
+</span><a href="#local-6989586621679337812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheck:VirtualGatewayListener' :: Maybe VirtualGatewayHealthCheckPolicy
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3AhealthCheck%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var">healthCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayHealthCheckPolicy
+</span><a href="#local-6989586621679337811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The connection pool information for the virtual gateway listener.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#virtualGatewayListener_connectionPool"><span class="hs-identifier hs-type">virtualGatewayListener_connectionPool</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayConnectionPool.html#VirtualGatewayConnectionPool"><span class="hs-identifier hs-type">VirtualGatewayConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="virtualGatewayListener_connectionPool"><span class="annot"><span class="annottext">virtualGatewayListener_connectionPool :: (Maybe VirtualGatewayConnectionPool
+ -&gt; f (Maybe VirtualGatewayConnectionPool))
+-&gt; VirtualGatewayListener -&gt; f VirtualGatewayListener
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#virtualGatewayListener_connectionPool"><span class="hs-identifier hs-var hs-var">virtualGatewayListener_connectionPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayListener -&gt; Maybe VirtualGatewayConnectionPool)
+-&gt; (VirtualGatewayListener
+    -&gt; Maybe VirtualGatewayConnectionPool -&gt; VirtualGatewayListener)
+-&gt; Lens
+     VirtualGatewayListener
+     VirtualGatewayListener
+     (Maybe VirtualGatewayConnectionPool)
+     (Maybe VirtualGatewayConnectionPool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337809"><span class="annot"><span class="annottext">Maybe VirtualGatewayConnectionPool
+connectionPool :: Maybe VirtualGatewayConnectionPool
+$sel:connectionPool:VirtualGatewayListener' :: VirtualGatewayListener -&gt; Maybe VirtualGatewayConnectionPool
+</span><a href="#local-6989586621679337809"><span class="hs-identifier hs-var hs-var">connectionPool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayConnectionPool
+</span><a href="#local-6989586621679337809"><span class="hs-identifier hs-var">connectionPool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337808"><span class="annot"><span class="annottext">s :: VirtualGatewayListener
+</span><a href="#local-6989586621679337808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337807"><span class="annot"><span class="annottext">Maybe VirtualGatewayConnectionPool
+</span><a href="#local-6989586621679337807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayListener
+</span><a href="#local-6989586621679337808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionPool:VirtualGatewayListener' :: Maybe VirtualGatewayConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3AconnectionPool%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var">connectionPool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayConnectionPool
+</span><a href="#local-6989586621679337807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | A reference to an object that represents the Transport Layer Security</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- (TLS) properties for the listener.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#virtualGatewayListener_tls"><span class="hs-identifier hs-type">virtualGatewayListener_tls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListenerTls.html#VirtualGatewayListenerTls"><span class="hs-identifier hs-type">VirtualGatewayListenerTls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="virtualGatewayListener_tls"><span class="annot"><span class="annottext">virtualGatewayListener_tls :: (Maybe VirtualGatewayListenerTls
+ -&gt; f (Maybe VirtualGatewayListenerTls))
+-&gt; VirtualGatewayListener -&gt; f VirtualGatewayListener
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#virtualGatewayListener_tls"><span class="hs-identifier hs-var hs-var">virtualGatewayListener_tls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayListener -&gt; Maybe VirtualGatewayListenerTls)
+-&gt; (VirtualGatewayListener
+    -&gt; Maybe VirtualGatewayListenerTls -&gt; VirtualGatewayListener)
+-&gt; Lens
+     VirtualGatewayListener
+     VirtualGatewayListener
+     (Maybe VirtualGatewayListenerTls)
+     (Maybe VirtualGatewayListenerTls)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337805"><span class="annot"><span class="annottext">Maybe VirtualGatewayListenerTls
+tls :: Maybe VirtualGatewayListenerTls
+$sel:tls:VirtualGatewayListener' :: VirtualGatewayListener -&gt; Maybe VirtualGatewayListenerTls
+</span><a href="#local-6989586621679337805"><span class="hs-identifier hs-var hs-var">tls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayListenerTls
+</span><a href="#local-6989586621679337805"><span class="hs-identifier hs-var">tls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337804"><span class="annot"><span class="annottext">s :: VirtualGatewayListener
+</span><a href="#local-6989586621679337804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337803"><span class="annot"><span class="annottext">Maybe VirtualGatewayListenerTls
+</span><a href="#local-6989586621679337803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayListener
+</span><a href="#local-6989586621679337804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tls:VirtualGatewayListener' :: Maybe VirtualGatewayListenerTls
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3Atls%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var">tls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayListenerTls
+</span><a href="#local-6989586621679337803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The port mapping information for the listener.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#virtualGatewayListener_portMapping"><span class="hs-identifier hs-type">virtualGatewayListener_portMapping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortMapping.html#VirtualGatewayPortMapping"><span class="hs-identifier hs-type">VirtualGatewayPortMapping</span></a></span><span>
+</span><span id="line-90"></span><span id="virtualGatewayListener_portMapping"><span class="annot"><span class="annottext">virtualGatewayListener_portMapping :: (VirtualGatewayPortMapping -&gt; f VirtualGatewayPortMapping)
+-&gt; VirtualGatewayListener -&gt; f VirtualGatewayListener
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#virtualGatewayListener_portMapping"><span class="hs-identifier hs-var hs-var">virtualGatewayListener_portMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayListener -&gt; VirtualGatewayPortMapping)
+-&gt; (VirtualGatewayListener
+    -&gt; VirtualGatewayPortMapping -&gt; VirtualGatewayListener)
+-&gt; Lens
+     VirtualGatewayListener
+     VirtualGatewayListener
+     VirtualGatewayPortMapping
+     VirtualGatewayPortMapping
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337801"><span class="annot"><span class="annottext">VirtualGatewayPortMapping
+portMapping :: VirtualGatewayPortMapping
+$sel:portMapping:VirtualGatewayListener' :: VirtualGatewayListener -&gt; VirtualGatewayPortMapping
+</span><a href="#local-6989586621679337801"><span class="hs-identifier hs-var hs-var">portMapping</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayPortMapping
+</span><a href="#local-6989586621679337801"><span class="hs-identifier hs-var">portMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337800"><span class="annot"><span class="annottext">s :: VirtualGatewayListener
+</span><a href="#local-6989586621679337800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337799"><span class="annot"><span class="annottext">VirtualGatewayPortMapping
+</span><a href="#local-6989586621679337799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayListener
+</span><a href="#local-6989586621679337800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portMapping:VirtualGatewayListener' :: VirtualGatewayPortMapping
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#%24sel%3AportMapping%3AVirtualGatewayListener%27"><span class="hs-identifier hs-var">portMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualGatewayPortMapping
+</span><a href="#local-6989586621679337799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337796"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679337794"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualGatewayListener
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VirtualGatewayListener)
+-&gt; Value
+-&gt; Parser VirtualGatewayListener
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VirtualGatewayListener&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337791"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337791"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe VirtualGatewayHealthCheckPolicy
+-&gt; Maybe VirtualGatewayConnectionPool
+-&gt; Maybe VirtualGatewayListenerTls
+-&gt; VirtualGatewayPortMapping
+-&gt; VirtualGatewayListener
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-var">VirtualGatewayListener'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VirtualGatewayHealthCheckPolicy
+ -&gt; Maybe VirtualGatewayConnectionPool
+ -&gt; Maybe VirtualGatewayListenerTls
+ -&gt; VirtualGatewayPortMapping
+ -&gt; VirtualGatewayListener)
+-&gt; Parser (Maybe VirtualGatewayHealthCheckPolicy)
+-&gt; Parser
+     (Maybe VirtualGatewayConnectionPool
+      -&gt; Maybe VirtualGatewayListenerTls
+      -&gt; VirtualGatewayPortMapping
+      -&gt; VirtualGatewayListener)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VirtualGatewayHealthCheckPolicy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;healthCheck&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VirtualGatewayConnectionPool
+   -&gt; Maybe VirtualGatewayListenerTls
+   -&gt; VirtualGatewayPortMapping
+   -&gt; VirtualGatewayListener)
+-&gt; Parser (Maybe VirtualGatewayConnectionPool)
+-&gt; Parser
+     (Maybe VirtualGatewayListenerTls
+      -&gt; VirtualGatewayPortMapping -&gt; VirtualGatewayListener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VirtualGatewayConnectionPool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionPool&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VirtualGatewayListenerTls
+   -&gt; VirtualGatewayPortMapping -&gt; VirtualGatewayListener)
+-&gt; Parser (Maybe VirtualGatewayListenerTls)
+-&gt; Parser (VirtualGatewayPortMapping -&gt; VirtualGatewayListener)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VirtualGatewayListenerTls)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tls&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (VirtualGatewayPortMapping -&gt; VirtualGatewayListener)
+-&gt; Parser VirtualGatewayPortMapping
+-&gt; Parser VirtualGatewayListener
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679337791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VirtualGatewayPortMapping
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portMapping&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337784"><span id="local-6989586621679337786"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337773"><span id="local-6989586621679337775"><span id="local-6989586621679337777"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener"><span class="hs-identifier hs-type">VirtualGatewayListener</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679337771"><span class="annot"><span class="annottext">toJSON :: VirtualGatewayListener -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayListener.html#VirtualGatewayListener%27"><span class="hs-identifier hs-type">VirtualGatewayListener'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337766"><span id="local-6989586621679337767"><span id="local-6989586621679337768"><span id="local-6989586621679337769"><span class="annot"><span class="annottext">Maybe VirtualGatewayConnectionPool
+Maybe VirtualGatewayHealthCheckPolicy
+Maybe VirtualGatewayListenerTls
+VirtualGatewayPortMapping
+portMapping :: VirtualGatewayPortMapping
+tls :: Maybe VirtualGatewayListenerTls
+connectionPool :: Maybe VirtualGatewayConnectionPool
+healthCheck :: Maybe VirtualGatewayHealthCheckPolicy
+$sel:portMapping:VirtualGatewayListener' :: VirtualGatewayListener -&gt; VirtualGatewayPortMapping
+$sel:tls:VirtualGatewayListener' :: VirtualGatewayListener -&gt; Maybe VirtualGatewayListenerTls
+$sel:connectionPool:VirtualGatewayListener' :: VirtualGatewayListener -&gt; Maybe VirtualGatewayConnectionPool
+$sel:healthCheck:VirtualGatewayListener' :: VirtualGatewayListener -&gt; Maybe VirtualGatewayHealthCheckPolicy
+</span><a href="#local-6989586621679337766"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;healthCheck&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualGatewayHealthCheckPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayHealthCheckPolicy -&gt; Pair)
+-&gt; Maybe VirtualGatewayHealthCheckPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayHealthCheckPolicy
+</span><a href="#local-6989586621679337769"><span class="hs-identifier hs-var">healthCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;connectionPool&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualGatewayConnectionPool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(VirtualGatewayConnectionPool -&gt; Pair)
+-&gt; Maybe VirtualGatewayConnectionPool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayConnectionPool
+</span><a href="#local-6989586621679337768"><span class="hs-identifier hs-var">connectionPool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualGatewayListenerTls -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VirtualGatewayListenerTls -&gt; Pair)
+-&gt; Maybe VirtualGatewayListenerTls -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualGatewayListenerTls
+</span><a href="#local-6989586621679337767"><span class="hs-identifier hs-var">tls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portMapping&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualGatewayPortMapping -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">VirtualGatewayPortMapping
+</span><a href="#local-6989586621679337766"><span class="hs-identifier hs-var">portMapping</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span></pre></body></html>

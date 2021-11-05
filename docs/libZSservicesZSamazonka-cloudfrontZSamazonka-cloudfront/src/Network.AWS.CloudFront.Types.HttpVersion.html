@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679392668"><span id="local-6989586621679392669"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HttpVersion"><span class="annot"><a href="Network.AWS.CloudFront.Types.HttpVersion.html#HttpVersion"><span class="hs-identifier hs-var">HttpVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpVersion%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.HttpVersion.html#HttpVersion%27"><span class="hs-identifier hs-var">HttpVersion'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679392677"><span id="local-6989586621679392678"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HttpVersion"><span class="annot"><a href="Network.AWS.CloudFront.Types.HttpVersion.html#HttpVersion"><span class="hs-identifier hs-var">HttpVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpVersion%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.HttpVersion.html#HttpVersion%27"><span class="hs-identifier hs-var">HttpVersion'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHttpVersion"><span class="annot"><span class="annottext">HttpVersion -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.HttpVersion.html#fromHttpVersion"><span class="hs-identifier hs-var hs-var">fromHttpVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679392660"><span id="local-6989586621679392662"><span id="local-6989586621679392664"><span class="annot"><span class="annottext">Int -&gt; HttpVersion -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679392669"><span id="local-6989586621679392671"><span id="local-6989586621679392673"><span class="annot"><span class="annottext">Int -&gt; HttpVersion -&gt; ShowS
 [HttpVersion] -&gt; ShowS
 HttpVersion -&gt; String
 (Int -&gt; HttpVersion -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: HttpVersion -&gt; String
 showsPrec :: Int -&gt; HttpVersion -&gt; ShowS
 $cshowsPrec :: Int -&gt; HttpVersion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679392651"><span id="local-6989586621679392653"><span id="local-6989586621679392655"><span id="local-6989586621679392657"><span class="annot"><span class="annottext">ReadPrec [HttpVersion]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679392660"><span id="local-6989586621679392662"><span id="local-6989586621679392664"><span id="local-6989586621679392666"><span class="annot"><span class="annottext">ReadPrec [HttpVersion]
 ReadPrec HttpVersion
 Int -&gt; ReadS HttpVersion
 ReadS [HttpVersion]
@@ -72,7 +72,7 @@ $creadList :: ReadS [HttpVersion]
 readsPrec :: Int -&gt; ReadS HttpVersion
 $creadsPrec :: Int -&gt; ReadS HttpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679392646"><span id="local-6989586621679392648"><span class="annot"><span class="annottext">HttpVersion -&gt; HttpVersion -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679392655"><span id="local-6989586621679392657"><span class="annot"><span class="annottext">HttpVersion -&gt; HttpVersion -&gt; Bool
 (HttpVersion -&gt; HttpVersion -&gt; Bool)
 -&gt; (HttpVersion -&gt; HttpVersion -&gt; Bool) -&gt; Eq HttpVersion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: HttpVersion -&gt; HttpVersion -&gt; Bool
 == :: HttpVersion -&gt; HttpVersion -&gt; Bool
 $c== :: HttpVersion -&gt; HttpVersion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679392630"><span id="local-6989586621679392632"><span id="local-6989586621679392634"><span id="local-6989586621679392636"><span id="local-6989586621679392638"><span id="local-6989586621679392640"><span id="local-6989586621679392642"><span class="annot"><span class="annottext">Eq HttpVersion
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679392639"><span id="local-6989586621679392641"><span id="local-6989586621679392643"><span id="local-6989586621679392645"><span id="local-6989586621679392647"><span id="local-6989586621679392649"><span id="local-6989586621679392651"><span class="annot"><span class="annottext">Eq HttpVersion
 Eq HttpVersion
 -&gt; (HttpVersion -&gt; HttpVersion -&gt; Ordering)
 -&gt; (HttpVersion -&gt; HttpVersion -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. HttpVersion -&gt; Rep HttpVersion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679392622"><span id="local-6989586621679392624"><span class="annot"><span class="annottext">Int -&gt; HttpVersion -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679392631"><span id="local-6989586621679392633"><span class="annot"><span class="annottext">Int -&gt; HttpVersion -&gt; Int
 HttpVersion -&gt; Int
 (Int -&gt; HttpVersion -&gt; Int)
 -&gt; (HttpVersion -&gt; Int) -&gt; Hashable HttpVersion
@@ -142,49 +142,49 @@ $chash :: HttpVersion -&gt; Int
 hashWithSalt :: Int -&gt; HttpVersion -&gt; Int
 $chashWithSalt :: Int -&gt; HttpVersion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679392619"><span class="annot"><span class="annottext">HttpVersion -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679392628"><span class="annot"><span class="annottext">HttpVersion -&gt; ()
 (HttpVersion -&gt; ()) -&gt; NFData HttpVersion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HttpVersion -&gt; ()
 $crnf :: HttpVersion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679392616"><span class="annot"><span class="annottext">Text -&gt; Either String HttpVersion
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679392625"><span class="annot"><span class="annottext">Text -&gt; Either String HttpVersion
 (Text -&gt; Either String HttpVersion) -&gt; FromText HttpVersion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HttpVersion
 $cfromText :: Text -&gt; Either String HttpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679392613"><span class="annot"><span class="annottext">HttpVersion -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679392622"><span class="annot"><span class="annottext">HttpVersion -&gt; Text
 (HttpVersion -&gt; Text) -&gt; ToText HttpVersion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HttpVersion -&gt; Text
 $ctoText :: HttpVersion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679392610"><span class="annot"><span class="annottext">HttpVersion -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679392619"><span class="annot"><span class="annottext">HttpVersion -&gt; ByteString
 (HttpVersion -&gt; ByteString) -&gt; ToByteString HttpVersion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HttpVersion -&gt; ByteString
 $ctoBS :: HttpVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679392607"><span class="annot"><span class="annottext">HttpVersion -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679392616"><span class="annot"><span class="annottext">HttpVersion -&gt; ByteStringBuilder
 (HttpVersion -&gt; ByteStringBuilder) -&gt; ToLog HttpVersion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HttpVersion -&gt; ByteStringBuilder
 $cbuild :: HttpVersion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679392604"><span class="annot"><span class="annottext">HeaderName -&gt; HttpVersion -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679392613"><span class="annot"><span class="annottext">HeaderName -&gt; HttpVersion -&gt; [Header]
 (HeaderName -&gt; HttpVersion -&gt; [Header]) -&gt; ToHeader HttpVersion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HttpVersion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HttpVersion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679392601"><span class="annot"><span class="annottext">HttpVersion -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679392610"><span class="annot"><span class="annottext">HttpVersion -&gt; QueryString
 (HttpVersion -&gt; QueryString) -&gt; ToQuery HttpVersion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HttpVersion -&gt; QueryString
 $ctoQuery :: HttpVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679392596"><span id="local-6989586621679392598"><span class="annot"><span class="annottext">Value -&gt; Parser [HttpVersion]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679392605"><span id="local-6989586621679392607"><span class="annot"><span class="annottext">Value -&gt; Parser [HttpVersion]
 Value -&gt; Parser HttpVersion
 (Value -&gt; Parser HttpVersion)
 -&gt; (Value -&gt; Parser [HttpVersion]) -&gt; FromJSON HttpVersion
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [HttpVersion]
 parseJSON :: Value -&gt; Parser HttpVersion
 $cparseJSON :: Value -&gt; Parser HttpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679392591"><span id="local-6989586621679392593"><span class="annot"><span class="annottext">FromJSONKeyFunction [HttpVersion]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679392600"><span id="local-6989586621679392602"><span class="annot"><span class="annottext">FromJSONKeyFunction [HttpVersion]
 FromJSONKeyFunction HttpVersion
 FromJSONKeyFunction HttpVersion
 -&gt; FromJSONKeyFunction [HttpVersion] -&gt; FromJSONKey HttpVersion
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HttpVersion]
 fromJSONKey :: FromJSONKeyFunction HttpVersion
 $cfromJSONKey :: FromJSONKeyFunction HttpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679392582"><span id="local-6989586621679392584"><span id="local-6989586621679392586"><span id="local-6989586621679392588"><span class="annot"><span class="annottext">[HttpVersion] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679392591"><span id="local-6989586621679392593"><span id="local-6989586621679392595"><span id="local-6989586621679392597"><span class="annot"><span class="annottext">[HttpVersion] -&gt; Encoding
 [HttpVersion] -&gt; Value
 HttpVersion -&gt; Encoding
 HttpVersion -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: HttpVersion -&gt; Encoding
 toJSON :: HttpVersion -&gt; Value
 $ctoJSON :: HttpVersion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679392577"><span id="local-6989586621679392579"><span class="annot"><span class="annottext">ToJSONKeyFunction [HttpVersion]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679392586"><span id="local-6989586621679392588"><span class="annot"><span class="annottext">ToJSONKeyFunction [HttpVersion]
 ToJSONKeyFunction HttpVersion
 ToJSONKeyFunction HttpVersion
 -&gt; ToJSONKeyFunction [HttpVersion] -&gt; ToJSONKey HttpVersion
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HttpVersion]
 toJSONKey :: ToJSONKeyFunction HttpVersion
 $ctoJSONKey :: ToJSONKeyFunction HttpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679392574"><span class="annot"><span class="annottext">[Node] -&gt; Either String HttpVersion
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679392583"><span class="annot"><span class="annottext">[Node] -&gt; Either String HttpVersion
 ([Node] -&gt; Either String HttpVersion) -&gt; FromXML HttpVersion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HttpVersion
 $cparseXML :: [Node] -&gt; Either String HttpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679392571"><span class="annot"><span class="annottext">HttpVersion -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679392580"><span class="annot"><span class="annottext">HttpVersion -&gt; XML
 (HttpVersion -&gt; XML) -&gt; ToXML HttpVersion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HttpVersion -&gt; XML

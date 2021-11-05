@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing the health status of the node group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newNodegroupHealth' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679267329"><span id="local-6989586621679267330"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodegroupHealth"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-var">NodegroupHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupHealth%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth%27"><span class="hs-identifier hs-var">NodegroupHealth'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679267338"><span id="local-6989586621679267339"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodegroupHealth"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-var">NodegroupHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupHealth%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth%27"><span class="hs-identifier hs-var">NodegroupHealth'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any issues that are associated with the node group.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aissues%3ANodegroupHealth%27"><span class="annot"><span class="annottext">NodegroupHealth -&gt; Maybe [Issue]
 </span><a href="Network.AWS.EKS.Types.NodegroupHealth.html#%24sel%3Aissues%3ANodegroupHealth%27"><span class="hs-identifier hs-var hs-var">issues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.Issue.html#Issue"><span class="hs-identifier hs-type">Issue</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267323"><span id="local-6989586621679267325"><span class="annot"><span class="annottext">NodegroupHealth -&gt; NodegroupHealth -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267332"><span id="local-6989586621679267334"><span class="annot"><span class="annottext">NodegroupHealth -&gt; NodegroupHealth -&gt; Bool
 (NodegroupHealth -&gt; NodegroupHealth -&gt; Bool)
 -&gt; (NodegroupHealth -&gt; NodegroupHealth -&gt; Bool)
 -&gt; Eq NodegroupHealth
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NodegroupHealth -&gt; NodegroupHealth -&gt; Bool
 == :: NodegroupHealth -&gt; NodegroupHealth -&gt; Bool
 $c== :: NodegroupHealth -&gt; NodegroupHealth -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267314"><span id="local-6989586621679267316"><span id="local-6989586621679267318"><span id="local-6989586621679267320"><span class="annot"><span class="annottext">ReadPrec [NodegroupHealth]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267323"><span id="local-6989586621679267325"><span id="local-6989586621679267327"><span id="local-6989586621679267329"><span class="annot"><span class="annottext">ReadPrec [NodegroupHealth]
 ReadPrec NodegroupHealth
 Int -&gt; ReadS NodegroupHealth
 ReadS [NodegroupHealth]
@@ -61,7 +61,7 @@ readList :: ReadS [NodegroupHealth]
 $creadList :: ReadS [NodegroupHealth]
 readsPrec :: Int -&gt; ReadS NodegroupHealth
 $creadsPrec :: Int -&gt; ReadS NodegroupHealth
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267307"><span id="local-6989586621679267309"><span id="local-6989586621679267311"><span class="annot"><span class="annottext">Int -&gt; NodegroupHealth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267316"><span id="local-6989586621679267318"><span id="local-6989586621679267320"><span class="annot"><span class="annottext">Int -&gt; NodegroupHealth -&gt; ShowS
 [NodegroupHealth] -&gt; ShowS
 NodegroupHealth -&gt; String
 (Int -&gt; NodegroupHealth -&gt; ShowS)
@@ -115,16 +115,16 @@ forall a. Maybe a
 -&gt; Lens
      NodegroupHealth NodegroupHealth (Maybe [Issue]) (Maybe [Issue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth%27"><span class="hs-identifier hs-type">NodegroupHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267298"><span class="annot"><span class="annottext">Maybe [Issue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth%27"><span class="hs-identifier hs-type">NodegroupHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267307"><span class="annot"><span class="annottext">Maybe [Issue]
 issues :: Maybe [Issue]
 $sel:issues:NodegroupHealth' :: NodegroupHealth -&gt; Maybe [Issue]
-</span><a href="#local-6989586621679267298"><span class="hs-identifier hs-var hs-var">issues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Issue]
-</span><a href="#local-6989586621679267298"><span class="hs-identifier hs-var">issues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267297"><span class="annot"><span class="annottext">s :: NodegroupHealth
-</span><a href="#local-6989586621679267297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth%27"><span class="hs-identifier hs-type">NodegroupHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267296"><span class="annot"><span class="annottext">Maybe [Issue]
-</span><a href="#local-6989586621679267296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupHealth
-</span><a href="#local-6989586621679267297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issues:NodegroupHealth' :: Maybe [Issue]
+</span><a href="#local-6989586621679267307"><span class="hs-identifier hs-var hs-var">issues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Issue]
+</span><a href="#local-6989586621679267307"><span class="hs-identifier hs-var">issues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267306"><span class="annot"><span class="annottext">s :: NodegroupHealth
+</span><a href="#local-6989586621679267306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth%27"><span class="hs-identifier hs-type">NodegroupHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267305"><span class="annot"><span class="annottext">Maybe [Issue]
+</span><a href="#local-6989586621679267305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupHealth
+</span><a href="#local-6989586621679267306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issues:NodegroupHealth' :: Maybe [Issue]
 </span><a href="Network.AWS.EKS.Types.NodegroupHealth.html#%24sel%3Aissues%3ANodegroupHealth%27"><span class="hs-identifier hs-var">issues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Issue]
-</span><a href="#local-6989586621679267296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-type">NodegroupHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Issue] -&gt; f (Maybe [Issue]))
+</span><a href="#local-6989586621679267305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-type">NodegroupHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Issue] -&gt; f (Maybe [Issue]))
  -&gt; NodegroupHealth -&gt; f NodegroupHealth)
 -&gt; ((Maybe [Issue] -&gt; f (Maybe [Issue]))
     -&gt; Maybe [Issue] -&gt; f (Maybe [Issue]))
@@ -142,8 +142,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267290"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-type">NodegroupHealth</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679267288"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodegroupHealth
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267299"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-type">NodegroupHealth</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679267297"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodegroupHealth
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NodegroupHealth)
@@ -153,15 +153,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NodegroupHealth&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267285"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267285"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267294"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Issue] -&gt; NodegroupHealth
 </span><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth%27"><span class="hs-identifier hs-var">NodegroupHealth'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Issue] -&gt; NodegroupHealth)
 -&gt; Parser (Maybe [Issue]) -&gt; Parser NodegroupHealth
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Issue]))
+</span><a href="#local-6989586621679267294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Issue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;issues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Issue]))
@@ -172,7 +172,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267278"><span id="local-6989586621679267280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-type">NodegroupHealth</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267287"><span id="local-6989586621679267289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-type">NodegroupHealth</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-type">NodegroupHealth</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupHealth.html#NodegroupHealth"><span class="hs-identifier hs-type">NodegroupHealth</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

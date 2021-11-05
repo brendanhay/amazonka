@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListAuditTasks' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679828114"><span id="local-6989586621679828115"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAuditTasks"><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-var">ListAuditTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAuditTasks%27"><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-var">ListAuditTasks'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679828123"><span id="local-6989586621679828124"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAuditTasks"><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-var">ListAuditTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAuditTasks%27"><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-var">ListAuditTasks'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter to limit the output to the specified type of audit: can be one</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- of \&quot;ON_DEMAND_AUDIT_TASK\&quot; or \&quot;SCHEDULED__AUDIT_TASK\&quot;.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AtaskType%3AListAuditTasks%27"><span class="annot"><span class="annottext">ListAuditTasks -&gt; Maybe AuditTaskType
@@ -85,7 +85,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AendTime%3AListAuditTasks%27"><span class="annot"><span class="annottext">ListAuditTasks -&gt; POSIX
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AendTime%3AListAuditTasks%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828103"><span id="local-6989586621679828105"><span class="annot"><span class="annottext">ListAuditTasks -&gt; ListAuditTasks -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828112"><span id="local-6989586621679828114"><span class="annot"><span class="annottext">ListAuditTasks -&gt; ListAuditTasks -&gt; Bool
 (ListAuditTasks -&gt; ListAuditTasks -&gt; Bool)
 -&gt; (ListAuditTasks -&gt; ListAuditTasks -&gt; Bool) -&gt; Eq ListAuditTasks
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAuditTasks -&gt; ListAuditTasks -&gt; Bool
 == :: ListAuditTasks -&gt; ListAuditTasks -&gt; Bool
 $c== :: ListAuditTasks -&gt; ListAuditTasks -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828094"><span id="local-6989586621679828096"><span id="local-6989586621679828098"><span id="local-6989586621679828100"><span class="annot"><span class="annottext">ReadPrec [ListAuditTasks]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828103"><span id="local-6989586621679828105"><span id="local-6989586621679828107"><span id="local-6989586621679828109"><span class="annot"><span class="annottext">ReadPrec [ListAuditTasks]
 ReadPrec ListAuditTasks
 Int -&gt; ReadS ListAuditTasks
 ReadS [ListAuditTasks]
@@ -113,7 +113,7 @@ readList :: ReadS [ListAuditTasks]
 $creadList :: ReadS [ListAuditTasks]
 readsPrec :: Int -&gt; ReadS ListAuditTasks
 $creadsPrec :: Int -&gt; ReadS ListAuditTasks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828087"><span id="local-6989586621679828089"><span id="local-6989586621679828091"><span class="annot"><span class="annottext">Int -&gt; ListAuditTasks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828096"><span id="local-6989586621679828098"><span id="local-6989586621679828100"><span class="annot"><span class="annottext">Int -&gt; ListAuditTasks -&gt; ShowS
 [ListAuditTasks] -&gt; ShowS
 ListAuditTasks -&gt; String
 (Int -&gt; ListAuditTasks -&gt; ShowS)
@@ -170,9 +170,9 @@ $cfrom :: forall x. ListAuditTasks -&gt; Rep ListAuditTasks x
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span>
 </span><span id="line-114"></span><span id="newListAuditTasks"><span class="annot"><span class="annottext">newListAuditTasks :: UTCTime -&gt; UTCTime -&gt; ListAuditTasks
-</span><a href="Network.AWS.IoT.ListAuditTasks.html#newListAuditTasks"><span class="hs-identifier hs-var hs-var">newListAuditTasks</span></a></span></span><span> </span><span id="local-6989586621679828082"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679828082"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span id="local-6989586621679828081"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679828081"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListAuditTasks.html#newListAuditTasks"><span class="hs-identifier hs-var hs-var">newListAuditTasks</span></a></span></span><span> </span><span id="local-6989586621679828091"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679828091"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span id="local-6989586621679828090"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679828090"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">ListAuditTasks' :: Maybe AuditTaskType
 -&gt; Maybe Text
 -&gt; Maybe Natural
@@ -205,7 +205,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679828082"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828091"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:ListAuditTasks' :: POSIX
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AendTime%3AListAuditTasks%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -214,7 +214,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679828081"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span>
+</span><a href="#local-6989586621679828090"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | A filter to limit the output to the specified type of audit: can be one</span><span>
@@ -230,16 +230,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe AuditTaskType)
      (Maybe AuditTaskType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828077"><span class="annot"><span class="annottext">Maybe AuditTaskType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828086"><span class="annot"><span class="annottext">Maybe AuditTaskType
 taskType :: Maybe AuditTaskType
 $sel:taskType:ListAuditTasks' :: ListAuditTasks -&gt; Maybe AuditTaskType
-</span><a href="#local-6989586621679828077"><span class="hs-identifier hs-var hs-var">taskType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
-</span><a href="#local-6989586621679828077"><span class="hs-identifier hs-var">taskType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828076"><span class="annot"><span class="annottext">s :: ListAuditTasks
-</span><a href="#local-6989586621679828076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828075"><span class="annot"><span class="annottext">Maybe AuditTaskType
-</span><a href="#local-6989586621679828075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
-</span><a href="#local-6989586621679828076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskType:ListAuditTasks' :: Maybe AuditTaskType
+</span><a href="#local-6989586621679828086"><span class="hs-identifier hs-var hs-var">taskType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
+</span><a href="#local-6989586621679828086"><span class="hs-identifier hs-var">taskType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828085"><span class="annot"><span class="annottext">s :: ListAuditTasks
+</span><a href="#local-6989586621679828085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828084"><span class="annot"><span class="annottext">Maybe AuditTaskType
+</span><a href="#local-6989586621679828084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
+</span><a href="#local-6989586621679828085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskType:ListAuditTasks' :: Maybe AuditTaskType
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AtaskType%3AListAuditTasks%27"><span class="hs-identifier hs-var">taskType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
-</span><a href="#local-6989586621679828075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The token for the next set of results.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#listAuditTasks_nextToken"><span class="hs-identifier hs-type">listAuditTasks_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -249,16 +249,16 @@ $sel:taskType:ListAuditTasks' :: ListAuditTasks -&gt; Maybe AuditTaskType
 -&gt; (ListAuditTasks -&gt; Maybe Text -&gt; ListAuditTasks)
 -&gt; Lens ListAuditTasks ListAuditTasks (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828074"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828083"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAuditTasks' :: ListAuditTasks -&gt; Maybe Text
-</span><a href="#local-6989586621679828074"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828074"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828073"><span class="annot"><span class="annottext">s :: ListAuditTasks
-</span><a href="#local-6989586621679828073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828072"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
-</span><a href="#local-6989586621679828073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAuditTasks' :: Maybe Text
+</span><a href="#local-6989586621679828083"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828083"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828082"><span class="annot"><span class="annottext">s :: ListAuditTasks
+</span><a href="#local-6989586621679828082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828081"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
+</span><a href="#local-6989586621679828082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAuditTasks' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AnextToken%3AListAuditTasks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The maximum number of results to return at one time. The default is 25.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#listAuditTasks_maxResults"><span class="hs-identifier hs-type">listAuditTasks_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -269,16 +269,16 @@ $sel:nextToken:ListAuditTasks' :: ListAuditTasks -&gt; Maybe Text
 -&gt; Lens
      ListAuditTasks ListAuditTasks (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828071"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828080"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListAuditTasks' :: ListAuditTasks -&gt; Maybe Natural
-</span><a href="#local-6989586621679828071"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679828071"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828070"><span class="annot"><span class="annottext">s :: ListAuditTasks
-</span><a href="#local-6989586621679828070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828069"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679828069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
-</span><a href="#local-6989586621679828070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAuditTasks' :: Maybe Natural
+</span><a href="#local-6989586621679828080"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679828080"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828079"><span class="annot"><span class="annottext">s :: ListAuditTasks
+</span><a href="#local-6989586621679828079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828078"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679828078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
+</span><a href="#local-6989586621679828079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAuditTasks' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AmaxResults%3AListAuditTasks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679828069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | A filter to limit the output to audits with the specified completion</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- status: can be one of \&quot;IN_PROGRESS\&quot;, \&quot;COMPLETED\&quot;, \&quot;FAILED\&quot;, or</span><span>
@@ -294,16 +294,16 @@ $sel:maxResults:ListAuditTasks' :: ListAuditTasks -&gt; Maybe Natural
      (Maybe AuditTaskStatus)
      (Maybe AuditTaskStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828068"><span class="annot"><span class="annottext">Maybe AuditTaskStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828077"><span class="annot"><span class="annottext">Maybe AuditTaskStatus
 taskStatus :: Maybe AuditTaskStatus
 $sel:taskStatus:ListAuditTasks' :: ListAuditTasks -&gt; Maybe AuditTaskStatus
-</span><a href="#local-6989586621679828068"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
-</span><a href="#local-6989586621679828068"><span class="hs-identifier hs-var">taskStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828067"><span class="annot"><span class="annottext">s :: ListAuditTasks
-</span><a href="#local-6989586621679828067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828066"><span class="annot"><span class="annottext">Maybe AuditTaskStatus
-</span><a href="#local-6989586621679828066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
-</span><a href="#local-6989586621679828067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatus:ListAuditTasks' :: Maybe AuditTaskStatus
+</span><a href="#local-6989586621679828077"><span class="hs-identifier hs-var hs-var">taskStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
+</span><a href="#local-6989586621679828077"><span class="hs-identifier hs-var">taskStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828076"><span class="annot"><span class="annottext">s :: ListAuditTasks
+</span><a href="#local-6989586621679828076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828075"><span class="annot"><span class="annottext">Maybe AuditTaskStatus
+</span><a href="#local-6989586621679828075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
+</span><a href="#local-6989586621679828076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskStatus:ListAuditTasks' :: Maybe AuditTaskStatus
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AtaskStatus%3AListAuditTasks%27"><span class="hs-identifier hs-var">taskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
-</span><a href="#local-6989586621679828066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The beginning of the time period. Audit information is retained for a</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- limited time (90 days). Requesting a start time prior to what is</span><span>
@@ -314,16 +314,16 @@ $sel:taskStatus:ListAuditTasks' :: ListAuditTasks -&gt; Maybe AuditTaskStatus
 -&gt; (ListAuditTasks -&gt; POSIX -&gt; ListAuditTasks)
 -&gt; Lens ListAuditTasks ListAuditTasks POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828065"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828074"><span class="annot"><span class="annottext">POSIX
 startTime :: POSIX
 $sel:startTime:ListAuditTasks' :: ListAuditTasks -&gt; POSIX
-</span><a href="#local-6989586621679828065"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679828065"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828064"><span class="annot"><span class="annottext">s :: ListAuditTasks
-</span><a href="#local-6989586621679828064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828063"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679828063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
-</span><a href="#local-6989586621679828064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ListAuditTasks' :: POSIX
+</span><a href="#local-6989586621679828074"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679828074"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828073"><span class="annot"><span class="annottext">s :: ListAuditTasks
+</span><a href="#local-6989586621679828073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828072"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679828072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
+</span><a href="#local-6989586621679828073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ListAuditTasks' :: POSIX
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AstartTime%3AListAuditTasks%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679828063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ListAuditTasks -&gt; f ListAuditTasks)
+</span><a href="#local-6989586621679828072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ListAuditTasks -&gt; f ListAuditTasks)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ListAuditTasks
@@ -340,16 +340,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ListAuditTasks -&gt; POSIX -&gt; ListAuditTasks)
 -&gt; Lens ListAuditTasks ListAuditTasks POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828061"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828070"><span class="annot"><span class="annottext">POSIX
 endTime :: POSIX
 $sel:endTime:ListAuditTasks' :: ListAuditTasks -&gt; POSIX
-</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828060"><span class="annot"><span class="annottext">s :: ListAuditTasks
-</span><a href="#local-6989586621679828060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828059"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679828059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
-</span><a href="#local-6989586621679828060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ListAuditTasks' :: POSIX
+</span><a href="#local-6989586621679828070"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679828070"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828069"><span class="annot"><span class="annottext">s :: ListAuditTasks
+</span><a href="#local-6989586621679828069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828068"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679828068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasks
+</span><a href="#local-6989586621679828069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ListAuditTasks' :: POSIX
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AendTime%3AListAuditTasks%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679828059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ListAuditTasks -&gt; f ListAuditTasks)
+</span><a href="#local-6989586621679828068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ListAuditTasks -&gt; f ListAuditTasks)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ListAuditTasks
@@ -360,17 +360,17 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679828055"><span class="annot"><span class="annottext">page :: ListAuditTasks
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679828064"><span class="annot"><span class="annottext">page :: ListAuditTasks
 -&gt; AWSResponse ListAuditTasks -&gt; Maybe ListAuditTasks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679828053"><span class="annot"><span class="annottext">ListAuditTasks
-</span><a href="#local-6989586621679828053"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679828052"><span class="annot"><span class="annottext">AWSResponse ListAuditTasks
-</span><a href="#local-6989586621679828052"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679828062"><span class="annot"><span class="annottext">ListAuditTasks
+</span><a href="#local-6989586621679828062"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679828061"><span class="annot"><span class="annottext">AWSResponse ListAuditTasks
+</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-156"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAuditTasks
 ListAuditTasksResponse
-</span><a href="#local-6989586621679828052"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">ListAuditTasksResponse
 -&gt; Getting (First Text) ListAuditTasksResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -399,7 +399,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-162"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAuditTasks
 ListAuditTasksResponse
-</span><a href="#local-6989586621679828052"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">ListAuditTasksResponse
 -&gt; Getting
      (First [AuditTaskMetadata])
@@ -444,7 +444,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ListAuditTasks
-</span><a href="#local-6989586621679828053"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679828062"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">ListAuditTasks
 -&gt; (ListAuditTasks -&gt; ListAuditTasks) -&gt; ListAuditTasks
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -458,7 +458,7 @@ Lens ListAuditTasks ListAuditTasks (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAuditTasks
 ListAuditTasksResponse
-</span><a href="#local-6989586621679828052"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679828061"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">ListAuditTasksResponse
 -&gt; Getting (First Text) ListAuditTasksResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -482,12 +482,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-174"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-175"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679828043"><span class="annot"><span class="annottext">request :: ListAuditTasks -&gt; Request ListAuditTasks
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679828052"><span class="annot"><span class="annottext">request :: ListAuditTasks -&gt; Request ListAuditTasks
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAuditTasks -&gt; Request ListAuditTasks
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679828039"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679828048"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAuditTasks
 -&gt; ClientResponse ClientBody
@@ -511,10 +511,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679828036"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828036"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679828035"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679828035"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679828034"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679828034"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679828045"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828045"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679828044"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679828044"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679828043"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679828043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AuditTaskMetadata]
 -&gt; Maybe Text -&gt; Int -&gt; ListAuditTasksResponse
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-var">ListAuditTasksResponse'</span></a></span><span>
@@ -524,7 +524,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListAuditTasksResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679828034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AuditTaskMetadata]))
+</span><a href="#local-6989586621679828043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AuditTaskMetadata]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tasks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AuditTaskMetadata]))
@@ -539,7 +539,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListAuditTasksResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679828034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679828043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -551,15 +551,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828036"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828045"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828025"><span id="local-6989586621679828027"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828034"><span id="local-6989586621679828036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span></span></span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828022"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679828018"><span class="annot"><span class="annottext">toHeaders :: ListAuditTasks -&gt; ResponseHeaders
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679828027"><span class="annot"><span class="annottext">toHeaders :: ListAuditTasks -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAuditTasks -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -567,15 +567,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679828013"><span class="annot"><span class="annottext">toPath :: ListAuditTasks -&gt; ByteString
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679828022"><span class="annot"><span class="annottext">toPath :: ListAuditTasks -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAuditTasks -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/audit/tasks&quot;</span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks"><span class="hs-identifier hs-type">ListAuditTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679828009"><span class="annot"><span class="annottext">toQuery :: ListAuditTasks -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828002"><span id="local-6989586621679828003"><span id="local-6989586621679828004"><span id="local-6989586621679828005"><span id="local-6989586621679828006"><span id="local-6989586621679828007"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679828018"><span class="annot"><span class="annottext">toQuery :: ListAuditTasks -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasks%27"><span class="hs-identifier hs-type">ListAuditTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828011"><span id="local-6989586621679828012"><span id="local-6989586621679828013"><span id="local-6989586621679828014"><span id="local-6989586621679828015"><span id="local-6989586621679828016"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe AuditTaskStatus
 Maybe AuditTaskType
@@ -592,7 +592,7 @@ $sel:taskStatus:ListAuditTasks' :: ListAuditTasks -&gt; Maybe AuditTaskStatus
 $sel:maxResults:ListAuditTasks' :: ListAuditTasks -&gt; Maybe Natural
 $sel:nextToken:ListAuditTasks' :: ListAuditTasks -&gt; Maybe Text
 $sel:taskType:ListAuditTasks' :: ListAuditTasks -&gt; Maybe AuditTaskType
-</span><a href="#local-6989586621679828002"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679828011"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -600,36 +600,36 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;taskType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AuditTaskType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskType
-</span><a href="#local-6989586621679828007"><span class="hs-identifier hs-var">taskType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828016"><span class="hs-identifier hs-var">taskType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828006"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828015"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679828005"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828014"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;taskStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AuditTaskStatus -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuditTaskStatus
-</span><a href="#local-6989586621679828004"><span class="hs-identifier hs-var">taskStatus</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828013"><span class="hs-identifier hs-var">taskStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;startTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; POSIX -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679828003"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828012"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;endTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; POSIX -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679828002"><span class="hs-identifier hs-var">endTime</span></a></span><span>
+</span><a href="#local-6989586621679828011"><span class="hs-identifier hs-var">endTime</span></a></span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | /See:/ 'newListAuditTasksResponse' smart constructor.</span><span>
-</span><span id="line-209"></span><span id="local-6989586621679827999"><span id="local-6989586621679828000"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAuditTasksResponse"><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-var">ListAuditTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAuditTasksResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-var">ListAuditTasksResponse'</span></a></span></span><span>
+</span><span id="line-209"></span><span id="local-6989586621679828008"><span id="local-6989586621679828009"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAuditTasksResponse"><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-var">ListAuditTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAuditTasksResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-var">ListAuditTasksResponse'</span></a></span></span><span>
 </span><span id="line-210"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The audits that were performed during the specified time period.</span><span>
 </span><span id="line-211"></span><span>    </span><span id="%24sel%3Atasks%3AListAuditTasksResponse%27"><span class="annot"><span class="annottext">ListAuditTasksResponse -&gt; Maybe [AuditTaskMetadata]
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3Atasks%3AListAuditTasksResponse%27"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.AuditTaskMetadata.html#AuditTaskMetadata"><span class="hs-identifier hs-type">AuditTaskMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -641,7 +641,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAuditTasksResponse%27"><span class="annot"><span class="annottext">ListAuditTasksResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AhttpStatus%3AListAuditTasksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827992"><span id="local-6989586621679827994"><span class="annot"><span class="annottext">ListAuditTasksResponse -&gt; ListAuditTasksResponse -&gt; Bool
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828001"><span id="local-6989586621679828003"><span class="annot"><span class="annottext">ListAuditTasksResponse -&gt; ListAuditTasksResponse -&gt; Bool
 (ListAuditTasksResponse -&gt; ListAuditTasksResponse -&gt; Bool)
 -&gt; (ListAuditTasksResponse -&gt; ListAuditTasksResponse -&gt; Bool)
 -&gt; Eq ListAuditTasksResponse
@@ -650,7 +650,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAuditTasksResponse -&gt; ListAuditTasksResponse -&gt; Bool
 == :: ListAuditTasksResponse -&gt; ListAuditTasksResponse -&gt; Bool
 $c== :: ListAuditTasksResponse -&gt; ListAuditTasksResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827984"><span id="local-6989586621679827986"><span id="local-6989586621679827988"><span id="local-6989586621679827990"><span class="annot"><span class="annottext">ReadPrec [ListAuditTasksResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827993"><span id="local-6989586621679827995"><span id="local-6989586621679827997"><span id="local-6989586621679827999"><span class="annot"><span class="annottext">ReadPrec [ListAuditTasksResponse]
 ReadPrec ListAuditTasksResponse
 Int -&gt; ReadS ListAuditTasksResponse
 ReadS [ListAuditTasksResponse]
@@ -670,7 +670,7 @@ readList :: ReadS [ListAuditTasksResponse]
 $creadList :: ReadS [ListAuditTasksResponse]
 readsPrec :: Int -&gt; ReadS ListAuditTasksResponse
 $creadsPrec :: Int -&gt; ReadS ListAuditTasksResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827978"><span id="local-6989586621679827980"><span id="local-6989586621679827982"><span class="annot"><span class="annottext">Int -&gt; ListAuditTasksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827987"><span id="local-6989586621679827989"><span id="local-6989586621679827991"><span class="annot"><span class="annottext">Int -&gt; ListAuditTasksResponse -&gt; ShowS
 [ListAuditTasksResponse] -&gt; ShowS
 ListAuditTasksResponse -&gt; String
 (Int -&gt; ListAuditTasksResponse -&gt; ShowS)
@@ -716,8 +716,8 @@ $cfrom :: forall x. ListAuditTasksResponse -&gt; Rep ListAuditTasksResponse x
 </span><span id="line-236"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-237"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span><span>
 </span><span id="line-238"></span><span id="newListAuditTasksResponse"><span class="annot"><span class="annottext">newListAuditTasksResponse :: Int -&gt; ListAuditTasksResponse
-</span><a href="Network.AWS.IoT.ListAuditTasks.html#newListAuditTasksResponse"><span class="hs-identifier hs-var hs-var">newListAuditTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679827975"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListAuditTasks.html#newListAuditTasksResponse"><span class="hs-identifier hs-var hs-var">newListAuditTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679827984"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-239"></span><span>  </span><span class="annot"><span class="annottext">ListAuditTasksResponse' :: Maybe [AuditTaskMetadata]
 -&gt; Maybe Text -&gt; Int -&gt; ListAuditTasksResponse
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span>
@@ -731,7 +731,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAuditTasksResponse' :: Int
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AhttpStatus%3AListAuditTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679827984"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-243"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The audits that were performed during the specified time period.</span><span>
@@ -743,16 +743,16 @@ forall a. Maybe a
     -&gt; Maybe [AuditTaskMetadata] -&gt; ListAuditTasksResponse)
 -&gt; Lens' ListAuditTasksResponse (Maybe [AuditTaskMetadata])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827974"><span class="annot"><span class="annottext">Maybe [AuditTaskMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827983"><span class="annot"><span class="annottext">Maybe [AuditTaskMetadata]
 tasks :: Maybe [AuditTaskMetadata]
 $sel:tasks:ListAuditTasksResponse' :: ListAuditTasksResponse -&gt; Maybe [AuditTaskMetadata]
-</span><a href="#local-6989586621679827974"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AuditTaskMetadata]
-</span><a href="#local-6989586621679827974"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827973"><span class="annot"><span class="annottext">s :: ListAuditTasksResponse
-</span><a href="#local-6989586621679827973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827972"><span class="annot"><span class="annottext">Maybe [AuditTaskMetadata]
-</span><a href="#local-6989586621679827972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasksResponse
-</span><a href="#local-6989586621679827973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:ListAuditTasksResponse' :: Maybe [AuditTaskMetadata]
+</span><a href="#local-6989586621679827983"><span class="hs-identifier hs-var hs-var">tasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AuditTaskMetadata]
+</span><a href="#local-6989586621679827983"><span class="hs-identifier hs-var">tasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827982"><span class="annot"><span class="annottext">s :: ListAuditTasksResponse
+</span><a href="#local-6989586621679827982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827981"><span class="annot"><span class="annottext">Maybe [AuditTaskMetadata]
+</span><a href="#local-6989586621679827981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasksResponse
+</span><a href="#local-6989586621679827982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tasks:ListAuditTasksResponse' :: Maybe [AuditTaskMetadata]
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3Atasks%3AListAuditTasksResponse%27"><span class="hs-identifier hs-var">tasks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AuditTaskMetadata]
-</span><a href="#local-6989586621679827972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AuditTaskMetadata] -&gt; f (Maybe [AuditTaskMetadata]))
+</span><a href="#local-6989586621679827981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AuditTaskMetadata] -&gt; f (Maybe [AuditTaskMetadata]))
  -&gt; ListAuditTasksResponse -&gt; f ListAuditTasksResponse)
 -&gt; ((Maybe [AuditTaskMetadata] -&gt; f (Maybe [AuditTaskMetadata]))
     -&gt; Maybe [AuditTaskMetadata] -&gt; f (Maybe [AuditTaskMetadata]))
@@ -790,16 +790,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListAuditTasksResponse -&gt; Maybe Text -&gt; ListAuditTasksResponse)
 -&gt; Lens' ListAuditTasksResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827969"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827978"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAuditTasksResponse' :: ListAuditTasksResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679827969"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827969"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827968"><span class="annot"><span class="annottext">s :: ListAuditTasksResponse
-</span><a href="#local-6989586621679827968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827967"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasksResponse
-</span><a href="#local-6989586621679827968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAuditTasksResponse' :: Maybe Text
+</span><a href="#local-6989586621679827978"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827978"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827977"><span class="annot"><span class="annottext">s :: ListAuditTasksResponse
+</span><a href="#local-6989586621679827977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827976"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679827976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasksResponse
+</span><a href="#local-6989586621679827977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAuditTasksResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AnextToken%3AListAuditTasksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-255"></span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#listAuditTasksResponse_httpStatus"><span class="hs-identifier hs-type">listAuditTasksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -809,16 +809,16 @@ $sel:nextToken:ListAuditTasksResponse' :: ListAuditTasksResponse -&gt; Maybe Tex
 -&gt; (ListAuditTasksResponse -&gt; Int -&gt; ListAuditTasksResponse)
 -&gt; Lens ListAuditTasksResponse ListAuditTasksResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827966"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827975"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAuditTasksResponse' :: ListAuditTasksResponse -&gt; Int
-</span><a href="#local-6989586621679827966"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827966"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827965"><span class="annot"><span class="annottext">s :: ListAuditTasksResponse
-</span><a href="#local-6989586621679827965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827964"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasksResponse
-</span><a href="#local-6989586621679827965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAuditTasksResponse' :: Int
+</span><a href="#local-6989586621679827975"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827975"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827974"><span class="annot"><span class="annottext">s :: ListAuditTasksResponse
+</span><a href="#local-6989586621679827974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse%27"><span class="hs-identifier hs-type">ListAuditTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827973"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679827973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAuditTasksResponse
+</span><a href="#local-6989586621679827974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAuditTasksResponse' :: Int
 </span><a href="Network.AWS.IoT.ListAuditTasks.html#%24sel%3AhttpStatus%3AListAuditTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679827973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827962"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827971"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListAuditTasks.html#ListAuditTasksResponse"><span class="hs-identifier hs-type">ListAuditTasksResponse</span></a></span></span><span>
 </span><span id="line-259"></span></pre></body></html>

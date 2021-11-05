@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Used as one of the elements of the AssessmentRun data type.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAssessmentRunStateChange' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679244721"><span id="local-6989586621679244722"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentRunStateChange"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-var">AssessmentRunStateChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentRunStateChange%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-var">AssessmentRunStateChange'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679244730"><span id="local-6989586621679244731"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentRunStateChange"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-var">AssessmentRunStateChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentRunStateChange%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-var">AssessmentRunStateChange'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last time the assessment run state changed.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AstateChangedAt%3AAssessmentRunStateChange%27"><span class="annot"><span class="annottext">AssessmentRunStateChange -&gt; POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#%24sel%3AstateChangedAt%3AAssessmentRunStateChange%27"><span class="hs-identifier hs-var hs-var">stateChangedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3AAssessmentRunStateChange%27"><span class="annot"><span class="annottext">AssessmentRunStateChange -&gt; AssessmentRunState
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#%24sel%3Astate%3AAssessmentRunStateChange%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunState.html#AssessmentRunState"><span class="hs-identifier hs-type">AssessmentRunState</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244714"><span id="local-6989586621679244716"><span class="annot"><span class="annottext">AssessmentRunStateChange -&gt; AssessmentRunStateChange -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244723"><span id="local-6989586621679244725"><span class="annot"><span class="annottext">AssessmentRunStateChange -&gt; AssessmentRunStateChange -&gt; Bool
 (AssessmentRunStateChange -&gt; AssessmentRunStateChange -&gt; Bool)
 -&gt; (AssessmentRunStateChange -&gt; AssessmentRunStateChange -&gt; Bool)
 -&gt; Eq AssessmentRunStateChange
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssessmentRunStateChange -&gt; AssessmentRunStateChange -&gt; Bool
 == :: AssessmentRunStateChange -&gt; AssessmentRunStateChange -&gt; Bool
 $c== :: AssessmentRunStateChange -&gt; AssessmentRunStateChange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244705"><span id="local-6989586621679244707"><span id="local-6989586621679244709"><span id="local-6989586621679244711"><span class="annot"><span class="annottext">ReadPrec [AssessmentRunStateChange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244714"><span id="local-6989586621679244716"><span id="local-6989586621679244718"><span id="local-6989586621679244720"><span class="annot"><span class="annottext">ReadPrec [AssessmentRunStateChange]
 ReadPrec AssessmentRunStateChange
 Int -&gt; ReadS AssessmentRunStateChange
 ReadS [AssessmentRunStateChange]
@@ -64,7 +64,7 @@ readList :: ReadS [AssessmentRunStateChange]
 $creadList :: ReadS [AssessmentRunStateChange]
 readsPrec :: Int -&gt; ReadS AssessmentRunStateChange
 $creadsPrec :: Int -&gt; ReadS AssessmentRunStateChange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244698"><span id="local-6989586621679244700"><span id="local-6989586621679244702"><span class="annot"><span class="annottext">Int -&gt; AssessmentRunStateChange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244707"><span id="local-6989586621679244709"><span id="local-6989586621679244711"><span class="annot"><span class="annottext">Int -&gt; AssessmentRunStateChange -&gt; ShowS
 [AssessmentRunStateChange] -&gt; ShowS
 AssessmentRunStateChange -&gt; String
 (Int -&gt; AssessmentRunStateChange -&gt; ShowS)
@@ -114,9 +114,9 @@ AssessmentRunStateChange -&gt; Rep AssessmentRunStateChange x
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunState.html#AssessmentRunState"><span class="hs-identifier hs-type">AssessmentRunState</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span><span>
 </span><span id="line-55"></span><span id="newAssessmentRunStateChange"><span class="annot"><span class="annottext">newAssessmentRunStateChange :: UTCTime -&gt; AssessmentRunState -&gt; AssessmentRunStateChange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#newAssessmentRunStateChange"><span class="hs-identifier hs-var hs-var">newAssessmentRunStateChange</span></a></span></span><span> </span><span id="local-6989586621679244692"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679244692"><span class="hs-identifier hs-var">pStateChangedAt_</span></a></span></span><span> </span><span id="local-6989586621679244691"><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679244691"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#newAssessmentRunStateChange"><span class="hs-identifier hs-var hs-var">newAssessmentRunStateChange</span></a></span></span><span> </span><span id="local-6989586621679244701"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679244701"><span class="hs-identifier hs-var">pStateChangedAt_</span></a></span></span><span> </span><span id="local-6989586621679244700"><span class="annot"><span class="annottext">AssessmentRunState
+</span><a href="#local-6989586621679244700"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">AssessmentRunStateChange' :: POSIX -&gt; AssessmentRunState -&gt; AssessmentRunStateChange
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-type">AssessmentRunStateChange'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stateChangedAt:AssessmentRunStateChange' :: POSIX
@@ -128,10 +128,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679244692"><span class="hs-identifier hs-var">pStateChangedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679244701"><span class="hs-identifier hs-var">pStateChangedAt_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:AssessmentRunStateChange' :: AssessmentRunState
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#%24sel%3Astate%3AAssessmentRunStateChange%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679244691"><span class="hs-identifier hs-var">pState_</span></a></span><span>
+</span><a href="#local-6989586621679244700"><span class="hs-identifier hs-var">pState_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The last time the assessment run state changed.</span><span>
@@ -143,16 +143,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      AssessmentRunStateChange AssessmentRunStateChange POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-type">AssessmentRunStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244685"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-type">AssessmentRunStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244694"><span class="annot"><span class="annottext">POSIX
 stateChangedAt :: POSIX
 $sel:stateChangedAt:AssessmentRunStateChange' :: AssessmentRunStateChange -&gt; POSIX
-</span><a href="#local-6989586621679244685"><span class="hs-identifier hs-var hs-var">stateChangedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679244685"><span class="hs-identifier hs-var">stateChangedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244684"><span class="annot"><span class="annottext">s :: AssessmentRunStateChange
-</span><a href="#local-6989586621679244684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-type">AssessmentRunStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244683"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679244683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunStateChange
-</span><a href="#local-6989586621679244684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangedAt:AssessmentRunStateChange' :: POSIX
+</span><a href="#local-6989586621679244694"><span class="hs-identifier hs-var hs-var">stateChangedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679244694"><span class="hs-identifier hs-var">stateChangedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244693"><span class="annot"><span class="annottext">s :: AssessmentRunStateChange
+</span><a href="#local-6989586621679244693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-type">AssessmentRunStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244692"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679244692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunStateChange
+</span><a href="#local-6989586621679244693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangedAt:AssessmentRunStateChange' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#%24sel%3AstateChangedAt%3AAssessmentRunStateChange%27"><span class="hs-identifier hs-var">stateChangedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679244683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679244692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; AssessmentRunStateChange -&gt; f AssessmentRunStateChange)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -176,19 +176,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
      AssessmentRunState
      AssessmentRunState
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-type">AssessmentRunStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244680"><span class="annot"><span class="annottext">AssessmentRunState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-type">AssessmentRunStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244689"><span class="annot"><span class="annottext">AssessmentRunState
 state :: AssessmentRunState
 $sel:state:AssessmentRunStateChange' :: AssessmentRunStateChange -&gt; AssessmentRunState
-</span><a href="#local-6989586621679244680"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679244680"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244679"><span class="annot"><span class="annottext">s :: AssessmentRunStateChange
-</span><a href="#local-6989586621679244679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-type">AssessmentRunStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244678"><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679244678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunStateChange
-</span><a href="#local-6989586621679244679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:AssessmentRunStateChange' :: AssessmentRunState
+</span><a href="#local-6989586621679244689"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunState
+</span><a href="#local-6989586621679244689"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244688"><span class="annot"><span class="annottext">s :: AssessmentRunStateChange
+</span><a href="#local-6989586621679244688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-type">AssessmentRunStateChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244687"><span class="annot"><span class="annottext">AssessmentRunState
+</span><a href="#local-6989586621679244687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunStateChange
+</span><a href="#local-6989586621679244688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:AssessmentRunStateChange' :: AssessmentRunState
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#%24sel%3Astate%3AAssessmentRunStateChange%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679244678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244675"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679244673"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentRunStateChange
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244684"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679244682"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentRunStateChange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AssessmentRunStateChange)
@@ -198,8 +198,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AssessmentRunStateChange&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244670"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244670"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244679"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244679"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">POSIX -&gt; AssessmentRunState -&gt; AssessmentRunStateChange
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange%27"><span class="hs-identifier hs-var">AssessmentRunStateChange'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(POSIX -&gt; AssessmentRunState -&gt; AssessmentRunStateChange)
@@ -207,7 +207,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (AssessmentRunState -&gt; AssessmentRunStateChange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679244679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateChangedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,13 +215,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser AssessmentRunState -&gt; Parser AssessmentRunStateChange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AssessmentRunState
+</span><a href="#local-6989586621679244679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AssessmentRunState
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244664"><span id="local-6989586621679244666"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244673"><span id="local-6989586621679244675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

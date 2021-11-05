@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newIssueCertificate' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679215442"><span id="local-6989586621679215443"></span></span><span class="hs-keyword">data</span><span> </span><span id="IssueCertificate"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-var">IssueCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IssueCertificate%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-var">IssueCertificate'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679215451"><span id="local-6989586621679215452"></span></span><span class="hs-keyword">data</span><span> </span><span id="IssueCertificate"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-var">IssueCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IssueCertificate%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-var">IssueCertificate'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Alphanumeric string that can be used to distinguish between calls to the</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- __IssueCertificate__ action. Idempotency tokens for __IssueCertificate__</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- time out after one minute. Therefore, if you call __IssueCertificate__</span><span>
@@ -171,7 +171,7 @@
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3Avalidity%3AIssueCertificate%27"><span class="annot"><span class="annottext">IssueCertificate -&gt; Validity
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3Avalidity%3AIssueCertificate%27"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215429"><span id="local-6989586621679215431"><span class="annot"><span class="annottext">IssueCertificate -&gt; IssueCertificate -&gt; Bool
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215438"><span id="local-6989586621679215440"><span class="annot"><span class="annottext">IssueCertificate -&gt; IssueCertificate -&gt; Bool
 (IssueCertificate -&gt; IssueCertificate -&gt; Bool)
 -&gt; (IssueCertificate -&gt; IssueCertificate -&gt; Bool)
 -&gt; Eq IssueCertificate
@@ -180,7 +180,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IssueCertificate -&gt; IssueCertificate -&gt; Bool
 == :: IssueCertificate -&gt; IssueCertificate -&gt; Bool
 $c== :: IssueCertificate -&gt; IssueCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215420"><span id="local-6989586621679215422"><span id="local-6989586621679215424"><span id="local-6989586621679215426"><span class="annot"><span class="annottext">ReadPrec [IssueCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215429"><span id="local-6989586621679215431"><span id="local-6989586621679215433"><span id="local-6989586621679215435"><span class="annot"><span class="annottext">ReadPrec [IssueCertificate]
 ReadPrec IssueCertificate
 Int -&gt; ReadS IssueCertificate
 ReadS [IssueCertificate]
@@ -200,7 +200,7 @@ readList :: ReadS [IssueCertificate]
 $creadList :: ReadS [IssueCertificate]
 readsPrec :: Int -&gt; ReadS IssueCertificate
 $creadsPrec :: Int -&gt; ReadS IssueCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215413"><span id="local-6989586621679215415"><span id="local-6989586621679215417"><span class="annot"><span class="annottext">Int -&gt; IssueCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215422"><span id="local-6989586621679215424"><span id="local-6989586621679215426"><span class="annot"><span class="annottext">Int -&gt; IssueCertificate -&gt; ShowS
 [IssueCertificate] -&gt; ShowS
 IssueCertificate -&gt; String
 (Int -&gt; IssueCertificate -&gt; ShowS)
@@ -349,14 +349,14 @@ $cfrom :: forall x. IssueCertificate -&gt; Rep IssueCertificate x
 </span><span id="line-288"></span><span id="newIssueCertificate"><span class="annot"><span class="annottext">newIssueCertificate :: Text
 -&gt; ByteString -&gt; SigningAlgorithm -&gt; Validity -&gt; IssueCertificate
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#newIssueCertificate"><span class="hs-identifier hs-var hs-var">newIssueCertificate</span></a></span></span><span>
-</span><span id="line-289"></span><span>  </span><span id="local-6989586621679215408"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215408"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
-</span><span id="line-290"></span><span>  </span><span id="local-6989586621679215407"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679215407"><span class="hs-identifier hs-var">pCsr_</span></a></span></span><span>
-</span><span id="line-291"></span><span>  </span><span id="local-6989586621679215406"><span class="annot"><span class="annottext">SigningAlgorithm
-</span><a href="#local-6989586621679215406"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span></span><span>
-</span><span id="line-292"></span><span>  </span><span id="local-6989586621679215405"><span class="annot"><span class="annottext">Validity
-</span><a href="#local-6989586621679215405"><span class="hs-identifier hs-var">pValidity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679215417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215417"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679215416"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679215416"><span class="hs-identifier hs-var">pCsr_</span></a></span></span><span>
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679215415"><span class="annot"><span class="annottext">SigningAlgorithm
+</span><a href="#local-6989586621679215415"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span></span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679215414"><span class="annot"><span class="annottext">Validity
+</span><a href="#local-6989586621679215414"><span class="hs-identifier hs-var">pValidity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">IssueCertificate' :: Maybe Text
 -&gt; Maybe ApiPassthrough
 -&gt; Maybe Text
@@ -386,7 +386,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-299"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:IssueCertificate' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AcertificateAuthorityArn%3AIssueCertificate%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215408"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215417"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-300"></span><span>        </span><span class="annot"><span class="annottext">$sel:csr:IssueCertificate' :: Base64
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3Acsr%3AIssueCertificate%27"><span class="hs-identifier hs-var">csr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
 -&gt; Tagged Base64 (Identity Base64)
@@ -396,13 +396,13 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679215407"><span class="hs-identifier hs-var">pCsr_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215416"><span class="hs-identifier hs-var">pCsr_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">$sel:signingAlgorithm:IssueCertificate' :: SigningAlgorithm
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AsigningAlgorithm%3AIssueCertificate%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithm
-</span><a href="#local-6989586621679215406"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215415"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">$sel:validity:IssueCertificate' :: Validity
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3Avalidity%3AIssueCertificate%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Validity
-</span><a href="#local-6989586621679215405"><span class="hs-identifier hs-var">pValidity_</span></a></span><span>
+</span><a href="#local-6989586621679215414"><span class="hs-identifier hs-var">pValidity_</span></a></span><span>
 </span><span id="line-303"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- | Alphanumeric string that can be used to distinguish between calls to the</span><span>
@@ -419,16 +419,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (IssueCertificate -&gt; Maybe Text -&gt; IssueCertificate)
 -&gt; Lens IssueCertificate IssueCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215400"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215409"><span class="annot"><span class="annottext">Maybe Text
 idempotencyToken :: Maybe Text
 $sel:idempotencyToken:IssueCertificate' :: IssueCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679215400"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215400"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215399"><span class="annot"><span class="annottext">s :: IssueCertificate
-</span><a href="#local-6989586621679215399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215398"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
-</span><a href="#local-6989586621679215399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:IssueCertificate' :: Maybe Text
+</span><a href="#local-6989586621679215409"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215409"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215408"><span class="annot"><span class="annottext">s :: IssueCertificate
+</span><a href="#local-6989586621679215408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215407"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
+</span><a href="#local-6989586621679215408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:IssueCertificate' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AidempotencyToken%3AIssueCertificate%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-314"></span><span>
 </span><span id="line-315"></span><span class="hs-comment">-- | Specifies X.509 certificate information to be included in the issued</span><span>
 </span><span id="line-316"></span><span class="hs-comment">-- certificate. An @APIPassthrough@ or @APICSRPassthrough@ template variant</span><span>
@@ -451,16 +451,16 @@ $sel:idempotencyToken:IssueCertificate' :: IssueCertificate -&gt; Maybe Text
      (Maybe ApiPassthrough)
      (Maybe ApiPassthrough)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215397"><span class="annot"><span class="annottext">Maybe ApiPassthrough
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215406"><span class="annot"><span class="annottext">Maybe ApiPassthrough
 apiPassthrough :: Maybe ApiPassthrough
 $sel:apiPassthrough:IssueCertificate' :: IssueCertificate -&gt; Maybe ApiPassthrough
-</span><a href="#local-6989586621679215397"><span class="hs-identifier hs-var hs-var">apiPassthrough</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiPassthrough
-</span><a href="#local-6989586621679215397"><span class="hs-identifier hs-var">apiPassthrough</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215396"><span class="annot"><span class="annottext">s :: IssueCertificate
-</span><a href="#local-6989586621679215396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215395"><span class="annot"><span class="annottext">Maybe ApiPassthrough
-</span><a href="#local-6989586621679215395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
-</span><a href="#local-6989586621679215396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiPassthrough:IssueCertificate' :: Maybe ApiPassthrough
+</span><a href="#local-6989586621679215406"><span class="hs-identifier hs-var hs-var">apiPassthrough</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiPassthrough
+</span><a href="#local-6989586621679215406"><span class="hs-identifier hs-var">apiPassthrough</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215405"><span class="annot"><span class="annottext">s :: IssueCertificate
+</span><a href="#local-6989586621679215405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215404"><span class="annot"><span class="annottext">Maybe ApiPassthrough
+</span><a href="#local-6989586621679215404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
+</span><a href="#local-6989586621679215405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiPassthrough:IssueCertificate' :: Maybe ApiPassthrough
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AapiPassthrough%3AIssueCertificate%27"><span class="hs-identifier hs-var">apiPassthrough</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiPassthrough
-</span><a href="#local-6989586621679215395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-comment">-- | Specifies a custom configuration template to use when issuing a</span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- certificate. If this parameter is not provided, ACM Private CA defaults</span><span>
@@ -482,16 +482,16 @@ $sel:apiPassthrough:IssueCertificate' :: IssueCertificate -&gt; Maybe ApiPassthr
 -&gt; (IssueCertificate -&gt; Maybe Text -&gt; IssueCertificate)
 -&gt; Lens IssueCertificate IssueCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215394"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215403"><span class="annot"><span class="annottext">Maybe Text
 templateArn :: Maybe Text
 $sel:templateArn:IssueCertificate' :: IssueCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679215394"><span class="hs-identifier hs-var hs-var">templateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215394"><span class="hs-identifier hs-var">templateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215393"><span class="annot"><span class="annottext">s :: IssueCertificate
-</span><a href="#local-6989586621679215393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215392"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
-</span><a href="#local-6989586621679215393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateArn:IssueCertificate' :: Maybe Text
+</span><a href="#local-6989586621679215403"><span class="hs-identifier hs-var hs-var">templateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215403"><span class="hs-identifier hs-var">templateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215402"><span class="annot"><span class="annottext">s :: IssueCertificate
+</span><a href="#local-6989586621679215402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215401"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
+</span><a href="#local-6989586621679215402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateArn:IssueCertificate' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AtemplateArn%3AIssueCertificate%27"><span class="hs-identifier hs-var">templateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-343"></span><span>
 </span><span id="line-344"></span><span class="hs-comment">-- | Information describing the start of the validity period of the</span><span>
 </span><span id="line-345"></span><span class="hs-comment">-- certificate. This parameter sets the &#8220;Not Before\&quot; date for the</span><span>
@@ -520,16 +520,16 @@ $sel:templateArn:IssueCertificate' :: IssueCertificate -&gt; Maybe Text
 -&gt; Lens
      IssueCertificate IssueCertificate (Maybe Validity) (Maybe Validity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215391"><span class="annot"><span class="annottext">Maybe Validity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215400"><span class="annot"><span class="annottext">Maybe Validity
 validityNotBefore :: Maybe Validity
 $sel:validityNotBefore:IssueCertificate' :: IssueCertificate -&gt; Maybe Validity
-</span><a href="#local-6989586621679215391"><span class="hs-identifier hs-var hs-var">validityNotBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Validity
-</span><a href="#local-6989586621679215391"><span class="hs-identifier hs-var">validityNotBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215390"><span class="annot"><span class="annottext">s :: IssueCertificate
-</span><a href="#local-6989586621679215390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215389"><span class="annot"><span class="annottext">Maybe Validity
-</span><a href="#local-6989586621679215389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
-</span><a href="#local-6989586621679215390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validityNotBefore:IssueCertificate' :: Maybe Validity
+</span><a href="#local-6989586621679215400"><span class="hs-identifier hs-var hs-var">validityNotBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Validity
+</span><a href="#local-6989586621679215400"><span class="hs-identifier hs-var">validityNotBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215399"><span class="annot"><span class="annottext">s :: IssueCertificate
+</span><a href="#local-6989586621679215399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215398"><span class="annot"><span class="annottext">Maybe Validity
+</span><a href="#local-6989586621679215398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
+</span><a href="#local-6989586621679215399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validityNotBefore:IssueCertificate' :: Maybe Validity
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AvalidityNotBefore%3AIssueCertificate%27"><span class="hs-identifier hs-var">validityNotBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Validity
-</span><a href="#local-6989586621679215389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-365"></span><span>
 </span><span id="line-366"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that was returned when you called</span><span>
 </span><span id="line-367"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority&gt;.</span><span>
@@ -542,16 +542,16 @@ $sel:validityNotBefore:IssueCertificate' :: IssueCertificate -&gt; Maybe Validit
 -&gt; (IssueCertificate -&gt; Text -&gt; IssueCertificate)
 -&gt; Lens IssueCertificate IssueCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215388"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215397"><span class="annot"><span class="annottext">Text
 certificateAuthorityArn :: Text
 $sel:certificateAuthorityArn:IssueCertificate' :: IssueCertificate -&gt; Text
-</span><a href="#local-6989586621679215388"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215388"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215387"><span class="annot"><span class="annottext">s :: IssueCertificate
-</span><a href="#local-6989586621679215387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215386"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
-</span><a href="#local-6989586621679215387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:IssueCertificate' :: Text
+</span><a href="#local-6989586621679215397"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215397"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215396"><span class="annot"><span class="annottext">s :: IssueCertificate
+</span><a href="#local-6989586621679215396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
+</span><a href="#local-6989586621679215396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:IssueCertificate' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AcertificateAuthorityArn%3AIssueCertificate%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-373"></span><span>
 </span><span id="line-374"></span><span class="hs-comment">-- | The certificate signing request (CSR) for the certificate you want to</span><span>
 </span><span id="line-375"></span><span class="hs-comment">-- issue. As an example, you can use the following OpenSSL command to</span><span>
@@ -578,16 +578,16 @@ $sel:certificateAuthorityArn:IssueCertificate' :: IssueCertificate -&gt; Text
 -&gt; (IssueCertificate -&gt; Base64 -&gt; IssueCertificate)
 -&gt; Lens IssueCertificate IssueCertificate Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215385"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215394"><span class="annot"><span class="annottext">Base64
 csr :: Base64
 $sel:csr:IssueCertificate' :: IssueCertificate -&gt; Base64
-</span><a href="#local-6989586621679215385"><span class="hs-identifier hs-var hs-var">csr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679215385"><span class="hs-identifier hs-var">csr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215384"><span class="annot"><span class="annottext">s :: IssueCertificate
-</span><a href="#local-6989586621679215384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215383"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679215383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
-</span><a href="#local-6989586621679215384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csr:IssueCertificate' :: Base64
+</span><a href="#local-6989586621679215394"><span class="hs-identifier hs-var hs-var">csr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679215394"><span class="hs-identifier hs-var">csr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215393"><span class="annot"><span class="annottext">s :: IssueCertificate
+</span><a href="#local-6989586621679215393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215392"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679215392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
+</span><a href="#local-6989586621679215393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:csr:IssueCertificate' :: Base64
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3Acsr%3AIssueCertificate%27"><span class="hs-identifier hs-var">csr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679215383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; IssueCertificate -&gt; f IssueCertificate)
+</span><a href="#local-6989586621679215392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; IssueCertificate -&gt; f IssueCertificate)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; IssueCertificate
@@ -610,16 +610,16 @@ Iso' Base64 ByteString
 -&gt; Lens
      IssueCertificate IssueCertificate SigningAlgorithm SigningAlgorithm
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215381"><span class="annot"><span class="annottext">SigningAlgorithm
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215390"><span class="annot"><span class="annottext">SigningAlgorithm
 signingAlgorithm :: SigningAlgorithm
 $sel:signingAlgorithm:IssueCertificate' :: IssueCertificate -&gt; SigningAlgorithm
-</span><a href="#local-6989586621679215381"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithm
-</span><a href="#local-6989586621679215381"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215380"><span class="annot"><span class="annottext">s :: IssueCertificate
-</span><a href="#local-6989586621679215380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215379"><span class="annot"><span class="annottext">SigningAlgorithm
-</span><a href="#local-6989586621679215379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
-</span><a href="#local-6989586621679215380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:IssueCertificate' :: SigningAlgorithm
+</span><a href="#local-6989586621679215390"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithm
+</span><a href="#local-6989586621679215390"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215389"><span class="annot"><span class="annottext">s :: IssueCertificate
+</span><a href="#local-6989586621679215389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215388"><span class="annot"><span class="annottext">SigningAlgorithm
+</span><a href="#local-6989586621679215388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
+</span><a href="#local-6989586621679215389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:IssueCertificate' :: SigningAlgorithm
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AsigningAlgorithm%3AIssueCertificate%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithm
-</span><a href="#local-6989586621679215379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-402"></span><span>
 </span><span id="line-403"></span><span class="hs-comment">-- | Information describing the end of the validity period of the</span><span>
 </span><span id="line-404"></span><span class="hs-comment">-- certificate. This parameter sets the &#8220;Not After&#8221; date for the</span><span>
@@ -645,27 +645,27 @@ $sel:signingAlgorithm:IssueCertificate' :: IssueCertificate -&gt; SigningAlgorit
 -&gt; (IssueCertificate -&gt; Validity -&gt; IssueCertificate)
 -&gt; Lens IssueCertificate IssueCertificate Validity Validity
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215378"><span class="annot"><span class="annottext">Validity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215387"><span class="annot"><span class="annottext">Validity
 validity :: Validity
 $sel:validity:IssueCertificate' :: IssueCertificate -&gt; Validity
-</span><a href="#local-6989586621679215378"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Validity
-</span><a href="#local-6989586621679215378"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215377"><span class="annot"><span class="annottext">s :: IssueCertificate
-</span><a href="#local-6989586621679215377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215376"><span class="annot"><span class="annottext">Validity
-</span><a href="#local-6989586621679215376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
-</span><a href="#local-6989586621679215377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validity:IssueCertificate' :: Validity
+</span><a href="#local-6989586621679215387"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Validity
+</span><a href="#local-6989586621679215387"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215386"><span class="annot"><span class="annottext">s :: IssueCertificate
+</span><a href="#local-6989586621679215386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215385"><span class="annot"><span class="annottext">Validity
+</span><a href="#local-6989586621679215385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificate
+</span><a href="#local-6989586621679215386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validity:IssueCertificate' :: Validity
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3Avalidity%3AIssueCertificate%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Validity
-</span><a href="#local-6989586621679215376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-423"></span><span>
 </span><span id="line-424"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-425"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-426"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-427"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-type">IssueCertificateResponse</span></a></span><span>
-</span><span id="line-428"></span><span>  </span><span id="local-6989586621679215372"><span class="annot"><span class="annottext">request :: IssueCertificate -&gt; Request IssueCertificate
+</span><span id="line-428"></span><span>  </span><span id="local-6989586621679215381"><span class="annot"><span class="annottext">request :: IssueCertificate -&gt; Request IssueCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; IssueCertificate -&gt; Request IssueCertificate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManagerPCA.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-429"></span><span>  </span><span id="local-6989586621679215368"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-429"></span><span>  </span><span id="local-6989586621679215377"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy IssueCertificate
 -&gt; ClientResponse ClientBody
@@ -689,10 +689,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-431"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215365"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215365"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215364"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679215364"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215363"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-431"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215374"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215373"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679215373"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215372"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215372"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-432"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; IssueCertificateResponse
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-var">IssueCertificateResponse'</span></a></span><span>
 </span><span id="line-433"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; IssueCertificateResponse)
@@ -700,7 +700,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; IssueCertificateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679215372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CertificateArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -712,15 +712,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215365"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215374"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-435"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-436"></span><span>
-</span><span id="line-437"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215355"><span id="local-6989586621679215357"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span></span></span><span>
+</span><span id="line-437"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215364"><span id="local-6989586621679215366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span></span></span><span>
 </span><span id="line-438"></span><span>
-</span><span id="line-439"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span></span><span>
+</span><span id="line-439"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span></span><span>
 </span><span id="line-440"></span><span>
 </span><span id="line-441"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-442"></span><span>  </span><span id="local-6989586621679215348"><span class="annot"><span class="annottext">toHeaders :: IssueCertificate -&gt; ResponseHeaders
+</span><span id="line-442"></span><span>  </span><span id="local-6989586621679215357"><span class="annot"><span class="annottext">toHeaders :: IssueCertificate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-443"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; IssueCertificate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -747,9 +747,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-453"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-454"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-455"></span><span>
-</span><span id="line-456"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215338"><span id="local-6989586621679215340"><span id="local-6989586621679215342"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-457"></span><span>  </span><span id="local-6989586621679215336"><span class="annot"><span class="annottext">toJSON :: IssueCertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215327"><span id="local-6989586621679215328"><span id="local-6989586621679215329"><span id="local-6989586621679215330"><span id="local-6989586621679215331"><span id="local-6989586621679215332"><span id="local-6989586621679215333"><span id="local-6989586621679215334"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-456"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215347"><span id="local-6989586621679215349"><span id="local-6989586621679215351"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-457"></span><span>  </span><span id="local-6989586621679215345"><span class="annot"><span class="annottext">toJSON :: IssueCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate%27"><span class="hs-identifier hs-type">IssueCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215336"><span id="local-6989586621679215337"><span id="local-6989586621679215338"><span id="local-6989586621679215339"><span id="local-6989586621679215340"><span id="local-6989586621679215341"><span id="local-6989586621679215342"><span id="local-6989586621679215343"><span class="annot"><span class="annottext">Maybe Text
 Maybe ApiPassthrough
 Maybe Validity
 Text
@@ -772,7 +772,7 @@ $sel:validityNotBefore:IssueCertificate' :: IssueCertificate -&gt; Maybe Validit
 $sel:templateArn:IssueCertificate' :: IssueCertificate -&gt; Maybe Text
 $sel:apiPassthrough:IssueCertificate' :: IssueCertificate -&gt; Maybe ApiPassthrough
 $sel:idempotencyToken:IssueCertificate' :: IssueCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679215327"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679215336"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-458"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-459"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -785,7 +785,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-461"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215334"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215343"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-462"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApiPassthrough&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApiPassthrough -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -793,14 +793,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-463"></span><span>              </span><span class="annot"><span class="annottext">(ApiPassthrough -&gt; Pair) -&gt; Maybe ApiPassthrough -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApiPassthrough
-</span><a href="#local-6989586621679215333"><span class="hs-identifier hs-var">apiPassthrough</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215342"><span class="hs-identifier hs-var">apiPassthrough</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-464"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215332"><span class="hs-identifier hs-var">templateArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215341"><span class="hs-identifier hs-var">templateArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-465"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValidityNotBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Validity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -808,7 +808,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-466"></span><span>              </span><span class="annot"><span class="annottext">(Validity -&gt; Pair) -&gt; Maybe Validity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Validity
-</span><a href="#local-6989586621679215331"><span class="hs-identifier hs-var">validityNotBefore</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215340"><span class="hs-identifier hs-var">validityNotBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-467"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -817,7 +817,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-469"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215330"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
+</span><a href="#local-6989586621679215339"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
 </span><span id="line-470"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-471"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -825,7 +825,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Csr&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679215329"><span class="hs-identifier hs-var">csr</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215338"><span class="hs-identifier hs-var">csr</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-472"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -833,26 +833,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SigningAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SigningAlgorithm -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SigningAlgorithm
-</span><a href="#local-6989586621679215328"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215337"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-474"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Validity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Validity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Validity
-</span><a href="#local-6989586621679215327"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215336"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-475"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-476"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-477"></span><span>
 </span><span id="line-478"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-479"></span><span>  </span><span id="local-6989586621679215321"><span class="annot"><span class="annottext">toPath :: IssueCertificate -&gt; ByteString
+</span><span id="line-479"></span><span>  </span><span id="local-6989586621679215330"><span class="annot"><span class="annottext">toPath :: IssueCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; IssueCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-480"></span><span>
 </span><span id="line-481"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificate"><span class="hs-identifier hs-type">IssueCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-482"></span><span>  </span><span id="local-6989586621679215317"><span class="annot"><span class="annottext">toQuery :: IssueCertificate -&gt; QueryString
+</span><span id="line-482"></span><span>  </span><span id="local-6989586621679215326"><span class="annot"><span class="annottext">toQuery :: IssueCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; IssueCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -860,7 +860,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-483"></span><span>
 </span><span id="line-484"></span><span class="hs-comment">-- | /See:/ 'newIssueCertificateResponse' smart constructor.</span><span>
-</span><span id="line-485"></span><span id="local-6989586621679215314"><span id="local-6989586621679215315"></span></span><span class="hs-keyword">data</span><span> </span><span id="IssueCertificateResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-var">IssueCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IssueCertificateResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-var">IssueCertificateResponse'</span></a></span></span><span>
+</span><span id="line-485"></span><span id="local-6989586621679215323"><span id="local-6989586621679215324"></span></span><span class="hs-keyword">data</span><span> </span><span id="IssueCertificateResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-var">IssueCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IssueCertificateResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-var">IssueCertificateResponse'</span></a></span></span><span>
 </span><span id="line-486"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the issued certificate and the</span><span>
 </span><span id="line-487"></span><span>    </span><span class="hs-comment">-- certificate serial number. This is of the form:</span><span>
 </span><span id="line-488"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -871,7 +871,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-492"></span><span>    </span><span id="%24sel%3AhttpStatus%3AIssueCertificateResponse%27"><span class="annot"><span class="annottext">IssueCertificateResponse -&gt; Int
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AhttpStatus%3AIssueCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-493"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-494"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215308"><span id="local-6989586621679215310"><span class="annot"><span class="annottext">IssueCertificateResponse -&gt; IssueCertificateResponse -&gt; Bool
+</span><span id="line-494"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215317"><span id="local-6989586621679215319"><span class="annot"><span class="annottext">IssueCertificateResponse -&gt; IssueCertificateResponse -&gt; Bool
 (IssueCertificateResponse -&gt; IssueCertificateResponse -&gt; Bool)
 -&gt; (IssueCertificateResponse -&gt; IssueCertificateResponse -&gt; Bool)
 -&gt; Eq IssueCertificateResponse
@@ -880,7 +880,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IssueCertificateResponse -&gt; IssueCertificateResponse -&gt; Bool
 == :: IssueCertificateResponse -&gt; IssueCertificateResponse -&gt; Bool
 $c== :: IssueCertificateResponse -&gt; IssueCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215300"><span id="local-6989586621679215302"><span id="local-6989586621679215304"><span id="local-6989586621679215306"><span class="annot"><span class="annottext">ReadPrec [IssueCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215309"><span id="local-6989586621679215311"><span id="local-6989586621679215313"><span id="local-6989586621679215315"><span class="annot"><span class="annottext">ReadPrec [IssueCertificateResponse]
 ReadPrec IssueCertificateResponse
 Int -&gt; ReadS IssueCertificateResponse
 ReadS [IssueCertificateResponse]
@@ -900,7 +900,7 @@ readList :: ReadS [IssueCertificateResponse]
 $creadList :: ReadS [IssueCertificateResponse]
 readsPrec :: Int -&gt; ReadS IssueCertificateResponse
 $creadsPrec :: Int -&gt; ReadS IssueCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215294"><span id="local-6989586621679215296"><span id="local-6989586621679215298"><span class="annot"><span class="annottext">Int -&gt; IssueCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215303"><span id="local-6989586621679215305"><span id="local-6989586621679215307"><span class="annot"><span class="annottext">Int -&gt; IssueCertificateResponse -&gt; ShowS
 [IssueCertificateResponse] -&gt; ShowS
 IssueCertificateResponse -&gt; String
 (Int -&gt; IssueCertificateResponse -&gt; ShowS)
@@ -951,8 +951,8 @@ IssueCertificateResponse -&gt; Rep IssueCertificateResponse x
 </span><span id="line-512"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-513"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-type">IssueCertificateResponse</span></a></span><span>
 </span><span id="line-514"></span><span id="newIssueCertificateResponse"><span class="annot"><span class="annottext">newIssueCertificateResponse :: Int -&gt; IssueCertificateResponse
-</span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#newIssueCertificateResponse"><span class="hs-identifier hs-var hs-var">newIssueCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679215291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#newIssueCertificateResponse"><span class="hs-identifier hs-var hs-var">newIssueCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679215300"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-515"></span><span>  </span><span class="annot"><span class="annottext">IssueCertificateResponse' :: Maybe Text -&gt; Int -&gt; IssueCertificateResponse
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-type">IssueCertificateResponse'</span></a></span><span>
 </span><span id="line-516"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateArn:IssueCertificateResponse' :: Maybe Text
@@ -962,7 +962,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-518"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:IssueCertificateResponse' :: Int
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AhttpStatus%3AIssueCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679215300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-519"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-520"></span><span>
 </span><span id="line-521"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the issued certificate and the</span><span>
@@ -981,16 +981,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-type">IssueCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215290"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-type">IssueCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215299"><span class="annot"><span class="annottext">Maybe Text
 certificateArn :: Maybe Text
 $sel:certificateArn:IssueCertificateResponse' :: IssueCertificateResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679215290"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215290"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215289"><span class="annot"><span class="annottext">s :: IssueCertificateResponse
-</span><a href="#local-6989586621679215289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-type">IssueCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215288"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificateResponse
-</span><a href="#local-6989586621679215289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:IssueCertificateResponse' :: Maybe Text
+</span><a href="#local-6989586621679215299"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215299"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215298"><span class="annot"><span class="annottext">s :: IssueCertificateResponse
+</span><a href="#local-6989586621679215298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-type">IssueCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215297"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificateResponse
+</span><a href="#local-6989586621679215298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:IssueCertificateResponse' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AcertificateArn%3AIssueCertificateResponse%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-type">IssueCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-type">IssueCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-527"></span><span>
 </span><span id="line-528"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-529"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#issueCertificateResponse_httpStatus"><span class="hs-identifier hs-type">issueCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-type">IssueCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1000,16 +1000,16 @@ $sel:certificateArn:IssueCertificateResponse' :: IssueCertificateResponse -&gt; 
 -&gt; (IssueCertificateResponse -&gt; Int -&gt; IssueCertificateResponse)
 -&gt; Lens IssueCertificateResponse IssueCertificateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-type">IssueCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215287"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-type">IssueCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215296"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:IssueCertificateResponse' :: IssueCertificateResponse -&gt; Int
-</span><a href="#local-6989586621679215287"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215287"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215286"><span class="annot"><span class="annottext">s :: IssueCertificateResponse
-</span><a href="#local-6989586621679215286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-type">IssueCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215285"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificateResponse
-</span><a href="#local-6989586621679215286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:IssueCertificateResponse' :: Int
+</span><a href="#local-6989586621679215296"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215296"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215295"><span class="annot"><span class="annottext">s :: IssueCertificateResponse
+</span><a href="#local-6989586621679215295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse%27"><span class="hs-identifier hs-type">IssueCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215294"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IssueCertificateResponse
+</span><a href="#local-6989586621679215295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:IssueCertificateResponse' :: Int
 </span><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#%24sel%3AhttpStatus%3AIssueCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-type">IssueCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-type">IssueCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-531"></span><span>
-</span><span id="line-532"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-type">IssueCertificateResponse</span></a></span></span><span>
+</span><span id="line-532"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.IssueCertificate.html#IssueCertificateResponse"><span class="hs-identifier hs-type">IssueCertificateResponse</span></a></span></span><span>
 </span><span id="line-533"></span></pre></body></html>

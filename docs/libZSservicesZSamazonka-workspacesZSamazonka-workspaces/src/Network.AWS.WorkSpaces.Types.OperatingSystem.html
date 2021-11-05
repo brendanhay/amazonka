@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The operating system that the image is running.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOperatingSystem' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679272630"><span id="local-6989586621679272631"></span></span><span class="hs-keyword">data</span><span> </span><span id="OperatingSystem"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-var">OperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperatingSystem%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem%27"><span class="hs-identifier hs-var">OperatingSystem'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679272639"><span id="local-6989586621679272640"></span></span><span class="hs-keyword">data</span><span> </span><span id="OperatingSystem"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-var">OperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperatingSystem%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem%27"><span class="hs-identifier hs-var">OperatingSystem'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operating system.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Atype%27%3AOperatingSystem%27"><span class="annot"><span class="annottext">OperatingSystem -&gt; Maybe OperatingSystemType
 </span><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#%24sel%3Atype%27%3AOperatingSystem%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystemType.html#OperatingSystemType"><span class="hs-identifier hs-type">OperatingSystemType</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272624"><span id="local-6989586621679272626"><span class="annot"><span class="annottext">OperatingSystem -&gt; OperatingSystem -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272633"><span id="local-6989586621679272635"><span class="annot"><span class="annottext">OperatingSystem -&gt; OperatingSystem -&gt; Bool
 (OperatingSystem -&gt; OperatingSystem -&gt; Bool)
 -&gt; (OperatingSystem -&gt; OperatingSystem -&gt; Bool)
 -&gt; Eq OperatingSystem
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OperatingSystem -&gt; OperatingSystem -&gt; Bool
 == :: OperatingSystem -&gt; OperatingSystem -&gt; Bool
 $c== :: OperatingSystem -&gt; OperatingSystem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272615"><span id="local-6989586621679272617"><span id="local-6989586621679272619"><span id="local-6989586621679272621"><span class="annot"><span class="annottext">ReadPrec [OperatingSystem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272624"><span id="local-6989586621679272626"><span id="local-6989586621679272628"><span id="local-6989586621679272630"><span class="annot"><span class="annottext">ReadPrec [OperatingSystem]
 ReadPrec OperatingSystem
 Int -&gt; ReadS OperatingSystem
 ReadS [OperatingSystem]
@@ -61,7 +61,7 @@ readList :: ReadS [OperatingSystem]
 $creadList :: ReadS [OperatingSystem]
 readsPrec :: Int -&gt; ReadS OperatingSystem
 $creadsPrec :: Int -&gt; ReadS OperatingSystem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272608"><span id="local-6989586621679272610"><span id="local-6989586621679272612"><span class="annot"><span class="annottext">Int -&gt; OperatingSystem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272617"><span id="local-6989586621679272619"><span id="local-6989586621679272621"><span class="annot"><span class="annottext">Int -&gt; OperatingSystem -&gt; ShowS
 [OperatingSystem] -&gt; ShowS
 OperatingSystem -&gt; String
 (Int -&gt; OperatingSystem -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
      (Maybe OperatingSystemType)
      (Maybe OperatingSystemType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem%27"><span class="hs-identifier hs-type">OperatingSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272599"><span class="annot"><span class="annottext">Maybe OperatingSystemType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem%27"><span class="hs-identifier hs-type">OperatingSystem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272608"><span class="annot"><span class="annottext">Maybe OperatingSystemType
 type' :: Maybe OperatingSystemType
 $sel:type':OperatingSystem' :: OperatingSystem -&gt; Maybe OperatingSystemType
-</span><a href="#local-6989586621679272599"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystemType
-</span><a href="#local-6989586621679272599"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272598"><span class="annot"><span class="annottext">s :: OperatingSystem
-</span><a href="#local-6989586621679272598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem%27"><span class="hs-identifier hs-type">OperatingSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272597"><span class="annot"><span class="annottext">Maybe OperatingSystemType
-</span><a href="#local-6989586621679272597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperatingSystem
-</span><a href="#local-6989586621679272598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OperatingSystem' :: Maybe OperatingSystemType
+</span><a href="#local-6989586621679272608"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystemType
+</span><a href="#local-6989586621679272608"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272607"><span class="annot"><span class="annottext">s :: OperatingSystem
+</span><a href="#local-6989586621679272607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem%27"><span class="hs-identifier hs-type">OperatingSystem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272606"><span class="annot"><span class="annottext">Maybe OperatingSystemType
+</span><a href="#local-6989586621679272606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperatingSystem
+</span><a href="#local-6989586621679272607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OperatingSystem' :: Maybe OperatingSystemType
 </span><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#%24sel%3Atype%27%3AOperatingSystem%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystemType
-</span><a href="#local-6989586621679272597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272594"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679272592"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OperatingSystem
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272603"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679272601"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OperatingSystem)
@@ -141,20 +141,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OperatingSystem&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272589"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679272589"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272598"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272598"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe OperatingSystemType -&gt; OperatingSystem
 </span><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem%27"><span class="hs-identifier hs-var">OperatingSystem'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe OperatingSystemType -&gt; OperatingSystem)
 -&gt; Parser (Maybe OperatingSystemType) -&gt; Parser OperatingSystem
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679272589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystemType)
+</span><a href="#local-6989586621679272598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystemType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272583"><span id="local-6989586621679272585"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272592"><span id="local-6989586621679272594"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

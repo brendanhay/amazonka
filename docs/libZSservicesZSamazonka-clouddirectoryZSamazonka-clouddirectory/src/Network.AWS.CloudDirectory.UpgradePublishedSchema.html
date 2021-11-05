@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpgradePublishedSchema' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679351630"><span id="local-6989586621679351631"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpgradePublishedSchema"><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-var">UpgradePublishedSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpgradePublishedSchema%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-var">UpgradePublishedSchema'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679351639"><span id="local-6989586621679351640"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpgradePublishedSchema"><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-var">UpgradePublishedSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpgradePublishedSchema%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-var">UpgradePublishedSchema'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used for testing whether the Development schema provided is backwards</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- compatible, or not, with the publish schema provided by the user to be</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- upgraded. If schema compatibility fails, an exception would be thrown</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AminorVersion%3AUpgradePublishedSchema%27"><span class="annot"><span class="annottext">UpgradePublishedSchema -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AminorVersion%3AUpgradePublishedSchema%27"><span class="hs-identifier hs-var hs-var">minorVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351621"><span id="local-6989586621679351623"><span class="annot"><span class="annottext">UpgradePublishedSchema -&gt; UpgradePublishedSchema -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351630"><span id="local-6989586621679351632"><span class="annot"><span class="annottext">UpgradePublishedSchema -&gt; UpgradePublishedSchema -&gt; Bool
 (UpgradePublishedSchema -&gt; UpgradePublishedSchema -&gt; Bool)
 -&gt; (UpgradePublishedSchema -&gt; UpgradePublishedSchema -&gt; Bool)
 -&gt; Eq UpgradePublishedSchema
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpgradePublishedSchema -&gt; UpgradePublishedSchema -&gt; Bool
 == :: UpgradePublishedSchema -&gt; UpgradePublishedSchema -&gt; Bool
 $c== :: UpgradePublishedSchema -&gt; UpgradePublishedSchema -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351612"><span id="local-6989586621679351614"><span id="local-6989586621679351616"><span id="local-6989586621679351618"><span class="annot"><span class="annottext">ReadPrec [UpgradePublishedSchema]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351621"><span id="local-6989586621679351623"><span id="local-6989586621679351625"><span id="local-6989586621679351627"><span class="annot"><span class="annottext">ReadPrec [UpgradePublishedSchema]
 ReadPrec UpgradePublishedSchema
 Int -&gt; ReadS UpgradePublishedSchema
 ReadS [UpgradePublishedSchema]
@@ -99,7 +99,7 @@ readList :: ReadS [UpgradePublishedSchema]
 $creadList :: ReadS [UpgradePublishedSchema]
 readsPrec :: Int -&gt; ReadS UpgradePublishedSchema
 $creadsPrec :: Int -&gt; ReadS UpgradePublishedSchema
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351605"><span id="local-6989586621679351607"><span id="local-6989586621679351609"><span class="annot"><span class="annottext">Int -&gt; UpgradePublishedSchema -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351614"><span id="local-6989586621679351616"><span id="local-6989586621679351618"><span class="annot"><span class="annottext">Int -&gt; UpgradePublishedSchema -&gt; ShowS
 [UpgradePublishedSchema] -&gt; ShowS
 UpgradePublishedSchema -&gt; String
 (Int -&gt; UpgradePublishedSchema -&gt; ShowS)
@@ -156,12 +156,12 @@ $cfrom :: forall x. UpgradePublishedSchema -&gt; Rep UpgradePublishedSchema x
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span>
 </span><span id="line-99"></span><span id="newUpgradePublishedSchema"><span class="annot"><span class="annottext">newUpgradePublishedSchema :: Text -&gt; Text -&gt; Text -&gt; UpgradePublishedSchema
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#newUpgradePublishedSchema"><span class="hs-identifier hs-var hs-var">newUpgradePublishedSchema</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679351600"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351600"><span class="hs-identifier hs-var">pDevelopmentSchemaArn_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679351599"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351599"><span class="hs-identifier hs-var">pPublishedSchemaArn_</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679351598"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351598"><span class="hs-identifier hs-var">pMinorVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679351609"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351609"><span class="hs-identifier hs-var">pDevelopmentSchemaArn_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679351608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351608"><span class="hs-identifier hs-var">pPublishedSchemaArn_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679351607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351607"><span class="hs-identifier hs-var">pMinorVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">UpgradePublishedSchema' :: Maybe Bool -&gt; Text -&gt; Text -&gt; Text -&gt; UpgradePublishedSchema
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:UpgradePublishedSchema' :: Maybe Bool
@@ -170,13 +170,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:developmentSchemaArn:UpgradePublishedSchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AdevelopmentSchemaArn%3AUpgradePublishedSchema%27"><span class="hs-identifier hs-var">developmentSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351600"><span class="hs-identifier hs-var">pDevelopmentSchemaArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679351609"><span class="hs-identifier hs-var">pDevelopmentSchemaArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:publishedSchemaArn:UpgradePublishedSchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3ApublishedSchemaArn%3AUpgradePublishedSchema%27"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351599"><span class="hs-identifier hs-var">pPublishedSchemaArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679351608"><span class="hs-identifier hs-var">pPublishedSchemaArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:minorVersion:UpgradePublishedSchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AminorVersion%3AUpgradePublishedSchema%27"><span class="hs-identifier hs-var">minorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351598"><span class="hs-identifier hs-var">pMinorVersion_</span></a></span><span>
+</span><a href="#local-6989586621679351607"><span class="hs-identifier hs-var">pMinorVersion_</span></a></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | Used for testing whether the Development schema provided is backwards</span><span>
@@ -195,16 +195,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351595"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351604"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; Maybe Bool
-</span><a href="#local-6989586621679351595"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679351595"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351594"><span class="annot"><span class="annottext">s :: UpgradePublishedSchema
-</span><a href="#local-6989586621679351594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351593"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679351593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchema
-</span><a href="#local-6989586621679351594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:UpgradePublishedSchema' :: Maybe Bool
+</span><a href="#local-6989586621679351604"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679351604"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351603"><span class="annot"><span class="annottext">s :: UpgradePublishedSchema
+</span><a href="#local-6989586621679351603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351602"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679351602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchema
+</span><a href="#local-6989586621679351603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:UpgradePublishedSchema' :: Maybe Bool
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AdryRun%3AUpgradePublishedSchema%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679351593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The ARN of the development schema with the changes used for the upgrade.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#upgradePublishedSchema_developmentSchemaArn"><span class="hs-identifier hs-type">upgradePublishedSchema_developmentSchemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -214,16 +214,16 @@ $sel:dryRun:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; Maybe Bool
 -&gt; (UpgradePublishedSchema -&gt; Text -&gt; UpgradePublishedSchema)
 -&gt; Lens UpgradePublishedSchema UpgradePublishedSchema Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351592"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351601"><span class="annot"><span class="annottext">Text
 developmentSchemaArn :: Text
 $sel:developmentSchemaArn:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; Text
-</span><a href="#local-6989586621679351592"><span class="hs-identifier hs-var hs-var">developmentSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351592"><span class="hs-identifier hs-var">developmentSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351591"><span class="annot"><span class="annottext">s :: UpgradePublishedSchema
-</span><a href="#local-6989586621679351591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351590"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchema
-</span><a href="#local-6989586621679351591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:developmentSchemaArn:UpgradePublishedSchema' :: Text
+</span><a href="#local-6989586621679351601"><span class="hs-identifier hs-var hs-var">developmentSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351601"><span class="hs-identifier hs-var">developmentSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351600"><span class="annot"><span class="annottext">s :: UpgradePublishedSchema
+</span><a href="#local-6989586621679351600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351599"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchema
+</span><a href="#local-6989586621679351600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:developmentSchemaArn:UpgradePublishedSchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AdevelopmentSchemaArn%3AUpgradePublishedSchema%27"><span class="hs-identifier hs-var">developmentSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The ARN of the published schema to be upgraded.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#upgradePublishedSchema_publishedSchemaArn"><span class="hs-identifier hs-type">upgradePublishedSchema_publishedSchemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -233,16 +233,16 @@ $sel:developmentSchemaArn:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt
 -&gt; (UpgradePublishedSchema -&gt; Text -&gt; UpgradePublishedSchema)
 -&gt; Lens UpgradePublishedSchema UpgradePublishedSchema Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351589"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351598"><span class="annot"><span class="annottext">Text
 publishedSchemaArn :: Text
 $sel:publishedSchemaArn:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; Text
-</span><a href="#local-6989586621679351589"><span class="hs-identifier hs-var hs-var">publishedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351589"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351588"><span class="annot"><span class="annottext">s :: UpgradePublishedSchema
-</span><a href="#local-6989586621679351588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351587"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchema
-</span><a href="#local-6989586621679351588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publishedSchemaArn:UpgradePublishedSchema' :: Text
+</span><a href="#local-6989586621679351598"><span class="hs-identifier hs-var hs-var">publishedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351598"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351597"><span class="annot"><span class="annottext">s :: UpgradePublishedSchema
+</span><a href="#local-6989586621679351597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351596"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchema
+</span><a href="#local-6989586621679351597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publishedSchemaArn:UpgradePublishedSchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3ApublishedSchemaArn%3AUpgradePublishedSchema%27"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | Identifies the minor version of the published schema that will be</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- created. This parameter is NOT optional.</span><span>
@@ -253,27 +253,27 @@ $sel:publishedSchemaArn:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; 
 -&gt; (UpgradePublishedSchema -&gt; Text -&gt; UpgradePublishedSchema)
 -&gt; Lens UpgradePublishedSchema UpgradePublishedSchema Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351586"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351595"><span class="annot"><span class="annottext">Text
 minorVersion :: Text
 $sel:minorVersion:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; Text
-</span><a href="#local-6989586621679351586"><span class="hs-identifier hs-var hs-var">minorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351586"><span class="hs-identifier hs-var">minorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351585"><span class="annot"><span class="annottext">s :: UpgradePublishedSchema
-</span><a href="#local-6989586621679351585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351584"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchema
-</span><a href="#local-6989586621679351585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minorVersion:UpgradePublishedSchema' :: Text
+</span><a href="#local-6989586621679351595"><span class="hs-identifier hs-var hs-var">minorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351595"><span class="hs-identifier hs-var">minorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351594"><span class="annot"><span class="annottext">s :: UpgradePublishedSchema
+</span><a href="#local-6989586621679351594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchema
+</span><a href="#local-6989586621679351594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minorVersion:UpgradePublishedSchema' :: Text
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AminorVersion%3AUpgradePublishedSchema%27"><span class="hs-identifier hs-var">minorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679351580"><span class="annot"><span class="annottext">request :: UpgradePublishedSchema -&gt; Request UpgradePublishedSchema
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679351589"><span class="annot"><span class="annottext">request :: UpgradePublishedSchema -&gt; Request UpgradePublishedSchema
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpgradePublishedSchema -&gt; Request UpgradePublishedSchema
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679351576"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679351585"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpgradePublishedSchema
 -&gt; ClientResponse ClientBody
@@ -299,10 +299,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679351573"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351573"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679351572"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679351572"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679351571"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679351571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679351582"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351582"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679351581"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679351581"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679351580"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679351580"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpgradePublishedSchemaResponse
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-var">UpgradePublishedSchemaResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpgradePublishedSchemaResponse)
@@ -310,7 +310,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpgradePublishedSchemaResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679351571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679351580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpgradedSchemaArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -323,24 +323,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351573"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351582"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351563"><span id="local-6989586621679351565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351572"><span id="local-6989586621679351574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span></span></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679351556"><span class="annot"><span class="annottext">toHeaders :: UpgradePublishedSchema -&gt; ResponseHeaders
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679351565"><span class="annot"><span class="annottext">toHeaders :: UpgradePublishedSchema -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpgradePublishedSchema -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351547"><span id="local-6989586621679351549"><span id="local-6989586621679351551"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679351545"><span class="annot"><span class="annottext">toJSON :: UpgradePublishedSchema -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351540"><span id="local-6989586621679351541"><span id="local-6989586621679351542"><span id="local-6989586621679351543"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351556"><span id="local-6989586621679351558"><span id="local-6989586621679351560"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679351554"><span class="annot"><span class="annottext">toJSON :: UpgradePublishedSchema -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema%27"><span class="hs-identifier hs-type">UpgradePublishedSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351549"><span id="local-6989586621679351550"><span id="local-6989586621679351551"><span id="local-6989586621679351552"><span class="annot"><span class="annottext">Maybe Bool
 Text
 minorVersion :: Text
 publishedSchemaArn :: Text
@@ -350,7 +350,7 @@ $sel:minorVersion:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; Text
 $sel:publishedSchemaArn:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; Text
 $sel:developmentSchemaArn:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; Text
 $sel:dryRun:UpgradePublishedSchema' :: UpgradePublishedSchema -&gt; Maybe Bool
-</span><a href="#local-6989586621679351540"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679351549"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -362,7 +362,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679351543"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679351552"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -371,7 +371,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-158"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351542"><span class="hs-identifier hs-var">developmentSchemaArn</span></a></span><span>
+</span><a href="#local-6989586621679351551"><span class="hs-identifier hs-var">developmentSchemaArn</span></a></span><span>
 </span><span id="line-159"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -380,19 +380,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PublishedSchemaArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351541"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679351550"><span class="hs-identifier hs-var">publishedSchemaArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinorVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351540"><span class="hs-identifier hs-var">minorVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351549"><span class="hs-identifier hs-var">minorVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679351534"><span class="annot"><span class="annottext">toPath :: UpgradePublishedSchema -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679351543"><span class="annot"><span class="annottext">toPath :: UpgradePublishedSchema -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; UpgradePublishedSchema -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -401,7 +401,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/schema/upgradepublished&quot;</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchema"><span class="hs-identifier hs-type">UpgradePublishedSchema</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679351530"><span class="annot"><span class="annottext">toQuery :: UpgradePublishedSchema -&gt; QueryString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679351539"><span class="annot"><span class="annottext">toQuery :: UpgradePublishedSchema -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpgradePublishedSchema -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -409,7 +409,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newUpgradePublishedSchemaResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621679351527"><span id="local-6989586621679351528"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpgradePublishedSchemaResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-var">UpgradePublishedSchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpgradePublishedSchemaResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-var">UpgradePublishedSchemaResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span id="local-6989586621679351536"><span id="local-6989586621679351537"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpgradePublishedSchemaResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-var">UpgradePublishedSchemaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpgradePublishedSchemaResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-var">UpgradePublishedSchemaResponse'</span></a></span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the upgraded schema that is returned as part of the response.</span><span>
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3AupgradedSchemaArn%3AUpgradePublishedSchemaResponse%27"><span class="annot"><span class="annottext">UpgradePublishedSchemaResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AupgradedSchemaArn%3AUpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-var hs-var">upgradedSchemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -417,7 +417,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpgradePublishedSchemaResponse%27"><span class="annot"><span class="annottext">UpgradePublishedSchemaResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AhttpStatus%3AUpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351521"><span id="local-6989586621679351523"><span class="annot"><span class="annottext">UpgradePublishedSchemaResponse
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351530"><span id="local-6989586621679351532"><span class="annot"><span class="annottext">UpgradePublishedSchemaResponse
 -&gt; UpgradePublishedSchemaResponse -&gt; Bool
 (UpgradePublishedSchemaResponse
  -&gt; UpgradePublishedSchemaResponse -&gt; Bool)
@@ -433,7 +433,7 @@ $c/= :: UpgradePublishedSchemaResponse
 -&gt; UpgradePublishedSchemaResponse -&gt; Bool
 $c== :: UpgradePublishedSchemaResponse
 -&gt; UpgradePublishedSchemaResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351513"><span id="local-6989586621679351515"><span id="local-6989586621679351517"><span id="local-6989586621679351519"><span class="annot"><span class="annottext">ReadPrec [UpgradePublishedSchemaResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351522"><span id="local-6989586621679351524"><span id="local-6989586621679351526"><span id="local-6989586621679351528"><span class="annot"><span class="annottext">ReadPrec [UpgradePublishedSchemaResponse]
 ReadPrec UpgradePublishedSchemaResponse
 Int -&gt; ReadS UpgradePublishedSchemaResponse
 ReadS [UpgradePublishedSchemaResponse]
@@ -453,7 +453,7 @@ readList :: ReadS [UpgradePublishedSchemaResponse]
 $creadList :: ReadS [UpgradePublishedSchemaResponse]
 readsPrec :: Int -&gt; ReadS UpgradePublishedSchemaResponse
 $creadsPrec :: Int -&gt; ReadS UpgradePublishedSchemaResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351507"><span id="local-6989586621679351509"><span id="local-6989586621679351511"><span class="annot"><span class="annottext">Int -&gt; UpgradePublishedSchemaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351516"><span id="local-6989586621679351518"><span id="local-6989586621679351520"><span class="annot"><span class="annottext">Int -&gt; UpgradePublishedSchemaResponse -&gt; ShowS
 [UpgradePublishedSchemaResponse] -&gt; ShowS
 UpgradePublishedSchemaResponse -&gt; String
 (Int -&gt; UpgradePublishedSchemaResponse -&gt; ShowS)
@@ -507,8 +507,8 @@ UpgradePublishedSchemaResponse
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse</span></a></span><span>
 </span><span id="line-198"></span><span id="newUpgradePublishedSchemaResponse"><span class="annot"><span class="annottext">newUpgradePublishedSchemaResponse :: Int -&gt; UpgradePublishedSchemaResponse
-</span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#newUpgradePublishedSchemaResponse"><span class="hs-identifier hs-var hs-var">newUpgradePublishedSchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679351504"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351504"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#newUpgradePublishedSchemaResponse"><span class="hs-identifier hs-var hs-var">newUpgradePublishedSchemaResponse</span></a></span></span><span> </span><span id="local-6989586621679351513"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351513"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">UpgradePublishedSchemaResponse' :: Maybe Text -&gt; Int -&gt; UpgradePublishedSchemaResponse
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse'</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:upgradedSchemaArn:UpgradePublishedSchemaResponse' :: Maybe Text
@@ -518,7 +518,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpgradePublishedSchemaResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AhttpStatus%3AUpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351504"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679351513"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The ARN of the upgraded schema that is returned as part of the response.</span><span>
@@ -535,16 +535,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351503"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351512"><span class="annot"><span class="annottext">Maybe Text
 upgradedSchemaArn :: Maybe Text
 $sel:upgradedSchemaArn:UpgradePublishedSchemaResponse' :: UpgradePublishedSchemaResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679351503"><span class="hs-identifier hs-var hs-var">upgradedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351503"><span class="hs-identifier hs-var">upgradedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351502"><span class="annot"><span class="annottext">s :: UpgradePublishedSchemaResponse
-</span><a href="#local-6989586621679351502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351501"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchemaResponse
-</span><a href="#local-6989586621679351502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upgradedSchemaArn:UpgradePublishedSchemaResponse' :: Maybe Text
+</span><a href="#local-6989586621679351512"><span class="hs-identifier hs-var hs-var">upgradedSchemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351512"><span class="hs-identifier hs-var">upgradedSchemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351511"><span class="annot"><span class="annottext">s :: UpgradePublishedSchemaResponse
+</span><a href="#local-6989586621679351511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchemaResponse
+</span><a href="#local-6989586621679351511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upgradedSchemaArn:UpgradePublishedSchemaResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AupgradedSchemaArn%3AUpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-var">upgradedSchemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#upgradePublishedSchemaResponse_httpStatus"><span class="hs-identifier hs-type">upgradePublishedSchemaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -560,18 +560,18 @@ $sel:upgradedSchemaArn:UpgradePublishedSchemaResponse' :: UpgradePublishedSchema
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351500"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351509"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpgradePublishedSchemaResponse' :: UpgradePublishedSchemaResponse -&gt; Int
-</span><a href="#local-6989586621679351500"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351500"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351499"><span class="annot"><span class="annottext">s :: UpgradePublishedSchemaResponse
-</span><a href="#local-6989586621679351499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351498"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchemaResponse
-</span><a href="#local-6989586621679351499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpgradePublishedSchemaResponse' :: Int
+</span><a href="#local-6989586621679351509"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351509"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351508"><span class="annot"><span class="annottext">s :: UpgradePublishedSchemaResponse
+</span><a href="#local-6989586621679351508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351507"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpgradePublishedSchemaResponse
+</span><a href="#local-6989586621679351508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpgradePublishedSchemaResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#%24sel%3AhttpStatus%3AUpgradePublishedSchemaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679351496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679351505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.UpgradePublishedSchema.html#UpgradePublishedSchemaResponse"><span class="hs-identifier hs-type">UpgradePublishedSchemaResponse</span></a></span></span><span>
 </span><span id="line-216"></span></pre></body></html>

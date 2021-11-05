@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSOAdmin.ListInstances</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the SSO instances that the caller has access to.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSOAdmin.ListInstances</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier">ListInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#newListInstances"><span class="hs-identifier">newListInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstances_nextToken"><span class="hs-identifier">listInstances_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstances_maxResults"><span class="hs-identifier">listInstances_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier">ListInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#newListInstancesResponse"><span class="hs-identifier">newListInstancesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_nextToken"><span class="hs-identifier">listInstancesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_instances"><span class="hs-identifier">listInstancesResponse_instances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_httpStatus"><span class="hs-identifier">listInstancesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.Types.html"><span class="hs-identifier">Network.AWS.SSOAdmin.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListInstances' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679202964"><span id="local-6989586621679202965"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInstances"><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-var">ListInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInstances%27"><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances%27"><span class="hs-identifier hs-var">ListInstances'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListInstances%27"><span class="annot"><span class="annottext">ListInstances -&gt; Maybe Text
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AnextToken%3AListInstances%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to display for the instance.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxResults%3AListInstances%27"><span class="annot"><span class="annottext">ListInstances -&gt; Maybe Natural
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AmaxResults%3AListInstances%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202957"><span id="local-6989586621679202959"><span class="annot"><span class="annottext">ListInstances -&gt; ListInstances -&gt; Bool
+(ListInstances -&gt; ListInstances -&gt; Bool)
+-&gt; (ListInstances -&gt; ListInstances -&gt; Bool) -&gt; Eq ListInstances
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListInstances -&gt; ListInstances -&gt; Bool
+$c/= :: ListInstances -&gt; ListInstances -&gt; Bool
+== :: ListInstances -&gt; ListInstances -&gt; Bool
+$c== :: ListInstances -&gt; ListInstances -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202948"><span id="local-6989586621679202950"><span id="local-6989586621679202952"><span id="local-6989586621679202954"><span class="annot"><span class="annottext">ReadPrec [ListInstances]
+ReadPrec ListInstances
+Int -&gt; ReadS ListInstances
+ReadS [ListInstances]
+(Int -&gt; ReadS ListInstances)
+-&gt; ReadS [ListInstances]
+-&gt; ReadPrec ListInstances
+-&gt; ReadPrec [ListInstances]
+-&gt; Read ListInstances
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListInstances]
+$creadListPrec :: ReadPrec [ListInstances]
+readPrec :: ReadPrec ListInstances
+$creadPrec :: ReadPrec ListInstances
+readList :: ReadS [ListInstances]
+$creadList :: ReadS [ListInstances]
+readsPrec :: Int -&gt; ReadS ListInstances
+$creadsPrec :: Int -&gt; ReadS ListInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202941"><span id="local-6989586621679202943"><span id="local-6989586621679202945"><span class="annot"><span class="annottext">Int -&gt; ListInstances -&gt; ShowS
+[ListInstances] -&gt; ShowS
+ListInstances -&gt; String
+(Int -&gt; ListInstances -&gt; ShowS)
+-&gt; (ListInstances -&gt; String)
+-&gt; ([ListInstances] -&gt; ShowS)
+-&gt; Show ListInstances
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListInstances] -&gt; ShowS
+$cshowList :: [ListInstances] -&gt; ShowS
+show :: ListInstances -&gt; String
+$cshow :: ListInstances -&gt; String
+showsPrec :: Int -&gt; ListInstances -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListInstances -&gt; Rep ListInstances x)
+-&gt; (forall x. Rep ListInstances x -&gt; ListInstances)
+-&gt; Generic ListInstances
+forall x. Rep ListInstances x -&gt; ListInstances
+forall x. ListInstances -&gt; Rep ListInstances x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListInstances x -&gt; ListInstances
+$cfrom :: forall x. ListInstances -&gt; Rep ListInstances x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'ListInstances' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'nextToken', 'listInstances_nextToken' - The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'maxResults', 'listInstances_maxResults' - The maximum number of results to display for the instance.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#newListInstances"><span class="hs-identifier hs-type">newListInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span>
+</span><span id="line-77"></span><span id="newListInstances"><span class="annot"><span class="annottext">newListInstances :: ListInstances
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#newListInstances"><span class="hs-identifier hs-var hs-var">newListInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ListInstances' :: Maybe Text -&gt; Maybe Natural -&gt; ListInstances
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances%27"><span class="hs-identifier hs-type">ListInstances'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListInstances' :: Maybe Text
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AnextToken%3AListInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListInstances' :: Maybe Natural
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AmaxResults%3AListInstances%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstances_nextToken"><span class="hs-identifier hs-type">listInstances_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="listInstances_nextToken"><span class="annot"><span class="annottext">listInstances_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListInstances -&gt; f ListInstances
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstances_nextToken"><span class="hs-identifier hs-var hs-var">listInstances_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstances -&gt; Maybe Text)
+-&gt; (ListInstances -&gt; Maybe Text -&gt; ListInstances)
+-&gt; Lens ListInstances ListInstances (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances%27"><span class="hs-identifier hs-type">ListInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202935"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListInstances' :: ListInstances -&gt; Maybe Text
+</span><a href="#local-6989586621679202935"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202935"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202934"><span class="annot"><span class="annottext">s :: ListInstances
+</span><a href="#local-6989586621679202934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances%27"><span class="hs-identifier hs-type">ListInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstances
+</span><a href="#local-6989586621679202934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInstances' :: Maybe Text
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AnextToken%3AListInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The maximum number of results to display for the instance.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstances_maxResults"><span class="hs-identifier hs-type">listInstances_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="listInstances_maxResults"><span class="annot"><span class="annottext">listInstances_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListInstances -&gt; f ListInstances
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstances_maxResults"><span class="hs-identifier hs-var hs-var">listInstances_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstances -&gt; Maybe Natural)
+-&gt; (ListInstances -&gt; Maybe Natural -&gt; ListInstances)
+-&gt; Lens ListInstances ListInstances (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances%27"><span class="hs-identifier hs-type">ListInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202932"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListInstances' :: ListInstances -&gt; Maybe Natural
+</span><a href="#local-6989586621679202932"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202932"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202931"><span class="annot"><span class="annottext">s :: ListInstances
+</span><a href="#local-6989586621679202931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances%27"><span class="hs-identifier hs-type">ListInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202930"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstances
+</span><a href="#local-6989586621679202931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListInstances' :: Maybe Natural
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AmaxResults%3AListInstances%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679202926"><span class="annot"><span class="annottext">page :: ListInstances -&gt; AWSResponse ListInstances -&gt; Maybe ListInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679202924"><span class="annot"><span class="annottext">ListInstances
+</span><a href="#local-6989586621679202924"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202923"><span class="annot"><span class="annottext">AWSResponse ListInstances
+</span><a href="#local-6989586621679202923"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-95"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInstances
+ListInstancesResponse
+</span><a href="#local-6989586621679202923"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">ListInstancesResponse
+-&gt; Getting (First Text) ListInstancesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListInstancesResponse
+-&gt; Const (First Text) ListInstancesResponse
+Lens' ListInstancesResponse (Maybe Text)
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_nextToken"><span class="hs-identifier hs-var">listInstancesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListInstancesResponse
+ -&gt; Const (First Text) ListInstancesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListInstancesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-97"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListInstances
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceMetadata] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-100"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInstances
+ListInstancesResponse
+</span><a href="#local-6989586621679202923"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">ListInstancesResponse
+-&gt; Getting
+     (First [InstanceMetadata]) ListInstancesResponse [InstanceMetadata]
+-&gt; Maybe [InstanceMetadata]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [InstanceMetadata]
+ -&gt; Const (First [InstanceMetadata]) (Maybe [InstanceMetadata]))
+-&gt; ListInstancesResponse
+-&gt; Const (First [InstanceMetadata]) ListInstancesResponse
+Lens' ListInstancesResponse (Maybe [InstanceMetadata])
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_instances"><span class="hs-identifier hs-var">listInstancesResponse_instances</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceMetadata]
+  -&gt; Const (First [InstanceMetadata]) (Maybe [InstanceMetadata]))
+ -&gt; ListInstancesResponse
+ -&gt; Const (First [InstanceMetadata]) ListInstancesResponse)
+-&gt; (([InstanceMetadata]
+     -&gt; Const (First [InstanceMetadata]) [InstanceMetadata])
+    -&gt; Maybe [InstanceMetadata]
+    -&gt; Const (First [InstanceMetadata]) (Maybe [InstanceMetadata]))
+-&gt; Getting
+     (First [InstanceMetadata]) ListInstancesResponse [InstanceMetadata]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([InstanceMetadata]
+ -&gt; Const (First [InstanceMetadata]) [InstanceMetadata])
+-&gt; Maybe [InstanceMetadata]
+-&gt; Const (First [InstanceMetadata]) (Maybe [InstanceMetadata])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-102"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListInstances
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">ListInstances -&gt; Maybe ListInstances
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListInstances -&gt; Maybe ListInstances)
+-&gt; ListInstances -&gt; Maybe ListInstances
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">ListInstances
+</span><a href="#local-6989586621679202924"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">ListInstances -&gt; (ListInstances -&gt; ListInstances) -&gt; ListInstances
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListInstances -&gt; Identity ListInstances
+Lens ListInstances ListInstances (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstances_nextToken"><span class="hs-identifier hs-var">listInstances_nextToken</span></a></span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListInstances -&gt; Identity ListInstances)
+-&gt; Maybe Text -&gt; ListInstances -&gt; ListInstances
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInstances
+ListInstancesResponse
+</span><a href="#local-6989586621679202923"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">ListInstancesResponse
+-&gt; Getting (First Text) ListInstancesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListInstancesResponse
+-&gt; Const (First Text) ListInstancesResponse
+Lens' ListInstancesResponse (Maybe Text)
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_nextToken"><span class="hs-identifier hs-var">listInstancesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListInstancesResponse
+ -&gt; Const (First Text) ListInstancesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListInstancesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-type">ListInstancesResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679202913"><span class="annot"><span class="annottext">request :: ListInstances -&gt; Request ListInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListInstances -&gt; Request ListInstances
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSOAdmin.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679202909"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListInstances)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListInstances))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListInstances)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202906"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202905"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202905"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202904"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [InstanceMetadata] -&gt; Int -&gt; ListInstancesResponse
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse%27"><span class="hs-identifier hs-var">ListInstancesResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [InstanceMetadata] -&gt; Int -&gt; ListInstancesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [InstanceMetadata] -&gt; Int -&gt; ListInstancesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [InstanceMetadata] -&gt; Int -&gt; ListInstancesResponse)
+-&gt; Either String (Maybe [InstanceMetadata])
+-&gt; Either String (Int -&gt; ListInstancesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InstanceMetadata]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Instances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InstanceMetadata]))
+-&gt; Maybe [InstanceMetadata]
+-&gt; Either String (Maybe [InstanceMetadata])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceMetadata]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListInstancesResponse)
+-&gt; Either String Int -&gt; Either String ListInstancesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202906"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202895"><span id="local-6989586621679202897"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679202888"><span class="annot"><span class="annottext">toHeaders :: ListInstances -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListInstances -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SWBExternalService.ListInstances&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202878"><span id="local-6989586621679202880"><span id="local-6989586621679202882"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679202876"><span class="annot"><span class="annottext">toJSON :: ListInstances -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances%27"><span class="hs-identifier hs-type">ListInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202873"><span id="local-6989586621679202874"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListInstances' :: ListInstances -&gt; Maybe Natural
+$sel:nextToken:ListInstances' :: ListInstances -&gt; Maybe Text
+</span><a href="#local-6989586621679202873"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202874"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202873"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679202867"><span class="annot"><span class="annottext">toPath :: ListInstances -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListInstances -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstances"><span class="hs-identifier hs-type">ListInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679202863"><span class="annot"><span class="annottext">toQuery :: ListInstances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListInstances -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newListInstancesResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679202860"><span id="local-6989586621679202861"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInstancesResponse"><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-var">ListInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInstancesResponse%27"><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse%27"><span class="hs-identifier hs-var">ListInstancesResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AnextToken%3AListInstancesResponse%27"><span class="annot"><span class="annottext">ListInstancesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AnextToken%3AListInstancesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | Lists the SSO instances that the caller has access to.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3Ainstances%3AListInstancesResponse%27"><span class="annot"><span class="annottext">ListInstancesResponse -&gt; Maybe [InstanceMetadata]
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3Ainstances%3AListInstancesResponse%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListInstancesResponse%27"><span class="annot"><span class="annottext">ListInstancesResponse -&gt; Int
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AhttpStatus%3AListInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202853"><span id="local-6989586621679202855"><span class="annot"><span class="annottext">ListInstancesResponse -&gt; ListInstancesResponse -&gt; Bool
+(ListInstancesResponse -&gt; ListInstancesResponse -&gt; Bool)
+-&gt; (ListInstancesResponse -&gt; ListInstancesResponse -&gt; Bool)
+-&gt; Eq ListInstancesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListInstancesResponse -&gt; ListInstancesResponse -&gt; Bool
+$c/= :: ListInstancesResponse -&gt; ListInstancesResponse -&gt; Bool
+== :: ListInstancesResponse -&gt; ListInstancesResponse -&gt; Bool
+$c== :: ListInstancesResponse -&gt; ListInstancesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202845"><span id="local-6989586621679202847"><span id="local-6989586621679202849"><span id="local-6989586621679202851"><span class="annot"><span class="annottext">ReadPrec [ListInstancesResponse]
+ReadPrec ListInstancesResponse
+Int -&gt; ReadS ListInstancesResponse
+ReadS [ListInstancesResponse]
+(Int -&gt; ReadS ListInstancesResponse)
+-&gt; ReadS [ListInstancesResponse]
+-&gt; ReadPrec ListInstancesResponse
+-&gt; ReadPrec [ListInstancesResponse]
+-&gt; Read ListInstancesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListInstancesResponse]
+$creadListPrec :: ReadPrec [ListInstancesResponse]
+readPrec :: ReadPrec ListInstancesResponse
+$creadPrec :: ReadPrec ListInstancesResponse
+readList :: ReadS [ListInstancesResponse]
+$creadList :: ReadS [ListInstancesResponse]
+readsPrec :: Int -&gt; ReadS ListInstancesResponse
+$creadsPrec :: Int -&gt; ReadS ListInstancesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202839"><span id="local-6989586621679202841"><span id="local-6989586621679202843"><span class="annot"><span class="annottext">Int -&gt; ListInstancesResponse -&gt; ShowS
+[ListInstancesResponse] -&gt; ShowS
+ListInstancesResponse -&gt; String
+(Int -&gt; ListInstancesResponse -&gt; ShowS)
+-&gt; (ListInstancesResponse -&gt; String)
+-&gt; ([ListInstancesResponse] -&gt; ShowS)
+-&gt; Show ListInstancesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListInstancesResponse] -&gt; ShowS
+$cshowList :: [ListInstancesResponse] -&gt; ShowS
+show :: ListInstancesResponse -&gt; String
+$cshow :: ListInstancesResponse -&gt; String
+showsPrec :: Int -&gt; ListInstancesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListInstancesResponse -&gt; Rep ListInstancesResponse x)
+-&gt; (forall x. Rep ListInstancesResponse x -&gt; ListInstancesResponse)
+-&gt; Generic ListInstancesResponse
+forall x. Rep ListInstancesResponse x -&gt; ListInstancesResponse
+forall x. ListInstancesResponse -&gt; Rep ListInstancesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListInstancesResponse x -&gt; ListInstancesResponse
+$cfrom :: forall x. ListInstancesResponse -&gt; Rep ListInstancesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'ListInstancesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'nextToken', 'listInstancesResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'instances', 'listInstancesResponse_instances' - Lists the SSO instances that the caller has access to.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'listInstancesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#newListInstancesResponse"><span class="hs-identifier hs-type">newListInstancesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-type">ListInstancesResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newListInstancesResponse"><span class="annot"><span class="annottext">newListInstancesResponse :: Int -&gt; ListInstancesResponse
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#newListInstancesResponse"><span class="hs-identifier hs-var hs-var">newListInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621679202836"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">ListInstancesResponse' :: Maybe Text
+-&gt; Maybe [InstanceMetadata] -&gt; Int -&gt; ListInstancesResponse
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse%27"><span class="hs-identifier hs-type">ListInstancesResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListInstancesResponse' :: Maybe Text
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AnextToken%3AListInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:instances:ListInstancesResponse' :: Maybe [InstanceMetadata]
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3Ainstances%3AListInstancesResponse%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceMetadata]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListInstancesResponse' :: Int
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AhttpStatus%3AListInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The pagination token for the list API. Initially the value is null. Use</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- the output of previous API calls to make subsequent calls.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_nextToken"><span class="hs-identifier hs-type">listInstancesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-type">ListInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="listInstancesResponse_nextToken"><span class="annot"><span class="annottext">listInstancesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInstancesResponse -&gt; f ListInstancesResponse
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listInstancesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstancesResponse -&gt; Maybe Text)
+-&gt; (ListInstancesResponse -&gt; Maybe Text -&gt; ListInstancesResponse)
+-&gt; Lens' ListInstancesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse%27"><span class="hs-identifier hs-type">ListInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202835"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListInstancesResponse' :: ListInstancesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679202835"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202835"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202834"><span class="annot"><span class="annottext">s :: ListInstancesResponse
+</span><a href="#local-6989586621679202834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse%27"><span class="hs-identifier hs-type">ListInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202833"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstancesResponse
+</span><a href="#local-6989586621679202834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInstancesResponse' :: Maybe Text
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AnextToken%3AListInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-type">ListInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Lists the SSO instances that the caller has access to.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_instances"><span class="hs-identifier hs-type">listInstancesResponse_instances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-type">ListInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSOAdmin.Types.InstanceMetadata.html#InstanceMetadata"><span class="hs-identifier hs-type">InstanceMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="listInstancesResponse_instances"><span class="annot"><span class="annottext">listInstancesResponse_instances :: (Maybe [InstanceMetadata] -&gt; f (Maybe [InstanceMetadata]))
+-&gt; ListInstancesResponse -&gt; f ListInstancesResponse
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_instances"><span class="hs-identifier hs-var hs-var">listInstancesResponse_instances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstancesResponse -&gt; Maybe [InstanceMetadata])
+-&gt; (ListInstancesResponse
+    -&gt; Maybe [InstanceMetadata] -&gt; ListInstancesResponse)
+-&gt; Lens' ListInstancesResponse (Maybe [InstanceMetadata])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse%27"><span class="hs-identifier hs-type">ListInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202832"><span class="annot"><span class="annottext">Maybe [InstanceMetadata]
+instances :: Maybe [InstanceMetadata]
+$sel:instances:ListInstancesResponse' :: ListInstancesResponse -&gt; Maybe [InstanceMetadata]
+</span><a href="#local-6989586621679202832"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceMetadata]
+</span><a href="#local-6989586621679202832"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202831"><span class="annot"><span class="annottext">s :: ListInstancesResponse
+</span><a href="#local-6989586621679202831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse%27"><span class="hs-identifier hs-type">ListInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202830"><span class="annot"><span class="annottext">Maybe [InstanceMetadata]
+</span><a href="#local-6989586621679202830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstancesResponse
+</span><a href="#local-6989586621679202831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:ListInstancesResponse' :: Maybe [InstanceMetadata]
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3Ainstances%3AListInstancesResponse%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceMetadata]
+</span><a href="#local-6989586621679202830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-type">ListInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceMetadata] -&gt; f (Maybe [InstanceMetadata]))
+ -&gt; ListInstancesResponse -&gt; f ListInstancesResponse)
+-&gt; ((Maybe [InstanceMetadata] -&gt; f (Maybe [InstanceMetadata]))
+    -&gt; Maybe [InstanceMetadata] -&gt; f (Maybe [InstanceMetadata]))
+-&gt; (Maybe [InstanceMetadata] -&gt; f (Maybe [InstanceMetadata]))
+-&gt; ListInstancesResponse
+-&gt; f ListInstancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceMetadata]
+  [InstanceMetadata]
+  [InstanceMetadata]
+  [InstanceMetadata]
+-&gt; Iso
+     (Maybe [InstanceMetadata])
+     (Maybe [InstanceMetadata])
+     (Maybe [InstanceMetadata])
+     (Maybe [InstanceMetadata])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceMetadata]
+  [InstanceMetadata]
+  [InstanceMetadata]
+  [InstanceMetadata]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_httpStatus"><span class="hs-identifier hs-type">listInstancesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-type">ListInstancesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span id="listInstancesResponse_httpStatus"><span class="annot"><span class="annottext">listInstancesResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListInstancesResponse -&gt; f ListInstancesResponse
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#listInstancesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listInstancesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInstancesResponse -&gt; Int)
+-&gt; (ListInstancesResponse -&gt; Int -&gt; ListInstancesResponse)
+-&gt; Lens ListInstancesResponse ListInstancesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse%27"><span class="hs-identifier hs-type">ListInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202827"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListInstancesResponse' :: ListInstancesResponse -&gt; Int
+</span><a href="#local-6989586621679202827"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202827"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202826"><span class="annot"><span class="annottext">s :: ListInstancesResponse
+</span><a href="#local-6989586621679202826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse%27"><span class="hs-identifier hs-type">ListInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202825"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInstancesResponse
+</span><a href="#local-6989586621679202826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInstancesResponse' :: Int
+</span><a href="Network.AWS.SSOAdmin.ListInstances.html#%24sel%3AhttpStatus%3AListInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-type">ListInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSOAdmin.ListInstances.html#ListInstancesResponse"><span class="hs-identifier hs-type">ListInstancesResponse</span></a></span></span><span>
+</span><span id="line-210"></span></pre></body></html>

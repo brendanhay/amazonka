@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteArchive' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679317623"><span id="local-6989586621679317624"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteArchive"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-var">DeleteArchive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteArchive%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-var">DeleteArchive'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679317632"><span id="local-6989586621679317633"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteArchive"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-var">DeleteArchive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteArchive%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-var">DeleteArchive'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the archive to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AarchiveName%3ADeleteArchive%27"><span class="annot"><span class="annottext">DeleteArchive -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#%24sel%3AarchiveName%3ADeleteArchive%27"><span class="hs-identifier hs-var hs-var">archiveName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317617"><span id="local-6989586621679317619"><span class="annot"><span class="annottext">DeleteArchive -&gt; DeleteArchive -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317626"><span id="local-6989586621679317628"><span class="annot"><span class="annottext">DeleteArchive -&gt; DeleteArchive -&gt; Bool
 (DeleteArchive -&gt; DeleteArchive -&gt; Bool)
 -&gt; (DeleteArchive -&gt; DeleteArchive -&gt; Bool) -&gt; Eq DeleteArchive
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteArchive -&gt; DeleteArchive -&gt; Bool
 == :: DeleteArchive -&gt; DeleteArchive -&gt; Bool
 $c== :: DeleteArchive -&gt; DeleteArchive -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317608"><span id="local-6989586621679317610"><span id="local-6989586621679317612"><span id="local-6989586621679317614"><span class="annot"><span class="annottext">ReadPrec [DeleteArchive]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317617"><span id="local-6989586621679317619"><span id="local-6989586621679317621"><span id="local-6989586621679317623"><span class="annot"><span class="annottext">ReadPrec [DeleteArchive]
 ReadPrec DeleteArchive
 Int -&gt; ReadS DeleteArchive
 ReadS [DeleteArchive]
@@ -79,7 +79,7 @@ readList :: ReadS [DeleteArchive]
 $creadList :: ReadS [DeleteArchive]
 readsPrec :: Int -&gt; ReadS DeleteArchive
 $creadsPrec :: Int -&gt; ReadS DeleteArchive
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317601"><span id="local-6989586621679317603"><span id="local-6989586621679317605"><span class="annot"><span class="annottext">Int -&gt; DeleteArchive -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317610"><span id="local-6989586621679317612"><span id="local-6989586621679317614"><span class="annot"><span class="annottext">Int -&gt; DeleteArchive -&gt; ShowS
 [DeleteArchive] -&gt; ShowS
 DeleteArchive -&gt; String
 (Int -&gt; DeleteArchive -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. DeleteArchive -&gt; Rep DeleteArchive x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteArchive"><span class="annot"><span class="annottext">newDeleteArchive :: Text -&gt; DeleteArchive
-</span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#newDeleteArchive"><span class="hs-identifier hs-var hs-var">newDeleteArchive</span></a></span></span><span> </span><span id="local-6989586621679317596"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317596"><span class="hs-identifier hs-var">pArchiveName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#newDeleteArchive"><span class="hs-identifier hs-var hs-var">newDeleteArchive</span></a></span></span><span> </span><span id="local-6989586621679317605"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317605"><span class="hs-identifier hs-var">pArchiveName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteArchive' :: Text -&gt; DeleteArchive
 </span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveName:DeleteArchive' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#%24sel%3AarchiveName%3ADeleteArchive%27"><span class="hs-identifier hs-var">archiveName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317596"><span class="hs-identifier hs-var">pArchiveName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679317605"><span class="hs-identifier hs-var">pArchiveName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the archive to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#deleteArchive_archiveName"><span class="hs-identifier hs-type">deleteArchive_archiveName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,27 +133,27 @@ $cfrom :: forall x. DeleteArchive -&gt; Rep DeleteArchive x
 -&gt; (DeleteArchive -&gt; Text -&gt; DeleteArchive)
 -&gt; Lens DeleteArchive DeleteArchive Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317593"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317602"><span class="annot"><span class="annottext">Text
 archiveName :: Text
 $sel:archiveName:DeleteArchive' :: DeleteArchive -&gt; Text
-</span><a href="#local-6989586621679317593"><span class="hs-identifier hs-var hs-var">archiveName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317593"><span class="hs-identifier hs-var">archiveName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317592"><span class="annot"><span class="annottext">s :: DeleteArchive
-</span><a href="#local-6989586621679317592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317591"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchive
-</span><a href="#local-6989586621679317592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveName:DeleteArchive' :: Text
+</span><a href="#local-6989586621679317602"><span class="hs-identifier hs-var hs-var">archiveName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317602"><span class="hs-identifier hs-var">archiveName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317601"><span class="annot"><span class="annottext">s :: DeleteArchive
+</span><a href="#local-6989586621679317601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchive
+</span><a href="#local-6989586621679317601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveName:DeleteArchive' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#%24sel%3AarchiveName%3ADeleteArchive%27"><span class="hs-identifier hs-var">archiveName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679317587"><span class="annot"><span class="annottext">request :: DeleteArchive -&gt; Request DeleteArchive
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679317596"><span class="annot"><span class="annottext">request :: DeleteArchive -&gt; Request DeleteArchive
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteArchive -&gt; Request DeleteArchive
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679317583"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679317592"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteArchive
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317580"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317580"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317579"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317579"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317578"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679317578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317589"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317589"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317588"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317588"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317587"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679317587"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteArchiveResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-var">DeleteArchiveResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteArchiveResponse)
@@ -191,15 +191,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317580"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317589"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317571"><span id="local-6989586621679317573"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317580"><span id="local-6989586621679317582"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679317564"><span class="annot"><span class="annottext">toHeaders :: DeleteArchive -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679317573"><span class="annot"><span class="annottext">toHeaders :: DeleteArchive -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteArchive -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -224,12 +224,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317554"><span id="local-6989586621679317556"><span id="local-6989586621679317558"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679317552"><span class="annot"><span class="annottext">toJSON :: DeleteArchive -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317550"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317563"><span id="local-6989586621679317565"><span id="local-6989586621679317567"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679317561"><span class="annot"><span class="annottext">toJSON :: DeleteArchive -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive%27"><span class="hs-identifier hs-type">DeleteArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317559"><span class="annot"><span class="annottext">Text
 archiveName :: Text
 $sel:archiveName:DeleteArchive' :: DeleteArchive -&gt; Text
-</span><a href="#local-6989586621679317550"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679317559"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -241,18 +241,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ArchiveName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317550"><span class="hs-identifier hs-var">archiveName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679317559"><span class="hs-identifier hs-var">archiveName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679317544"><span class="annot"><span class="annottext">toPath :: DeleteArchive -&gt; ByteString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679317553"><span class="annot"><span class="annottext">toPath :: DeleteArchive -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteArchive -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchive"><span class="hs-identifier hs-type">DeleteArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679317540"><span class="annot"><span class="annottext">toQuery :: DeleteArchive -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679317549"><span class="annot"><span class="annottext">toQuery :: DeleteArchive -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteArchive -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -260,12 +260,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDeleteArchiveResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679317537"><span id="local-6989586621679317538"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteArchiveResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-var">DeleteArchiveResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteArchiveResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-var">DeleteArchiveResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679317546"><span id="local-6989586621679317547"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteArchiveResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-var">DeleteArchiveResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteArchiveResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-var">DeleteArchiveResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteArchiveResponse%27"><span class="annot"><span class="annottext">DeleteArchiveResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#%24sel%3AhttpStatus%3ADeleteArchiveResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317532"><span id="local-6989586621679317534"><span class="annot"><span class="annottext">DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317541"><span id="local-6989586621679317543"><span class="annot"><span class="annottext">DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
 (DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool)
 -&gt; (DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool)
 -&gt; Eq DeleteArchiveResponse
@@ -274,7 +274,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
 == :: DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
 $c== :: DeleteArchiveResponse -&gt; DeleteArchiveResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317524"><span id="local-6989586621679317526"><span id="local-6989586621679317528"><span id="local-6989586621679317530"><span class="annot"><span class="annottext">ReadPrec [DeleteArchiveResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317533"><span id="local-6989586621679317535"><span id="local-6989586621679317537"><span id="local-6989586621679317539"><span class="annot"><span class="annottext">ReadPrec [DeleteArchiveResponse]
 ReadPrec DeleteArchiveResponse
 Int -&gt; ReadS DeleteArchiveResponse
 ReadS [DeleteArchiveResponse]
@@ -294,7 +294,7 @@ readList :: ReadS [DeleteArchiveResponse]
 $creadList :: ReadS [DeleteArchiveResponse]
 readsPrec :: Int -&gt; ReadS DeleteArchiveResponse
 $creadsPrec :: Int -&gt; ReadS DeleteArchiveResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317518"><span id="local-6989586621679317520"><span id="local-6989586621679317522"><span class="annot"><span class="annottext">Int -&gt; DeleteArchiveResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317527"><span id="local-6989586621679317529"><span id="local-6989586621679317531"><span class="annot"><span class="annottext">Int -&gt; DeleteArchiveResponse -&gt; ShowS
 [DeleteArchiveResponse] -&gt; ShowS
 DeleteArchiveResponse -&gt; String
 (Int -&gt; DeleteArchiveResponse -&gt; ShowS)
@@ -334,12 +334,12 @@ $cfrom :: forall x. DeleteArchiveResponse -&gt; Rep DeleteArchiveResponse x
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span><span>
 </span><span id="line-137"></span><span id="newDeleteArchiveResponse"><span class="annot"><span class="annottext">newDeleteArchiveResponse :: Int -&gt; DeleteArchiveResponse
-</span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#newDeleteArchiveResponse"><span class="hs-identifier hs-var hs-var">newDeleteArchiveResponse</span></a></span></span><span> </span><span id="local-6989586621679317515"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317515"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#newDeleteArchiveResponse"><span class="hs-identifier hs-var hs-var">newDeleteArchiveResponse</span></a></span></span><span> </span><span id="local-6989586621679317524"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317524"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">DeleteArchiveResponse' :: Int -&gt; DeleteArchiveResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-type">DeleteArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteArchiveResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#%24sel%3AhttpStatus%3ADeleteArchiveResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317515"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679317524"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#deleteArchiveResponse_httpStatus"><span class="hs-identifier hs-type">deleteArchiveResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -348,16 +348,16 @@ $cfrom :: forall x. DeleteArchiveResponse -&gt; Rep DeleteArchiveResponse x
 -&gt; (DeleteArchiveResponse -&gt; Int -&gt; DeleteArchiveResponse)
 -&gt; Lens DeleteArchiveResponse DeleteArchiveResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-type">DeleteArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317514"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-type">DeleteArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317523"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteArchiveResponse' :: DeleteArchiveResponse -&gt; Int
-</span><a href="#local-6989586621679317514"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317514"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317513"><span class="annot"><span class="annottext">s :: DeleteArchiveResponse
-</span><a href="#local-6989586621679317513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-type">DeleteArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317512"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchiveResponse
-</span><a href="#local-6989586621679317513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteArchiveResponse' :: Int
+</span><a href="#local-6989586621679317523"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317523"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317522"><span class="annot"><span class="annottext">s :: DeleteArchiveResponse
+</span><a href="#local-6989586621679317522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse%27"><span class="hs-identifier hs-type">DeleteArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317521"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteArchiveResponse
+</span><a href="#local-6989586621679317522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteArchiveResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#%24sel%3AhttpStatus%3ADeleteArchiveResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteArchive.html#DeleteArchiveResponse"><span class="hs-identifier hs-type">DeleteArchiveResponse</span></a></span></span><span>
 </span><span id="line-145"></span></pre></body></html>

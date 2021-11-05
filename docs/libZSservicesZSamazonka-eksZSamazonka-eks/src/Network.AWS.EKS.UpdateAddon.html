@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateAddon' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679279029"><span id="local-6989586621679279030"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAddon"><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-var">UpdateAddon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAddon%27"><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-var">UpdateAddon'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679279038"><span id="local-6989586621679279039"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAddon"><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-var">UpdateAddon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAddon%27"><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-var">UpdateAddon'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the add-on. The version must match one of the versions</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- returned by</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions&gt;</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-85"></span><span>    </span><span id="%24sel%3AaddonName%3AUpdateAddon%27"><span class="annot"><span class="annottext">UpdateAddon -&gt; Text
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AaddonName%3AUpdateAddon%27"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279018"><span id="local-6989586621679279020"><span class="annot"><span class="annottext">UpdateAddon -&gt; UpdateAddon -&gt; Bool
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279027"><span id="local-6989586621679279029"><span class="annot"><span class="annottext">UpdateAddon -&gt; UpdateAddon -&gt; Bool
 (UpdateAddon -&gt; UpdateAddon -&gt; Bool)
 -&gt; (UpdateAddon -&gt; UpdateAddon -&gt; Bool) -&gt; Eq UpdateAddon
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -98,7 +98,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateAddon -&gt; UpdateAddon -&gt; Bool
 == :: UpdateAddon -&gt; UpdateAddon -&gt; Bool
 $c== :: UpdateAddon -&gt; UpdateAddon -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279009"><span id="local-6989586621679279011"><span id="local-6989586621679279013"><span id="local-6989586621679279015"><span class="annot"><span class="annottext">ReadPrec [UpdateAddon]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279018"><span id="local-6989586621679279020"><span id="local-6989586621679279022"><span id="local-6989586621679279024"><span class="annot"><span class="annottext">ReadPrec [UpdateAddon]
 ReadPrec UpdateAddon
 Int -&gt; ReadS UpdateAddon
 ReadS [UpdateAddon]
@@ -118,7 +118,7 @@ readList :: ReadS [UpdateAddon]
 $creadList :: ReadS [UpdateAddon]
 readsPrec :: Int -&gt; ReadS UpdateAddon
 $creadsPrec :: Int -&gt; ReadS UpdateAddon
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279002"><span id="local-6989586621679279004"><span id="local-6989586621679279006"><span class="annot"><span class="annottext">Int -&gt; UpdateAddon -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279011"><span id="local-6989586621679279013"><span id="local-6989586621679279015"><span class="annot"><span class="annottext">Int -&gt; UpdateAddon -&gt; ShowS
 [UpdateAddon] -&gt; ShowS
 UpdateAddon -&gt; String
 (Int -&gt; UpdateAddon -&gt; ShowS)
@@ -188,9 +188,9 @@ $cfrom :: forall x. UpdateAddon -&gt; Rep UpdateAddon x
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span>
 </span><span id="line-132"></span><span id="newUpdateAddon"><span class="annot"><span class="annottext">newUpdateAddon :: Text -&gt; Text -&gt; UpdateAddon
-</span><a href="Network.AWS.EKS.UpdateAddon.html#newUpdateAddon"><span class="hs-identifier hs-var hs-var">newUpdateAddon</span></a></span></span><span> </span><span id="local-6989586621679278997"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278997"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span id="local-6989586621679278996"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278996"><span class="hs-identifier hs-var">pAddonName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.UpdateAddon.html#newUpdateAddon"><span class="hs-identifier hs-var hs-var">newUpdateAddon</span></a></span></span><span> </span><span id="local-6989586621679279006"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279006"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span id="local-6989586621679279005"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279005"><span class="hs-identifier hs-var">pAddonName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">UpdateAddon' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ResolveConflicts
@@ -217,10 +217,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:UpdateAddon' :: Text
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AclusterName%3AUpdateAddon%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278997"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279006"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:addonName:UpdateAddon' :: Text
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AaddonName%3AUpdateAddon%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278996"><span class="hs-identifier hs-var">pAddonName_</span></a></span><span>
+</span><a href="#local-6989586621679279005"><span class="hs-identifier hs-var">pAddonName_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The version of the add-on. The version must match one of the versions</span><span>
@@ -233,16 +233,16 @@ forall a. Maybe a
 -&gt; (UpdateAddon -&gt; Maybe Text -&gt; UpdateAddon)
 -&gt; Lens UpdateAddon UpdateAddon (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278993"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279002"><span class="annot"><span class="annottext">Maybe Text
 addonVersion :: Maybe Text
 $sel:addonVersion:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
-</span><a href="#local-6989586621679278993"><span class="hs-identifier hs-var hs-var">addonVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278993"><span class="hs-identifier hs-var">addonVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278992"><span class="annot"><span class="annottext">s :: UpdateAddon
-</span><a href="#local-6989586621679278992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278991"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
-</span><a href="#local-6989586621679278992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonVersion:UpdateAddon' :: Maybe Text
+</span><a href="#local-6989586621679279002"><span class="hs-identifier hs-var hs-var">addonVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279002"><span class="hs-identifier hs-var">addonVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279001"><span class="annot"><span class="annottext">s :: UpdateAddon
+</span><a href="#local-6989586621679279001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
+</span><a href="#local-6989586621679279001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonVersion:UpdateAddon' :: Maybe Text
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AaddonVersion%3AUpdateAddon%27"><span class="hs-identifier hs-var">addonVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- add-on\'s service account. The role must be assigned the IAM permissions</span><span>
@@ -262,16 +262,16 @@ $sel:addonVersion:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
 -&gt; (UpdateAddon -&gt; Maybe Text -&gt; UpdateAddon)
 -&gt; Lens UpdateAddon UpdateAddon (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278990"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278999"><span class="annot"><span class="annottext">Maybe Text
 serviceAccountRoleArn :: Maybe Text
 $sel:serviceAccountRoleArn:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
-</span><a href="#local-6989586621679278990"><span class="hs-identifier hs-var hs-var">serviceAccountRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278990"><span class="hs-identifier hs-var">serviceAccountRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278989"><span class="annot"><span class="annottext">s :: UpdateAddon
-</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278988"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
-</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccountRoleArn:UpdateAddon' :: Maybe Text
+</span><a href="#local-6989586621679278999"><span class="hs-identifier hs-var hs-var">serviceAccountRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278999"><span class="hs-identifier hs-var">serviceAccountRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278998"><span class="annot"><span class="annottext">s :: UpdateAddon
+</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
+</span><a href="#local-6989586621679278998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccountRoleArn:UpdateAddon' :: Maybe Text
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AserviceAccountRoleArn%3AUpdateAddon%27"><span class="hs-identifier hs-var">serviceAccountRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | How to resolve parameter value conflicts when applying the new version</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- of the add-on to the cluster.</span><span>
@@ -286,16 +286,16 @@ $sel:serviceAccountRoleArn:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
      (Maybe ResolveConflicts)
      (Maybe ResolveConflicts)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278987"><span class="annot"><span class="annottext">Maybe ResolveConflicts
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278996"><span class="annot"><span class="annottext">Maybe ResolveConflicts
 resolveConflicts :: Maybe ResolveConflicts
 $sel:resolveConflicts:UpdateAddon' :: UpdateAddon -&gt; Maybe ResolveConflicts
-</span><a href="#local-6989586621679278987"><span class="hs-identifier hs-var hs-var">resolveConflicts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResolveConflicts
-</span><a href="#local-6989586621679278987"><span class="hs-identifier hs-var">resolveConflicts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278986"><span class="annot"><span class="annottext">s :: UpdateAddon
-</span><a href="#local-6989586621679278986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278985"><span class="annot"><span class="annottext">Maybe ResolveConflicts
-</span><a href="#local-6989586621679278985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
-</span><a href="#local-6989586621679278986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolveConflicts:UpdateAddon' :: Maybe ResolveConflicts
+</span><a href="#local-6989586621679278996"><span class="hs-identifier hs-var hs-var">resolveConflicts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResolveConflicts
+</span><a href="#local-6989586621679278996"><span class="hs-identifier hs-var">resolveConflicts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278995"><span class="annot"><span class="annottext">s :: UpdateAddon
+</span><a href="#local-6989586621679278995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278994"><span class="annot"><span class="annottext">Maybe ResolveConflicts
+</span><a href="#local-6989586621679278994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
+</span><a href="#local-6989586621679278995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolveConflicts:UpdateAddon' :: Maybe ResolveConflicts
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AresolveConflicts%3AUpdateAddon%27"><span class="hs-identifier hs-var">resolveConflicts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolveConflicts
-</span><a href="#local-6989586621679278985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- idempotency of the request.</span><span>
@@ -305,16 +305,16 @@ $sel:resolveConflicts:UpdateAddon' :: UpdateAddon -&gt; Maybe ResolveConflicts
 -&gt; (UpdateAddon -&gt; Maybe Text -&gt; UpdateAddon)
 -&gt; Lens UpdateAddon UpdateAddon (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278984"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278993"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
-</span><a href="#local-6989586621679278984"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278984"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278983"><span class="annot"><span class="annottext">s :: UpdateAddon
-</span><a href="#local-6989586621679278983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278982"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
-</span><a href="#local-6989586621679278983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:UpdateAddon' :: Maybe Text
+</span><a href="#local-6989586621679278993"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278993"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278992"><span class="annot"><span class="annottext">s :: UpdateAddon
+</span><a href="#local-6989586621679278992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
+</span><a href="#local-6989586621679278992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:UpdateAddon' :: Maybe Text
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AclientRequestToken%3AUpdateAddon%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The name of the cluster.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#updateAddon_clusterName"><span class="hs-identifier hs-type">updateAddon_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -323,16 +323,16 @@ $sel:clientRequestToken:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
 -&gt; (UpdateAddon -&gt; Text -&gt; UpdateAddon)
 -&gt; Lens UpdateAddon UpdateAddon Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278981"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278990"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:UpdateAddon' :: UpdateAddon -&gt; Text
-</span><a href="#local-6989586621679278981"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278981"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278980"><span class="annot"><span class="annottext">s :: UpdateAddon
-</span><a href="#local-6989586621679278980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278979"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
-</span><a href="#local-6989586621679278980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:UpdateAddon' :: Text
+</span><a href="#local-6989586621679278990"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278990"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278989"><span class="annot"><span class="annottext">s :: UpdateAddon
+</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278988"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
+</span><a href="#local-6989586621679278989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:UpdateAddon' :: Text
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AclusterName%3AUpdateAddon%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The name of the add-on. The name must match one of the names returned by</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons&gt;</span><span>
@@ -343,25 +343,25 @@ $sel:clusterName:UpdateAddon' :: UpdateAddon -&gt; Text
 -&gt; (UpdateAddon -&gt; Text -&gt; UpdateAddon)
 -&gt; Lens UpdateAddon UpdateAddon Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278978"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278987"><span class="annot"><span class="annottext">Text
 addonName :: Text
 $sel:addonName:UpdateAddon' :: UpdateAddon -&gt; Text
-</span><a href="#local-6989586621679278978"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278978"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278977"><span class="annot"><span class="annottext">s :: UpdateAddon
-</span><a href="#local-6989586621679278977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278976"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
-</span><a href="#local-6989586621679278977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonName:UpdateAddon' :: Text
+</span><a href="#local-6989586621679278987"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278987"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278986"><span class="annot"><span class="annottext">s :: UpdateAddon
+</span><a href="#local-6989586621679278986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278985"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddon
+</span><a href="#local-6989586621679278986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonName:UpdateAddon' :: Text
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AaddonName%3AUpdateAddon%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-type">UpdateAddonResponse</span></a></span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679278972"><span class="annot"><span class="annottext">request :: UpdateAddon -&gt; Request UpdateAddon
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679278981"><span class="annot"><span class="annottext">request :: UpdateAddon -&gt; Request UpdateAddon
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateAddon -&gt; Request UpdateAddon
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679278968"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679278977"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateAddon
 -&gt; ClientResponse ClientBody
@@ -385,10 +385,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278965"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278965"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278964"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679278964"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278963"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278974"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278974"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278973"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679278973"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278972"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278972"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">Maybe Update -&gt; Int -&gt; UpdateAddonResponse
 </span><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-var">UpdateAddonResponse'</span></a></span><span>
 </span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Update -&gt; Int -&gt; UpdateAddonResponse)
@@ -396,7 +396,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateAddonResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Update)
+</span><a href="#local-6989586621679278972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Update)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;update&quot;</span></span><span class="hs-special">)</span><span>
@@ -408,15 +408,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278965"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278974"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278955"><span id="local-6989586621679278957"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278964"><span id="local-6989586621679278966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679278948"><span class="annot"><span class="annottext">toHeaders :: UpdateAddon -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679278957"><span class="annot"><span class="annottext">toHeaders :: UpdateAddon -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateAddon -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -435,9 +435,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278938"><span id="local-6989586621679278940"><span id="local-6989586621679278942"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679278936"><span class="annot"><span class="annottext">toJSON :: UpdateAddon -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278929"><span id="local-6989586621679278930"><span id="local-6989586621679278931"><span id="local-6989586621679278932"><span id="local-6989586621679278933"><span id="local-6989586621679278934"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278947"><span id="local-6989586621679278949"><span id="local-6989586621679278951"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679278945"><span class="annot"><span class="annottext">toJSON :: UpdateAddon -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278938"><span id="local-6989586621679278939"><span id="local-6989586621679278940"><span id="local-6989586621679278941"><span id="local-6989586621679278942"><span id="local-6989586621679278943"><span class="annot"><span class="annottext">Maybe Text
 Maybe ResolveConflicts
 Text
 addonName :: Text
@@ -452,7 +452,7 @@ $sel:clientRequestToken:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
 $sel:resolveConflicts:UpdateAddon' :: UpdateAddon -&gt; Maybe ResolveConflicts
 $sel:serviceAccountRoleArn:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
 $sel:addonVersion:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
-</span><a href="#local-6989586621679278929"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278938"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -464,7 +464,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278934"><span class="hs-identifier hs-var">addonVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278943"><span class="hs-identifier hs-var">addonVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceAccountRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -472,7 +472,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278933"><span class="hs-identifier hs-var">serviceAccountRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278942"><span class="hs-identifier hs-var">serviceAccountRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resolveConflicts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResolveConflicts -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -480,7 +480,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">(ResolveConflicts -&gt; Pair) -&gt; Maybe ResolveConflicts -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResolveConflicts
-</span><a href="#local-6989586621679278932"><span class="hs-identifier hs-var">resolveConflicts</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278941"><span class="hs-identifier hs-var">resolveConflicts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -488,13 +488,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-220"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278931"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span>
+</span><a href="#local-6989586621679278940"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span>
 </span><span id="line-221"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679278923"><span class="annot"><span class="annottext">toPath :: UpdateAddon -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278916"><span id="local-6989586621679278917"><span id="local-6989586621679278918"><span id="local-6989586621679278919"><span id="local-6989586621679278920"><span id="local-6989586621679278921"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679278932"><span class="annot"><span class="annottext">toPath :: UpdateAddon -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon%27"><span class="hs-identifier hs-type">UpdateAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278925"><span id="local-6989586621679278926"><span id="local-6989586621679278927"><span id="local-6989586621679278928"><span id="local-6989586621679278929"><span id="local-6989586621679278930"><span class="annot"><span class="annottext">Maybe Text
 Maybe ResolveConflicts
 Text
 addonName :: Text
@@ -509,7 +509,7 @@ $sel:clientRequestToken:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
 $sel:resolveConflicts:UpdateAddon' :: UpdateAddon -&gt; Maybe ResolveConflicts
 $sel:serviceAccountRoleArn:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
 $sel:addonVersion:UpdateAddon' :: UpdateAddon -&gt; Maybe Text
-</span><a href="#local-6989586621679278916"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278925"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -518,19 +518,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278917"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278926"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/addons/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278916"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278925"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/update&quot;</span></span><span>
 </span><span id="line-232"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddon"><span class="hs-identifier hs-type">UpdateAddon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679278912"><span class="annot"><span class="annottext">toQuery :: UpdateAddon -&gt; QueryString
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679278921"><span class="annot"><span class="annottext">toQuery :: UpdateAddon -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAddon -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -538,14 +538,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | /See:/ 'newUpdateAddonResponse' smart constructor.</span><span>
-</span><span id="line-238"></span><span id="local-6989586621679278909"><span id="local-6989586621679278910"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAddonResponse"><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-var">UpdateAddonResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAddonResponse%27"><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-var">UpdateAddonResponse'</span></a></span></span><span>
+</span><span id="line-238"></span><span id="local-6989586621679278918"><span id="local-6989586621679278919"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAddonResponse"><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-var">UpdateAddonResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAddonResponse%27"><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-var">UpdateAddonResponse'</span></a></span></span><span>
 </span><span id="line-239"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aupdate%3AUpdateAddonResponse%27"><span class="annot"><span class="annottext">UpdateAddonResponse -&gt; Maybe Update
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3Aupdate%3AUpdateAddonResponse%27"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-241"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateAddonResponse%27"><span class="annot"><span class="annottext">UpdateAddonResponse -&gt; Int
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AhttpStatus%3AUpdateAddonResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278903"><span id="local-6989586621679278905"><span class="annot"><span class="annottext">UpdateAddonResponse -&gt; UpdateAddonResponse -&gt; Bool
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278912"><span id="local-6989586621679278914"><span class="annot"><span class="annottext">UpdateAddonResponse -&gt; UpdateAddonResponse -&gt; Bool
 (UpdateAddonResponse -&gt; UpdateAddonResponse -&gt; Bool)
 -&gt; (UpdateAddonResponse -&gt; UpdateAddonResponse -&gt; Bool)
 -&gt; Eq UpdateAddonResponse
@@ -554,7 +554,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateAddonResponse -&gt; UpdateAddonResponse -&gt; Bool
 == :: UpdateAddonResponse -&gt; UpdateAddonResponse -&gt; Bool
 $c== :: UpdateAddonResponse -&gt; UpdateAddonResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278895"><span id="local-6989586621679278897"><span id="local-6989586621679278899"><span id="local-6989586621679278901"><span class="annot"><span class="annottext">ReadPrec [UpdateAddonResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278904"><span id="local-6989586621679278906"><span id="local-6989586621679278908"><span id="local-6989586621679278910"><span class="annot"><span class="annottext">ReadPrec [UpdateAddonResponse]
 ReadPrec UpdateAddonResponse
 Int -&gt; ReadS UpdateAddonResponse
 ReadS [UpdateAddonResponse]
@@ -574,7 +574,7 @@ readList :: ReadS [UpdateAddonResponse]
 $creadList :: ReadS [UpdateAddonResponse]
 readsPrec :: Int -&gt; ReadS UpdateAddonResponse
 $creadsPrec :: Int -&gt; ReadS UpdateAddonResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278889"><span id="local-6989586621679278891"><span id="local-6989586621679278893"><span class="annot"><span class="annottext">Int -&gt; UpdateAddonResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278898"><span id="local-6989586621679278900"><span id="local-6989586621679278902"><span class="annot"><span class="annottext">Int -&gt; UpdateAddonResponse -&gt; ShowS
 [UpdateAddonResponse] -&gt; ShowS
 UpdateAddonResponse -&gt; String
 (Int -&gt; UpdateAddonResponse -&gt; ShowS)
@@ -616,8 +616,8 @@ $cfrom :: forall x. UpdateAddonResponse -&gt; Rep UpdateAddonResponse x
 </span><span id="line-258"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-259"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-type">UpdateAddonResponse</span></a></span><span>
 </span><span id="line-260"></span><span id="newUpdateAddonResponse"><span class="annot"><span class="annottext">newUpdateAddonResponse :: Int -&gt; UpdateAddonResponse
-</span><a href="Network.AWS.EKS.UpdateAddon.html#newUpdateAddonResponse"><span class="hs-identifier hs-var hs-var">newUpdateAddonResponse</span></a></span></span><span> </span><span id="local-6989586621679278886"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278886"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.UpdateAddon.html#newUpdateAddonResponse"><span class="hs-identifier hs-var hs-var">newUpdateAddonResponse</span></a></span></span><span> </span><span id="local-6989586621679278895"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278895"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-261"></span><span>  </span><span class="annot"><span class="annottext">UpdateAddonResponse' :: Maybe Update -&gt; Int -&gt; UpdateAddonResponse
 </span><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-type">UpdateAddonResponse'</span></a></span><span>
 </span><span id="line-262"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:update:UpdateAddonResponse' :: Maybe Update
@@ -626,7 +626,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAddonResponse' :: Int
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AhttpStatus%3AUpdateAddonResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278886"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679278895"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-264"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -641,16 +641,16 @@ forall a. Maybe a
      (Maybe Update)
      (Maybe Update)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-type">UpdateAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278885"><span class="annot"><span class="annottext">Maybe Update
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-type">UpdateAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278894"><span class="annot"><span class="annottext">Maybe Update
 update :: Maybe Update
 $sel:update:UpdateAddonResponse' :: UpdateAddonResponse -&gt; Maybe Update
-</span><a href="#local-6989586621679278885"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679278885"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278884"><span class="annot"><span class="annottext">s :: UpdateAddonResponse
-</span><a href="#local-6989586621679278884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-type">UpdateAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278883"><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679278883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddonResponse
-</span><a href="#local-6989586621679278884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:update:UpdateAddonResponse' :: Maybe Update
+</span><a href="#local-6989586621679278894"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679278894"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278893"><span class="annot"><span class="annottext">s :: UpdateAddonResponse
+</span><a href="#local-6989586621679278893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-type">UpdateAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278892"><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679278892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddonResponse
+</span><a href="#local-6989586621679278893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:update:UpdateAddonResponse' :: Maybe Update
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3Aupdate%3AUpdateAddonResponse%27"><span class="hs-identifier hs-var">update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679278883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-type">UpdateAddonResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-type">UpdateAddonResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#updateAddonResponse_httpStatus"><span class="hs-identifier hs-type">updateAddonResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-type">UpdateAddonResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -659,16 +659,16 @@ $sel:update:UpdateAddonResponse' :: UpdateAddonResponse -&gt; Maybe Update
 -&gt; (UpdateAddonResponse -&gt; Int -&gt; UpdateAddonResponse)
 -&gt; Lens UpdateAddonResponse UpdateAddonResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-type">UpdateAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278882"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-type">UpdateAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278891"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateAddonResponse' :: UpdateAddonResponse -&gt; Int
-</span><a href="#local-6989586621679278882"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278882"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278881"><span class="annot"><span class="annottext">s :: UpdateAddonResponse
-</span><a href="#local-6989586621679278881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-type">UpdateAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278880"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddonResponse
-</span><a href="#local-6989586621679278881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAddonResponse' :: Int
+</span><a href="#local-6989586621679278891"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278891"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278890"><span class="annot"><span class="annottext">s :: UpdateAddonResponse
+</span><a href="#local-6989586621679278890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse%27"><span class="hs-identifier hs-type">UpdateAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278889"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAddonResponse
+</span><a href="#local-6989586621679278890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAddonResponse' :: Int
 </span><a href="Network.AWS.EKS.UpdateAddon.html#%24sel%3AhttpStatus%3AUpdateAddonResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-type">UpdateAddonResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-type">UpdateAddonResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-type">UpdateAddonResponse</span></a></span></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.UpdateAddon.html#UpdateAddonResponse"><span class="hs-identifier hs-type">UpdateAddonResponse</span></a></span></span><span>
 </span><span id="line-275"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBlockerDeclaration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679276756"><span id="local-6989586621679276757"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlockerDeclaration"><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-var">BlockerDeclaration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlockerDeclaration%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-var">BlockerDeclaration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679276765"><span id="local-6989586621679276766"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlockerDeclaration"><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-var">BlockerDeclaration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlockerDeclaration%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-var">BlockerDeclaration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Reserved for future use.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3ABlockerDeclaration%27"><span class="annot"><span class="annottext">BlockerDeclaration -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#%24sel%3Aname%3ABlockerDeclaration%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3ABlockerDeclaration%27"><span class="annot"><span class="annottext">BlockerDeclaration -&gt; BlockerType
 </span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#%24sel%3Atype%27%3ABlockerDeclaration%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerType.html#BlockerType"><span class="hs-identifier hs-type">BlockerType</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276749"><span id="local-6989586621679276751"><span class="annot"><span class="annottext">BlockerDeclaration -&gt; BlockerDeclaration -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276758"><span id="local-6989586621679276760"><span class="annot"><span class="annottext">BlockerDeclaration -&gt; BlockerDeclaration -&gt; Bool
 (BlockerDeclaration -&gt; BlockerDeclaration -&gt; Bool)
 -&gt; (BlockerDeclaration -&gt; BlockerDeclaration -&gt; Bool)
 -&gt; Eq BlockerDeclaration
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BlockerDeclaration -&gt; BlockerDeclaration -&gt; Bool
 == :: BlockerDeclaration -&gt; BlockerDeclaration -&gt; Bool
 $c== :: BlockerDeclaration -&gt; BlockerDeclaration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276740"><span id="local-6989586621679276742"><span id="local-6989586621679276744"><span id="local-6989586621679276746"><span class="annot"><span class="annottext">ReadPrec [BlockerDeclaration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276749"><span id="local-6989586621679276751"><span id="local-6989586621679276753"><span id="local-6989586621679276755"><span class="annot"><span class="annottext">ReadPrec [BlockerDeclaration]
 ReadPrec BlockerDeclaration
 Int -&gt; ReadS BlockerDeclaration
 ReadS [BlockerDeclaration]
@@ -64,7 +64,7 @@ readList :: ReadS [BlockerDeclaration]
 $creadList :: ReadS [BlockerDeclaration]
 readsPrec :: Int -&gt; ReadS BlockerDeclaration
 $creadsPrec :: Int -&gt; ReadS BlockerDeclaration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276733"><span id="local-6989586621679276735"><span id="local-6989586621679276737"><span class="annot"><span class="annottext">Int -&gt; BlockerDeclaration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276742"><span id="local-6989586621679276744"><span id="local-6989586621679276746"><span class="annot"><span class="annottext">Int -&gt; BlockerDeclaration -&gt; ShowS
 [BlockerDeclaration] -&gt; ShowS
 BlockerDeclaration -&gt; String
 (Int -&gt; BlockerDeclaration -&gt; ShowS)
@@ -108,15 +108,15 @@ $cfrom :: forall x. BlockerDeclaration -&gt; Rep BlockerDeclaration x
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerType.html#BlockerType"><span class="hs-identifier hs-type">BlockerType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span><span>
 </span><span id="line-55"></span><span id="newBlockerDeclaration"><span class="annot"><span class="annottext">newBlockerDeclaration :: Text -&gt; BlockerType -&gt; BlockerDeclaration
-</span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#newBlockerDeclaration"><span class="hs-identifier hs-var hs-var">newBlockerDeclaration</span></a></span></span><span> </span><span id="local-6989586621679276727"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276727"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679276726"><span class="annot"><span class="annottext">BlockerType
-</span><a href="#local-6989586621679276726"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#newBlockerDeclaration"><span class="hs-identifier hs-var hs-var">newBlockerDeclaration</span></a></span></span><span> </span><span id="local-6989586621679276736"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276736"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679276735"><span class="annot"><span class="annottext">BlockerType
+</span><a href="#local-6989586621679276735"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">BlockerDeclaration' :: Text -&gt; BlockerType -&gt; BlockerDeclaration
 </span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:BlockerDeclaration' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#%24sel%3Aname%3ABlockerDeclaration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276727"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':BlockerDeclaration' :: BlockerType
+</span><a href="#local-6989586621679276736"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':BlockerDeclaration' :: BlockerType
 </span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#%24sel%3Atype%27%3ABlockerDeclaration%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BlockerType
-</span><a href="#local-6989586621679276726"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679276735"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#blockerDeclaration_name"><span class="hs-identifier hs-type">blockerDeclaration_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -125,16 +125,16 @@ $cfrom :: forall x. BlockerDeclaration -&gt; Rep BlockerDeclaration x
 -&gt; (BlockerDeclaration -&gt; Text -&gt; BlockerDeclaration)
 -&gt; Lens BlockerDeclaration BlockerDeclaration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276722"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276731"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:BlockerDeclaration' :: BlockerDeclaration -&gt; Text
-</span><a href="#local-6989586621679276722"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276722"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276721"><span class="annot"><span class="annottext">s :: BlockerDeclaration
-</span><a href="#local-6989586621679276721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276720"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockerDeclaration
-</span><a href="#local-6989586621679276721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:BlockerDeclaration' :: Text
+</span><a href="#local-6989586621679276731"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276731"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276730"><span class="annot"><span class="annottext">s :: BlockerDeclaration
+</span><a href="#local-6989586621679276730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockerDeclaration
+</span><a href="#local-6989586621679276730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:BlockerDeclaration' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#%24sel%3Aname%3ABlockerDeclaration%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#blockerDeclaration_type"><span class="hs-identifier hs-type">blockerDeclaration_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerType.html#BlockerType"><span class="hs-identifier hs-type">BlockerType</span></a></span><span>
@@ -145,19 +145,19 @@ $sel:name:BlockerDeclaration' :: BlockerDeclaration -&gt; Text
 -&gt; Lens
      BlockerDeclaration BlockerDeclaration BlockerType BlockerType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276718"><span class="annot"><span class="annottext">BlockerType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276727"><span class="annot"><span class="annottext">BlockerType
 type' :: BlockerType
 $sel:type':BlockerDeclaration' :: BlockerDeclaration -&gt; BlockerType
-</span><a href="#local-6989586621679276718"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockerType
-</span><a href="#local-6989586621679276718"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276717"><span class="annot"><span class="annottext">s :: BlockerDeclaration
-</span><a href="#local-6989586621679276717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276716"><span class="annot"><span class="annottext">BlockerType
-</span><a href="#local-6989586621679276716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockerDeclaration
-</span><a href="#local-6989586621679276717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':BlockerDeclaration' :: BlockerType
+</span><a href="#local-6989586621679276727"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockerType
+</span><a href="#local-6989586621679276727"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276726"><span class="annot"><span class="annottext">s :: BlockerDeclaration
+</span><a href="#local-6989586621679276726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276725"><span class="annot"><span class="annottext">BlockerType
+</span><a href="#local-6989586621679276725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlockerDeclaration
+</span><a href="#local-6989586621679276726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':BlockerDeclaration' :: BlockerType
 </span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#%24sel%3Atype%27%3ABlockerDeclaration%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BlockerType
-</span><a href="#local-6989586621679276716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276713"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679276711"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlockerDeclaration
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276722"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679276720"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlockerDeclaration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BlockerDeclaration)
@@ -167,40 +167,40 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BlockerDeclaration&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276708"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; BlockerType -&gt; BlockerDeclaration
 </span><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-var">BlockerDeclaration'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; BlockerType -&gt; BlockerDeclaration)
 -&gt; Parser Text -&gt; Parser (BlockerType -&gt; BlockerDeclaration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679276717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (BlockerType -&gt; BlockerDeclaration)
 -&gt; Parser BlockerType -&gt; Parser BlockerDeclaration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser BlockerType
+</span><a href="#local-6989586621679276717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser BlockerType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276702"><span id="local-6989586621679276704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276711"><span id="local-6989586621679276713"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276691"><span id="local-6989586621679276693"><span id="local-6989586621679276695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679276689"><span class="annot"><span class="annottext">toJSON :: BlockerDeclaration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276686"><span id="local-6989586621679276687"><span class="annot"><span class="annottext">Text
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276700"><span id="local-6989586621679276702"><span id="local-6989586621679276704"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration"><span class="hs-identifier hs-type">BlockerDeclaration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679276698"><span class="annot"><span class="annottext">toJSON :: BlockerDeclaration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerDeclaration.html#BlockerDeclaration%27"><span class="hs-identifier hs-type">BlockerDeclaration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276695"><span id="local-6989586621679276696"><span class="annot"><span class="annottext">Text
 BlockerType
 type' :: BlockerType
 name :: Text
 $sel:type':BlockerDeclaration' :: BlockerDeclaration -&gt; BlockerType
 $sel:name:BlockerDeclaration' :: BlockerDeclaration -&gt; Text
-</span><a href="#local-6989586621679276686"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679276695"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -212,14 +212,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276687"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276696"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BlockerType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">BlockerType
-</span><a href="#local-6989586621679276686"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276695"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span></pre></body></html>

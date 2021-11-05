@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- Amazon ECS deployment. An optional test traffic route can be specified.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTargetGroupPairInfo' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679315367"><span id="local-6989586621679315368"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetGroupPairInfo"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-var">TargetGroupPairInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetGroupPairInfo%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-var">TargetGroupPairInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679315376"><span id="local-6989586621679315377"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetGroupPairInfo"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-var">TargetGroupPairInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetGroupPairInfo%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-var">TargetGroupPairInfo'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path used by a load balancer to route production traffic when an</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Amazon ECS deployment is complete.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AprodTrafficRoute%3ATargetGroupPairInfo%27"><span class="annot"><span class="annottext">TargetGroupPairInfo -&gt; Maybe TrafficRoute
@@ -45,7 +45,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AtargetGroups%3ATargetGroupPairInfo%27"><span class="annot"><span class="annottext">TargetGroupPairInfo -&gt; Maybe [TargetGroupInfo]
 </span><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#%24sel%3AtargetGroups%3ATargetGroupPairInfo%27"><span class="hs-identifier hs-var hs-var">targetGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupInfo.html#TargetGroupInfo"><span class="hs-identifier hs-type">TargetGroupInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315359"><span id="local-6989586621679315361"><span class="annot"><span class="annottext">TargetGroupPairInfo -&gt; TargetGroupPairInfo -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315368"><span id="local-6989586621679315370"><span class="annot"><span class="annottext">TargetGroupPairInfo -&gt; TargetGroupPairInfo -&gt; Bool
 (TargetGroupPairInfo -&gt; TargetGroupPairInfo -&gt; Bool)
 -&gt; (TargetGroupPairInfo -&gt; TargetGroupPairInfo -&gt; Bool)
 -&gt; Eq TargetGroupPairInfo
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TargetGroupPairInfo -&gt; TargetGroupPairInfo -&gt; Bool
 == :: TargetGroupPairInfo -&gt; TargetGroupPairInfo -&gt; Bool
 $c== :: TargetGroupPairInfo -&gt; TargetGroupPairInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315350"><span id="local-6989586621679315352"><span id="local-6989586621679315354"><span id="local-6989586621679315356"><span class="annot"><span class="annottext">ReadPrec [TargetGroupPairInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315359"><span id="local-6989586621679315361"><span id="local-6989586621679315363"><span id="local-6989586621679315365"><span class="annot"><span class="annottext">ReadPrec [TargetGroupPairInfo]
 ReadPrec TargetGroupPairInfo
 Int -&gt; ReadS TargetGroupPairInfo
 ReadS [TargetGroupPairInfo]
@@ -74,7 +74,7 @@ readList :: ReadS [TargetGroupPairInfo]
 $creadList :: ReadS [TargetGroupPairInfo]
 readsPrec :: Int -&gt; ReadS TargetGroupPairInfo
 $creadsPrec :: Int -&gt; ReadS TargetGroupPairInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315343"><span id="local-6989586621679315345"><span id="local-6989586621679315347"><span class="annot"><span class="annottext">Int -&gt; TargetGroupPairInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315352"><span id="local-6989586621679315354"><span id="local-6989586621679315356"><span class="annot"><span class="annottext">Int -&gt; TargetGroupPairInfo -&gt; ShowS
 [TargetGroupPairInfo] -&gt; ShowS
 TargetGroupPairInfo -&gt; String
 (Int -&gt; TargetGroupPairInfo -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
      (Maybe TrafficRoute)
      (Maybe TrafficRoute)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315334"><span class="annot"><span class="annottext">Maybe TrafficRoute
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315343"><span class="annot"><span class="annottext">Maybe TrafficRoute
 prodTrafficRoute :: Maybe TrafficRoute
 $sel:prodTrafficRoute:TargetGroupPairInfo' :: TargetGroupPairInfo -&gt; Maybe TrafficRoute
-</span><a href="#local-6989586621679315334"><span class="hs-identifier hs-var hs-var">prodTrafficRoute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoute
-</span><a href="#local-6989586621679315334"><span class="hs-identifier hs-var">prodTrafficRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315333"><span class="annot"><span class="annottext">s :: TargetGroupPairInfo
-</span><a href="#local-6989586621679315333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315332"><span class="annot"><span class="annottext">Maybe TrafficRoute
-</span><a href="#local-6989586621679315332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupPairInfo
-</span><a href="#local-6989586621679315333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prodTrafficRoute:TargetGroupPairInfo' :: Maybe TrafficRoute
+</span><a href="#local-6989586621679315343"><span class="hs-identifier hs-var hs-var">prodTrafficRoute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoute
+</span><a href="#local-6989586621679315343"><span class="hs-identifier hs-var">prodTrafficRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315342"><span class="annot"><span class="annottext">s :: TargetGroupPairInfo
+</span><a href="#local-6989586621679315342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315341"><span class="annot"><span class="annottext">Maybe TrafficRoute
+</span><a href="#local-6989586621679315341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupPairInfo
+</span><a href="#local-6989586621679315342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prodTrafficRoute:TargetGroupPairInfo' :: Maybe TrafficRoute
 </span><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#%24sel%3AprodTrafficRoute%3ATargetGroupPairInfo%27"><span class="hs-identifier hs-var">prodTrafficRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoute
-</span><a href="#local-6989586621679315332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | An optional path used by a load balancer to route test traffic after an</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- Amazon ECS deployment. Validation can occur while test traffic is served</span><span>
@@ -182,16 +182,16 @@ $sel:prodTrafficRoute:TargetGroupPairInfo' :: TargetGroupPairInfo -&gt; Maybe Tr
      (Maybe TrafficRoute)
      (Maybe TrafficRoute)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315330"><span class="annot"><span class="annottext">Maybe TrafficRoute
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315339"><span class="annot"><span class="annottext">Maybe TrafficRoute
 testTrafficRoute :: Maybe TrafficRoute
 $sel:testTrafficRoute:TargetGroupPairInfo' :: TargetGroupPairInfo -&gt; Maybe TrafficRoute
-</span><a href="#local-6989586621679315330"><span class="hs-identifier hs-var hs-var">testTrafficRoute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoute
-</span><a href="#local-6989586621679315330"><span class="hs-identifier hs-var">testTrafficRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315329"><span class="annot"><span class="annottext">s :: TargetGroupPairInfo
-</span><a href="#local-6989586621679315329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315328"><span class="annot"><span class="annottext">Maybe TrafficRoute
-</span><a href="#local-6989586621679315328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupPairInfo
-</span><a href="#local-6989586621679315329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testTrafficRoute:TargetGroupPairInfo' :: Maybe TrafficRoute
+</span><a href="#local-6989586621679315339"><span class="hs-identifier hs-var hs-var">testTrafficRoute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoute
+</span><a href="#local-6989586621679315339"><span class="hs-identifier hs-var">testTrafficRoute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315338"><span class="annot"><span class="annottext">s :: TargetGroupPairInfo
+</span><a href="#local-6989586621679315338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315337"><span class="annot"><span class="annottext">Maybe TrafficRoute
+</span><a href="#local-6989586621679315337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupPairInfo
+</span><a href="#local-6989586621679315338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testTrafficRoute:TargetGroupPairInfo' :: Maybe TrafficRoute
 </span><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#%24sel%3AtestTrafficRoute%3ATargetGroupPairInfo%27"><span class="hs-identifier hs-var">testTrafficRoute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoute
-</span><a href="#local-6989586621679315328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | One pair of target groups. One is associated with the original task set.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- The second is associated with the task set that serves traffic after the</span><span>
@@ -208,16 +208,16 @@ $sel:testTrafficRoute:TargetGroupPairInfo' :: TargetGroupPairInfo -&gt; Maybe Tr
      (Maybe [TargetGroupInfo])
      (Maybe [TargetGroupInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315326"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315335"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
 targetGroups :: Maybe [TargetGroupInfo]
 $sel:targetGroups:TargetGroupPairInfo' :: TargetGroupPairInfo -&gt; Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315326"><span class="hs-identifier hs-var hs-var">targetGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315326"><span class="hs-identifier hs-var">targetGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315325"><span class="annot"><span class="annottext">s :: TargetGroupPairInfo
-</span><a href="#local-6989586621679315325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315324"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupPairInfo
-</span><a href="#local-6989586621679315325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroups:TargetGroupPairInfo' :: Maybe [TargetGroupInfo]
+</span><a href="#local-6989586621679315335"><span class="hs-identifier hs-var hs-var">targetGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
+</span><a href="#local-6989586621679315335"><span class="hs-identifier hs-var">targetGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315334"><span class="annot"><span class="annottext">s :: TargetGroupPairInfo
+</span><a href="#local-6989586621679315334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315333"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
+</span><a href="#local-6989586621679315333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroupPairInfo
+</span><a href="#local-6989586621679315334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroups:TargetGroupPairInfo' :: Maybe [TargetGroupInfo]
 </span><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#%24sel%3AtargetGroups%3ATargetGroupPairInfo%27"><span class="hs-identifier hs-var">targetGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGroupInfo] -&gt; f (Maybe [TargetGroupInfo]))
+</span><a href="#local-6989586621679315333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetGroupInfo] -&gt; f (Maybe [TargetGroupInfo]))
  -&gt; TargetGroupPairInfo -&gt; f TargetGroupPairInfo)
 -&gt; ((Maybe [TargetGroupInfo] -&gt; f (Maybe [TargetGroupInfo]))
     -&gt; Maybe [TargetGroupInfo] -&gt; f (Maybe [TargetGroupInfo]))
@@ -246,8 +246,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315318"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679315316"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TargetGroupPairInfo
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315327"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679315325"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TargetGroupPairInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TargetGroupPairInfo)
@@ -257,8 +257,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TargetGroupPairInfo&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315313"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315313"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315322"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315322"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe TrafficRoute
 -&gt; Maybe TrafficRoute
 -&gt; Maybe [TargetGroupInfo]
@@ -274,7 +274,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe [TargetGroupInfo] -&gt; TargetGroupPairInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrafficRoute)
+</span><a href="#local-6989586621679315322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrafficRoute)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;prodTrafficRoute&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,7 +285,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [TargetGroupInfo] -&gt; TargetGroupPairInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrafficRoute)
+</span><a href="#local-6989586621679315322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrafficRoute)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;testTrafficRoute&quot;</span></span><span class="hs-special">)</span><span>
@@ -293,7 +293,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [TargetGroupInfo]) -&gt; Parser TargetGroupPairInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TargetGroupInfo]))
+</span><a href="#local-6989586621679315322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TargetGroupInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [TargetGroupInfo]))
@@ -304,13 +304,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315306"><span id="local-6989586621679315308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315315"><span id="local-6989586621679315317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315295"><span id="local-6989586621679315297"><span id="local-6989586621679315299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679315293"><span class="annot"><span class="annottext">toJSON :: TargetGroupPairInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315289"><span id="local-6989586621679315290"><span id="local-6989586621679315291"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315304"><span id="local-6989586621679315306"><span id="local-6989586621679315308"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo"><span class="hs-identifier hs-type">TargetGroupPairInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679315302"><span class="annot"><span class="annottext">toJSON :: TargetGroupPairInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TargetGroupPairInfo.html#TargetGroupPairInfo%27"><span class="hs-identifier hs-type">TargetGroupPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315298"><span id="local-6989586621679315299"><span id="local-6989586621679315300"><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
 Maybe TrafficRoute
 targetGroups :: Maybe [TargetGroupInfo]
 testTrafficRoute :: Maybe TrafficRoute
@@ -318,7 +318,7 @@ prodTrafficRoute :: Maybe TrafficRoute
 $sel:targetGroups:TargetGroupPairInfo' :: TargetGroupPairInfo -&gt; Maybe [TargetGroupInfo]
 $sel:testTrafficRoute:TargetGroupPairInfo' :: TargetGroupPairInfo -&gt; Maybe TrafficRoute
 $sel:prodTrafficRoute:TargetGroupPairInfo' :: TargetGroupPairInfo -&gt; Maybe TrafficRoute
-</span><a href="#local-6989586621679315289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679315298"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -331,7 +331,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(TrafficRoute -&gt; Pair) -&gt; Maybe TrafficRoute -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoute
-</span><a href="#local-6989586621679315291"><span class="hs-identifier hs-var">prodTrafficRoute</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315300"><span class="hs-identifier hs-var">prodTrafficRoute</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;testTrafficRoute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrafficRoute -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -339,7 +339,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(TrafficRoute -&gt; Pair) -&gt; Maybe TrafficRoute -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrafficRoute
-</span><a href="#local-6989586621679315290"><span class="hs-identifier hs-var">testTrafficRoute</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315299"><span class="hs-identifier hs-var">testTrafficRoute</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TargetGroupInfo] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -347,7 +347,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [TargetGroupInfo] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TargetGroupInfo]
-</span><a href="#local-6989586621679315289"><span class="hs-identifier hs-var">targetGroups</span></a></span><span>
+</span><a href="#local-6989586621679315298"><span class="hs-identifier hs-var">targetGroups</span></a></span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span></pre></body></html>

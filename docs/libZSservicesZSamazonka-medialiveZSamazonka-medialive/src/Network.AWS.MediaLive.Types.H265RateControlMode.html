@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | H265 Rate Control Mode</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679883990"><span id="local-6989586621679883991"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265RateControlMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265RateControlMode.html#H265RateControlMode"><span class="hs-identifier hs-var">H265RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265RateControlMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265RateControlMode.html#H265RateControlMode%27"><span class="hs-identifier hs-var">H265RateControlMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679883999"><span id="local-6989586621679884000"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265RateControlMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265RateControlMode.html#H265RateControlMode"><span class="hs-identifier hs-var">H265RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265RateControlMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265RateControlMode.html#H265RateControlMode%27"><span class="hs-identifier hs-var">H265RateControlMode'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265RateControlMode"><span class="annot"><span class="annottext">H265RateControlMode -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.H265RateControlMode.html#fromH265RateControlMode"><span class="hs-identifier hs-var hs-var">fromH265RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679883982"><span id="local-6989586621679883984"><span id="local-6989586621679883986"><span class="annot"><span class="annottext">Int -&gt; H265RateControlMode -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679883991"><span id="local-6989586621679883993"><span id="local-6989586621679883995"><span class="annot"><span class="annottext">Int -&gt; H265RateControlMode -&gt; ShowS
 [H265RateControlMode] -&gt; ShowS
 H265RateControlMode -&gt; String
 (Int -&gt; H265RateControlMode -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: H265RateControlMode -&gt; String
 showsPrec :: Int -&gt; H265RateControlMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265RateControlMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679883973"><span id="local-6989586621679883975"><span id="local-6989586621679883977"><span id="local-6989586621679883979"><span class="annot"><span class="annottext">ReadPrec [H265RateControlMode]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679883982"><span id="local-6989586621679883984"><span id="local-6989586621679883986"><span id="local-6989586621679883988"><span class="annot"><span class="annottext">ReadPrec [H265RateControlMode]
 ReadPrec H265RateControlMode
 Int -&gt; ReadS H265RateControlMode
 ReadS [H265RateControlMode]
@@ -74,7 +74,7 @@ $creadList :: ReadS [H265RateControlMode]
 readsPrec :: Int -&gt; ReadS H265RateControlMode
 $creadsPrec :: Int -&gt; ReadS H265RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679883968"><span id="local-6989586621679883970"><span class="annot"><span class="annottext">H265RateControlMode -&gt; H265RateControlMode -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679883977"><span id="local-6989586621679883979"><span class="annot"><span class="annottext">H265RateControlMode -&gt; H265RateControlMode -&gt; Bool
 (H265RateControlMode -&gt; H265RateControlMode -&gt; Bool)
 -&gt; (H265RateControlMode -&gt; H265RateControlMode -&gt; Bool)
 -&gt; Eq H265RateControlMode
@@ -84,7 +84,7 @@ $c/= :: H265RateControlMode -&gt; H265RateControlMode -&gt; Bool
 == :: H265RateControlMode -&gt; H265RateControlMode -&gt; Bool
 $c== :: H265RateControlMode -&gt; H265RateControlMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679883952"><span id="local-6989586621679883954"><span id="local-6989586621679883956"><span id="local-6989586621679883958"><span id="local-6989586621679883960"><span id="local-6989586621679883962"><span id="local-6989586621679883964"><span class="annot"><span class="annottext">Eq H265RateControlMode
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679883961"><span id="local-6989586621679883963"><span id="local-6989586621679883965"><span id="local-6989586621679883967"><span id="local-6989586621679883969"><span id="local-6989586621679883971"><span id="local-6989586621679883973"><span class="annot"><span class="annottext">Eq H265RateControlMode
 Eq H265RateControlMode
 -&gt; (H265RateControlMode -&gt; H265RateControlMode -&gt; Ordering)
 -&gt; (H265RateControlMode -&gt; H265RateControlMode -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. H265RateControlMode -&gt; Rep H265RateControlMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679883944"><span id="local-6989586621679883946"><span class="annot"><span class="annottext">Int -&gt; H265RateControlMode -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679883953"><span id="local-6989586621679883955"><span class="annot"><span class="annottext">Int -&gt; H265RateControlMode -&gt; Int
 H265RateControlMode -&gt; Int
 (Int -&gt; H265RateControlMode -&gt; Int)
 -&gt; (H265RateControlMode -&gt; Int) -&gt; Hashable H265RateControlMode
@@ -147,53 +147,53 @@ $chash :: H265RateControlMode -&gt; Int
 hashWithSalt :: Int -&gt; H265RateControlMode -&gt; Int
 $chashWithSalt :: Int -&gt; H265RateControlMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679883941"><span class="annot"><span class="annottext">H265RateControlMode -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679883950"><span class="annot"><span class="annottext">H265RateControlMode -&gt; ()
 (H265RateControlMode -&gt; ()) -&gt; NFData H265RateControlMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265RateControlMode -&gt; ()
 $crnf :: H265RateControlMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679883938"><span class="annot"><span class="annottext">Text -&gt; Either String H265RateControlMode
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679883947"><span class="annot"><span class="annottext">Text -&gt; Either String H265RateControlMode
 (Text -&gt; Either String H265RateControlMode)
 -&gt; FromText H265RateControlMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265RateControlMode
 $cfromText :: Text -&gt; Either String H265RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679883935"><span class="annot"><span class="annottext">H265RateControlMode -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679883944"><span class="annot"><span class="annottext">H265RateControlMode -&gt; Text
 (H265RateControlMode -&gt; Text) -&gt; ToText H265RateControlMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265RateControlMode -&gt; Text
 $ctoText :: H265RateControlMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679883932"><span class="annot"><span class="annottext">H265RateControlMode -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679883941"><span class="annot"><span class="annottext">H265RateControlMode -&gt; ByteString
 (H265RateControlMode -&gt; ByteString)
 -&gt; ToByteString H265RateControlMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265RateControlMode -&gt; ByteString
 $ctoBS :: H265RateControlMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679883929"><span class="annot"><span class="annottext">H265RateControlMode -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679883938"><span class="annot"><span class="annottext">H265RateControlMode -&gt; ByteStringBuilder
 (H265RateControlMode -&gt; ByteStringBuilder)
 -&gt; ToLog H265RateControlMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265RateControlMode -&gt; ByteStringBuilder
 $cbuild :: H265RateControlMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679883926"><span class="annot"><span class="annottext">HeaderName -&gt; H265RateControlMode -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679883935"><span class="annot"><span class="annottext">HeaderName -&gt; H265RateControlMode -&gt; [Header]
 (HeaderName -&gt; H265RateControlMode -&gt; [Header])
 -&gt; ToHeader H265RateControlMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265RateControlMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265RateControlMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679883923"><span class="annot"><span class="annottext">H265RateControlMode -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679883932"><span class="annot"><span class="annottext">H265RateControlMode -&gt; QueryString
 (H265RateControlMode -&gt; QueryString) -&gt; ToQuery H265RateControlMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265RateControlMode -&gt; QueryString
 $ctoQuery :: H265RateControlMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679883918"><span id="local-6989586621679883920"><span class="annot"><span class="annottext">Value -&gt; Parser [H265RateControlMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679883927"><span id="local-6989586621679883929"><span class="annot"><span class="annottext">Value -&gt; Parser [H265RateControlMode]
 Value -&gt; Parser H265RateControlMode
 (Value -&gt; Parser H265RateControlMode)
 -&gt; (Value -&gt; Parser [H265RateControlMode])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [H265RateControlMode]
 parseJSON :: Value -&gt; Parser H265RateControlMode
 $cparseJSON :: Value -&gt; Parser H265RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679883913"><span id="local-6989586621679883915"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265RateControlMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679883922"><span id="local-6989586621679883924"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265RateControlMode]
 FromJSONKeyFunction H265RateControlMode
 FromJSONKeyFunction H265RateControlMode
 -&gt; FromJSONKeyFunction [H265RateControlMode]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265RateControlMode]
 fromJSONKey :: FromJSONKeyFunction H265RateControlMode
 $cfromJSONKey :: FromJSONKeyFunction H265RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679883904"><span id="local-6989586621679883906"><span id="local-6989586621679883908"><span id="local-6989586621679883910"><span class="annot"><span class="annottext">[H265RateControlMode] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679883913"><span id="local-6989586621679883915"><span id="local-6989586621679883917"><span id="local-6989586621679883919"><span class="annot"><span class="annottext">[H265RateControlMode] -&gt; Encoding
 [H265RateControlMode] -&gt; Value
 H265RateControlMode -&gt; Encoding
 H265RateControlMode -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: H265RateControlMode -&gt; Encoding
 toJSON :: H265RateControlMode -&gt; Value
 $ctoJSON :: H265RateControlMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679883899"><span id="local-6989586621679883901"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265RateControlMode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679883908"><span id="local-6989586621679883910"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265RateControlMode]
 ToJSONKeyFunction H265RateControlMode
 ToJSONKeyFunction H265RateControlMode
 -&gt; ToJSONKeyFunction [H265RateControlMode]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265RateControlMode]
 toJSONKey :: ToJSONKeyFunction H265RateControlMode
 $ctoJSONKey :: ToJSONKeyFunction H265RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679883896"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265RateControlMode
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679883905"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265RateControlMode
 ([Node] -&gt; Either String H265RateControlMode)
 -&gt; FromXML H265RateControlMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265RateControlMode
 $cparseXML :: [Node] -&gt; Either String H265RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679883893"><span class="annot"><span class="annottext">H265RateControlMode -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679883902"><span class="annot"><span class="annottext">H265RateControlMode -&gt; XML
 (H265RateControlMode -&gt; XML) -&gt; ToXML H265RateControlMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H265RateControlMode -&gt; XML

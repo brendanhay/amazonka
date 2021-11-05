@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Returns information about a file in a repository.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFile' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679349341"><span id="local-6989586621679349342"></span></span><span class="hs-keyword">data</span><span> </span><span id="File"><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-var">File</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="File%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-var">File'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679349350"><span id="local-6989586621679349351"></span></span><span class="hs-keyword">data</span><span> </span><span id="File"><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-var">File</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="File%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-var">File'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fully qualified path to the file in the repository.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AabsolutePath%3AFile%27"><span class="annot"><span class="annottext">File -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.File.html#%24sel%3AabsolutePath%3AFile%27"><span class="hs-identifier hs-var hs-var">absolutePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -43,14 +43,14 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3ArelativePath%3AFile%27"><span class="annot"><span class="annottext">File -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.File.html#%24sel%3ArelativePath%3AFile%27"><span class="hs-identifier hs-var hs-var">relativePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349332"><span id="local-6989586621679349334"><span class="annot"><span class="annottext">File -&gt; File -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349341"><span id="local-6989586621679349343"><span class="annot"><span class="annottext">File -&gt; File -&gt; Bool
 (File -&gt; File -&gt; Bool) -&gt; (File -&gt; File -&gt; Bool) -&gt; Eq File
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: File -&gt; File -&gt; Bool
 $c/= :: File -&gt; File -&gt; Bool
 == :: File -&gt; File -&gt; Bool
 $c== :: File -&gt; File -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349323"><span id="local-6989586621679349325"><span id="local-6989586621679349327"><span id="local-6989586621679349329"><span class="annot"><span class="annottext">ReadPrec [File]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349332"><span id="local-6989586621679349334"><span id="local-6989586621679349336"><span id="local-6989586621679349338"><span class="annot"><span class="annottext">ReadPrec [File]
 ReadPrec File
 Int -&gt; ReadS File
 ReadS [File]
@@ -67,7 +67,7 @@ readList :: ReadS [File]
 $creadList :: ReadS [File]
 readsPrec :: Int -&gt; ReadS File
 $creadsPrec :: Int -&gt; ReadS File
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349316"><span id="local-6989586621679349318"><span id="local-6989586621679349320"><span class="annot"><span class="annottext">Int -&gt; File -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349325"><span id="local-6989586621679349327"><span id="local-6989586621679349329"><span class="annot"><span class="annottext">Int -&gt; File -&gt; ShowS
 [File] -&gt; ShowS
 File -&gt; String
 (Int -&gt; File -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; (File -&gt; Maybe Text -&gt; File)
 -&gt; Lens File File (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349307"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349316"><span class="annot"><span class="annottext">Maybe Text
 absolutePath :: Maybe Text
 $sel:absolutePath:File' :: File -&gt; Maybe Text
-</span><a href="#local-6989586621679349307"><span class="hs-identifier hs-var hs-var">absolutePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349307"><span class="hs-identifier hs-var">absolutePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349306"><span class="annot"><span class="annottext">s :: File
-</span><a href="#local-6989586621679349306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349305"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">File
-</span><a href="#local-6989586621679349306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absolutePath:File' :: Maybe Text
+</span><a href="#local-6989586621679349316"><span class="hs-identifier hs-var hs-var">absolutePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349316"><span class="hs-identifier hs-var">absolutePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349315"><span class="annot"><span class="annottext">s :: File
+</span><a href="#local-6989586621679349315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349314"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">File
+</span><a href="#local-6989586621679349315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absolutePath:File' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.File.html#%24sel%3AabsolutePath%3AFile%27"><span class="hs-identifier hs-var">absolutePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The extrapolated file mode permissions for the file. Valid values</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- include EXECUTABLE and NORMAL.</span><span>
@@ -159,16 +159,16 @@ $sel:absolutePath:File' :: File -&gt; Maybe Text
 -&gt; (File -&gt; Maybe FileModeTypeEnum -&gt; File)
 -&gt; Lens File File (Maybe FileModeTypeEnum) (Maybe FileModeTypeEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349303"><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349312"><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
 fileMode :: Maybe FileModeTypeEnum
 $sel:fileMode:File' :: File -&gt; Maybe FileModeTypeEnum
-</span><a href="#local-6989586621679349303"><span class="hs-identifier hs-var hs-var">fileMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
-</span><a href="#local-6989586621679349303"><span class="hs-identifier hs-var">fileMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349302"><span class="annot"><span class="annottext">s :: File
-</span><a href="#local-6989586621679349302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349301"><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
-</span><a href="#local-6989586621679349301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">File
-</span><a href="#local-6989586621679349302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileMode:File' :: Maybe FileModeTypeEnum
+</span><a href="#local-6989586621679349312"><span class="hs-identifier hs-var hs-var">fileMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
+</span><a href="#local-6989586621679349312"><span class="hs-identifier hs-var">fileMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349311"><span class="annot"><span class="annottext">s :: File
+</span><a href="#local-6989586621679349311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349310"><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
+</span><a href="#local-6989586621679349310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">File
+</span><a href="#local-6989586621679349311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileMode:File' :: Maybe FileModeTypeEnum
 </span><a href="Network.AWS.CodeCommit.Types.File.html#%24sel%3AfileMode%3AFile%27"><span class="hs-identifier hs-var">fileMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileModeTypeEnum
-</span><a href="#local-6989586621679349301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The blob ID that contains the file information.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#file_blobId"><span class="hs-identifier hs-type">file_blobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -177,16 +177,16 @@ $sel:fileMode:File' :: File -&gt; Maybe FileModeTypeEnum
 -&gt; (File -&gt; Maybe Text -&gt; File)
 -&gt; Lens File File (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349299"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349308"><span class="annot"><span class="annottext">Maybe Text
 blobId :: Maybe Text
 $sel:blobId:File' :: File -&gt; Maybe Text
-</span><a href="#local-6989586621679349299"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349299"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349298"><span class="annot"><span class="annottext">s :: File
-</span><a href="#local-6989586621679349298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349297"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">File
-</span><a href="#local-6989586621679349298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:File' :: Maybe Text
+</span><a href="#local-6989586621679349308"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349308"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349307"><span class="annot"><span class="annottext">s :: File
+</span><a href="#local-6989586621679349307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349306"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">File
+</span><a href="#local-6989586621679349307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:File' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.File.html#%24sel%3AblobId%3AFile%27"><span class="hs-identifier hs-var">blobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The relative path of the file from the folder where the query</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- originated.</span><span>
@@ -196,27 +196,27 @@ $sel:blobId:File' :: File -&gt; Maybe Text
 -&gt; (File -&gt; Maybe Text -&gt; File)
 -&gt; Lens File File (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349295"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349304"><span class="annot"><span class="annottext">Maybe Text
 relativePath :: Maybe Text
 $sel:relativePath:File' :: File -&gt; Maybe Text
-</span><a href="#local-6989586621679349295"><span class="hs-identifier hs-var hs-var">relativePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349295"><span class="hs-identifier hs-var">relativePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349294"><span class="annot"><span class="annottext">s :: File
-</span><a href="#local-6989586621679349294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349293"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">File
-</span><a href="#local-6989586621679349294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativePath:File' :: Maybe Text
+</span><a href="#local-6989586621679349304"><span class="hs-identifier hs-var hs-var">relativePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349304"><span class="hs-identifier hs-var">relativePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349303"><span class="annot"><span class="annottext">s :: File
+</span><a href="#local-6989586621679349303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-type">File'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349302"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">File
+</span><a href="#local-6989586621679349303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativePath:File' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.File.html#%24sel%3ArelativePath%3AFile%27"><span class="hs-identifier hs-var">relativePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349290"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679349288"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser File
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349299"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679349297"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser File
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser File) -&gt; Value -&gt; Parser File
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;File&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349285"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349285"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349294"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe FileModeTypeEnum -&gt; Maybe Text -&gt; Maybe Text -&gt; File
 </span><a href="Network.AWS.CodeCommit.Types.File.html#File%27"><span class="hs-identifier hs-var">File'</span></a></span><span>
@@ -227,7 +227,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe FileModeTypeEnum -&gt; Maybe Text -&gt; Maybe Text -&gt; File)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679349294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;absolutePath&quot;</span></span><span class="hs-special">)</span><span>
@@ -236,7 +236,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; File)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileModeTypeEnum)
+</span><a href="#local-6989586621679349294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileModeTypeEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fileMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -244,20 +244,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; File)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679349294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;blobId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; File) -&gt; Parser (Maybe Text) -&gt; Parser File
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679349294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;relativePath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349279"><span id="local-6989586621679349281"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349288"><span id="local-6989586621679349290"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349276"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349285"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span></span><span>
 </span><span id="line-104"></span></pre></body></html>

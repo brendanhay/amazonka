@@ -27,17 +27,17 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSSES3' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679552341"><span id="local-6989586621679552342"></span></span><span class="hs-keyword">data</span><span> </span><span id="SSES3"><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-var">SSES3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSES3%27"><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3%27"><span class="hs-identifier hs-var">SSES3'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679552350"><span id="local-6989586621679552351"></span></span><span class="hs-keyword">data</span><span> </span><span id="SSES3"><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-var">SSES3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSES3%27"><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3%27"><span class="hs-identifier hs-var">SSES3'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552336"><span id="local-6989586621679552338"><span class="annot"><span class="annottext">SSES3 -&gt; SSES3 -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552345"><span id="local-6989586621679552347"><span class="annot"><span class="annottext">SSES3 -&gt; SSES3 -&gt; Bool
 (SSES3 -&gt; SSES3 -&gt; Bool) -&gt; (SSES3 -&gt; SSES3 -&gt; Bool) -&gt; Eq SSES3
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: SSES3 -&gt; SSES3 -&gt; Bool
 $c/= :: SSES3 -&gt; SSES3 -&gt; Bool
 == :: SSES3 -&gt; SSES3 -&gt; Bool
 $c== :: SSES3 -&gt; SSES3 -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552327"><span id="local-6989586621679552329"><span id="local-6989586621679552331"><span id="local-6989586621679552333"><span class="annot"><span class="annottext">ReadPrec [SSES3]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552336"><span id="local-6989586621679552338"><span id="local-6989586621679552340"><span id="local-6989586621679552342"><span class="annot"><span class="annottext">ReadPrec [SSES3]
 ReadPrec SSES3
 Int -&gt; ReadS SSES3
 ReadS [SSES3]
@@ -57,7 +57,7 @@ readList :: ReadS [SSES3]
 $creadList :: ReadS [SSES3]
 readsPrec :: Int -&gt; ReadS SSES3
 $creadsPrec :: Int -&gt; ReadS SSES3
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552320"><span id="local-6989586621679552322"><span id="local-6989586621679552324"><span class="annot"><span class="annottext">Int -&gt; SSES3 -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552329"><span id="local-6989586621679552331"><span id="local-6989586621679552333"><span class="annot"><span class="annottext">Int -&gt; SSES3 -&gt; ShowS
 [SSES3] -&gt; ShowS
 SSES3 -&gt; String
 (Int -&gt; SSES3 -&gt; ShowS)
@@ -91,7 +91,7 @@ $cfrom :: forall x. SSES3 -&gt; Rep SSES3 x
 </span><a href="Network.AWS.S3.Types.SSES3.html#SSES3%27"><span class="hs-identifier hs-var">SSES3'</span></a></span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-44"></span><span>  </span><span id="local-6989586621679552312"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SSES3
+</span><span id="line-44"></span><span>  </span><span id="local-6989586621679552321"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SSES3
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Either String SSES3 -&gt; [Node] -&gt; Either String SSES3
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">SSES3 -&gt; Either String SSES3
@@ -99,12 +99,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">SSES3
 </span><a href="Network.AWS.S3.Types.SSES3.html#SSES3%27"><span class="hs-identifier hs-var">SSES3'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>
-</span><span id="line-46"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552306"><span id="local-6989586621679552308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span></span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552315"><span id="local-6989586621679552317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span></span></span><span>
 </span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-51"></span><span>  </span><span id="local-6989586621679552299"><span class="annot"><span class="annottext">toXML :: SSES3 -&gt; XML
+</span><span id="line-51"></span><span>  </span><span id="local-6989586621679552308"><span class="annot"><span class="annottext">toXML :: SSES3 -&gt; XML
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">XML -&gt; SSES3 -&gt; XML
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">XML

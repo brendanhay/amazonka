@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-comment">-- email.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newUpdateDomainNameservers' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679217481"><span id="local-6989586621679217482"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainNameservers"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-var">UpdateDomainNameservers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainNameservers%27"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-var">UpdateDomainNameservers'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679217490"><span id="local-6989586621679217491"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainNameservers"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-var">UpdateDomainNameservers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainNameservers%27"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-var">UpdateDomainNameservers'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The authorization key for .fi domains</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AfIAuthKey%3AUpdateDomainNameservers%27"><span class="annot"><span class="annottext">UpdateDomainNameservers -&gt; Maybe Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AfIAuthKey%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var hs-var">fIAuthKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3Anameservers%3AUpdateDomainNameservers%27"><span class="annot"><span class="annottext">UpdateDomainNameservers -&gt; [Nameserver]
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3Anameservers%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var hs-var">nameservers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217473"><span id="local-6989586621679217475"><span class="annot"><span class="annottext">UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217482"><span id="local-6989586621679217484"><span class="annot"><span class="annottext">UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
 (UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool)
 -&gt; (UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool)
 -&gt; Eq UpdateDomainNameservers
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
 == :: UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
 $c== :: UpdateDomainNameservers -&gt; UpdateDomainNameservers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217464"><span id="local-6989586621679217466"><span id="local-6989586621679217468"><span id="local-6989586621679217470"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainNameservers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217473"><span id="local-6989586621679217475"><span id="local-6989586621679217477"><span id="local-6989586621679217479"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainNameservers]
 ReadPrec UpdateDomainNameservers
 Int -&gt; ReadS UpdateDomainNameservers
 ReadS [UpdateDomainNameservers]
@@ -107,7 +107,7 @@ readList :: ReadS [UpdateDomainNameservers]
 $creadList :: ReadS [UpdateDomainNameservers]
 readsPrec :: Int -&gt; ReadS UpdateDomainNameservers
 $creadsPrec :: Int -&gt; ReadS UpdateDomainNameservers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217457"><span id="local-6989586621679217459"><span id="local-6989586621679217461"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainNameservers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217466"><span id="local-6989586621679217468"><span id="local-6989586621679217470"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainNameservers -&gt; ShowS
 [UpdateDomainNameservers] -&gt; ShowS
 UpdateDomainNameservers -&gt; String
 (Int -&gt; UpdateDomainNameservers -&gt; ShowS)
@@ -153,8 +153,8 @@ $cfrom :: forall x. UpdateDomainNameservers -&gt; Rep UpdateDomainNameservers x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span>
 </span><span id="line-97"></span><span id="newUpdateDomainNameservers"><span class="annot"><span class="annottext">newUpdateDomainNameservers :: Text -&gt; UpdateDomainNameservers
-</span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#newUpdateDomainNameservers"><span class="hs-identifier hs-var hs-var">newUpdateDomainNameservers</span></a></span></span><span> </span><span id="local-6989586621679217452"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217452"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#newUpdateDomainNameservers"><span class="hs-identifier hs-var hs-var">newUpdateDomainNameservers</span></a></span></span><span> </span><span id="local-6989586621679217461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217461"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">UpdateDomainNameservers' :: Maybe Text -&gt; Text -&gt; [Nameserver] -&gt; UpdateDomainNameservers
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fIAuthKey:UpdateDomainNameservers' :: Maybe Text
@@ -164,7 +164,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainNameservers' :: Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AdomainName%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217452"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217461"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:nameservers:UpdateDomainNameservers' :: [Nameserver]
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3Anameservers%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">nameservers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Nameserver]
 forall a. Monoid a =&gt; a
@@ -184,16 +184,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217449"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217458"><span class="annot"><span class="annottext">Maybe Text
 fIAuthKey :: Maybe Text
 $sel:fIAuthKey:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Maybe Text
-</span><a href="#local-6989586621679217449"><span class="hs-identifier hs-var hs-var">fIAuthKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217449"><span class="hs-identifier hs-var">fIAuthKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217448"><span class="annot"><span class="annottext">s :: UpdateDomainNameservers
-</span><a href="#local-6989586621679217448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217447"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameservers
-</span><a href="#local-6989586621679217448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fIAuthKey:UpdateDomainNameservers' :: Maybe Text
+</span><a href="#local-6989586621679217458"><span class="hs-identifier hs-var hs-var">fIAuthKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217458"><span class="hs-identifier hs-var">fIAuthKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217457"><span class="annot"><span class="annottext">s :: UpdateDomainNameservers
+</span><a href="#local-6989586621679217457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameservers
+</span><a href="#local-6989586621679217457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fIAuthKey:UpdateDomainNameservers' :: Maybe Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AfIAuthKey%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">fIAuthKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The name of the domain that you want to change name servers for.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_domainName"><span class="hs-identifier hs-type">updateDomainNameservers_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -203,16 +203,16 @@ $sel:fIAuthKey:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Maybe T
 -&gt; (UpdateDomainNameservers -&gt; Text -&gt; UpdateDomainNameservers)
 -&gt; Lens UpdateDomainNameservers UpdateDomainNameservers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217446"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217455"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Text
-</span><a href="#local-6989586621679217446"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217446"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217445"><span class="annot"><span class="annottext">s :: UpdateDomainNameservers
-</span><a href="#local-6989586621679217445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217444"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameservers
-</span><a href="#local-6989586621679217445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainNameservers' :: Text
+</span><a href="#local-6989586621679217455"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217455"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217454"><span class="annot"><span class="annottext">s :: UpdateDomainNameservers
+</span><a href="#local-6989586621679217454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameservers
+</span><a href="#local-6989586621679217454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainNameservers' :: Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AdomainName%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | A list of new name servers for the domain.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#updateDomainNameservers_nameservers"><span class="hs-identifier hs-type">updateDomainNameservers_nameservers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span><span class="hs-special">]</span><span>
@@ -227,16 +227,16 @@ $sel:domainName:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Text
      [Nameserver]
      [Nameserver]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217443"><span class="annot"><span class="annottext">[Nameserver]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217452"><span class="annot"><span class="annottext">[Nameserver]
 nameservers :: [Nameserver]
 $sel:nameservers:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; [Nameserver]
-</span><a href="#local-6989586621679217443"><span class="hs-identifier hs-var hs-var">nameservers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Nameserver]
-</span><a href="#local-6989586621679217443"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217442"><span class="annot"><span class="annottext">s :: UpdateDomainNameservers
-</span><a href="#local-6989586621679217442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217441"><span class="annot"><span class="annottext">[Nameserver]
-</span><a href="#local-6989586621679217441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameservers
-</span><a href="#local-6989586621679217442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameservers:UpdateDomainNameservers' :: [Nameserver]
+</span><a href="#local-6989586621679217452"><span class="hs-identifier hs-var hs-var">nameservers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Nameserver]
+</span><a href="#local-6989586621679217452"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217451"><span class="annot"><span class="annottext">s :: UpdateDomainNameservers
+</span><a href="#local-6989586621679217451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217450"><span class="annot"><span class="annottext">[Nameserver]
+</span><a href="#local-6989586621679217450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameservers
+</span><a href="#local-6989586621679217451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameservers:UpdateDomainNameservers' :: [Nameserver]
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3Anameservers%3AUpdateDomainNameservers%27"><span class="hs-identifier hs-var">nameservers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Nameserver]
-</span><a href="#local-6989586621679217441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Nameserver] -&gt; f [Nameserver])
+</span><a href="#local-6989586621679217450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Nameserver] -&gt; f [Nameserver])
  -&gt; UpdateDomainNameservers -&gt; f UpdateDomainNameservers)
 -&gt; (([Nameserver] -&gt; f [Nameserver])
     -&gt; [Nameserver] -&gt; f [Nameserver])
@@ -252,13 +252,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679217435"><span class="annot"><span class="annottext">request :: UpdateDomainNameservers -&gt; Request UpdateDomainNameservers
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679217444"><span class="annot"><span class="annottext">request :: UpdateDomainNameservers -&gt; Request UpdateDomainNameservers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateDomainNameservers -&gt; Request UpdateDomainNameservers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53Domains.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679217431"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679217440"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDomainNameservers
 -&gt; ClientResponse ClientBody
@@ -284,10 +284,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217428"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217428"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217427"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679217427"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217426"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679217426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217437"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217437"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217436"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679217436"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217435"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; UpdateDomainNameserversResponse
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">UpdateDomainNameserversResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; UpdateDomainNameserversResponse)
@@ -299,24 +299,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217428"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217437"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateDomainNameserversResponse)
 -&gt; Either String Text
 -&gt; Either String UpdateDomainNameserversResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679217426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679217435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217418"><span id="local-6989586621679217420"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217427"><span id="local-6989586621679217429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679217411"><span class="annot"><span class="annottext">toHeaders :: UpdateDomainNameservers -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679217420"><span class="annot"><span class="annottext">toHeaders :: UpdateDomainNameservers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDomainNameservers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -343,9 +343,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217401"><span id="local-6989586621679217403"><span id="local-6989586621679217405"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679217399"><span class="annot"><span class="annottext">toJSON :: UpdateDomainNameservers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217395"><span id="local-6989586621679217396"><span id="local-6989586621679217397"><span class="annot"><span class="annottext">[Nameserver]
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217410"><span id="local-6989586621679217412"><span id="local-6989586621679217414"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679217408"><span class="annot"><span class="annottext">toJSON :: UpdateDomainNameservers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers%27"><span class="hs-identifier hs-type">UpdateDomainNameservers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217404"><span id="local-6989586621679217405"><span id="local-6989586621679217406"><span class="annot"><span class="annottext">[Nameserver]
 Maybe Text
 Text
 nameservers :: [Nameserver]
@@ -354,7 +354,7 @@ fIAuthKey :: Maybe Text
 $sel:nameservers:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; [Nameserver]
 $sel:domainName:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Text
 $sel:fIAuthKey:UpdateDomainNameservers' :: UpdateDomainNameservers -&gt; Maybe Text
-</span><a href="#local-6989586621679217395"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679217404"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -366,33 +366,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217397"><span class="hs-identifier hs-var">fIAuthKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217406"><span class="hs-identifier hs-var">fIAuthKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217396"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217405"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Nameservers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Nameserver] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Nameserver]
-</span><a href="#local-6989586621679217395"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217404"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679217389"><span class="annot"><span class="annottext">toPath :: UpdateDomainNameservers -&gt; ByteString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679217398"><span class="annot"><span class="annottext">toPath :: UpdateDomainNameservers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDomainNameservers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameservers"><span class="hs-identifier hs-type">UpdateDomainNameservers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679217385"><span class="annot"><span class="annottext">toQuery :: UpdateDomainNameservers -&gt; QueryString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679217394"><span class="annot"><span class="annottext">toQuery :: UpdateDomainNameservers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDomainNameservers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -402,7 +402,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-165"></span><span class="hs-comment">-- | The UpdateDomainNameservers response includes the following element.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- /See:/ 'newUpdateDomainNameserversResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621679217382"><span id="local-6989586621679217383"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainNameserversResponse"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-var">UpdateDomainNameserversResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainNameserversResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">UpdateDomainNameserversResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621679217391"><span id="local-6989586621679217392"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainNameserversResponse"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-var">UpdateDomainNameserversResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainNameserversResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">UpdateDomainNameserversResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDomainNameserversResponse%27"><span class="annot"><span class="annottext">UpdateDomainNameserversResponse -&gt; Int
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AhttpStatus%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -412,7 +412,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AoperationId%3AUpdateDomainNameserversResponse%27"><span class="annot"><span class="annottext">UpdateDomainNameserversResponse -&gt; Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AoperationId%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217376"><span id="local-6989586621679217378"><span class="annot"><span class="annottext">UpdateDomainNameserversResponse
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217385"><span id="local-6989586621679217387"><span class="annot"><span class="annottext">UpdateDomainNameserversResponse
 -&gt; UpdateDomainNameserversResponse -&gt; Bool
 (UpdateDomainNameserversResponse
  -&gt; UpdateDomainNameserversResponse -&gt; Bool)
@@ -428,7 +428,7 @@ $c/= :: UpdateDomainNameserversResponse
 -&gt; UpdateDomainNameserversResponse -&gt; Bool
 $c== :: UpdateDomainNameserversResponse
 -&gt; UpdateDomainNameserversResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217368"><span id="local-6989586621679217370"><span id="local-6989586621679217372"><span id="local-6989586621679217374"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainNameserversResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217377"><span id="local-6989586621679217379"><span id="local-6989586621679217381"><span id="local-6989586621679217383"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainNameserversResponse]
 ReadPrec UpdateDomainNameserversResponse
 Int -&gt; ReadS UpdateDomainNameserversResponse
 ReadS [UpdateDomainNameserversResponse]
@@ -448,7 +448,7 @@ readList :: ReadS [UpdateDomainNameserversResponse]
 $creadList :: ReadS [UpdateDomainNameserversResponse]
 readsPrec :: Int -&gt; ReadS UpdateDomainNameserversResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDomainNameserversResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217362"><span id="local-6989586621679217364"><span id="local-6989586621679217366"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainNameserversResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217371"><span id="local-6989586621679217373"><span id="local-6989586621679217375"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainNameserversResponse -&gt; ShowS
 [UpdateDomainNameserversResponse] -&gt; ShowS
 UpdateDomainNameserversResponse -&gt; String
 (Int -&gt; UpdateDomainNameserversResponse -&gt; ShowS)
@@ -507,19 +507,19 @@ UpdateDomainNameserversResponse
 </span><span id="line-196"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span>
 </span><span id="line-197"></span><span id="newUpdateDomainNameserversResponse"><span class="annot"><span class="annottext">newUpdateDomainNameserversResponse :: Int -&gt; Text -&gt; UpdateDomainNameserversResponse
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#newUpdateDomainNameserversResponse"><span class="hs-identifier hs-var hs-var">newUpdateDomainNameserversResponse</span></a></span></span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679217359"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679217358"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217358"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679217368"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217368"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679217367"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217367"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">UpdateDomainNameserversResponse' :: Int -&gt; Text -&gt; UpdateDomainNameserversResponse
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainNameserversResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AhttpStatus%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217368"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">$sel:operationId:UpdateDomainNameserversResponse' :: Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AoperationId%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217358"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span>
+</span><a href="#local-6989586621679217367"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -536,16 +536,16 @@ UpdateDomainNameserversResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217357"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217366"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateDomainNameserversResponse' :: UpdateDomainNameserversResponse -&gt; Int
-</span><a href="#local-6989586621679217357"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217357"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217356"><span class="annot"><span class="annottext">s :: UpdateDomainNameserversResponse
-</span><a href="#local-6989586621679217356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217355"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameserversResponse
-</span><a href="#local-6989586621679217356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainNameserversResponse' :: Int
+</span><a href="#local-6989586621679217366"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217366"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217365"><span class="annot"><span class="annottext">s :: UpdateDomainNameserversResponse
+</span><a href="#local-6989586621679217365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217364"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameserversResponse
+</span><a href="#local-6989586621679217365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainNameserversResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AhttpStatus%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | Identifier for tracking the progress of the request. To query the</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- operation status, use</span><span>
@@ -563,18 +563,18 @@ $sel:httpStatus:UpdateDomainNameserversResponse' :: UpdateDomainNameserversRespo
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217354"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217363"><span class="annot"><span class="annottext">Text
 operationId :: Text
 $sel:operationId:UpdateDomainNameserversResponse' :: UpdateDomainNameserversResponse -&gt; Text
-</span><a href="#local-6989586621679217354"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217354"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217353"><span class="annot"><span class="annottext">s :: UpdateDomainNameserversResponse
-</span><a href="#local-6989586621679217353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217352"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameserversResponse
-</span><a href="#local-6989586621679217353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:UpdateDomainNameserversResponse' :: Text
+</span><a href="#local-6989586621679217363"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217363"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217362"><span class="annot"><span class="annottext">s :: UpdateDomainNameserversResponse
+</span><a href="#local-6989586621679217362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse%27"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217361"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainNameserversResponse
+</span><a href="#local-6989586621679217362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:UpdateDomainNameserversResponse' :: Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#%24sel%3AoperationId%3AUpdateDomainNameserversResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679217350"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679217359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainNameservers.html#UpdateDomainNameserversResponse"><span class="hs-identifier hs-type">UpdateDomainNameserversResponse</span></a></span></span><span>
 </span><span id="line-219"></span></pre></body></html>

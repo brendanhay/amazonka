@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-comment">-- risk of being interrupted.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFleetSpotMaintenanceStrategies' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681108983"><span id="local-6989586621681108984"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetSpotMaintenanceStrategies"><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies"><span class="hs-identifier hs-var">FleetSpotMaintenanceStrategies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetSpotMaintenanceStrategies%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies%27"><span class="hs-identifier hs-var">FleetSpotMaintenanceStrategies'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681108992"><span id="local-6989586621681108993"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetSpotMaintenanceStrategies"><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies"><span class="hs-identifier hs-var">FleetSpotMaintenanceStrategies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetSpotMaintenanceStrategies%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies%27"><span class="hs-identifier hs-var">FleetSpotMaintenanceStrategies'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The strategy to use when Amazon EC2 emits a signal that your Spot</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Instance is at an elevated risk of being interrupted.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AcapacityRebalance%3AFleetSpotMaintenanceStrategies%27"><span class="annot"><span class="annottext">FleetSpotMaintenanceStrategies -&gt; Maybe FleetSpotCapacityRebalance
 </span><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#%24sel%3AcapacityRebalance%3AFleetSpotMaintenanceStrategies%27"><span class="hs-identifier hs-var hs-var">capacityRebalance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotCapacityRebalance.html#FleetSpotCapacityRebalance"><span class="hs-identifier hs-type">FleetSpotCapacityRebalance</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681108977"><span id="local-6989586621681108979"><span class="annot"><span class="annottext">FleetSpotMaintenanceStrategies
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681108986"><span id="local-6989586621681108988"><span class="annot"><span class="annottext">FleetSpotMaintenanceStrategies
 -&gt; FleetSpotMaintenanceStrategies -&gt; Bool
 (FleetSpotMaintenanceStrategies
  -&gt; FleetSpotMaintenanceStrategies -&gt; Bool)
@@ -51,7 +51,7 @@ $c/= :: FleetSpotMaintenanceStrategies
 -&gt; FleetSpotMaintenanceStrategies -&gt; Bool
 $c== :: FleetSpotMaintenanceStrategies
 -&gt; FleetSpotMaintenanceStrategies -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681108968"><span id="local-6989586621681108970"><span id="local-6989586621681108972"><span id="local-6989586621681108974"><span class="annot"><span class="annottext">ReadPrec [FleetSpotMaintenanceStrategies]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681108977"><span id="local-6989586621681108979"><span id="local-6989586621681108981"><span id="local-6989586621681108983"><span class="annot"><span class="annottext">ReadPrec [FleetSpotMaintenanceStrategies]
 ReadPrec FleetSpotMaintenanceStrategies
 Int -&gt; ReadS FleetSpotMaintenanceStrategies
 ReadS [FleetSpotMaintenanceStrategies]
@@ -71,7 +71,7 @@ readList :: ReadS [FleetSpotMaintenanceStrategies]
 $creadList :: ReadS [FleetSpotMaintenanceStrategies]
 readsPrec :: Int -&gt; ReadS FleetSpotMaintenanceStrategies
 $creadsPrec :: Int -&gt; ReadS FleetSpotMaintenanceStrategies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681108961"><span id="local-6989586621681108963"><span id="local-6989586621681108965"><span class="annot"><span class="annottext">Int -&gt; FleetSpotMaintenanceStrategies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681108970"><span id="local-6989586621681108972"><span id="local-6989586621681108974"><span class="annot"><span class="annottext">Int -&gt; FleetSpotMaintenanceStrategies -&gt; ShowS
 [FleetSpotMaintenanceStrategies] -&gt; ShowS
 FleetSpotMaintenanceStrategies -&gt; String
 (Int -&gt; FleetSpotMaintenanceStrategies -&gt; ShowS)
@@ -150,21 +150,21 @@ forall a. Maybe a
      (Maybe FleetSpotCapacityRebalance)
      (Maybe FleetSpotCapacityRebalance)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies%27"><span class="hs-identifier hs-type">FleetSpotMaintenanceStrategies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681108952"><span class="annot"><span class="annottext">Maybe FleetSpotCapacityRebalance
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies%27"><span class="hs-identifier hs-type">FleetSpotMaintenanceStrategies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681108961"><span class="annot"><span class="annottext">Maybe FleetSpotCapacityRebalance
 capacityRebalance :: Maybe FleetSpotCapacityRebalance
 $sel:capacityRebalance:FleetSpotMaintenanceStrategies' :: FleetSpotMaintenanceStrategies -&gt; Maybe FleetSpotCapacityRebalance
-</span><a href="#local-6989586621681108952"><span class="hs-identifier hs-var hs-var">capacityRebalance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetSpotCapacityRebalance
-</span><a href="#local-6989586621681108952"><span class="hs-identifier hs-var">capacityRebalance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681108951"><span class="annot"><span class="annottext">s :: FleetSpotMaintenanceStrategies
-</span><a href="#local-6989586621681108951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies%27"><span class="hs-identifier hs-type">FleetSpotMaintenanceStrategies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681108950"><span class="annot"><span class="annottext">Maybe FleetSpotCapacityRebalance
-</span><a href="#local-6989586621681108950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSpotMaintenanceStrategies
-</span><a href="#local-6989586621681108951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityRebalance:FleetSpotMaintenanceStrategies' :: Maybe FleetSpotCapacityRebalance
+</span><a href="#local-6989586621681108961"><span class="hs-identifier hs-var hs-var">capacityRebalance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetSpotCapacityRebalance
+</span><a href="#local-6989586621681108961"><span class="hs-identifier hs-var">capacityRebalance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681108960"><span class="annot"><span class="annottext">s :: FleetSpotMaintenanceStrategies
+</span><a href="#local-6989586621681108960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies%27"><span class="hs-identifier hs-type">FleetSpotMaintenanceStrategies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681108959"><span class="annot"><span class="annottext">Maybe FleetSpotCapacityRebalance
+</span><a href="#local-6989586621681108959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetSpotMaintenanceStrategies
+</span><a href="#local-6989586621681108960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityRebalance:FleetSpotMaintenanceStrategies' :: Maybe FleetSpotCapacityRebalance
 </span><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#%24sel%3AcapacityRebalance%3AFleetSpotMaintenanceStrategies%27"><span class="hs-identifier hs-var">capacityRebalance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetSpotCapacityRebalance
-</span><a href="#local-6989586621681108950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies"><span class="hs-identifier hs-type">FleetSpotMaintenanceStrategies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681108959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies"><span class="hs-identifier hs-type">FleetSpotMaintenanceStrategies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies"><span class="hs-identifier hs-type">FleetSpotMaintenanceStrategies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621681108947"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FleetSpotMaintenanceStrategies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681108945"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681108945"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621681108956"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FleetSpotMaintenanceStrategies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681108954"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681108954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">Maybe FleetSpotCapacityRebalance -&gt; FleetSpotMaintenanceStrategies
 </span><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies%27"><span class="hs-identifier hs-var">FleetSpotMaintenanceStrategies'</span></a></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">(Maybe FleetSpotCapacityRebalance
@@ -173,16 +173,16 @@ $sel:capacityRebalance:FleetSpotMaintenanceStrategies' :: FleetSpotMaintenanceSt
 -&gt; Either String FleetSpotMaintenanceStrategies
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681108945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FleetSpotCapacityRebalance)
+</span><a href="#local-6989586621681108954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FleetSpotCapacityRebalance)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;capacityRebalance&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621681108939"><span id="local-6989586621681108941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681108948"><span id="local-6989586621681108950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies"><span class="hs-identifier hs-type">FleetSpotMaintenanceStrategies</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621681108936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621681108945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies.html#FleetSpotMaintenanceStrategies"><span class="hs-identifier hs-type">FleetSpotMaintenanceStrategies</span></a></span></span><span>
 </span><span id="line-74"></span></pre></body></html>

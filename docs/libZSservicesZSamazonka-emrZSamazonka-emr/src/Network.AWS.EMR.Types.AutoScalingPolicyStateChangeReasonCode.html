@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679365429"><span id="local-6989586621679365430"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoScalingPolicyStateChangeReasonCode"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingPolicyStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode%27"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReasonCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679365438"><span id="local-6989586621679365439"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoScalingPolicyStateChangeReasonCode"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingPolicyStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#AutoScalingPolicyStateChangeReasonCode%27"><span class="hs-identifier hs-var">AutoScalingPolicyStateChangeReasonCode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoScalingPolicyStateChangeReasonCode"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; Text
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode.html#fromAutoScalingPolicyStateChangeReasonCode"><span class="hs-identifier hs-var hs-var">fromAutoScalingPolicyStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365421"><span id="local-6989586621679365423"><span id="local-6989586621679365425"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365430"><span id="local-6989586621679365432"><span id="local-6989586621679365434"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; ShowS
 [AutoScalingPolicyStateChangeReasonCode] -&gt; ShowS
 AutoScalingPolicyStateChangeReasonCode -&gt; String
 (Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AutoScalingPolicyStateChangeReasonCode -&gt; String
 showsPrec :: Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679365412"><span id="local-6989586621679365414"><span id="local-6989586621679365416"><span id="local-6989586621679365418"><span class="annot"><span class="annottext">ReadPrec [AutoScalingPolicyStateChangeReasonCode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679365421"><span id="local-6989586621679365423"><span id="local-6989586621679365425"><span id="local-6989586621679365427"><span class="annot"><span class="annottext">ReadPrec [AutoScalingPolicyStateChangeReasonCode]
 ReadPrec AutoScalingPolicyStateChangeReasonCode
 Int -&gt; ReadS AutoScalingPolicyStateChangeReasonCode
 ReadS [AutoScalingPolicyStateChangeReasonCode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AutoScalingPolicyStateChangeReasonCode]
 readsPrec :: Int -&gt; ReadS AutoScalingPolicyStateChangeReasonCode
 $creadsPrec :: Int -&gt; ReadS AutoScalingPolicyStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679365407"><span id="local-6989586621679365409"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679365416"><span id="local-6989586621679365418"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode
 -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
 (AutoScalingPolicyStateChangeReasonCode
  -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: AutoScalingPolicyStateChangeReasonCode
 $c== :: AutoScalingPolicyStateChangeReasonCode
 -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679365391"><span id="local-6989586621679365393"><span id="local-6989586621679365395"><span id="local-6989586621679365397"><span id="local-6989586621679365399"><span id="local-6989586621679365401"><span id="local-6989586621679365403"><span class="annot"><span class="annottext">Eq AutoScalingPolicyStateChangeReasonCode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679365400"><span id="local-6989586621679365402"><span id="local-6989586621679365404"><span id="local-6989586621679365406"><span id="local-6989586621679365408"><span id="local-6989586621679365410"><span id="local-6989586621679365412"><span class="annot"><span class="annottext">Eq AutoScalingPolicyStateChangeReasonCode
 Eq AutoScalingPolicyStateChangeReasonCode
 -&gt; (AutoScalingPolicyStateChangeReasonCode
     -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Ordering)
@@ -184,7 +184,7 @@ AutoScalingPolicyStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365383"><span id="local-6989586621679365385"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365392"><span id="local-6989586621679365394"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Int
 AutoScalingPolicyStateChangeReasonCode -&gt; Int
 (Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Int)
 -&gt; (AutoScalingPolicyStateChangeReasonCode -&gt; Int)
@@ -195,56 +195,56 @@ $chash :: AutoScalingPolicyStateChangeReasonCode -&gt; Int
 hashWithSalt :: Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Int
 $chashWithSalt :: Int -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679365380"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679365389"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; ()
 (AutoScalingPolicyStateChangeReasonCode -&gt; ())
 -&gt; NFData AutoScalingPolicyStateChangeReasonCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoScalingPolicyStateChangeReasonCode -&gt; ()
 $crnf :: AutoScalingPolicyStateChangeReasonCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679365377"><span class="annot"><span class="annottext">Text -&gt; Either String AutoScalingPolicyStateChangeReasonCode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679365386"><span class="annot"><span class="annottext">Text -&gt; Either String AutoScalingPolicyStateChangeReasonCode
 (Text -&gt; Either String AutoScalingPolicyStateChangeReasonCode)
 -&gt; FromText AutoScalingPolicyStateChangeReasonCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoScalingPolicyStateChangeReasonCode
 $cfromText :: Text -&gt; Either String AutoScalingPolicyStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365374"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365383"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; Text
 (AutoScalingPolicyStateChangeReasonCode -&gt; Text)
 -&gt; ToText AutoScalingPolicyStateChangeReasonCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoScalingPolicyStateChangeReasonCode -&gt; Text
 $ctoText :: AutoScalingPolicyStateChangeReasonCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365371"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365380"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; ByteString
 (AutoScalingPolicyStateChangeReasonCode -&gt; ByteString)
 -&gt; ToByteString AutoScalingPolicyStateChangeReasonCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoScalingPolicyStateChangeReasonCode -&gt; ByteString
 $ctoBS :: AutoScalingPolicyStateChangeReasonCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365368"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365377"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; ByteStringBuilder
 (AutoScalingPolicyStateChangeReasonCode -&gt; ByteStringBuilder)
 -&gt; ToLog AutoScalingPolicyStateChangeReasonCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoScalingPolicyStateChangeReasonCode -&gt; ByteStringBuilder
 $cbuild :: AutoScalingPolicyStateChangeReasonCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365365"><span class="annot"><span class="annottext">HeaderName -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365374"><span class="annot"><span class="annottext">HeaderName -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; [Header]
 (HeaderName -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; [Header])
 -&gt; ToHeader AutoScalingPolicyStateChangeReasonCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoScalingPolicyStateChangeReasonCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365362"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365371"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; QueryString
 (AutoScalingPolicyStateChangeReasonCode -&gt; QueryString)
 -&gt; ToQuery AutoScalingPolicyStateChangeReasonCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoScalingPolicyStateChangeReasonCode -&gt; QueryString
 $ctoQuery :: AutoScalingPolicyStateChangeReasonCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365357"><span id="local-6989586621679365359"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoScalingPolicyStateChangeReasonCode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365366"><span id="local-6989586621679365368"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoScalingPolicyStateChangeReasonCode]
 Value -&gt; Parser AutoScalingPolicyStateChangeReasonCode
 (Value -&gt; Parser AutoScalingPolicyStateChangeReasonCode)
 -&gt; (Value -&gt; Parser [AutoScalingPolicyStateChangeReasonCode])
@@ -256,7 +256,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoScalingPolicyStateChangeReasonCode]
 parseJSON :: Value -&gt; Parser AutoScalingPolicyStateChangeReasonCode
 $cparseJSON :: Value -&gt; Parser AutoScalingPolicyStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365352"><span id="local-6989586621679365354"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365361"><span id="local-6989586621679365363"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
 FromJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
 FromJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
 -&gt; FromJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
@@ -268,7 +268,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode
 fromJSONKey :: FromJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
 $cfromJSONKey :: FromJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365343"><span id="local-6989586621679365345"><span id="local-6989586621679365347"><span id="local-6989586621679365349"><span class="annot"><span class="annottext">[AutoScalingPolicyStateChangeReasonCode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365352"><span id="local-6989586621679365354"><span id="local-6989586621679365356"><span id="local-6989586621679365358"><span class="annot"><span class="annottext">[AutoScalingPolicyStateChangeReasonCode] -&gt; Encoding
 [AutoScalingPolicyStateChangeReasonCode] -&gt; Value
 AutoScalingPolicyStateChangeReasonCode -&gt; Encoding
 AutoScalingPolicyStateChangeReasonCode -&gt; Value
@@ -292,7 +292,7 @@ $ctoEncoding :: AutoScalingPolicyStateChangeReasonCode -&gt; Encoding
 toJSON :: AutoScalingPolicyStateChangeReasonCode -&gt; Value
 $ctoJSON :: AutoScalingPolicyStateChangeReasonCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365338"><span id="local-6989586621679365340"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365347"><span id="local-6989586621679365349"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
 ToJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
 ToJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
 -&gt; ToJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
@@ -304,14 +304,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoScalingPolicyStateChangeReasonCode]
 toJSONKey :: ToJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
 $ctoJSONKey :: ToJSONKeyFunction AutoScalingPolicyStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365335"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoScalingPolicyStateChangeReasonCode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365344"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoScalingPolicyStateChangeReasonCode
 ([Node] -&gt; Either String AutoScalingPolicyStateChangeReasonCode)
 -&gt; FromXML AutoScalingPolicyStateChangeReasonCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoScalingPolicyStateChangeReasonCode
 $cparseXML :: [Node] -&gt; Either String AutoScalingPolicyStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365332"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365341"><span class="annot"><span class="annottext">AutoScalingPolicyStateChangeReasonCode -&gt; XML
 (AutoScalingPolicyStateChangeReasonCode -&gt; XML)
 -&gt; ToXML AutoScalingPolicyStateChangeReasonCode
 forall a. (a -&gt; XML) -&gt; ToXML a

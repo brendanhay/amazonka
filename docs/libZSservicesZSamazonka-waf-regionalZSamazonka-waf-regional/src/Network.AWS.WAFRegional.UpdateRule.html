@@ -95,7 +95,7 @@
 </span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | /See:/ 'newUpdateRule' smart constructor.</span><span>
-</span><span id="line-98"></span><span id="local-6989586621679329886"><span id="local-6989586621679329887"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRule"><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-var">UpdateRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRule%27"><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-var">UpdateRule'</span></a></span></span><span>
+</span><span id="line-98"></span><span id="local-6989586621679329895"><span id="local-6989586621679329896"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRule"><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-var">UpdateRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRule%27"><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-var">UpdateRule'</span></a></span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @RuleId@ of the @Rule@ that you want to update. @RuleId@ is returned</span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-comment">-- by @CreateRule@ and by ListRules.</span><span>
 </span><span id="line-101"></span><span>    </span><span id="%24sel%3AruleId%3AUpdateRule%27"><span class="annot"><span class="annottext">UpdateRule -&gt; Text
@@ -114,7 +114,7 @@
 </span><span id="line-112"></span><span>    </span><span id="%24sel%3Aupdates%3AUpdateRule%27"><span class="annot"><span class="annottext">UpdateRule -&gt; [RuleUpdate]
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3Aupdates%3AUpdateRule%27"><span class="hs-identifier hs-var hs-var">updates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleUpdate.html#RuleUpdate"><span class="hs-identifier hs-type">RuleUpdate</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329878"><span id="local-6989586621679329880"><span class="annot"><span class="annottext">UpdateRule -&gt; UpdateRule -&gt; Bool
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329887"><span id="local-6989586621679329889"><span class="annot"><span class="annottext">UpdateRule -&gt; UpdateRule -&gt; Bool
 (UpdateRule -&gt; UpdateRule -&gt; Bool)
 -&gt; (UpdateRule -&gt; UpdateRule -&gt; Bool) -&gt; Eq UpdateRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -122,7 +122,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRule -&gt; UpdateRule -&gt; Bool
 == :: UpdateRule -&gt; UpdateRule -&gt; Bool
 $c== :: UpdateRule -&gt; UpdateRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329869"><span id="local-6989586621679329871"><span id="local-6989586621679329873"><span id="local-6989586621679329875"><span class="annot"><span class="annottext">ReadPrec [UpdateRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329878"><span id="local-6989586621679329880"><span id="local-6989586621679329882"><span id="local-6989586621679329884"><span class="annot"><span class="annottext">ReadPrec [UpdateRule]
 ReadPrec UpdateRule
 Int -&gt; ReadS UpdateRule
 ReadS [UpdateRule]
@@ -142,7 +142,7 @@ readList :: ReadS [UpdateRule]
 $creadList :: ReadS [UpdateRule]
 readsPrec :: Int -&gt; ReadS UpdateRule
 $creadsPrec :: Int -&gt; ReadS UpdateRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329862"><span id="local-6989586621679329864"><span id="local-6989586621679329866"><span class="annot"><span class="annottext">Int -&gt; UpdateRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329871"><span id="local-6989586621679329873"><span id="local-6989586621679329875"><span class="annot"><span class="annottext">Int -&gt; UpdateRule -&gt; ShowS
 [UpdateRule] -&gt; ShowS
 UpdateRule -&gt; String
 (Int -&gt; UpdateRule -&gt; ShowS)
@@ -195,17 +195,17 @@ $cfrom :: forall x. UpdateRule -&gt; Rep UpdateRule x
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span>
 </span><span id="line-143"></span><span id="newUpdateRule"><span class="annot"><span class="annottext">newUpdateRule :: Text -&gt; Text -&gt; UpdateRule
-</span><a href="Network.AWS.WAFRegional.UpdateRule.html#newUpdateRule"><span class="hs-identifier hs-var hs-var">newUpdateRule</span></a></span></span><span> </span><span id="local-6989586621679329857"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329857"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span id="local-6989586621679329856"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329856"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.UpdateRule.html#newUpdateRule"><span class="hs-identifier hs-var hs-var">newUpdateRule</span></a></span></span><span> </span><span id="local-6989586621679329866"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679329866"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span id="local-6989586621679329865"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679329865"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">UpdateRule' :: Text -&gt; Text -&gt; [RuleUpdate] -&gt; UpdateRule
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleId:UpdateRule' :: Text
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3AruleId%3AUpdateRule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329857"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679329866"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeToken:UpdateRule' :: Text
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3AchangeToken%3AUpdateRule%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329856"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679329865"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:updates:UpdateRule' :: [RuleUpdate]
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3Aupdates%3AUpdateRule%27"><span class="hs-identifier hs-var">updates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RuleUpdate]
 forall a. Monoid a =&gt; a
@@ -220,16 +220,16 @@ forall a. Monoid a =&gt; a
 -&gt; (UpdateRule -&gt; Text -&gt; UpdateRule)
 -&gt; Lens UpdateRule UpdateRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329853"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329862"><span class="annot"><span class="annottext">Text
 ruleId :: Text
 $sel:ruleId:UpdateRule' :: UpdateRule -&gt; Text
-</span><a href="#local-6989586621679329853"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329853"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329852"><span class="annot"><span class="annottext">s :: UpdateRule
-</span><a href="#local-6989586621679329852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329851"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRule
-</span><a href="#local-6989586621679329852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:UpdateRule' :: Text
+</span><a href="#local-6989586621679329862"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679329862"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329861"><span class="annot"><span class="annottext">s :: UpdateRule
+</span><a href="#local-6989586621679329861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329860"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679329860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRule
+</span><a href="#local-6989586621679329861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:UpdateRule' :: Text
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3AruleId%3AUpdateRule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#updateRule_changeToken"><span class="hs-identifier hs-type">updateRule_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -238,16 +238,16 @@ $sel:ruleId:UpdateRule' :: UpdateRule -&gt; Text
 -&gt; (UpdateRule -&gt; Text -&gt; UpdateRule)
 -&gt; Lens UpdateRule UpdateRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329850"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329859"><span class="annot"><span class="annottext">Text
 changeToken :: Text
 $sel:changeToken:UpdateRule' :: UpdateRule -&gt; Text
-</span><a href="#local-6989586621679329850"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329850"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329849"><span class="annot"><span class="annottext">s :: UpdateRule
-</span><a href="#local-6989586621679329849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329848"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRule
-</span><a href="#local-6989586621679329849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:UpdateRule' :: Text
+</span><a href="#local-6989586621679329859"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679329859"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329858"><span class="annot"><span class="annottext">s :: UpdateRule
+</span><a href="#local-6989586621679329858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679329857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRule
+</span><a href="#local-6989586621679329858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:UpdateRule' :: Text
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3AchangeToken%3AUpdateRule%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | An array of @RuleUpdate@ objects that you want to insert into or delete</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- from a Rule. For more information, see the applicable data types:</span><span>
@@ -263,16 +263,16 @@ $sel:changeToken:UpdateRule' :: UpdateRule -&gt; Text
 -&gt; (UpdateRule -&gt; [RuleUpdate] -&gt; UpdateRule)
 -&gt; Lens UpdateRule UpdateRule [RuleUpdate] [RuleUpdate]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329847"><span class="annot"><span class="annottext">[RuleUpdate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329856"><span class="annot"><span class="annottext">[RuleUpdate]
 updates :: [RuleUpdate]
 $sel:updates:UpdateRule' :: UpdateRule -&gt; [RuleUpdate]
-</span><a href="#local-6989586621679329847"><span class="hs-identifier hs-var hs-var">updates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RuleUpdate]
-</span><a href="#local-6989586621679329847"><span class="hs-identifier hs-var">updates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329846"><span class="annot"><span class="annottext">s :: UpdateRule
-</span><a href="#local-6989586621679329846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329845"><span class="annot"><span class="annottext">[RuleUpdate]
-</span><a href="#local-6989586621679329845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRule
-</span><a href="#local-6989586621679329846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updates:UpdateRule' :: [RuleUpdate]
+</span><a href="#local-6989586621679329856"><span class="hs-identifier hs-var hs-var">updates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RuleUpdate]
+</span><a href="#local-6989586621679329856"><span class="hs-identifier hs-var">updates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329855"><span class="annot"><span class="annottext">s :: UpdateRule
+</span><a href="#local-6989586621679329855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329854"><span class="annot"><span class="annottext">[RuleUpdate]
+</span><a href="#local-6989586621679329854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRule
+</span><a href="#local-6989586621679329855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updates:UpdateRule' :: [RuleUpdate]
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3Aupdates%3AUpdateRule%27"><span class="hs-identifier hs-var">updates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RuleUpdate]
-</span><a href="#local-6989586621679329845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RuleUpdate] -&gt; f [RuleUpdate]) -&gt; UpdateRule -&gt; f UpdateRule)
+</span><a href="#local-6989586621679329854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RuleUpdate] -&gt; f [RuleUpdate]) -&gt; UpdateRule -&gt; f UpdateRule)
 -&gt; (([RuleUpdate] -&gt; f [RuleUpdate])
     -&gt; [RuleUpdate] -&gt; f [RuleUpdate])
 -&gt; ([RuleUpdate] -&gt; f [RuleUpdate])
@@ -285,12 +285,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-type">UpdateRuleResponse</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679329839"><span class="annot"><span class="annottext">request :: UpdateRule -&gt; Request UpdateRule
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679329848"><span class="annot"><span class="annottext">request :: UpdateRule -&gt; Request UpdateRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRule -&gt; Request UpdateRule
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679329835"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679329844"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateRule
 -&gt; ClientResponse ClientBody
@@ -314,10 +314,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329832"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679329832"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679329831"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679329831"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679329830"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329830"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329841"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679329841"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679329840"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679329840"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679329839"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateRuleResponse
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-var">UpdateRuleResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateRuleResponse)
@@ -325,7 +325,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateRuleResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679329839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -337,15 +337,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679329832"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329841"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329822"><span id="local-6989586621679329824"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329831"><span id="local-6989586621679329833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679329815"><span class="annot"><span class="annottext">toHeaders :: UpdateRule -&gt; ResponseHeaders
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679329824"><span class="annot"><span class="annottext">toHeaders :: UpdateRule -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRule -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -372,9 +372,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329805"><span id="local-6989586621679329807"><span id="local-6989586621679329809"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679329803"><span class="annot"><span class="annottext">toJSON :: UpdateRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329799"><span id="local-6989586621679329800"><span id="local-6989586621679329801"><span class="annot"><span class="annottext">[RuleUpdate]
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329814"><span id="local-6989586621679329816"><span id="local-6989586621679329818"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679329812"><span class="annot"><span class="annottext">toJSON :: UpdateRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule%27"><span class="hs-identifier hs-type">UpdateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329808"><span id="local-6989586621679329809"><span id="local-6989586621679329810"><span class="annot"><span class="annottext">[RuleUpdate]
 Text
 updates :: [RuleUpdate]
 changeToken :: Text
@@ -382,7 +382,7 @@ ruleId :: Text
 $sel:updates:UpdateRule' :: UpdateRule -&gt; [RuleUpdate]
 $sel:changeToken:UpdateRule' :: UpdateRule -&gt; Text
 $sel:ruleId:UpdateRule' :: UpdateRule -&gt; Text
-</span><a href="#local-6989586621679329799"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679329808"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -394,33 +394,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RuleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329801"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679329810"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679329800"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679329809"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Updates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RuleUpdate] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[RuleUpdate]
-</span><a href="#local-6989586621679329799"><span class="hs-identifier hs-var">updates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329808"><span class="hs-identifier hs-var">updates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679329793"><span class="annot"><span class="annottext">toPath :: UpdateRule -&gt; ByteString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679329802"><span class="annot"><span class="annottext">toPath :: UpdateRule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRule"><span class="hs-identifier hs-type">UpdateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679329789"><span class="annot"><span class="annottext">toQuery :: UpdateRule -&gt; QueryString
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679329798"><span class="annot"><span class="annottext">toQuery :: UpdateRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -428,7 +428,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | /See:/ 'newUpdateRuleResponse' smart constructor.</span><span>
-</span><span id="line-217"></span><span id="local-6989586621679329786"><span id="local-6989586621679329787"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRuleResponse"><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-var">UpdateRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRuleResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-var">UpdateRuleResponse'</span></a></span></span><span>
+</span><span id="line-217"></span><span id="local-6989586621679329795"><span id="local-6989586621679329796"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRuleResponse"><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-var">UpdateRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRuleResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-var">UpdateRuleResponse'</span></a></span></span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @UpdateRule@ request. You</span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-comment">-- can also use this value to query the status of the request. For more</span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-comment">-- information, see GetChangeTokenStatus.</span><span>
@@ -438,7 +438,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRuleResponse%27"><span class="annot"><span class="annottext">UpdateRuleResponse -&gt; Int
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3AhttpStatus%3AUpdateRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329780"><span id="local-6989586621679329782"><span class="annot"><span class="annottext">UpdateRuleResponse -&gt; UpdateRuleResponse -&gt; Bool
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329789"><span id="local-6989586621679329791"><span class="annot"><span class="annottext">UpdateRuleResponse -&gt; UpdateRuleResponse -&gt; Bool
 (UpdateRuleResponse -&gt; UpdateRuleResponse -&gt; Bool)
 -&gt; (UpdateRuleResponse -&gt; UpdateRuleResponse -&gt; Bool)
 -&gt; Eq UpdateRuleResponse
@@ -447,7 +447,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRuleResponse -&gt; UpdateRuleResponse -&gt; Bool
 == :: UpdateRuleResponse -&gt; UpdateRuleResponse -&gt; Bool
 $c== :: UpdateRuleResponse -&gt; UpdateRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329772"><span id="local-6989586621679329774"><span id="local-6989586621679329776"><span id="local-6989586621679329778"><span class="annot"><span class="annottext">ReadPrec [UpdateRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329781"><span id="local-6989586621679329783"><span id="local-6989586621679329785"><span id="local-6989586621679329787"><span class="annot"><span class="annottext">ReadPrec [UpdateRuleResponse]
 ReadPrec UpdateRuleResponse
 Int -&gt; ReadS UpdateRuleResponse
 ReadS [UpdateRuleResponse]
@@ -467,7 +467,7 @@ readList :: ReadS [UpdateRuleResponse]
 $creadList :: ReadS [UpdateRuleResponse]
 readsPrec :: Int -&gt; ReadS UpdateRuleResponse
 $creadsPrec :: Int -&gt; ReadS UpdateRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329766"><span id="local-6989586621679329768"><span id="local-6989586621679329770"><span class="annot"><span class="annottext">Int -&gt; UpdateRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329775"><span id="local-6989586621679329777"><span id="local-6989586621679329779"><span class="annot"><span class="annottext">Int -&gt; UpdateRuleResponse -&gt; ShowS
 [UpdateRuleResponse] -&gt; ShowS
 UpdateRuleResponse -&gt; String
 (Int -&gt; UpdateRuleResponse -&gt; ShowS)
@@ -511,8 +511,8 @@ $cfrom :: forall x. UpdateRuleResponse -&gt; Rep UpdateRuleResponse x
 </span><span id="line-242"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-243"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-type">UpdateRuleResponse</span></a></span><span>
 </span><span id="line-244"></span><span id="newUpdateRuleResponse"><span class="annot"><span class="annottext">newUpdateRuleResponse :: Int -&gt; UpdateRuleResponse
-</span><a href="Network.AWS.WAFRegional.UpdateRule.html#newUpdateRuleResponse"><span class="hs-identifier hs-var hs-var">newUpdateRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679329763"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679329763"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.UpdateRule.html#newUpdateRuleResponse"><span class="hs-identifier hs-var hs-var">newUpdateRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679329772"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679329772"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><span class="annottext">UpdateRuleResponse' :: Maybe Text -&gt; Int -&gt; UpdateRuleResponse
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-type">UpdateRuleResponse'</span></a></span><span>
 </span><span id="line-246"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:changeToken:UpdateRuleResponse' :: Maybe Text
@@ -521,7 +521,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRuleResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3AhttpStatus%3AUpdateRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679329763"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679329772"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @UpdateRule@ request. You</span><span>
@@ -535,16 +535,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateRuleResponse UpdateRuleResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-type">UpdateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329762"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-type">UpdateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329771"><span class="annot"><span class="annottext">Maybe Text
 changeToken :: Maybe Text
 $sel:changeToken:UpdateRuleResponse' :: UpdateRuleResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679329762"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329762"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329761"><span class="annot"><span class="annottext">s :: UpdateRuleResponse
-</span><a href="#local-6989586621679329761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-type">UpdateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329760"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleResponse
-</span><a href="#local-6989586621679329761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:UpdateRuleResponse' :: Maybe Text
+</span><a href="#local-6989586621679329771"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329771"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329770"><span class="annot"><span class="annottext">s :: UpdateRuleResponse
+</span><a href="#local-6989586621679329770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-type">UpdateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleResponse
+</span><a href="#local-6989586621679329770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:UpdateRuleResponse' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3AchangeToken%3AUpdateRuleResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-type">UpdateRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-type">UpdateRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-257"></span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#updateRuleResponse_httpStatus"><span class="hs-identifier hs-type">updateRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-type">UpdateRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -553,16 +553,16 @@ $sel:changeToken:UpdateRuleResponse' :: UpdateRuleResponse -&gt; Maybe Text
 -&gt; (UpdateRuleResponse -&gt; Int -&gt; UpdateRuleResponse)
 -&gt; Lens UpdateRuleResponse UpdateRuleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-type">UpdateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329759"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-type">UpdateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329768"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateRuleResponse' :: UpdateRuleResponse -&gt; Int
-</span><a href="#local-6989586621679329759"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679329759"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329758"><span class="annot"><span class="annottext">s :: UpdateRuleResponse
-</span><a href="#local-6989586621679329758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-type">UpdateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329757"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679329757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleResponse
-</span><a href="#local-6989586621679329758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRuleResponse' :: Int
+</span><a href="#local-6989586621679329768"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679329768"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329767"><span class="annot"><span class="annottext">s :: UpdateRuleResponse
+</span><a href="#local-6989586621679329767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse%27"><span class="hs-identifier hs-type">UpdateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679329766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRuleResponse
+</span><a href="#local-6989586621679329767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRuleResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.UpdateRule.html#%24sel%3AhttpStatus%3AUpdateRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679329757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-type">UpdateRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-type">UpdateRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-type">UpdateRuleResponse</span></a></span></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329764"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.UpdateRule.html#UpdateRuleResponse"><span class="hs-identifier hs-type">UpdateRuleResponse</span></a></span></span><span>
 </span><span id="line-261"></span></pre></body></html>

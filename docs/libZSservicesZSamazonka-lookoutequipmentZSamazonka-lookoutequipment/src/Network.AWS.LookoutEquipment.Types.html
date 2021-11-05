@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.LookoutEquipment.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LookoutEquipment.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier">_ServiceQuotaExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataUploadFrequency</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataUploadFrequency.html#DataUploadFrequency"><span class="hs-identifier">DataUploadFrequency</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetStatus</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetStatus.html#DatasetStatus"><span class="hs-identifier">DatasetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InferenceExecutionStatus</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.html#InferenceExecutionStatus"><span class="hs-identifier">InferenceExecutionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InferenceSchedulerStatus</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.html#InferenceSchedulerStatus"><span class="hs-identifier">InferenceSchedulerStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IngestionJobStatus</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionJobStatus.html#IngestionJobStatus"><span class="hs-identifier">IngestionJobStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelStatus</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier">ModelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TargetSamplingRate</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.TargetSamplingRate.html#TargetSamplingRate"><span class="hs-identifier">TargetSamplingRate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataIngestionJobSummary</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.html#DataIngestionJobSummary"><span class="hs-identifier">DataIngestionJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.html#newDataIngestionJobSummary"><span class="hs-identifier">newDataIngestionJobSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.html#dataIngestionJobSummary_ingestionInputConfiguration"><span class="hs-identifier">dataIngestionJobSummary_ingestionInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.html#dataIngestionJobSummary_status"><span class="hs-identifier">dataIngestionJobSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.html#dataIngestionJobSummary_datasetArn"><span class="hs-identifier">dataIngestionJobSummary_datasetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.html#dataIngestionJobSummary_jobId"><span class="hs-identifier">dataIngestionJobSummary_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.html#dataIngestionJobSummary_datasetName"><span class="hs-identifier">dataIngestionJobSummary_datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataPreProcessingConfiguration</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.html#DataPreProcessingConfiguration"><span class="hs-identifier">DataPreProcessingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.html#newDataPreProcessingConfiguration"><span class="hs-identifier">newDataPreProcessingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.html#dataPreProcessingConfiguration_targetSamplingRate"><span class="hs-identifier">dataPreProcessingConfiguration_targetSamplingRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetSchema</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSchema.html#DatasetSchema"><span class="hs-identifier">DatasetSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSchema.html#newDatasetSchema"><span class="hs-identifier">newDatasetSchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSchema.html#datasetSchema_inlineDataSchema"><span class="hs-identifier">datasetSchema_inlineDataSchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetSummary</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSummary.html#DatasetSummary"><span class="hs-identifier">DatasetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSummary.html#newDatasetSummary"><span class="hs-identifier">newDatasetSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSummary.html#datasetSummary_status"><span class="hs-identifier">datasetSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSummary.html#datasetSummary_datasetArn"><span class="hs-identifier">datasetSummary_datasetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSummary.html#datasetSummary_createdAt"><span class="hs-identifier">datasetSummary_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSummary.html#datasetSummary_datasetName"><span class="hs-identifier">datasetSummary_datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InferenceExecutionSummary</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#InferenceExecutionSummary"><span class="hs-identifier">InferenceExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#newInferenceExecutionSummary"><span class="hs-identifier">newInferenceExecutionSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_status"><span class="hs-identifier">inferenceExecutionSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_failedReason"><span class="hs-identifier">inferenceExecutionSummary_failedReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_modelArn"><span class="hs-identifier">inferenceExecutionSummary_modelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_dataStartTime"><span class="hs-identifier">inferenceExecutionSummary_dataStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_modelName"><span class="hs-identifier">inferenceExecutionSummary_modelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_customerResultObject"><span class="hs-identifier">inferenceExecutionSummary_customerResultObject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_inferenceSchedulerArn"><span class="hs-identifier">inferenceExecutionSummary_inferenceSchedulerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_scheduledStartTime"><span class="hs-identifier">inferenceExecutionSummary_scheduledStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_dataOutputConfiguration"><span class="hs-identifier">inferenceExecutionSummary_dataOutputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_dataEndTime"><span class="hs-identifier">inferenceExecutionSummary_dataEndTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_inferenceSchedulerName"><span class="hs-identifier">inferenceExecutionSummary_inferenceSchedulerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html#inferenceExecutionSummary_dataInputConfiguration"><span class="hs-identifier">inferenceExecutionSummary_dataInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InferenceInputConfiguration</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.html#InferenceInputConfiguration"><span class="hs-identifier">InferenceInputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.html#newInferenceInputConfiguration"><span class="hs-identifier">newInferenceInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.html#inferenceInputConfiguration_inputTimeZoneOffset"><span class="hs-identifier">inferenceInputConfiguration_inputTimeZoneOffset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.html#inferenceInputConfiguration_s3InputConfiguration"><span class="hs-identifier">inferenceInputConfiguration_s3InputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.html#inferenceInputConfiguration_inferenceInputNameConfiguration"><span class="hs-identifier">inferenceInputConfiguration_inferenceInputNameConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InferenceInputNameConfiguration</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.html#InferenceInputNameConfiguration"><span class="hs-identifier">InferenceInputNameConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.html#newInferenceInputNameConfiguration"><span class="hs-identifier">newInferenceInputNameConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.html#inferenceInputNameConfiguration_timestampFormat"><span class="hs-identifier">inferenceInputNameConfiguration_timestampFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.html#inferenceInputNameConfiguration_componentTimestampDelimiter"><span class="hs-identifier">inferenceInputNameConfiguration_componentTimestampDelimiter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InferenceOutputConfiguration</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.html#InferenceOutputConfiguration"><span class="hs-identifier">InferenceOutputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.html#newInferenceOutputConfiguration"><span class="hs-identifier">newInferenceOutputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.html#inferenceOutputConfiguration_kmsKeyId"><span class="hs-identifier">inferenceOutputConfiguration_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.html#inferenceOutputConfiguration_s3OutputConfiguration"><span class="hs-identifier">inferenceOutputConfiguration_s3OutputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InferenceS3InputConfiguration</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.html#InferenceS3InputConfiguration"><span class="hs-identifier">InferenceS3InputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.html#newInferenceS3InputConfiguration"><span class="hs-identifier">newInferenceS3InputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.html#inferenceS3InputConfiguration_prefix"><span class="hs-identifier">inferenceS3InputConfiguration_prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.html#inferenceS3InputConfiguration_bucket"><span class="hs-identifier">inferenceS3InputConfiguration_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InferenceS3OutputConfiguration</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.html#InferenceS3OutputConfiguration"><span class="hs-identifier">InferenceS3OutputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.html#newInferenceS3OutputConfiguration"><span class="hs-identifier">newInferenceS3OutputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.html#inferenceS3OutputConfiguration_prefix"><span class="hs-identifier">inferenceS3OutputConfiguration_prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.html#inferenceS3OutputConfiguration_bucket"><span class="hs-identifier">inferenceS3OutputConfiguration_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="hs-comment">-- * InferenceSchedulerSummary</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html#InferenceSchedulerSummary"><span class="hs-identifier">InferenceSchedulerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html#newInferenceSchedulerSummary"><span class="hs-identifier">newInferenceSchedulerSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html#inferenceSchedulerSummary_status"><span class="hs-identifier">inferenceSchedulerSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html#inferenceSchedulerSummary_dataUploadFrequency"><span class="hs-identifier">inferenceSchedulerSummary_dataUploadFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html#inferenceSchedulerSummary_dataDelayOffsetInMinutes"><span class="hs-identifier">inferenceSchedulerSummary_dataDelayOffsetInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html#inferenceSchedulerSummary_modelArn"><span class="hs-identifier">inferenceSchedulerSummary_modelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html#inferenceSchedulerSummary_modelName"><span class="hs-identifier">inferenceSchedulerSummary_modelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html#inferenceSchedulerSummary_inferenceSchedulerArn"><span class="hs-identifier">inferenceSchedulerSummary_inferenceSchedulerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html#inferenceSchedulerSummary_inferenceSchedulerName"><span class="hs-identifier">inferenceSchedulerSummary_inferenceSchedulerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IngestionInputConfiguration</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.html#IngestionInputConfiguration"><span class="hs-identifier">IngestionInputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.html#newIngestionInputConfiguration"><span class="hs-identifier">newIngestionInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.html#ingestionInputConfiguration_s3InputConfiguration"><span class="hs-identifier">ingestionInputConfiguration_s3InputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IngestionS3InputConfiguration</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.html#IngestionS3InputConfiguration"><span class="hs-identifier">IngestionS3InputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.html#newIngestionS3InputConfiguration"><span class="hs-identifier">newIngestionS3InputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.html#ingestionS3InputConfiguration_prefix"><span class="hs-identifier">ingestionS3InputConfiguration_prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.html#ingestionS3InputConfiguration_bucket"><span class="hs-identifier">ingestionS3InputConfiguration_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LabelsInputConfiguration</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.html#LabelsInputConfiguration"><span class="hs-identifier">LabelsInputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.html#newLabelsInputConfiguration"><span class="hs-identifier">newLabelsInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.html#labelsInputConfiguration_s3InputConfiguration"><span class="hs-identifier">labelsInputConfiguration_s3InputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LabelsS3InputConfiguration</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.html#LabelsS3InputConfiguration"><span class="hs-identifier">LabelsS3InputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.html#newLabelsS3InputConfiguration"><span class="hs-identifier">newLabelsS3InputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.html#labelsS3InputConfiguration_prefix"><span class="hs-identifier">labelsS3InputConfiguration_prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.html#labelsS3InputConfiguration_bucket"><span class="hs-identifier">labelsS3InputConfiguration_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelSummary</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelSummary.html#ModelSummary"><span class="hs-identifier">ModelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelSummary.html#newModelSummary"><span class="hs-identifier">newModelSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelSummary.html#modelSummary_status"><span class="hs-identifier">modelSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelSummary.html#modelSummary_datasetArn"><span class="hs-identifier">modelSummary_datasetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelSummary.html#modelSummary_modelArn"><span class="hs-identifier">modelSummary_modelArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelSummary.html#modelSummary_createdAt"><span class="hs-identifier">modelSummary_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelSummary.html#modelSummary_modelName"><span class="hs-identifier">modelSummary_modelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelSummary.html#modelSummary_datasetName"><span class="hs-identifier">modelSummary_datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="hs-comment">-- * S3Object</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.S3Object.html#S3Object"><span class="hs-identifier">S3Object</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.S3Object.html#newS3Object"><span class="hs-identifier">newS3Object</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.S3Object.html#s3Object_bucket"><span class="hs-identifier">s3Object_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.S3Object.html#s3Object_key"><span class="hs-identifier">s3Object_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary</span></a></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration</span></a></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataUploadFrequency.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.DataUploadFrequency</span></a></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSchema.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.DatasetSchema</span></a></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetStatus.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.DatasetStatus</span></a></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DatasetSummary.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.DatasetSummary</span></a></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus</span></a></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary</span></a></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration</span></a></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration</span></a></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration</span></a></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration</span></a></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration</span></a></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus</span></a></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary</span></a></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration</span></a></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionJobStatus.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.IngestionJobStatus</span></a></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration</span></a></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration</span></a></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration</span></a></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelStatus.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.ModelStatus</span></a></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.ModelSummary.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.ModelSummary</span></a></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.S3Object.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.S3Object</span></a></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.Tag.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.Tag</span></a></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.TargetSamplingRate.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types.TargetSamplingRate</span></a></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | API version @2020-12-15@ of the Amazon Lookout for Equipment SDK configuration.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-212"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;LookoutEquipment&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;lookoutequipment&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;lookoutequipment&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2020-12-15&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;LookoutEquipment&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679210810"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>    </span><span id="local-6989586621679210810"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679210810"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-231"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679210804"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-235"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-236"></span><span>    </span><span id="local-6989586621679210804"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679210804"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679210803"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-238"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-239"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-246"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-248"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-252"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-254"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-258"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-261"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-266"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-267"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-268"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-269"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679210803"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-280"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The input fails to satisfy constraints specified by Amazon Lookout for</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- Equipment or a related AWS service that\'s being utilized.</span><span>
+</span><span id="line-284"></span><span id="local-6989586621679210798"><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679210798"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679210798"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-285"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutEquipment.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | The request could not be completed because you do not have access to the</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-292"></span><span id="local-6989586621679210796"><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679210796"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679210796"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-293"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutEquipment.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-294"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The request could not be completed due to a conflict with the current</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- state of the target resource.</span><span>
+</span><span id="line-300"></span><span id="local-6989586621679210795"><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679210795"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679210795"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-301"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutEquipment.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | Resource limitations have been exceeded.</span><span>
+</span><span id="line-307"></span><span id="local-6989586621679210794"><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier hs-type">_ServiceQuotaExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679210794"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679210794"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-308"></span><span id="_ServiceQuotaExceededException"><span class="annot"><span class="annottext">_ServiceQuotaExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutEquipment.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier hs-var hs-var">_ServiceQuotaExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceQuotaExceededException&quot;</span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The request was denied due to request throttling.</span><span>
+</span><span id="line-314"></span><span id="local-6989586621679210793"><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679210793"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679210793"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-315"></span><span id="_ThrottlingException"><span class="annot"><span class="annottext">_ThrottlingException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutEquipment.Types.html#_ThrottlingException"><span class="hs-identifier hs-var hs-var">_ThrottlingException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-316"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | Processing of the request has failed because of an unknown error,</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- exception or failure.</span><span>
+</span><span id="line-322"></span><span id="local-6989586621679210792"><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_InternalServerException"><span class="hs-identifier hs-type">_InternalServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679210792"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679210792"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-323"></span><span id="_InternalServerException"><span class="annot"><span class="annottext">_InternalServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutEquipment.Types.html#_InternalServerException"><span class="hs-identifier hs-var hs-var">_InternalServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServerException&quot;</span></span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | The resource requested could not be found. Verify the resource ID and</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- retry your request.</span><span>
+</span><span id="line-330"></span><span id="local-6989586621679210791"><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679210791"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679210791"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-331"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.LookoutEquipment.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-335"></span></pre></body></html>

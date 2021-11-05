@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- that you want Cloud Map to create when you register an instance.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDnsRecord' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679222284"><span id="local-6989586621679222285"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsRecord"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-var">DnsRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsRecord%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-var">DnsRecord'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679222293"><span id="local-6989586621679222294"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsRecord"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-var">DnsRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsRecord%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-var">DnsRecord'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the resource, which indicates the type of value that Route</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- 53 returns in response to DNS queries. You can specify values for @Type@</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- in the following combinations:</span><span>
@@ -136,7 +136,7 @@
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3Attl%3ADnsRecord%27"><span class="annot"><span class="annottext">DnsRecord -&gt; Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#%24sel%3Attl%3ADnsRecord%27"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222277"><span id="local-6989586621679222279"><span class="annot"><span class="annottext">DnsRecord -&gt; DnsRecord -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222286"><span id="local-6989586621679222288"><span class="annot"><span class="annottext">DnsRecord -&gt; DnsRecord -&gt; Bool
 (DnsRecord -&gt; DnsRecord -&gt; Bool)
 -&gt; (DnsRecord -&gt; DnsRecord -&gt; Bool) -&gt; Eq DnsRecord
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -144,7 +144,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DnsRecord -&gt; DnsRecord -&gt; Bool
 == :: DnsRecord -&gt; DnsRecord -&gt; Bool
 $c== :: DnsRecord -&gt; DnsRecord -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222268"><span id="local-6989586621679222270"><span id="local-6989586621679222272"><span id="local-6989586621679222274"><span class="annot"><span class="annottext">ReadPrec [DnsRecord]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222277"><span id="local-6989586621679222279"><span id="local-6989586621679222281"><span id="local-6989586621679222283"><span class="annot"><span class="annottext">ReadPrec [DnsRecord]
 ReadPrec DnsRecord
 Int -&gt; ReadS DnsRecord
 ReadS [DnsRecord]
@@ -164,7 +164,7 @@ readList :: ReadS [DnsRecord]
 $creadList :: ReadS [DnsRecord]
 readsPrec :: Int -&gt; ReadS DnsRecord
 $creadsPrec :: Int -&gt; ReadS DnsRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222261"><span id="local-6989586621679222263"><span id="local-6989586621679222265"><span class="annot"><span class="annottext">Int -&gt; DnsRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222270"><span id="local-6989586621679222272"><span id="local-6989586621679222274"><span class="annot"><span class="annottext">Int -&gt; DnsRecord -&gt; ShowS
 [DnsRecord] -&gt; ShowS
 DnsRecord -&gt; String
 (Int -&gt; DnsRecord -&gt; ShowS)
@@ -307,15 +307,15 @@ $cfrom :: forall x. DnsRecord -&gt; Rep DnsRecord x
 </span><span id="line-254"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-255"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span><span>
 </span><span id="line-256"></span><span id="newDnsRecord"><span class="annot"><span class="annottext">newDnsRecord :: RecordType -&gt; Natural -&gt; DnsRecord
-</span><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#newDnsRecord"><span class="hs-identifier hs-var hs-var">newDnsRecord</span></a></span></span><span> </span><span id="local-6989586621679222255"><span class="annot"><span class="annottext">RecordType
-</span><a href="#local-6989586621679222255"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679222254"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222254"><span class="hs-identifier hs-var">pTTL_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#newDnsRecord"><span class="hs-identifier hs-var hs-var">newDnsRecord</span></a></span></span><span> </span><span id="local-6989586621679222264"><span class="annot"><span class="annottext">RecordType
+</span><a href="#local-6989586621679222264"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679222263"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679222263"><span class="hs-identifier hs-var">pTTL_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>  </span><span class="annot"><span class="annottext">DnsRecord' :: RecordType -&gt; Natural -&gt; DnsRecord
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DnsRecord' :: RecordType
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#%24sel%3Atype%27%3ADnsRecord%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RecordType
-</span><a href="#local-6989586621679222255"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:ttl:DnsRecord' :: Natural
+</span><a href="#local-6989586621679222264"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:ttl:DnsRecord' :: Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#%24sel%3Attl%3ADnsRecord%27"><span class="hs-identifier hs-var">ttl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222254"><span class="hs-identifier hs-var">pTTL_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679222263"><span class="hs-identifier hs-var">pTTL_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | The type of the resource, which indicates the type of value that Route</span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- 53 returns in response to DNS queries. You can specify values for @Type@</span><span>
@@ -415,16 +415,16 @@ $cfrom :: forall x. DnsRecord -&gt; Rep DnsRecord x
 -&gt; (DnsRecord -&gt; RecordType -&gt; DnsRecord)
 -&gt; Lens DnsRecord DnsRecord RecordType RecordType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222250"><span class="annot"><span class="annottext">RecordType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222259"><span class="annot"><span class="annottext">RecordType
 type' :: RecordType
 $sel:type':DnsRecord' :: DnsRecord -&gt; RecordType
-</span><a href="#local-6989586621679222250"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordType
-</span><a href="#local-6989586621679222250"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222249"><span class="annot"><span class="annottext">s :: DnsRecord
-</span><a href="#local-6989586621679222249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222248"><span class="annot"><span class="annottext">RecordType
-</span><a href="#local-6989586621679222248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRecord
-</span><a href="#local-6989586621679222249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DnsRecord' :: RecordType
+</span><a href="#local-6989586621679222259"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordType
+</span><a href="#local-6989586621679222259"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222258"><span class="annot"><span class="annottext">s :: DnsRecord
+</span><a href="#local-6989586621679222258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222257"><span class="annot"><span class="annottext">RecordType
+</span><a href="#local-6989586621679222257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRecord
+</span><a href="#local-6989586621679222258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DnsRecord' :: RecordType
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#%24sel%3Atype%27%3ADnsRecord%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RecordType
-</span><a href="#local-6989586621679222248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-353"></span><span>
 </span><span id="line-354"></span><span class="hs-comment">-- | The amount of time, in seconds, that you want DNS resolvers to cache the</span><span>
 </span><span id="line-355"></span><span class="hs-comment">-- settings for this record.</span><span>
@@ -442,58 +442,58 @@ $sel:type':DnsRecord' :: DnsRecord -&gt; RecordType
 -&gt; (DnsRecord -&gt; Natural -&gt; DnsRecord)
 -&gt; Lens DnsRecord DnsRecord Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222246"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222255"><span class="annot"><span class="annottext">Natural
 ttl :: Natural
 $sel:ttl:DnsRecord' :: DnsRecord -&gt; Natural
-</span><a href="#local-6989586621679222246"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222246"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222245"><span class="annot"><span class="annottext">s :: DnsRecord
-</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222244"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRecord
-</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:DnsRecord' :: Natural
+</span><a href="#local-6989586621679222255"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679222255"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222254"><span class="annot"><span class="annottext">s :: DnsRecord
+</span><a href="#local-6989586621679222254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222253"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679222253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRecord
+</span><a href="#local-6989586621679222254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:DnsRecord' :: Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#%24sel%3Attl%3ADnsRecord%27"><span class="hs-identifier hs-var">ttl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-366"></span><span>
-</span><span id="line-367"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222241"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-368"></span><span>  </span><span id="local-6989586621679222239"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsRecord
+</span><span id="line-367"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222250"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-368"></span><span>  </span><span id="local-6989586621679222248"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsRecord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-369"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser DnsRecord) -&gt; Value -&gt; Parser DnsRecord
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-370"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DnsRecord&quot;</span></span><span>
-</span><span id="line-371"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222236"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222236"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-371"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222245"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-372"></span><span>          </span><span class="annot"><span class="annottext">RecordType -&gt; Natural -&gt; DnsRecord
 </span><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-var">DnsRecord'</span></a></span><span>
 </span><span id="line-373"></span><span>            </span><span class="annot"><span class="annottext">(RecordType -&gt; Natural -&gt; DnsRecord)
 -&gt; Parser RecordType -&gt; Parser (Natural -&gt; DnsRecord)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RecordType
+</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RecordType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Natural -&gt; DnsRecord) -&gt; Parser Natural -&gt; Parser DnsRecord
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679222245"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TTL&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-374"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-375"></span><span>
-</span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222230"><span id="local-6989586621679222232"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span></span></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222239"><span id="local-6989586621679222241"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span></span></span><span>
 </span><span id="line-377"></span><span>
-</span><span id="line-378"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span></span><span>
+</span><span id="line-378"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span></span><span>
 </span><span id="line-379"></span><span>
-</span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222219"><span id="local-6989586621679222221"><span id="local-6989586621679222223"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-381"></span><span>  </span><span id="local-6989586621679222217"><span class="annot"><span class="annottext">toJSON :: DnsRecord -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222214"><span id="local-6989586621679222215"><span class="annot"><span class="annottext">Natural
+</span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222228"><span id="local-6989586621679222230"><span id="local-6989586621679222232"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord"><span class="hs-identifier hs-type">DnsRecord</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-381"></span><span>  </span><span id="local-6989586621679222226"><span class="annot"><span class="annottext">toJSON :: DnsRecord -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.DnsRecord.html#DnsRecord%27"><span class="hs-identifier hs-type">DnsRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222223"><span id="local-6989586621679222224"><span class="annot"><span class="annottext">Natural
 RecordType
 ttl :: Natural
 type' :: RecordType
 $sel:ttl:DnsRecord' :: DnsRecord -&gt; Natural
 $sel:type':DnsRecord' :: DnsRecord -&gt; RecordType
-</span><a href="#local-6989586621679222214"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222223"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-382"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-383"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -505,14 +505,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RecordType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RecordType
-</span><a href="#local-6989586621679222215"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222224"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-385"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222214"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222223"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-386"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-387"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-388"></span></pre></body></html>

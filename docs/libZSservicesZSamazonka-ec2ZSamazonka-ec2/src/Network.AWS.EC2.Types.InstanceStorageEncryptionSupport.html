@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681118594"><span id="local-6989586621681118595"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceStorageEncryptionSupport"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStorageEncryptionSupport.html#InstanceStorageEncryptionSupport"><span class="hs-identifier hs-var">InstanceStorageEncryptionSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStorageEncryptionSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStorageEncryptionSupport.html#InstanceStorageEncryptionSupport%27"><span class="hs-identifier hs-var">InstanceStorageEncryptionSupport'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681118603"><span id="local-6989586621681118604"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceStorageEncryptionSupport"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStorageEncryptionSupport.html#InstanceStorageEncryptionSupport"><span class="hs-identifier hs-var">InstanceStorageEncryptionSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStorageEncryptionSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStorageEncryptionSupport.html#InstanceStorageEncryptionSupport%27"><span class="hs-identifier hs-var">InstanceStorageEncryptionSupport'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceStorageEncryptionSupport"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; Text
 </span><a href="Network.AWS.EC2.Types.InstanceStorageEncryptionSupport.html#fromInstanceStorageEncryptionSupport"><span class="hs-identifier hs-var hs-var">fromInstanceStorageEncryptionSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681118586"><span id="local-6989586621681118588"><span id="local-6989586621681118590"><span class="annot"><span class="annottext">Int -&gt; InstanceStorageEncryptionSupport -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681118595"><span id="local-6989586621681118597"><span id="local-6989586621681118599"><span class="annot"><span class="annottext">Int -&gt; InstanceStorageEncryptionSupport -&gt; ShowS
 [InstanceStorageEncryptionSupport] -&gt; ShowS
 InstanceStorageEncryptionSupport -&gt; String
 (Int -&gt; InstanceStorageEncryptionSupport -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: InstanceStorageEncryptionSupport -&gt; String
 showsPrec :: Int -&gt; InstanceStorageEncryptionSupport -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceStorageEncryptionSupport -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681118577"><span id="local-6989586621681118579"><span id="local-6989586621681118581"><span id="local-6989586621681118583"><span class="annot"><span class="annottext">ReadPrec [InstanceStorageEncryptionSupport]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681118586"><span id="local-6989586621681118588"><span id="local-6989586621681118590"><span id="local-6989586621681118592"><span class="annot"><span class="annottext">ReadPrec [InstanceStorageEncryptionSupport]
 ReadPrec InstanceStorageEncryptionSupport
 Int -&gt; ReadS InstanceStorageEncryptionSupport
 ReadS [InstanceStorageEncryptionSupport]
@@ -73,7 +73,7 @@ $creadList :: ReadS [InstanceStorageEncryptionSupport]
 readsPrec :: Int -&gt; ReadS InstanceStorageEncryptionSupport
 $creadsPrec :: Int -&gt; ReadS InstanceStorageEncryptionSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681118572"><span id="local-6989586621681118574"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681118581"><span id="local-6989586621681118583"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport
 -&gt; InstanceStorageEncryptionSupport -&gt; Bool
 (InstanceStorageEncryptionSupport
  -&gt; InstanceStorageEncryptionSupport -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: InstanceStorageEncryptionSupport
 $c== :: InstanceStorageEncryptionSupport
 -&gt; InstanceStorageEncryptionSupport -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681118556"><span id="local-6989586621681118558"><span id="local-6989586621681118560"><span id="local-6989586621681118562"><span id="local-6989586621681118564"><span id="local-6989586621681118566"><span id="local-6989586621681118568"><span class="annot"><span class="annottext">Eq InstanceStorageEncryptionSupport
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681118565"><span id="local-6989586621681118567"><span id="local-6989586621681118569"><span id="local-6989586621681118571"><span id="local-6989586621681118573"><span id="local-6989586621681118575"><span id="local-6989586621681118577"><span class="annot"><span class="annottext">Eq InstanceStorageEncryptionSupport
 Eq InstanceStorageEncryptionSupport
 -&gt; (InstanceStorageEncryptionSupport
     -&gt; InstanceStorageEncryptionSupport -&gt; Ordering)
@@ -184,7 +184,7 @@ InstanceStorageEncryptionSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681118548"><span id="local-6989586621681118550"><span class="annot"><span class="annottext">Int -&gt; InstanceStorageEncryptionSupport -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681118557"><span id="local-6989586621681118559"><span class="annot"><span class="annottext">Int -&gt; InstanceStorageEncryptionSupport -&gt; Int
 InstanceStorageEncryptionSupport -&gt; Int
 (Int -&gt; InstanceStorageEncryptionSupport -&gt; Int)
 -&gt; (InstanceStorageEncryptionSupport -&gt; Int)
@@ -195,56 +195,56 @@ $chash :: InstanceStorageEncryptionSupport -&gt; Int
 hashWithSalt :: Int -&gt; InstanceStorageEncryptionSupport -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceStorageEncryptionSupport -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681118545"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681118554"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; ()
 (InstanceStorageEncryptionSupport -&gt; ())
 -&gt; NFData InstanceStorageEncryptionSupport
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceStorageEncryptionSupport -&gt; ()
 $crnf :: InstanceStorageEncryptionSupport -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681118542"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceStorageEncryptionSupport
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681118551"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceStorageEncryptionSupport
 (Text -&gt; Either String InstanceStorageEncryptionSupport)
 -&gt; FromText InstanceStorageEncryptionSupport
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceStorageEncryptionSupport
 $cfromText :: Text -&gt; Either String InstanceStorageEncryptionSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681118539"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681118548"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; Text
 (InstanceStorageEncryptionSupport -&gt; Text)
 -&gt; ToText InstanceStorageEncryptionSupport
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceStorageEncryptionSupport -&gt; Text
 $ctoText :: InstanceStorageEncryptionSupport -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681118536"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681118545"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; ByteString
 (InstanceStorageEncryptionSupport -&gt; ByteString)
 -&gt; ToByteString InstanceStorageEncryptionSupport
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceStorageEncryptionSupport -&gt; ByteString
 $ctoBS :: InstanceStorageEncryptionSupport -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681118533"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681118542"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; ByteStringBuilder
 (InstanceStorageEncryptionSupport -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceStorageEncryptionSupport
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceStorageEncryptionSupport -&gt; ByteStringBuilder
 $cbuild :: InstanceStorageEncryptionSupport -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681118530"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceStorageEncryptionSupport -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681118539"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceStorageEncryptionSupport -&gt; [Header]
 (HeaderName -&gt; InstanceStorageEncryptionSupport -&gt; [Header])
 -&gt; ToHeader InstanceStorageEncryptionSupport
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceStorageEncryptionSupport -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceStorageEncryptionSupport -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681118527"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681118536"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; QueryString
 (InstanceStorageEncryptionSupport -&gt; QueryString)
 -&gt; ToQuery InstanceStorageEncryptionSupport
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceStorageEncryptionSupport -&gt; QueryString
 $ctoQuery :: InstanceStorageEncryptionSupport -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681118522"><span id="local-6989586621681118524"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceStorageEncryptionSupport]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681118531"><span id="local-6989586621681118533"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceStorageEncryptionSupport]
 Value -&gt; Parser InstanceStorageEncryptionSupport
 (Value -&gt; Parser InstanceStorageEncryptionSupport)
 -&gt; (Value -&gt; Parser [InstanceStorageEncryptionSupport])
@@ -256,7 +256,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceStorageEncryptionSupport]
 parseJSON :: Value -&gt; Parser InstanceStorageEncryptionSupport
 $cparseJSON :: Value -&gt; Parser InstanceStorageEncryptionSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681118517"><span id="local-6989586621681118519"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceStorageEncryptionSupport]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681118526"><span id="local-6989586621681118528"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceStorageEncryptionSupport]
 FromJSONKeyFunction InstanceStorageEncryptionSupport
 FromJSONKeyFunction InstanceStorageEncryptionSupport
 -&gt; FromJSONKeyFunction [InstanceStorageEncryptionSupport]
@@ -268,7 +268,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceStorageEncryptionSupport]
 fromJSONKey :: FromJSONKeyFunction InstanceStorageEncryptionSupport
 $cfromJSONKey :: FromJSONKeyFunction InstanceStorageEncryptionSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681118508"><span id="local-6989586621681118510"><span id="local-6989586621681118512"><span id="local-6989586621681118514"><span class="annot"><span class="annottext">[InstanceStorageEncryptionSupport] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681118517"><span id="local-6989586621681118519"><span id="local-6989586621681118521"><span id="local-6989586621681118523"><span class="annot"><span class="annottext">[InstanceStorageEncryptionSupport] -&gt; Encoding
 [InstanceStorageEncryptionSupport] -&gt; Value
 InstanceStorageEncryptionSupport -&gt; Encoding
 InstanceStorageEncryptionSupport -&gt; Value
@@ -292,7 +292,7 @@ $ctoEncoding :: InstanceStorageEncryptionSupport -&gt; Encoding
 toJSON :: InstanceStorageEncryptionSupport -&gt; Value
 $ctoJSON :: InstanceStorageEncryptionSupport -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681118503"><span id="local-6989586621681118505"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceStorageEncryptionSupport]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681118512"><span id="local-6989586621681118514"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceStorageEncryptionSupport]
 ToJSONKeyFunction InstanceStorageEncryptionSupport
 ToJSONKeyFunction InstanceStorageEncryptionSupport
 -&gt; ToJSONKeyFunction [InstanceStorageEncryptionSupport]
@@ -304,14 +304,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceStorageEncryptionSupport]
 toJSONKey :: ToJSONKeyFunction InstanceStorageEncryptionSupport
 $ctoJSONKey :: ToJSONKeyFunction InstanceStorageEncryptionSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681118500"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceStorageEncryptionSupport
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681118509"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceStorageEncryptionSupport
 ([Node] -&gt; Either String InstanceStorageEncryptionSupport)
 -&gt; FromXML InstanceStorageEncryptionSupport
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceStorageEncryptionSupport
 $cparseXML :: [Node] -&gt; Either String InstanceStorageEncryptionSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681118497"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681118506"><span class="annot"><span class="annottext">InstanceStorageEncryptionSupport -&gt; XML
 (InstanceStorageEncryptionSupport -&gt; XML)
 -&gt; ToXML InstanceStorageEncryptionSupport
 forall a. (a -&gt; XML) -&gt; ToXML a

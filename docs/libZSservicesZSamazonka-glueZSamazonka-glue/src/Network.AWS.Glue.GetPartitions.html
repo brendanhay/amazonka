@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetPartitions' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679724958"><span id="local-6989586621679724959"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPartitions"><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-var">GetPartitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPartitions%27"><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-var">GetPartitions'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679724967"><span id="local-6989586621679724968"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPartitions"><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-var">GetPartitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPartitions%27"><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-var">GetPartitions'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog where the partitions in question reside. If</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- none is provided, the Amazon Web Services account ID is used by default.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AcatalogId%3AGetPartitions%27"><span class="annot"><span class="annottext">GetPartitions -&gt; Maybe Text
@@ -168,7 +168,7 @@
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AtableName%3AGetPartitions%27"><span class="annot"><span class="annottext">GetPartitions -&gt; Text
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AtableName%3AGetPartitions%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679724945"><span id="local-6989586621679724947"><span class="annot"><span class="annottext">GetPartitions -&gt; GetPartitions -&gt; Bool
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679724954"><span id="local-6989586621679724956"><span class="annot"><span class="annottext">GetPartitions -&gt; GetPartitions -&gt; Bool
 (GetPartitions -&gt; GetPartitions -&gt; Bool)
 -&gt; (GetPartitions -&gt; GetPartitions -&gt; Bool) -&gt; Eq GetPartitions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -176,7 +176,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPartitions -&gt; GetPartitions -&gt; Bool
 == :: GetPartitions -&gt; GetPartitions -&gt; Bool
 $c== :: GetPartitions -&gt; GetPartitions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724936"><span id="local-6989586621679724938"><span id="local-6989586621679724940"><span id="local-6989586621679724942"><span class="annot"><span class="annottext">ReadPrec [GetPartitions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724945"><span id="local-6989586621679724947"><span id="local-6989586621679724949"><span id="local-6989586621679724951"><span class="annot"><span class="annottext">ReadPrec [GetPartitions]
 ReadPrec GetPartitions
 Int -&gt; ReadS GetPartitions
 ReadS [GetPartitions]
@@ -196,7 +196,7 @@ readList :: ReadS [GetPartitions]
 $creadList :: ReadS [GetPartitions]
 readsPrec :: Int -&gt; ReadS GetPartitions
 $creadsPrec :: Int -&gt; ReadS GetPartitions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724929"><span id="local-6989586621679724931"><span id="local-6989586621679724933"><span class="annot"><span class="annottext">Int -&gt; GetPartitions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724938"><span id="local-6989586621679724940"><span id="local-6989586621679724942"><span class="annot"><span class="annottext">Int -&gt; GetPartitions -&gt; ShowS
 [GetPartitions] -&gt; ShowS
 GetPartitions -&gt; String
 (Int -&gt; GetPartitions -&gt; ShowS)
@@ -337,9 +337,9 @@ $cfrom :: forall x. GetPartitions -&gt; Rep GetPartitions x
 </span><span id="line-277"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-278"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span>
 </span><span id="line-279"></span><span id="newGetPartitions"><span class="annot"><span class="annottext">newGetPartitions :: Text -&gt; Text -&gt; GetPartitions
-</span><a href="Network.AWS.Glue.GetPartitions.html#newGetPartitions"><span class="hs-identifier hs-var hs-var">newGetPartitions</span></a></span></span><span> </span><span id="local-6989586621679724924"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724924"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679724923"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724923"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetPartitions.html#newGetPartitions"><span class="hs-identifier hs-var hs-var">newGetPartitions</span></a></span></span><span> </span><span id="local-6989586621679724933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679724933"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679724932"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679724932"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-280"></span><span>  </span><span class="annot"><span class="annottext">GetPartitions' :: Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -376,10 +376,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:GetPartitions' :: Text
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AdatabaseName%3AGetPartitions%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724924"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679724933"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:GetPartitions' :: Text
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AtableName%3AGetPartitions%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724923"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
+</span><a href="#local-6989586621679724932"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
 </span><span id="line-289"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | The ID of the Data Catalog where the partitions in question reside. If</span><span>
@@ -390,16 +390,16 @@ forall a. Maybe a
 -&gt; (GetPartitions -&gt; Maybe Text -&gt; GetPartitions)
 -&gt; Lens GetPartitions GetPartitions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724921"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724930"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:GetPartitions' :: GetPartitions -&gt; Maybe Text
-</span><a href="#local-6989586621679724921"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724921"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724920"><span class="annot"><span class="annottext">s :: GetPartitions
-</span><a href="#local-6989586621679724920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724919"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetPartitions' :: Maybe Text
+</span><a href="#local-6989586621679724930"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679724930"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724929"><span class="annot"><span class="annottext">s :: GetPartitions
+</span><a href="#local-6989586621679724929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724928"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679724928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
+</span><a href="#local-6989586621679724929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetPartitions' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AcatalogId%3AGetPartitions%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-295"></span><span>
 </span><span id="line-296"></span><span class="hs-comment">-- | When true, specifies not returning the partition column schema. Useful</span><span>
 </span><span id="line-297"></span><span class="hs-comment">-- when you are interested only in other partition attributes such as</span><span>
@@ -411,16 +411,16 @@ $sel:catalogId:GetPartitions' :: GetPartitions -&gt; Maybe Text
 -&gt; (GetPartitions -&gt; Maybe Bool -&gt; GetPartitions)
 -&gt; Lens GetPartitions GetPartitions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724918"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724927"><span class="annot"><span class="annottext">Maybe Bool
 excludeColumnSchema :: Maybe Bool
 $sel:excludeColumnSchema:GetPartitions' :: GetPartitions -&gt; Maybe Bool
-</span><a href="#local-6989586621679724918"><span class="hs-identifier hs-var hs-var">excludeColumnSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679724918"><span class="hs-identifier hs-var">excludeColumnSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724917"><span class="annot"><span class="annottext">s :: GetPartitions
-</span><a href="#local-6989586621679724917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724916"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679724916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeColumnSchema:GetPartitions' :: Maybe Bool
+</span><a href="#local-6989586621679724927"><span class="hs-identifier hs-var hs-var">excludeColumnSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679724927"><span class="hs-identifier hs-var">excludeColumnSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724926"><span class="annot"><span class="annottext">s :: GetPartitions
+</span><a href="#local-6989586621679724926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724925"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679724925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
+</span><a href="#local-6989586621679724926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeColumnSchema:GetPartitions' :: Maybe Bool
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AexcludeColumnSchema%3AGetPartitions%27"><span class="hs-identifier hs-var">excludeColumnSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679724916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- | A continuation token, if this is not the first call to retrieve these</span><span>
 </span><span id="line-304"></span><span class="hs-comment">-- partitions.</span><span>
@@ -430,16 +430,16 @@ $sel:excludeColumnSchema:GetPartitions' :: GetPartitions -&gt; Maybe Bool
 -&gt; (GetPartitions -&gt; Maybe Text -&gt; GetPartitions)
 -&gt; Lens GetPartitions GetPartitions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724915"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724924"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetPartitions' :: GetPartitions -&gt; Maybe Text
-</span><a href="#local-6989586621679724915"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724915"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724914"><span class="annot"><span class="annottext">s :: GetPartitions
-</span><a href="#local-6989586621679724914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724913"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPartitions' :: Maybe Text
+</span><a href="#local-6989586621679724924"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679724924"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724923"><span class="annot"><span class="annottext">s :: GetPartitions
+</span><a href="#local-6989586621679724923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724922"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679724922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
+</span><a href="#local-6989586621679724923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPartitions' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AnextToken%3AGetPartitions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | An expression that filters the partitions to be returned.</span><span>
 </span><span id="line-309"></span><span class="hs-comment">--</span><span>
@@ -528,16 +528,16 @@ $sel:nextToken:GetPartitions' :: GetPartitions -&gt; Maybe Text
 -&gt; (GetPartitions -&gt; Maybe Text -&gt; GetPartitions)
 -&gt; Lens GetPartitions GetPartitions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724912"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724921"><span class="annot"><span class="annottext">Maybe Text
 expression :: Maybe Text
 $sel:expression:GetPartitions' :: GetPartitions -&gt; Maybe Text
-</span><a href="#local-6989586621679724912"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724912"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724911"><span class="annot"><span class="annottext">s :: GetPartitions
-</span><a href="#local-6989586621679724911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724910"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:GetPartitions' :: Maybe Text
+</span><a href="#local-6989586621679724921"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679724921"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724920"><span class="annot"><span class="annottext">s :: GetPartitions
+</span><a href="#local-6989586621679724920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724919"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679724919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
+</span><a href="#local-6989586621679724920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:GetPartitions' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3Aexpression%3AGetPartitions%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-391"></span><span>
 </span><span id="line-392"></span><span class="hs-comment">-- | The segment of the table\'s partitions to scan in this request.</span><span>
 </span><span id="line-393"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#getPartitions_segment"><span class="hs-identifier hs-type">getPartitions_segment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Segment.html#Segment"><span class="hs-identifier hs-type">Segment</span></a></span><span class="hs-special">)</span><span>
@@ -547,16 +547,16 @@ $sel:expression:GetPartitions' :: GetPartitions -&gt; Maybe Text
 -&gt; (GetPartitions -&gt; Maybe Segment -&gt; GetPartitions)
 -&gt; Lens GetPartitions GetPartitions (Maybe Segment) (Maybe Segment)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724909"><span class="annot"><span class="annottext">Maybe Segment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724918"><span class="annot"><span class="annottext">Maybe Segment
 segment :: Maybe Segment
 $sel:segment:GetPartitions' :: GetPartitions -&gt; Maybe Segment
-</span><a href="#local-6989586621679724909"><span class="hs-identifier hs-var hs-var">segment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Segment
-</span><a href="#local-6989586621679724909"><span class="hs-identifier hs-var">segment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724908"><span class="annot"><span class="annottext">s :: GetPartitions
-</span><a href="#local-6989586621679724908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724907"><span class="annot"><span class="annottext">Maybe Segment
-</span><a href="#local-6989586621679724907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segment:GetPartitions' :: Maybe Segment
+</span><a href="#local-6989586621679724918"><span class="hs-identifier hs-var hs-var">segment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Segment
+</span><a href="#local-6989586621679724918"><span class="hs-identifier hs-var">segment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724917"><span class="annot"><span class="annottext">s :: GetPartitions
+</span><a href="#local-6989586621679724917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724916"><span class="annot"><span class="annottext">Maybe Segment
+</span><a href="#local-6989586621679724916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
+</span><a href="#local-6989586621679724917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segment:GetPartitions' :: Maybe Segment
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3Asegment%3AGetPartitions%27"><span class="hs-identifier hs-var">segment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Segment
-</span><a href="#local-6989586621679724907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-395"></span><span>
 </span><span id="line-396"></span><span class="hs-comment">-- | The maximum number of partitions to return in a single response.</span><span>
 </span><span id="line-397"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#getPartitions_maxResults"><span class="hs-identifier hs-type">getPartitions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -566,16 +566,16 @@ $sel:segment:GetPartitions' :: GetPartitions -&gt; Maybe Segment
 -&gt; (GetPartitions -&gt; Maybe Natural -&gt; GetPartitions)
 -&gt; Lens GetPartitions GetPartitions (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724906"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724915"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetPartitions' :: GetPartitions -&gt; Maybe Natural
-</span><a href="#local-6989586621679724906"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679724906"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724905"><span class="annot"><span class="annottext">s :: GetPartitions
-</span><a href="#local-6989586621679724905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724904"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679724904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetPartitions' :: Maybe Natural
+</span><a href="#local-6989586621679724915"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679724915"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724914"><span class="annot"><span class="annottext">s :: GetPartitions
+</span><a href="#local-6989586621679724914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724913"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679724913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
+</span><a href="#local-6989586621679724914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetPartitions' :: Maybe Natural
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AmaxResults%3AGetPartitions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679724904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-399"></span><span>
 </span><span id="line-400"></span><span class="hs-comment">-- | The name of the catalog database where the partitions reside.</span><span>
 </span><span id="line-401"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#getPartitions_databaseName"><span class="hs-identifier hs-type">getPartitions_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -584,16 +584,16 @@ $sel:maxResults:GetPartitions' :: GetPartitions -&gt; Maybe Natural
 -&gt; (GetPartitions -&gt; Text -&gt; GetPartitions)
 -&gt; Lens GetPartitions GetPartitions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724903"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724912"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:GetPartitions' :: GetPartitions -&gt; Text
-</span><a href="#local-6989586621679724903"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724903"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724902"><span class="annot"><span class="annottext">s :: GetPartitions
-</span><a href="#local-6989586621679724902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724901"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetPartitions' :: Text
+</span><a href="#local-6989586621679724912"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679724912"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724911"><span class="annot"><span class="annottext">s :: GetPartitions
+</span><a href="#local-6989586621679724911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679724910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
+</span><a href="#local-6989586621679724911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetPartitions' :: Text
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AdatabaseName%3AGetPartitions%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-403"></span><span>
 </span><span id="line-404"></span><span class="hs-comment">-- | The name of the partitions\' table.</span><span>
 </span><span id="line-405"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#getPartitions_tableName"><span class="hs-identifier hs-type">getPartitions_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -602,28 +602,28 @@ $sel:databaseName:GetPartitions' :: GetPartitions -&gt; Text
 -&gt; (GetPartitions -&gt; Text -&gt; GetPartitions)
 -&gt; Lens GetPartitions GetPartitions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724900"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724909"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:GetPartitions' :: GetPartitions -&gt; Text
-</span><a href="#local-6989586621679724900"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724900"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724899"><span class="annot"><span class="annottext">s :: GetPartitions
-</span><a href="#local-6989586621679724899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724898"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:GetPartitions' :: Text
+</span><a href="#local-6989586621679724909"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679724909"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724908"><span class="annot"><span class="annottext">s :: GetPartitions
+</span><a href="#local-6989586621679724908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724907"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679724907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitions
+</span><a href="#local-6989586621679724908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:GetPartitions' :: Text
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AtableName%3AGetPartitions%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-407"></span><span>
 </span><span id="line-408"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-409"></span><span>  </span><span id="local-6989586621679724894"><span class="annot"><span class="annottext">page :: GetPartitions -&gt; AWSResponse GetPartitions -&gt; Maybe GetPartitions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679724892"><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724892"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679724891"><span class="annot"><span class="annottext">AWSResponse GetPartitions
-</span><a href="#local-6989586621679724891"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-409"></span><span>  </span><span id="local-6989586621679724903"><span class="annot"><span class="annottext">page :: GetPartitions -&gt; AWSResponse GetPartitions -&gt; Maybe GetPartitions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679724901"><span class="annot"><span class="annottext">GetPartitions
+</span><a href="#local-6989586621679724901"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679724900"><span class="annot"><span class="annottext">AWSResponse GetPartitions
+</span><a href="#local-6989586621679724900"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-410"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-411"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetPartitions
 GetPartitionsResponse
-</span><a href="#local-6989586621679724891"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679724900"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-412"></span><span>            </span><span class="annot"><span class="annottext">GetPartitionsResponse
 -&gt; Getting (First Text) GetPartitionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -651,7 +651,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-416"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetPartitions
 GetPartitionsResponse
-</span><a href="#local-6989586621679724891"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679724900"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-417"></span><span>            </span><span class="annot"><span class="annottext">GetPartitionsResponse
 -&gt; Getting (First [Partition]) GetPartitionsResponse [Partition]
 -&gt; Maybe [Partition]
@@ -689,7 +689,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-423"></span><span>        </span><span class="annot"><span class="annottext">GetPartitions
-</span><a href="#local-6989586621679724892"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679724901"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-424"></span><span>          </span><span class="annot"><span class="annottext">GetPartitions -&gt; (GetPartitions -&gt; GetPartitions) -&gt; GetPartitions
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -702,7 +702,7 @@ Lens GetPartitions GetPartitions (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetPartitions
 GetPartitionsResponse
-</span><a href="#local-6989586621679724891"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679724900"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-426"></span><span>          </span><span class="annot"><span class="annottext">GetPartitionsResponse
 -&gt; Getting (First Text) GetPartitionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -726,12 +726,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-429"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-430"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-431"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span><span>
-</span><span id="line-432"></span><span>  </span><span id="local-6989586621679724881"><span class="annot"><span class="annottext">request :: GetPartitions -&gt; Request GetPartitions
+</span><span id="line-432"></span><span>  </span><span id="local-6989586621679724890"><span class="annot"><span class="annottext">request :: GetPartitions -&gt; Request GetPartitions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetPartitions -&gt; Request GetPartitions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-433"></span><span>  </span><span id="local-6989586621679724877"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-433"></span><span>  </span><span id="local-6989586621679724886"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetPartitions
 -&gt; ClientResponse ClientBody
@@ -755,10 +755,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-435"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679724874"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724874"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679724873"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679724873"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679724872"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679724872"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-435"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679724883"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679724883"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679724882"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679724882"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679724881"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679724881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-436"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Partition] -&gt; Maybe Text -&gt; Int -&gt; GetPartitionsResponse
 </span><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-var">GetPartitionsResponse'</span></a></span><span>
 </span><span id="line-437"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Partition] -&gt; Maybe Text -&gt; Int -&gt; GetPartitionsResponse)
@@ -766,7 +766,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetPartitionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679724872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Partition]))
+</span><a href="#local-6989586621679724881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Partition]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Partitions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Partition]))
@@ -780,7 +780,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetPartitionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679724872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679724881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -792,15 +792,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724874"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724883"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-440"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-441"></span><span>
-</span><span id="line-442"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724863"><span id="local-6989586621679724865"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span></span></span><span>
+</span><span id="line-442"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724872"><span id="local-6989586621679724874"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span></span></span><span>
 </span><span id="line-443"></span><span>
-</span><span id="line-444"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span></span><span>
+</span><span id="line-444"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span></span><span>
 </span><span id="line-445"></span><span>
 </span><span id="line-446"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-447"></span><span>  </span><span id="local-6989586621679724856"><span class="annot"><span class="annottext">toHeaders :: GetPartitions -&gt; ResponseHeaders
+</span><span id="line-447"></span><span>  </span><span id="local-6989586621679724865"><span class="annot"><span class="annottext">toHeaders :: GetPartitions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-448"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPartitions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -825,9 +825,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-456"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-457"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-458"></span><span>
-</span><span id="line-459"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724846"><span id="local-6989586621679724848"><span id="local-6989586621679724850"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-460"></span><span>  </span><span id="local-6989586621679724844"><span class="annot"><span class="annottext">toJSON :: GetPartitions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724835"><span id="local-6989586621679724836"><span id="local-6989586621679724837"><span id="local-6989586621679724838"><span id="local-6989586621679724839"><span id="local-6989586621679724840"><span id="local-6989586621679724841"><span id="local-6989586621679724842"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-459"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724855"><span id="local-6989586621679724857"><span id="local-6989586621679724859"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-460"></span><span>  </span><span id="local-6989586621679724853"><span class="annot"><span class="annottext">toJSON :: GetPartitions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions%27"><span class="hs-identifier hs-type">GetPartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724844"><span id="local-6989586621679724845"><span id="local-6989586621679724846"><span id="local-6989586621679724847"><span id="local-6989586621679724848"><span id="local-6989586621679724849"><span id="local-6989586621679724850"><span id="local-6989586621679724851"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 Maybe Segment
@@ -848,7 +848,7 @@ $sel:expression:GetPartitions' :: GetPartitions -&gt; Maybe Text
 $sel:nextToken:GetPartitions' :: GetPartitions -&gt; Maybe Text
 $sel:excludeColumnSchema:GetPartitions' :: GetPartitions -&gt; Maybe Bool
 $sel:catalogId:GetPartitions' :: GetPartitions -&gt; Maybe Text
-</span><a href="#local-6989586621679724835"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679724844"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-461"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-462"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -860,7 +860,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724842"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679724851"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-464"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExcludeColumnSchema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -868,61 +868,61 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-465"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679724841"><span class="hs-identifier hs-var">excludeColumnSchema</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679724850"><span class="hs-identifier hs-var">excludeColumnSchema</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-466"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724840"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679724849"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-467"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Expression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724839"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679724848"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-468"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Segment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Segment -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Segment -&gt; Pair) -&gt; Maybe Segment -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Segment
-</span><a href="#local-6989586621679724838"><span class="hs-identifier hs-var">segment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679724847"><span class="hs-identifier hs-var">segment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-469"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679724837"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679724846"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-470"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724836"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679724845"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-471"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724835"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724844"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-472"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-473"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-474"></span><span>
 </span><span id="line-475"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-476"></span><span>  </span><span id="local-6989586621679724829"><span class="annot"><span class="annottext">toPath :: GetPartitions -&gt; ByteString
+</span><span id="line-476"></span><span>  </span><span id="local-6989586621679724838"><span class="annot"><span class="annottext">toPath :: GetPartitions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPartitions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-477"></span><span>
 </span><span id="line-478"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitions"><span class="hs-identifier hs-type">GetPartitions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-479"></span><span>  </span><span id="local-6989586621679724825"><span class="annot"><span class="annottext">toQuery :: GetPartitions -&gt; QueryString
+</span><span id="line-479"></span><span>  </span><span id="local-6989586621679724834"><span class="annot"><span class="annottext">toQuery :: GetPartitions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetPartitions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -930,7 +930,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-480"></span><span>
 </span><span id="line-481"></span><span class="hs-comment">-- | /See:/ 'newGetPartitionsResponse' smart constructor.</span><span>
-</span><span id="line-482"></span><span id="local-6989586621679724822"><span id="local-6989586621679724823"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPartitionsResponse"><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-var">GetPartitionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPartitionsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-var">GetPartitionsResponse'</span></a></span></span><span>
+</span><span id="line-482"></span><span id="local-6989586621679724831"><span id="local-6989586621679724832"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPartitionsResponse"><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-var">GetPartitionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPartitionsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-var">GetPartitionsResponse'</span></a></span></span><span>
 </span><span id="line-483"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of requested partitions.</span><span>
 </span><span id="line-484"></span><span>    </span><span id="%24sel%3Apartitions%3AGetPartitionsResponse%27"><span class="annot"><span class="annottext">GetPartitionsResponse -&gt; Maybe [Partition]
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3Apartitions%3AGetPartitionsResponse%27"><span class="hs-identifier hs-var hs-var">partitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Partition.html#Partition"><span class="hs-identifier hs-type">Partition</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -942,7 +942,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-489"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPartitionsResponse%27"><span class="annot"><span class="annottext">GetPartitionsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AhttpStatus%3AGetPartitionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-490"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-491"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679724815"><span id="local-6989586621679724817"><span class="annot"><span class="annottext">GetPartitionsResponse -&gt; GetPartitionsResponse -&gt; Bool
+</span><span id="line-491"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679724824"><span id="local-6989586621679724826"><span class="annot"><span class="annottext">GetPartitionsResponse -&gt; GetPartitionsResponse -&gt; Bool
 (GetPartitionsResponse -&gt; GetPartitionsResponse -&gt; Bool)
 -&gt; (GetPartitionsResponse -&gt; GetPartitionsResponse -&gt; Bool)
 -&gt; Eq GetPartitionsResponse
@@ -951,7 +951,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetPartitionsResponse -&gt; GetPartitionsResponse -&gt; Bool
 == :: GetPartitionsResponse -&gt; GetPartitionsResponse -&gt; Bool
 $c== :: GetPartitionsResponse -&gt; GetPartitionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724807"><span id="local-6989586621679724809"><span id="local-6989586621679724811"><span id="local-6989586621679724813"><span class="annot"><span class="annottext">ReadPrec [GetPartitionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724816"><span id="local-6989586621679724818"><span id="local-6989586621679724820"><span id="local-6989586621679724822"><span class="annot"><span class="annottext">ReadPrec [GetPartitionsResponse]
 ReadPrec GetPartitionsResponse
 Int -&gt; ReadS GetPartitionsResponse
 ReadS [GetPartitionsResponse]
@@ -971,7 +971,7 @@ readList :: ReadS [GetPartitionsResponse]
 $creadList :: ReadS [GetPartitionsResponse]
 readsPrec :: Int -&gt; ReadS GetPartitionsResponse
 $creadsPrec :: Int -&gt; ReadS GetPartitionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724801"><span id="local-6989586621679724803"><span id="local-6989586621679724805"><span class="annot"><span class="annottext">Int -&gt; GetPartitionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724810"><span id="local-6989586621679724812"><span id="local-6989586621679724814"><span class="annot"><span class="annottext">Int -&gt; GetPartitionsResponse -&gt; ShowS
 [GetPartitionsResponse] -&gt; ShowS
 GetPartitionsResponse -&gt; String
 (Int -&gt; GetPartitionsResponse -&gt; ShowS)
@@ -1016,8 +1016,8 @@ $cfrom :: forall x. GetPartitionsResponse -&gt; Rep GetPartitionsResponse x
 </span><span id="line-509"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-510"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span><span>
 </span><span id="line-511"></span><span id="newGetPartitionsResponse"><span class="annot"><span class="annottext">newGetPartitionsResponse :: Int -&gt; GetPartitionsResponse
-</span><a href="Network.AWS.Glue.GetPartitions.html#newGetPartitionsResponse"><span class="hs-identifier hs-var hs-var">newGetPartitionsResponse</span></a></span></span><span> </span><span id="local-6989586621679724798"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetPartitions.html#newGetPartitionsResponse"><span class="hs-identifier hs-var hs-var">newGetPartitionsResponse</span></a></span></span><span> </span><span id="local-6989586621679724807"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679724807"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-512"></span><span>  </span><span class="annot"><span class="annottext">GetPartitionsResponse' :: Maybe [Partition] -&gt; Maybe Text -&gt; Int -&gt; GetPartitionsResponse
 </span><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span>
 </span><span id="line-513"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:partitions:GetPartitionsResponse' :: Maybe [Partition]
@@ -1031,7 +1031,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-516"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPartitionsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AhttpStatus%3AGetPartitionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679724807"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-517"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-518"></span><span>
 </span><span id="line-519"></span><span class="hs-comment">-- | A list of requested partitions.</span><span>
@@ -1043,16 +1043,16 @@ forall a. Maybe a
     -&gt; Maybe [Partition] -&gt; GetPartitionsResponse)
 -&gt; Lens' GetPartitionsResponse (Maybe [Partition])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724797"><span class="annot"><span class="annottext">Maybe [Partition]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724806"><span class="annot"><span class="annottext">Maybe [Partition]
 partitions :: Maybe [Partition]
 $sel:partitions:GetPartitionsResponse' :: GetPartitionsResponse -&gt; Maybe [Partition]
-</span><a href="#local-6989586621679724797"><span class="hs-identifier hs-var hs-var">partitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Partition]
-</span><a href="#local-6989586621679724797"><span class="hs-identifier hs-var">partitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724796"><span class="annot"><span class="annottext">s :: GetPartitionsResponse
-</span><a href="#local-6989586621679724796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724795"><span class="annot"><span class="annottext">Maybe [Partition]
-</span><a href="#local-6989586621679724795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionsResponse
-</span><a href="#local-6989586621679724796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitions:GetPartitionsResponse' :: Maybe [Partition]
+</span><a href="#local-6989586621679724806"><span class="hs-identifier hs-var hs-var">partitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Partition]
+</span><a href="#local-6989586621679724806"><span class="hs-identifier hs-var">partitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724805"><span class="annot"><span class="annottext">s :: GetPartitionsResponse
+</span><a href="#local-6989586621679724805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724804"><span class="annot"><span class="annottext">Maybe [Partition]
+</span><a href="#local-6989586621679724804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionsResponse
+</span><a href="#local-6989586621679724805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitions:GetPartitionsResponse' :: Maybe [Partition]
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3Apartitions%3AGetPartitionsResponse%27"><span class="hs-identifier hs-var">partitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Partition]
-</span><a href="#local-6989586621679724795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Partition] -&gt; f (Maybe [Partition]))
+</span><a href="#local-6989586621679724804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Partition] -&gt; f (Maybe [Partition]))
  -&gt; GetPartitionsResponse -&gt; f GetPartitionsResponse)
 -&gt; ((Maybe [Partition] -&gt; f (Maybe [Partition]))
     -&gt; Maybe [Partition] -&gt; f (Maybe [Partition]))
@@ -1082,16 +1082,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetPartitionsResponse -&gt; Maybe Text -&gt; GetPartitionsResponse)
 -&gt; Lens' GetPartitionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724792"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724801"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetPartitionsResponse' :: GetPartitionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679724792"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724792"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724791"><span class="annot"><span class="annottext">s :: GetPartitionsResponse
-</span><a href="#local-6989586621679724791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724790"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionsResponse
-</span><a href="#local-6989586621679724791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPartitionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679724801"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679724801"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724800"><span class="annot"><span class="annottext">s :: GetPartitionsResponse
+</span><a href="#local-6989586621679724800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724799"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679724799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionsResponse
+</span><a href="#local-6989586621679724800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetPartitionsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AnextToken%3AGetPartitionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-527"></span><span>
 </span><span id="line-528"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-529"></span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#getPartitionsResponse_httpStatus"><span class="hs-identifier hs-type">getPartitionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1100,16 +1100,16 @@ $sel:nextToken:GetPartitionsResponse' :: GetPartitionsResponse -&gt; Maybe Text
 -&gt; (GetPartitionsResponse -&gt; Int -&gt; GetPartitionsResponse)
 -&gt; Lens GetPartitionsResponse GetPartitionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724789"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724798"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetPartitionsResponse' :: GetPartitionsResponse -&gt; Int
-</span><a href="#local-6989586621679724789"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724789"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724788"><span class="annot"><span class="annottext">s :: GetPartitionsResponse
-</span><a href="#local-6989586621679724788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724787"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionsResponse
-</span><a href="#local-6989586621679724788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPartitionsResponse' :: Int
+</span><a href="#local-6989586621679724798"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679724798"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724797"><span class="annot"><span class="annottext">s :: GetPartitionsResponse
+</span><a href="#local-6989586621679724797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse%27"><span class="hs-identifier hs-type">GetPartitionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724796"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679724796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPartitionsResponse
+</span><a href="#local-6989586621679724797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPartitionsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetPartitions.html#%24sel%3AhttpStatus%3AGetPartitionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679724796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-531"></span><span>
-</span><span id="line-532"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span></span><span>
+</span><span id="line-532"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetPartitions.html#GetPartitionsResponse"><span class="hs-identifier hs-type">GetPartitionsResponse</span></a></span></span><span>
 </span><span id="line-533"></span></pre></body></html>

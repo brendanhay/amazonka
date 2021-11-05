@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Nimble.Types.StudioPersona</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Nimble.Types.StudioPersona</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioPersona.html#StudioPersona"><span class="hs-identifier">StudioPersona</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioPersona.html#StudioPersona_ADMINISTRATOR"><span class="hs-identifier">StudioPersona_ADMINISTRATOR</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679288341"><span id="local-6989586621679288342"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StudioPersona"><span class="annot"><a href="Network.AWS.Nimble.Types.StudioPersona.html#StudioPersona"><span class="hs-identifier hs-var">StudioPersona</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StudioPersona%27"><span class="annot"><a href="Network.AWS.Nimble.Types.StudioPersona.html#StudioPersona%27"><span class="hs-identifier hs-var">StudioPersona'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStudioPersona"><span class="annot"><span class="annottext">StudioPersona -&gt; Text
+</span><a href="Network.AWS.Nimble.Types.StudioPersona.html#fromStudioPersona"><span class="hs-identifier hs-var hs-var">fromStudioPersona</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679288333"><span id="local-6989586621679288335"><span id="local-6989586621679288337"><span class="annot"><span class="annottext">Int -&gt; StudioPersona -&gt; ShowS
+[StudioPersona] -&gt; ShowS
+StudioPersona -&gt; String
+(Int -&gt; StudioPersona -&gt; ShowS)
+-&gt; (StudioPersona -&gt; String)
+-&gt; ([StudioPersona] -&gt; ShowS)
+-&gt; Show StudioPersona
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StudioPersona] -&gt; ShowS
+$cshowList :: [StudioPersona] -&gt; ShowS
+show :: StudioPersona -&gt; String
+$cshow :: StudioPersona -&gt; String
+showsPrec :: Int -&gt; StudioPersona -&gt; ShowS
+$cshowsPrec :: Int -&gt; StudioPersona -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679288324"><span id="local-6989586621679288326"><span id="local-6989586621679288328"><span id="local-6989586621679288330"><span class="annot"><span class="annottext">ReadPrec [StudioPersona]
+ReadPrec StudioPersona
+Int -&gt; ReadS StudioPersona
+ReadS [StudioPersona]
+(Int -&gt; ReadS StudioPersona)
+-&gt; ReadS [StudioPersona]
+-&gt; ReadPrec StudioPersona
+-&gt; ReadPrec [StudioPersona]
+-&gt; Read StudioPersona
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StudioPersona]
+$creadListPrec :: ReadPrec [StudioPersona]
+readPrec :: ReadPrec StudioPersona
+$creadPrec :: ReadPrec StudioPersona
+readList :: ReadS [StudioPersona]
+$creadList :: ReadS [StudioPersona]
+readsPrec :: Int -&gt; ReadS StudioPersona
+$creadsPrec :: Int -&gt; ReadS StudioPersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679288319"><span id="local-6989586621679288321"><span class="annot"><span class="annottext">StudioPersona -&gt; StudioPersona -&gt; Bool
+(StudioPersona -&gt; StudioPersona -&gt; Bool)
+-&gt; (StudioPersona -&gt; StudioPersona -&gt; Bool) -&gt; Eq StudioPersona
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StudioPersona -&gt; StudioPersona -&gt; Bool
+$c/= :: StudioPersona -&gt; StudioPersona -&gt; Bool
+== :: StudioPersona -&gt; StudioPersona -&gt; Bool
+$c== :: StudioPersona -&gt; StudioPersona -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679288303"><span id="local-6989586621679288305"><span id="local-6989586621679288307"><span id="local-6989586621679288309"><span id="local-6989586621679288311"><span id="local-6989586621679288313"><span id="local-6989586621679288315"><span class="annot"><span class="annottext">Eq StudioPersona
+Eq StudioPersona
+-&gt; (StudioPersona -&gt; StudioPersona -&gt; Ordering)
+-&gt; (StudioPersona -&gt; StudioPersona -&gt; Bool)
+-&gt; (StudioPersona -&gt; StudioPersona -&gt; Bool)
+-&gt; (StudioPersona -&gt; StudioPersona -&gt; Bool)
+-&gt; (StudioPersona -&gt; StudioPersona -&gt; Bool)
+-&gt; (StudioPersona -&gt; StudioPersona -&gt; StudioPersona)
+-&gt; (StudioPersona -&gt; StudioPersona -&gt; StudioPersona)
+-&gt; Ord StudioPersona
+StudioPersona -&gt; StudioPersona -&gt; Bool
+StudioPersona -&gt; StudioPersona -&gt; Ordering
+StudioPersona -&gt; StudioPersona -&gt; StudioPersona
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StudioPersona -&gt; StudioPersona -&gt; StudioPersona
+$cmin :: StudioPersona -&gt; StudioPersona -&gt; StudioPersona
+max :: StudioPersona -&gt; StudioPersona -&gt; StudioPersona
+$cmax :: StudioPersona -&gt; StudioPersona -&gt; StudioPersona
+&gt;= :: StudioPersona -&gt; StudioPersona -&gt; Bool
+$c&gt;= :: StudioPersona -&gt; StudioPersona -&gt; Bool
+&gt; :: StudioPersona -&gt; StudioPersona -&gt; Bool
+$c&gt; :: StudioPersona -&gt; StudioPersona -&gt; Bool
+&lt;= :: StudioPersona -&gt; StudioPersona -&gt; Bool
+$c&lt;= :: StudioPersona -&gt; StudioPersona -&gt; Bool
+&lt; :: StudioPersona -&gt; StudioPersona -&gt; Bool
+$c&lt; :: StudioPersona -&gt; StudioPersona -&gt; Bool
+compare :: StudioPersona -&gt; StudioPersona -&gt; Ordering
+$ccompare :: StudioPersona -&gt; StudioPersona -&gt; Ordering
+$cp1Ord :: Eq StudioPersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StudioPersona -&gt; Rep StudioPersona x)
+-&gt; (forall x. Rep StudioPersona x -&gt; StudioPersona)
+-&gt; Generic StudioPersona
+forall x. Rep StudioPersona x -&gt; StudioPersona
+forall x. StudioPersona -&gt; Rep StudioPersona x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StudioPersona x -&gt; StudioPersona
+$cfrom :: forall x. StudioPersona -&gt; Rep StudioPersona x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679288295"><span id="local-6989586621679288297"><span class="annot"><span class="annottext">Int -&gt; StudioPersona -&gt; Int
+StudioPersona -&gt; Int
+(Int -&gt; StudioPersona -&gt; Int)
+-&gt; (StudioPersona -&gt; Int) -&gt; Hashable StudioPersona
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StudioPersona -&gt; Int
+$chash :: StudioPersona -&gt; Int
+hashWithSalt :: Int -&gt; StudioPersona -&gt; Int
+$chashWithSalt :: Int -&gt; StudioPersona -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679288292"><span class="annot"><span class="annottext">StudioPersona -&gt; ()
+(StudioPersona -&gt; ()) -&gt; NFData StudioPersona
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StudioPersona -&gt; ()
+$crnf :: StudioPersona -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679288289"><span class="annot"><span class="annottext">Text -&gt; Either String StudioPersona
+(Text -&gt; Either String StudioPersona) -&gt; FromText StudioPersona
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StudioPersona
+$cfromText :: Text -&gt; Either String StudioPersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679288286"><span class="annot"><span class="annottext">StudioPersona -&gt; Text
+(StudioPersona -&gt; Text) -&gt; ToText StudioPersona
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StudioPersona -&gt; Text
+$ctoText :: StudioPersona -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679288283"><span class="annot"><span class="annottext">StudioPersona -&gt; ByteString
+(StudioPersona -&gt; ByteString) -&gt; ToByteString StudioPersona
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StudioPersona -&gt; ByteString
+$ctoBS :: StudioPersona -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679288280"><span class="annot"><span class="annottext">StudioPersona -&gt; ByteStringBuilder
+(StudioPersona -&gt; ByteStringBuilder) -&gt; ToLog StudioPersona
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StudioPersona -&gt; ByteStringBuilder
+$cbuild :: StudioPersona -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679288277"><span class="annot"><span class="annottext">HeaderName -&gt; StudioPersona -&gt; [Header]
+(HeaderName -&gt; StudioPersona -&gt; [Header]) -&gt; ToHeader StudioPersona
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StudioPersona -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StudioPersona -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679288274"><span class="annot"><span class="annottext">StudioPersona -&gt; QueryString
+(StudioPersona -&gt; QueryString) -&gt; ToQuery StudioPersona
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StudioPersona -&gt; QueryString
+$ctoQuery :: StudioPersona -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679288269"><span id="local-6989586621679288271"><span class="annot"><span class="annottext">Value -&gt; Parser [StudioPersona]
+Value -&gt; Parser StudioPersona
+(Value -&gt; Parser StudioPersona)
+-&gt; (Value -&gt; Parser [StudioPersona]) -&gt; FromJSON StudioPersona
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StudioPersona]
+$cparseJSONList :: Value -&gt; Parser [StudioPersona]
+parseJSON :: Value -&gt; Parser StudioPersona
+$cparseJSON :: Value -&gt; Parser StudioPersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679288264"><span id="local-6989586621679288266"><span class="annot"><span class="annottext">FromJSONKeyFunction [StudioPersona]
+FromJSONKeyFunction StudioPersona
+FromJSONKeyFunction StudioPersona
+-&gt; FromJSONKeyFunction [StudioPersona] -&gt; FromJSONKey StudioPersona
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StudioPersona]
+$cfromJSONKeyList :: FromJSONKeyFunction [StudioPersona]
+fromJSONKey :: FromJSONKeyFunction StudioPersona
+$cfromJSONKey :: FromJSONKeyFunction StudioPersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679288255"><span id="local-6989586621679288257"><span id="local-6989586621679288259"><span id="local-6989586621679288261"><span class="annot"><span class="annottext">[StudioPersona] -&gt; Encoding
+[StudioPersona] -&gt; Value
+StudioPersona -&gt; Encoding
+StudioPersona -&gt; Value
+(StudioPersona -&gt; Value)
+-&gt; (StudioPersona -&gt; Encoding)
+-&gt; ([StudioPersona] -&gt; Value)
+-&gt; ([StudioPersona] -&gt; Encoding)
+-&gt; ToJSON StudioPersona
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StudioPersona] -&gt; Encoding
+$ctoEncodingList :: [StudioPersona] -&gt; Encoding
+toJSONList :: [StudioPersona] -&gt; Value
+$ctoJSONList :: [StudioPersona] -&gt; Value
+toEncoding :: StudioPersona -&gt; Encoding
+$ctoEncoding :: StudioPersona -&gt; Encoding
+toJSON :: StudioPersona -&gt; Value
+$ctoJSON :: StudioPersona -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679288250"><span id="local-6989586621679288252"><span class="annot"><span class="annottext">ToJSONKeyFunction [StudioPersona]
+ToJSONKeyFunction StudioPersona
+ToJSONKeyFunction StudioPersona
+-&gt; ToJSONKeyFunction [StudioPersona] -&gt; ToJSONKey StudioPersona
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StudioPersona]
+$ctoJSONKeyList :: ToJSONKeyFunction [StudioPersona]
+toJSONKey :: ToJSONKeyFunction StudioPersona
+$ctoJSONKey :: ToJSONKeyFunction StudioPersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679288247"><span class="annot"><span class="annottext">[Node] -&gt; Either String StudioPersona
+([Node] -&gt; Either String StudioPersona) -&gt; FromXML StudioPersona
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StudioPersona
+$cparseXML :: [Node] -&gt; Either String StudioPersona
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679288244"><span class="annot"><span class="annottext">StudioPersona -&gt; XML
+(StudioPersona -&gt; XML) -&gt; ToXML StudioPersona
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StudioPersona -&gt; XML
+$ctoXML :: StudioPersona -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioPersona.html#StudioPersona_ADMINISTRATOR"><span class="hs-identifier hs-type">StudioPersona_ADMINISTRATOR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioPersona.html#StudioPersona"><span class="hs-identifier hs-type">StudioPersona</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStudioPersona_ADMINISTRATOR"><span id="%24mStudioPersona_ADMINISTRATOR"><span id="StudioPersona_ADMINISTRATOR"><span class="annot"><span class="annottext">$bStudioPersona_ADMINISTRATOR :: StudioPersona
+$mStudioPersona_ADMINISTRATOR :: forall r. StudioPersona -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Nimble.Types.StudioPersona.html#%24bStudioPersona_ADMINISTRATOR"><span class="hs-identifier hs-var hs-var hs-var">StudioPersona_ADMINISTRATOR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioPersona.html#StudioPersona%27"><span class="hs-identifier hs-type">StudioPersona'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADMINISTRATOR&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioPersona.html#StudioPersona_ADMINISTRATOR"><span class="hs-pragma hs-type">StudioPersona_ADMINISTRATOR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioPersona.html#StudioPersona%27"><span class="hs-pragma hs-type">StudioPersona'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

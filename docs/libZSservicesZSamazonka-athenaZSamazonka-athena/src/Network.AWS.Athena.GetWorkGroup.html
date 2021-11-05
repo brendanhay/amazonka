@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetWorkGroup' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679223750"><span id="local-6989586621679223751"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetWorkGroup"><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-var">GetWorkGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetWorkGroup%27"><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup%27"><span class="hs-identifier hs-var">GetWorkGroup'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679223759"><span id="local-6989586621679223760"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetWorkGroup"><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-var">GetWorkGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetWorkGroup%27"><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup%27"><span class="hs-identifier hs-var">GetWorkGroup'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the workgroup.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AworkGroup%3AGetWorkGroup%27"><span class="annot"><span class="annottext">GetWorkGroup -&gt; Text
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#%24sel%3AworkGroup%3AGetWorkGroup%27"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223744"><span id="local-6989586621679223746"><span class="annot"><span class="annottext">GetWorkGroup -&gt; GetWorkGroup -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223753"><span id="local-6989586621679223755"><span class="annot"><span class="annottext">GetWorkGroup -&gt; GetWorkGroup -&gt; Bool
 (GetWorkGroup -&gt; GetWorkGroup -&gt; Bool)
 -&gt; (GetWorkGroup -&gt; GetWorkGroup -&gt; Bool) -&gt; Eq GetWorkGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetWorkGroup -&gt; GetWorkGroup -&gt; Bool
 == :: GetWorkGroup -&gt; GetWorkGroup -&gt; Bool
 $c== :: GetWorkGroup -&gt; GetWorkGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223735"><span id="local-6989586621679223737"><span id="local-6989586621679223739"><span id="local-6989586621679223741"><span class="annot"><span class="annottext">ReadPrec [GetWorkGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223744"><span id="local-6989586621679223746"><span id="local-6989586621679223748"><span id="local-6989586621679223750"><span class="annot"><span class="annottext">ReadPrec [GetWorkGroup]
 ReadPrec GetWorkGroup
 Int -&gt; ReadS GetWorkGroup
 ReadS [GetWorkGroup]
@@ -80,7 +80,7 @@ readList :: ReadS [GetWorkGroup]
 $creadList :: ReadS [GetWorkGroup]
 readsPrec :: Int -&gt; ReadS GetWorkGroup
 $creadsPrec :: Int -&gt; ReadS GetWorkGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223728"><span id="local-6989586621679223730"><span id="local-6989586621679223732"><span class="annot"><span class="annottext">Int -&gt; GetWorkGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223737"><span id="local-6989586621679223739"><span id="local-6989586621679223741"><span class="annot"><span class="annottext">Int -&gt; GetWorkGroup -&gt; ShowS
 [GetWorkGroup] -&gt; ShowS
 GetWorkGroup -&gt; String
 (Int -&gt; GetWorkGroup -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. GetWorkGroup -&gt; Rep GetWorkGroup x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetWorkGroup"><span class="annot"><span class="annottext">newGetWorkGroup :: Text -&gt; GetWorkGroup
-</span><a href="Network.AWS.Athena.GetWorkGroup.html#newGetWorkGroup"><span class="hs-identifier hs-var hs-var">newGetWorkGroup</span></a></span></span><span> </span><span id="local-6989586621679223723"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223723"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.GetWorkGroup.html#newGetWorkGroup"><span class="hs-identifier hs-var hs-var">newGetWorkGroup</span></a></span></span><span> </span><span id="local-6989586621679223732"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223732"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetWorkGroup' :: Text -&gt; GetWorkGroup
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup%27"><span class="hs-identifier hs-type">GetWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:GetWorkGroup' :: Text
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#%24sel%3AworkGroup%3AGetWorkGroup%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223723"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679223732"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the workgroup.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#getWorkGroup_workGroup"><span class="hs-identifier hs-type">getWorkGroup_workGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,25 +134,25 @@ $cfrom :: forall x. GetWorkGroup -&gt; Rep GetWorkGroup x
 -&gt; (GetWorkGroup -&gt; Text -&gt; GetWorkGroup)
 -&gt; Lens GetWorkGroup GetWorkGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup%27"><span class="hs-identifier hs-type">GetWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223720"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup%27"><span class="hs-identifier hs-type">GetWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223729"><span class="annot"><span class="annottext">Text
 workGroup :: Text
 $sel:workGroup:GetWorkGroup' :: GetWorkGroup -&gt; Text
-</span><a href="#local-6989586621679223720"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223720"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223719"><span class="annot"><span class="annottext">s :: GetWorkGroup
-</span><a href="#local-6989586621679223719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup%27"><span class="hs-identifier hs-type">GetWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223718"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWorkGroup
-</span><a href="#local-6989586621679223719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:GetWorkGroup' :: Text
+</span><a href="#local-6989586621679223729"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223729"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223728"><span class="annot"><span class="annottext">s :: GetWorkGroup
+</span><a href="#local-6989586621679223728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup%27"><span class="hs-identifier hs-type">GetWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223727"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWorkGroup
+</span><a href="#local-6989586621679223728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:GetWorkGroup' :: Text
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#%24sel%3AworkGroup%3AGetWorkGroup%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-type">GetWorkGroupResponse</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679223714"><span class="annot"><span class="annottext">request :: GetWorkGroup -&gt; Request GetWorkGroup
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679223723"><span class="annot"><span class="annottext">request :: GetWorkGroup -&gt; Request GetWorkGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetWorkGroup -&gt; Request GetWorkGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679223710"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679223719"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetWorkGroup
 -&gt; ClientResponse ClientBody
@@ -176,10 +176,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223707"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223707"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679223706"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223706"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679223705"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223716"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223716"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679223715"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679223715"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679223714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe WorkGroup -&gt; Int -&gt; GetWorkGroupResponse
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-var">GetWorkGroupResponse'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe WorkGroup -&gt; Int -&gt; GetWorkGroupResponse)
@@ -187,7 +187,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetWorkGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe WorkGroup)
+</span><a href="#local-6989586621679223714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe WorkGroup)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,15 +199,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223707"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223716"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223697"><span id="local-6989586621679223699"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223706"><span id="local-6989586621679223708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679223690"><span class="annot"><span class="annottext">toHeaders :: GetWorkGroup -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679223699"><span class="annot"><span class="annottext">toHeaders :: GetWorkGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetWorkGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223680"><span id="local-6989586621679223682"><span id="local-6989586621679223684"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679223678"><span class="annot"><span class="annottext">toJSON :: GetWorkGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup%27"><span class="hs-identifier hs-type">GetWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223676"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223689"><span id="local-6989586621679223691"><span id="local-6989586621679223693"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679223687"><span class="annot"><span class="annottext">toJSON :: GetWorkGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup%27"><span class="hs-identifier hs-type">GetWorkGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223685"><span class="annot"><span class="annottext">Text
 workGroup :: Text
 $sel:workGroup:GetWorkGroup' :: GetWorkGroup -&gt; Text
-</span><a href="#local-6989586621679223676"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679223685"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,18 +249,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223676"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679223685"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679223670"><span class="annot"><span class="annottext">toPath :: GetWorkGroup -&gt; ByteString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679223679"><span class="annot"><span class="annottext">toPath :: GetWorkGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetWorkGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroup"><span class="hs-identifier hs-type">GetWorkGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679223666"><span class="annot"><span class="annottext">toQuery :: GetWorkGroup -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679223675"><span class="annot"><span class="annottext">toQuery :: GetWorkGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetWorkGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -268,7 +268,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newGetWorkGroupResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679223663"><span id="local-6989586621679223664"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetWorkGroupResponse"><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-var">GetWorkGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetWorkGroupResponse%27"><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-var">GetWorkGroupResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679223672"><span id="local-6989586621679223673"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetWorkGroupResponse"><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-var">GetWorkGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetWorkGroupResponse%27"><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-var">GetWorkGroupResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the workgroup.</span><span>
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AworkGroup%3AGetWorkGroupResponse%27"><span class="annot"><span class="annottext">GetWorkGroupResponse -&gt; Maybe WorkGroup
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#%24sel%3AworkGroup%3AGetWorkGroupResponse%27"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.WorkGroup.html#WorkGroup"><span class="hs-identifier hs-type">WorkGroup</span></a></span><span class="hs-special">,</span><span>
@@ -276,7 +276,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetWorkGroupResponse%27"><span class="annot"><span class="annottext">GetWorkGroupResponse -&gt; Int
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#%24sel%3AhttpStatus%3AGetWorkGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223657"><span id="local-6989586621679223659"><span class="annot"><span class="annottext">GetWorkGroupResponse -&gt; GetWorkGroupResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223666"><span id="local-6989586621679223668"><span class="annot"><span class="annottext">GetWorkGroupResponse -&gt; GetWorkGroupResponse -&gt; Bool
 (GetWorkGroupResponse -&gt; GetWorkGroupResponse -&gt; Bool)
 -&gt; (GetWorkGroupResponse -&gt; GetWorkGroupResponse -&gt; Bool)
 -&gt; Eq GetWorkGroupResponse
@@ -285,7 +285,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetWorkGroupResponse -&gt; GetWorkGroupResponse -&gt; Bool
 == :: GetWorkGroupResponse -&gt; GetWorkGroupResponse -&gt; Bool
 $c== :: GetWorkGroupResponse -&gt; GetWorkGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223649"><span id="local-6989586621679223651"><span id="local-6989586621679223653"><span id="local-6989586621679223655"><span class="annot"><span class="annottext">ReadPrec [GetWorkGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223658"><span id="local-6989586621679223660"><span id="local-6989586621679223662"><span id="local-6989586621679223664"><span class="annot"><span class="annottext">ReadPrec [GetWorkGroupResponse]
 ReadPrec GetWorkGroupResponse
 Int -&gt; ReadS GetWorkGroupResponse
 ReadS [GetWorkGroupResponse]
@@ -305,7 +305,7 @@ readList :: ReadS [GetWorkGroupResponse]
 $creadList :: ReadS [GetWorkGroupResponse]
 readsPrec :: Int -&gt; ReadS GetWorkGroupResponse
 $creadsPrec :: Int -&gt; ReadS GetWorkGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223643"><span id="local-6989586621679223645"><span id="local-6989586621679223647"><span class="annot"><span class="annottext">Int -&gt; GetWorkGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223652"><span id="local-6989586621679223654"><span id="local-6989586621679223656"><span class="annot"><span class="annottext">Int -&gt; GetWorkGroupResponse -&gt; ShowS
 [GetWorkGroupResponse] -&gt; ShowS
 GetWorkGroupResponse -&gt; String
 (Int -&gt; GetWorkGroupResponse -&gt; ShowS)
@@ -347,8 +347,8 @@ $cfrom :: forall x. GetWorkGroupResponse -&gt; Rep GetWorkGroupResponse x
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-type">GetWorkGroupResponse</span></a></span><span>
 </span><span id="line-141"></span><span id="newGetWorkGroupResponse"><span class="annot"><span class="annottext">newGetWorkGroupResponse :: Int -&gt; GetWorkGroupResponse
-</span><a href="Network.AWS.Athena.GetWorkGroup.html#newGetWorkGroupResponse"><span class="hs-identifier hs-var hs-var">newGetWorkGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679223640"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223640"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.GetWorkGroup.html#newGetWorkGroupResponse"><span class="hs-identifier hs-var hs-var">newGetWorkGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679223649"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">GetWorkGroupResponse' :: Maybe WorkGroup -&gt; Int -&gt; GetWorkGroupResponse
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-type">GetWorkGroupResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workGroup:GetWorkGroupResponse' :: Maybe WorkGroup
@@ -357,7 +357,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetWorkGroupResponse' :: Int
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#%24sel%3AhttpStatus%3AGetWorkGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223640"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679223649"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Information about the workgroup.</span><span>
@@ -373,16 +373,16 @@ forall a. Maybe a
      (Maybe WorkGroup)
      (Maybe WorkGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-type">GetWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223639"><span class="annot"><span class="annottext">Maybe WorkGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-type">GetWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223648"><span class="annot"><span class="annottext">Maybe WorkGroup
 workGroup :: Maybe WorkGroup
 $sel:workGroup:GetWorkGroupResponse' :: GetWorkGroupResponse -&gt; Maybe WorkGroup
-</span><a href="#local-6989586621679223639"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroup
-</span><a href="#local-6989586621679223639"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223638"><span class="annot"><span class="annottext">s :: GetWorkGroupResponse
-</span><a href="#local-6989586621679223638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-type">GetWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223637"><span class="annot"><span class="annottext">Maybe WorkGroup
-</span><a href="#local-6989586621679223637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWorkGroupResponse
-</span><a href="#local-6989586621679223638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:GetWorkGroupResponse' :: Maybe WorkGroup
+</span><a href="#local-6989586621679223648"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroup
+</span><a href="#local-6989586621679223648"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223647"><span class="annot"><span class="annottext">s :: GetWorkGroupResponse
+</span><a href="#local-6989586621679223647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-type">GetWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223646"><span class="annot"><span class="annottext">Maybe WorkGroup
+</span><a href="#local-6989586621679223646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWorkGroupResponse
+</span><a href="#local-6989586621679223647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:GetWorkGroupResponse' :: Maybe WorkGroup
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#%24sel%3AworkGroup%3AGetWorkGroupResponse%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkGroup
-</span><a href="#local-6989586621679223637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-type">GetWorkGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-type">GetWorkGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#getWorkGroupResponse_httpStatus"><span class="hs-identifier hs-type">getWorkGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-type">GetWorkGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -391,16 +391,16 @@ $sel:workGroup:GetWorkGroupResponse' :: GetWorkGroupResponse -&gt; Maybe WorkGro
 -&gt; (GetWorkGroupResponse -&gt; Int -&gt; GetWorkGroupResponse)
 -&gt; Lens GetWorkGroupResponse GetWorkGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-type">GetWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223636"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-type">GetWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223645"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetWorkGroupResponse' :: GetWorkGroupResponse -&gt; Int
-</span><a href="#local-6989586621679223636"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223636"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223635"><span class="annot"><span class="annottext">s :: GetWorkGroupResponse
-</span><a href="#local-6989586621679223635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-type">GetWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223634"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWorkGroupResponse
-</span><a href="#local-6989586621679223635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetWorkGroupResponse' :: Int
+</span><a href="#local-6989586621679223645"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223645"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223644"><span class="annot"><span class="annottext">s :: GetWorkGroupResponse
+</span><a href="#local-6989586621679223644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse%27"><span class="hs-identifier hs-type">GetWorkGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWorkGroupResponse
+</span><a href="#local-6989586621679223644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetWorkGroupResponse' :: Int
 </span><a href="Network.AWS.Athena.GetWorkGroup.html#%24sel%3AhttpStatus%3AGetWorkGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-type">GetWorkGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-type">GetWorkGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-type">GetWorkGroupResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223641"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.GetWorkGroup.html#GetWorkGroupResponse"><span class="hs-identifier hs-type">GetWorkGroupResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

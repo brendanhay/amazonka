@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FIS.Types.ExperimentTarget</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FIS.Types.ExperimentTarget</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTargetFilter.html"><span class="hs-identifier">Network.AWS.FIS.Types.ExperimentTargetFilter</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes a target for an experiment.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExperimentTarget' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679184668"><span id="local-6989586621679184669"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExperimentTarget"><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-var">ExperimentTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExperimentTarget%27"><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-var">ExperimentTarget'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource type.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AresourceType%3AExperimentTarget%27"><span class="annot"><span class="annottext">ExperimentTarget -&gt; Maybe Text
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AresourceType%3AExperimentTarget%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The tags for the target resources.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceTags%3AExperimentTarget%27"><span class="annot"><span class="annottext">ExperimentTarget -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AresourceTags%3AExperimentTarget%27"><span class="hs-identifier hs-var hs-var">resourceTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The filters to apply to identify target resources using specific</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Afilters%3AExperimentTarget%27"><span class="annot"><span class="annottext">ExperimentTarget -&gt; Maybe [ExperimentTargetFilter]
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3Afilters%3AExperimentTarget%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTargetFilter.html#ExperimentTargetFilter"><span class="hs-identifier hs-type">ExperimentTargetFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AresourceArns%3AExperimentTarget%27"><span class="annot"><span class="annottext">ExperimentTarget -&gt; Maybe [Text]
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AresourceArns%3AExperimentTarget%27"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Scopes the identified resources to a specific count or percentage.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AselectionMode%3AExperimentTarget%27"><span class="annot"><span class="annottext">ExperimentTarget -&gt; Maybe Text
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AselectionMode%3AExperimentTarget%27"><span class="hs-identifier hs-var hs-var">selectionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184658"><span id="local-6989586621679184660"><span class="annot"><span class="annottext">ExperimentTarget -&gt; ExperimentTarget -&gt; Bool
+(ExperimentTarget -&gt; ExperimentTarget -&gt; Bool)
+-&gt; (ExperimentTarget -&gt; ExperimentTarget -&gt; Bool)
+-&gt; Eq ExperimentTarget
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExperimentTarget -&gt; ExperimentTarget -&gt; Bool
+$c/= :: ExperimentTarget -&gt; ExperimentTarget -&gt; Bool
+== :: ExperimentTarget -&gt; ExperimentTarget -&gt; Bool
+$c== :: ExperimentTarget -&gt; ExperimentTarget -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184649"><span id="local-6989586621679184651"><span id="local-6989586621679184653"><span id="local-6989586621679184655"><span class="annot"><span class="annottext">ReadPrec [ExperimentTarget]
+ReadPrec ExperimentTarget
+Int -&gt; ReadS ExperimentTarget
+ReadS [ExperimentTarget]
+(Int -&gt; ReadS ExperimentTarget)
+-&gt; ReadS [ExperimentTarget]
+-&gt; ReadPrec ExperimentTarget
+-&gt; ReadPrec [ExperimentTarget]
+-&gt; Read ExperimentTarget
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExperimentTarget]
+$creadListPrec :: ReadPrec [ExperimentTarget]
+readPrec :: ReadPrec ExperimentTarget
+$creadPrec :: ReadPrec ExperimentTarget
+readList :: ReadS [ExperimentTarget]
+$creadList :: ReadS [ExperimentTarget]
+readsPrec :: Int -&gt; ReadS ExperimentTarget
+$creadsPrec :: Int -&gt; ReadS ExperimentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184642"><span id="local-6989586621679184644"><span id="local-6989586621679184646"><span class="annot"><span class="annottext">Int -&gt; ExperimentTarget -&gt; ShowS
+[ExperimentTarget] -&gt; ShowS
+ExperimentTarget -&gt; String
+(Int -&gt; ExperimentTarget -&gt; ShowS)
+-&gt; (ExperimentTarget -&gt; String)
+-&gt; ([ExperimentTarget] -&gt; ShowS)
+-&gt; Show ExperimentTarget
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExperimentTarget] -&gt; ShowS
+$cshowList :: [ExperimentTarget] -&gt; ShowS
+show :: ExperimentTarget -&gt; String
+$cshow :: ExperimentTarget -&gt; String
+showsPrec :: Int -&gt; ExperimentTarget -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExperimentTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExperimentTarget -&gt; Rep ExperimentTarget x)
+-&gt; (forall x. Rep ExperimentTarget x -&gt; ExperimentTarget)
+-&gt; Generic ExperimentTarget
+forall x. Rep ExperimentTarget x -&gt; ExperimentTarget
+forall x. ExperimentTarget -&gt; Rep ExperimentTarget x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExperimentTarget x -&gt; ExperimentTarget
+$cfrom :: forall x. ExperimentTarget -&gt; Rep ExperimentTarget x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'ExperimentTarget' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'resourceType', 'experimentTarget_resourceType' - The resource type.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'resourceTags', 'experimentTarget_resourceTags' - The tags for the target resources.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'filters', 'experimentTarget_filters' - The filters to apply to identify target resources using specific</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'resourceArns', 'experimentTarget_resourceArns' - The Amazon Resource Names (ARNs) of the resources.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'selectionMode', 'experimentTarget_selectionMode' - Scopes the identified resources to a specific count or percentage.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#newExperimentTarget"><span class="hs-identifier hs-type">newExperimentTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span>
+</span><span id="line-65"></span><span id="newExperimentTarget"><span class="annot"><span class="annottext">newExperimentTarget :: ExperimentTarget
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#newExperimentTarget"><span class="hs-identifier hs-var hs-var">newExperimentTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">ExperimentTarget' :: Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [ExperimentTargetFilter]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; ExperimentTarget
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceType:ExperimentTarget' :: Maybe Text
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AresourceType%3AExperimentTarget%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceTags:ExperimentTarget' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AresourceTags%3AExperimentTarget%27"><span class="hs-identifier hs-var">resourceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:ExperimentTarget' :: Maybe [ExperimentTargetFilter]
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3Afilters%3AExperimentTarget%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExperimentTargetFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArns:ExperimentTarget' :: Maybe [Text]
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AresourceArns%3AExperimentTarget%27"><span class="hs-identifier hs-var">resourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:selectionMode:ExperimentTarget' :: Maybe Text
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AselectionMode%3AExperimentTarget%27"><span class="hs-identifier hs-var">selectionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The resource type.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_resourceType"><span class="hs-identifier hs-type">experimentTarget_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="experimentTarget_resourceType"><span class="annot"><span class="annottext">experimentTarget_resourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExperimentTarget -&gt; f ExperimentTarget
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_resourceType"><span class="hs-identifier hs-var hs-var">experimentTarget_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExperimentTarget -&gt; Maybe Text)
+-&gt; (ExperimentTarget -&gt; Maybe Text -&gt; ExperimentTarget)
+-&gt; Lens ExperimentTarget ExperimentTarget (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184633"><span class="annot"><span class="annottext">Maybe Text
+resourceType :: Maybe Text
+$sel:resourceType:ExperimentTarget' :: ExperimentTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679184633"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184633"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184632"><span class="annot"><span class="annottext">s :: ExperimentTarget
+</span><a href="#local-6989586621679184632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExperimentTarget
+</span><a href="#local-6989586621679184632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ExperimentTarget' :: Maybe Text
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AresourceType%3AExperimentTarget%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The tags for the target resources.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_resourceTags"><span class="hs-identifier hs-type">experimentTarget_resourceTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="experimentTarget_resourceTags"><span class="annot"><span class="annottext">experimentTarget_resourceTags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ExperimentTarget -&gt; f ExperimentTarget
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_resourceTags"><span class="hs-identifier hs-var hs-var">experimentTarget_resourceTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExperimentTarget -&gt; Maybe (HashMap Text Text))
+-&gt; (ExperimentTarget
+    -&gt; Maybe (HashMap Text Text) -&gt; ExperimentTarget)
+-&gt; Lens
+     ExperimentTarget
+     ExperimentTarget
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184629"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+resourceTags :: Maybe (HashMap Text Text)
+$sel:resourceTags:ExperimentTarget' :: ExperimentTarget -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184629"><span class="hs-identifier hs-var hs-var">resourceTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184629"><span class="hs-identifier hs-var">resourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184628"><span class="annot"><span class="annottext">s :: ExperimentTarget
+</span><a href="#local-6989586621679184628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184627"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExperimentTarget
+</span><a href="#local-6989586621679184628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTags:ExperimentTarget' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AresourceTags%3AExperimentTarget%27"><span class="hs-identifier hs-var">resourceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ExperimentTarget -&gt; f ExperimentTarget)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ExperimentTarget
+-&gt; f ExperimentTarget
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The filters to apply to identify target resources using specific</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_filters"><span class="hs-identifier hs-type">experimentTarget_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTargetFilter.html#ExperimentTargetFilter"><span class="hs-identifier hs-type">ExperimentTargetFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="experimentTarget_filters"><span class="annot"><span class="annottext">experimentTarget_filters :: (Maybe [ExperimentTargetFilter]
+ -&gt; f (Maybe [ExperimentTargetFilter]))
+-&gt; ExperimentTarget -&gt; f ExperimentTarget
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_filters"><span class="hs-identifier hs-var hs-var">experimentTarget_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExperimentTarget -&gt; Maybe [ExperimentTargetFilter])
+-&gt; (ExperimentTarget
+    -&gt; Maybe [ExperimentTargetFilter] -&gt; ExperimentTarget)
+-&gt; Lens
+     ExperimentTarget
+     ExperimentTarget
+     (Maybe [ExperimentTargetFilter])
+     (Maybe [ExperimentTargetFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184622"><span class="annot"><span class="annottext">Maybe [ExperimentTargetFilter]
+filters :: Maybe [ExperimentTargetFilter]
+$sel:filters:ExperimentTarget' :: ExperimentTarget -&gt; Maybe [ExperimentTargetFilter]
+</span><a href="#local-6989586621679184622"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExperimentTargetFilter]
+</span><a href="#local-6989586621679184622"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184621"><span class="annot"><span class="annottext">s :: ExperimentTarget
+</span><a href="#local-6989586621679184621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184620"><span class="annot"><span class="annottext">Maybe [ExperimentTargetFilter]
+</span><a href="#local-6989586621679184620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExperimentTarget
+</span><a href="#local-6989586621679184621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ExperimentTarget' :: Maybe [ExperimentTargetFilter]
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3Afilters%3AExperimentTarget%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExperimentTargetFilter]
+</span><a href="#local-6989586621679184620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExperimentTargetFilter]
+  -&gt; f (Maybe [ExperimentTargetFilter]))
+ -&gt; ExperimentTarget -&gt; f ExperimentTarget)
+-&gt; ((Maybe [ExperimentTargetFilter]
+     -&gt; f (Maybe [ExperimentTargetFilter]))
+    -&gt; Maybe [ExperimentTargetFilter]
+    -&gt; f (Maybe [ExperimentTargetFilter]))
+-&gt; (Maybe [ExperimentTargetFilter]
+    -&gt; f (Maybe [ExperimentTargetFilter]))
+-&gt; ExperimentTarget
+-&gt; f ExperimentTarget
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ExperimentTargetFilter]
+  [ExperimentTargetFilter]
+  [ExperimentTargetFilter]
+  [ExperimentTargetFilter]
+-&gt; Iso
+     (Maybe [ExperimentTargetFilter])
+     (Maybe [ExperimentTargetFilter])
+     (Maybe [ExperimentTargetFilter])
+     (Maybe [ExperimentTargetFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ExperimentTargetFilter]
+  [ExperimentTargetFilter]
+  [ExperimentTargetFilter]
+  [ExperimentTargetFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_resourceArns"><span class="hs-identifier hs-type">experimentTarget_resourceArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="experimentTarget_resourceArns"><span class="annot"><span class="annottext">experimentTarget_resourceArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ExperimentTarget -&gt; f ExperimentTarget
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_resourceArns"><span class="hs-identifier hs-var hs-var">experimentTarget_resourceArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExperimentTarget -&gt; Maybe [Text])
+-&gt; (ExperimentTarget -&gt; Maybe [Text] -&gt; ExperimentTarget)
+-&gt; Lens
+     ExperimentTarget ExperimentTarget (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184618"><span class="annot"><span class="annottext">Maybe [Text]
+resourceArns :: Maybe [Text]
+$sel:resourceArns:ExperimentTarget' :: ExperimentTarget -&gt; Maybe [Text]
+</span><a href="#local-6989586621679184618"><span class="hs-identifier hs-var hs-var">resourceArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679184618"><span class="hs-identifier hs-var">resourceArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184617"><span class="annot"><span class="annottext">s :: ExperimentTarget
+</span><a href="#local-6989586621679184617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184616"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679184616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExperimentTarget
+</span><a href="#local-6989586621679184617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArns:ExperimentTarget' :: Maybe [Text]
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AresourceArns%3AExperimentTarget%27"><span class="hs-identifier hs-var">resourceArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679184616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ExperimentTarget -&gt; f ExperimentTarget)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ExperimentTarget
+-&gt; f ExperimentTarget
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Scopes the identified resources to a specific count or percentage.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_selectionMode"><span class="hs-identifier hs-type">experimentTarget_selectionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="experimentTarget_selectionMode"><span class="annot"><span class="annottext">experimentTarget_selectionMode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExperimentTarget -&gt; f ExperimentTarget
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#experimentTarget_selectionMode"><span class="hs-identifier hs-var hs-var">experimentTarget_selectionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExperimentTarget -&gt; Maybe Text)
+-&gt; (ExperimentTarget -&gt; Maybe Text -&gt; ExperimentTarget)
+-&gt; Lens ExperimentTarget ExperimentTarget (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184614"><span class="annot"><span class="annottext">Maybe Text
+selectionMode :: Maybe Text
+$sel:selectionMode:ExperimentTarget' :: ExperimentTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679184614"><span class="hs-identifier hs-var hs-var">selectionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184614"><span class="hs-identifier hs-var">selectionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184613"><span class="annot"><span class="annottext">s :: ExperimentTarget
+</span><a href="#local-6989586621679184613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-type">ExperimentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184612"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExperimentTarget
+</span><a href="#local-6989586621679184613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectionMode:ExperimentTarget' :: Maybe Text
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#%24sel%3AselectionMode%3AExperimentTarget%27"><span class="hs-identifier hs-var">selectionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184609"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679184607"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExperimentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ExperimentTarget)
+-&gt; Value
+-&gt; Parser ExperimentTarget
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ExperimentTarget&quot;</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184604"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [ExperimentTargetFilter]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; ExperimentTarget
+</span><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget%27"><span class="hs-identifier hs-var">ExperimentTarget'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe [ExperimentTargetFilter]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; ExperimentTarget)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe [ExperimentTargetFilter]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; ExperimentTarget)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe [ExperimentTargetFilter]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; ExperimentTarget)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe [ExperimentTargetFilter]
+      -&gt; Maybe [Text] -&gt; Maybe Text -&gt; ExperimentTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ExperimentTargetFilter]
+   -&gt; Maybe [Text] -&gt; Maybe Text -&gt; ExperimentTarget)
+-&gt; Parser (Maybe [ExperimentTargetFilter])
+-&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; ExperimentTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ExperimentTargetFilter]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ExperimentTargetFilter]))
+-&gt; Maybe [ExperimentTargetFilter]
+-&gt; Parser (Maybe [ExperimentTargetFilter])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ExperimentTargetFilter]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; ExperimentTarget)
+-&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; ExperimentTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ExperimentTarget)
+-&gt; Parser (Maybe Text) -&gt; Parser ExperimentTarget
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;selectionMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184597"><span id="local-6989586621679184599"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184594"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FIS.Types.ExperimentTarget.html#ExperimentTarget"><span class="hs-identifier hs-type">ExperimentTarget</span></a></span></span><span>
+</span><span id="line-111"></span></pre></body></html>

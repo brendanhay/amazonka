@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetContainerImages' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679646366"><span id="local-6989586621679646367"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerImages"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-var">GetContainerImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerImages%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages%27"><span class="hs-identifier hs-var">GetContainerImages'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679646375"><span id="local-6989586621679646376"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerImages"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-var">GetContainerImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerImages%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages%27"><span class="hs-identifier hs-var">GetContainerImages'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container service for which to return registered</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- container images.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AserviceName%3AGetContainerImages%27"><span class="annot"><span class="annottext">GetContainerImages -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#%24sel%3AserviceName%3AGetContainerImages%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646360"><span id="local-6989586621679646362"><span class="annot"><span class="annottext">GetContainerImages -&gt; GetContainerImages -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646369"><span id="local-6989586621679646371"><span class="annot"><span class="annottext">GetContainerImages -&gt; GetContainerImages -&gt; Bool
 (GetContainerImages -&gt; GetContainerImages -&gt; Bool)
 -&gt; (GetContainerImages -&gt; GetContainerImages -&gt; Bool)
 -&gt; Eq GetContainerImages
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetContainerImages -&gt; GetContainerImages -&gt; Bool
 == :: GetContainerImages -&gt; GetContainerImages -&gt; Bool
 $c== :: GetContainerImages -&gt; GetContainerImages -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646351"><span id="local-6989586621679646353"><span id="local-6989586621679646355"><span id="local-6989586621679646357"><span class="annot"><span class="annottext">ReadPrec [GetContainerImages]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646360"><span id="local-6989586621679646362"><span id="local-6989586621679646364"><span id="local-6989586621679646366"><span class="annot"><span class="annottext">ReadPrec [GetContainerImages]
 ReadPrec GetContainerImages
 Int -&gt; ReadS GetContainerImages
 ReadS [GetContainerImages]
@@ -88,7 +88,7 @@ readList :: ReadS [GetContainerImages]
 $creadList :: ReadS [GetContainerImages]
 readsPrec :: Int -&gt; ReadS GetContainerImages
 $creadsPrec :: Int -&gt; ReadS GetContainerImages
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646344"><span id="local-6989586621679646346"><span id="local-6989586621679646348"><span class="annot"><span class="annottext">Int -&gt; GetContainerImages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646353"><span id="local-6989586621679646355"><span id="local-6989586621679646357"><span class="annot"><span class="annottext">Int -&gt; GetContainerImages -&gt; ShowS
 [GetContainerImages] -&gt; ShowS
 GetContainerImages -&gt; String
 (Int -&gt; GetContainerImages -&gt; ShowS)
@@ -129,12 +129,12 @@ $cfrom :: forall x. GetContainerImages -&gt; Rep GetContainerImages x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span><span>
 </span><span id="line-77"></span><span id="newGetContainerImages"><span class="annot"><span class="annottext">newGetContainerImages :: Text -&gt; GetContainerImages
-</span><a href="Network.AWS.Lightsail.GetContainerImages.html#newGetContainerImages"><span class="hs-identifier hs-var hs-var">newGetContainerImages</span></a></span></span><span> </span><span id="local-6989586621679646339"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646339"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetContainerImages.html#newGetContainerImages"><span class="hs-identifier hs-var hs-var">newGetContainerImages</span></a></span></span><span> </span><span id="local-6989586621679646348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646348"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GetContainerImages' :: Text -&gt; GetContainerImages
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages%27"><span class="hs-identifier hs-type">GetContainerImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:GetContainerImages' :: Text
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#%24sel%3AserviceName%3AGetContainerImages%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646339"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679646348"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The name of the container service for which to return registered</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- container images.</span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. GetContainerImages -&gt; Rep GetContainerImages x
 -&gt; (GetContainerImages -&gt; Text -&gt; GetContainerImages)
 -&gt; Lens GetContainerImages GetContainerImages Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages%27"><span class="hs-identifier hs-type">GetContainerImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646336"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages%27"><span class="hs-identifier hs-type">GetContainerImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646345"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:GetContainerImages' :: GetContainerImages -&gt; Text
-</span><a href="#local-6989586621679646336"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646336"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646335"><span class="annot"><span class="annottext">s :: GetContainerImages
-</span><a href="#local-6989586621679646335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages%27"><span class="hs-identifier hs-type">GetContainerImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646334"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerImages
-</span><a href="#local-6989586621679646335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:GetContainerImages' :: Text
+</span><a href="#local-6989586621679646345"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646345"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646344"><span class="annot"><span class="annottext">s :: GetContainerImages
+</span><a href="#local-6989586621679646344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages%27"><span class="hs-identifier hs-type">GetContainerImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646343"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerImages
+</span><a href="#local-6989586621679646344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:GetContainerImages' :: Text
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#%24sel%3AserviceName%3AGetContainerImages%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-type">GetContainerImagesResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679646330"><span class="annot"><span class="annottext">request :: GetContainerImages -&gt; Request GetContainerImages
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679646339"><span class="annot"><span class="annottext">request :: GetContainerImages -&gt; Request GetContainerImages
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetContainerImages -&gt; Request GetContainerImages
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679646326"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679646335"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetContainerImages
 -&gt; ClientResponse ClientBody
@@ -190,10 +190,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679646323"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646323"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679646322"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679646322"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679646321"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679646321"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679646332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646332"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679646331"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679646331"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679646330"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679646330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ContainerImage] -&gt; Int -&gt; GetContainerImagesResponse
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-var">GetContainerImagesResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ContainerImage] -&gt; Int -&gt; GetContainerImagesResponse)
@@ -201,7 +201,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetContainerImagesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679646321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ContainerImage]))
+</span><a href="#local-6989586621679646330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ContainerImage]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerImages&quot;</span></span><span>
@@ -220,15 +220,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646323"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646332"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646312"><span id="local-6989586621679646314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646321"><span id="local-6989586621679646323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679646305"><span class="annot"><span class="annottext">toHeaders :: GetContainerImages -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679646314"><span class="annot"><span class="annottext">toHeaders :: GetContainerImages -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetContainerImages -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -255,12 +255,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646295"><span id="local-6989586621679646297"><span id="local-6989586621679646299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679646293"><span class="annot"><span class="annottext">toJSON :: GetContainerImages -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages%27"><span class="hs-identifier hs-type">GetContainerImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646291"><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646304"><span id="local-6989586621679646306"><span id="local-6989586621679646308"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679646302"><span class="annot"><span class="annottext">toJSON :: GetContainerImages -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages%27"><span class="hs-identifier hs-type">GetContainerImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646300"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:GetContainerImages' :: GetContainerImages -&gt; Text
-</span><a href="#local-6989586621679646291"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679646300"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,18 +272,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;serviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646291"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679646300"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679646285"><span class="annot"><span class="annottext">toPath :: GetContainerImages -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679646294"><span class="annot"><span class="annottext">toPath :: GetContainerImages -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetContainerImages -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImages"><span class="hs-identifier hs-type">GetContainerImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679646281"><span class="annot"><span class="annottext">toQuery :: GetContainerImages -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679646290"><span class="annot"><span class="annottext">toQuery :: GetContainerImages -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetContainerImages -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -291,7 +291,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newGetContainerImagesResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679646278"><span id="local-6989586621679646279"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerImagesResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-var">GetContainerImagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerImagesResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-var">GetContainerImagesResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679646287"><span id="local-6989586621679646288"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerImagesResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-var">GetContainerImagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerImagesResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-var">GetContainerImagesResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe container images that are registered</span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-comment">-- to the container service.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AcontainerImages%3AGetContainerImagesResponse%27"><span class="annot"><span class="annottext">GetContainerImagesResponse -&gt; Maybe [ContainerImage]
@@ -300,7 +300,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetContainerImagesResponse%27"><span class="annot"><span class="annottext">GetContainerImagesResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#%24sel%3AhttpStatus%3AGetContainerImagesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646272"><span id="local-6989586621679646274"><span class="annot"><span class="annottext">GetContainerImagesResponse -&gt; GetContainerImagesResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646281"><span id="local-6989586621679646283"><span class="annot"><span class="annottext">GetContainerImagesResponse -&gt; GetContainerImagesResponse -&gt; Bool
 (GetContainerImagesResponse -&gt; GetContainerImagesResponse -&gt; Bool)
 -&gt; (GetContainerImagesResponse
     -&gt; GetContainerImagesResponse -&gt; Bool)
@@ -310,7 +310,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetContainerImagesResponse -&gt; GetContainerImagesResponse -&gt; Bool
 == :: GetContainerImagesResponse -&gt; GetContainerImagesResponse -&gt; Bool
 $c== :: GetContainerImagesResponse -&gt; GetContainerImagesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646264"><span id="local-6989586621679646266"><span id="local-6989586621679646268"><span id="local-6989586621679646270"><span class="annot"><span class="annottext">ReadPrec [GetContainerImagesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646273"><span id="local-6989586621679646275"><span id="local-6989586621679646277"><span id="local-6989586621679646279"><span class="annot"><span class="annottext">ReadPrec [GetContainerImagesResponse]
 ReadPrec GetContainerImagesResponse
 Int -&gt; ReadS GetContainerImagesResponse
 ReadS [GetContainerImagesResponse]
@@ -330,7 +330,7 @@ readList :: ReadS [GetContainerImagesResponse]
 $creadList :: ReadS [GetContainerImagesResponse]
 readsPrec :: Int -&gt; ReadS GetContainerImagesResponse
 $creadsPrec :: Int -&gt; ReadS GetContainerImagesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646258"><span id="local-6989586621679646260"><span id="local-6989586621679646262"><span class="annot"><span class="annottext">Int -&gt; GetContainerImagesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646267"><span id="local-6989586621679646269"><span id="local-6989586621679646271"><span class="annot"><span class="annottext">Int -&gt; GetContainerImagesResponse -&gt; ShowS
 [GetContainerImagesResponse] -&gt; ShowS
 GetContainerImagesResponse -&gt; String
 (Int -&gt; GetContainerImagesResponse -&gt; ShowS)
@@ -379,8 +379,8 @@ GetContainerImagesResponse -&gt; Rep GetContainerImagesResponse x
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-type">GetContainerImagesResponse</span></a></span><span>
 </span><span id="line-158"></span><span id="newGetContainerImagesResponse"><span class="annot"><span class="annottext">newGetContainerImagesResponse :: Int -&gt; GetContainerImagesResponse
-</span><a href="Network.AWS.Lightsail.GetContainerImages.html#newGetContainerImagesResponse"><span class="hs-identifier hs-var hs-var">newGetContainerImagesResponse</span></a></span></span><span> </span><span id="local-6989586621679646255"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetContainerImages.html#newGetContainerImagesResponse"><span class="hs-identifier hs-var hs-var">newGetContainerImagesResponse</span></a></span></span><span> </span><span id="local-6989586621679646264"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">GetContainerImagesResponse' :: Maybe [ContainerImage] -&gt; Int -&gt; GetContainerImagesResponse
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-type">GetContainerImagesResponse'</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerImages:GetContainerImagesResponse' :: Maybe [ContainerImage]
@@ -390,7 +390,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerImagesResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#%24sel%3AhttpStatus%3AGetContainerImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679646264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | An array of objects that describe container images that are registered</span><span>
@@ -407,16 +407,16 @@ forall a. Maybe a
      (Maybe [ContainerImage])
      (Maybe [ContainerImage])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-type">GetContainerImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646254"><span class="annot"><span class="annottext">Maybe [ContainerImage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-type">GetContainerImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646263"><span class="annot"><span class="annottext">Maybe [ContainerImage]
 containerImages :: Maybe [ContainerImage]
 $sel:containerImages:GetContainerImagesResponse' :: GetContainerImagesResponse -&gt; Maybe [ContainerImage]
-</span><a href="#local-6989586621679646254"><span class="hs-identifier hs-var hs-var">containerImages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerImage]
-</span><a href="#local-6989586621679646254"><span class="hs-identifier hs-var">containerImages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646253"><span class="annot"><span class="annottext">s :: GetContainerImagesResponse
-</span><a href="#local-6989586621679646253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-type">GetContainerImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646252"><span class="annot"><span class="annottext">Maybe [ContainerImage]
-</span><a href="#local-6989586621679646252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerImagesResponse
-</span><a href="#local-6989586621679646253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerImages:GetContainerImagesResponse' :: Maybe [ContainerImage]
+</span><a href="#local-6989586621679646263"><span class="hs-identifier hs-var hs-var">containerImages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerImage]
+</span><a href="#local-6989586621679646263"><span class="hs-identifier hs-var">containerImages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646262"><span class="annot"><span class="annottext">s :: GetContainerImagesResponse
+</span><a href="#local-6989586621679646262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-type">GetContainerImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646261"><span class="annot"><span class="annottext">Maybe [ContainerImage]
+</span><a href="#local-6989586621679646261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerImagesResponse
+</span><a href="#local-6989586621679646262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerImages:GetContainerImagesResponse' :: Maybe [ContainerImage]
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#%24sel%3AcontainerImages%3AGetContainerImagesResponse%27"><span class="hs-identifier hs-var">containerImages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerImage]
-</span><a href="#local-6989586621679646252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-type">GetContainerImagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerImage] -&gt; f (Maybe [ContainerImage]))
+</span><a href="#local-6989586621679646261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-type">GetContainerImagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerImage] -&gt; f (Maybe [ContainerImage]))
  -&gt; GetContainerImagesResponse -&gt; f GetContainerImagesResponse)
 -&gt; ((Maybe [ContainerImage] -&gt; f (Maybe [ContainerImage]))
     -&gt; Maybe [ContainerImage] -&gt; f (Maybe [ContainerImage]))
@@ -449,16 +449,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      GetContainerImagesResponse GetContainerImagesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-type">GetContainerImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646248"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-type">GetContainerImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646257"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetContainerImagesResponse' :: GetContainerImagesResponse -&gt; Int
-</span><a href="#local-6989586621679646248"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646248"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646247"><span class="annot"><span class="annottext">s :: GetContainerImagesResponse
-</span><a href="#local-6989586621679646247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-type">GetContainerImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646246"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerImagesResponse
-</span><a href="#local-6989586621679646247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerImagesResponse' :: Int
+</span><a href="#local-6989586621679646257"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646257"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646256"><span class="annot"><span class="annottext">s :: GetContainerImagesResponse
+</span><a href="#local-6989586621679646256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse%27"><span class="hs-identifier hs-type">GetContainerImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646255"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerImagesResponse
+</span><a href="#local-6989586621679646256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerImagesResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContainerImages.html#%24sel%3AhttpStatus%3AGetContainerImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-type">GetContainerImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-type">GetContainerImagesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-type">GetContainerImagesResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerImages.html#GetContainerImagesResponse"><span class="hs-identifier hs-type">GetContainerImagesResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

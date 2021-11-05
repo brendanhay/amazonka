@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- 5280.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEdiPartyName' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679208955"><span id="local-6989586621679208956"></span></span><span class="hs-keyword">data</span><span> </span><span id="EdiPartyName"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-var">EdiPartyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EdiPartyName%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-var">EdiPartyName'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679208964"><span id="local-6989586621679208965"></span></span><span class="hs-keyword">data</span><span> </span><span id="EdiPartyName"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-var">EdiPartyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EdiPartyName%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-var">EdiPartyName'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the name assigner.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AnameAssigner%3AEdiPartyName%27"><span class="annot"><span class="annottext">EdiPartyName -&gt; Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#%24sel%3AnameAssigner%3AEdiPartyName%27"><span class="hs-identifier hs-var hs-var">nameAssigner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3ApartyName%3AEdiPartyName%27"><span class="annot"><span class="annottext">EdiPartyName -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#%24sel%3ApartyName%3AEdiPartyName%27"><span class="hs-identifier hs-var hs-var">partyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208948"><span id="local-6989586621679208950"><span class="annot"><span class="annottext">EdiPartyName -&gt; EdiPartyName -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208957"><span id="local-6989586621679208959"><span class="annot"><span class="annottext">EdiPartyName -&gt; EdiPartyName -&gt; Bool
 (EdiPartyName -&gt; EdiPartyName -&gt; Bool)
 -&gt; (EdiPartyName -&gt; EdiPartyName -&gt; Bool) -&gt; Eq EdiPartyName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EdiPartyName -&gt; EdiPartyName -&gt; Bool
 == :: EdiPartyName -&gt; EdiPartyName -&gt; Bool
 $c== :: EdiPartyName -&gt; EdiPartyName -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208939"><span id="local-6989586621679208941"><span id="local-6989586621679208943"><span id="local-6989586621679208945"><span class="annot"><span class="annottext">ReadPrec [EdiPartyName]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208948"><span id="local-6989586621679208950"><span id="local-6989586621679208952"><span id="local-6989586621679208954"><span class="annot"><span class="annottext">ReadPrec [EdiPartyName]
 ReadPrec EdiPartyName
 Int -&gt; ReadS EdiPartyName
 ReadS [EdiPartyName]
@@ -65,7 +65,7 @@ readList :: ReadS [EdiPartyName]
 $creadList :: ReadS [EdiPartyName]
 readsPrec :: Int -&gt; ReadS EdiPartyName
 $creadsPrec :: Int -&gt; ReadS EdiPartyName
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208932"><span id="local-6989586621679208934"><span id="local-6989586621679208936"><span class="annot"><span class="annottext">Int -&gt; EdiPartyName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208941"><span id="local-6989586621679208943"><span id="local-6989586621679208945"><span class="annot"><span class="annottext">Int -&gt; EdiPartyName -&gt; ShowS
 [EdiPartyName] -&gt; ShowS
 EdiPartyName -&gt; String
 (Int -&gt; EdiPartyName -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. EdiPartyName -&gt; Rep EdiPartyName x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span>
 </span><span id="line-55"></span><span id="newEdiPartyName"><span class="annot"><span class="annottext">newEdiPartyName :: Text -&gt; EdiPartyName
-</span><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#newEdiPartyName"><span class="hs-identifier hs-var hs-var">newEdiPartyName</span></a></span></span><span> </span><span id="local-6989586621679208926"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208926"><span class="hs-identifier hs-var">pPartyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#newEdiPartyName"><span class="hs-identifier hs-var hs-var">newEdiPartyName</span></a></span></span><span> </span><span id="local-6989586621679208935"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208935"><span class="hs-identifier hs-var">pPartyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">EdiPartyName' :: Maybe Text -&gt; Text -&gt; EdiPartyName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nameAssigner:EdiPartyName' :: Maybe Text
@@ -117,7 +117,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:partyName:EdiPartyName' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#%24sel%3ApartyName%3AEdiPartyName%27"><span class="hs-identifier hs-var">partyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208926"><span class="hs-identifier hs-var">pPartyName_</span></a></span><span>
+</span><a href="#local-6989586621679208935"><span class="hs-identifier hs-var">pPartyName_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Specifies the name assigner.</span><span>
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (EdiPartyName -&gt; Maybe Text -&gt; EdiPartyName)
 -&gt; Lens EdiPartyName EdiPartyName (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208922"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208931"><span class="annot"><span class="annottext">Maybe Text
 nameAssigner :: Maybe Text
 $sel:nameAssigner:EdiPartyName' :: EdiPartyName -&gt; Maybe Text
-</span><a href="#local-6989586621679208922"><span class="hs-identifier hs-var hs-var">nameAssigner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208922"><span class="hs-identifier hs-var">nameAssigner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208921"><span class="annot"><span class="annottext">s :: EdiPartyName
-</span><a href="#local-6989586621679208921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208920"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdiPartyName
-</span><a href="#local-6989586621679208921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameAssigner:EdiPartyName' :: Maybe Text
+</span><a href="#local-6989586621679208931"><span class="hs-identifier hs-var hs-var">nameAssigner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208931"><span class="hs-identifier hs-var">nameAssigner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208930"><span class="annot"><span class="annottext">s :: EdiPartyName
+</span><a href="#local-6989586621679208930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdiPartyName
+</span><a href="#local-6989586621679208930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameAssigner:EdiPartyName' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#%24sel%3AnameAssigner%3AEdiPartyName%27"><span class="hs-identifier hs-var">nameAssigner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Specifies the party name.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#ediPartyName_partyName"><span class="hs-identifier hs-type">ediPartyName_partyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -145,19 +145,19 @@ $sel:nameAssigner:EdiPartyName' :: EdiPartyName -&gt; Maybe Text
 -&gt; (EdiPartyName -&gt; Text -&gt; EdiPartyName)
 -&gt; Lens EdiPartyName EdiPartyName Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208918"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208927"><span class="annot"><span class="annottext">Text
 partyName :: Text
 $sel:partyName:EdiPartyName' :: EdiPartyName -&gt; Text
-</span><a href="#local-6989586621679208918"><span class="hs-identifier hs-var hs-var">partyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208918"><span class="hs-identifier hs-var">partyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208917"><span class="annot"><span class="annottext">s :: EdiPartyName
-</span><a href="#local-6989586621679208917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208916"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdiPartyName
-</span><a href="#local-6989586621679208917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partyName:EdiPartyName' :: Text
+</span><a href="#local-6989586621679208927"><span class="hs-identifier hs-var hs-var">partyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208927"><span class="hs-identifier hs-var">partyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208926"><span class="annot"><span class="annottext">s :: EdiPartyName
+</span><a href="#local-6989586621679208926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208925"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EdiPartyName
+</span><a href="#local-6989586621679208926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partyName:EdiPartyName' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#%24sel%3ApartyName%3AEdiPartyName%27"><span class="hs-identifier hs-var">partyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208913"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679208911"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EdiPartyName
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208922"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679208920"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EdiPartyName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EdiPartyName) -&gt; Value -&gt; Parser EdiPartyName
@@ -165,40 +165,40 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EdiPartyName&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208908"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208908"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208917"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208917"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; EdiPartyName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-var">EdiPartyName'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; EdiPartyName)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; EdiPartyName)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679208917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NameAssigner&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; EdiPartyName) -&gt; Parser Text -&gt; Parser EdiPartyName
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208908"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679208917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartyName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208901"><span id="local-6989586621679208903"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208910"><span id="local-6989586621679208912"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208890"><span id="local-6989586621679208892"><span id="local-6989586621679208894"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679208888"><span class="annot"><span class="annottext">toJSON :: EdiPartyName -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208885"><span id="local-6989586621679208886"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208899"><span id="local-6989586621679208901"><span id="local-6989586621679208903"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679208897"><span class="annot"><span class="annottext">toJSON :: EdiPartyName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName%27"><span class="hs-identifier hs-type">EdiPartyName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208894"><span id="local-6989586621679208895"><span class="annot"><span class="annottext">Maybe Text
 Text
 partyName :: Text
 nameAssigner :: Maybe Text
 $sel:partyName:EdiPartyName' :: EdiPartyName -&gt; Text
 $sel:nameAssigner:EdiPartyName' :: EdiPartyName -&gt; Maybe Text
-</span><a href="#local-6989586621679208885"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679208894"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -210,14 +210,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208886"><span class="hs-identifier hs-var">nameAssigner</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208895"><span class="hs-identifier hs-var">nameAssigner</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679208885"><span class="hs-identifier hs-var">partyName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208894"><span class="hs-identifier hs-var">partyName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

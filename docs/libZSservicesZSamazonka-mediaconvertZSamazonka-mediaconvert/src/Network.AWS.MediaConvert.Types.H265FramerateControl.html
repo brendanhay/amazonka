@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679972461"><span id="local-6989586621679972462"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265FramerateControl.html#H265FramerateControl"><span class="hs-identifier hs-var">H265FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265FramerateControl.html#H265FramerateControl%27"><span class="hs-identifier hs-var">H265FramerateControl'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679972470"><span id="local-6989586621679972471"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265FramerateControl.html#H265FramerateControl"><span class="hs-identifier hs-var">H265FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265FramerateControl.html#H265FramerateControl%27"><span class="hs-identifier hs-var">H265FramerateControl'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265FramerateControl"><span class="annot"><span class="annottext">H265FramerateControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265FramerateControl.html#fromH265FramerateControl"><span class="hs-identifier hs-var hs-var">fromH265FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972453"><span id="local-6989586621679972455"><span id="local-6989586621679972457"><span class="annot"><span class="annottext">Int -&gt; H265FramerateControl -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972462"><span id="local-6989586621679972464"><span id="local-6989586621679972466"><span class="annot"><span class="annottext">Int -&gt; H265FramerateControl -&gt; ShowS
 [H265FramerateControl] -&gt; ShowS
 H265FramerateControl -&gt; String
 (Int -&gt; H265FramerateControl -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: H265FramerateControl -&gt; String
 showsPrec :: Int -&gt; H265FramerateControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265FramerateControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679972444"><span id="local-6989586621679972446"><span id="local-6989586621679972448"><span id="local-6989586621679972450"><span class="annot"><span class="annottext">ReadPrec [H265FramerateControl]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679972453"><span id="local-6989586621679972455"><span id="local-6989586621679972457"><span id="local-6989586621679972459"><span class="annot"><span class="annottext">ReadPrec [H265FramerateControl]
 ReadPrec H265FramerateControl
 Int -&gt; ReadS H265FramerateControl
 ReadS [H265FramerateControl]
@@ -85,7 +85,7 @@ $creadList :: ReadS [H265FramerateControl]
 readsPrec :: Int -&gt; ReadS H265FramerateControl
 $creadsPrec :: Int -&gt; ReadS H265FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679972439"><span id="local-6989586621679972441"><span class="annot"><span class="annottext">H265FramerateControl -&gt; H265FramerateControl -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679972448"><span id="local-6989586621679972450"><span class="annot"><span class="annottext">H265FramerateControl -&gt; H265FramerateControl -&gt; Bool
 (H265FramerateControl -&gt; H265FramerateControl -&gt; Bool)
 -&gt; (H265FramerateControl -&gt; H265FramerateControl -&gt; Bool)
 -&gt; Eq H265FramerateControl
@@ -95,7 +95,7 @@ $c/= :: H265FramerateControl -&gt; H265FramerateControl -&gt; Bool
 == :: H265FramerateControl -&gt; H265FramerateControl -&gt; Bool
 $c== :: H265FramerateControl -&gt; H265FramerateControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679972423"><span id="local-6989586621679972425"><span id="local-6989586621679972427"><span id="local-6989586621679972429"><span id="local-6989586621679972431"><span id="local-6989586621679972433"><span id="local-6989586621679972435"><span class="annot"><span class="annottext">Eq H265FramerateControl
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679972432"><span id="local-6989586621679972434"><span id="local-6989586621679972436"><span id="local-6989586621679972438"><span id="local-6989586621679972440"><span id="local-6989586621679972442"><span id="local-6989586621679972444"><span class="annot"><span class="annottext">Eq H265FramerateControl
 Eq H265FramerateControl
 -&gt; (H265FramerateControl -&gt; H265FramerateControl -&gt; Ordering)
 -&gt; (H265FramerateControl -&gt; H265FramerateControl -&gt; Bool)
@@ -153,7 +153,7 @@ $cfrom :: forall x. H265FramerateControl -&gt; Rep H265FramerateControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972415"><span id="local-6989586621679972417"><span class="annot"><span class="annottext">Int -&gt; H265FramerateControl -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972424"><span id="local-6989586621679972426"><span class="annot"><span class="annottext">Int -&gt; H265FramerateControl -&gt; Int
 H265FramerateControl -&gt; Int
 (Int -&gt; H265FramerateControl -&gt; Int)
 -&gt; (H265FramerateControl -&gt; Int) -&gt; Hashable H265FramerateControl
@@ -163,54 +163,54 @@ $chash :: H265FramerateControl -&gt; Int
 hashWithSalt :: Int -&gt; H265FramerateControl -&gt; Int
 $chashWithSalt :: Int -&gt; H265FramerateControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679972412"><span class="annot"><span class="annottext">H265FramerateControl -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679972421"><span class="annot"><span class="annottext">H265FramerateControl -&gt; ()
 (H265FramerateControl -&gt; ()) -&gt; NFData H265FramerateControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265FramerateControl -&gt; ()
 $crnf :: H265FramerateControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679972409"><span class="annot"><span class="annottext">Text -&gt; Either String H265FramerateControl
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679972418"><span class="annot"><span class="annottext">Text -&gt; Either String H265FramerateControl
 (Text -&gt; Either String H265FramerateControl)
 -&gt; FromText H265FramerateControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265FramerateControl
 $cfromText :: Text -&gt; Either String H265FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679972406"><span class="annot"><span class="annottext">H265FramerateControl -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679972415"><span class="annot"><span class="annottext">H265FramerateControl -&gt; Text
 (H265FramerateControl -&gt; Text) -&gt; ToText H265FramerateControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265FramerateControl -&gt; Text
 $ctoText :: H265FramerateControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679972403"><span class="annot"><span class="annottext">H265FramerateControl -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679972412"><span class="annot"><span class="annottext">H265FramerateControl -&gt; ByteString
 (H265FramerateControl -&gt; ByteString)
 -&gt; ToByteString H265FramerateControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265FramerateControl -&gt; ByteString
 $ctoBS :: H265FramerateControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679972400"><span class="annot"><span class="annottext">H265FramerateControl -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679972409"><span class="annot"><span class="annottext">H265FramerateControl -&gt; ByteStringBuilder
 (H265FramerateControl -&gt; ByteStringBuilder)
 -&gt; ToLog H265FramerateControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265FramerateControl -&gt; ByteStringBuilder
 $cbuild :: H265FramerateControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679972397"><span class="annot"><span class="annottext">HeaderName -&gt; H265FramerateControl -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679972406"><span class="annot"><span class="annottext">HeaderName -&gt; H265FramerateControl -&gt; [Header]
 (HeaderName -&gt; H265FramerateControl -&gt; [Header])
 -&gt; ToHeader H265FramerateControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265FramerateControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265FramerateControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679972394"><span class="annot"><span class="annottext">H265FramerateControl -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679972403"><span class="annot"><span class="annottext">H265FramerateControl -&gt; QueryString
 (H265FramerateControl -&gt; QueryString)
 -&gt; ToQuery H265FramerateControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265FramerateControl -&gt; QueryString
 $ctoQuery :: H265FramerateControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679972389"><span id="local-6989586621679972391"><span class="annot"><span class="annottext">Value -&gt; Parser [H265FramerateControl]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679972398"><span id="local-6989586621679972400"><span class="annot"><span class="annottext">Value -&gt; Parser [H265FramerateControl]
 Value -&gt; Parser H265FramerateControl
 (Value -&gt; Parser H265FramerateControl)
 -&gt; (Value -&gt; Parser [H265FramerateControl])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [H265FramerateControl]
 parseJSON :: Value -&gt; Parser H265FramerateControl
 $cparseJSON :: Value -&gt; Parser H265FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679972384"><span id="local-6989586621679972386"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265FramerateControl]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679972393"><span id="local-6989586621679972395"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265FramerateControl]
 FromJSONKeyFunction H265FramerateControl
 FromJSONKeyFunction H265FramerateControl
 -&gt; FromJSONKeyFunction [H265FramerateControl]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265FramerateControl]
 fromJSONKey :: FromJSONKeyFunction H265FramerateControl
 $cfromJSONKey :: FromJSONKeyFunction H265FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679972375"><span id="local-6989586621679972377"><span id="local-6989586621679972379"><span id="local-6989586621679972381"><span class="annot"><span class="annottext">[H265FramerateControl] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679972384"><span id="local-6989586621679972386"><span id="local-6989586621679972388"><span id="local-6989586621679972390"><span class="annot"><span class="annottext">[H265FramerateControl] -&gt; Encoding
 [H265FramerateControl] -&gt; Value
 H265FramerateControl -&gt; Encoding
 H265FramerateControl -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: H265FramerateControl -&gt; Encoding
 toJSON :: H265FramerateControl -&gt; Value
 $ctoJSON :: H265FramerateControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679972370"><span id="local-6989586621679972372"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265FramerateControl]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679972379"><span id="local-6989586621679972381"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265FramerateControl]
 ToJSONKeyFunction H265FramerateControl
 ToJSONKeyFunction H265FramerateControl
 -&gt; ToJSONKeyFunction [H265FramerateControl]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265FramerateControl]
 toJSONKey :: ToJSONKeyFunction H265FramerateControl
 $ctoJSONKey :: ToJSONKeyFunction H265FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679972367"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265FramerateControl
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679972376"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265FramerateControl
 ([Node] -&gt; Either String H265FramerateControl)
 -&gt; FromXML H265FramerateControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265FramerateControl
 $cparseXML :: [Node] -&gt; Either String H265FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679972364"><span class="annot"><span class="annottext">H265FramerateControl -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679972373"><span class="annot"><span class="annottext">H265FramerateControl -&gt; XML
 (H265FramerateControl -&gt; XML) -&gt; ToXML H265FramerateControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H265FramerateControl -&gt; XML

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679327774"><span id="local-6989586621679327775"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequiredAttributeBehavior"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior.html#RequiredAttributeBehavior"><span class="hs-identifier hs-var">RequiredAttributeBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequiredAttributeBehavior%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior.html#RequiredAttributeBehavior%27"><span class="hs-identifier hs-var">RequiredAttributeBehavior'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679327783"><span id="local-6989586621679327784"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequiredAttributeBehavior"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior.html#RequiredAttributeBehavior"><span class="hs-identifier hs-var">RequiredAttributeBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequiredAttributeBehavior%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior.html#RequiredAttributeBehavior%27"><span class="hs-identifier hs-var">RequiredAttributeBehavior'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRequiredAttributeBehavior"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior.html#fromRequiredAttributeBehavior"><span class="hs-identifier hs-var hs-var">fromRequiredAttributeBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327766"><span id="local-6989586621679327768"><span id="local-6989586621679327770"><span class="annot"><span class="annottext">Int -&gt; RequiredAttributeBehavior -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327775"><span id="local-6989586621679327777"><span id="local-6989586621679327779"><span class="annot"><span class="annottext">Int -&gt; RequiredAttributeBehavior -&gt; ShowS
 [RequiredAttributeBehavior] -&gt; ShowS
 RequiredAttributeBehavior -&gt; String
 (Int -&gt; RequiredAttributeBehavior -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RequiredAttributeBehavior -&gt; String
 showsPrec :: Int -&gt; RequiredAttributeBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; RequiredAttributeBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679327757"><span id="local-6989586621679327759"><span id="local-6989586621679327761"><span id="local-6989586621679327763"><span class="annot"><span class="annottext">ReadPrec [RequiredAttributeBehavior]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679327766"><span id="local-6989586621679327768"><span id="local-6989586621679327770"><span id="local-6989586621679327772"><span class="annot"><span class="annottext">ReadPrec [RequiredAttributeBehavior]
 ReadPrec RequiredAttributeBehavior
 Int -&gt; ReadS RequiredAttributeBehavior
 ReadS [RequiredAttributeBehavior]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RequiredAttributeBehavior]
 readsPrec :: Int -&gt; ReadS RequiredAttributeBehavior
 $creadsPrec :: Int -&gt; ReadS RequiredAttributeBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679327752"><span id="local-6989586621679327754"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; RequiredAttributeBehavior -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679327761"><span id="local-6989586621679327763"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; RequiredAttributeBehavior -&gt; Bool
 (RequiredAttributeBehavior -&gt; RequiredAttributeBehavior -&gt; Bool)
 -&gt; (RequiredAttributeBehavior -&gt; RequiredAttributeBehavior -&gt; Bool)
 -&gt; Eq RequiredAttributeBehavior
@@ -82,7 +82,7 @@ $c/= :: RequiredAttributeBehavior -&gt; RequiredAttributeBehavior -&gt; Bool
 == :: RequiredAttributeBehavior -&gt; RequiredAttributeBehavior -&gt; Bool
 $c== :: RequiredAttributeBehavior -&gt; RequiredAttributeBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327736"><span id="local-6989586621679327738"><span id="local-6989586621679327740"><span id="local-6989586621679327742"><span id="local-6989586621679327744"><span id="local-6989586621679327746"><span id="local-6989586621679327748"><span class="annot"><span class="annottext">Eq RequiredAttributeBehavior
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327745"><span id="local-6989586621679327747"><span id="local-6989586621679327749"><span id="local-6989586621679327751"><span id="local-6989586621679327753"><span id="local-6989586621679327755"><span id="local-6989586621679327757"><span class="annot"><span class="annottext">Eq RequiredAttributeBehavior
 Eq RequiredAttributeBehavior
 -&gt; (RequiredAttributeBehavior
     -&gt; RequiredAttributeBehavior -&gt; Ordering)
@@ -147,7 +147,7 @@ RequiredAttributeBehavior -&gt; Rep RequiredAttributeBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327728"><span id="local-6989586621679327730"><span class="annot"><span class="annottext">Int -&gt; RequiredAttributeBehavior -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327737"><span id="local-6989586621679327739"><span class="annot"><span class="annottext">Int -&gt; RequiredAttributeBehavior -&gt; Int
 RequiredAttributeBehavior -&gt; Int
 (Int -&gt; RequiredAttributeBehavior -&gt; Int)
 -&gt; (RequiredAttributeBehavior -&gt; Int)
@@ -158,56 +158,56 @@ $chash :: RequiredAttributeBehavior -&gt; Int
 hashWithSalt :: Int -&gt; RequiredAttributeBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; RequiredAttributeBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679327725"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679327734"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; ()
 (RequiredAttributeBehavior -&gt; ())
 -&gt; NFData RequiredAttributeBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RequiredAttributeBehavior -&gt; ()
 $crnf :: RequiredAttributeBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679327722"><span class="annot"><span class="annottext">Text -&gt; Either String RequiredAttributeBehavior
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679327731"><span class="annot"><span class="annottext">Text -&gt; Either String RequiredAttributeBehavior
 (Text -&gt; Either String RequiredAttributeBehavior)
 -&gt; FromText RequiredAttributeBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RequiredAttributeBehavior
 $cfromText :: Text -&gt; Either String RequiredAttributeBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327719"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327728"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; Text
 (RequiredAttributeBehavior -&gt; Text)
 -&gt; ToText RequiredAttributeBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RequiredAttributeBehavior -&gt; Text
 $ctoText :: RequiredAttributeBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327716"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327725"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; ByteString
 (RequiredAttributeBehavior -&gt; ByteString)
 -&gt; ToByteString RequiredAttributeBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RequiredAttributeBehavior -&gt; ByteString
 $ctoBS :: RequiredAttributeBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327713"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327722"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; ByteStringBuilder
 (RequiredAttributeBehavior -&gt; ByteStringBuilder)
 -&gt; ToLog RequiredAttributeBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RequiredAttributeBehavior -&gt; ByteStringBuilder
 $cbuild :: RequiredAttributeBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327710"><span class="annot"><span class="annottext">HeaderName -&gt; RequiredAttributeBehavior -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327719"><span class="annot"><span class="annottext">HeaderName -&gt; RequiredAttributeBehavior -&gt; [Header]
 (HeaderName -&gt; RequiredAttributeBehavior -&gt; [Header])
 -&gt; ToHeader RequiredAttributeBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RequiredAttributeBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RequiredAttributeBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327707"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327716"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; QueryString
 (RequiredAttributeBehavior -&gt; QueryString)
 -&gt; ToQuery RequiredAttributeBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RequiredAttributeBehavior -&gt; QueryString
 $ctoQuery :: RequiredAttributeBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327702"><span id="local-6989586621679327704"><span class="annot"><span class="annottext">Value -&gt; Parser [RequiredAttributeBehavior]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327711"><span id="local-6989586621679327713"><span class="annot"><span class="annottext">Value -&gt; Parser [RequiredAttributeBehavior]
 Value -&gt; Parser RequiredAttributeBehavior
 (Value -&gt; Parser RequiredAttributeBehavior)
 -&gt; (Value -&gt; Parser [RequiredAttributeBehavior])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [RequiredAttributeBehavior]
 parseJSON :: Value -&gt; Parser RequiredAttributeBehavior
 $cparseJSON :: Value -&gt; Parser RequiredAttributeBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327697"><span id="local-6989586621679327699"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequiredAttributeBehavior]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327706"><span id="local-6989586621679327708"><span class="annot"><span class="annottext">FromJSONKeyFunction [RequiredAttributeBehavior]
 FromJSONKeyFunction RequiredAttributeBehavior
 FromJSONKeyFunction RequiredAttributeBehavior
 -&gt; FromJSONKeyFunction [RequiredAttributeBehavior]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RequiredAttributeBehavior]
 fromJSONKey :: FromJSONKeyFunction RequiredAttributeBehavior
 $cfromJSONKey :: FromJSONKeyFunction RequiredAttributeBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327688"><span id="local-6989586621679327690"><span id="local-6989586621679327692"><span id="local-6989586621679327694"><span class="annot"><span class="annottext">[RequiredAttributeBehavior] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327697"><span id="local-6989586621679327699"><span id="local-6989586621679327701"><span id="local-6989586621679327703"><span class="annot"><span class="annottext">[RequiredAttributeBehavior] -&gt; Encoding
 [RequiredAttributeBehavior] -&gt; Value
 RequiredAttributeBehavior -&gt; Encoding
 RequiredAttributeBehavior -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: RequiredAttributeBehavior -&gt; Encoding
 toJSON :: RequiredAttributeBehavior -&gt; Value
 $ctoJSON :: RequiredAttributeBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327683"><span id="local-6989586621679327685"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequiredAttributeBehavior]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327692"><span id="local-6989586621679327694"><span class="annot"><span class="annottext">ToJSONKeyFunction [RequiredAttributeBehavior]
 ToJSONKeyFunction RequiredAttributeBehavior
 ToJSONKeyFunction RequiredAttributeBehavior
 -&gt; ToJSONKeyFunction [RequiredAttributeBehavior]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RequiredAttributeBehavior]
 toJSONKey :: ToJSONKeyFunction RequiredAttributeBehavior
 $ctoJSONKey :: ToJSONKeyFunction RequiredAttributeBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327680"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequiredAttributeBehavior
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327689"><span class="annot"><span class="annottext">[Node] -&gt; Either String RequiredAttributeBehavior
 ([Node] -&gt; Either String RequiredAttributeBehavior)
 -&gt; FromXML RequiredAttributeBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RequiredAttributeBehavior
 $cparseXML :: [Node] -&gt; Either String RequiredAttributeBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327677"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327686"><span class="annot"><span class="annottext">RequiredAttributeBehavior -&gt; XML
 (RequiredAttributeBehavior -&gt; XML)
 -&gt; ToXML RequiredAttributeBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a

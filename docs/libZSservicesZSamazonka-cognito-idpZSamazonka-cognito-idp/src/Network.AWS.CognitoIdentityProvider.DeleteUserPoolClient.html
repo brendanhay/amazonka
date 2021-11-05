@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-comment">-- | Represents the request to delete a user pool client.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newDeleteUserPoolClient' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679449665"><span id="local-6989586621679449666"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserPoolClient"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-var">DeleteUserPoolClient</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserPoolClient%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-var">DeleteUserPoolClient'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679449674"><span id="local-6989586621679449675"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserPoolClient"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-var">DeleteUserPoolClient</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserPoolClient%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-var">DeleteUserPoolClient'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user pool ID for the user pool where you want to delete the client.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AuserPoolId%3ADeleteUserPoolClient%27"><span class="annot"><span class="annottext">DeleteUserPoolClient -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#%24sel%3AuserPoolId%3ADeleteUserPoolClient%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AclientId%3ADeleteUserPoolClient%27"><span class="annot"><span class="annottext">DeleteUserPoolClient -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#%24sel%3AclientId%3ADeleteUserPoolClient%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449658"><span id="local-6989586621679449660"><span class="annot"><span class="annottext">DeleteUserPoolClient -&gt; DeleteUserPoolClient -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449667"><span id="local-6989586621679449669"><span class="annot"><span class="annottext">DeleteUserPoolClient -&gt; DeleteUserPoolClient -&gt; Bool
 (DeleteUserPoolClient -&gt; DeleteUserPoolClient -&gt; Bool)
 -&gt; (DeleteUserPoolClient -&gt; DeleteUserPoolClient -&gt; Bool)
 -&gt; Eq DeleteUserPoolClient
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUserPoolClient -&gt; DeleteUserPoolClient -&gt; Bool
 == :: DeleteUserPoolClient -&gt; DeleteUserPoolClient -&gt; Bool
 $c== :: DeleteUserPoolClient -&gt; DeleteUserPoolClient -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449651"><span id="local-6989586621679449653"><span id="local-6989586621679449655"><span class="annot"><span class="annottext">Int -&gt; DeleteUserPoolClient -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449660"><span id="local-6989586621679449662"><span id="local-6989586621679449664"><span class="annot"><span class="annottext">Int -&gt; DeleteUserPoolClient -&gt; ShowS
 [DeleteUserPoolClient] -&gt; ShowS
 DeleteUserPoolClient -&gt; String
 (Int -&gt; DeleteUserPoolClient -&gt; ShowS)
@@ -107,14 +107,14 @@ $cfrom :: forall x. DeleteUserPoolClient -&gt; Rep DeleteUserPoolClient x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteUserPoolClient"><span class="annot"><span class="annottext">newDeleteUserPoolClient :: Text -&gt; Text -&gt; DeleteUserPoolClient
-</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#newDeleteUserPoolClient"><span class="hs-identifier hs-var hs-var">newDeleteUserPoolClient</span></a></span></span><span> </span><span id="local-6989586621679449646"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449646"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679449645"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449645"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#newDeleteUserPoolClient"><span class="hs-identifier hs-var hs-var">newDeleteUserPoolClient</span></a></span></span><span> </span><span id="local-6989586621679449655"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449655"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679449654"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449654"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteUserPoolClient' :: Text -&gt; Sensitive Text -&gt; DeleteUserPoolClient
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userPoolId:DeleteUserPoolClient' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#%24sel%3AuserPoolId%3ADeleteUserPoolClient%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449646"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449655"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientId:DeleteUserPoolClient' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#%24sel%3AclientId%3ADeleteUserPoolClient%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -124,7 +124,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449645"><span class="hs-identifier hs-var">pClientId_</span></a></span><span>
+</span><a href="#local-6989586621679449654"><span class="hs-identifier hs-var">pClientId_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The user pool ID for the user pool where you want to delete the client.</span><span>
@@ -134,16 +134,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (DeleteUserPoolClient -&gt; Text -&gt; DeleteUserPoolClient)
 -&gt; Lens DeleteUserPoolClient DeleteUserPoolClient Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449640"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449649"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:DeleteUserPoolClient' :: DeleteUserPoolClient -&gt; Text
-</span><a href="#local-6989586621679449640"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449640"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449639"><span class="annot"><span class="annottext">s :: DeleteUserPoolClient
-</span><a href="#local-6989586621679449639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449638"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserPoolClient
-</span><a href="#local-6989586621679449639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:DeleteUserPoolClient' :: Text
+</span><a href="#local-6989586621679449649"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449649"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449648"><span class="annot"><span class="annottext">s :: DeleteUserPoolClient
+</span><a href="#local-6989586621679449648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449647"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679449647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserPoolClient
+</span><a href="#local-6989586621679449648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:DeleteUserPoolClient' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#%24sel%3AuserPoolId%3ADeleteUserPoolClient%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The app client ID of the app associated with the user pool.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#deleteUserPoolClient_clientId"><span class="hs-identifier hs-type">deleteUserPoolClient_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -156,16 +156,16 @@ $sel:userPoolId:DeleteUserPoolClient' :: DeleteUserPoolClient -&gt; Text
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449637"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449646"><span class="annot"><span class="annottext">Sensitive Text
 clientId :: Sensitive Text
 $sel:clientId:DeleteUserPoolClient' :: DeleteUserPoolClient -&gt; Sensitive Text
-</span><a href="#local-6989586621679449637"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679449637"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449636"><span class="annot"><span class="annottext">s :: DeleteUserPoolClient
-</span><a href="#local-6989586621679449636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449635"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679449635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserPoolClient
-</span><a href="#local-6989586621679449636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:DeleteUserPoolClient' :: Sensitive Text
+</span><a href="#local-6989586621679449646"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679449646"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679449645"><span class="annot"><span class="annottext">s :: DeleteUserPoolClient
+</span><a href="#local-6989586621679449645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679449644"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679449644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserPoolClient
+</span><a href="#local-6989586621679449645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:DeleteUserPoolClient' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#%24sel%3AclientId%3ADeleteUserPoolClient%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679449635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679449644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; DeleteUserPoolClient -&gt; f DeleteUserPoolClient)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -180,12 +180,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClientResponse"><span class="hs-identifier hs-type">DeleteUserPoolClientResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679449630"><span class="annot"><span class="annottext">request :: DeleteUserPoolClient -&gt; Request DeleteUserPoolClient
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679449639"><span class="annot"><span class="annottext">request :: DeleteUserPoolClient -&gt; Request DeleteUserPoolClient
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUserPoolClient -&gt; Request DeleteUserPoolClient
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679449626"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679449635"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteUserPoolClient
 -&gt; ClientResponse ClientBody
@@ -211,12 +211,12 @@ AWSResponse a
 DeleteUserPoolClientResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClientResponse%27"><span class="hs-identifier hs-var">DeleteUserPoolClientResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449619"><span id="local-6989586621679449621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449628"><span id="local-6989586621679449630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679449612"><span class="annot"><span class="annottext">toHeaders :: DeleteUserPoolClient -&gt; [Header]
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679449621"><span class="annot"><span class="annottext">toHeaders :: DeleteUserPoolClient -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteUserPoolClient -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -243,15 +243,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449602"><span id="local-6989586621679449604"><span id="local-6989586621679449606"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679449600"><span class="annot"><span class="annottext">toJSON :: DeleteUserPoolClient -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449597"><span id="local-6989586621679449598"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449611"><span id="local-6989586621679449613"><span id="local-6989586621679449615"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679449609"><span class="annot"><span class="annottext">toJSON :: DeleteUserPoolClient -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient%27"><span class="hs-identifier hs-type">DeleteUserPoolClient'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679449606"><span id="local-6989586621679449607"><span class="annot"><span class="annottext">Text
 Sensitive Text
 clientId :: Sensitive Text
 userPoolId :: Text
 $sel:clientId:DeleteUserPoolClient' :: DeleteUserPoolClient -&gt; Sensitive Text
 $sel:userPoolId:DeleteUserPoolClient' :: DeleteUserPoolClient -&gt; Text
-</span><a href="#local-6989586621679449597"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679449606"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,26 +263,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679449598"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679449607"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679449597"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679449606"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679449591"><span class="annot"><span class="annottext">toPath :: DeleteUserPoolClient -&gt; ByteString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679449600"><span class="annot"><span class="annottext">toPath :: DeleteUserPoolClient -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteUserPoolClient -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClient"><span class="hs-identifier hs-type">DeleteUserPoolClient</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679449587"><span class="annot"><span class="annottext">toQuery :: DeleteUserPoolClient -&gt; QueryString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679449596"><span class="annot"><span class="annottext">toQuery :: DeleteUserPoolClient -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUserPoolClient -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -290,10 +290,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newDeleteUserPoolClientResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679449584"><span id="local-6989586621679449585"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserPoolClientResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClientResponse"><span class="hs-identifier hs-var">DeleteUserPoolClientResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserPoolClientResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClientResponse%27"><span class="hs-identifier hs-var">DeleteUserPoolClientResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679449593"><span id="local-6989586621679449594"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserPoolClientResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClientResponse"><span class="hs-identifier hs-var">DeleteUserPoolClientResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserPoolClientResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClientResponse%27"><span class="hs-identifier hs-var">DeleteUserPoolClientResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449580"><span id="local-6989586621679449582"><span class="annot"><span class="annottext">DeleteUserPoolClientResponse
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679449589"><span id="local-6989586621679449591"><span class="annot"><span class="annottext">DeleteUserPoolClientResponse
 -&gt; DeleteUserPoolClientResponse -&gt; Bool
 (DeleteUserPoolClientResponse
  -&gt; DeleteUserPoolClientResponse -&gt; Bool)
@@ -309,7 +309,7 @@ $c/= :: DeleteUserPoolClientResponse
 -&gt; DeleteUserPoolClientResponse -&gt; Bool
 $c== :: DeleteUserPoolClientResponse
 -&gt; DeleteUserPoolClientResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449572"><span id="local-6989586621679449574"><span id="local-6989586621679449576"><span id="local-6989586621679449578"><span class="annot"><span class="annottext">ReadPrec [DeleteUserPoolClientResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449581"><span id="local-6989586621679449583"><span id="local-6989586621679449585"><span id="local-6989586621679449587"><span class="annot"><span class="annottext">ReadPrec [DeleteUserPoolClientResponse]
 ReadPrec DeleteUserPoolClientResponse
 Int -&gt; ReadS DeleteUserPoolClientResponse
 ReadS [DeleteUserPoolClientResponse]
@@ -329,7 +329,7 @@ readList :: ReadS [DeleteUserPoolClientResponse]
 $creadList :: ReadS [DeleteUserPoolClientResponse]
 readsPrec :: Int -&gt; ReadS DeleteUserPoolClientResponse
 $creadsPrec :: Int -&gt; ReadS DeleteUserPoolClientResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449565"><span id="local-6989586621679449567"><span id="local-6989586621679449569"><span class="annot"><span class="annottext">Int -&gt; DeleteUserPoolClientResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679449574"><span id="local-6989586621679449576"><span id="local-6989586621679449578"><span class="annot"><span class="annottext">Int -&gt; DeleteUserPoolClientResponse -&gt; ShowS
 [DeleteUserPoolClientResponse] -&gt; ShowS
 DeleteUserPoolClientResponse -&gt; String
 (Int -&gt; DeleteUserPoolClientResponse -&gt; ShowS)
@@ -372,5 +372,5 @@ DeleteUserPoolClientResponse -&gt; Rep DeleteUserPoolClientResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">DeleteUserPoolClientResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClientResponse%27"><span class="hs-identifier hs-var">DeleteUserPoolClientResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClientResponse"><span class="hs-identifier hs-type">DeleteUserPoolClientResponse</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679449570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient.html#DeleteUserPoolClientResponse"><span class="hs-identifier hs-type">DeleteUserPoolClientResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

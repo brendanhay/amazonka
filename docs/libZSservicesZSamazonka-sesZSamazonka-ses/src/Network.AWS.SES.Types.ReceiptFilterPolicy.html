@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679273974"><span id="local-6989586621679273975"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReceiptFilterPolicy"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptFilterPolicy.html#ReceiptFilterPolicy"><span class="hs-identifier hs-var">ReceiptFilterPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiptFilterPolicy%27"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptFilterPolicy.html#ReceiptFilterPolicy%27"><span class="hs-identifier hs-var">ReceiptFilterPolicy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679273983"><span id="local-6989586621679273984"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReceiptFilterPolicy"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptFilterPolicy.html#ReceiptFilterPolicy"><span class="hs-identifier hs-var">ReceiptFilterPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiptFilterPolicy%27"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptFilterPolicy.html#ReceiptFilterPolicy%27"><span class="hs-identifier hs-var">ReceiptFilterPolicy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReceiptFilterPolicy"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; Text
 </span><a href="Network.AWS.SES.Types.ReceiptFilterPolicy.html#fromReceiptFilterPolicy"><span class="hs-identifier hs-var hs-var">fromReceiptFilterPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273966"><span id="local-6989586621679273968"><span id="local-6989586621679273970"><span class="annot"><span class="annottext">Int -&gt; ReceiptFilterPolicy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273975"><span id="local-6989586621679273977"><span id="local-6989586621679273979"><span class="annot"><span class="annottext">Int -&gt; ReceiptFilterPolicy -&gt; ShowS
 [ReceiptFilterPolicy] -&gt; ShowS
 ReceiptFilterPolicy -&gt; String
 (Int -&gt; ReceiptFilterPolicy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ReceiptFilterPolicy -&gt; String
 showsPrec :: Int -&gt; ReceiptFilterPolicy -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReceiptFilterPolicy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679273957"><span id="local-6989586621679273959"><span id="local-6989586621679273961"><span id="local-6989586621679273963"><span class="annot"><span class="annottext">ReadPrec [ReceiptFilterPolicy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679273966"><span id="local-6989586621679273968"><span id="local-6989586621679273970"><span id="local-6989586621679273972"><span class="annot"><span class="annottext">ReadPrec [ReceiptFilterPolicy]
 ReadPrec ReceiptFilterPolicy
 Int -&gt; ReadS ReceiptFilterPolicy
 ReadS [ReceiptFilterPolicy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ReceiptFilterPolicy]
 readsPrec :: Int -&gt; ReadS ReceiptFilterPolicy
 $creadsPrec :: Int -&gt; ReadS ReceiptFilterPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273952"><span id="local-6989586621679273954"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; ReceiptFilterPolicy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273961"><span id="local-6989586621679273963"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; ReceiptFilterPolicy -&gt; Bool
 (ReceiptFilterPolicy -&gt; ReceiptFilterPolicy -&gt; Bool)
 -&gt; (ReceiptFilterPolicy -&gt; ReceiptFilterPolicy -&gt; Bool)
 -&gt; Eq ReceiptFilterPolicy
@@ -82,7 +82,7 @@ $c/= :: ReceiptFilterPolicy -&gt; ReceiptFilterPolicy -&gt; Bool
 == :: ReceiptFilterPolicy -&gt; ReceiptFilterPolicy -&gt; Bool
 $c== :: ReceiptFilterPolicy -&gt; ReceiptFilterPolicy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273936"><span id="local-6989586621679273938"><span id="local-6989586621679273940"><span id="local-6989586621679273942"><span id="local-6989586621679273944"><span id="local-6989586621679273946"><span id="local-6989586621679273948"><span class="annot"><span class="annottext">Eq ReceiptFilterPolicy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273945"><span id="local-6989586621679273947"><span id="local-6989586621679273949"><span id="local-6989586621679273951"><span id="local-6989586621679273953"><span id="local-6989586621679273955"><span id="local-6989586621679273957"><span class="annot"><span class="annottext">Eq ReceiptFilterPolicy
 Eq ReceiptFilterPolicy
 -&gt; (ReceiptFilterPolicy -&gt; ReceiptFilterPolicy -&gt; Ordering)
 -&gt; (ReceiptFilterPolicy -&gt; ReceiptFilterPolicy -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ReceiptFilterPolicy -&gt; Rep ReceiptFilterPolicy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273928"><span id="local-6989586621679273930"><span class="annot"><span class="annottext">Int -&gt; ReceiptFilterPolicy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273937"><span id="local-6989586621679273939"><span class="annot"><span class="annottext">Int -&gt; ReceiptFilterPolicy -&gt; Int
 ReceiptFilterPolicy -&gt; Int
 (Int -&gt; ReceiptFilterPolicy -&gt; Int)
 -&gt; (ReceiptFilterPolicy -&gt; Int) -&gt; Hashable ReceiptFilterPolicy
@@ -145,53 +145,53 @@ $chash :: ReceiptFilterPolicy -&gt; Int
 hashWithSalt :: Int -&gt; ReceiptFilterPolicy -&gt; Int
 $chashWithSalt :: Int -&gt; ReceiptFilterPolicy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679273925"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679273934"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; ()
 (ReceiptFilterPolicy -&gt; ()) -&gt; NFData ReceiptFilterPolicy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReceiptFilterPolicy -&gt; ()
 $crnf :: ReceiptFilterPolicy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273922"><span class="annot"><span class="annottext">Text -&gt; Either String ReceiptFilterPolicy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273931"><span class="annot"><span class="annottext">Text -&gt; Either String ReceiptFilterPolicy
 (Text -&gt; Either String ReceiptFilterPolicy)
 -&gt; FromText ReceiptFilterPolicy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReceiptFilterPolicy
 $cfromText :: Text -&gt; Either String ReceiptFilterPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273919"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273928"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; Text
 (ReceiptFilterPolicy -&gt; Text) -&gt; ToText ReceiptFilterPolicy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReceiptFilterPolicy -&gt; Text
 $ctoText :: ReceiptFilterPolicy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273916"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273925"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; ByteString
 (ReceiptFilterPolicy -&gt; ByteString)
 -&gt; ToByteString ReceiptFilterPolicy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReceiptFilterPolicy -&gt; ByteString
 $ctoBS :: ReceiptFilterPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273913"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273922"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; ByteStringBuilder
 (ReceiptFilterPolicy -&gt; ByteStringBuilder)
 -&gt; ToLog ReceiptFilterPolicy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReceiptFilterPolicy -&gt; ByteStringBuilder
 $cbuild :: ReceiptFilterPolicy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273910"><span class="annot"><span class="annottext">HeaderName -&gt; ReceiptFilterPolicy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273919"><span class="annot"><span class="annottext">HeaderName -&gt; ReceiptFilterPolicy -&gt; [Header]
 (HeaderName -&gt; ReceiptFilterPolicy -&gt; [Header])
 -&gt; ToHeader ReceiptFilterPolicy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReceiptFilterPolicy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReceiptFilterPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273907"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273916"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; QueryString
 (ReceiptFilterPolicy -&gt; QueryString) -&gt; ToQuery ReceiptFilterPolicy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReceiptFilterPolicy -&gt; QueryString
 $ctoQuery :: ReceiptFilterPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273902"><span id="local-6989586621679273904"><span class="annot"><span class="annottext">Value -&gt; Parser [ReceiptFilterPolicy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273911"><span id="local-6989586621679273913"><span class="annot"><span class="annottext">Value -&gt; Parser [ReceiptFilterPolicy]
 Value -&gt; Parser ReceiptFilterPolicy
 (Value -&gt; Parser ReceiptFilterPolicy)
 -&gt; (Value -&gt; Parser [ReceiptFilterPolicy])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ReceiptFilterPolicy]
 parseJSON :: Value -&gt; Parser ReceiptFilterPolicy
 $cparseJSON :: Value -&gt; Parser ReceiptFilterPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273897"><span id="local-6989586621679273899"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReceiptFilterPolicy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273906"><span id="local-6989586621679273908"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReceiptFilterPolicy]
 FromJSONKeyFunction ReceiptFilterPolicy
 FromJSONKeyFunction ReceiptFilterPolicy
 -&gt; FromJSONKeyFunction [ReceiptFilterPolicy]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReceiptFilterPolicy]
 fromJSONKey :: FromJSONKeyFunction ReceiptFilterPolicy
 $cfromJSONKey :: FromJSONKeyFunction ReceiptFilterPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273888"><span id="local-6989586621679273890"><span id="local-6989586621679273892"><span id="local-6989586621679273894"><span class="annot"><span class="annottext">[ReceiptFilterPolicy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273897"><span id="local-6989586621679273899"><span id="local-6989586621679273901"><span id="local-6989586621679273903"><span class="annot"><span class="annottext">[ReceiptFilterPolicy] -&gt; Encoding
 [ReceiptFilterPolicy] -&gt; Value
 ReceiptFilterPolicy -&gt; Encoding
 ReceiptFilterPolicy -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ReceiptFilterPolicy -&gt; Encoding
 toJSON :: ReceiptFilterPolicy -&gt; Value
 $ctoJSON :: ReceiptFilterPolicy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273883"><span id="local-6989586621679273885"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReceiptFilterPolicy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273892"><span id="local-6989586621679273894"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReceiptFilterPolicy]
 ToJSONKeyFunction ReceiptFilterPolicy
 ToJSONKeyFunction ReceiptFilterPolicy
 -&gt; ToJSONKeyFunction [ReceiptFilterPolicy]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReceiptFilterPolicy]
 toJSONKey :: ToJSONKeyFunction ReceiptFilterPolicy
 $ctoJSONKey :: ToJSONKeyFunction ReceiptFilterPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273880"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReceiptFilterPolicy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273889"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReceiptFilterPolicy
 ([Node] -&gt; Either String ReceiptFilterPolicy)
 -&gt; FromXML ReceiptFilterPolicy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReceiptFilterPolicy
 $cparseXML :: [Node] -&gt; Either String ReceiptFilterPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273877"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273886"><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; XML
 (ReceiptFilterPolicy -&gt; XML) -&gt; ToXML ReceiptFilterPolicy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReceiptFilterPolicy -&gt; XML

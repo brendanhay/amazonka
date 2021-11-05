@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightSeverity.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.InsightSeverity</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.InsightStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightTimeRange.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.InsightTimeRange</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ResourceCollection.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.ResourceCollection</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ServiceCollection.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.ServiceCollection</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Information about a reactive insight. This object is returned by</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @DescribeInsight.@</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newReactiveInsightSummary' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679237814"><span id="local-6989586621679237815"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReactiveInsightSummary"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-var">ReactiveInsightSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReactiveInsightSummary%27"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-var">ReactiveInsightSummary'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of a reactive insight.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3AReactiveInsightSummary%27"><span class="annot"><span class="annottext">ReactiveInsightSummary -&gt; Maybe InsightStatus
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Astatus%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus"><span class="hs-identifier hs-type">InsightStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AresourceCollection%3AReactiveInsightSummary%27"><span class="annot"><span class="annottext">ReactiveInsightSummary -&gt; Maybe ResourceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3AresourceCollection%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">resourceCollection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ResourceCollection.html#ResourceCollection"><span class="hs-identifier hs-type">ResourceCollection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The severity of a reactive insight.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aseverity%3AReactiveInsightSummary%27"><span class="annot"><span class="annottext">ReactiveInsightSummary -&gt; Maybe InsightSeverity
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Aseverity%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightSeverity.html#InsightSeverity"><span class="hs-identifier hs-type">InsightSeverity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AinsightTimeRange%3AReactiveInsightSummary%27"><span class="annot"><span class="annottext">ReactiveInsightSummary -&gt; Maybe InsightTimeRange
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3AinsightTimeRange%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">insightTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightTimeRange.html#InsightTimeRange"><span class="hs-identifier hs-type">InsightTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of a reactive insight.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aname%3AReactiveInsightSummary%27"><span class="annot"><span class="annottext">ReactiveInsightSummary -&gt; Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Aname%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ID of a reactive summary.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aid%3AReactiveInsightSummary%27"><span class="annot"><span class="annottext">ReactiveInsightSummary -&gt; Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Aid%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A collection of the names of AWS services.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AserviceCollection%3AReactiveInsightSummary%27"><span class="annot"><span class="annottext">ReactiveInsightSummary -&gt; Maybe ServiceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3AserviceCollection%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">serviceCollection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ServiceCollection.html#ServiceCollection"><span class="hs-identifier hs-type">ServiceCollection</span></a></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237802"><span id="local-6989586621679237804"><span class="annot"><span class="annottext">ReactiveInsightSummary -&gt; ReactiveInsightSummary -&gt; Bool
+(ReactiveInsightSummary -&gt; ReactiveInsightSummary -&gt; Bool)
+-&gt; (ReactiveInsightSummary -&gt; ReactiveInsightSummary -&gt; Bool)
+-&gt; Eq ReactiveInsightSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReactiveInsightSummary -&gt; ReactiveInsightSummary -&gt; Bool
+$c/= :: ReactiveInsightSummary -&gt; ReactiveInsightSummary -&gt; Bool
+== :: ReactiveInsightSummary -&gt; ReactiveInsightSummary -&gt; Bool
+$c== :: ReactiveInsightSummary -&gt; ReactiveInsightSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237793"><span id="local-6989586621679237795"><span id="local-6989586621679237797"><span id="local-6989586621679237799"><span class="annot"><span class="annottext">ReadPrec [ReactiveInsightSummary]
+ReadPrec ReactiveInsightSummary
+Int -&gt; ReadS ReactiveInsightSummary
+ReadS [ReactiveInsightSummary]
+(Int -&gt; ReadS ReactiveInsightSummary)
+-&gt; ReadS [ReactiveInsightSummary]
+-&gt; ReadPrec ReactiveInsightSummary
+-&gt; ReadPrec [ReactiveInsightSummary]
+-&gt; Read ReactiveInsightSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReactiveInsightSummary]
+$creadListPrec :: ReadPrec [ReactiveInsightSummary]
+readPrec :: ReadPrec ReactiveInsightSummary
+$creadPrec :: ReadPrec ReactiveInsightSummary
+readList :: ReadS [ReactiveInsightSummary]
+$creadList :: ReadS [ReactiveInsightSummary]
+readsPrec :: Int -&gt; ReadS ReactiveInsightSummary
+$creadsPrec :: Int -&gt; ReadS ReactiveInsightSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237786"><span id="local-6989586621679237788"><span id="local-6989586621679237790"><span class="annot"><span class="annottext">Int -&gt; ReactiveInsightSummary -&gt; ShowS
+[ReactiveInsightSummary] -&gt; ShowS
+ReactiveInsightSummary -&gt; String
+(Int -&gt; ReactiveInsightSummary -&gt; ShowS)
+-&gt; (ReactiveInsightSummary -&gt; String)
+-&gt; ([ReactiveInsightSummary] -&gt; ShowS)
+-&gt; Show ReactiveInsightSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReactiveInsightSummary] -&gt; ShowS
+$cshowList :: [ReactiveInsightSummary] -&gt; ShowS
+show :: ReactiveInsightSummary -&gt; String
+$cshow :: ReactiveInsightSummary -&gt; String
+showsPrec :: Int -&gt; ReactiveInsightSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReactiveInsightSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReactiveInsightSummary -&gt; Rep ReactiveInsightSummary x)
+-&gt; (forall x.
+    Rep ReactiveInsightSummary x -&gt; ReactiveInsightSummary)
+-&gt; Generic ReactiveInsightSummary
+forall x. Rep ReactiveInsightSummary x -&gt; ReactiveInsightSummary
+forall x. ReactiveInsightSummary -&gt; Rep ReactiveInsightSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReactiveInsightSummary x -&gt; ReactiveInsightSummary
+$cfrom :: forall x. ReactiveInsightSummary -&gt; Rep ReactiveInsightSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'ReactiveInsightSummary' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'status', 'reactiveInsightSummary_status' - The status of a reactive insight.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'resourceCollection', 'reactiveInsightSummary_resourceCollection' - Undocumented member.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'severity', 'reactiveInsightSummary_severity' - The severity of a reactive insight.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'insightTimeRange', 'reactiveInsightSummary_insightTimeRange' - Undocumented member.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'name', 'reactiveInsightSummary_name' - The name of a reactive insight.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'id', 'reactiveInsightSummary_id' - The ID of a reactive summary.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'serviceCollection', 'reactiveInsightSummary_serviceCollection' - A collection of the names of AWS services.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#newReactiveInsightSummary"><span class="hs-identifier hs-type">newReactiveInsightSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span>
+</span><span id="line-74"></span><span id="newReactiveInsightSummary"><span class="annot"><span class="annottext">newReactiveInsightSummary :: ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#newReactiveInsightSummary"><span class="hs-identifier hs-var hs-var">newReactiveInsightSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">ReactiveInsightSummary' :: Maybe InsightStatus
+-&gt; Maybe ResourceCollection
+-&gt; Maybe InsightSeverity
+-&gt; Maybe InsightTimeRange
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ServiceCollection
+-&gt; ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ReactiveInsightSummary' :: Maybe InsightStatus
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Astatus%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceCollection:ReactiveInsightSummary' :: Maybe ResourceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3AresourceCollection%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceCollection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:severity:ReactiveInsightSummary' :: Maybe InsightSeverity
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Aseverity%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightSeverity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:insightTimeRange:ReactiveInsightSummary' :: Maybe InsightTimeRange
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3AinsightTimeRange%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">insightTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightTimeRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ReactiveInsightSummary' :: Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Aname%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ReactiveInsightSummary' :: Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Aid%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCollection:ReactiveInsightSummary' :: Maybe ServiceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3AserviceCollection%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">serviceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCollection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The status of a reactive insight.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_status"><span class="hs-identifier hs-type">reactiveInsightSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus"><span class="hs-identifier hs-type">InsightStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="reactiveInsightSummary_status"><span class="annot"><span class="annottext">reactiveInsightSummary_status :: (Maybe InsightStatus -&gt; f (Maybe InsightStatus))
+-&gt; ReactiveInsightSummary -&gt; f ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_status"><span class="hs-identifier hs-var hs-var">reactiveInsightSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactiveInsightSummary -&gt; Maybe InsightStatus)
+-&gt; (ReactiveInsightSummary
+    -&gt; Maybe InsightStatus -&gt; ReactiveInsightSummary)
+-&gt; Lens
+     ReactiveInsightSummary
+     ReactiveInsightSummary
+     (Maybe InsightStatus)
+     (Maybe InsightStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237777"><span class="annot"><span class="annottext">Maybe InsightStatus
+status :: Maybe InsightStatus
+$sel:status:ReactiveInsightSummary' :: ReactiveInsightSummary -&gt; Maybe InsightStatus
+</span><a href="#local-6989586621679237777"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightStatus
+</span><a href="#local-6989586621679237777"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237776"><span class="annot"><span class="annottext">s :: ReactiveInsightSummary
+</span><a href="#local-6989586621679237776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237775"><span class="annot"><span class="annottext">Maybe InsightStatus
+</span><a href="#local-6989586621679237775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactiveInsightSummary
+</span><a href="#local-6989586621679237776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReactiveInsightSummary' :: Maybe InsightStatus
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Astatus%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightStatus
+</span><a href="#local-6989586621679237775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_resourceCollection"><span class="hs-identifier hs-type">reactiveInsightSummary_resourceCollection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ResourceCollection.html#ResourceCollection"><span class="hs-identifier hs-type">ResourceCollection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="reactiveInsightSummary_resourceCollection"><span class="annot"><span class="annottext">reactiveInsightSummary_resourceCollection :: (Maybe ResourceCollection -&gt; f (Maybe ResourceCollection))
+-&gt; ReactiveInsightSummary -&gt; f ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_resourceCollection"><span class="hs-identifier hs-var hs-var">reactiveInsightSummary_resourceCollection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactiveInsightSummary -&gt; Maybe ResourceCollection)
+-&gt; (ReactiveInsightSummary
+    -&gt; Maybe ResourceCollection -&gt; ReactiveInsightSummary)
+-&gt; Lens
+     ReactiveInsightSummary
+     ReactiveInsightSummary
+     (Maybe ResourceCollection)
+     (Maybe ResourceCollection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237773"><span class="annot"><span class="annottext">Maybe ResourceCollection
+resourceCollection :: Maybe ResourceCollection
+$sel:resourceCollection:ReactiveInsightSummary' :: ReactiveInsightSummary -&gt; Maybe ResourceCollection
+</span><a href="#local-6989586621679237773"><span class="hs-identifier hs-var hs-var">resourceCollection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceCollection
+</span><a href="#local-6989586621679237773"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237772"><span class="annot"><span class="annottext">s :: ReactiveInsightSummary
+</span><a href="#local-6989586621679237772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237771"><span class="annot"><span class="annottext">Maybe ResourceCollection
+</span><a href="#local-6989586621679237771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactiveInsightSummary
+</span><a href="#local-6989586621679237772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceCollection:ReactiveInsightSummary' :: Maybe ResourceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3AresourceCollection%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceCollection
+</span><a href="#local-6989586621679237771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The severity of a reactive insight.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_severity"><span class="hs-identifier hs-type">reactiveInsightSummary_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightSeverity.html#InsightSeverity"><span class="hs-identifier hs-type">InsightSeverity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="reactiveInsightSummary_severity"><span class="annot"><span class="annottext">reactiveInsightSummary_severity :: (Maybe InsightSeverity -&gt; f (Maybe InsightSeverity))
+-&gt; ReactiveInsightSummary -&gt; f ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_severity"><span class="hs-identifier hs-var hs-var">reactiveInsightSummary_severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactiveInsightSummary -&gt; Maybe InsightSeverity)
+-&gt; (ReactiveInsightSummary
+    -&gt; Maybe InsightSeverity -&gt; ReactiveInsightSummary)
+-&gt; Lens
+     ReactiveInsightSummary
+     ReactiveInsightSummary
+     (Maybe InsightSeverity)
+     (Maybe InsightSeverity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237769"><span class="annot"><span class="annottext">Maybe InsightSeverity
+severity :: Maybe InsightSeverity
+$sel:severity:ReactiveInsightSummary' :: ReactiveInsightSummary -&gt; Maybe InsightSeverity
+</span><a href="#local-6989586621679237769"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightSeverity
+</span><a href="#local-6989586621679237769"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237768"><span class="annot"><span class="annottext">s :: ReactiveInsightSummary
+</span><a href="#local-6989586621679237768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237767"><span class="annot"><span class="annottext">Maybe InsightSeverity
+</span><a href="#local-6989586621679237767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactiveInsightSummary
+</span><a href="#local-6989586621679237768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:ReactiveInsightSummary' :: Maybe InsightSeverity
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Aseverity%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightSeverity
+</span><a href="#local-6989586621679237767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_insightTimeRange"><span class="hs-identifier hs-type">reactiveInsightSummary_insightTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightTimeRange.html#InsightTimeRange"><span class="hs-identifier hs-type">InsightTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="reactiveInsightSummary_insightTimeRange"><span class="annot"><span class="annottext">reactiveInsightSummary_insightTimeRange :: (Maybe InsightTimeRange -&gt; f (Maybe InsightTimeRange))
+-&gt; ReactiveInsightSummary -&gt; f ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_insightTimeRange"><span class="hs-identifier hs-var hs-var">reactiveInsightSummary_insightTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactiveInsightSummary -&gt; Maybe InsightTimeRange)
+-&gt; (ReactiveInsightSummary
+    -&gt; Maybe InsightTimeRange -&gt; ReactiveInsightSummary)
+-&gt; Lens
+     ReactiveInsightSummary
+     ReactiveInsightSummary
+     (Maybe InsightTimeRange)
+     (Maybe InsightTimeRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237765"><span class="annot"><span class="annottext">Maybe InsightTimeRange
+insightTimeRange :: Maybe InsightTimeRange
+$sel:insightTimeRange:ReactiveInsightSummary' :: ReactiveInsightSummary -&gt; Maybe InsightTimeRange
+</span><a href="#local-6989586621679237765"><span class="hs-identifier hs-var hs-var">insightTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightTimeRange
+</span><a href="#local-6989586621679237765"><span class="hs-identifier hs-var">insightTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237764"><span class="annot"><span class="annottext">s :: ReactiveInsightSummary
+</span><a href="#local-6989586621679237764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237763"><span class="annot"><span class="annottext">Maybe InsightTimeRange
+</span><a href="#local-6989586621679237763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactiveInsightSummary
+</span><a href="#local-6989586621679237764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightTimeRange:ReactiveInsightSummary' :: Maybe InsightTimeRange
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3AinsightTimeRange%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">insightTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightTimeRange
+</span><a href="#local-6989586621679237763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name of a reactive insight.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_name"><span class="hs-identifier hs-type">reactiveInsightSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="reactiveInsightSummary_name"><span class="annot"><span class="annottext">reactiveInsightSummary_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReactiveInsightSummary -&gt; f ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_name"><span class="hs-identifier hs-var hs-var">reactiveInsightSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactiveInsightSummary -&gt; Maybe Text)
+-&gt; (ReactiveInsightSummary -&gt; Maybe Text -&gt; ReactiveInsightSummary)
+-&gt; Lens
+     ReactiveInsightSummary
+     ReactiveInsightSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237761"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ReactiveInsightSummary' :: ReactiveInsightSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679237761"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237761"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237760"><span class="annot"><span class="annottext">s :: ReactiveInsightSummary
+</span><a href="#local-6989586621679237760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237759"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactiveInsightSummary
+</span><a href="#local-6989586621679237760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ReactiveInsightSummary' :: Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Aname%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of a reactive summary.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_id"><span class="hs-identifier hs-type">reactiveInsightSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="reactiveInsightSummary_id"><span class="annot"><span class="annottext">reactiveInsightSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReactiveInsightSummary -&gt; f ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_id"><span class="hs-identifier hs-var hs-var">reactiveInsightSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactiveInsightSummary -&gt; Maybe Text)
+-&gt; (ReactiveInsightSummary -&gt; Maybe Text -&gt; ReactiveInsightSummary)
+-&gt; Lens
+     ReactiveInsightSummary
+     ReactiveInsightSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237757"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ReactiveInsightSummary' :: ReactiveInsightSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679237757"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237757"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237756"><span class="annot"><span class="annottext">s :: ReactiveInsightSummary
+</span><a href="#local-6989586621679237756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237755"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactiveInsightSummary
+</span><a href="#local-6989586621679237756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReactiveInsightSummary' :: Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3Aid%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | A collection of the names of AWS services.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_serviceCollection"><span class="hs-identifier hs-type">reactiveInsightSummary_serviceCollection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ServiceCollection.html#ServiceCollection"><span class="hs-identifier hs-type">ServiceCollection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="reactiveInsightSummary_serviceCollection"><span class="annot"><span class="annottext">reactiveInsightSummary_serviceCollection :: (Maybe ServiceCollection -&gt; f (Maybe ServiceCollection))
+-&gt; ReactiveInsightSummary -&gt; f ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#reactiveInsightSummary_serviceCollection"><span class="hs-identifier hs-var hs-var">reactiveInsightSummary_serviceCollection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactiveInsightSummary -&gt; Maybe ServiceCollection)
+-&gt; (ReactiveInsightSummary
+    -&gt; Maybe ServiceCollection -&gt; ReactiveInsightSummary)
+-&gt; Lens
+     ReactiveInsightSummary
+     ReactiveInsightSummary
+     (Maybe ServiceCollection)
+     (Maybe ServiceCollection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237753"><span class="annot"><span class="annottext">Maybe ServiceCollection
+serviceCollection :: Maybe ServiceCollection
+$sel:serviceCollection:ReactiveInsightSummary' :: ReactiveInsightSummary -&gt; Maybe ServiceCollection
+</span><a href="#local-6989586621679237753"><span class="hs-identifier hs-var hs-var">serviceCollection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCollection
+</span><a href="#local-6989586621679237753"><span class="hs-identifier hs-var">serviceCollection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237752"><span class="annot"><span class="annottext">s :: ReactiveInsightSummary
+</span><a href="#local-6989586621679237752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-type">ReactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237751"><span class="annot"><span class="annottext">Maybe ServiceCollection
+</span><a href="#local-6989586621679237751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactiveInsightSummary
+</span><a href="#local-6989586621679237752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCollection:ReactiveInsightSummary' :: Maybe ServiceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#%24sel%3AserviceCollection%3AReactiveInsightSummary%27"><span class="hs-identifier hs-var">serviceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCollection
+</span><a href="#local-6989586621679237751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237748"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679237746"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReactiveInsightSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ReactiveInsightSummary)
+-&gt; Value
+-&gt; Parser ReactiveInsightSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ReactiveInsightSummary&quot;</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237743"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe InsightStatus
+-&gt; Maybe ResourceCollection
+-&gt; Maybe InsightSeverity
+-&gt; Maybe InsightTimeRange
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ServiceCollection
+-&gt; ReactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary%27"><span class="hs-identifier hs-var">ReactiveInsightSummary'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InsightStatus
+ -&gt; Maybe ResourceCollection
+ -&gt; Maybe InsightSeverity
+ -&gt; Maybe InsightTimeRange
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ServiceCollection
+ -&gt; ReactiveInsightSummary)
+-&gt; Parser (Maybe InsightStatus)
+-&gt; Parser
+     (Maybe ResourceCollection
+      -&gt; Maybe InsightSeverity
+      -&gt; Maybe InsightTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ServiceCollection
+      -&gt; ReactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceCollection
+   -&gt; Maybe InsightSeverity
+   -&gt; Maybe InsightTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ServiceCollection
+   -&gt; ReactiveInsightSummary)
+-&gt; Parser (Maybe ResourceCollection)
+-&gt; Parser
+     (Maybe InsightSeverity
+      -&gt; Maybe InsightTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ServiceCollection
+      -&gt; ReactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceCollection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceCollection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InsightSeverity
+   -&gt; Maybe InsightTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ServiceCollection
+   -&gt; ReactiveInsightSummary)
+-&gt; Parser (Maybe InsightSeverity)
+-&gt; Parser
+     (Maybe InsightTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ServiceCollection
+      -&gt; ReactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightSeverity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Severity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InsightTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ServiceCollection
+   -&gt; ReactiveInsightSummary)
+-&gt; Parser (Maybe InsightTimeRange)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe ServiceCollection -&gt; ReactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightTimeRange)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InsightTimeRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe ServiceCollection -&gt; ReactiveInsightSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe ServiceCollection -&gt; ReactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe ServiceCollection -&gt; ReactiveInsightSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ServiceCollection -&gt; ReactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ServiceCollection -&gt; ReactiveInsightSummary)
+-&gt; Parser (Maybe ServiceCollection)
+-&gt; Parser ReactiveInsightSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceCollection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceCollection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237737"><span id="local-6989586621679237739"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveInsightSummary.html#ReactiveInsightSummary"><span class="hs-identifier hs-type">ReactiveInsightSummary</span></a></span></span><span>
+</span><span id="line-131"></span></pre></body></html>

@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- in Amazon S3.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newUiConfig' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621680355544"><span id="local-6989586621680355545"></span></span><span class="hs-keyword">data</span><span> </span><span id="UiConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-var">UiConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UiConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-var">UiConfig'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621680355553"><span id="local-6989586621680355554"></span></span><span class="hs-keyword">data</span><span> </span><span id="UiConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-var">UiConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UiConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-var">UiConfig'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 bucket location of the UI template, or worker task</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- template. This is the template used to render the worker UI and tools</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- for labeling job tasks. For more information about the contents of a UI</span><span>
@@ -91,7 +91,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3AhumanTaskUiArn%3AUiConfig%27"><span class="annot"><span class="annottext">UiConfig -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.UiConfig.html#%24sel%3AhumanTaskUiArn%3AUiConfig%27"><span class="hs-identifier hs-var hs-var">humanTaskUiArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680355537"><span id="local-6989586621680355539"><span class="annot"><span class="annottext">UiConfig -&gt; UiConfig -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680355546"><span id="local-6989586621680355548"><span class="annot"><span class="annottext">UiConfig -&gt; UiConfig -&gt; Bool
 (UiConfig -&gt; UiConfig -&gt; Bool)
 -&gt; (UiConfig -&gt; UiConfig -&gt; Bool) -&gt; Eq UiConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -99,7 +99,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UiConfig -&gt; UiConfig -&gt; Bool
 == :: UiConfig -&gt; UiConfig -&gt; Bool
 $c== :: UiConfig -&gt; UiConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355528"><span id="local-6989586621680355530"><span id="local-6989586621680355532"><span id="local-6989586621680355534"><span class="annot"><span class="annottext">ReadPrec [UiConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355537"><span id="local-6989586621680355539"><span id="local-6989586621680355541"><span id="local-6989586621680355543"><span class="annot"><span class="annottext">ReadPrec [UiConfig]
 ReadPrec UiConfig
 Int -&gt; ReadS UiConfig
 ReadS [UiConfig]
@@ -119,7 +119,7 @@ readList :: ReadS [UiConfig]
 $creadList :: ReadS [UiConfig]
 readsPrec :: Int -&gt; ReadS UiConfig
 $creadsPrec :: Int -&gt; ReadS UiConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355521"><span id="local-6989586621680355523"><span id="local-6989586621680355525"><span class="annot"><span class="annottext">Int -&gt; UiConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355530"><span id="local-6989586621680355532"><span id="local-6989586621680355534"><span class="annot"><span class="annottext">Int -&gt; UiConfig -&gt; ShowS
 [UiConfig] -&gt; ShowS
 UiConfig -&gt; String
 (Int -&gt; UiConfig -&gt; ShowS)
@@ -229,16 +229,16 @@ forall a. Maybe a
 -&gt; (UiConfig -&gt; Maybe Text -&gt; UiConfig)
 -&gt; Lens UiConfig UiConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355512"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355521"><span class="annot"><span class="annottext">Maybe Text
 uiTemplateS3Uri :: Maybe Text
 $sel:uiTemplateS3Uri:UiConfig' :: UiConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680355512"><span class="hs-identifier hs-var hs-var">uiTemplateS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355512"><span class="hs-identifier hs-var">uiTemplateS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355511"><span class="annot"><span class="annottext">s :: UiConfig
-</span><a href="#local-6989586621680355511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355510"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UiConfig
-</span><a href="#local-6989586621680355511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uiTemplateS3Uri:UiConfig' :: Maybe Text
+</span><a href="#local-6989586621680355521"><span class="hs-identifier hs-var hs-var">uiTemplateS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680355521"><span class="hs-identifier hs-var">uiTemplateS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355520"><span class="annot"><span class="annottext">s :: UiConfig
+</span><a href="#local-6989586621680355520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680355519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UiConfig
+</span><a href="#local-6989586621680355520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uiTemplateS3Uri:UiConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.UiConfig.html#%24sel%3AuiTemplateS3Uri%3AUiConfig%27"><span class="hs-identifier hs-var">uiTemplateS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The ARN of the worker task template used to render the worker UI and</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- tools for labeling job tasks.</span><span>
@@ -292,34 +292,34 @@ $sel:uiTemplateS3Uri:UiConfig' :: UiConfig -&gt; Maybe Text
 -&gt; (UiConfig -&gt; Maybe Text -&gt; UiConfig)
 -&gt; Lens UiConfig UiConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355508"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355517"><span class="annot"><span class="annottext">Maybe Text
 humanTaskUiArn :: Maybe Text
 $sel:humanTaskUiArn:UiConfig' :: UiConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680355508"><span class="hs-identifier hs-var hs-var">humanTaskUiArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355508"><span class="hs-identifier hs-var">humanTaskUiArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355507"><span class="annot"><span class="annottext">s :: UiConfig
-</span><a href="#local-6989586621680355507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355506"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UiConfig
-</span><a href="#local-6989586621680355507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanTaskUiArn:UiConfig' :: Maybe Text
+</span><a href="#local-6989586621680355517"><span class="hs-identifier hs-var hs-var">humanTaskUiArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680355517"><span class="hs-identifier hs-var">humanTaskUiArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355516"><span class="annot"><span class="annottext">s :: UiConfig
+</span><a href="#local-6989586621680355516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680355515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UiConfig
+</span><a href="#local-6989586621680355516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanTaskUiArn:UiConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.UiConfig.html#%24sel%3AhumanTaskUiArn%3AUiConfig%27"><span class="hs-identifier hs-var">humanTaskUiArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355503"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621680355501"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UiConfig
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355512"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621680355510"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UiConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser UiConfig) -&gt; Value -&gt; Parser UiConfig
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UiConfig&quot;</span></span><span>
-</span><span id="line-223"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680355498"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355498"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680355507"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680355507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; UiConfig
 </span><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-var">UiConfig'</span></a></span><span>
 </span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; UiConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; UiConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680355507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UiTemplateS3Uri&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,24 +327,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser UiConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680355507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HumanTaskUiArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355492"><span id="local-6989586621680355494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span></span></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355501"><span id="local-6989586621680355503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span></span></span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span></span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355481"><span id="local-6989586621680355483"><span id="local-6989586621680355485"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-234"></span><span>  </span><span id="local-6989586621680355479"><span class="annot"><span class="annottext">toJSON :: UiConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355476"><span id="local-6989586621680355477"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355490"><span id="local-6989586621680355492"><span id="local-6989586621680355494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig"><span class="hs-identifier hs-type">UiConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621680355488"><span class="annot"><span class="annottext">toJSON :: UiConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiConfig.html#UiConfig%27"><span class="hs-identifier hs-type">UiConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355485"><span id="local-6989586621680355486"><span class="annot"><span class="annottext">Maybe Text
 humanTaskUiArn :: Maybe Text
 uiTemplateS3Uri :: Maybe Text
 $sel:humanTaskUiArn:UiConfig' :: UiConfig -&gt; Maybe Text
 $sel:uiTemplateS3Uri:UiConfig' :: UiConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680355476"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680355485"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -357,7 +357,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-238"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355477"><span class="hs-identifier hs-var">uiTemplateS3Uri</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355486"><span class="hs-identifier hs-var">uiTemplateS3Uri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HumanTaskUiArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -365,7 +365,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680355476"><span class="hs-identifier hs-var">humanTaskUiArn</span></a></span><span>
+</span><a href="#local-6989586621680355485"><span class="hs-identifier hs-var">humanTaskUiArn</span></a></span><span>
 </span><span id="line-241"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents information about the result of an approval request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newApprovalResult' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679275757"><span id="local-6989586621679275758"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApprovalResult"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-var">ApprovalResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApprovalResult%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-var">ApprovalResult'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679275766"><span id="local-6989586621679275767"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApprovalResult"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-var">ApprovalResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApprovalResult%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-var">ApprovalResult'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The summary of the current status of the approval request.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Asummary%3AApprovalResult%27"><span class="annot"><span class="annottext">ApprovalResult -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#%24sel%3Asummary%3AApprovalResult%27"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AApprovalResult%27"><span class="annot"><span class="annottext">ApprovalResult -&gt; ApprovalStatus
 </span><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#%24sel%3Astatus%3AApprovalResult%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalStatus.html#ApprovalStatus"><span class="hs-identifier hs-type">ApprovalStatus</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275750"><span id="local-6989586621679275752"><span class="annot"><span class="annottext">ApprovalResult -&gt; ApprovalResult -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275759"><span id="local-6989586621679275761"><span class="annot"><span class="annottext">ApprovalResult -&gt; ApprovalResult -&gt; Bool
 (ApprovalResult -&gt; ApprovalResult -&gt; Bool)
 -&gt; (ApprovalResult -&gt; ApprovalResult -&gt; Bool) -&gt; Eq ApprovalResult
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ApprovalResult -&gt; ApprovalResult -&gt; Bool
 == :: ApprovalResult -&gt; ApprovalResult -&gt; Bool
 $c== :: ApprovalResult -&gt; ApprovalResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275741"><span id="local-6989586621679275743"><span id="local-6989586621679275745"><span id="local-6989586621679275747"><span class="annot"><span class="annottext">ReadPrec [ApprovalResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275750"><span id="local-6989586621679275752"><span id="local-6989586621679275754"><span id="local-6989586621679275756"><span class="annot"><span class="annottext">ReadPrec [ApprovalResult]
 ReadPrec ApprovalResult
 Int -&gt; ReadS ApprovalResult
 ReadS [ApprovalResult]
@@ -64,7 +64,7 @@ readList :: ReadS [ApprovalResult]
 $creadList :: ReadS [ApprovalResult]
 readsPrec :: Int -&gt; ReadS ApprovalResult
 $creadsPrec :: Int -&gt; ReadS ApprovalResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275734"><span id="local-6989586621679275736"><span id="local-6989586621679275738"><span class="annot"><span class="annottext">Int -&gt; ApprovalResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275743"><span id="local-6989586621679275745"><span id="local-6989586621679275747"><span class="annot"><span class="annottext">Int -&gt; ApprovalResult -&gt; ShowS
 [ApprovalResult] -&gt; ShowS
 ApprovalResult -&gt; String
 (Int -&gt; ApprovalResult -&gt; ShowS)
@@ -109,17 +109,17 @@ $cfrom :: forall x. ApprovalResult -&gt; Rep ApprovalResult x
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalStatus.html#ApprovalStatus"><span class="hs-identifier hs-type">ApprovalStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span><span>
 </span><span id="line-57"></span><span id="newApprovalResult"><span class="annot"><span class="annottext">newApprovalResult :: Text -&gt; ApprovalStatus -&gt; ApprovalResult
-</span><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#newApprovalResult"><span class="hs-identifier hs-var hs-var">newApprovalResult</span></a></span></span><span> </span><span id="local-6989586621679275728"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275728"><span class="hs-identifier hs-var">pSummary_</span></a></span></span><span> </span><span id="local-6989586621679275727"><span class="annot"><span class="annottext">ApprovalStatus
-</span><a href="#local-6989586621679275727"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#newApprovalResult"><span class="hs-identifier hs-var hs-var">newApprovalResult</span></a></span></span><span> </span><span id="local-6989586621679275737"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275737"><span class="hs-identifier hs-var">pSummary_</span></a></span></span><span> </span><span id="local-6989586621679275736"><span class="annot"><span class="annottext">ApprovalStatus
+</span><a href="#local-6989586621679275736"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">ApprovalResult' :: Text -&gt; ApprovalStatus -&gt; ApprovalResult
 </span><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:summary:ApprovalResult' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#%24sel%3Asummary%3AApprovalResult%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275728"><span class="hs-identifier hs-var">pSummary_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275737"><span class="hs-identifier hs-var">pSummary_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ApprovalResult' :: ApprovalStatus
 </span><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#%24sel%3Astatus%3AApprovalResult%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApprovalStatus
-</span><a href="#local-6989586621679275727"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679275736"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The summary of the current status of the approval request.</span><span>
@@ -129,16 +129,16 @@ $cfrom :: forall x. ApprovalResult -&gt; Rep ApprovalResult x
 -&gt; (ApprovalResult -&gt; Text -&gt; ApprovalResult)
 -&gt; Lens ApprovalResult ApprovalResult Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275723"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275732"><span class="annot"><span class="annottext">Text
 summary :: Text
 $sel:summary:ApprovalResult' :: ApprovalResult -&gt; Text
-</span><a href="#local-6989586621679275723"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275723"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275722"><span class="annot"><span class="annottext">s :: ApprovalResult
-</span><a href="#local-6989586621679275722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275721"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalResult
-</span><a href="#local-6989586621679275722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:ApprovalResult' :: Text
+</span><a href="#local-6989586621679275732"><span class="hs-identifier hs-var hs-var">summary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275732"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275731"><span class="annot"><span class="annottext">s :: ApprovalResult
+</span><a href="#local-6989586621679275731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalResult
+</span><a href="#local-6989586621679275731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summary:ApprovalResult' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#%24sel%3Asummary%3AApprovalResult%27"><span class="hs-identifier hs-var">summary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The response submitted by a reviewer assigned to an approval action</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- request.</span><span>
@@ -149,30 +149,30 @@ $sel:summary:ApprovalResult' :: ApprovalResult -&gt; Text
 -&gt; (ApprovalResult -&gt; ApprovalStatus -&gt; ApprovalResult)
 -&gt; Lens ApprovalResult ApprovalResult ApprovalStatus ApprovalStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275719"><span class="annot"><span class="annottext">ApprovalStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275728"><span class="annot"><span class="annottext">ApprovalStatus
 status :: ApprovalStatus
 $sel:status:ApprovalResult' :: ApprovalResult -&gt; ApprovalStatus
-</span><a href="#local-6989586621679275719"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalStatus
-</span><a href="#local-6989586621679275719"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275718"><span class="annot"><span class="annottext">s :: ApprovalResult
-</span><a href="#local-6989586621679275718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275717"><span class="annot"><span class="annottext">ApprovalStatus
-</span><a href="#local-6989586621679275717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalResult
-</span><a href="#local-6989586621679275718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ApprovalResult' :: ApprovalStatus
+</span><a href="#local-6989586621679275728"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalStatus
+</span><a href="#local-6989586621679275728"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275727"><span class="annot"><span class="annottext">s :: ApprovalResult
+</span><a href="#local-6989586621679275727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275726"><span class="annot"><span class="annottext">ApprovalStatus
+</span><a href="#local-6989586621679275726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalResult
+</span><a href="#local-6989586621679275727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ApprovalResult' :: ApprovalStatus
 </span><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#%24sel%3Astatus%3AApprovalResult%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApprovalStatus
-</span><a href="#local-6989586621679275717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275713"><span id="local-6989586621679275715"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275722"><span id="local-6989586621679275724"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275702"><span id="local-6989586621679275704"><span id="local-6989586621679275706"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679275700"><span class="annot"><span class="annottext">toJSON :: ApprovalResult -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275697"><span id="local-6989586621679275698"><span class="annot"><span class="annottext">Text
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275711"><span id="local-6989586621679275713"><span id="local-6989586621679275715"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult"><span class="hs-identifier hs-type">ApprovalResult</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679275709"><span class="annot"><span class="annottext">toJSON :: ApprovalResult -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ApprovalResult.html#ApprovalResult%27"><span class="hs-identifier hs-type">ApprovalResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275706"><span id="local-6989586621679275707"><span class="annot"><span class="annottext">Text
 ApprovalStatus
 status :: ApprovalStatus
 summary :: Text
 $sel:status:ApprovalResult' :: ApprovalResult -&gt; ApprovalStatus
 $sel:summary:ApprovalResult' :: ApprovalResult -&gt; Text
-</span><a href="#local-6989586621679275697"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275706"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -184,14 +184,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;summary&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275698"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275707"><span class="hs-identifier hs-var">summary</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApprovalStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ApprovalStatus
-</span><a href="#local-6989586621679275697"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275706"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

@@ -94,7 +94,7 @@
 </span><span id="line-94"></span><span class="hs-comment">-- | Provides options to add an archive to a vault.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- /See:/ 'newUploadArchive' smart constructor.</span><span>
-</span><span id="line-97"></span><span id="local-6989586621679226582"><span id="local-6989586621679226583"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadArchive"><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-var">UploadArchive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadArchive%27"><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-var">UploadArchive'</span></a></span></span><span>
+</span><span id="line-97"></span><span id="local-6989586621679226591"><span id="local-6989586621679226592"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadArchive"><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-var">UploadArchive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadArchive%27"><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-var">UploadArchive'</span></a></span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SHA256 tree hash of the data being uploaded.</span><span>
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3Achecksum%3AUploadArchive%27"><span class="annot"><span class="annottext">UploadArchive -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3Achecksum%3AUploadArchive%27"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -115,7 +115,7 @@
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3Abody%3AUploadArchive%27"><span class="annot"><span class="annottext">UploadArchive -&gt; HashedBody
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3Abody%3AUploadArchive%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226570"><span id="local-6989586621679226572"><span id="local-6989586621679226574"><span class="annot"><span class="annottext">Int -&gt; UploadArchive -&gt; ShowS
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226579"><span id="local-6989586621679226581"><span id="local-6989586621679226583"><span class="annot"><span class="annottext">Int -&gt; UploadArchive -&gt; ShowS
 [UploadArchive] -&gt; ShowS
 UploadArchive -&gt; String
 (Int -&gt; UploadArchive -&gt; ShowS)
@@ -171,10 +171,10 @@ $cfrom :: forall x. UploadArchive -&gt; Rep UploadArchive x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span>
 </span><span id="line-144"></span><span id="newUploadArchive"><span class="annot"><span class="annottext">newUploadArchive :: Text -&gt; Text -&gt; HashedBody -&gt; UploadArchive
-</span><a href="Network.AWS.Glacier.UploadArchive.html#newUploadArchive"><span class="hs-identifier hs-var hs-var">newUploadArchive</span></a></span></span><span> </span><span id="local-6989586621679226565"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226565"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span id="local-6989586621679226564"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226564"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679226563"><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679226563"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.UploadArchive.html#newUploadArchive"><span class="hs-identifier hs-var hs-var">newUploadArchive</span></a></span></span><span> </span><span id="local-6989586621679226574"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226574"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span id="local-6989586621679226573"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226573"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679226572"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679226572"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">UploadArchive' :: Maybe Text
 -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; HashedBody -&gt; UploadArchive
 </span><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span>
@@ -188,13 +188,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:UploadArchive' :: Text
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3AvaultName%3AUploadArchive%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226565"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226574"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:UploadArchive' :: Text
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3AaccountId%3AUploadArchive%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226564"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226573"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:UploadArchive' :: HashedBody
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3Abody%3AUploadArchive%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679226563"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
+</span><a href="#local-6989586621679226572"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The SHA256 tree hash of the data being uploaded.</span><span>
@@ -204,16 +204,16 @@ forall a. Maybe a
 -&gt; (UploadArchive -&gt; Maybe Text -&gt; UploadArchive)
 -&gt; Lens UploadArchive UploadArchive (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226560"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226569"><span class="annot"><span class="annottext">Maybe Text
 checksum :: Maybe Text
 $sel:checksum:UploadArchive' :: UploadArchive -&gt; Maybe Text
-</span><a href="#local-6989586621679226560"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226560"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226559"><span class="annot"><span class="annottext">s :: UploadArchive
-</span><a href="#local-6989586621679226559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226558"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
-</span><a href="#local-6989586621679226559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:UploadArchive' :: Maybe Text
+</span><a href="#local-6989586621679226569"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226569"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226568"><span class="annot"><span class="annottext">s :: UploadArchive
+</span><a href="#local-6989586621679226568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
+</span><a href="#local-6989586621679226568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:UploadArchive' :: Maybe Text
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3Achecksum%3AUploadArchive%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The optional description of the archive you are uploading.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#uploadArchive_archiveDescription"><span class="hs-identifier hs-type">uploadArchive_archiveDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -222,16 +222,16 @@ $sel:checksum:UploadArchive' :: UploadArchive -&gt; Maybe Text
 -&gt; (UploadArchive -&gt; Maybe Text -&gt; UploadArchive)
 -&gt; Lens UploadArchive UploadArchive (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226557"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226566"><span class="annot"><span class="annottext">Maybe Text
 archiveDescription :: Maybe Text
 $sel:archiveDescription:UploadArchive' :: UploadArchive -&gt; Maybe Text
-</span><a href="#local-6989586621679226557"><span class="hs-identifier hs-var hs-var">archiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226557"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226556"><span class="annot"><span class="annottext">s :: UploadArchive
-</span><a href="#local-6989586621679226556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226555"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
-</span><a href="#local-6989586621679226556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveDescription:UploadArchive' :: Maybe Text
+</span><a href="#local-6989586621679226566"><span class="hs-identifier hs-var hs-var">archiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226566"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226565"><span class="annot"><span class="annottext">s :: UploadArchive
+</span><a href="#local-6989586621679226565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226564"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
+</span><a href="#local-6989586621679226565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveDescription:UploadArchive' :: Maybe Text
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3AarchiveDescription%3AUploadArchive%27"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#uploadArchive_vaultName"><span class="hs-identifier hs-type">uploadArchive_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -240,16 +240,16 @@ $sel:archiveDescription:UploadArchive' :: UploadArchive -&gt; Maybe Text
 -&gt; (UploadArchive -&gt; Text -&gt; UploadArchive)
 -&gt; Lens UploadArchive UploadArchive Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226554"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226563"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:UploadArchive' :: UploadArchive -&gt; Text
-</span><a href="#local-6989586621679226554"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226554"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226553"><span class="annot"><span class="annottext">s :: UploadArchive
-</span><a href="#local-6989586621679226553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226552"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
-</span><a href="#local-6989586621679226553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:UploadArchive' :: Text
+</span><a href="#local-6989586621679226563"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226563"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226562"><span class="annot"><span class="annottext">s :: UploadArchive
+</span><a href="#local-6989586621679226562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
+</span><a href="#local-6989586621679226562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:UploadArchive' :: Text
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3AvaultName%3AUploadArchive%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
@@ -262,16 +262,16 @@ $sel:vaultName:UploadArchive' :: UploadArchive -&gt; Text
 -&gt; (UploadArchive -&gt; Text -&gt; UploadArchive)
 -&gt; Lens UploadArchive UploadArchive Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226551"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226560"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:UploadArchive' :: UploadArchive -&gt; Text
-</span><a href="#local-6989586621679226551"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226551"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226550"><span class="annot"><span class="annottext">s :: UploadArchive
-</span><a href="#local-6989586621679226550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226549"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
-</span><a href="#local-6989586621679226550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UploadArchive' :: Text
+</span><a href="#local-6989586621679226560"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226560"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226559"><span class="annot"><span class="annottext">s :: UploadArchive
+</span><a href="#local-6989586621679226559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
+</span><a href="#local-6989586621679226559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:UploadArchive' :: Text
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3AaccountId%3AUploadArchive%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The data to upload.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#uploadArchive_body"><span class="hs-identifier hs-type">uploadArchive_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.HashedBody</span></span><span>
@@ -280,22 +280,22 @@ $sel:accountId:UploadArchive' :: UploadArchive -&gt; Text
 -&gt; (UploadArchive -&gt; HashedBody -&gt; UploadArchive)
 -&gt; Lens UploadArchive UploadArchive HashedBody HashedBody
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226548"><span class="annot"><span class="annottext">HashedBody
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226557"><span class="annot"><span class="annottext">HashedBody
 body :: HashedBody
 $sel:body:UploadArchive' :: UploadArchive -&gt; HashedBody
-</span><a href="#local-6989586621679226548"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679226548"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226547"><span class="annot"><span class="annottext">s :: UploadArchive
-</span><a href="#local-6989586621679226547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226546"><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679226546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
-</span><a href="#local-6989586621679226547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:UploadArchive' :: HashedBody
+</span><a href="#local-6989586621679226557"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679226557"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226556"><span class="annot"><span class="annottext">s :: UploadArchive
+</span><a href="#local-6989586621679226556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226555"><span class="annot"><span class="annottext">HashedBody
+</span><a href="#local-6989586621679226555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadArchive
+</span><a href="#local-6989586621679226556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:UploadArchive' :: HashedBody
 </span><a href="Network.AWS.Glacier.UploadArchive.html#%24sel%3Abody%3AUploadArchive%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679226546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.Types.ArchiveCreationOutput.html#ArchiveCreationOutput"><span class="hs-identifier hs-type">ArchiveCreationOutput</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679226542"><span class="annot"><span class="annottext">request :: UploadArchive -&gt; Request UploadArchive
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679226551"><span class="annot"><span class="annottext">request :: UploadArchive -&gt; Request UploadArchive
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request UploadArchive -&gt; Request UploadArchive
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -311,7 +311,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postBody</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679226535"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679226544"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UploadArchive
 -&gt; ClientResponse ClientBody
@@ -335,10 +335,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226532"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226531"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226530"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679226530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226541"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226541"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226540"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226540"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226539"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679226539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ArchiveCreationOutput
 </span><a href="Network.AWS.Glacier.Types.ArchiveCreationOutput.html#ArchiveCreationOutput%27"><span class="hs-identifier hs-var">ArchiveCreationOutput'</span></a></span><span>
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ArchiveCreationOutput)
@@ -347,7 +347,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; ArchiveCreationOutput)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226531"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679226540"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -358,7 +358,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; ArchiveCreationOutput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226531"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679226540"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -369,7 +369,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 -&gt; Either String ArchiveCreationOutput
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226531"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679226540"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -378,8 +378,8 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679226524"><span class="annot"><span class="annottext">toBody :: UploadArchive -&gt; RequestBody
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226518"><span id="local-6989586621679226519"><span id="local-6989586621679226520"><span id="local-6989586621679226521"><span id="local-6989586621679226522"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679226533"><span class="annot"><span class="annottext">toBody :: UploadArchive -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226527"><span id="local-6989586621679226528"><span id="local-6989586621679226529"><span id="local-6989586621679226530"><span id="local-6989586621679226531"><span class="annot"><span class="annottext">Maybe Text
 Text
 HashedBody
 body :: HashedBody
@@ -392,14 +392,14 @@ $sel:accountId:UploadArchive' :: UploadArchive -&gt; Text
 $sel:vaultName:UploadArchive' :: UploadArchive -&gt; Text
 $sel:archiveDescription:UploadArchive' :: UploadArchive -&gt; Maybe Text
 $sel:checksum:UploadArchive' :: UploadArchive -&gt; Maybe Text
-</span><a href="#local-6989586621679226518"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody -&gt; RequestBody
+</span><a href="#local-6989586621679226527"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashedBody -&gt; RequestBody
 forall a. ToBody a =&gt; a -&gt; RequestBody
 </span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">HashedBody
-</span><a href="#local-6989586621679226518"><span class="hs-identifier hs-var">body</span></a></span><span>
+</span><a href="#local-6989586621679226527"><span class="hs-identifier hs-var">body</span></a></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679226515"><span class="annot"><span class="annottext">toHeaders :: UploadArchive -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226509"><span id="local-6989586621679226510"><span id="local-6989586621679226511"><span id="local-6989586621679226512"><span id="local-6989586621679226513"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679226524"><span class="annot"><span class="annottext">toHeaders :: UploadArchive -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226518"><span id="local-6989586621679226519"><span id="local-6989586621679226520"><span id="local-6989586621679226521"><span id="local-6989586621679226522"><span class="annot"><span class="annottext">Maybe Text
 Text
 HashedBody
 body :: HashedBody
@@ -412,7 +412,7 @@ $sel:accountId:UploadArchive' :: UploadArchive -&gt; Text
 $sel:vaultName:UploadArchive' :: UploadArchive -&gt; Text
 $sel:archiveDescription:UploadArchive' :: UploadArchive -&gt; Maybe Text
 $sel:checksum:UploadArchive' :: UploadArchive -&gt; Maybe Text
-</span><a href="#local-6989586621679226509"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226518"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -420,18 +420,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-sha256-tree-hash&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226513"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226522"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-archive-description&quot;</span></span><span>
 </span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226512"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span>
+</span><a href="#local-6989586621679226521"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679226505"><span class="annot"><span class="annottext">toPath :: UploadArchive -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226499"><span id="local-6989586621679226500"><span id="local-6989586621679226501"><span id="local-6989586621679226502"><span id="local-6989586621679226503"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679226514"><span class="annot"><span class="annottext">toPath :: UploadArchive -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive%27"><span class="hs-identifier hs-type">UploadArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226508"><span id="local-6989586621679226509"><span id="local-6989586621679226510"><span id="local-6989586621679226511"><span id="local-6989586621679226512"><span class="annot"><span class="annottext">Maybe Text
 Text
 HashedBody
 body :: HashedBody
@@ -444,7 +444,7 @@ $sel:accountId:UploadArchive' :: UploadArchive -&gt; Text
 $sel:vaultName:UploadArchive' :: UploadArchive -&gt; Text
 $sel:archiveDescription:UploadArchive' :: UploadArchive -&gt; Maybe Text
 $sel:checksum:UploadArchive' :: UploadArchive -&gt; Maybe Text
-</span><a href="#local-6989586621679226499"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226508"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -453,19 +453,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226500"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226509"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226501"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226510"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/archives&quot;</span></span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.UploadArchive.html#UploadArchive"><span class="hs-identifier hs-type">UploadArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679226495"><span class="annot"><span class="annottext">toQuery :: UploadArchive -&gt; QueryString
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679226504"><span class="annot"><span class="annottext">toQuery :: UploadArchive -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UploadArchive -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

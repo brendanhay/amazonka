@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FinSpace.Types.FederationParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FinSpace.Types.FederationParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Configuration information when authentication mode is FEDERATED.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newFederationParameters' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679151907"><span id="local-6989586621679151908"></span></span><span class="hs-keyword">data</span><span> </span><span id="FederationParameters"><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-var">FederationParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FederationParameters%27"><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-var">FederationParameters'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provide the metadata URL from your SAML 2.0 compliant identity provider</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- (IdP).</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsamlMetadataURL%3AFederationParameters%27"><span class="annot"><span class="annottext">FederationParameters -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AsamlMetadataURL%3AFederationParameters%27"><span class="hs-identifier hs-var hs-var">samlMetadataURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The redirect or sign-in URL that should be entered into the SAML 2.0</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- compliant identity provider configuration (IdP).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AapplicationCallBackURL%3AFederationParameters%27"><span class="annot"><span class="annottext">FederationParameters -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AapplicationCallBackURL%3AFederationParameters%27"><span class="hs-identifier hs-var hs-var">applicationCallBackURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Uniform Resource Name (URN). Also referred as Service Provider URN</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- or Audience URI or Service Provider Entity ID.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AfederationURN%3AFederationParameters%27"><span class="annot"><span class="annottext">FederationParameters -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AfederationURN%3AFederationParameters%27"><span class="hs-identifier hs-var hs-var">federationURN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | SAML attribute name and value. The name must always be @Email@ and the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- value should be set to the attribute definition in which user email is</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- set. For example, name would be @Email@ and value</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @http:\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identity\/claims\/emailaddress@.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Please check your SAML 2.0 compliant identity provider (IdP)</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- documentation for details.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AattributeMap%3AFederationParameters%27"><span class="annot"><span class="annottext">FederationParameters -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AattributeMap%3AFederationParameters%27"><span class="hs-identifier hs-var hs-var">attributeMap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Name of the identity provider (IdP).</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AfederationProviderName%3AFederationParameters%27"><span class="annot"><span class="annottext">FederationParameters -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AfederationProviderName%3AFederationParameters%27"><span class="hs-identifier hs-var hs-var">federationProviderName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | SAML 2.0 Metadata document from identity provider (IdP).</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AsamlMetadataDocument%3AFederationParameters%27"><span class="annot"><span class="annottext">FederationParameters -&gt; Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AsamlMetadataDocument%3AFederationParameters%27"><span class="hs-identifier hs-var hs-var">samlMetadataDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151896"><span id="local-6989586621679151898"><span class="annot"><span class="annottext">FederationParameters -&gt; FederationParameters -&gt; Bool
+(FederationParameters -&gt; FederationParameters -&gt; Bool)
+-&gt; (FederationParameters -&gt; FederationParameters -&gt; Bool)
+-&gt; Eq FederationParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FederationParameters -&gt; FederationParameters -&gt; Bool
+$c/= :: FederationParameters -&gt; FederationParameters -&gt; Bool
+== :: FederationParameters -&gt; FederationParameters -&gt; Bool
+$c== :: FederationParameters -&gt; FederationParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151887"><span id="local-6989586621679151889"><span id="local-6989586621679151891"><span id="local-6989586621679151893"><span class="annot"><span class="annottext">ReadPrec [FederationParameters]
+ReadPrec FederationParameters
+Int -&gt; ReadS FederationParameters
+ReadS [FederationParameters]
+(Int -&gt; ReadS FederationParameters)
+-&gt; ReadS [FederationParameters]
+-&gt; ReadPrec FederationParameters
+-&gt; ReadPrec [FederationParameters]
+-&gt; Read FederationParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FederationParameters]
+$creadListPrec :: ReadPrec [FederationParameters]
+readPrec :: ReadPrec FederationParameters
+$creadPrec :: ReadPrec FederationParameters
+readList :: ReadS [FederationParameters]
+$creadList :: ReadS [FederationParameters]
+readsPrec :: Int -&gt; ReadS FederationParameters
+$creadsPrec :: Int -&gt; ReadS FederationParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151880"><span id="local-6989586621679151882"><span id="local-6989586621679151884"><span class="annot"><span class="annottext">Int -&gt; FederationParameters -&gt; ShowS
+[FederationParameters] -&gt; ShowS
+FederationParameters -&gt; String
+(Int -&gt; FederationParameters -&gt; ShowS)
+-&gt; (FederationParameters -&gt; String)
+-&gt; ([FederationParameters] -&gt; ShowS)
+-&gt; Show FederationParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FederationParameters] -&gt; ShowS
+$cshowList :: [FederationParameters] -&gt; ShowS
+show :: FederationParameters -&gt; String
+$cshow :: FederationParameters -&gt; String
+showsPrec :: Int -&gt; FederationParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; FederationParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FederationParameters -&gt; Rep FederationParameters x)
+-&gt; (forall x. Rep FederationParameters x -&gt; FederationParameters)
+-&gt; Generic FederationParameters
+forall x. Rep FederationParameters x -&gt; FederationParameters
+forall x. FederationParameters -&gt; Rep FederationParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FederationParameters x -&gt; FederationParameters
+$cfrom :: forall x. FederationParameters -&gt; Rep FederationParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'FederationParameters' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'samlMetadataURL', 'federationParameters_samlMetadataURL' - Provide the metadata URL from your SAML 2.0 compliant identity provider</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- (IdP).</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'applicationCallBackURL', 'federationParameters_applicationCallBackURL' - The redirect or sign-in URL that should be entered into the SAML 2.0</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- compliant identity provider configuration (IdP).</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'federationURN', 'federationParameters_federationURN' - The Uniform Resource Name (URN). Also referred as Service Provider URN</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- or Audience URI or Service Provider Entity ID.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'attributeMap', 'federationParameters_attributeMap' - SAML attribute name and value. The name must always be @Email@ and the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- value should be set to the attribute definition in which user email is</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- set. For example, name would be @Email@ and value</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- @http:\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identity\/claims\/emailaddress@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Please check your SAML 2.0 compliant identity provider (IdP)</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- documentation for details.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'federationProviderName', 'federationParameters_federationProviderName' - Name of the identity provider (IdP).</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'samlMetadataDocument', 'federationParameters_samlMetadataDocument' - SAML 2.0 Metadata document from identity provider (IdP).</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#newFederationParameters"><span class="hs-identifier hs-type">newFederationParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span>
+</span><span id="line-82"></span><span id="newFederationParameters"><span class="annot"><span class="annottext">newFederationParameters :: FederationParameters
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#newFederationParameters"><span class="hs-identifier hs-var hs-var">newFederationParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">FederationParameters' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; FederationParameters
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:samlMetadataURL:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AsamlMetadataURL%3AFederationParameters%27"><span class="hs-identifier hs-var">samlMetadataURL</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationCallBackURL:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AapplicationCallBackURL%3AFederationParameters%27"><span class="hs-identifier hs-var">applicationCallBackURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:federationURN:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AfederationURN%3AFederationParameters%27"><span class="hs-identifier hs-var">federationURN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeMap:FederationParameters' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AattributeMap%3AFederationParameters%27"><span class="hs-identifier hs-var">attributeMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:federationProviderName:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AfederationProviderName%3AFederationParameters%27"><span class="hs-identifier hs-var">federationProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:samlMetadataDocument:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AsamlMetadataDocument%3AFederationParameters%27"><span class="hs-identifier hs-var">samlMetadataDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Provide the metadata URL from your SAML 2.0 compliant identity provider</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- (IdP).</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_samlMetadataURL"><span class="hs-identifier hs-type">federationParameters_samlMetadataURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="federationParameters_samlMetadataURL"><span class="annot"><span class="annottext">federationParameters_samlMetadataURL :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FederationParameters -&gt; f FederationParameters
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_samlMetadataURL"><span class="hs-identifier hs-var hs-var">federationParameters_samlMetadataURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FederationParameters -&gt; Maybe Text)
+-&gt; (FederationParameters -&gt; Maybe Text -&gt; FederationParameters)
+-&gt; Lens
+     FederationParameters FederationParameters (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151871"><span class="annot"><span class="annottext">Maybe Text
+samlMetadataURL :: Maybe Text
+$sel:samlMetadataURL:FederationParameters' :: FederationParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679151871"><span class="hs-identifier hs-var hs-var">samlMetadataURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151871"><span class="hs-identifier hs-var">samlMetadataURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151870"><span class="annot"><span class="annottext">s :: FederationParameters
+</span><a href="#local-6989586621679151870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151869"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederationParameters
+</span><a href="#local-6989586621679151870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samlMetadataURL:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AsamlMetadataURL%3AFederationParameters%27"><span class="hs-identifier hs-var">samlMetadataURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The redirect or sign-in URL that should be entered into the SAML 2.0</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- compliant identity provider configuration (IdP).</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_applicationCallBackURL"><span class="hs-identifier hs-type">federationParameters_applicationCallBackURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="federationParameters_applicationCallBackURL"><span class="annot"><span class="annottext">federationParameters_applicationCallBackURL :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FederationParameters -&gt; f FederationParameters
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_applicationCallBackURL"><span class="hs-identifier hs-var hs-var">federationParameters_applicationCallBackURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FederationParameters -&gt; Maybe Text)
+-&gt; (FederationParameters -&gt; Maybe Text -&gt; FederationParameters)
+-&gt; Lens
+     FederationParameters FederationParameters (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151867"><span class="annot"><span class="annottext">Maybe Text
+applicationCallBackURL :: Maybe Text
+$sel:applicationCallBackURL:FederationParameters' :: FederationParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679151867"><span class="hs-identifier hs-var hs-var">applicationCallBackURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151867"><span class="hs-identifier hs-var">applicationCallBackURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151866"><span class="annot"><span class="annottext">s :: FederationParameters
+</span><a href="#local-6989586621679151866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151865"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederationParameters
+</span><a href="#local-6989586621679151866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationCallBackURL:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AapplicationCallBackURL%3AFederationParameters%27"><span class="hs-identifier hs-var">applicationCallBackURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The Uniform Resource Name (URN). Also referred as Service Provider URN</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- or Audience URI or Service Provider Entity ID.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_federationURN"><span class="hs-identifier hs-type">federationParameters_federationURN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="federationParameters_federationURN"><span class="annot"><span class="annottext">federationParameters_federationURN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FederationParameters -&gt; f FederationParameters
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_federationURN"><span class="hs-identifier hs-var hs-var">federationParameters_federationURN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FederationParameters -&gt; Maybe Text)
+-&gt; (FederationParameters -&gt; Maybe Text -&gt; FederationParameters)
+-&gt; Lens
+     FederationParameters FederationParameters (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151863"><span class="annot"><span class="annottext">Maybe Text
+federationURN :: Maybe Text
+$sel:federationURN:FederationParameters' :: FederationParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679151863"><span class="hs-identifier hs-var hs-var">federationURN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151863"><span class="hs-identifier hs-var">federationURN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151862"><span class="annot"><span class="annottext">s :: FederationParameters
+</span><a href="#local-6989586621679151862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151861"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederationParameters
+</span><a href="#local-6989586621679151862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:federationURN:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AfederationURN%3AFederationParameters%27"><span class="hs-identifier hs-var">federationURN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | SAML attribute name and value. The name must always be @Email@ and the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- value should be set to the attribute definition in which user email is</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- set. For example, name would be @Email@ and value</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @http:\/\/schemas.xmlsoap.org\/ws\/2005\/05\/identity\/claims\/emailaddress@.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Please check your SAML 2.0 compliant identity provider (IdP)</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- documentation for details.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_attributeMap"><span class="hs-identifier hs-type">federationParameters_attributeMap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="federationParameters_attributeMap"><span class="annot"><span class="annottext">federationParameters_attributeMap :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; FederationParameters -&gt; f FederationParameters
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_attributeMap"><span class="hs-identifier hs-var hs-var">federationParameters_attributeMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FederationParameters -&gt; Maybe (HashMap Text Text))
+-&gt; (FederationParameters
+    -&gt; Maybe (HashMap Text Text) -&gt; FederationParameters)
+-&gt; Lens
+     FederationParameters
+     FederationParameters
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151859"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributeMap :: Maybe (HashMap Text Text)
+$sel:attributeMap:FederationParameters' :: FederationParameters -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679151859"><span class="hs-identifier hs-var hs-var">attributeMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679151859"><span class="hs-identifier hs-var">attributeMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151858"><span class="annot"><span class="annottext">s :: FederationParameters
+</span><a href="#local-6989586621679151858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151857"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679151857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederationParameters
+</span><a href="#local-6989586621679151858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeMap:FederationParameters' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AattributeMap%3AFederationParameters%27"><span class="hs-identifier hs-var">attributeMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679151857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; FederationParameters -&gt; f FederationParameters)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; FederationParameters
+-&gt; f FederationParameters
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Name of the identity provider (IdP).</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_federationProviderName"><span class="hs-identifier hs-type">federationParameters_federationProviderName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="federationParameters_federationProviderName"><span class="annot"><span class="annottext">federationParameters_federationProviderName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FederationParameters -&gt; f FederationParameters
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_federationProviderName"><span class="hs-identifier hs-var hs-var">federationParameters_federationProviderName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FederationParameters -&gt; Maybe Text)
+-&gt; (FederationParameters -&gt; Maybe Text -&gt; FederationParameters)
+-&gt; Lens
+     FederationParameters FederationParameters (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151852"><span class="annot"><span class="annottext">Maybe Text
+federationProviderName :: Maybe Text
+$sel:federationProviderName:FederationParameters' :: FederationParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679151852"><span class="hs-identifier hs-var hs-var">federationProviderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151852"><span class="hs-identifier hs-var">federationProviderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151851"><span class="annot"><span class="annottext">s :: FederationParameters
+</span><a href="#local-6989586621679151851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151850"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederationParameters
+</span><a href="#local-6989586621679151851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:federationProviderName:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AfederationProviderName%3AFederationParameters%27"><span class="hs-identifier hs-var">federationProviderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | SAML 2.0 Metadata document from identity provider (IdP).</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_samlMetadataDocument"><span class="hs-identifier hs-type">federationParameters_samlMetadataDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="federationParameters_samlMetadataDocument"><span class="annot"><span class="annottext">federationParameters_samlMetadataDocument :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FederationParameters -&gt; f FederationParameters
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#federationParameters_samlMetadataDocument"><span class="hs-identifier hs-var hs-var">federationParameters_samlMetadataDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FederationParameters -&gt; Maybe Text)
+-&gt; (FederationParameters -&gt; Maybe Text -&gt; FederationParameters)
+-&gt; Lens
+     FederationParameters FederationParameters (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151848"><span class="annot"><span class="annottext">Maybe Text
+samlMetadataDocument :: Maybe Text
+$sel:samlMetadataDocument:FederationParameters' :: FederationParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679151848"><span class="hs-identifier hs-var hs-var">samlMetadataDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151848"><span class="hs-identifier hs-var">samlMetadataDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151847"><span class="annot"><span class="annottext">s :: FederationParameters
+</span><a href="#local-6989586621679151847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151846"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FederationParameters
+</span><a href="#local-6989586621679151847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samlMetadataDocument:FederationParameters' :: Maybe Text
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#%24sel%3AsamlMetadataDocument%3AFederationParameters%27"><span class="hs-identifier hs-var">samlMetadataDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151843"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679151841"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FederationParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FederationParameters)
+-&gt; Value
+-&gt; Parser FederationParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FederationParameters&quot;</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679151838"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151838"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; FederationParameters
+</span><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-var">FederationParameters'</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; FederationParameters)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; FederationParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;samlMetadataURL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; FederationParameters)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; FederationParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationCallBackURL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; FederationParameters)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; FederationParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;federationURN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; FederationParameters)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; FederationParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributeMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; FederationParameters)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; FederationParameters)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;federationProviderName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; FederationParameters)
+-&gt; Parser (Maybe Text) -&gt; Parser FederationParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679151838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;samlMetadataDocument&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151831"><span id="local-6989586621679151833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151820"><span id="local-6989586621679151822"><span id="local-6989586621679151824"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters"><span class="hs-identifier hs-type">FederationParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679151818"><span class="annot"><span class="annottext">toJSON :: FederationParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FinSpace.Types.FederationParameters.html#FederationParameters%27"><span class="hs-identifier hs-type">FederationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151811"><span id="local-6989586621679151812"><span id="local-6989586621679151813"><span id="local-6989586621679151814"><span id="local-6989586621679151815"><span id="local-6989586621679151816"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+samlMetadataDocument :: Maybe Text
+federationProviderName :: Maybe Text
+attributeMap :: Maybe (HashMap Text Text)
+federationURN :: Maybe Text
+applicationCallBackURL :: Maybe Text
+samlMetadataURL :: Maybe Text
+$sel:samlMetadataDocument:FederationParameters' :: FederationParameters -&gt; Maybe Text
+$sel:federationProviderName:FederationParameters' :: FederationParameters -&gt; Maybe Text
+$sel:attributeMap:FederationParameters' :: FederationParameters -&gt; Maybe (HashMap Text Text)
+$sel:federationURN:FederationParameters' :: FederationParameters -&gt; Maybe Text
+$sel:applicationCallBackURL:FederationParameters' :: FederationParameters -&gt; Maybe Text
+$sel:samlMetadataURL:FederationParameters' :: FederationParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679151811"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;samlMetadataURL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151816"><span class="hs-identifier hs-var">samlMetadataURL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationCallBackURL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151815"><span class="hs-identifier hs-var">applicationCallBackURL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;federationURN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151814"><span class="hs-identifier hs-var">federationURN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributeMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679151813"><span class="hs-identifier hs-var">attributeMap</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;federationProviderName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151812"><span class="hs-identifier hs-var">federationProviderName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;samlMetadataDocument&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151811"><span class="hs-identifier hs-var">samlMetadataDocument</span></a></span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span></pre></body></html>

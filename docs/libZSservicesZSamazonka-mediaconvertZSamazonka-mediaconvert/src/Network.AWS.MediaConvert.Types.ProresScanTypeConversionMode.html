@@ -44,13 +44,13 @@
 </span><span id="line-44"></span><span class="hs-comment">-- optimized interlacing for hard telecine outputs. You must also set</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- Interlace mode (interlaceMode) to a value other than Progressive</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- (PROGRESSIVE).</span><span>
-</span><span id="line-47"></span><span id="local-6989586621680001832"><span id="local-6989586621680001833"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresScanTypeConversionMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresScanTypeConversionMode.html#ProresScanTypeConversionMode"><span class="hs-identifier hs-var">ProresScanTypeConversionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresScanTypeConversionMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresScanTypeConversionMode.html#ProresScanTypeConversionMode%27"><span class="hs-identifier hs-var">ProresScanTypeConversionMode'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621680001841"><span id="local-6989586621680001842"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresScanTypeConversionMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresScanTypeConversionMode.html#ProresScanTypeConversionMode"><span class="hs-identifier hs-var">ProresScanTypeConversionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresScanTypeConversionMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresScanTypeConversionMode.html#ProresScanTypeConversionMode%27"><span class="hs-identifier hs-var">ProresScanTypeConversionMode'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProresScanTypeConversionMode"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ProresScanTypeConversionMode.html#fromProresScanTypeConversionMode"><span class="hs-identifier hs-var hs-var">fromProresScanTypeConversionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680001824"><span id="local-6989586621680001826"><span id="local-6989586621680001828"><span class="annot"><span class="annottext">Int -&gt; ProresScanTypeConversionMode -&gt; ShowS
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680001833"><span id="local-6989586621680001835"><span id="local-6989586621680001837"><span class="annot"><span class="annottext">Int -&gt; ProresScanTypeConversionMode -&gt; ShowS
 [ProresScanTypeConversionMode] -&gt; ShowS
 ProresScanTypeConversionMode -&gt; String
 (Int -&gt; ProresScanTypeConversionMode -&gt; ShowS)
@@ -66,7 +66,7 @@ $cshow :: ProresScanTypeConversionMode -&gt; String
 showsPrec :: Int -&gt; ProresScanTypeConversionMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProresScanTypeConversionMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680001815"><span id="local-6989586621680001817"><span id="local-6989586621680001819"><span id="local-6989586621680001821"><span class="annot"><span class="annottext">ReadPrec [ProresScanTypeConversionMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680001824"><span id="local-6989586621680001826"><span id="local-6989586621680001828"><span id="local-6989586621680001830"><span class="annot"><span class="annottext">ReadPrec [ProresScanTypeConversionMode]
 ReadPrec ProresScanTypeConversionMode
 Int -&gt; ReadS ProresScanTypeConversionMode
 ReadS [ProresScanTypeConversionMode]
@@ -87,7 +87,7 @@ $creadList :: ReadS [ProresScanTypeConversionMode]
 readsPrec :: Int -&gt; ReadS ProresScanTypeConversionMode
 $creadsPrec :: Int -&gt; ReadS ProresScanTypeConversionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680001810"><span id="local-6989586621680001812"><span class="annot"><span class="annottext">ProresScanTypeConversionMode
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680001819"><span id="local-6989586621680001821"><span class="annot"><span class="annottext">ProresScanTypeConversionMode
 -&gt; ProresScanTypeConversionMode -&gt; Bool
 (ProresScanTypeConversionMode
  -&gt; ProresScanTypeConversionMode -&gt; Bool)
@@ -104,7 +104,7 @@ $c/= :: ProresScanTypeConversionMode
 $c== :: ProresScanTypeConversionMode
 -&gt; ProresScanTypeConversionMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680001794"><span id="local-6989586621680001796"><span id="local-6989586621680001798"><span id="local-6989586621680001800"><span id="local-6989586621680001802"><span id="local-6989586621680001804"><span id="local-6989586621680001806"><span class="annot"><span class="annottext">Eq ProresScanTypeConversionMode
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680001803"><span id="local-6989586621680001805"><span id="local-6989586621680001807"><span id="local-6989586621680001809"><span id="local-6989586621680001811"><span id="local-6989586621680001813"><span id="local-6989586621680001815"><span class="annot"><span class="annottext">Eq ProresScanTypeConversionMode
 Eq ProresScanTypeConversionMode
 -&gt; (ProresScanTypeConversionMode
     -&gt; ProresScanTypeConversionMode -&gt; Ordering)
@@ -185,7 +185,7 @@ ProresScanTypeConversionMode -&gt; Rep ProresScanTypeConversionMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680001786"><span id="local-6989586621680001788"><span class="annot"><span class="annottext">Int -&gt; ProresScanTypeConversionMode -&gt; Int
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680001795"><span id="local-6989586621680001797"><span class="annot"><span class="annottext">Int -&gt; ProresScanTypeConversionMode -&gt; Int
 ProresScanTypeConversionMode -&gt; Int
 (Int -&gt; ProresScanTypeConversionMode -&gt; Int)
 -&gt; (ProresScanTypeConversionMode -&gt; Int)
@@ -196,56 +196,56 @@ $chash :: ProresScanTypeConversionMode -&gt; Int
 hashWithSalt :: Int -&gt; ProresScanTypeConversionMode -&gt; Int
 $chashWithSalt :: Int -&gt; ProresScanTypeConversionMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680001783"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; ()
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680001792"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; ()
 (ProresScanTypeConversionMode -&gt; ())
 -&gt; NFData ProresScanTypeConversionMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProresScanTypeConversionMode -&gt; ()
 $crnf :: ProresScanTypeConversionMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680001780"><span class="annot"><span class="annottext">Text -&gt; Either String ProresScanTypeConversionMode
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680001789"><span class="annot"><span class="annottext">Text -&gt; Either String ProresScanTypeConversionMode
 (Text -&gt; Either String ProresScanTypeConversionMode)
 -&gt; FromText ProresScanTypeConversionMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProresScanTypeConversionMode
 $cfromText :: Text -&gt; Either String ProresScanTypeConversionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680001777"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; Text
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680001786"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; Text
 (ProresScanTypeConversionMode -&gt; Text)
 -&gt; ToText ProresScanTypeConversionMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProresScanTypeConversionMode -&gt; Text
 $ctoText :: ProresScanTypeConversionMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680001774"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; ByteString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680001783"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; ByteString
 (ProresScanTypeConversionMode -&gt; ByteString)
 -&gt; ToByteString ProresScanTypeConversionMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProresScanTypeConversionMode -&gt; ByteString
 $ctoBS :: ProresScanTypeConversionMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680001771"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; ByteStringBuilder
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680001780"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; ByteStringBuilder
 (ProresScanTypeConversionMode -&gt; ByteStringBuilder)
 -&gt; ToLog ProresScanTypeConversionMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProresScanTypeConversionMode -&gt; ByteStringBuilder
 $cbuild :: ProresScanTypeConversionMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680001768"><span class="annot"><span class="annottext">HeaderName -&gt; ProresScanTypeConversionMode -&gt; [Header]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680001777"><span class="annot"><span class="annottext">HeaderName -&gt; ProresScanTypeConversionMode -&gt; [Header]
 (HeaderName -&gt; ProresScanTypeConversionMode -&gt; [Header])
 -&gt; ToHeader ProresScanTypeConversionMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProresScanTypeConversionMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProresScanTypeConversionMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680001765"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; QueryString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680001774"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; QueryString
 (ProresScanTypeConversionMode -&gt; QueryString)
 -&gt; ToQuery ProresScanTypeConversionMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProresScanTypeConversionMode -&gt; QueryString
 $ctoQuery :: ProresScanTypeConversionMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680001760"><span id="local-6989586621680001762"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresScanTypeConversionMode]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680001769"><span id="local-6989586621680001771"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresScanTypeConversionMode]
 Value -&gt; Parser ProresScanTypeConversionMode
 (Value -&gt; Parser ProresScanTypeConversionMode)
 -&gt; (Value -&gt; Parser [ProresScanTypeConversionMode])
@@ -257,7 +257,7 @@ $cparseJSONList :: Value -&gt; Parser [ProresScanTypeConversionMode]
 parseJSON :: Value -&gt; Parser ProresScanTypeConversionMode
 $cparseJSON :: Value -&gt; Parser ProresScanTypeConversionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680001755"><span id="local-6989586621680001757"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresScanTypeConversionMode]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680001764"><span id="local-6989586621680001766"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresScanTypeConversionMode]
 FromJSONKeyFunction ProresScanTypeConversionMode
 FromJSONKeyFunction ProresScanTypeConversionMode
 -&gt; FromJSONKeyFunction [ProresScanTypeConversionMode]
@@ -269,7 +269,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProresScanTypeConversionMode]
 fromJSONKey :: FromJSONKeyFunction ProresScanTypeConversionMode
 $cfromJSONKey :: FromJSONKeyFunction ProresScanTypeConversionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680001746"><span id="local-6989586621680001748"><span id="local-6989586621680001750"><span id="local-6989586621680001752"><span class="annot"><span class="annottext">[ProresScanTypeConversionMode] -&gt; Encoding
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680001755"><span id="local-6989586621680001757"><span id="local-6989586621680001759"><span id="local-6989586621680001761"><span class="annot"><span class="annottext">[ProresScanTypeConversionMode] -&gt; Encoding
 [ProresScanTypeConversionMode] -&gt; Value
 ProresScanTypeConversionMode -&gt; Encoding
 ProresScanTypeConversionMode -&gt; Value
@@ -293,7 +293,7 @@ $ctoEncoding :: ProresScanTypeConversionMode -&gt; Encoding
 toJSON :: ProresScanTypeConversionMode -&gt; Value
 $ctoJSON :: ProresScanTypeConversionMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621680001741"><span id="local-6989586621680001743"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresScanTypeConversionMode]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680001750"><span id="local-6989586621680001752"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresScanTypeConversionMode]
 ToJSONKeyFunction ProresScanTypeConversionMode
 ToJSONKeyFunction ProresScanTypeConversionMode
 -&gt; ToJSONKeyFunction [ProresScanTypeConversionMode]
@@ -305,14 +305,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProresScanTypeConversionMode]
 toJSONKey :: ToJSONKeyFunction ProresScanTypeConversionMode
 $ctoJSONKey :: ToJSONKeyFunction ProresScanTypeConversionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621680001738"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresScanTypeConversionMode
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621680001747"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresScanTypeConversionMode
 ([Node] -&gt; Either String ProresScanTypeConversionMode)
 -&gt; FromXML ProresScanTypeConversionMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProresScanTypeConversionMode
 $cparseXML :: [Node] -&gt; Either String ProresScanTypeConversionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621680001735"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; XML
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621680001744"><span class="annot"><span class="annottext">ProresScanTypeConversionMode -&gt; XML
 (ProresScanTypeConversionMode -&gt; XML)
 -&gt; ToXML ProresScanTypeConversionMode
 forall a. (a -&gt; XML) -&gt; ToXML a

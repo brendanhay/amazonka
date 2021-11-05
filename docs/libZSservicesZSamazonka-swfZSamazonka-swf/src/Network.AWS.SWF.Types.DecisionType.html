@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span id="local-6989586621679345153"><span id="local-6989586621679345154"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DecisionType"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionType.html#DecisionType"><span class="hs-identifier hs-var">DecisionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecisionType%27"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionType.html#DecisionType%27"><span class="hs-identifier hs-var">DecisionType'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679345162"><span id="local-6989586621679345163"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DecisionType"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionType.html#DecisionType"><span class="hs-identifier hs-var">DecisionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecisionType%27"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionType.html#DecisionType%27"><span class="hs-identifier hs-var">DecisionType'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDecisionType"><span class="annot"><span class="annottext">DecisionType -&gt; Text
 </span><a href="Network.AWS.SWF.Types.DecisionType.html#fromDecisionType"><span class="hs-identifier hs-var hs-var">fromDecisionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679345145"><span id="local-6989586621679345147"><span id="local-6989586621679345149"><span class="annot"><span class="annottext">Int -&gt; DecisionType -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679345154"><span id="local-6989586621679345156"><span id="local-6989586621679345158"><span class="annot"><span class="annottext">Int -&gt; DecisionType -&gt; ShowS
 [DecisionType] -&gt; ShowS
 DecisionType -&gt; String
 (Int -&gt; DecisionType -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: DecisionType -&gt; String
 showsPrec :: Int -&gt; DecisionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DecisionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679345136"><span id="local-6989586621679345138"><span id="local-6989586621679345140"><span id="local-6989586621679345142"><span class="annot"><span class="annottext">ReadPrec [DecisionType]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679345145"><span id="local-6989586621679345147"><span id="local-6989586621679345149"><span id="local-6989586621679345151"><span class="annot"><span class="annottext">ReadPrec [DecisionType]
 ReadPrec DecisionType
 Int -&gt; ReadS DecisionType
 ReadS [DecisionType]
@@ -83,7 +83,7 @@ $creadList :: ReadS [DecisionType]
 readsPrec :: Int -&gt; ReadS DecisionType
 $creadsPrec :: Int -&gt; ReadS DecisionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679345131"><span id="local-6989586621679345133"><span class="annot"><span class="annottext">DecisionType -&gt; DecisionType -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679345140"><span id="local-6989586621679345142"><span class="annot"><span class="annottext">DecisionType -&gt; DecisionType -&gt; Bool
 (DecisionType -&gt; DecisionType -&gt; Bool)
 -&gt; (DecisionType -&gt; DecisionType -&gt; Bool) -&gt; Eq DecisionType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -92,7 +92,7 @@ $c/= :: DecisionType -&gt; DecisionType -&gt; Bool
 == :: DecisionType -&gt; DecisionType -&gt; Bool
 $c== :: DecisionType -&gt; DecisionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679345115"><span id="local-6989586621679345117"><span id="local-6989586621679345119"><span id="local-6989586621679345121"><span id="local-6989586621679345123"><span id="local-6989586621679345125"><span id="local-6989586621679345127"><span class="annot"><span class="annottext">Eq DecisionType
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679345124"><span id="local-6989586621679345126"><span id="local-6989586621679345128"><span id="local-6989586621679345130"><span id="local-6989586621679345132"><span id="local-6989586621679345134"><span id="local-6989586621679345136"><span class="annot"><span class="annottext">Eq DecisionType
 Eq DecisionType
 -&gt; (DecisionType -&gt; DecisionType -&gt; Ordering)
 -&gt; (DecisionType -&gt; DecisionType -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. DecisionType -&gt; Rep DecisionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679345107"><span id="local-6989586621679345109"><span class="annot"><span class="annottext">Int -&gt; DecisionType -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679345116"><span id="local-6989586621679345118"><span class="annot"><span class="annottext">Int -&gt; DecisionType -&gt; Int
 DecisionType -&gt; Int
 (Int -&gt; DecisionType -&gt; Int)
 -&gt; (DecisionType -&gt; Int) -&gt; Hashable DecisionType
@@ -153,49 +153,49 @@ $chash :: DecisionType -&gt; Int
 hashWithSalt :: Int -&gt; DecisionType -&gt; Int
 $chashWithSalt :: Int -&gt; DecisionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679345104"><span class="annot"><span class="annottext">DecisionType -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679345113"><span class="annot"><span class="annottext">DecisionType -&gt; ()
 (DecisionType -&gt; ()) -&gt; NFData DecisionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DecisionType -&gt; ()
 $crnf :: DecisionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679345101"><span class="annot"><span class="annottext">Text -&gt; Either String DecisionType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679345110"><span class="annot"><span class="annottext">Text -&gt; Either String DecisionType
 (Text -&gt; Either String DecisionType) -&gt; FromText DecisionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DecisionType
 $cfromText :: Text -&gt; Either String DecisionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679345098"><span class="annot"><span class="annottext">DecisionType -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679345107"><span class="annot"><span class="annottext">DecisionType -&gt; Text
 (DecisionType -&gt; Text) -&gt; ToText DecisionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DecisionType -&gt; Text
 $ctoText :: DecisionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679345095"><span class="annot"><span class="annottext">DecisionType -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679345104"><span class="annot"><span class="annottext">DecisionType -&gt; ByteString
 (DecisionType -&gt; ByteString) -&gt; ToByteString DecisionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DecisionType -&gt; ByteString
 $ctoBS :: DecisionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679345092"><span class="annot"><span class="annottext">DecisionType -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679345101"><span class="annot"><span class="annottext">DecisionType -&gt; ByteStringBuilder
 (DecisionType -&gt; ByteStringBuilder) -&gt; ToLog DecisionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DecisionType -&gt; ByteStringBuilder
 $cbuild :: DecisionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679345089"><span class="annot"><span class="annottext">HeaderName -&gt; DecisionType -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679345098"><span class="annot"><span class="annottext">HeaderName -&gt; DecisionType -&gt; [Header]
 (HeaderName -&gt; DecisionType -&gt; [Header]) -&gt; ToHeader DecisionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DecisionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DecisionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679345086"><span class="annot"><span class="annottext">DecisionType -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679345095"><span class="annot"><span class="annottext">DecisionType -&gt; QueryString
 (DecisionType -&gt; QueryString) -&gt; ToQuery DecisionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DecisionType -&gt; QueryString
 $ctoQuery :: DecisionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679345081"><span id="local-6989586621679345083"><span class="annot"><span class="annottext">Value -&gt; Parser [DecisionType]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679345090"><span id="local-6989586621679345092"><span class="annot"><span class="annottext">Value -&gt; Parser [DecisionType]
 Value -&gt; Parser DecisionType
 (Value -&gt; Parser DecisionType)
 -&gt; (Value -&gt; Parser [DecisionType]) -&gt; FromJSON DecisionType
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [DecisionType]
 parseJSON :: Value -&gt; Parser DecisionType
 $cparseJSON :: Value -&gt; Parser DecisionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679345076"><span id="local-6989586621679345078"><span class="annot"><span class="annottext">FromJSONKeyFunction [DecisionType]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679345085"><span id="local-6989586621679345087"><span class="annot"><span class="annottext">FromJSONKeyFunction [DecisionType]
 FromJSONKeyFunction DecisionType
 FromJSONKeyFunction DecisionType
 -&gt; FromJSONKeyFunction [DecisionType] -&gt; FromJSONKey DecisionType
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DecisionType]
 fromJSONKey :: FromJSONKeyFunction DecisionType
 $cfromJSONKey :: FromJSONKeyFunction DecisionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679345067"><span id="local-6989586621679345069"><span id="local-6989586621679345071"><span id="local-6989586621679345073"><span class="annot"><span class="annottext">[DecisionType] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679345076"><span id="local-6989586621679345078"><span id="local-6989586621679345080"><span id="local-6989586621679345082"><span class="annot"><span class="annottext">[DecisionType] -&gt; Encoding
 [DecisionType] -&gt; Value
 DecisionType -&gt; Encoding
 DecisionType -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: DecisionType -&gt; Encoding
 toJSON :: DecisionType -&gt; Value
 $ctoJSON :: DecisionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679345062"><span id="local-6989586621679345064"><span class="annot"><span class="annottext">ToJSONKeyFunction [DecisionType]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679345071"><span id="local-6989586621679345073"><span class="annot"><span class="annottext">ToJSONKeyFunction [DecisionType]
 ToJSONKeyFunction DecisionType
 ToJSONKeyFunction DecisionType
 -&gt; ToJSONKeyFunction [DecisionType] -&gt; ToJSONKey DecisionType
@@ -252,13 +252,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DecisionType]
 toJSONKey :: ToJSONKeyFunction DecisionType
 $ctoJSONKey :: ToJSONKeyFunction DecisionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679345059"><span class="annot"><span class="annottext">[Node] -&gt; Either String DecisionType
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679345068"><span class="annot"><span class="annottext">[Node] -&gt; Either String DecisionType
 ([Node] -&gt; Either String DecisionType) -&gt; FromXML DecisionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DecisionType
 $cparseXML :: [Node] -&gt; Either String DecisionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679345056"><span class="annot"><span class="annottext">DecisionType -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679345065"><span class="annot"><span class="annottext">DecisionType -&gt; XML
 (DecisionType -&gt; XML) -&gt; ToXML DecisionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DecisionType -&gt; XML

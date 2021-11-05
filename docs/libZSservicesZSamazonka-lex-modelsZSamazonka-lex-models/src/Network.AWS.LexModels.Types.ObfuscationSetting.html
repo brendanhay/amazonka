@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679314437"><span id="local-6989586621679314438"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObfuscationSetting"><span class="annot"><a href="Network.AWS.LexModels.Types.ObfuscationSetting.html#ObfuscationSetting"><span class="hs-identifier hs-var">ObfuscationSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObfuscationSetting%27"><span class="annot"><a href="Network.AWS.LexModels.Types.ObfuscationSetting.html#ObfuscationSetting%27"><span class="hs-identifier hs-var">ObfuscationSetting'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679314446"><span id="local-6989586621679314447"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObfuscationSetting"><span class="annot"><a href="Network.AWS.LexModels.Types.ObfuscationSetting.html#ObfuscationSetting"><span class="hs-identifier hs-var">ObfuscationSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObfuscationSetting%27"><span class="annot"><a href="Network.AWS.LexModels.Types.ObfuscationSetting.html#ObfuscationSetting%27"><span class="hs-identifier hs-var">ObfuscationSetting'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObfuscationSetting"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.ObfuscationSetting.html#fromObfuscationSetting"><span class="hs-identifier hs-var hs-var">fromObfuscationSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679314429"><span id="local-6989586621679314431"><span id="local-6989586621679314433"><span class="annot"><span class="annottext">Int -&gt; ObfuscationSetting -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679314438"><span id="local-6989586621679314440"><span id="local-6989586621679314442"><span class="annot"><span class="annottext">Int -&gt; ObfuscationSetting -&gt; ShowS
 [ObfuscationSetting] -&gt; ShowS
 ObfuscationSetting -&gt; String
 (Int -&gt; ObfuscationSetting -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ObfuscationSetting -&gt; String
 showsPrec :: Int -&gt; ObfuscationSetting -&gt; ShowS
 $cshowsPrec :: Int -&gt; ObfuscationSetting -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679314420"><span id="local-6989586621679314422"><span id="local-6989586621679314424"><span id="local-6989586621679314426"><span class="annot"><span class="annottext">ReadPrec [ObfuscationSetting]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679314429"><span id="local-6989586621679314431"><span id="local-6989586621679314433"><span id="local-6989586621679314435"><span class="annot"><span class="annottext">ReadPrec [ObfuscationSetting]
 ReadPrec ObfuscationSetting
 Int -&gt; ReadS ObfuscationSetting
 ReadS [ObfuscationSetting]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ObfuscationSetting]
 readsPrec :: Int -&gt; ReadS ObfuscationSetting
 $creadsPrec :: Int -&gt; ReadS ObfuscationSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679314415"><span id="local-6989586621679314417"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; ObfuscationSetting -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679314424"><span id="local-6989586621679314426"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; ObfuscationSetting -&gt; Bool
 (ObfuscationSetting -&gt; ObfuscationSetting -&gt; Bool)
 -&gt; (ObfuscationSetting -&gt; ObfuscationSetting -&gt; Bool)
 -&gt; Eq ObfuscationSetting
@@ -82,7 +82,7 @@ $c/= :: ObfuscationSetting -&gt; ObfuscationSetting -&gt; Bool
 == :: ObfuscationSetting -&gt; ObfuscationSetting -&gt; Bool
 $c== :: ObfuscationSetting -&gt; ObfuscationSetting -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679314399"><span id="local-6989586621679314401"><span id="local-6989586621679314403"><span id="local-6989586621679314405"><span id="local-6989586621679314407"><span id="local-6989586621679314409"><span id="local-6989586621679314411"><span class="annot"><span class="annottext">Eq ObfuscationSetting
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679314408"><span id="local-6989586621679314410"><span id="local-6989586621679314412"><span id="local-6989586621679314414"><span id="local-6989586621679314416"><span id="local-6989586621679314418"><span id="local-6989586621679314420"><span class="annot"><span class="annottext">Eq ObfuscationSetting
 Eq ObfuscationSetting
 -&gt; (ObfuscationSetting -&gt; ObfuscationSetting -&gt; Ordering)
 -&gt; (ObfuscationSetting -&gt; ObfuscationSetting -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ObfuscationSetting -&gt; Rep ObfuscationSetting x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679314391"><span id="local-6989586621679314393"><span class="annot"><span class="annottext">Int -&gt; ObfuscationSetting -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679314400"><span id="local-6989586621679314402"><span class="annot"><span class="annottext">Int -&gt; ObfuscationSetting -&gt; Int
 ObfuscationSetting -&gt; Int
 (Int -&gt; ObfuscationSetting -&gt; Int)
 -&gt; (ObfuscationSetting -&gt; Int) -&gt; Hashable ObfuscationSetting
@@ -143,53 +143,53 @@ $chash :: ObfuscationSetting -&gt; Int
 hashWithSalt :: Int -&gt; ObfuscationSetting -&gt; Int
 $chashWithSalt :: Int -&gt; ObfuscationSetting -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679314388"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679314397"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; ()
 (ObfuscationSetting -&gt; ()) -&gt; NFData ObfuscationSetting
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ObfuscationSetting -&gt; ()
 $crnf :: ObfuscationSetting -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679314385"><span class="annot"><span class="annottext">Text -&gt; Either String ObfuscationSetting
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679314394"><span class="annot"><span class="annottext">Text -&gt; Either String ObfuscationSetting
 (Text -&gt; Either String ObfuscationSetting)
 -&gt; FromText ObfuscationSetting
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ObfuscationSetting
 $cfromText :: Text -&gt; Either String ObfuscationSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679314382"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679314391"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; Text
 (ObfuscationSetting -&gt; Text) -&gt; ToText ObfuscationSetting
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ObfuscationSetting -&gt; Text
 $ctoText :: ObfuscationSetting -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679314379"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679314388"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; ByteString
 (ObfuscationSetting -&gt; ByteString)
 -&gt; ToByteString ObfuscationSetting
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ObfuscationSetting -&gt; ByteString
 $ctoBS :: ObfuscationSetting -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679314376"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679314385"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; ByteStringBuilder
 (ObfuscationSetting -&gt; ByteStringBuilder)
 -&gt; ToLog ObfuscationSetting
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ObfuscationSetting -&gt; ByteStringBuilder
 $cbuild :: ObfuscationSetting -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679314373"><span class="annot"><span class="annottext">HeaderName -&gt; ObfuscationSetting -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679314382"><span class="annot"><span class="annottext">HeaderName -&gt; ObfuscationSetting -&gt; [Header]
 (HeaderName -&gt; ObfuscationSetting -&gt; [Header])
 -&gt; ToHeader ObfuscationSetting
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ObfuscationSetting -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ObfuscationSetting -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679314370"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679314379"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; QueryString
 (ObfuscationSetting -&gt; QueryString) -&gt; ToQuery ObfuscationSetting
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ObfuscationSetting -&gt; QueryString
 $ctoQuery :: ObfuscationSetting -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679314365"><span id="local-6989586621679314367"><span class="annot"><span class="annottext">Value -&gt; Parser [ObfuscationSetting]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679314374"><span id="local-6989586621679314376"><span class="annot"><span class="annottext">Value -&gt; Parser [ObfuscationSetting]
 Value -&gt; Parser ObfuscationSetting
 (Value -&gt; Parser ObfuscationSetting)
 -&gt; (Value -&gt; Parser [ObfuscationSetting])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [ObfuscationSetting]
 parseJSON :: Value -&gt; Parser ObfuscationSetting
 $cparseJSON :: Value -&gt; Parser ObfuscationSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679314360"><span id="local-6989586621679314362"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObfuscationSetting]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679314369"><span id="local-6989586621679314371"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObfuscationSetting]
 FromJSONKeyFunction ObfuscationSetting
 FromJSONKeyFunction ObfuscationSetting
 -&gt; FromJSONKeyFunction [ObfuscationSetting]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ObfuscationSetting]
 fromJSONKey :: FromJSONKeyFunction ObfuscationSetting
 $cfromJSONKey :: FromJSONKeyFunction ObfuscationSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679314351"><span id="local-6989586621679314353"><span id="local-6989586621679314355"><span id="local-6989586621679314357"><span class="annot"><span class="annottext">[ObfuscationSetting] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679314360"><span id="local-6989586621679314362"><span id="local-6989586621679314364"><span id="local-6989586621679314366"><span class="annot"><span class="annottext">[ObfuscationSetting] -&gt; Encoding
 [ObfuscationSetting] -&gt; Value
 ObfuscationSetting -&gt; Encoding
 ObfuscationSetting -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: ObfuscationSetting -&gt; Encoding
 toJSON :: ObfuscationSetting -&gt; Value
 $ctoJSON :: ObfuscationSetting -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679314346"><span id="local-6989586621679314348"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObfuscationSetting]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679314355"><span id="local-6989586621679314357"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObfuscationSetting]
 ToJSONKeyFunction ObfuscationSetting
 ToJSONKeyFunction ObfuscationSetting
 -&gt; ToJSONKeyFunction [ObfuscationSetting]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ObfuscationSetting]
 toJSONKey :: ToJSONKeyFunction ObfuscationSetting
 $ctoJSONKey :: ToJSONKeyFunction ObfuscationSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679314343"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObfuscationSetting
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679314352"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObfuscationSetting
 ([Node] -&gt; Either String ObfuscationSetting)
 -&gt; FromXML ObfuscationSetting
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ObfuscationSetting
 $cparseXML :: [Node] -&gt; Either String ObfuscationSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679314340"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679314349"><span class="annot"><span class="annottext">ObfuscationSetting -&gt; XML
 (ObfuscationSetting -&gt; XML) -&gt; ToXML ObfuscationSetting
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ObfuscationSetting -&gt; XML

@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType"><span class="hs-identifier">ScheduledAutoTuneSeverityType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType_HIGH"><span class="hs-identifier">ScheduledAutoTuneSeverityType_HIGH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType_LOW"><span class="hs-identifier">ScheduledAutoTuneSeverityType_LOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType_MEDIUM"><span class="hs-identifier">ScheduledAutoTuneSeverityType_MEDIUM</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | The Auto-Tune action severity. Valid values are LOW, MEDIUM, and HIGH.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679305031"><span id="local-6989586621679305032"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScheduledAutoTuneSeverityType"><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType"><span class="hs-identifier hs-var">ScheduledAutoTuneSeverityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledAutoTuneSeverityType%27"><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType%27"><span class="hs-identifier hs-var">ScheduledAutoTuneSeverityType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScheduledAutoTuneSeverityType"><span class="annot"><span class="annottext">ScheduledAutoTuneSeverityType -&gt; Text
+</span><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#fromScheduledAutoTuneSeverityType"><span class="hs-identifier hs-var hs-var">fromScheduledAutoTuneSeverityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305023"><span id="local-6989586621679305025"><span id="local-6989586621679305027"><span class="annot"><span class="annottext">Int -&gt; ScheduledAutoTuneSeverityType -&gt; ShowS
+[ScheduledAutoTuneSeverityType] -&gt; ShowS
+ScheduledAutoTuneSeverityType -&gt; String
+(Int -&gt; ScheduledAutoTuneSeverityType -&gt; ShowS)
+-&gt; (ScheduledAutoTuneSeverityType -&gt; String)
+-&gt; ([ScheduledAutoTuneSeverityType] -&gt; ShowS)
+-&gt; Show ScheduledAutoTuneSeverityType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduledAutoTuneSeverityType] -&gt; ShowS
+$cshowList :: [ScheduledAutoTuneSeverityType] -&gt; ShowS
+show :: ScheduledAutoTuneSeverityType -&gt; String
+$cshow :: ScheduledAutoTuneSeverityType -&gt; String
+showsPrec :: Int -&gt; ScheduledAutoTuneSeverityType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduledAutoTuneSeverityType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679305014"><span id="local-6989586621679305016"><span id="local-6989586621679305018"><span id="local-6989586621679305020"><span class="annot"><span class="annottext">ReadPrec [ScheduledAutoTuneSeverityType]
+ReadPrec ScheduledAutoTuneSeverityType
+Int -&gt; ReadS ScheduledAutoTuneSeverityType
+ReadS [ScheduledAutoTuneSeverityType]
+(Int -&gt; ReadS ScheduledAutoTuneSeverityType)
+-&gt; ReadS [ScheduledAutoTuneSeverityType]
+-&gt; ReadPrec ScheduledAutoTuneSeverityType
+-&gt; ReadPrec [ScheduledAutoTuneSeverityType]
+-&gt; Read ScheduledAutoTuneSeverityType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduledAutoTuneSeverityType]
+$creadListPrec :: ReadPrec [ScheduledAutoTuneSeverityType]
+readPrec :: ReadPrec ScheduledAutoTuneSeverityType
+$creadPrec :: ReadPrec ScheduledAutoTuneSeverityType
+readList :: ReadS [ScheduledAutoTuneSeverityType]
+$creadList :: ReadS [ScheduledAutoTuneSeverityType]
+readsPrec :: Int -&gt; ReadS ScheduledAutoTuneSeverityType
+$creadsPrec :: Int -&gt; ReadS ScheduledAutoTuneSeverityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679305009"><span id="local-6989586621679305011"><span class="annot"><span class="annottext">ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+(ScheduledAutoTuneSeverityType
+ -&gt; ScheduledAutoTuneSeverityType -&gt; Bool)
+-&gt; (ScheduledAutoTuneSeverityType
+    -&gt; ScheduledAutoTuneSeverityType -&gt; Bool)
+-&gt; Eq ScheduledAutoTuneSeverityType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+$c/= :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+== :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+$c== :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679304993"><span id="local-6989586621679304995"><span id="local-6989586621679304997"><span id="local-6989586621679304999"><span id="local-6989586621679305001"><span id="local-6989586621679305003"><span id="local-6989586621679305005"><span class="annot"><span class="annottext">Eq ScheduledAutoTuneSeverityType
+Eq ScheduledAutoTuneSeverityType
+-&gt; (ScheduledAutoTuneSeverityType
+    -&gt; ScheduledAutoTuneSeverityType -&gt; Ordering)
+-&gt; (ScheduledAutoTuneSeverityType
+    -&gt; ScheduledAutoTuneSeverityType -&gt; Bool)
+-&gt; (ScheduledAutoTuneSeverityType
+    -&gt; ScheduledAutoTuneSeverityType -&gt; Bool)
+-&gt; (ScheduledAutoTuneSeverityType
+    -&gt; ScheduledAutoTuneSeverityType -&gt; Bool)
+-&gt; (ScheduledAutoTuneSeverityType
+    -&gt; ScheduledAutoTuneSeverityType -&gt; Bool)
+-&gt; (ScheduledAutoTuneSeverityType
+    -&gt; ScheduledAutoTuneSeverityType -&gt; ScheduledAutoTuneSeverityType)
+-&gt; (ScheduledAutoTuneSeverityType
+    -&gt; ScheduledAutoTuneSeverityType -&gt; ScheduledAutoTuneSeverityType)
+-&gt; Ord ScheduledAutoTuneSeverityType
+ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Ordering
+ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; ScheduledAutoTuneSeverityType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; ScheduledAutoTuneSeverityType
+$cmin :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; ScheduledAutoTuneSeverityType
+max :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; ScheduledAutoTuneSeverityType
+$cmax :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; ScheduledAutoTuneSeverityType
+&gt;= :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+$c&gt;= :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+&gt; :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+$c&gt; :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+&lt;= :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+$c&lt;= :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+&lt; :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+$c&lt; :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Bool
+compare :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Ordering
+$ccompare :: ScheduledAutoTuneSeverityType
+-&gt; ScheduledAutoTuneSeverityType -&gt; Ordering
+$cp1Ord :: Eq ScheduledAutoTuneSeverityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ScheduledAutoTuneSeverityType
+ -&gt; Rep ScheduledAutoTuneSeverityType x)
+-&gt; (forall x.
+    Rep ScheduledAutoTuneSeverityType x
+    -&gt; ScheduledAutoTuneSeverityType)
+-&gt; Generic ScheduledAutoTuneSeverityType
+forall x.
+Rep ScheduledAutoTuneSeverityType x
+-&gt; ScheduledAutoTuneSeverityType
+forall x.
+ScheduledAutoTuneSeverityType
+-&gt; Rep ScheduledAutoTuneSeverityType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ScheduledAutoTuneSeverityType x
+-&gt; ScheduledAutoTuneSeverityType
+$cfrom :: forall x.
+ScheduledAutoTuneSeverityType
+-&gt; Rep ScheduledAutoTuneSeverityType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304985"><span id="local-6989586621679304987"><span class="annot"><span class="annottext">Int -&gt; ScheduledAutoTuneSeverityType -&gt; Int
+ScheduledAutoTuneSeverityType -&gt; Int
+(Int -&gt; ScheduledAutoTuneSeverityType -&gt; Int)
+-&gt; (ScheduledAutoTuneSeverityType -&gt; Int)
+-&gt; Hashable ScheduledAutoTuneSeverityType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ScheduledAutoTuneSeverityType -&gt; Int
+$chash :: ScheduledAutoTuneSeverityType -&gt; Int
+hashWithSalt :: Int -&gt; ScheduledAutoTuneSeverityType -&gt; Int
+$chashWithSalt :: Int -&gt; ScheduledAutoTuneSeverityType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679304982"><span class="annot"><span class="annottext">ScheduledAutoTuneSeverityType -&gt; ()
+(ScheduledAutoTuneSeverityType -&gt; ())
+-&gt; NFData ScheduledAutoTuneSeverityType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ScheduledAutoTuneSeverityType -&gt; ()
+$crnf :: ScheduledAutoTuneSeverityType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679304979"><span class="annot"><span class="annottext">Text -&gt; Either String ScheduledAutoTuneSeverityType
+(Text -&gt; Either String ScheduledAutoTuneSeverityType)
+-&gt; FromText ScheduledAutoTuneSeverityType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ScheduledAutoTuneSeverityType
+$cfromText :: Text -&gt; Either String ScheduledAutoTuneSeverityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679304976"><span class="annot"><span class="annottext">ScheduledAutoTuneSeverityType -&gt; Text
+(ScheduledAutoTuneSeverityType -&gt; Text)
+-&gt; ToText ScheduledAutoTuneSeverityType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ScheduledAutoTuneSeverityType -&gt; Text
+$ctoText :: ScheduledAutoTuneSeverityType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679304973"><span class="annot"><span class="annottext">ScheduledAutoTuneSeverityType -&gt; ByteString
+(ScheduledAutoTuneSeverityType -&gt; ByteString)
+-&gt; ToByteString ScheduledAutoTuneSeverityType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ScheduledAutoTuneSeverityType -&gt; ByteString
+$ctoBS :: ScheduledAutoTuneSeverityType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679304970"><span class="annot"><span class="annottext">ScheduledAutoTuneSeverityType -&gt; ByteStringBuilder
+(ScheduledAutoTuneSeverityType -&gt; ByteStringBuilder)
+-&gt; ToLog ScheduledAutoTuneSeverityType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ScheduledAutoTuneSeverityType -&gt; ByteStringBuilder
+$cbuild :: ScheduledAutoTuneSeverityType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679304967"><span class="annot"><span class="annottext">HeaderName -&gt; ScheduledAutoTuneSeverityType -&gt; [Header]
+(HeaderName -&gt; ScheduledAutoTuneSeverityType -&gt; [Header])
+-&gt; ToHeader ScheduledAutoTuneSeverityType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ScheduledAutoTuneSeverityType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ScheduledAutoTuneSeverityType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679304964"><span class="annot"><span class="annottext">ScheduledAutoTuneSeverityType -&gt; QueryString
+(ScheduledAutoTuneSeverityType -&gt; QueryString)
+-&gt; ToQuery ScheduledAutoTuneSeverityType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ScheduledAutoTuneSeverityType -&gt; QueryString
+$ctoQuery :: ScheduledAutoTuneSeverityType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679304959"><span id="local-6989586621679304961"><span class="annot"><span class="annottext">Value -&gt; Parser [ScheduledAutoTuneSeverityType]
+Value -&gt; Parser ScheduledAutoTuneSeverityType
+(Value -&gt; Parser ScheduledAutoTuneSeverityType)
+-&gt; (Value -&gt; Parser [ScheduledAutoTuneSeverityType])
+-&gt; FromJSON ScheduledAutoTuneSeverityType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ScheduledAutoTuneSeverityType]
+$cparseJSONList :: Value -&gt; Parser [ScheduledAutoTuneSeverityType]
+parseJSON :: Value -&gt; Parser ScheduledAutoTuneSeverityType
+$cparseJSON :: Value -&gt; Parser ScheduledAutoTuneSeverityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679304954"><span id="local-6989586621679304956"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScheduledAutoTuneSeverityType]
+FromJSONKeyFunction ScheduledAutoTuneSeverityType
+FromJSONKeyFunction ScheduledAutoTuneSeverityType
+-&gt; FromJSONKeyFunction [ScheduledAutoTuneSeverityType]
+-&gt; FromJSONKey ScheduledAutoTuneSeverityType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ScheduledAutoTuneSeverityType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ScheduledAutoTuneSeverityType]
+fromJSONKey :: FromJSONKeyFunction ScheduledAutoTuneSeverityType
+$cfromJSONKey :: FromJSONKeyFunction ScheduledAutoTuneSeverityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679304945"><span id="local-6989586621679304947"><span id="local-6989586621679304949"><span id="local-6989586621679304951"><span class="annot"><span class="annottext">[ScheduledAutoTuneSeverityType] -&gt; Encoding
+[ScheduledAutoTuneSeverityType] -&gt; Value
+ScheduledAutoTuneSeverityType -&gt; Encoding
+ScheduledAutoTuneSeverityType -&gt; Value
+(ScheduledAutoTuneSeverityType -&gt; Value)
+-&gt; (ScheduledAutoTuneSeverityType -&gt; Encoding)
+-&gt; ([ScheduledAutoTuneSeverityType] -&gt; Value)
+-&gt; ([ScheduledAutoTuneSeverityType] -&gt; Encoding)
+-&gt; ToJSON ScheduledAutoTuneSeverityType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ScheduledAutoTuneSeverityType] -&gt; Encoding
+$ctoEncodingList :: [ScheduledAutoTuneSeverityType] -&gt; Encoding
+toJSONList :: [ScheduledAutoTuneSeverityType] -&gt; Value
+$ctoJSONList :: [ScheduledAutoTuneSeverityType] -&gt; Value
+toEncoding :: ScheduledAutoTuneSeverityType -&gt; Encoding
+$ctoEncoding :: ScheduledAutoTuneSeverityType -&gt; Encoding
+toJSON :: ScheduledAutoTuneSeverityType -&gt; Value
+$ctoJSON :: ScheduledAutoTuneSeverityType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679304940"><span id="local-6989586621679304942"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScheduledAutoTuneSeverityType]
+ToJSONKeyFunction ScheduledAutoTuneSeverityType
+ToJSONKeyFunction ScheduledAutoTuneSeverityType
+-&gt; ToJSONKeyFunction [ScheduledAutoTuneSeverityType]
+-&gt; ToJSONKey ScheduledAutoTuneSeverityType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ScheduledAutoTuneSeverityType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ScheduledAutoTuneSeverityType]
+toJSONKey :: ToJSONKeyFunction ScheduledAutoTuneSeverityType
+$ctoJSONKey :: ToJSONKeyFunction ScheduledAutoTuneSeverityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679304937"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScheduledAutoTuneSeverityType
+([Node] -&gt; Either String ScheduledAutoTuneSeverityType)
+-&gt; FromXML ScheduledAutoTuneSeverityType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ScheduledAutoTuneSeverityType
+$cparseXML :: [Node] -&gt; Either String ScheduledAutoTuneSeverityType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679304934"><span class="annot"><span class="annottext">ScheduledAutoTuneSeverityType -&gt; XML
+(ScheduledAutoTuneSeverityType -&gt; XML)
+-&gt; ToXML ScheduledAutoTuneSeverityType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ScheduledAutoTuneSeverityType -&gt; XML
+$ctoXML :: ScheduledAutoTuneSeverityType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType_HIGH"><span class="hs-identifier hs-type">ScheduledAutoTuneSeverityType_HIGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType"><span class="hs-identifier hs-type">ScheduledAutoTuneSeverityType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScheduledAutoTuneSeverityType_HIGH"><span id="%24mScheduledAutoTuneSeverityType_HIGH"><span id="ScheduledAutoTuneSeverityType_HIGH"><span class="annot"><span class="annottext">$bScheduledAutoTuneSeverityType_HIGH :: ScheduledAutoTuneSeverityType
+$mScheduledAutoTuneSeverityType_HIGH :: forall r.
+ScheduledAutoTuneSeverityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#%24bScheduledAutoTuneSeverityType_HIGH"><span class="hs-identifier hs-var hs-var hs-var">ScheduledAutoTuneSeverityType_HIGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType%27"><span class="hs-identifier hs-type">ScheduledAutoTuneSeverityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HIGH&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType_LOW"><span class="hs-identifier hs-type">ScheduledAutoTuneSeverityType_LOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType"><span class="hs-identifier hs-type">ScheduledAutoTuneSeverityType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScheduledAutoTuneSeverityType_LOW"><span id="%24mScheduledAutoTuneSeverityType_LOW"><span id="ScheduledAutoTuneSeverityType_LOW"><span class="annot"><span class="annottext">$bScheduledAutoTuneSeverityType_LOW :: ScheduledAutoTuneSeverityType
+$mScheduledAutoTuneSeverityType_LOW :: forall r.
+ScheduledAutoTuneSeverityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#%24bScheduledAutoTuneSeverityType_LOW"><span class="hs-identifier hs-var hs-var hs-var">ScheduledAutoTuneSeverityType_LOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType%27"><span class="hs-identifier hs-type">ScheduledAutoTuneSeverityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOW&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType_MEDIUM"><span class="hs-identifier hs-type">ScheduledAutoTuneSeverityType_MEDIUM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType"><span class="hs-identifier hs-type">ScheduledAutoTuneSeverityType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScheduledAutoTuneSeverityType_MEDIUM"><span id="%24mScheduledAutoTuneSeverityType_MEDIUM"><span id="ScheduledAutoTuneSeverityType_MEDIUM"><span class="annot"><span class="annottext">$bScheduledAutoTuneSeverityType_MEDIUM :: ScheduledAutoTuneSeverityType
+$mScheduledAutoTuneSeverityType_MEDIUM :: forall r.
+ScheduledAutoTuneSeverityType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#%24bScheduledAutoTuneSeverityType_MEDIUM"><span class="hs-identifier hs-var hs-var hs-var">ScheduledAutoTuneSeverityType_MEDIUM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType%27"><span class="hs-identifier hs-type">ScheduledAutoTuneSeverityType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEDIUM&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType_HIGH"><span class="hs-pragma hs-type">ScheduledAutoTuneSeverityType_HIGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType_LOW"><span class="hs-pragma hs-type">ScheduledAutoTuneSeverityType_LOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType_MEDIUM"><span class="hs-pragma hs-type">ScheduledAutoTuneSeverityType_MEDIUM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneSeverityType.html#ScheduledAutoTuneSeverityType%27"><span class="hs-pragma hs-type">ScheduledAutoTuneSeverityType'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListStreams' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679178375"><span id="local-6989586621679178376"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreams"><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-var">ListStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreams%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-var">ListStreams'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679178384"><span id="local-6989586621679178385"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreams"><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-var">ListStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreams%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-var">ListStreams'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify this parameter, when the result of a @ListStreams@</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- operation is truncated, the call returns the @NextToken@ in the</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- response. To get another batch of streams, provide this token in your</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AListStreams%27"><span class="annot"><span class="annottext">ListStreams -&gt; Maybe Natural
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AmaxResults%3AListStreams%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178367"><span id="local-6989586621679178369"><span class="annot"><span class="annottext">ListStreams -&gt; ListStreams -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178376"><span id="local-6989586621679178378"><span class="annot"><span class="annottext">ListStreams -&gt; ListStreams -&gt; Bool
 (ListStreams -&gt; ListStreams -&gt; Bool)
 -&gt; (ListStreams -&gt; ListStreams -&gt; Bool) -&gt; Eq ListStreams
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListStreams -&gt; ListStreams -&gt; Bool
 == :: ListStreams -&gt; ListStreams -&gt; Bool
 $c== :: ListStreams -&gt; ListStreams -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178358"><span id="local-6989586621679178360"><span id="local-6989586621679178362"><span id="local-6989586621679178364"><span class="annot"><span class="annottext">ReadPrec [ListStreams]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178367"><span id="local-6989586621679178369"><span id="local-6989586621679178371"><span id="local-6989586621679178373"><span class="annot"><span class="annottext">ReadPrec [ListStreams]
 ReadPrec ListStreams
 Int -&gt; ReadS ListStreams
 ReadS [ListStreams]
@@ -99,7 +99,7 @@ readList :: ReadS [ListStreams]
 $creadList :: ReadS [ListStreams]
 readsPrec :: Int -&gt; ReadS ListStreams
 $creadsPrec :: Int -&gt; ReadS ListStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178351"><span id="local-6989586621679178353"><span id="local-6989586621679178355"><span class="annot"><span class="annottext">Int -&gt; ListStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178360"><span id="local-6989586621679178362"><span id="local-6989586621679178364"><span class="annot"><span class="annottext">Int -&gt; ListStreams -&gt; ShowS
 [ListStreams] -&gt; ShowS
 ListStreams -&gt; String
 (Int -&gt; ListStreams -&gt; ShowS)
@@ -175,16 +175,16 @@ forall a. Maybe a
 -&gt; (ListStreams -&gt; Maybe Text -&gt; ListStreams)
 -&gt; Lens ListStreams ListStreams (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178345"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178354"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListStreams' :: ListStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679178345"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178345"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178344"><span class="annot"><span class="annottext">s :: ListStreams
-</span><a href="#local-6989586621679178344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178343"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679178344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreams' :: Maybe Text
+</span><a href="#local-6989586621679178354"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178354"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178353"><span class="annot"><span class="annottext">s :: ListStreams
+</span><a href="#local-6989586621679178353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178352"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679178353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreams' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AnextToken%3AListStreams%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Optional: Returns only streams that satisfy a specific condition.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- Currently, you can specify only the prefix of a stream name as a</span><span>
@@ -200,16 +200,16 @@ $sel:nextToken:ListStreams' :: ListStreams -&gt; Maybe Text
      (Maybe StreamNameCondition)
      (Maybe StreamNameCondition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178342"><span class="annot"><span class="annottext">Maybe StreamNameCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178351"><span class="annot"><span class="annottext">Maybe StreamNameCondition
 streamNameCondition :: Maybe StreamNameCondition
 $sel:streamNameCondition:ListStreams' :: ListStreams -&gt; Maybe StreamNameCondition
-</span><a href="#local-6989586621679178342"><span class="hs-identifier hs-var hs-var">streamNameCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamNameCondition
-</span><a href="#local-6989586621679178342"><span class="hs-identifier hs-var">streamNameCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178341"><span class="annot"><span class="annottext">s :: ListStreams
-</span><a href="#local-6989586621679178341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178340"><span class="annot"><span class="annottext">Maybe StreamNameCondition
-</span><a href="#local-6989586621679178340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679178341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamNameCondition:ListStreams' :: Maybe StreamNameCondition
+</span><a href="#local-6989586621679178351"><span class="hs-identifier hs-var hs-var">streamNameCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StreamNameCondition
+</span><a href="#local-6989586621679178351"><span class="hs-identifier hs-var">streamNameCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178350"><span class="annot"><span class="annottext">s :: ListStreams
+</span><a href="#local-6989586621679178350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178349"><span class="annot"><span class="annottext">Maybe StreamNameCondition
+</span><a href="#local-6989586621679178349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679178350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamNameCondition:ListStreams' :: Maybe StreamNameCondition
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AstreamNameCondition%3AListStreams%27"><span class="hs-identifier hs-var">streamNameCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StreamNameCondition
-</span><a href="#local-6989586621679178340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The maximum number of streams to return in the response. The default is</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- 10,000.</span><span>
@@ -220,28 +220,28 @@ $sel:streamNameCondition:ListStreams' :: ListStreams -&gt; Maybe StreamNameCondi
 -&gt; (ListStreams -&gt; Maybe Natural -&gt; ListStreams)
 -&gt; Lens ListStreams ListStreams (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178339"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178348"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListStreams' :: ListStreams -&gt; Maybe Natural
-</span><a href="#local-6989586621679178339"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178339"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178338"><span class="annot"><span class="annottext">s :: ListStreams
-</span><a href="#local-6989586621679178338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178337"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679178338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListStreams' :: Maybe Natural
+</span><a href="#local-6989586621679178348"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178348"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178347"><span class="annot"><span class="annottext">s :: ListStreams
+</span><a href="#local-6989586621679178347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178346"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679178346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679178347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListStreams' :: Maybe Natural
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AmaxResults%3AListStreams%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679178333"><span class="annot"><span class="annottext">page :: ListStreams -&gt; AWSResponse ListStreams -&gt; Maybe ListStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679178331"><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679178331"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679178330"><span class="annot"><span class="annottext">AWSResponse ListStreams
-</span><a href="#local-6989586621679178330"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679178342"><span class="annot"><span class="annottext">page :: ListStreams -&gt; AWSResponse ListStreams -&gt; Maybe ListStreams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679178340"><span class="annot"><span class="annottext">ListStreams
+</span><a href="#local-6989586621679178340"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679178339"><span class="annot"><span class="annottext">AWSResponse ListStreams
+</span><a href="#local-6989586621679178339"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreams
 ListStreamsResponse
-</span><a href="#local-6989586621679178330"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679178339"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">ListStreamsResponse
 -&gt; Getting (First Text) ListStreamsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -267,7 +267,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-127"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreams
 ListStreamsResponse
-</span><a href="#local-6989586621679178330"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679178339"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">ListStreamsResponse
 -&gt; Getting (First [StreamInfo]) ListStreamsResponse [StreamInfo]
 -&gt; Maybe [StreamInfo]
@@ -305,7 +305,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ListStreams
-</span><a href="#local-6989586621679178331"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679178340"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ListStreams -&gt; (ListStreams -&gt; ListStreams) -&gt; ListStreams
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -318,7 +318,7 @@ Lens ListStreams ListStreams (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreams
 ListStreamsResponse
-</span><a href="#local-6989586621679178330"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679178339"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">ListStreamsResponse
 -&gt; Getting (First Text) ListStreamsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -338,12 +338,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679178320"><span class="annot"><span class="annottext">request :: ListStreams -&gt; Request ListStreams
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679178329"><span class="annot"><span class="annottext">request :: ListStreams -&gt; Request ListStreams
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListStreams -&gt; Request ListStreams
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisVideo.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679178316"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679178325"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListStreams
 -&gt; ClientResponse ClientBody
@@ -367,10 +367,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178313"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178313"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178312"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679178312"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178311"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178322"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178322"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178321"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178321"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178320"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [StreamInfo] -&gt; Maybe Text -&gt; Int -&gt; ListStreamsResponse
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-var">ListStreamsResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [StreamInfo] -&gt; Maybe Text -&gt; Int -&gt; ListStreamsResponse)
@@ -378,7 +378,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListStreamsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [StreamInfo]))
+</span><a href="#local-6989586621679178320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [StreamInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamInfoList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [StreamInfo]))
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListStreamsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679178320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -404,24 +404,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178313"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178322"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178302"><span id="local-6989586621679178304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178311"><span id="local-6989586621679178313"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679178295"><span class="annot"><span class="annottext">toHeaders :: ListStreams -&gt; ResponseHeaders
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679178304"><span class="annot"><span class="annottext">toHeaders :: ListStreams -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListStreams -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178286"><span id="local-6989586621679178288"><span id="local-6989586621679178290"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679178284"><span class="annot"><span class="annottext">toJSON :: ListStreams -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178280"><span id="local-6989586621679178281"><span id="local-6989586621679178282"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178295"><span id="local-6989586621679178297"><span id="local-6989586621679178299"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679178293"><span class="annot"><span class="annottext">toJSON :: ListStreams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams%27"><span class="hs-identifier hs-type">ListStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178289"><span id="local-6989586621679178290"><span id="local-6989586621679178291"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe StreamNameCondition
 maxResults :: Maybe Natural
@@ -430,7 +430,7 @@ nextToken :: Maybe Text
 $sel:maxResults:ListStreams' :: ListStreams -&gt; Maybe Natural
 $sel:streamNameCondition:ListStreams' :: ListStreams -&gt; Maybe StreamNameCondition
 $sel:nextToken:ListStreams' :: ListStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679178280"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679178289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -442,7 +442,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178282"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178291"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamNameCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StreamNameCondition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -451,26 +451,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe StreamNameCondition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StreamNameCondition
-</span><a href="#local-6989586621679178281"><span class="hs-identifier hs-var">streamNameCondition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178290"><span class="hs-identifier hs-var">streamNameCondition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679178280"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679178289"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679178274"><span class="annot"><span class="annottext">toPath :: ListStreams -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679178283"><span class="annot"><span class="annottext">toPath :: ListStreams -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListStreams -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/listStreams&quot;</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreams"><span class="hs-identifier hs-type">ListStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679178270"><span class="annot"><span class="annottext">toQuery :: ListStreams -&gt; QueryString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679178279"><span class="annot"><span class="annottext">toQuery :: ListStreams -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListStreams -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -478,7 +478,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newListStreamsResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679178267"><span id="local-6989586621679178268"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamsResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-var">ListStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamsResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-var">ListStreamsResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621679178276"><span id="local-6989586621679178277"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamsResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-var">ListStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamsResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-var">ListStreamsResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @StreamInfo@ objects.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AstreamInfoList%3AListStreamsResponse%27"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; Maybe [StreamInfo]
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AstreamInfoList%3AListStreamsResponse%27"><span class="hs-identifier hs-var hs-var">streamInfoList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisVideo.Types.StreamInfo.html#StreamInfo"><span class="hs-identifier hs-type">StreamInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -491,7 +491,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; Int
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178260"><span id="local-6989586621679178262"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178269"><span id="local-6989586621679178271"><span class="annot"><span class="annottext">ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
 (ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool)
 -&gt; (ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool)
 -&gt; Eq ListStreamsResponse
@@ -500,7 +500,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
 == :: ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
 $c== :: ListStreamsResponse -&gt; ListStreamsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178252"><span id="local-6989586621679178254"><span id="local-6989586621679178256"><span id="local-6989586621679178258"><span class="annot"><span class="annottext">ReadPrec [ListStreamsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178261"><span id="local-6989586621679178263"><span id="local-6989586621679178265"><span id="local-6989586621679178267"><span class="annot"><span class="annottext">ReadPrec [ListStreamsResponse]
 ReadPrec ListStreamsResponse
 Int -&gt; ReadS ListStreamsResponse
 ReadS [ListStreamsResponse]
@@ -520,7 +520,7 @@ readList :: ReadS [ListStreamsResponse]
 $creadList :: ReadS [ListStreamsResponse]
 readsPrec :: Int -&gt; ReadS ListStreamsResponse
 $creadsPrec :: Int -&gt; ReadS ListStreamsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178246"><span id="local-6989586621679178248"><span id="local-6989586621679178250"><span class="annot"><span class="annottext">Int -&gt; ListStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178255"><span id="local-6989586621679178257"><span id="local-6989586621679178259"><span class="annot"><span class="annottext">Int -&gt; ListStreamsResponse -&gt; ShowS
 [ListStreamsResponse] -&gt; ShowS
 ListStreamsResponse -&gt; String
 (Int -&gt; ListStreamsResponse -&gt; ShowS)
@@ -566,8 +566,8 @@ $cfrom :: forall x. ListStreamsResponse -&gt; Rep ListStreamsResponse x
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span>
 </span><span id="line-207"></span><span id="newListStreamsResponse"><span class="annot"><span class="annottext">newListStreamsResponse :: Int -&gt; ListStreamsResponse
-</span><a href="Network.AWS.KinesisVideo.ListStreams.html#newListStreamsResponse"><span class="hs-identifier hs-var hs-var">newListStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679178243"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178243"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideo.ListStreams.html#newListStreamsResponse"><span class="hs-identifier hs-var hs-var">newListStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679178252"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178252"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">ListStreamsResponse' :: Maybe [StreamInfo] -&gt; Maybe Text -&gt; Int -&gt; ListStreamsResponse
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamInfoList:ListStreamsResponse' :: Maybe [StreamInfo]
@@ -581,7 +581,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamsResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178243"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679178252"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | An array of @StreamInfo@ objects.</span><span>
@@ -593,16 +593,16 @@ forall a. Maybe a
     -&gt; Maybe [StreamInfo] -&gt; ListStreamsResponse)
 -&gt; Lens' ListStreamsResponse (Maybe [StreamInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178242"><span class="annot"><span class="annottext">Maybe [StreamInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178251"><span class="annot"><span class="annottext">Maybe [StreamInfo]
 streamInfoList :: Maybe [StreamInfo]
 $sel:streamInfoList:ListStreamsResponse' :: ListStreamsResponse -&gt; Maybe [StreamInfo]
-</span><a href="#local-6989586621679178242"><span class="hs-identifier hs-var hs-var">streamInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StreamInfo]
-</span><a href="#local-6989586621679178242"><span class="hs-identifier hs-var">streamInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178241"><span class="annot"><span class="annottext">s :: ListStreamsResponse
-</span><a href="#local-6989586621679178241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178240"><span class="annot"><span class="annottext">Maybe [StreamInfo]
-</span><a href="#local-6989586621679178240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
-</span><a href="#local-6989586621679178241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamInfoList:ListStreamsResponse' :: Maybe [StreamInfo]
+</span><a href="#local-6989586621679178251"><span class="hs-identifier hs-var hs-var">streamInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StreamInfo]
+</span><a href="#local-6989586621679178251"><span class="hs-identifier hs-var">streamInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178250"><span class="annot"><span class="annottext">s :: ListStreamsResponse
+</span><a href="#local-6989586621679178250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178249"><span class="annot"><span class="annottext">Maybe [StreamInfo]
+</span><a href="#local-6989586621679178249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
+</span><a href="#local-6989586621679178250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamInfoList:ListStreamsResponse' :: Maybe [StreamInfo]
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AstreamInfoList%3AListStreamsResponse%27"><span class="hs-identifier hs-var">streamInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StreamInfo]
-</span><a href="#local-6989586621679178240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StreamInfo] -&gt; f (Maybe [StreamInfo]))
+</span><a href="#local-6989586621679178249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StreamInfo] -&gt; f (Maybe [StreamInfo]))
  -&gt; ListStreamsResponse -&gt; f ListStreamsResponse)
 -&gt; ((Maybe [StreamInfo] -&gt; f (Maybe [StreamInfo]))
     -&gt; Maybe [StreamInfo] -&gt; f (Maybe [StreamInfo]))
@@ -633,16 +633,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListStreamsResponse -&gt; Maybe Text -&gt; ListStreamsResponse)
 -&gt; Lens' ListStreamsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178237"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178246"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListStreamsResponse' :: ListStreamsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679178237"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178237"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178236"><span class="annot"><span class="annottext">s :: ListStreamsResponse
-</span><a href="#local-6989586621679178236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178235"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
-</span><a href="#local-6989586621679178236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreamsResponse' :: Maybe Text
+</span><a href="#local-6989586621679178246"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178246"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178245"><span class="annot"><span class="annottext">s :: ListStreamsResponse
+</span><a href="#local-6989586621679178245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
+</span><a href="#local-6989586621679178245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListStreamsResponse' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AnextToken%3AListStreamsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-226"></span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#listStreamsResponse_httpStatus"><span class="hs-identifier hs-type">listStreamsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -651,16 +651,16 @@ $sel:nextToken:ListStreamsResponse' :: ListStreamsResponse -&gt; Maybe Text
 -&gt; (ListStreamsResponse -&gt; Int -&gt; ListStreamsResponse)
 -&gt; Lens ListStreamsResponse ListStreamsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178234"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178243"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListStreamsResponse' :: ListStreamsResponse -&gt; Int
-</span><a href="#local-6989586621679178234"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178234"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178233"><span class="annot"><span class="annottext">s :: ListStreamsResponse
-</span><a href="#local-6989586621679178233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178232"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
-</span><a href="#local-6989586621679178233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamsResponse' :: Int
+</span><a href="#local-6989586621679178243"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178243"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178242"><span class="annot"><span class="annottext">s :: ListStreamsResponse
+</span><a href="#local-6989586621679178242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier hs-type">ListStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178241"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamsResponse
+</span><a href="#local-6989586621679178242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamsResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.ListStreams.html#%24sel%3AhttpStatus%3AListStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178230"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListStreams.html#ListStreamsResponse"><span class="hs-identifier hs-type">ListStreamsResponse</span></a></span></span><span>
 </span><span id="line-230"></span></pre></body></html>

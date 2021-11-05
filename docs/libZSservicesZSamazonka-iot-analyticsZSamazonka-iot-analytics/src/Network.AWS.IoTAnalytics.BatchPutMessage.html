@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newBatchPutMessage' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679270118"><span id="local-6989586621679270119"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutMessage"><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-var">BatchPutMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutMessage%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-var">BatchPutMessage'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679270127"><span id="local-6989586621679270128"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutMessage"><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-var">BatchPutMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutMessage%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-var">BatchPutMessage'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the channel where the messages are sent.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AchannelName%3ABatchPutMessage%27"><span class="annot"><span class="annottext">BatchPutMessage -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3AchannelName%3ABatchPutMessage%27"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3Amessages%3ABatchPutMessage%27"><span class="annot"><span class="annottext">BatchPutMessage -&gt; [Message]
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3Amessages%3ABatchPutMessage%27"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270111"><span id="local-6989586621679270113"><span class="annot"><span class="annottext">BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270120"><span id="local-6989586621679270122"><span class="annot"><span class="annottext">BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
 (BatchPutMessage -&gt; BatchPutMessage -&gt; Bool)
 -&gt; (BatchPutMessage -&gt; BatchPutMessage -&gt; Bool)
 -&gt; Eq BatchPutMessage
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
 == :: BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
 $c== :: BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270102"><span id="local-6989586621679270104"><span id="local-6989586621679270106"><span id="local-6989586621679270108"><span class="annot"><span class="annottext">ReadPrec [BatchPutMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270111"><span id="local-6989586621679270113"><span id="local-6989586621679270115"><span id="local-6989586621679270117"><span class="annot"><span class="annottext">ReadPrec [BatchPutMessage]
 ReadPrec BatchPutMessage
 Int -&gt; ReadS BatchPutMessage
 ReadS [BatchPutMessage]
@@ -108,7 +108,7 @@ readList :: ReadS [BatchPutMessage]
 $creadList :: ReadS [BatchPutMessage]
 readsPrec :: Int -&gt; ReadS BatchPutMessage
 $creadsPrec :: Int -&gt; ReadS BatchPutMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270095"><span id="local-6989586621679270097"><span id="local-6989586621679270099"><span class="annot"><span class="annottext">Int -&gt; BatchPutMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270104"><span id="local-6989586621679270106"><span id="local-6989586621679270108"><span class="annot"><span class="annottext">Int -&gt; BatchPutMessage -&gt; ShowS
 [BatchPutMessage] -&gt; ShowS
 BatchPutMessage -&gt; String
 (Int -&gt; BatchPutMessage -&gt; ShowS)
@@ -173,13 +173,13 @@ $cfrom :: forall x. BatchPutMessage -&gt; Rep BatchPutMessage x
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span>
 </span><span id="line-120"></span><span id="newBatchPutMessage"><span class="annot"><span class="annottext">newBatchPutMessage :: Text -&gt; BatchPutMessage
-</span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#newBatchPutMessage"><span class="hs-identifier hs-var hs-var">newBatchPutMessage</span></a></span></span><span> </span><span id="local-6989586621679270090"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270090"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#newBatchPutMessage"><span class="hs-identifier hs-var hs-var">newBatchPutMessage</span></a></span></span><span> </span><span id="local-6989586621679270099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270099"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">BatchPutMessage' :: Text -&gt; [Message] -&gt; BatchPutMessage
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelName:BatchPutMessage' :: Text
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3AchannelName%3ABatchPutMessage%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270090"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270099"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:messages:BatchPutMessage' :: [Message]
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3Amessages%3ABatchPutMessage%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Message]
 forall a. Monoid a =&gt; a
@@ -193,16 +193,16 @@ forall a. Monoid a =&gt; a
 -&gt; (BatchPutMessage -&gt; Text -&gt; BatchPutMessage)
 -&gt; Lens BatchPutMessage BatchPutMessage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270087"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270096"><span class="annot"><span class="annottext">Text
 channelName :: Text
 $sel:channelName:BatchPutMessage' :: BatchPutMessage -&gt; Text
-</span><a href="#local-6989586621679270087"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270087"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270086"><span class="annot"><span class="annottext">s :: BatchPutMessage
-</span><a href="#local-6989586621679270086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270085"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessage
-</span><a href="#local-6989586621679270086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:BatchPutMessage' :: Text
+</span><a href="#local-6989586621679270096"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270096"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270095"><span class="annot"><span class="annottext">s :: BatchPutMessage
+</span><a href="#local-6989586621679270095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessage
+</span><a href="#local-6989586621679270095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:BatchPutMessage' :: Text
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3AchannelName%3ABatchPutMessage%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The list of messages to be sent. Each message has the format: {</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- \&quot;messageId\&quot;: \&quot;string\&quot;, \&quot;payload\&quot;: \&quot;string\&quot;}.</span><span>
@@ -234,16 +234,16 @@ $sel:channelName:BatchPutMessage' :: BatchPutMessage -&gt; Text
 -&gt; (BatchPutMessage -&gt; [Message] -&gt; BatchPutMessage)
 -&gt; Lens BatchPutMessage BatchPutMessage [Message] [Message]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270084"><span class="annot"><span class="annottext">[Message]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270093"><span class="annot"><span class="annottext">[Message]
 messages :: [Message]
 $sel:messages:BatchPutMessage' :: BatchPutMessage -&gt; [Message]
-</span><a href="#local-6989586621679270084"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Message]
-</span><a href="#local-6989586621679270084"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270083"><span class="annot"><span class="annottext">s :: BatchPutMessage
-</span><a href="#local-6989586621679270083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270082"><span class="annot"><span class="annottext">[Message]
-</span><a href="#local-6989586621679270082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessage
-</span><a href="#local-6989586621679270083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:BatchPutMessage' :: [Message]
+</span><a href="#local-6989586621679270093"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Message]
+</span><a href="#local-6989586621679270093"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270092"><span class="annot"><span class="annottext">s :: BatchPutMessage
+</span><a href="#local-6989586621679270092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270091"><span class="annot"><span class="annottext">[Message]
+</span><a href="#local-6989586621679270091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessage
+</span><a href="#local-6989586621679270092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:BatchPutMessage' :: [Message]
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3Amessages%3ABatchPutMessage%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Message]
-</span><a href="#local-6989586621679270082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Message] -&gt; f [Message])
+</span><a href="#local-6989586621679270091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Message] -&gt; f [Message])
  -&gt; BatchPutMessage -&gt; f BatchPutMessage)
 -&gt; (([Message] -&gt; f [Message]) -&gt; [Message] -&gt; f [Message])
 -&gt; ([Message] -&gt; f [Message])
@@ -258,12 +258,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-158"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-159"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679270076"><span class="annot"><span class="annottext">request :: BatchPutMessage -&gt; Request BatchPutMessage
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679270085"><span class="annot"><span class="annottext">request :: BatchPutMessage -&gt; Request BatchPutMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchPutMessage -&gt; Request BatchPutMessage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679270072"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679270081"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchPutMessage
 -&gt; ClientResponse ClientBody
@@ -287,10 +287,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270069"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270069"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270068"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679270068"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270067"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270078"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270078"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679270077"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679270077"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679270076"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry] -&gt; Int -&gt; BatchPutMessageResponse
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-var">BatchPutMessageResponse'</span></a></span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BatchPutMessageErrorEntry]
@@ -299,7 +299,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; BatchPutMessageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [BatchPutMessageErrorEntry]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -321,30 +321,30 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270069"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270078"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270058"><span id="local-6989586621679270060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270067"><span id="local-6989586621679270069"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679270051"><span class="annot"><span class="annottext">toHeaders :: BatchPutMessage -&gt; ResponseHeaders
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679270060"><span class="annot"><span class="annottext">toHeaders :: BatchPutMessage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchPutMessage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270042"><span id="local-6989586621679270044"><span id="local-6989586621679270046"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679270040"><span class="annot"><span class="annottext">toJSON :: BatchPutMessage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270037"><span id="local-6989586621679270038"><span class="annot"><span class="annottext">[Message]
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270051"><span id="local-6989586621679270053"><span id="local-6989586621679270055"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679270049"><span class="annot"><span class="annottext">toJSON :: BatchPutMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270046"><span id="local-6989586621679270047"><span class="annot"><span class="annottext">[Message]
 Text
 messages :: [Message]
 channelName :: Text
 $sel:messages:BatchPutMessage' :: BatchPutMessage -&gt; [Message]
 $sel:channelName:BatchPutMessage' :: BatchPutMessage -&gt; Text
-</span><a href="#local-6989586621679270037"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270046"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -356,26 +356,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;channelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270038"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270047"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;messages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Message] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Message]
-</span><a href="#local-6989586621679270037"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270046"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679270031"><span class="annot"><span class="annottext">toPath :: BatchPutMessage -&gt; ByteString
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679270040"><span class="annot"><span class="annottext">toPath :: BatchPutMessage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchPutMessage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/messages/batch&quot;</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679270027"><span class="annot"><span class="annottext">toQuery :: BatchPutMessage -&gt; QueryString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679270036"><span class="annot"><span class="annottext">toQuery :: BatchPutMessage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchPutMessage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -383,7 +383,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newBatchPutMessageResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679270024"><span id="local-6989586621679270025"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutMessageResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-var">BatchPutMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutMessageResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-var">BatchPutMessageResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679270033"><span id="local-6989586621679270034"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutMessageResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-var">BatchPutMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutMessageResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-var">BatchPutMessageResponse'</span></a></span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of any errors encountered when sending the messages to the</span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-comment">-- channel.</span><span>
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3AbatchPutMessageErrorEntries%3ABatchPutMessageResponse%27"><span class="annot"><span class="annottext">BatchPutMessageResponse -&gt; Maybe [BatchPutMessageErrorEntry]
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchPutMessageResponse%27"><span class="annot"><span class="annottext">BatchPutMessageResponse -&gt; Int
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3AhttpStatus%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270018"><span id="local-6989586621679270020"><span class="annot"><span class="annottext">BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270027"><span id="local-6989586621679270029"><span class="annot"><span class="annottext">BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
 (BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool)
 -&gt; (BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool)
 -&gt; Eq BatchPutMessageResponse
@@ -401,7 +401,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
 == :: BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
 $c== :: BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270010"><span id="local-6989586621679270012"><span id="local-6989586621679270014"><span id="local-6989586621679270016"><span class="annot"><span class="annottext">ReadPrec [BatchPutMessageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270019"><span id="local-6989586621679270021"><span id="local-6989586621679270023"><span id="local-6989586621679270025"><span class="annot"><span class="annottext">ReadPrec [BatchPutMessageResponse]
 ReadPrec BatchPutMessageResponse
 Int -&gt; ReadS BatchPutMessageResponse
 ReadS [BatchPutMessageResponse]
@@ -421,7 +421,7 @@ readList :: ReadS [BatchPutMessageResponse]
 $creadList :: ReadS [BatchPutMessageResponse]
 readsPrec :: Int -&gt; ReadS BatchPutMessageResponse
 $creadsPrec :: Int -&gt; ReadS BatchPutMessageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270004"><span id="local-6989586621679270006"><span id="local-6989586621679270008"><span class="annot"><span class="annottext">Int -&gt; BatchPutMessageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270013"><span id="local-6989586621679270015"><span id="local-6989586621679270017"><span class="annot"><span class="annottext">Int -&gt; BatchPutMessageResponse -&gt; ShowS
 [BatchPutMessageResponse] -&gt; ShowS
 BatchPutMessageResponse -&gt; String
 (Int -&gt; BatchPutMessageResponse -&gt; ShowS)
@@ -466,8 +466,8 @@ $cfrom :: forall x. BatchPutMessageResponse -&gt; Rep BatchPutMessageResponse x
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span>
 </span><span id="line-220"></span><span id="newBatchPutMessageResponse"><span class="annot"><span class="annottext">newBatchPutMessageResponse :: Int -&gt; BatchPutMessageResponse
-</span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#newBatchPutMessageResponse"><span class="hs-identifier hs-var hs-var">newBatchPutMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679270001"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#newBatchPutMessageResponse"><span class="hs-identifier hs-var hs-var">newBatchPutMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679270010"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270010"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="annottext">BatchPutMessageResponse' :: Maybe [BatchPutMessageErrorEntry] -&gt; Int -&gt; BatchPutMessageResponse
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:batchPutMessageErrorEntries:BatchPutMessageResponse' :: Maybe [BatchPutMessageErrorEntry]
@@ -477,7 +477,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutMessageResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3AhttpStatus%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679270001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679270010"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | A list of any errors encountered when sending the messages to the</span><span>
@@ -495,16 +495,16 @@ forall a. Maybe a
      (Maybe [BatchPutMessageErrorEntry])
      (Maybe [BatchPutMessageErrorEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270000"><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270009"><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
 batchPutMessageErrorEntries :: Maybe [BatchPutMessageErrorEntry]
 $sel:batchPutMessageErrorEntries:BatchPutMessageResponse' :: BatchPutMessageResponse -&gt; Maybe [BatchPutMessageErrorEntry]
-</span><a href="#local-6989586621679270000"><span class="hs-identifier hs-var hs-var">batchPutMessageErrorEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
-</span><a href="#local-6989586621679270000"><span class="hs-identifier hs-var">batchPutMessageErrorEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269999"><span class="annot"><span class="annottext">s :: BatchPutMessageResponse
-</span><a href="#local-6989586621679269999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269998"><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
-</span><a href="#local-6989586621679269998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessageResponse
-</span><a href="#local-6989586621679269999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchPutMessageErrorEntries:BatchPutMessageResponse' :: Maybe [BatchPutMessageErrorEntry]
+</span><a href="#local-6989586621679270009"><span class="hs-identifier hs-var hs-var">batchPutMessageErrorEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
+</span><a href="#local-6989586621679270009"><span class="hs-identifier hs-var">batchPutMessageErrorEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270008"><span class="annot"><span class="annottext">s :: BatchPutMessageResponse
+</span><a href="#local-6989586621679270008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270007"><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
+</span><a href="#local-6989586621679270007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessageResponse
+</span><a href="#local-6989586621679270008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchPutMessageErrorEntries:BatchPutMessageResponse' :: Maybe [BatchPutMessageErrorEntry]
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3AbatchPutMessageErrorEntries%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var">batchPutMessageErrorEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
-</span><a href="#local-6989586621679269998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchPutMessageErrorEntry]
+</span><a href="#local-6989586621679270007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchPutMessageErrorEntry]
   -&gt; f (Maybe [BatchPutMessageErrorEntry]))
  -&gt; BatchPutMessageResponse -&gt; f BatchPutMessageResponse)
 -&gt; ((Maybe [BatchPutMessageErrorEntry]
@@ -545,16 +545,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (BatchPutMessageResponse -&gt; Int -&gt; BatchPutMessageResponse)
 -&gt; Lens BatchPutMessageResponse BatchPutMessageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269996"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270005"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchPutMessageResponse' :: BatchPutMessageResponse -&gt; Int
-</span><a href="#local-6989586621679269996"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269996"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269995"><span class="annot"><span class="annottext">s :: BatchPutMessageResponse
-</span><a href="#local-6989586621679269995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269994"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessageResponse
-</span><a href="#local-6989586621679269995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutMessageResponse' :: Int
+</span><a href="#local-6989586621679270005"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270005"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270004"><span class="annot"><span class="annottext">s :: BatchPutMessageResponse
+</span><a href="#local-6989586621679270004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270003"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessageResponse
+</span><a href="#local-6989586621679270004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutMessageResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#%24sel%3AhttpStatus%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span></span><span>
 </span><span id="line-237"></span></pre></body></html>

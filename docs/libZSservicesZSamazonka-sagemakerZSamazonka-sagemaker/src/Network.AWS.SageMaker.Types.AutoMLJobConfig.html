@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A collection of settings used for an AutoML job.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAutoMLJobConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680361517"><span id="local-6989586621680361518"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoMLJobConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-var">AutoMLJobConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLJobConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-var">AutoMLJobConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680361526"><span id="local-6989586621680361527"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoMLJobConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-var">AutoMLJobConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLJobConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-var">AutoMLJobConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The security configuration for traffic encryption or Amazon VPC</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- settings.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AsecurityConfig%3AAutoMLJobConfig%27"><span class="annot"><span class="annottext">AutoMLJobConfig -&gt; Maybe AutoMLSecurityConfig
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AcompletionCriteria%3AAutoMLJobConfig%27"><span class="annot"><span class="annottext">AutoMLJobConfig -&gt; Maybe AutoMLJobCompletionCriteria
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#%24sel%3AcompletionCriteria%3AAutoMLJobConfig%27"><span class="hs-identifier hs-var hs-var">completionCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobCompletionCriteria.html#AutoMLJobCompletionCriteria"><span class="hs-identifier hs-type">AutoMLJobCompletionCriteria</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680361510"><span id="local-6989586621680361512"><span class="annot"><span class="annottext">AutoMLJobConfig -&gt; AutoMLJobConfig -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680361519"><span id="local-6989586621680361521"><span class="annot"><span class="annottext">AutoMLJobConfig -&gt; AutoMLJobConfig -&gt; Bool
 (AutoMLJobConfig -&gt; AutoMLJobConfig -&gt; Bool)
 -&gt; (AutoMLJobConfig -&gt; AutoMLJobConfig -&gt; Bool)
 -&gt; Eq AutoMLJobConfig
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoMLJobConfig -&gt; AutoMLJobConfig -&gt; Bool
 == :: AutoMLJobConfig -&gt; AutoMLJobConfig -&gt; Bool
 $c== :: AutoMLJobConfig -&gt; AutoMLJobConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680361501"><span id="local-6989586621680361503"><span id="local-6989586621680361505"><span id="local-6989586621680361507"><span class="annot"><span class="annottext">ReadPrec [AutoMLJobConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680361510"><span id="local-6989586621680361512"><span id="local-6989586621680361514"><span id="local-6989586621680361516"><span class="annot"><span class="annottext">ReadPrec [AutoMLJobConfig]
 ReadPrec AutoMLJobConfig
 Int -&gt; ReadS AutoMLJobConfig
 ReadS [AutoMLJobConfig]
@@ -67,7 +67,7 @@ readList :: ReadS [AutoMLJobConfig]
 $creadList :: ReadS [AutoMLJobConfig]
 readsPrec :: Int -&gt; ReadS AutoMLJobConfig
 $creadsPrec :: Int -&gt; ReadS AutoMLJobConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680361494"><span id="local-6989586621680361496"><span id="local-6989586621680361498"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680361503"><span id="local-6989586621680361505"><span id="local-6989586621680361507"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobConfig -&gt; ShowS
 [AutoMLJobConfig] -&gt; ShowS
 AutoMLJobConfig -&gt; String
 (Int -&gt; AutoMLJobConfig -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe AutoMLSecurityConfig)
      (Maybe AutoMLSecurityConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361485"><span class="annot"><span class="annottext">Maybe AutoMLSecurityConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361494"><span class="annot"><span class="annottext">Maybe AutoMLSecurityConfig
 securityConfig :: Maybe AutoMLSecurityConfig
 $sel:securityConfig:AutoMLJobConfig' :: AutoMLJobConfig -&gt; Maybe AutoMLSecurityConfig
-</span><a href="#local-6989586621680361485"><span class="hs-identifier hs-var hs-var">securityConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLSecurityConfig
-</span><a href="#local-6989586621680361485"><span class="hs-identifier hs-var">securityConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361484"><span class="annot"><span class="annottext">s :: AutoMLJobConfig
-</span><a href="#local-6989586621680361484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361483"><span class="annot"><span class="annottext">Maybe AutoMLSecurityConfig
-</span><a href="#local-6989586621680361483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobConfig
-</span><a href="#local-6989586621680361484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityConfig:AutoMLJobConfig' :: Maybe AutoMLSecurityConfig
+</span><a href="#local-6989586621680361494"><span class="hs-identifier hs-var hs-var">securityConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLSecurityConfig
+</span><a href="#local-6989586621680361494"><span class="hs-identifier hs-var">securityConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361493"><span class="annot"><span class="annottext">s :: AutoMLJobConfig
+</span><a href="#local-6989586621680361493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361492"><span class="annot"><span class="annottext">Maybe AutoMLSecurityConfig
+</span><a href="#local-6989586621680361492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobConfig
+</span><a href="#local-6989586621680361493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityConfig:AutoMLJobConfig' :: Maybe AutoMLSecurityConfig
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#%24sel%3AsecurityConfig%3AAutoMLJobConfig%27"><span class="hs-identifier hs-var">securityConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLSecurityConfig
-</span><a href="#local-6989586621680361483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680361492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | How long an AutoML job is allowed to run, or how many candidates a job</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- is allowed to generate.</span><span>
@@ -163,19 +163,19 @@ $sel:securityConfig:AutoMLJobConfig' :: AutoMLJobConfig -&gt; Maybe AutoMLSecuri
      (Maybe AutoMLJobCompletionCriteria)
      (Maybe AutoMLJobCompletionCriteria)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361481"><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361490"><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
 completionCriteria :: Maybe AutoMLJobCompletionCriteria
 $sel:completionCriteria:AutoMLJobConfig' :: AutoMLJobConfig -&gt; Maybe AutoMLJobCompletionCriteria
-</span><a href="#local-6989586621680361481"><span class="hs-identifier hs-var hs-var">completionCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
-</span><a href="#local-6989586621680361481"><span class="hs-identifier hs-var">completionCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361480"><span class="annot"><span class="annottext">s :: AutoMLJobConfig
-</span><a href="#local-6989586621680361480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361479"><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
-</span><a href="#local-6989586621680361479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobConfig
-</span><a href="#local-6989586621680361480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionCriteria:AutoMLJobConfig' :: Maybe AutoMLJobCompletionCriteria
+</span><a href="#local-6989586621680361490"><span class="hs-identifier hs-var hs-var">completionCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
+</span><a href="#local-6989586621680361490"><span class="hs-identifier hs-var">completionCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361489"><span class="annot"><span class="annottext">s :: AutoMLJobConfig
+</span><a href="#local-6989586621680361489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361488"><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
+</span><a href="#local-6989586621680361488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobConfig
+</span><a href="#local-6989586621680361489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionCriteria:AutoMLJobConfig' :: Maybe AutoMLJobCompletionCriteria
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#%24sel%3AcompletionCriteria%3AAutoMLJobConfig%27"><span class="hs-identifier hs-var">completionCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
-</span><a href="#local-6989586621680361479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680361488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361476"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621680361474"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoMLJobConfig
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361485"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621680361483"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoMLJobConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoMLJobConfig)
@@ -185,8 +185,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoMLJobConfig&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680361471"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680361471"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680361480"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680361480"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe AutoMLSecurityConfig
 -&gt; Maybe AutoMLJobCompletionCriteria -&gt; AutoMLJobConfig
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-var">AutoMLJobConfig'</span></a></span><span>
@@ -196,7 +196,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe AutoMLJobCompletionCriteria -&gt; AutoMLJobConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680361471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoMLSecurityConfig)
+</span><a href="#local-6989586621680361480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoMLSecurityConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,25 +205,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser AutoMLJobConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680361471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoMLJobCompletionCriteria)
+</span><a href="#local-6989586621680361480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoMLJobCompletionCriteria)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CompletionCriteria&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361465"><span id="local-6989586621680361467"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361474"><span id="local-6989586621680361476"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361454"><span id="local-6989586621680361456"><span id="local-6989586621680361458"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621680361452"><span class="annot"><span class="annottext">toJSON :: AutoMLJobConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361449"><span id="local-6989586621680361450"><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361463"><span id="local-6989586621680361465"><span id="local-6989586621680361467"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig"><span class="hs-identifier hs-type">AutoMLJobConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621680361461"><span class="annot"><span class="annottext">toJSON :: AutoMLJobConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobConfig.html#AutoMLJobConfig%27"><span class="hs-identifier hs-type">AutoMLJobConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361458"><span id="local-6989586621680361459"><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
 Maybe AutoMLSecurityConfig
 completionCriteria :: Maybe AutoMLJobCompletionCriteria
 securityConfig :: Maybe AutoMLSecurityConfig
 $sel:completionCriteria:AutoMLJobConfig' :: AutoMLJobConfig -&gt; Maybe AutoMLJobCompletionCriteria
 $sel:securityConfig:AutoMLJobConfig' :: AutoMLJobConfig -&gt; Maybe AutoMLSecurityConfig
-</span><a href="#local-6989586621680361449"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680361458"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -237,7 +237,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AutoMLSecurityConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLSecurityConfig
-</span><a href="#local-6989586621680361450"><span class="hs-identifier hs-var">securityConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680361459"><span class="hs-identifier hs-var">securityConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CompletionCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutoMLJobCompletionCriteria -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -246,7 +246,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AutoMLJobCompletionCriteria -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoMLJobCompletionCriteria
-</span><a href="#local-6989586621680361449"><span class="hs-identifier hs-var">completionCriteria</span></a></span><span>
+</span><a href="#local-6989586621680361458"><span class="hs-identifier hs-var">completionCriteria</span></a></span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

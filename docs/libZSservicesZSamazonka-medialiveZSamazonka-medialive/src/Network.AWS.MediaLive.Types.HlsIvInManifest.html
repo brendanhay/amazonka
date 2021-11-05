@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Hls Iv In Manifest</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679887126"><span id="local-6989586621679887127"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsIvInManifest"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsIvInManifest.html#HlsIvInManifest"><span class="hs-identifier hs-var">HlsIvInManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsIvInManifest%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsIvInManifest.html#HlsIvInManifest%27"><span class="hs-identifier hs-var">HlsIvInManifest'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679887135"><span id="local-6989586621679887136"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsIvInManifest"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsIvInManifest.html#HlsIvInManifest"><span class="hs-identifier hs-var">HlsIvInManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsIvInManifest%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsIvInManifest.html#HlsIvInManifest%27"><span class="hs-identifier hs-var">HlsIvInManifest'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsIvInManifest"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.HlsIvInManifest.html#fromHlsIvInManifest"><span class="hs-identifier hs-var hs-var">fromHlsIvInManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679887118"><span id="local-6989586621679887120"><span id="local-6989586621679887122"><span class="annot"><span class="annottext">Int -&gt; HlsIvInManifest -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679887127"><span id="local-6989586621679887129"><span id="local-6989586621679887131"><span class="annot"><span class="annottext">Int -&gt; HlsIvInManifest -&gt; ShowS
 [HlsIvInManifest] -&gt; ShowS
 HlsIvInManifest -&gt; String
 (Int -&gt; HlsIvInManifest -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HlsIvInManifest -&gt; String
 showsPrec :: Int -&gt; HlsIvInManifest -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsIvInManifest -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679887109"><span id="local-6989586621679887111"><span id="local-6989586621679887113"><span id="local-6989586621679887115"><span class="annot"><span class="annottext">ReadPrec [HlsIvInManifest]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679887118"><span id="local-6989586621679887120"><span id="local-6989586621679887122"><span id="local-6989586621679887124"><span class="annot"><span class="annottext">ReadPrec [HlsIvInManifest]
 ReadPrec HlsIvInManifest
 Int -&gt; ReadS HlsIvInManifest
 ReadS [HlsIvInManifest]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HlsIvInManifest]
 readsPrec :: Int -&gt; ReadS HlsIvInManifest
 $creadsPrec :: Int -&gt; ReadS HlsIvInManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679887104"><span id="local-6989586621679887106"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; HlsIvInManifest -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679887113"><span id="local-6989586621679887115"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; HlsIvInManifest -&gt; Bool
 (HlsIvInManifest -&gt; HlsIvInManifest -&gt; Bool)
 -&gt; (HlsIvInManifest -&gt; HlsIvInManifest -&gt; Bool)
 -&gt; Eq HlsIvInManifest
@@ -83,7 +83,7 @@ $c/= :: HlsIvInManifest -&gt; HlsIvInManifest -&gt; Bool
 == :: HlsIvInManifest -&gt; HlsIvInManifest -&gt; Bool
 $c== :: HlsIvInManifest -&gt; HlsIvInManifest -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679887088"><span id="local-6989586621679887090"><span id="local-6989586621679887092"><span id="local-6989586621679887094"><span id="local-6989586621679887096"><span id="local-6989586621679887098"><span id="local-6989586621679887100"><span class="annot"><span class="annottext">Eq HlsIvInManifest
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679887097"><span id="local-6989586621679887099"><span id="local-6989586621679887101"><span id="local-6989586621679887103"><span id="local-6989586621679887105"><span id="local-6989586621679887107"><span id="local-6989586621679887109"><span class="annot"><span class="annottext">Eq HlsIvInManifest
 Eq HlsIvInManifest
 -&gt; (HlsIvInManifest -&gt; HlsIvInManifest -&gt; Ordering)
 -&gt; (HlsIvInManifest -&gt; HlsIvInManifest -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. HlsIvInManifest -&gt; Rep HlsIvInManifest x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679887080"><span id="local-6989586621679887082"><span class="annot"><span class="annottext">Int -&gt; HlsIvInManifest -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679887089"><span id="local-6989586621679887091"><span class="annot"><span class="annottext">Int -&gt; HlsIvInManifest -&gt; Int
 HlsIvInManifest -&gt; Int
 (Int -&gt; HlsIvInManifest -&gt; Int)
 -&gt; (HlsIvInManifest -&gt; Int) -&gt; Hashable HlsIvInManifest
@@ -144,50 +144,50 @@ $chash :: HlsIvInManifest -&gt; Int
 hashWithSalt :: Int -&gt; HlsIvInManifest -&gt; Int
 $chashWithSalt :: Int -&gt; HlsIvInManifest -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679887077"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679887086"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; ()
 (HlsIvInManifest -&gt; ()) -&gt; NFData HlsIvInManifest
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsIvInManifest -&gt; ()
 $crnf :: HlsIvInManifest -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679887074"><span class="annot"><span class="annottext">Text -&gt; Either String HlsIvInManifest
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679887083"><span class="annot"><span class="annottext">Text -&gt; Either String HlsIvInManifest
 (Text -&gt; Either String HlsIvInManifest) -&gt; FromText HlsIvInManifest
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsIvInManifest
 $cfromText :: Text -&gt; Either String HlsIvInManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679887071"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679887080"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; Text
 (HlsIvInManifest -&gt; Text) -&gt; ToText HlsIvInManifest
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsIvInManifest -&gt; Text
 $ctoText :: HlsIvInManifest -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679887068"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679887077"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; ByteString
 (HlsIvInManifest -&gt; ByteString) -&gt; ToByteString HlsIvInManifest
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsIvInManifest -&gt; ByteString
 $ctoBS :: HlsIvInManifest -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679887065"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679887074"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; ByteStringBuilder
 (HlsIvInManifest -&gt; ByteStringBuilder) -&gt; ToLog HlsIvInManifest
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsIvInManifest -&gt; ByteStringBuilder
 $cbuild :: HlsIvInManifest -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679887062"><span class="annot"><span class="annottext">HeaderName -&gt; HlsIvInManifest -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679887071"><span class="annot"><span class="annottext">HeaderName -&gt; HlsIvInManifest -&gt; [Header]
 (HeaderName -&gt; HlsIvInManifest -&gt; [Header])
 -&gt; ToHeader HlsIvInManifest
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsIvInManifest -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsIvInManifest -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679887059"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679887068"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; QueryString
 (HlsIvInManifest -&gt; QueryString) -&gt; ToQuery HlsIvInManifest
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsIvInManifest -&gt; QueryString
 $ctoQuery :: HlsIvInManifest -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679887054"><span id="local-6989586621679887056"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsIvInManifest]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679887063"><span id="local-6989586621679887065"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsIvInManifest]
 Value -&gt; Parser HlsIvInManifest
 (Value -&gt; Parser HlsIvInManifest)
 -&gt; (Value -&gt; Parser [HlsIvInManifest]) -&gt; FromJSON HlsIvInManifest
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsIvInManifest]
 parseJSON :: Value -&gt; Parser HlsIvInManifest
 $cparseJSON :: Value -&gt; Parser HlsIvInManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679887049"><span id="local-6989586621679887051"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsIvInManifest]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679887058"><span id="local-6989586621679887060"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsIvInManifest]
 FromJSONKeyFunction HlsIvInManifest
 FromJSONKeyFunction HlsIvInManifest
 -&gt; FromJSONKeyFunction [HlsIvInManifest]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsIvInManifest]
 fromJSONKey :: FromJSONKeyFunction HlsIvInManifest
 $cfromJSONKey :: FromJSONKeyFunction HlsIvInManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679887040"><span id="local-6989586621679887042"><span id="local-6989586621679887044"><span id="local-6989586621679887046"><span class="annot"><span class="annottext">[HlsIvInManifest] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679887049"><span id="local-6989586621679887051"><span id="local-6989586621679887053"><span id="local-6989586621679887055"><span class="annot"><span class="annottext">[HlsIvInManifest] -&gt; Encoding
 [HlsIvInManifest] -&gt; Value
 HlsIvInManifest -&gt; Encoding
 HlsIvInManifest -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: HlsIvInManifest -&gt; Encoding
 toJSON :: HlsIvInManifest -&gt; Value
 $ctoJSON :: HlsIvInManifest -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679887035"><span id="local-6989586621679887037"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsIvInManifest]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679887044"><span id="local-6989586621679887046"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsIvInManifest]
 ToJSONKeyFunction HlsIvInManifest
 ToJSONKeyFunction HlsIvInManifest
 -&gt; ToJSONKeyFunction [HlsIvInManifest] -&gt; ToJSONKey HlsIvInManifest
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsIvInManifest]
 toJSONKey :: ToJSONKeyFunction HlsIvInManifest
 $ctoJSONKey :: ToJSONKeyFunction HlsIvInManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679887032"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsIvInManifest
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679887041"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsIvInManifest
 ([Node] -&gt; Either String HlsIvInManifest)
 -&gt; FromXML HlsIvInManifest
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsIvInManifest
 $cparseXML :: [Node] -&gt; Either String HlsIvInManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679887029"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679887038"><span class="annot"><span class="annottext">HlsIvInManifest -&gt; XML
 (HlsIvInManifest -&gt; XML) -&gt; ToXML HlsIvInManifest
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsIvInManifest -&gt; XML

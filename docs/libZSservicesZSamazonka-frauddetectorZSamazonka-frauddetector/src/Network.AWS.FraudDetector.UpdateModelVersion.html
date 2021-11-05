@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.UpdateModelVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a model version. Updating a model version retrains an existing</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- model version using updated training data and produces a new minor</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- version of the model. You can update the training data set location and</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- data access role attributes using this action. This action creates and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- trains a new minor version of the model, for example version 1.01, 1.02,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- 1.03.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.UpdateModelVersion</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier">UpdateModelVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#newUpdateModelVersion"><span class="hs-identifier">newUpdateModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_externalEventsDetail"><span class="hs-identifier">updateModelVersion_externalEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_ingestedEventsDetail"><span class="hs-identifier">updateModelVersion_ingestedEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_tags"><span class="hs-identifier">updateModelVersion_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_modelId"><span class="hs-identifier">updateModelVersion_modelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_modelType"><span class="hs-identifier">updateModelVersion_modelType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_majorVersionNumber"><span class="hs-identifier">updateModelVersion_majorVersionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier">UpdateModelVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#newUpdateModelVersionResponse"><span class="hs-identifier">newUpdateModelVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_status"><span class="hs-identifier">updateModelVersionResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_modelType"><span class="hs-identifier">updateModelVersionResponse_modelType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_modelId"><span class="hs-identifier">updateModelVersionResponse_modelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_modelVersionNumber"><span class="hs-identifier">updateModelVersionResponse_modelVersionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_httpStatus"><span class="hs-identifier">updateModelVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newUpdateModelVersion' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679324222"><span id="local-6989586621679324223"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateModelVersion"><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-var">UpdateModelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateModelVersion%27"><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-var">UpdateModelVersion'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the external events data used for training the model</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- version. Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AexternalEventsDetail%3AUpdateModelVersion%27"><span class="annot"><span class="annottext">UpdateModelVersion -&gt; Maybe ExternalEventsDetail
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AexternalEventsDetail%3AUpdateModelVersion%27"><span class="hs-identifier hs-var hs-var">externalEventsDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ExternalEventsDetail.html#ExternalEventsDetail"><span class="hs-identifier hs-type">ExternalEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The details of the ingested event used for training the model version.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Required if your @trainingDataSource@ is @INGESTED_EVENTS@.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AingestedEventsDetail%3AUpdateModelVersion%27"><span class="annot"><span class="annottext">UpdateModelVersion -&gt; Maybe IngestedEventsDetail
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AingestedEventsDetail%3AUpdateModelVersion%27"><span class="hs-identifier hs-var hs-var">ingestedEventsDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.IngestedEventsDetail.html#IngestedEventsDetail"><span class="hs-identifier hs-type">IngestedEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A collection of key and value pairs.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Atags%3AUpdateModelVersion%27"><span class="annot"><span class="annottext">UpdateModelVersion -&gt; Maybe [Tag]
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3Atags%3AUpdateModelVersion%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The model ID.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmodelId%3AUpdateModelVersion%27"><span class="annot"><span class="annottext">UpdateModelVersion -&gt; Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelId%3AUpdateModelVersion%27"><span class="hs-identifier hs-var hs-var">modelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The model type.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AmodelType%3AUpdateModelVersion%27"><span class="annot"><span class="annottext">UpdateModelVersion -&gt; ModelTypeEnum
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelType%3AUpdateModelVersion%27"><span class="hs-identifier hs-var hs-var">modelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelTypeEnum.html#ModelTypeEnum"><span class="hs-identifier hs-type">ModelTypeEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The major version number.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmajorVersionNumber%3AUpdateModelVersion%27"><span class="annot"><span class="annottext">UpdateModelVersion -&gt; Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmajorVersionNumber%3AUpdateModelVersion%27"><span class="hs-identifier hs-var hs-var">majorVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324211"><span id="local-6989586621679324213"><span class="annot"><span class="annottext">UpdateModelVersion -&gt; UpdateModelVersion -&gt; Bool
+(UpdateModelVersion -&gt; UpdateModelVersion -&gt; Bool)
+-&gt; (UpdateModelVersion -&gt; UpdateModelVersion -&gt; Bool)
+-&gt; Eq UpdateModelVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateModelVersion -&gt; UpdateModelVersion -&gt; Bool
+$c/= :: UpdateModelVersion -&gt; UpdateModelVersion -&gt; Bool
+== :: UpdateModelVersion -&gt; UpdateModelVersion -&gt; Bool
+$c== :: UpdateModelVersion -&gt; UpdateModelVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324202"><span id="local-6989586621679324204"><span id="local-6989586621679324206"><span id="local-6989586621679324208"><span class="annot"><span class="annottext">ReadPrec [UpdateModelVersion]
+ReadPrec UpdateModelVersion
+Int -&gt; ReadS UpdateModelVersion
+ReadS [UpdateModelVersion]
+(Int -&gt; ReadS UpdateModelVersion)
+-&gt; ReadS [UpdateModelVersion]
+-&gt; ReadPrec UpdateModelVersion
+-&gt; ReadPrec [UpdateModelVersion]
+-&gt; Read UpdateModelVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateModelVersion]
+$creadListPrec :: ReadPrec [UpdateModelVersion]
+readPrec :: ReadPrec UpdateModelVersion
+$creadPrec :: ReadPrec UpdateModelVersion
+readList :: ReadS [UpdateModelVersion]
+$creadList :: ReadS [UpdateModelVersion]
+readsPrec :: Int -&gt; ReadS UpdateModelVersion
+$creadsPrec :: Int -&gt; ReadS UpdateModelVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324195"><span id="local-6989586621679324197"><span id="local-6989586621679324199"><span class="annot"><span class="annottext">Int -&gt; UpdateModelVersion -&gt; ShowS
+[UpdateModelVersion] -&gt; ShowS
+UpdateModelVersion -&gt; String
+(Int -&gt; UpdateModelVersion -&gt; ShowS)
+-&gt; (UpdateModelVersion -&gt; String)
+-&gt; ([UpdateModelVersion] -&gt; ShowS)
+-&gt; Show UpdateModelVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateModelVersion] -&gt; ShowS
+$cshowList :: [UpdateModelVersion] -&gt; ShowS
+show :: UpdateModelVersion -&gt; String
+$cshow :: UpdateModelVersion -&gt; String
+showsPrec :: Int -&gt; UpdateModelVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateModelVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateModelVersion -&gt; Rep UpdateModelVersion x)
+-&gt; (forall x. Rep UpdateModelVersion x -&gt; UpdateModelVersion)
+-&gt; Generic UpdateModelVersion
+forall x. Rep UpdateModelVersion x -&gt; UpdateModelVersion
+forall x. UpdateModelVersion -&gt; Rep UpdateModelVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateModelVersion x -&gt; UpdateModelVersion
+$cfrom :: forall x. UpdateModelVersion -&gt; Rep UpdateModelVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'UpdateModelVersion' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'externalEventsDetail', 'updateModelVersion_externalEventsDetail' - The details of the external events data used for training the model</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- version. Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'ingestedEventsDetail', 'updateModelVersion_ingestedEventsDetail' - The details of the ingested event used for training the model version.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Required if your @trainingDataSource@ is @INGESTED_EVENTS@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'tags', 'updateModelVersion_tags' - A collection of key and value pairs.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'modelId', 'updateModelVersion_modelId' - The model ID.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'modelType', 'updateModelVersion_modelType' - The model type.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'majorVersionNumber', 'updateModelVersion_majorVersionNumber' - The major version number.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#newUpdateModelVersion"><span class="hs-identifier hs-type">newUpdateModelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'modelId'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'modelType'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelTypeEnum.html#ModelTypeEnum"><span class="hs-identifier hs-type">ModelTypeEnum</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'majorVersionNumber'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span>
+</span><span id="line-110"></span><span id="newUpdateModelVersion"><span class="annot"><span class="annottext">newUpdateModelVersion :: Text -&gt; ModelTypeEnum -&gt; Text -&gt; UpdateModelVersion
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#newUpdateModelVersion"><span class="hs-identifier hs-var hs-var">newUpdateModelVersion</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679324190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324190"><span class="hs-identifier hs-var">pModelId_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679324189"><span class="annot"><span class="annottext">ModelTypeEnum
+</span><a href="#local-6989586621679324189"><span class="hs-identifier hs-var">pModelType_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679324188"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324188"><span class="hs-identifier hs-var">pMajorVersionNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">UpdateModelVersion' :: Maybe ExternalEventsDetail
+-&gt; Maybe IngestedEventsDetail
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; ModelTypeEnum
+-&gt; Text
+-&gt; UpdateModelVersion
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:externalEventsDetail:UpdateModelVersion' :: Maybe ExternalEventsDetail
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AexternalEventsDetail%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">externalEventsDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:ingestedEventsDetail:UpdateModelVersion' :: Maybe IngestedEventsDetail
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AingestedEventsDetail%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">ingestedEventsDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:UpdateModelVersion' :: Maybe [Tag]
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3Atags%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelId:UpdateModelVersion' :: Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelId%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">modelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324190"><span class="hs-identifier hs-var">pModelId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelType:UpdateModelVersion' :: ModelTypeEnum
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelType%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">modelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelTypeEnum
+</span><a href="#local-6989586621679324189"><span class="hs-identifier hs-var">pModelType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:majorVersionNumber:UpdateModelVersion' :: Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmajorVersionNumber%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">majorVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324188"><span class="hs-identifier hs-var">pMajorVersionNumber_</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The details of the external events data used for training the model</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- version. Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_externalEventsDetail"><span class="hs-identifier hs-type">updateModelVersion_externalEventsDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ExternalEventsDetail.html#ExternalEventsDetail"><span class="hs-identifier hs-type">ExternalEventsDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="updateModelVersion_externalEventsDetail"><span class="annot"><span class="annottext">updateModelVersion_externalEventsDetail :: (Maybe ExternalEventsDetail -&gt; f (Maybe ExternalEventsDetail))
+-&gt; UpdateModelVersion -&gt; f UpdateModelVersion
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_externalEventsDetail"><span class="hs-identifier hs-var hs-var">updateModelVersion_externalEventsDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersion -&gt; Maybe ExternalEventsDetail)
+-&gt; (UpdateModelVersion
+    -&gt; Maybe ExternalEventsDetail -&gt; UpdateModelVersion)
+-&gt; Lens
+     UpdateModelVersion
+     UpdateModelVersion
+     (Maybe ExternalEventsDetail)
+     (Maybe ExternalEventsDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324185"><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+externalEventsDetail :: Maybe ExternalEventsDetail
+$sel:externalEventsDetail:UpdateModelVersion' :: UpdateModelVersion -&gt; Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679324185"><span class="hs-identifier hs-var hs-var">externalEventsDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679324185"><span class="hs-identifier hs-var">externalEventsDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324184"><span class="annot"><span class="annottext">s :: UpdateModelVersion
+</span><a href="#local-6989586621679324184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324183"><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679324183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersion
+</span><a href="#local-6989586621679324184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalEventsDetail:UpdateModelVersion' :: Maybe ExternalEventsDetail
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AexternalEventsDetail%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">externalEventsDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679324183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The details of the ingested event used for training the model version.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Required if your @trainingDataSource@ is @INGESTED_EVENTS@.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_ingestedEventsDetail"><span class="hs-identifier hs-type">updateModelVersion_ingestedEventsDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.IngestedEventsDetail.html#IngestedEventsDetail"><span class="hs-identifier hs-type">IngestedEventsDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="updateModelVersion_ingestedEventsDetail"><span class="annot"><span class="annottext">updateModelVersion_ingestedEventsDetail :: (Maybe IngestedEventsDetail -&gt; f (Maybe IngestedEventsDetail))
+-&gt; UpdateModelVersion -&gt; f UpdateModelVersion
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_ingestedEventsDetail"><span class="hs-identifier hs-var hs-var">updateModelVersion_ingestedEventsDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersion -&gt; Maybe IngestedEventsDetail)
+-&gt; (UpdateModelVersion
+    -&gt; Maybe IngestedEventsDetail -&gt; UpdateModelVersion)
+-&gt; Lens
+     UpdateModelVersion
+     UpdateModelVersion
+     (Maybe IngestedEventsDetail)
+     (Maybe IngestedEventsDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324182"><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+ingestedEventsDetail :: Maybe IngestedEventsDetail
+$sel:ingestedEventsDetail:UpdateModelVersion' :: UpdateModelVersion -&gt; Maybe IngestedEventsDetail
+</span><a href="#local-6989586621679324182"><span class="hs-identifier hs-var hs-var">ingestedEventsDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+</span><a href="#local-6989586621679324182"><span class="hs-identifier hs-var">ingestedEventsDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324181"><span class="annot"><span class="annottext">s :: UpdateModelVersion
+</span><a href="#local-6989586621679324181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324180"><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+</span><a href="#local-6989586621679324180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersion
+</span><a href="#local-6989586621679324181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestedEventsDetail:UpdateModelVersion' :: Maybe IngestedEventsDetail
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AingestedEventsDetail%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">ingestedEventsDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+</span><a href="#local-6989586621679324180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | A collection of key and value pairs.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_tags"><span class="hs-identifier hs-type">updateModelVersion_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="updateModelVersion_tags"><span class="annot"><span class="annottext">updateModelVersion_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; UpdateModelVersion -&gt; f UpdateModelVersion
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_tags"><span class="hs-identifier hs-var hs-var">updateModelVersion_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersion -&gt; Maybe [Tag])
+-&gt; (UpdateModelVersion -&gt; Maybe [Tag] -&gt; UpdateModelVersion)
+-&gt; Lens
+     UpdateModelVersion UpdateModelVersion (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324179"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:UpdateModelVersion' :: UpdateModelVersion -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679324179"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679324179"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324178"><span class="annot"><span class="annottext">s :: UpdateModelVersion
+</span><a href="#local-6989586621679324178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324177"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679324177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersion
+</span><a href="#local-6989586621679324178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UpdateModelVersion' :: Maybe [Tag]
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3Atags%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679324177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; UpdateModelVersion -&gt; f UpdateModelVersion)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; UpdateModelVersion
+-&gt; f UpdateModelVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The model ID.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_modelId"><span class="hs-identifier hs-type">updateModelVersion_modelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="updateModelVersion_modelId"><span class="annot"><span class="annottext">updateModelVersion_modelId :: (Text -&gt; f Text) -&gt; UpdateModelVersion -&gt; f UpdateModelVersion
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_modelId"><span class="hs-identifier hs-var hs-var">updateModelVersion_modelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersion -&gt; Text)
+-&gt; (UpdateModelVersion -&gt; Text -&gt; UpdateModelVersion)
+-&gt; Lens UpdateModelVersion UpdateModelVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324173"><span class="annot"><span class="annottext">Text
+modelId :: Text
+$sel:modelId:UpdateModelVersion' :: UpdateModelVersion -&gt; Text
+</span><a href="#local-6989586621679324173"><span class="hs-identifier hs-var hs-var">modelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324173"><span class="hs-identifier hs-var">modelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324172"><span class="annot"><span class="annottext">s :: UpdateModelVersion
+</span><a href="#local-6989586621679324172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324171"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersion
+</span><a href="#local-6989586621679324172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelId:UpdateModelVersion' :: Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelId%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">modelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The model type.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_modelType"><span class="hs-identifier hs-type">updateModelVersion_modelType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelTypeEnum.html#ModelTypeEnum"><span class="hs-identifier hs-type">ModelTypeEnum</span></a></span><span>
+</span><span id="line-144"></span><span id="updateModelVersion_modelType"><span class="annot"><span class="annottext">updateModelVersion_modelType :: (ModelTypeEnum -&gt; f ModelTypeEnum)
+-&gt; UpdateModelVersion -&gt; f UpdateModelVersion
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_modelType"><span class="hs-identifier hs-var hs-var">updateModelVersion_modelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersion -&gt; ModelTypeEnum)
+-&gt; (UpdateModelVersion -&gt; ModelTypeEnum -&gt; UpdateModelVersion)
+-&gt; Lens
+     UpdateModelVersion UpdateModelVersion ModelTypeEnum ModelTypeEnum
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324170"><span class="annot"><span class="annottext">ModelTypeEnum
+modelType :: ModelTypeEnum
+$sel:modelType:UpdateModelVersion' :: UpdateModelVersion -&gt; ModelTypeEnum
+</span><a href="#local-6989586621679324170"><span class="hs-identifier hs-var hs-var">modelType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelTypeEnum
+</span><a href="#local-6989586621679324170"><span class="hs-identifier hs-var">modelType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324169"><span class="annot"><span class="annottext">s :: UpdateModelVersion
+</span><a href="#local-6989586621679324169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324168"><span class="annot"><span class="annottext">ModelTypeEnum
+</span><a href="#local-6989586621679324168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersion
+</span><a href="#local-6989586621679324169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelType:UpdateModelVersion' :: ModelTypeEnum
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelType%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">modelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelTypeEnum
+</span><a href="#local-6989586621679324168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The major version number.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_majorVersionNumber"><span class="hs-identifier hs-type">updateModelVersion_majorVersionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="updateModelVersion_majorVersionNumber"><span class="annot"><span class="annottext">updateModelVersion_majorVersionNumber :: (Text -&gt; f Text) -&gt; UpdateModelVersion -&gt; f UpdateModelVersion
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersion_majorVersionNumber"><span class="hs-identifier hs-var hs-var">updateModelVersion_majorVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersion -&gt; Text)
+-&gt; (UpdateModelVersion -&gt; Text -&gt; UpdateModelVersion)
+-&gt; Lens UpdateModelVersion UpdateModelVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324167"><span class="annot"><span class="annottext">Text
+majorVersionNumber :: Text
+$sel:majorVersionNumber:UpdateModelVersion' :: UpdateModelVersion -&gt; Text
+</span><a href="#local-6989586621679324167"><span class="hs-identifier hs-var hs-var">majorVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324167"><span class="hs-identifier hs-var">majorVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324166"><span class="annot"><span class="annottext">s :: UpdateModelVersion
+</span><a href="#local-6989586621679324166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersion
+</span><a href="#local-6989586621679324166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:majorVersionNumber:UpdateModelVersion' :: Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmajorVersionNumber%3AUpdateModelVersion%27"><span class="hs-identifier hs-var">majorVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679324161"><span class="annot"><span class="annottext">request :: UpdateModelVersion -&gt; Request UpdateModelVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateModelVersion -&gt; Request UpdateModelVersion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679324157"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateModelVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateModelVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateModelVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateModelVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateModelVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324154"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324154"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679324153"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679324153"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679324152"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ModelTypeEnum
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateModelVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-var">UpdateModelVersionResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ModelTypeEnum
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateModelVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ModelTypeEnum
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateModelVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ModelTypeEnum
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateModelVersionResponse)
+-&gt; Either String (Maybe ModelTypeEnum)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateModelVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ModelTypeEnum)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateModelVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateModelVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateModelVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateModelVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelVersionNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateModelVersionResponse)
+-&gt; Either String Int -&gt; Either String UpdateModelVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324154"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324144"><span id="local-6989586621679324146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679324137"><span class="annot"><span class="annottext">toHeaders :: UpdateModelVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateModelVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.UpdateModelVersion&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-177"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-181"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324127"><span id="local-6989586621679324129"><span id="local-6989586621679324131"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679324125"><span class="annot"><span class="annottext">toJSON :: UpdateModelVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion%27"><span class="hs-identifier hs-type">UpdateModelVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324118"><span id="local-6989586621679324119"><span id="local-6989586621679324120"><span id="local-6989586621679324121"><span id="local-6989586621679324122"><span id="local-6989586621679324123"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe ExternalEventsDetail
+Maybe IngestedEventsDetail
+Text
+ModelTypeEnum
+majorVersionNumber :: Text
+modelType :: ModelTypeEnum
+modelId :: Text
+tags :: Maybe [Tag]
+ingestedEventsDetail :: Maybe IngestedEventsDetail
+externalEventsDetail :: Maybe ExternalEventsDetail
+$sel:majorVersionNumber:UpdateModelVersion' :: UpdateModelVersion -&gt; Text
+$sel:modelType:UpdateModelVersion' :: UpdateModelVersion -&gt; ModelTypeEnum
+$sel:modelId:UpdateModelVersion' :: UpdateModelVersion -&gt; Text
+$sel:tags:UpdateModelVersion' :: UpdateModelVersion -&gt; Maybe [Tag]
+$sel:ingestedEventsDetail:UpdateModelVersion' :: UpdateModelVersion -&gt; Maybe IngestedEventsDetail
+$sel:externalEventsDetail:UpdateModelVersion' :: UpdateModelVersion -&gt; Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679324118"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;externalEventsDetail&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExternalEventsDetail -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(ExternalEventsDetail -&gt; Pair)
+-&gt; Maybe ExternalEventsDetail -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679324123"><span class="hs-identifier hs-var">externalEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ingestedEventsDetail&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IngestedEventsDetail -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">(IngestedEventsDetail -&gt; Pair)
+-&gt; Maybe IngestedEventsDetail -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+</span><a href="#local-6989586621679324122"><span class="hs-identifier hs-var">ingestedEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679324121"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324120"><span class="hs-identifier hs-var">modelId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelTypeEnum -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ModelTypeEnum
+</span><a href="#local-6989586621679324119"><span class="hs-identifier hs-var">modelType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-197"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;majorVersionNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324118"><span class="hs-identifier hs-var">majorVersionNumber</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679324112"><span class="annot"><span class="annottext">toPath :: UpdateModelVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateModelVersion -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersion"><span class="hs-identifier hs-type">UpdateModelVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679324108"><span class="annot"><span class="annottext">toQuery :: UpdateModelVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateModelVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | /See:/ 'newUpdateModelVersionResponse' smart constructor.</span><span>
+</span><span id="line-208"></span><span id="local-6989586621679324105"><span id="local-6989586621679324106"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateModelVersionResponse"><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-var">UpdateModelVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateModelVersionResponse%27"><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-var">UpdateModelVersionResponse'</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the updated model version.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateModelVersionResponse%27"><span class="annot"><span class="annottext">UpdateModelVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3Astatus%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The model type.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AmodelType%3AUpdateModelVersionResponse%27"><span class="annot"><span class="annottext">UpdateModelVersionResponse -&gt; Maybe ModelTypeEnum
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelType%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var hs-var">modelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelTypeEnum.html#ModelTypeEnum"><span class="hs-identifier hs-type">ModelTypeEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The model ID.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AmodelId%3AUpdateModelVersionResponse%27"><span class="annot"><span class="annottext">UpdateModelVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelId%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var hs-var">modelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The model version number of the model version updated.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AmodelVersionNumber%3AUpdateModelVersionResponse%27"><span class="annot"><span class="annottext">UpdateModelVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelVersionNumber%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var hs-var">modelVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateModelVersionResponse%27"><span class="annot"><span class="annottext">UpdateModelVersionResponse -&gt; Int
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AhttpStatus%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324096"><span id="local-6989586621679324098"><span class="annot"><span class="annottext">UpdateModelVersionResponse -&gt; UpdateModelVersionResponse -&gt; Bool
+(UpdateModelVersionResponse -&gt; UpdateModelVersionResponse -&gt; Bool)
+-&gt; (UpdateModelVersionResponse
+    -&gt; UpdateModelVersionResponse -&gt; Bool)
+-&gt; Eq UpdateModelVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateModelVersionResponse -&gt; UpdateModelVersionResponse -&gt; Bool
+$c/= :: UpdateModelVersionResponse -&gt; UpdateModelVersionResponse -&gt; Bool
+== :: UpdateModelVersionResponse -&gt; UpdateModelVersionResponse -&gt; Bool
+$c== :: UpdateModelVersionResponse -&gt; UpdateModelVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324088"><span id="local-6989586621679324090"><span id="local-6989586621679324092"><span id="local-6989586621679324094"><span class="annot"><span class="annottext">ReadPrec [UpdateModelVersionResponse]
+ReadPrec UpdateModelVersionResponse
+Int -&gt; ReadS UpdateModelVersionResponse
+ReadS [UpdateModelVersionResponse]
+(Int -&gt; ReadS UpdateModelVersionResponse)
+-&gt; ReadS [UpdateModelVersionResponse]
+-&gt; ReadPrec UpdateModelVersionResponse
+-&gt; ReadPrec [UpdateModelVersionResponse]
+-&gt; Read UpdateModelVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateModelVersionResponse]
+$creadListPrec :: ReadPrec [UpdateModelVersionResponse]
+readPrec :: ReadPrec UpdateModelVersionResponse
+$creadPrec :: ReadPrec UpdateModelVersionResponse
+readList :: ReadS [UpdateModelVersionResponse]
+$creadList :: ReadS [UpdateModelVersionResponse]
+readsPrec :: Int -&gt; ReadS UpdateModelVersionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateModelVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324082"><span id="local-6989586621679324084"><span id="local-6989586621679324086"><span class="annot"><span class="annottext">Int -&gt; UpdateModelVersionResponse -&gt; ShowS
+[UpdateModelVersionResponse] -&gt; ShowS
+UpdateModelVersionResponse -&gt; String
+(Int -&gt; UpdateModelVersionResponse -&gt; ShowS)
+-&gt; (UpdateModelVersionResponse -&gt; String)
+-&gt; ([UpdateModelVersionResponse] -&gt; ShowS)
+-&gt; Show UpdateModelVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateModelVersionResponse] -&gt; ShowS
+$cshowList :: [UpdateModelVersionResponse] -&gt; ShowS
+show :: UpdateModelVersionResponse -&gt; String
+$cshow :: UpdateModelVersionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateModelVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateModelVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateModelVersionResponse -&gt; Rep UpdateModelVersionResponse x)
+-&gt; (forall x.
+    Rep UpdateModelVersionResponse x -&gt; UpdateModelVersionResponse)
+-&gt; Generic UpdateModelVersionResponse
+forall x.
+Rep UpdateModelVersionResponse x -&gt; UpdateModelVersionResponse
+forall x.
+UpdateModelVersionResponse -&gt; Rep UpdateModelVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateModelVersionResponse x -&gt; UpdateModelVersionResponse
+$cfrom :: forall x.
+UpdateModelVersionResponse -&gt; Rep UpdateModelVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Create a value of 'UpdateModelVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'status', 'updateModelVersionResponse_status' - The status of the updated model version.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'modelType', 'updateModelVersionResponse_modelType' - The model type.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'modelId', 'updateModelVersionResponse_modelId' - The model ID.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'modelVersionNumber', 'updateModelVersionResponse_modelVersionNumber' - The model version number of the model version updated.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'httpStatus', 'updateModelVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#newUpdateModelVersionResponse"><span class="hs-identifier hs-type">newUpdateModelVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span>
+</span><span id="line-243"></span><span id="newUpdateModelVersionResponse"><span class="annot"><span class="annottext">newUpdateModelVersionResponse :: Int -&gt; UpdateModelVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#newUpdateModelVersionResponse"><span class="hs-identifier hs-var hs-var">newUpdateModelVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679324079"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324079"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">UpdateModelVersionResponse' :: Maybe Text
+-&gt; Maybe ModelTypeEnum
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateModelVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:UpdateModelVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3Astatus%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelType:UpdateModelVersionResponse' :: Maybe ModelTypeEnum
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelType%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">modelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelId:UpdateModelVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelId%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">modelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelVersionNumber:UpdateModelVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelVersionNumber%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">modelVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateModelVersionResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AhttpStatus%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324079"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The status of the updated model version.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_status"><span class="hs-identifier hs-type">updateModelVersionResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="updateModelVersionResponse_status"><span class="annot"><span class="annottext">updateModelVersionResponse_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateModelVersionResponse -&gt; f UpdateModelVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_status"><span class="hs-identifier hs-var hs-var">updateModelVersionResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersionResponse -&gt; Maybe Text)
+-&gt; (UpdateModelVersionResponse
+    -&gt; Maybe Text -&gt; UpdateModelVersionResponse)
+-&gt; Lens
+     UpdateModelVersionResponse
+     UpdateModelVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324078"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:UpdateModelVersionResponse' :: UpdateModelVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679324078"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324078"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324077"><span class="annot"><span class="annottext">s :: UpdateModelVersionResponse
+</span><a href="#local-6989586621679324077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324076"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersionResponse
+</span><a href="#local-6989586621679324077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateModelVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3Astatus%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The model type.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_modelType"><span class="hs-identifier hs-type">updateModelVersionResponse_modelType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelTypeEnum.html#ModelTypeEnum"><span class="hs-identifier hs-type">ModelTypeEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="updateModelVersionResponse_modelType"><span class="annot"><span class="annottext">updateModelVersionResponse_modelType :: (Maybe ModelTypeEnum -&gt; f (Maybe ModelTypeEnum))
+-&gt; UpdateModelVersionResponse -&gt; f UpdateModelVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_modelType"><span class="hs-identifier hs-var hs-var">updateModelVersionResponse_modelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersionResponse -&gt; Maybe ModelTypeEnum)
+-&gt; (UpdateModelVersionResponse
+    -&gt; Maybe ModelTypeEnum -&gt; UpdateModelVersionResponse)
+-&gt; Lens
+     UpdateModelVersionResponse
+     UpdateModelVersionResponse
+     (Maybe ModelTypeEnum)
+     (Maybe ModelTypeEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324075"><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+modelType :: Maybe ModelTypeEnum
+$sel:modelType:UpdateModelVersionResponse' :: UpdateModelVersionResponse -&gt; Maybe ModelTypeEnum
+</span><a href="#local-6989586621679324075"><span class="hs-identifier hs-var hs-var">modelType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+</span><a href="#local-6989586621679324075"><span class="hs-identifier hs-var">modelType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324074"><span class="annot"><span class="annottext">s :: UpdateModelVersionResponse
+</span><a href="#local-6989586621679324074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324073"><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+</span><a href="#local-6989586621679324073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersionResponse
+</span><a href="#local-6989586621679324074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelType:UpdateModelVersionResponse' :: Maybe ModelTypeEnum
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelType%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">modelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+</span><a href="#local-6989586621679324073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The model ID.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_modelId"><span class="hs-identifier hs-type">updateModelVersionResponse_modelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="updateModelVersionResponse_modelId"><span class="annot"><span class="annottext">updateModelVersionResponse_modelId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateModelVersionResponse -&gt; f UpdateModelVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_modelId"><span class="hs-identifier hs-var hs-var">updateModelVersionResponse_modelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersionResponse -&gt; Maybe Text)
+-&gt; (UpdateModelVersionResponse
+    -&gt; Maybe Text -&gt; UpdateModelVersionResponse)
+-&gt; Lens
+     UpdateModelVersionResponse
+     UpdateModelVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324072"><span class="annot"><span class="annottext">Maybe Text
+modelId :: Maybe Text
+$sel:modelId:UpdateModelVersionResponse' :: UpdateModelVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679324072"><span class="hs-identifier hs-var hs-var">modelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324072"><span class="hs-identifier hs-var">modelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324071"><span class="annot"><span class="annottext">s :: UpdateModelVersionResponse
+</span><a href="#local-6989586621679324071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324070"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersionResponse
+</span><a href="#local-6989586621679324071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelId:UpdateModelVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelId%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">modelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The model version number of the model version updated.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_modelVersionNumber"><span class="hs-identifier hs-type">updateModelVersionResponse_modelVersionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="updateModelVersionResponse_modelVersionNumber"><span class="annot"><span class="annottext">updateModelVersionResponse_modelVersionNumber :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateModelVersionResponse -&gt; f UpdateModelVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_modelVersionNumber"><span class="hs-identifier hs-var hs-var">updateModelVersionResponse_modelVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersionResponse -&gt; Maybe Text)
+-&gt; (UpdateModelVersionResponse
+    -&gt; Maybe Text -&gt; UpdateModelVersionResponse)
+-&gt; Lens
+     UpdateModelVersionResponse
+     UpdateModelVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324069"><span class="annot"><span class="annottext">Maybe Text
+modelVersionNumber :: Maybe Text
+$sel:modelVersionNumber:UpdateModelVersionResponse' :: UpdateModelVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679324069"><span class="hs-identifier hs-var hs-var">modelVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324069"><span class="hs-identifier hs-var">modelVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324068"><span class="annot"><span class="annottext">s :: UpdateModelVersionResponse
+</span><a href="#local-6989586621679324068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersionResponse
+</span><a href="#local-6989586621679324068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelVersionNumber:UpdateModelVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AmodelVersionNumber%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">modelVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_httpStatus"><span class="hs-identifier hs-type">updateModelVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-271"></span><span id="updateModelVersionResponse_httpStatus"><span class="annot"><span class="annottext">updateModelVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateModelVersionResponse -&gt; f UpdateModelVersionResponse
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#updateModelVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateModelVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateModelVersionResponse -&gt; Int)
+-&gt; (UpdateModelVersionResponse
+    -&gt; Int -&gt; UpdateModelVersionResponse)
+-&gt; Lens
+     UpdateModelVersionResponse UpdateModelVersionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324066"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateModelVersionResponse' :: UpdateModelVersionResponse -&gt; Int
+</span><a href="#local-6989586621679324066"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324066"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324065"><span class="annot"><span class="annottext">s :: UpdateModelVersionResponse
+</span><a href="#local-6989586621679324065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse%27"><span class="hs-identifier hs-type">UpdateModelVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324064"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateModelVersionResponse
+</span><a href="#local-6989586621679324065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateModelVersionResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#%24sel%3AhttpStatus%3AUpdateModelVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679324064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.UpdateModelVersion.html#UpdateModelVersionResponse"><span class="hs-identifier hs-type">UpdateModelVersionResponse</span></a></span></span><span>
+</span><span id="line-274"></span></pre></body></html>

@@ -43,12 +43,12 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteDatastore' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679267984"><span id="local-6989586621679267985"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDatastore"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-var">DeleteDatastore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDatastore%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore%27"><span class="hs-identifier hs-var">DeleteDatastore'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679267993"><span id="local-6989586621679267994"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDatastore"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-var">DeleteDatastore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDatastore%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore%27"><span class="hs-identifier hs-var">DeleteDatastore'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the data store to delete.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AdatastoreName%3ADeleteDatastore%27"><span class="annot"><span class="annottext">DeleteDatastore -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#%24sel%3AdatastoreName%3ADeleteDatastore%27"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267978"><span id="local-6989586621679267980"><span class="annot"><span class="annottext">DeleteDatastore -&gt; DeleteDatastore -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267987"><span id="local-6989586621679267989"><span class="annot"><span class="annottext">DeleteDatastore -&gt; DeleteDatastore -&gt; Bool
 (DeleteDatastore -&gt; DeleteDatastore -&gt; Bool)
 -&gt; (DeleteDatastore -&gt; DeleteDatastore -&gt; Bool)
 -&gt; Eq DeleteDatastore
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDatastore -&gt; DeleteDatastore -&gt; Bool
 == :: DeleteDatastore -&gt; DeleteDatastore -&gt; Bool
 $c== :: DeleteDatastore -&gt; DeleteDatastore -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267969"><span id="local-6989586621679267971"><span id="local-6989586621679267973"><span id="local-6989586621679267975"><span class="annot"><span class="annottext">ReadPrec [DeleteDatastore]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267978"><span id="local-6989586621679267980"><span id="local-6989586621679267982"><span id="local-6989586621679267984"><span class="annot"><span class="annottext">ReadPrec [DeleteDatastore]
 ReadPrec DeleteDatastore
 Int -&gt; ReadS DeleteDatastore
 ReadS [DeleteDatastore]
@@ -77,7 +77,7 @@ readList :: ReadS [DeleteDatastore]
 $creadList :: ReadS [DeleteDatastore]
 readsPrec :: Int -&gt; ReadS DeleteDatastore
 $creadsPrec :: Int -&gt; ReadS DeleteDatastore
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267962"><span id="local-6989586621679267964"><span id="local-6989586621679267966"><span class="annot"><span class="annottext">Int -&gt; DeleteDatastore -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267971"><span id="local-6989586621679267973"><span id="local-6989586621679267975"><span class="annot"><span class="annottext">Int -&gt; DeleteDatastore -&gt; ShowS
 [DeleteDatastore] -&gt; ShowS
 DeleteDatastore -&gt; String
 (Int -&gt; DeleteDatastore -&gt; ShowS)
@@ -117,12 +117,12 @@ $cfrom :: forall x. DeleteDatastore -&gt; Rep DeleteDatastore x
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span><span>
 </span><span id="line-65"></span><span id="newDeleteDatastore"><span class="annot"><span class="annottext">newDeleteDatastore :: Text -&gt; DeleteDatastore
-</span><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#newDeleteDatastore"><span class="hs-identifier hs-var hs-var">newDeleteDatastore</span></a></span></span><span> </span><span id="local-6989586621679267957"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267957"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#newDeleteDatastore"><span class="hs-identifier hs-var hs-var">newDeleteDatastore</span></a></span></span><span> </span><span id="local-6989586621679267966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267966"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DeleteDatastore' :: Text -&gt; DeleteDatastore
 </span><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore%27"><span class="hs-identifier hs-type">DeleteDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreName:DeleteDatastore' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#%24sel%3AdatastoreName%3ADeleteDatastore%27"><span class="hs-identifier hs-var">datastoreName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267957"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679267966"><span class="hs-identifier hs-var">pDatastoreName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The name of the data store to delete.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#deleteDatastore_datastoreName"><span class="hs-identifier hs-type">deleteDatastore_datastoreName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -131,27 +131,27 @@ $cfrom :: forall x. DeleteDatastore -&gt; Rep DeleteDatastore x
 -&gt; (DeleteDatastore -&gt; Text -&gt; DeleteDatastore)
 -&gt; Lens DeleteDatastore DeleteDatastore Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore%27"><span class="hs-identifier hs-type">DeleteDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267954"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore%27"><span class="hs-identifier hs-type">DeleteDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267963"><span class="annot"><span class="annottext">Text
 datastoreName :: Text
 $sel:datastoreName:DeleteDatastore' :: DeleteDatastore -&gt; Text
-</span><a href="#local-6989586621679267954"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267954"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267953"><span class="annot"><span class="annottext">s :: DeleteDatastore
-</span><a href="#local-6989586621679267953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore%27"><span class="hs-identifier hs-type">DeleteDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267952"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDatastore
-</span><a href="#local-6989586621679267953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreName:DeleteDatastore' :: Text
+</span><a href="#local-6989586621679267963"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267963"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267962"><span class="annot"><span class="annottext">s :: DeleteDatastore
+</span><a href="#local-6989586621679267962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore%27"><span class="hs-identifier hs-type">DeleteDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDatastore
+</span><a href="#local-6989586621679267962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreName:DeleteDatastore' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#%24sel%3AdatastoreName%3ADeleteDatastore%27"><span class="hs-identifier hs-var">datastoreName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-74"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastoreResponse"><span class="hs-identifier hs-type">DeleteDatastoreResponse</span></a></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679267948"><span class="annot"><span class="annottext">request :: DeleteDatastore -&gt; Request DeleteDatastore
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679267957"><span class="annot"><span class="annottext">request :: DeleteDatastore -&gt; Request DeleteDatastore
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDatastore -&gt; Request DeleteDatastore
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679267944"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679267953"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDatastore
 -&gt; ClientResponse ClientBody
@@ -175,12 +175,12 @@ AWSResponse a
 DeleteDatastoreResponse
 </span><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastoreResponse%27"><span class="hs-identifier hs-var">DeleteDatastoreResponse'</span></a></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267937"><span id="local-6989586621679267939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267946"><span id="local-6989586621679267948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679267930"><span class="annot"><span class="annottext">toHeaders :: DeleteDatastore -&gt; [Header]
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679267939"><span class="annot"><span class="annottext">toHeaders :: DeleteDatastore -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteDatastore -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -188,11 +188,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679267925"><span class="annot"><span class="annottext">toPath :: DeleteDatastore -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore%27"><span class="hs-identifier hs-type">DeleteDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267923"><span class="annot"><span class="annottext">Text
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679267934"><span class="annot"><span class="annottext">toPath :: DeleteDatastore -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore%27"><span class="hs-identifier hs-type">DeleteDatastore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267932"><span class="annot"><span class="annottext">Text
 datastoreName :: Text
 $sel:datastoreName:DeleteDatastore' :: DeleteDatastore -&gt; Text
-</span><a href="#local-6989586621679267923"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679267932"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -200,10 +200,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/datastores/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679267923"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679267932"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastore"><span class="hs-identifier hs-type">DeleteDatastore</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679267919"><span class="annot"><span class="annottext">toQuery :: DeleteDatastore -&gt; QueryString
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679267928"><span class="annot"><span class="annottext">toQuery :: DeleteDatastore -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDatastore -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -211,10 +211,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | /See:/ 'newDeleteDatastoreResponse' smart constructor.</span><span>
-</span><span id="line-96"></span><span id="local-6989586621679267916"><span id="local-6989586621679267917"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDatastoreResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastoreResponse"><span class="hs-identifier hs-var">DeleteDatastoreResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDatastoreResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastoreResponse%27"><span class="hs-identifier hs-var">DeleteDatastoreResponse'</span></a></span></span><span>
+</span><span id="line-96"></span><span id="local-6989586621679267925"><span id="local-6989586621679267926"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDatastoreResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastoreResponse"><span class="hs-identifier hs-var">DeleteDatastoreResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDatastoreResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastoreResponse%27"><span class="hs-identifier hs-var">DeleteDatastoreResponse'</span></a></span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267912"><span id="local-6989586621679267914"><span class="annot"><span class="annottext">DeleteDatastoreResponse -&gt; DeleteDatastoreResponse -&gt; Bool
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267921"><span id="local-6989586621679267923"><span class="annot"><span class="annottext">DeleteDatastoreResponse -&gt; DeleteDatastoreResponse -&gt; Bool
 (DeleteDatastoreResponse -&gt; DeleteDatastoreResponse -&gt; Bool)
 -&gt; (DeleteDatastoreResponse -&gt; DeleteDatastoreResponse -&gt; Bool)
 -&gt; Eq DeleteDatastoreResponse
@@ -223,7 +223,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDatastoreResponse -&gt; DeleteDatastoreResponse -&gt; Bool
 == :: DeleteDatastoreResponse -&gt; DeleteDatastoreResponse -&gt; Bool
 $c== :: DeleteDatastoreResponse -&gt; DeleteDatastoreResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267904"><span id="local-6989586621679267906"><span id="local-6989586621679267908"><span id="local-6989586621679267910"><span class="annot"><span class="annottext">ReadPrec [DeleteDatastoreResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267913"><span id="local-6989586621679267915"><span id="local-6989586621679267917"><span id="local-6989586621679267919"><span class="annot"><span class="annottext">ReadPrec [DeleteDatastoreResponse]
 ReadPrec DeleteDatastoreResponse
 Int -&gt; ReadS DeleteDatastoreResponse
 ReadS [DeleteDatastoreResponse]
@@ -243,7 +243,7 @@ readList :: ReadS [DeleteDatastoreResponse]
 $creadList :: ReadS [DeleteDatastoreResponse]
 readsPrec :: Int -&gt; ReadS DeleteDatastoreResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDatastoreResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267898"><span id="local-6989586621679267900"><span id="local-6989586621679267902"><span class="annot"><span class="annottext">Int -&gt; DeleteDatastoreResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267907"><span id="local-6989586621679267909"><span id="local-6989586621679267911"><span class="annot"><span class="annottext">Int -&gt; DeleteDatastoreResponse -&gt; ShowS
 [DeleteDatastoreResponse] -&gt; ShowS
 DeleteDatastoreResponse -&gt; String
 (Int -&gt; DeleteDatastoreResponse -&gt; ShowS)
@@ -281,5 +281,5 @@ $cfrom :: forall x. DeleteDatastoreResponse -&gt; Rep DeleteDatastoreResponse x
 </span><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#newDeleteDatastoreResponse"><span class="hs-identifier hs-var hs-var">newDeleteDatastoreResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteDatastoreResponse
 </span><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastoreResponse%27"><span class="hs-identifier hs-var">DeleteDatastoreResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastoreResponse"><span class="hs-identifier hs-type">DeleteDatastoreResponse</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDatastore.html#DeleteDatastoreResponse"><span class="hs-identifier hs-type">DeleteDatastoreResponse</span></a></span></span><span>
 </span><span id="line-110"></span></pre></body></html>

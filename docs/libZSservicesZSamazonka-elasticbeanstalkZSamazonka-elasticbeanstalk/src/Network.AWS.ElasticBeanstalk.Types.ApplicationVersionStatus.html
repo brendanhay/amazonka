@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679299197"><span id="local-6989586621679299198"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApplicationVersionStatus"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus.html#ApplicationVersionStatus"><span class="hs-identifier hs-var">ApplicationVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationVersionStatus%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus.html#ApplicationVersionStatus%27"><span class="hs-identifier hs-var">ApplicationVersionStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679299206"><span id="local-6989586621679299207"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApplicationVersionStatus"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus.html#ApplicationVersionStatus"><span class="hs-identifier hs-var">ApplicationVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationVersionStatus%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus.html#ApplicationVersionStatus%27"><span class="hs-identifier hs-var">ApplicationVersionStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApplicationVersionStatus"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus.html#fromApplicationVersionStatus"><span class="hs-identifier hs-var hs-var">fromApplicationVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299189"><span id="local-6989586621679299191"><span id="local-6989586621679299193"><span class="annot"><span class="annottext">Int -&gt; ApplicationVersionStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299198"><span id="local-6989586621679299200"><span id="local-6989586621679299202"><span class="annot"><span class="annottext">Int -&gt; ApplicationVersionStatus -&gt; ShowS
 [ApplicationVersionStatus] -&gt; ShowS
 ApplicationVersionStatus -&gt; String
 (Int -&gt; ApplicationVersionStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ApplicationVersionStatus -&gt; String
 showsPrec :: Int -&gt; ApplicationVersionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApplicationVersionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679299180"><span id="local-6989586621679299182"><span id="local-6989586621679299184"><span id="local-6989586621679299186"><span class="annot"><span class="annottext">ReadPrec [ApplicationVersionStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679299189"><span id="local-6989586621679299191"><span id="local-6989586621679299193"><span id="local-6989586621679299195"><span class="annot"><span class="annottext">ReadPrec [ApplicationVersionStatus]
 ReadPrec ApplicationVersionStatus
 Int -&gt; ReadS ApplicationVersionStatus
 ReadS [ApplicationVersionStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ApplicationVersionStatus]
 readsPrec :: Int -&gt; ReadS ApplicationVersionStatus
 $creadsPrec :: Int -&gt; ReadS ApplicationVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679299175"><span id="local-6989586621679299177"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; ApplicationVersionStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679299184"><span id="local-6989586621679299186"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; ApplicationVersionStatus -&gt; Bool
 (ApplicationVersionStatus -&gt; ApplicationVersionStatus -&gt; Bool)
 -&gt; (ApplicationVersionStatus -&gt; ApplicationVersionStatus -&gt; Bool)
 -&gt; Eq ApplicationVersionStatus
@@ -85,7 +85,7 @@ $c/= :: ApplicationVersionStatus -&gt; ApplicationVersionStatus -&gt; Bool
 == :: ApplicationVersionStatus -&gt; ApplicationVersionStatus -&gt; Bool
 $c== :: ApplicationVersionStatus -&gt; ApplicationVersionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679299159"><span id="local-6989586621679299161"><span id="local-6989586621679299163"><span id="local-6989586621679299165"><span id="local-6989586621679299167"><span id="local-6989586621679299169"><span id="local-6989586621679299171"><span class="annot"><span class="annottext">Eq ApplicationVersionStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679299168"><span id="local-6989586621679299170"><span id="local-6989586621679299172"><span id="local-6989586621679299174"><span id="local-6989586621679299176"><span id="local-6989586621679299178"><span id="local-6989586621679299180"><span class="annot"><span class="annottext">Eq ApplicationVersionStatus
 Eq ApplicationVersionStatus
 -&gt; (ApplicationVersionStatus
     -&gt; ApplicationVersionStatus -&gt; Ordering)
@@ -150,7 +150,7 @@ ApplicationVersionStatus -&gt; Rep ApplicationVersionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299151"><span id="local-6989586621679299153"><span class="annot"><span class="annottext">Int -&gt; ApplicationVersionStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299160"><span id="local-6989586621679299162"><span class="annot"><span class="annottext">Int -&gt; ApplicationVersionStatus -&gt; Int
 ApplicationVersionStatus -&gt; Int
 (Int -&gt; ApplicationVersionStatus -&gt; Int)
 -&gt; (ApplicationVersionStatus -&gt; Int)
@@ -161,55 +161,55 @@ $chash :: ApplicationVersionStatus -&gt; Int
 hashWithSalt :: Int -&gt; ApplicationVersionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ApplicationVersionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299148"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299157"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; ()
 (ApplicationVersionStatus -&gt; ()) -&gt; NFData ApplicationVersionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApplicationVersionStatus -&gt; ()
 $crnf :: ApplicationVersionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299145"><span class="annot"><span class="annottext">Text -&gt; Either String ApplicationVersionStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299154"><span class="annot"><span class="annottext">Text -&gt; Either String ApplicationVersionStatus
 (Text -&gt; Either String ApplicationVersionStatus)
 -&gt; FromText ApplicationVersionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApplicationVersionStatus
 $cfromText :: Text -&gt; Either String ApplicationVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299142"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299151"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; Text
 (ApplicationVersionStatus -&gt; Text)
 -&gt; ToText ApplicationVersionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApplicationVersionStatus -&gt; Text
 $ctoText :: ApplicationVersionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299139"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299148"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; ByteString
 (ApplicationVersionStatus -&gt; ByteString)
 -&gt; ToByteString ApplicationVersionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApplicationVersionStatus -&gt; ByteString
 $ctoBS :: ApplicationVersionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299136"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299145"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; ByteStringBuilder
 (ApplicationVersionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ApplicationVersionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApplicationVersionStatus -&gt; ByteStringBuilder
 $cbuild :: ApplicationVersionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299133"><span class="annot"><span class="annottext">HeaderName -&gt; ApplicationVersionStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299142"><span class="annot"><span class="annottext">HeaderName -&gt; ApplicationVersionStatus -&gt; [Header]
 (HeaderName -&gt; ApplicationVersionStatus -&gt; [Header])
 -&gt; ToHeader ApplicationVersionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApplicationVersionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApplicationVersionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299130"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299139"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; QueryString
 (ApplicationVersionStatus -&gt; QueryString)
 -&gt; ToQuery ApplicationVersionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApplicationVersionStatus -&gt; QueryString
 $ctoQuery :: ApplicationVersionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299125"><span id="local-6989586621679299127"><span class="annot"><span class="annottext">Value -&gt; Parser [ApplicationVersionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299134"><span id="local-6989586621679299136"><span class="annot"><span class="annottext">Value -&gt; Parser [ApplicationVersionStatus]
 Value -&gt; Parser ApplicationVersionStatus
 (Value -&gt; Parser ApplicationVersionStatus)
 -&gt; (Value -&gt; Parser [ApplicationVersionStatus])
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [ApplicationVersionStatus]
 parseJSON :: Value -&gt; Parser ApplicationVersionStatus
 $cparseJSON :: Value -&gt; Parser ApplicationVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299120"><span id="local-6989586621679299122"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApplicationVersionStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299129"><span id="local-6989586621679299131"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApplicationVersionStatus]
 FromJSONKeyFunction ApplicationVersionStatus
 FromJSONKeyFunction ApplicationVersionStatus
 -&gt; FromJSONKeyFunction [ApplicationVersionStatus]
@@ -233,7 +233,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApplicationVersionStatus]
 fromJSONKey :: FromJSONKeyFunction ApplicationVersionStatus
 $cfromJSONKey :: FromJSONKeyFunction ApplicationVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299111"><span id="local-6989586621679299113"><span id="local-6989586621679299115"><span id="local-6989586621679299117"><span class="annot"><span class="annottext">[ApplicationVersionStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299120"><span id="local-6989586621679299122"><span id="local-6989586621679299124"><span id="local-6989586621679299126"><span class="annot"><span class="annottext">[ApplicationVersionStatus] -&gt; Encoding
 [ApplicationVersionStatus] -&gt; Value
 ApplicationVersionStatus -&gt; Encoding
 ApplicationVersionStatus -&gt; Value
@@ -257,7 +257,7 @@ $ctoEncoding :: ApplicationVersionStatus -&gt; Encoding
 toJSON :: ApplicationVersionStatus -&gt; Value
 $ctoJSON :: ApplicationVersionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679299106"><span id="local-6989586621679299108"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApplicationVersionStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679299115"><span id="local-6989586621679299117"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApplicationVersionStatus]
 ToJSONKeyFunction ApplicationVersionStatus
 ToJSONKeyFunction ApplicationVersionStatus
 -&gt; ToJSONKeyFunction [ApplicationVersionStatus]
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApplicationVersionStatus]
 toJSONKey :: ToJSONKeyFunction ApplicationVersionStatus
 $ctoJSONKey :: ToJSONKeyFunction ApplicationVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679299103"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationVersionStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679299112"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationVersionStatus
 ([Node] -&gt; Either String ApplicationVersionStatus)
 -&gt; FromXML ApplicationVersionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApplicationVersionStatus
 $cparseXML :: [Node] -&gt; Either String ApplicationVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679299100"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679299109"><span class="annot"><span class="annottext">ApplicationVersionStatus -&gt; XML
 (ApplicationVersionStatus -&gt; XML) -&gt; ToXML ApplicationVersionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApplicationVersionStatus -&gt; XML

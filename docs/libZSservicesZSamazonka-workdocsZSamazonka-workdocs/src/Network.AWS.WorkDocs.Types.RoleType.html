@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679263215"><span id="local-6989586621679263216"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RoleType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-var">RoleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoleType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.RoleType.html#RoleType%27"><span class="hs-identifier hs-var">RoleType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679263224"><span id="local-6989586621679263225"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RoleType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.RoleType.html#RoleType"><span class="hs-identifier hs-var">RoleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoleType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.RoleType.html#RoleType%27"><span class="hs-identifier hs-var">RoleType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRoleType"><span class="annot"><span class="annottext">RoleType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.RoleType.html#fromRoleType"><span class="hs-identifier hs-var hs-var">fromRoleType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263207"><span id="local-6989586621679263209"><span id="local-6989586621679263211"><span class="annot"><span class="annottext">Int -&gt; RoleType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263216"><span id="local-6989586621679263218"><span id="local-6989586621679263220"><span class="annot"><span class="annottext">Int -&gt; RoleType -&gt; ShowS
 [RoleType] -&gt; ShowS
 RoleType -&gt; String
 (Int -&gt; RoleType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RoleType -&gt; String
 showsPrec :: Int -&gt; RoleType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RoleType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679263198"><span id="local-6989586621679263200"><span id="local-6989586621679263202"><span id="local-6989586621679263204"><span class="annot"><span class="annottext">ReadPrec [RoleType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679263207"><span id="local-6989586621679263209"><span id="local-6989586621679263211"><span id="local-6989586621679263213"><span class="annot"><span class="annottext">ReadPrec [RoleType]
 ReadPrec RoleType
 Int -&gt; ReadS RoleType
 ReadS [RoleType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RoleType]
 readsPrec :: Int -&gt; ReadS RoleType
 $creadsPrec :: Int -&gt; ReadS RoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679263193"><span id="local-6989586621679263195"><span class="annot"><span class="annottext">RoleType -&gt; RoleType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679263202"><span id="local-6989586621679263204"><span class="annot"><span class="annottext">RoleType -&gt; RoleType -&gt; Bool
 (RoleType -&gt; RoleType -&gt; Bool)
 -&gt; (RoleType -&gt; RoleType -&gt; Bool) -&gt; Eq RoleType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: RoleType -&gt; RoleType -&gt; Bool
 == :: RoleType -&gt; RoleType -&gt; Bool
 $c== :: RoleType -&gt; RoleType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679263177"><span id="local-6989586621679263179"><span id="local-6989586621679263181"><span id="local-6989586621679263183"><span id="local-6989586621679263185"><span id="local-6989586621679263187"><span id="local-6989586621679263189"><span class="annot"><span class="annottext">Eq RoleType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679263186"><span id="local-6989586621679263188"><span id="local-6989586621679263190"><span id="local-6989586621679263192"><span id="local-6989586621679263194"><span id="local-6989586621679263196"><span id="local-6989586621679263198"><span class="annot"><span class="annottext">Eq RoleType
 Eq RoleType
 -&gt; (RoleType -&gt; RoleType -&gt; Ordering)
 -&gt; (RoleType -&gt; RoleType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. RoleType -&gt; Rep RoleType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263169"><span id="local-6989586621679263171"><span class="annot"><span class="annottext">Int -&gt; RoleType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263178"><span id="local-6989586621679263180"><span class="annot"><span class="annottext">Int -&gt; RoleType -&gt; Int
 RoleType -&gt; Int
 (Int -&gt; RoleType -&gt; Int) -&gt; (RoleType -&gt; Int) -&gt; Hashable RoleType
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -140,49 +140,49 @@ $chash :: RoleType -&gt; Int
 hashWithSalt :: Int -&gt; RoleType -&gt; Int
 $chashWithSalt :: Int -&gt; RoleType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679263166"><span class="annot"><span class="annottext">RoleType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679263175"><span class="annot"><span class="annottext">RoleType -&gt; ()
 (RoleType -&gt; ()) -&gt; NFData RoleType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RoleType -&gt; ()
 $crnf :: RoleType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679263163"><span class="annot"><span class="annottext">Text -&gt; Either String RoleType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679263172"><span class="annot"><span class="annottext">Text -&gt; Either String RoleType
 (Text -&gt; Either String RoleType) -&gt; FromText RoleType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RoleType
 $cfromText :: Text -&gt; Either String RoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679263160"><span class="annot"><span class="annottext">RoleType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679263169"><span class="annot"><span class="annottext">RoleType -&gt; Text
 (RoleType -&gt; Text) -&gt; ToText RoleType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RoleType -&gt; Text
 $ctoText :: RoleType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679263157"><span class="annot"><span class="annottext">RoleType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679263166"><span class="annot"><span class="annottext">RoleType -&gt; ByteString
 (RoleType -&gt; ByteString) -&gt; ToByteString RoleType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RoleType -&gt; ByteString
 $ctoBS :: RoleType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679263154"><span class="annot"><span class="annottext">RoleType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679263163"><span class="annot"><span class="annottext">RoleType -&gt; ByteStringBuilder
 (RoleType -&gt; ByteStringBuilder) -&gt; ToLog RoleType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RoleType -&gt; ByteStringBuilder
 $cbuild :: RoleType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679263151"><span class="annot"><span class="annottext">HeaderName -&gt; RoleType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679263160"><span class="annot"><span class="annottext">HeaderName -&gt; RoleType -&gt; [Header]
 (HeaderName -&gt; RoleType -&gt; [Header]) -&gt; ToHeader RoleType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RoleType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RoleType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679263148"><span class="annot"><span class="annottext">RoleType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679263157"><span class="annot"><span class="annottext">RoleType -&gt; QueryString
 (RoleType -&gt; QueryString) -&gt; ToQuery RoleType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RoleType -&gt; QueryString
 $ctoQuery :: RoleType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679263143"><span id="local-6989586621679263145"><span class="annot"><span class="annottext">Value -&gt; Parser [RoleType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679263152"><span id="local-6989586621679263154"><span class="annot"><span class="annottext">Value -&gt; Parser [RoleType]
 Value -&gt; Parser RoleType
 (Value -&gt; Parser RoleType)
 -&gt; (Value -&gt; Parser [RoleType]) -&gt; FromJSON RoleType
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [RoleType]
 parseJSON :: Value -&gt; Parser RoleType
 $cparseJSON :: Value -&gt; Parser RoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679263138"><span id="local-6989586621679263140"><span class="annot"><span class="annottext">FromJSONKeyFunction [RoleType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679263147"><span id="local-6989586621679263149"><span class="annot"><span class="annottext">FromJSONKeyFunction [RoleType]
 FromJSONKeyFunction RoleType
 FromJSONKeyFunction RoleType
 -&gt; FromJSONKeyFunction [RoleType] -&gt; FromJSONKey RoleType
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RoleType]
 fromJSONKey :: FromJSONKeyFunction RoleType
 $cfromJSONKey :: FromJSONKeyFunction RoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679263129"><span id="local-6989586621679263131"><span id="local-6989586621679263133"><span id="local-6989586621679263135"><span class="annot"><span class="annottext">[RoleType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679263138"><span id="local-6989586621679263140"><span id="local-6989586621679263142"><span id="local-6989586621679263144"><span class="annot"><span class="annottext">[RoleType] -&gt; Encoding
 [RoleType] -&gt; Value
 RoleType -&gt; Encoding
 RoleType -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: RoleType -&gt; Encoding
 toJSON :: RoleType -&gt; Value
 $ctoJSON :: RoleType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679263124"><span id="local-6989586621679263126"><span class="annot"><span class="annottext">ToJSONKeyFunction [RoleType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679263133"><span id="local-6989586621679263135"><span class="annot"><span class="annottext">ToJSONKeyFunction [RoleType]
 ToJSONKeyFunction RoleType
 ToJSONKeyFunction RoleType
 -&gt; ToJSONKeyFunction [RoleType] -&gt; ToJSONKey RoleType
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RoleType]
 toJSONKey :: ToJSONKeyFunction RoleType
 $ctoJSONKey :: ToJSONKeyFunction RoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679263121"><span class="annot"><span class="annottext">[Node] -&gt; Either String RoleType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679263130"><span class="annot"><span class="annottext">[Node] -&gt; Either String RoleType
 ([Node] -&gt; Either String RoleType) -&gt; FromXML RoleType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RoleType
 $cparseXML :: [Node] -&gt; Either String RoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679263118"><span class="annot"><span class="annottext">RoleType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679263127"><span class="annot"><span class="annottext">RoleType -&gt; XML
 (RoleType -&gt; XML) -&gt; ToXML RoleType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RoleType -&gt; XML

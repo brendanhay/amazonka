@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679600606"><span id="local-6989586621679600607"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Include"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Include.html#Include"><span class="hs-identifier hs-var">Include</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Include%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Include.html#Include%27"><span class="hs-identifier hs-var">Include'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromInclude"><span class="annot"><span class="annottext">Include -&gt; Text
+</span><span id="line-33"></span><span id="local-6989586621679600615"><span id="local-6989586621679600616"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Include"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Include.html#Include"><span class="hs-identifier hs-var">Include</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Include%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Include.html#Include%27"><span class="hs-identifier hs-var">Include'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromInclude"><span class="annot"><span class="annottext">Include -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.Include.html#fromInclude"><span class="hs-identifier hs-var hs-var">fromInclude</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679600598"><span id="local-6989586621679600600"><span id="local-6989586621679600602"><span class="annot"><span class="annottext">Int -&gt; Include -&gt; ShowS
+</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679600607"><span id="local-6989586621679600609"><span id="local-6989586621679600611"><span class="annot"><span class="annottext">Int -&gt; Include -&gt; ShowS
 [Include] -&gt; ShowS
 Include -&gt; String
 (Int -&gt; Include -&gt; ShowS)
@@ -47,7 +47,7 @@ $cshow :: Include -&gt; String
 showsPrec :: Int -&gt; Include -&gt; ShowS
 $cshowsPrec :: Int -&gt; Include -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679600589"><span id="local-6989586621679600591"><span id="local-6989586621679600593"><span id="local-6989586621679600595"><span class="annot"><span class="annottext">ReadPrec [Include]
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679600598"><span id="local-6989586621679600600"><span id="local-6989586621679600602"><span id="local-6989586621679600604"><span class="annot"><span class="annottext">ReadPrec [Include]
 ReadPrec Include
 Int -&gt; ReadS Include
 ReadS [Include]
@@ -68,7 +68,7 @@ $creadList :: ReadS [Include]
 readsPrec :: Int -&gt; ReadS Include
 $creadsPrec :: Int -&gt; ReadS Include
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679600584"><span id="local-6989586621679600586"><span class="annot"><span class="annottext">Include -&gt; Include -&gt; Bool
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679600593"><span id="local-6989586621679600595"><span class="annot"><span class="annottext">Include -&gt; Include -&gt; Bool
 (Include -&gt; Include -&gt; Bool)
 -&gt; (Include -&gt; Include -&gt; Bool) -&gt; Eq Include
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ $c/= :: Include -&gt; Include -&gt; Bool
 == :: Include -&gt; Include -&gt; Bool
 $c== :: Include -&gt; Include -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679600568"><span id="local-6989586621679600570"><span id="local-6989586621679600572"><span id="local-6989586621679600574"><span id="local-6989586621679600576"><span id="local-6989586621679600578"><span id="local-6989586621679600580"><span class="annot"><span class="annottext">Eq Include
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679600577"><span id="local-6989586621679600579"><span id="local-6989586621679600581"><span id="local-6989586621679600583"><span id="local-6989586621679600585"><span id="local-6989586621679600587"><span id="local-6989586621679600589"><span class="annot"><span class="annottext">Eq Include
 Eq Include
 -&gt; (Include -&gt; Include -&gt; Ordering)
 -&gt; (Include -&gt; Include -&gt; Bool)
@@ -127,7 +127,7 @@ $cfrom :: forall x. Include -&gt; Rep Include x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679600560"><span id="local-6989586621679600562"><span class="annot"><span class="annottext">Int -&gt; Include -&gt; Int
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679600569"><span id="local-6989586621679600571"><span class="annot"><span class="annottext">Int -&gt; Include -&gt; Int
 Include -&gt; Int
 (Int -&gt; Include -&gt; Int) -&gt; (Include -&gt; Int) -&gt; Hashable Include
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -136,49 +136,49 @@ $chash :: Include -&gt; Int
 hashWithSalt :: Int -&gt; Include -&gt; Int
 $chashWithSalt :: Int -&gt; Include -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679600557"><span class="annot"><span class="annottext">Include -&gt; ()
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679600566"><span class="annot"><span class="annottext">Include -&gt; ()
 (Include -&gt; ()) -&gt; NFData Include
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Include -&gt; ()
 $crnf :: Include -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679600554"><span class="annot"><span class="annottext">Text -&gt; Either String Include
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679600563"><span class="annot"><span class="annottext">Text -&gt; Either String Include
 (Text -&gt; Either String Include) -&gt; FromText Include
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Include
 $cfromText :: Text -&gt; Either String Include
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679600551"><span class="annot"><span class="annottext">Include -&gt; Text
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679600560"><span class="annot"><span class="annottext">Include -&gt; Text
 (Include -&gt; Text) -&gt; ToText Include
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Include -&gt; Text
 $ctoText :: Include -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679600548"><span class="annot"><span class="annottext">Include -&gt; ByteString
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679600557"><span class="annot"><span class="annottext">Include -&gt; ByteString
 (Include -&gt; ByteString) -&gt; ToByteString Include
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Include -&gt; ByteString
 $ctoBS :: Include -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679600545"><span class="annot"><span class="annottext">Include -&gt; ByteStringBuilder
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679600554"><span class="annot"><span class="annottext">Include -&gt; ByteStringBuilder
 (Include -&gt; ByteStringBuilder) -&gt; ToLog Include
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Include -&gt; ByteStringBuilder
 $cbuild :: Include -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679600542"><span class="annot"><span class="annottext">HeaderName -&gt; Include -&gt; [Header]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679600551"><span class="annot"><span class="annottext">HeaderName -&gt; Include -&gt; [Header]
 (HeaderName -&gt; Include -&gt; [Header]) -&gt; ToHeader Include
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Include -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Include -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679600539"><span class="annot"><span class="annottext">Include -&gt; QueryString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679600548"><span class="annot"><span class="annottext">Include -&gt; QueryString
 (Include -&gt; QueryString) -&gt; ToQuery Include
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Include -&gt; QueryString
 $ctoQuery :: Include -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679600534"><span id="local-6989586621679600536"><span class="annot"><span class="annottext">Value -&gt; Parser [Include]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679600543"><span id="local-6989586621679600545"><span class="annot"><span class="annottext">Value -&gt; Parser [Include]
 Value -&gt; Parser Include
 (Value -&gt; Parser Include)
 -&gt; (Value -&gt; Parser [Include]) -&gt; FromJSON Include
@@ -189,7 +189,7 @@ $cparseJSONList :: Value -&gt; Parser [Include]
 parseJSON :: Value -&gt; Parser Include
 $cparseJSON :: Value -&gt; Parser Include
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679600529"><span id="local-6989586621679600531"><span class="annot"><span class="annottext">FromJSONKeyFunction [Include]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679600538"><span id="local-6989586621679600540"><span class="annot"><span class="annottext">FromJSONKeyFunction [Include]
 FromJSONKeyFunction Include
 FromJSONKeyFunction Include
 -&gt; FromJSONKeyFunction [Include] -&gt; FromJSONKey Include
@@ -200,7 +200,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Include]
 fromJSONKey :: FromJSONKeyFunction Include
 $cfromJSONKey :: FromJSONKeyFunction Include
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679600520"><span id="local-6989586621679600522"><span id="local-6989586621679600524"><span id="local-6989586621679600526"><span class="annot"><span class="annottext">[Include] -&gt; Encoding
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679600529"><span id="local-6989586621679600531"><span id="local-6989586621679600533"><span id="local-6989586621679600535"><span class="annot"><span class="annottext">[Include] -&gt; Encoding
 [Include] -&gt; Value
 Include -&gt; Encoding
 Include -&gt; Value
@@ -224,7 +224,7 @@ $ctoEncoding :: Include -&gt; Encoding
 toJSON :: Include -&gt; Value
 $ctoJSON :: Include -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679600515"><span id="local-6989586621679600517"><span class="annot"><span class="annottext">ToJSONKeyFunction [Include]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679600524"><span id="local-6989586621679600526"><span class="annot"><span class="annottext">ToJSONKeyFunction [Include]
 ToJSONKeyFunction Include
 ToJSONKeyFunction Include
 -&gt; ToJSONKeyFunction [Include] -&gt; ToJSONKey Include
@@ -235,13 +235,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Include]
 toJSONKey :: ToJSONKeyFunction Include
 $ctoJSONKey :: ToJSONKeyFunction Include
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679600512"><span class="annot"><span class="annottext">[Node] -&gt; Either String Include
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679600521"><span class="annot"><span class="annottext">[Node] -&gt; Either String Include
 ([Node] -&gt; Either String Include) -&gt; FromXML Include
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Include
 $cparseXML :: [Node] -&gt; Either String Include
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679600509"><span class="annot"><span class="annottext">Include -&gt; XML
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679600518"><span class="annot"><span class="annottext">Include -&gt; XML
 (Include -&gt; XML) -&gt; ToXML Include
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Include -&gt; XML

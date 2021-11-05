@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentConfigurationUpdate.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.ComponentConfigurationUpdate</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentRunWith.html"><span class="hs-identifier">Network.AWS.GreengrassV2.Types.ComponentRunWith</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains information about a component to deploy.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newComponentDeploymentSpecification' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679233368"><span id="local-6989586621679233369"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComponentDeploymentSpecification"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-var">ComponentDeploymentSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComponentDeploymentSpecification%27"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-var">ComponentDeploymentSpecification'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the component.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcomponentVersion%3AComponentDeploymentSpecification%27"><span class="annot"><span class="annottext">ComponentDeploymentSpecification -&gt; Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#%24sel%3AcomponentVersion%3AComponentDeploymentSpecification%27"><span class="hs-identifier hs-var hs-var">componentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The system user and group that the IoT Greengrass Core software uses to</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- run component processes on the core device. If you omit this parameter,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the IoT Greengrass Core software uses the system user and group that you</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- configure for the core device. For more information, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-user Configure the user and group that run components&gt;</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the /IoT Greengrass V2 Developer Guide/.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3ArunWith%3AComponentDeploymentSpecification%27"><span class="annot"><span class="annottext">ComponentDeploymentSpecification -&gt; Maybe ComponentRunWith
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#%24sel%3ArunWith%3AComponentDeploymentSpecification%27"><span class="hs-identifier hs-var hs-var">runWith</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentRunWith.html#ComponentRunWith"><span class="hs-identifier hs-type">ComponentRunWith</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The configuration updates to deploy for the component. You can define</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- /reset/ updates and /merge/ updates. A reset updates the keys that you</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- specify to the default configuration for the component. A merge updates</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the core device\'s component configuration with the keys and values that</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- you specify. The IoT Greengrass Core software applies reset updates</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- before it applies merge updates. For more information, see</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html Update component configurations&gt;</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- in the /IoT Greengrass V2 Developer Guide/.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AconfigurationUpdate%3AComponentDeploymentSpecification%27"><span class="annot"><span class="annottext">ComponentDeploymentSpecification
+-&gt; Maybe ComponentConfigurationUpdate
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#%24sel%3AconfigurationUpdate%3AComponentDeploymentSpecification%27"><span class="hs-identifier hs-var hs-var">configurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentConfigurationUpdate.html#ComponentConfigurationUpdate"><span class="hs-identifier hs-type">ComponentConfigurationUpdate</span></a></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233360"><span id="local-6989586621679233362"><span class="annot"><span class="annottext">ComponentDeploymentSpecification
+-&gt; ComponentDeploymentSpecification -&gt; Bool
+(ComponentDeploymentSpecification
+ -&gt; ComponentDeploymentSpecification -&gt; Bool)
+-&gt; (ComponentDeploymentSpecification
+    -&gt; ComponentDeploymentSpecification -&gt; Bool)
+-&gt; Eq ComponentDeploymentSpecification
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ComponentDeploymentSpecification
+-&gt; ComponentDeploymentSpecification -&gt; Bool
+$c/= :: ComponentDeploymentSpecification
+-&gt; ComponentDeploymentSpecification -&gt; Bool
+== :: ComponentDeploymentSpecification
+-&gt; ComponentDeploymentSpecification -&gt; Bool
+$c== :: ComponentDeploymentSpecification
+-&gt; ComponentDeploymentSpecification -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233351"><span id="local-6989586621679233353"><span id="local-6989586621679233355"><span id="local-6989586621679233357"><span class="annot"><span class="annottext">ReadPrec [ComponentDeploymentSpecification]
+ReadPrec ComponentDeploymentSpecification
+Int -&gt; ReadS ComponentDeploymentSpecification
+ReadS [ComponentDeploymentSpecification]
+(Int -&gt; ReadS ComponentDeploymentSpecification)
+-&gt; ReadS [ComponentDeploymentSpecification]
+-&gt; ReadPrec ComponentDeploymentSpecification
+-&gt; ReadPrec [ComponentDeploymentSpecification]
+-&gt; Read ComponentDeploymentSpecification
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ComponentDeploymentSpecification]
+$creadListPrec :: ReadPrec [ComponentDeploymentSpecification]
+readPrec :: ReadPrec ComponentDeploymentSpecification
+$creadPrec :: ReadPrec ComponentDeploymentSpecification
+readList :: ReadS [ComponentDeploymentSpecification]
+$creadList :: ReadS [ComponentDeploymentSpecification]
+readsPrec :: Int -&gt; ReadS ComponentDeploymentSpecification
+$creadsPrec :: Int -&gt; ReadS ComponentDeploymentSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233344"><span id="local-6989586621679233346"><span id="local-6989586621679233348"><span class="annot"><span class="annottext">Int -&gt; ComponentDeploymentSpecification -&gt; ShowS
+[ComponentDeploymentSpecification] -&gt; ShowS
+ComponentDeploymentSpecification -&gt; String
+(Int -&gt; ComponentDeploymentSpecification -&gt; ShowS)
+-&gt; (ComponentDeploymentSpecification -&gt; String)
+-&gt; ([ComponentDeploymentSpecification] -&gt; ShowS)
+-&gt; Show ComponentDeploymentSpecification
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ComponentDeploymentSpecification] -&gt; ShowS
+$cshowList :: [ComponentDeploymentSpecification] -&gt; ShowS
+show :: ComponentDeploymentSpecification -&gt; String
+$cshow :: ComponentDeploymentSpecification -&gt; String
+showsPrec :: Int -&gt; ComponentDeploymentSpecification -&gt; ShowS
+$cshowsPrec :: Int -&gt; ComponentDeploymentSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ComponentDeploymentSpecification
+ -&gt; Rep ComponentDeploymentSpecification x)
+-&gt; (forall x.
+    Rep ComponentDeploymentSpecification x
+    -&gt; ComponentDeploymentSpecification)
+-&gt; Generic ComponentDeploymentSpecification
+forall x.
+Rep ComponentDeploymentSpecification x
+-&gt; ComponentDeploymentSpecification
+forall x.
+ComponentDeploymentSpecification
+-&gt; Rep ComponentDeploymentSpecification x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ComponentDeploymentSpecification x
+-&gt; ComponentDeploymentSpecification
+$cfrom :: forall x.
+ComponentDeploymentSpecification
+-&gt; Rep ComponentDeploymentSpecification x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'ComponentDeploymentSpecification' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'componentVersion', 'componentDeploymentSpecification_componentVersion' - The version of the component.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'runWith', 'componentDeploymentSpecification_runWith' - The system user and group that the IoT Greengrass Core software uses to</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- run component processes on the core device. If you omit this parameter,</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- the IoT Greengrass Core software uses the system user and group that you</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- configure for the core device. For more information, see</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-user Configure the user and group that run components&gt;</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- in the /IoT Greengrass V2 Developer Guide/.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'configurationUpdate', 'componentDeploymentSpecification_configurationUpdate' - The configuration updates to deploy for the component. You can define</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- /reset/ updates and /merge/ updates. A reset updates the keys that you</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- specify to the default configuration for the component. A merge updates</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the core device\'s component configuration with the keys and values that</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- you specify. The IoT Greengrass Core software applies reset updates</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- before it applies merge updates. For more information, see</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html Update component configurations&gt;</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- in the /IoT Greengrass V2 Developer Guide/.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#newComponentDeploymentSpecification"><span class="hs-identifier hs-type">newComponentDeploymentSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span><span>
+</span><span id="line-80"></span><span id="newComponentDeploymentSpecification"><span class="annot"><span class="annottext">newComponentDeploymentSpecification :: ComponentDeploymentSpecification
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#newComponentDeploymentSpecification"><span class="hs-identifier hs-var hs-var">newComponentDeploymentSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ComponentDeploymentSpecification' :: Maybe Text
+-&gt; Maybe ComponentRunWith
+-&gt; Maybe ComponentConfigurationUpdate
+-&gt; ComponentDeploymentSpecification
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-type">ComponentDeploymentSpecification'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:componentVersion:ComponentDeploymentSpecification' :: Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#%24sel%3AcomponentVersion%3AComponentDeploymentSpecification%27"><span class="hs-identifier hs-var">componentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:runWith:ComponentDeploymentSpecification' :: Maybe ComponentRunWith
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#%24sel%3ArunWith%3AComponentDeploymentSpecification%27"><span class="hs-identifier hs-var">runWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentRunWith
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationUpdate:ComponentDeploymentSpecification' :: Maybe ComponentConfigurationUpdate
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#%24sel%3AconfigurationUpdate%3AComponentDeploymentSpecification%27"><span class="hs-identifier hs-var">configurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The version of the component.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#componentDeploymentSpecification_componentVersion"><span class="hs-identifier hs-type">componentDeploymentSpecification_componentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="componentDeploymentSpecification_componentVersion"><span class="annot"><span class="annottext">componentDeploymentSpecification_componentVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComponentDeploymentSpecification
+-&gt; f ComponentDeploymentSpecification
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#componentDeploymentSpecification_componentVersion"><span class="hs-identifier hs-var hs-var">componentDeploymentSpecification_componentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentDeploymentSpecification -&gt; Maybe Text)
+-&gt; (ComponentDeploymentSpecification
+    -&gt; Maybe Text -&gt; ComponentDeploymentSpecification)
+-&gt; Lens
+     ComponentDeploymentSpecification
+     ComponentDeploymentSpecification
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-type">ComponentDeploymentSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233335"><span class="annot"><span class="annottext">Maybe Text
+componentVersion :: Maybe Text
+$sel:componentVersion:ComponentDeploymentSpecification' :: ComponentDeploymentSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621679233335"><span class="hs-identifier hs-var hs-var">componentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233335"><span class="hs-identifier hs-var">componentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233334"><span class="annot"><span class="annottext">s :: ComponentDeploymentSpecification
+</span><a href="#local-6989586621679233334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-type">ComponentDeploymentSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentDeploymentSpecification
+</span><a href="#local-6989586621679233334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentVersion:ComponentDeploymentSpecification' :: Maybe Text
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#%24sel%3AcomponentVersion%3AComponentDeploymentSpecification%27"><span class="hs-identifier hs-var">componentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The system user and group that the IoT Greengrass Core software uses to</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- run component processes on the core device. If you omit this parameter,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- the IoT Greengrass Core software uses the system user and group that you</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- configure for the core device. For more information, see</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-user Configure the user and group that run components&gt;</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- in the /IoT Greengrass V2 Developer Guide/.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#componentDeploymentSpecification_runWith"><span class="hs-identifier hs-type">componentDeploymentSpecification_runWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentRunWith.html#ComponentRunWith"><span class="hs-identifier hs-type">ComponentRunWith</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="componentDeploymentSpecification_runWith"><span class="annot"><span class="annottext">componentDeploymentSpecification_runWith :: (Maybe ComponentRunWith -&gt; f (Maybe ComponentRunWith))
+-&gt; ComponentDeploymentSpecification
+-&gt; f ComponentDeploymentSpecification
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#componentDeploymentSpecification_runWith"><span class="hs-identifier hs-var hs-var">componentDeploymentSpecification_runWith</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentDeploymentSpecification -&gt; Maybe ComponentRunWith)
+-&gt; (ComponentDeploymentSpecification
+    -&gt; Maybe ComponentRunWith -&gt; ComponentDeploymentSpecification)
+-&gt; Lens
+     ComponentDeploymentSpecification
+     ComponentDeploymentSpecification
+     (Maybe ComponentRunWith)
+     (Maybe ComponentRunWith)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-type">ComponentDeploymentSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233331"><span class="annot"><span class="annottext">Maybe ComponentRunWith
+runWith :: Maybe ComponentRunWith
+$sel:runWith:ComponentDeploymentSpecification' :: ComponentDeploymentSpecification -&gt; Maybe ComponentRunWith
+</span><a href="#local-6989586621679233331"><span class="hs-identifier hs-var hs-var">runWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentRunWith
+</span><a href="#local-6989586621679233331"><span class="hs-identifier hs-var">runWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233330"><span class="annot"><span class="annottext">s :: ComponentDeploymentSpecification
+</span><a href="#local-6989586621679233330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-type">ComponentDeploymentSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233329"><span class="annot"><span class="annottext">Maybe ComponentRunWith
+</span><a href="#local-6989586621679233329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentDeploymentSpecification
+</span><a href="#local-6989586621679233330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runWith:ComponentDeploymentSpecification' :: Maybe ComponentRunWith
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#%24sel%3ArunWith%3AComponentDeploymentSpecification%27"><span class="hs-identifier hs-var">runWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentRunWith
+</span><a href="#local-6989586621679233329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The configuration updates to deploy for the component. You can define</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- /reset/ updates and /merge/ updates. A reset updates the keys that you</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- specify to the default configuration for the component. A merge updates</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the core device\'s component configuration with the keys and values that</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- you specify. The IoT Greengrass Core software applies reset updates</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- before it applies merge updates. For more information, see</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html Update component configurations&gt;</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- in the /IoT Greengrass V2 Developer Guide/.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#componentDeploymentSpecification_configurationUpdate"><span class="hs-identifier hs-type">componentDeploymentSpecification_configurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentConfigurationUpdate.html#ComponentConfigurationUpdate"><span class="hs-identifier hs-type">ComponentConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="componentDeploymentSpecification_configurationUpdate"><span class="annot"><span class="annottext">componentDeploymentSpecification_configurationUpdate :: (Maybe ComponentConfigurationUpdate
+ -&gt; f (Maybe ComponentConfigurationUpdate))
+-&gt; ComponentDeploymentSpecification
+-&gt; f ComponentDeploymentSpecification
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#componentDeploymentSpecification_configurationUpdate"><span class="hs-identifier hs-var hs-var">componentDeploymentSpecification_configurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentDeploymentSpecification
+ -&gt; Maybe ComponentConfigurationUpdate)
+-&gt; (ComponentDeploymentSpecification
+    -&gt; Maybe ComponentConfigurationUpdate
+    -&gt; ComponentDeploymentSpecification)
+-&gt; Lens
+     ComponentDeploymentSpecification
+     ComponentDeploymentSpecification
+     (Maybe ComponentConfigurationUpdate)
+     (Maybe ComponentConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-type">ComponentDeploymentSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233327"><span class="annot"><span class="annottext">Maybe ComponentConfigurationUpdate
+configurationUpdate :: Maybe ComponentConfigurationUpdate
+$sel:configurationUpdate:ComponentDeploymentSpecification' :: ComponentDeploymentSpecification
+-&gt; Maybe ComponentConfigurationUpdate
+</span><a href="#local-6989586621679233327"><span class="hs-identifier hs-var hs-var">configurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentConfigurationUpdate
+</span><a href="#local-6989586621679233327"><span class="hs-identifier hs-var">configurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233326"><span class="annot"><span class="annottext">s :: ComponentDeploymentSpecification
+</span><a href="#local-6989586621679233326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-type">ComponentDeploymentSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233325"><span class="annot"><span class="annottext">Maybe ComponentConfigurationUpdate
+</span><a href="#local-6989586621679233325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentDeploymentSpecification
+</span><a href="#local-6989586621679233326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationUpdate:ComponentDeploymentSpecification' :: Maybe ComponentConfigurationUpdate
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#%24sel%3AconfigurationUpdate%3AComponentDeploymentSpecification%27"><span class="hs-identifier hs-var">configurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentConfigurationUpdate
+</span><a href="#local-6989586621679233325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679233322"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679233320"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComponentDeploymentSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ComponentDeploymentSpecification)
+-&gt; Value
+-&gt; Parser ComponentDeploymentSpecification
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ComponentDeploymentSpecification&quot;</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233317"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ComponentRunWith
+-&gt; Maybe ComponentConfigurationUpdate
+-&gt; ComponentDeploymentSpecification
+</span><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-var">ComponentDeploymentSpecification'</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ComponentRunWith
+ -&gt; Maybe ComponentConfigurationUpdate
+ -&gt; ComponentDeploymentSpecification)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ComponentRunWith
+      -&gt; Maybe ComponentConfigurationUpdate
+      -&gt; ComponentDeploymentSpecification)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;componentVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ComponentRunWith
+   -&gt; Maybe ComponentConfigurationUpdate
+   -&gt; ComponentDeploymentSpecification)
+-&gt; Parser (Maybe ComponentRunWith)
+-&gt; Parser
+     (Maybe ComponentConfigurationUpdate
+      -&gt; ComponentDeploymentSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComponentRunWith)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;runWith&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ComponentConfigurationUpdate
+   -&gt; ComponentDeploymentSpecification)
+-&gt; Parser (Maybe ComponentConfigurationUpdate)
+-&gt; Parser ComponentDeploymentSpecification
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComponentConfigurationUpdate)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configurationUpdate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679233311"><span id="local-6989586621679233313"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679233308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233300"><span id="local-6989586621679233302"><span id="local-6989586621679233304"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification"><span class="hs-identifier hs-type">ComponentDeploymentSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679233298"><span class="annot"><span class="annottext">toJSON :: ComponentDeploymentSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.ComponentDeploymentSpecification.html#ComponentDeploymentSpecification%27"><span class="hs-identifier hs-type">ComponentDeploymentSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233294"><span id="local-6989586621679233295"><span id="local-6989586621679233296"><span class="annot"><span class="annottext">Maybe Text
+Maybe ComponentConfigurationUpdate
+Maybe ComponentRunWith
+configurationUpdate :: Maybe ComponentConfigurationUpdate
+runWith :: Maybe ComponentRunWith
+componentVersion :: Maybe Text
+$sel:configurationUpdate:ComponentDeploymentSpecification' :: ComponentDeploymentSpecification
+-&gt; Maybe ComponentConfigurationUpdate
+$sel:runWith:ComponentDeploymentSpecification' :: ComponentDeploymentSpecification -&gt; Maybe ComponentRunWith
+$sel:componentVersion:ComponentDeploymentSpecification' :: ComponentDeploymentSpecification -&gt; Maybe Text
+</span><a href="#local-6989586621679233294"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;componentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679233296"><span class="hs-identifier hs-var">componentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;runWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComponentRunWith -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ComponentRunWith -&gt; Pair) -&gt; Maybe ComponentRunWith -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ComponentRunWith
+</span><a href="#local-6989586621679233295"><span class="hs-identifier hs-var">runWith</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComponentConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">(ComponentConfigurationUpdate -&gt; Pair)
+-&gt; Maybe ComponentConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ComponentConfigurationUpdate
+</span><a href="#local-6989586621679233294"><span class="hs-identifier hs-var">configurationUpdate</span></a></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span></pre></body></html>

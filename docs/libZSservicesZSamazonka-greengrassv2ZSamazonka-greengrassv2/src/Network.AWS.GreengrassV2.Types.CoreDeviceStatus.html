@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GreengrassV2.Types.CoreDeviceStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GreengrassV2.Types.CoreDeviceStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus"><span class="hs-identifier">CoreDeviceStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus_HEALTHY"><span class="hs-identifier">CoreDeviceStatus_HEALTHY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus_UNHEALTHY"><span class="hs-identifier">CoreDeviceStatus_UNHEALTHY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679227792"><span id="local-6989586621679227793"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CoreDeviceStatus"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus"><span class="hs-identifier hs-var">CoreDeviceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CoreDeviceStatus%27"><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus%27"><span class="hs-identifier hs-var">CoreDeviceStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCoreDeviceStatus"><span class="annot"><span class="annottext">CoreDeviceStatus -&gt; Text
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#fromCoreDeviceStatus"><span class="hs-identifier hs-var hs-var">fromCoreDeviceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679227784"><span id="local-6989586621679227786"><span id="local-6989586621679227788"><span class="annot"><span class="annottext">Int -&gt; CoreDeviceStatus -&gt; ShowS
+[CoreDeviceStatus] -&gt; ShowS
+CoreDeviceStatus -&gt; String
+(Int -&gt; CoreDeviceStatus -&gt; ShowS)
+-&gt; (CoreDeviceStatus -&gt; String)
+-&gt; ([CoreDeviceStatus] -&gt; ShowS)
+-&gt; Show CoreDeviceStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CoreDeviceStatus] -&gt; ShowS
+$cshowList :: [CoreDeviceStatus] -&gt; ShowS
+show :: CoreDeviceStatus -&gt; String
+$cshow :: CoreDeviceStatus -&gt; String
+showsPrec :: Int -&gt; CoreDeviceStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; CoreDeviceStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679227775"><span id="local-6989586621679227777"><span id="local-6989586621679227779"><span id="local-6989586621679227781"><span class="annot"><span class="annottext">ReadPrec [CoreDeviceStatus]
+ReadPrec CoreDeviceStatus
+Int -&gt; ReadS CoreDeviceStatus
+ReadS [CoreDeviceStatus]
+(Int -&gt; ReadS CoreDeviceStatus)
+-&gt; ReadS [CoreDeviceStatus]
+-&gt; ReadPrec CoreDeviceStatus
+-&gt; ReadPrec [CoreDeviceStatus]
+-&gt; Read CoreDeviceStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CoreDeviceStatus]
+$creadListPrec :: ReadPrec [CoreDeviceStatus]
+readPrec :: ReadPrec CoreDeviceStatus
+$creadPrec :: ReadPrec CoreDeviceStatus
+readList :: ReadS [CoreDeviceStatus]
+$creadList :: ReadS [CoreDeviceStatus]
+readsPrec :: Int -&gt; ReadS CoreDeviceStatus
+$creadsPrec :: Int -&gt; ReadS CoreDeviceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679227770"><span id="local-6989586621679227772"><span class="annot"><span class="annottext">CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+(CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool)
+-&gt; (CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool)
+-&gt; Eq CoreDeviceStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+$c/= :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+== :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+$c== :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679227754"><span id="local-6989586621679227756"><span id="local-6989586621679227758"><span id="local-6989586621679227760"><span id="local-6989586621679227762"><span id="local-6989586621679227764"><span id="local-6989586621679227766"><span class="annot"><span class="annottext">Eq CoreDeviceStatus
+Eq CoreDeviceStatus
+-&gt; (CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Ordering)
+-&gt; (CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool)
+-&gt; (CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool)
+-&gt; (CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool)
+-&gt; (CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool)
+-&gt; (CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; CoreDeviceStatus)
+-&gt; (CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; CoreDeviceStatus)
+-&gt; Ord CoreDeviceStatus
+CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Ordering
+CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; CoreDeviceStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; CoreDeviceStatus
+$cmin :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; CoreDeviceStatus
+max :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; CoreDeviceStatus
+$cmax :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; CoreDeviceStatus
+&gt;= :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+$c&gt;= :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+&gt; :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+$c&gt; :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+&lt;= :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+$c&lt;= :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+&lt; :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+$c&lt; :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Bool
+compare :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Ordering
+$ccompare :: CoreDeviceStatus -&gt; CoreDeviceStatus -&gt; Ordering
+$cp1Ord :: Eq CoreDeviceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CoreDeviceStatus -&gt; Rep CoreDeviceStatus x)
+-&gt; (forall x. Rep CoreDeviceStatus x -&gt; CoreDeviceStatus)
+-&gt; Generic CoreDeviceStatus
+forall x. Rep CoreDeviceStatus x -&gt; CoreDeviceStatus
+forall x. CoreDeviceStatus -&gt; Rep CoreDeviceStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CoreDeviceStatus x -&gt; CoreDeviceStatus
+$cfrom :: forall x. CoreDeviceStatus -&gt; Rep CoreDeviceStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679227746"><span id="local-6989586621679227748"><span class="annot"><span class="annottext">Int -&gt; CoreDeviceStatus -&gt; Int
+CoreDeviceStatus -&gt; Int
+(Int -&gt; CoreDeviceStatus -&gt; Int)
+-&gt; (CoreDeviceStatus -&gt; Int) -&gt; Hashable CoreDeviceStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CoreDeviceStatus -&gt; Int
+$chash :: CoreDeviceStatus -&gt; Int
+hashWithSalt :: Int -&gt; CoreDeviceStatus -&gt; Int
+$chashWithSalt :: Int -&gt; CoreDeviceStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679227743"><span class="annot"><span class="annottext">CoreDeviceStatus -&gt; ()
+(CoreDeviceStatus -&gt; ()) -&gt; NFData CoreDeviceStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CoreDeviceStatus -&gt; ()
+$crnf :: CoreDeviceStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679227740"><span class="annot"><span class="annottext">Text -&gt; Either String CoreDeviceStatus
+(Text -&gt; Either String CoreDeviceStatus)
+-&gt; FromText CoreDeviceStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CoreDeviceStatus
+$cfromText :: Text -&gt; Either String CoreDeviceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679227737"><span class="annot"><span class="annottext">CoreDeviceStatus -&gt; Text
+(CoreDeviceStatus -&gt; Text) -&gt; ToText CoreDeviceStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CoreDeviceStatus -&gt; Text
+$ctoText :: CoreDeviceStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679227734"><span class="annot"><span class="annottext">CoreDeviceStatus -&gt; ByteString
+(CoreDeviceStatus -&gt; ByteString) -&gt; ToByteString CoreDeviceStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CoreDeviceStatus -&gt; ByteString
+$ctoBS :: CoreDeviceStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679227731"><span class="annot"><span class="annottext">CoreDeviceStatus -&gt; ByteStringBuilder
+(CoreDeviceStatus -&gt; ByteStringBuilder) -&gt; ToLog CoreDeviceStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CoreDeviceStatus -&gt; ByteStringBuilder
+$cbuild :: CoreDeviceStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679227728"><span class="annot"><span class="annottext">HeaderName -&gt; CoreDeviceStatus -&gt; [Header]
+(HeaderName -&gt; CoreDeviceStatus -&gt; [Header])
+-&gt; ToHeader CoreDeviceStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CoreDeviceStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CoreDeviceStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679227725"><span class="annot"><span class="annottext">CoreDeviceStatus -&gt; QueryString
+(CoreDeviceStatus -&gt; QueryString) -&gt; ToQuery CoreDeviceStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CoreDeviceStatus -&gt; QueryString
+$ctoQuery :: CoreDeviceStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679227720"><span id="local-6989586621679227722"><span class="annot"><span class="annottext">Value -&gt; Parser [CoreDeviceStatus]
+Value -&gt; Parser CoreDeviceStatus
+(Value -&gt; Parser CoreDeviceStatus)
+-&gt; (Value -&gt; Parser [CoreDeviceStatus])
+-&gt; FromJSON CoreDeviceStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CoreDeviceStatus]
+$cparseJSONList :: Value -&gt; Parser [CoreDeviceStatus]
+parseJSON :: Value -&gt; Parser CoreDeviceStatus
+$cparseJSON :: Value -&gt; Parser CoreDeviceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679227715"><span id="local-6989586621679227717"><span class="annot"><span class="annottext">FromJSONKeyFunction [CoreDeviceStatus]
+FromJSONKeyFunction CoreDeviceStatus
+FromJSONKeyFunction CoreDeviceStatus
+-&gt; FromJSONKeyFunction [CoreDeviceStatus]
+-&gt; FromJSONKey CoreDeviceStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CoreDeviceStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [CoreDeviceStatus]
+fromJSONKey :: FromJSONKeyFunction CoreDeviceStatus
+$cfromJSONKey :: FromJSONKeyFunction CoreDeviceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679227706"><span id="local-6989586621679227708"><span id="local-6989586621679227710"><span id="local-6989586621679227712"><span class="annot"><span class="annottext">[CoreDeviceStatus] -&gt; Encoding
+[CoreDeviceStatus] -&gt; Value
+CoreDeviceStatus -&gt; Encoding
+CoreDeviceStatus -&gt; Value
+(CoreDeviceStatus -&gt; Value)
+-&gt; (CoreDeviceStatus -&gt; Encoding)
+-&gt; ([CoreDeviceStatus] -&gt; Value)
+-&gt; ([CoreDeviceStatus] -&gt; Encoding)
+-&gt; ToJSON CoreDeviceStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CoreDeviceStatus] -&gt; Encoding
+$ctoEncodingList :: [CoreDeviceStatus] -&gt; Encoding
+toJSONList :: [CoreDeviceStatus] -&gt; Value
+$ctoJSONList :: [CoreDeviceStatus] -&gt; Value
+toEncoding :: CoreDeviceStatus -&gt; Encoding
+$ctoEncoding :: CoreDeviceStatus -&gt; Encoding
+toJSON :: CoreDeviceStatus -&gt; Value
+$ctoJSON :: CoreDeviceStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679227701"><span id="local-6989586621679227703"><span class="annot"><span class="annottext">ToJSONKeyFunction [CoreDeviceStatus]
+ToJSONKeyFunction CoreDeviceStatus
+ToJSONKeyFunction CoreDeviceStatus
+-&gt; ToJSONKeyFunction [CoreDeviceStatus]
+-&gt; ToJSONKey CoreDeviceStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CoreDeviceStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [CoreDeviceStatus]
+toJSONKey :: ToJSONKeyFunction CoreDeviceStatus
+$ctoJSONKey :: ToJSONKeyFunction CoreDeviceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679227698"><span class="annot"><span class="annottext">[Node] -&gt; Either String CoreDeviceStatus
+([Node] -&gt; Either String CoreDeviceStatus)
+-&gt; FromXML CoreDeviceStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CoreDeviceStatus
+$cparseXML :: [Node] -&gt; Either String CoreDeviceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679227695"><span class="annot"><span class="annottext">CoreDeviceStatus -&gt; XML
+(CoreDeviceStatus -&gt; XML) -&gt; ToXML CoreDeviceStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CoreDeviceStatus -&gt; XML
+$ctoXML :: CoreDeviceStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus_HEALTHY"><span class="hs-identifier hs-type">CoreDeviceStatus_HEALTHY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus"><span class="hs-identifier hs-type">CoreDeviceStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCoreDeviceStatus_HEALTHY"><span id="%24mCoreDeviceStatus_HEALTHY"><span id="CoreDeviceStatus_HEALTHY"><span class="annot"><span class="annottext">$bCoreDeviceStatus_HEALTHY :: CoreDeviceStatus
+$mCoreDeviceStatus_HEALTHY :: forall r. CoreDeviceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#%24bCoreDeviceStatus_HEALTHY"><span class="hs-identifier hs-var hs-var hs-var">CoreDeviceStatus_HEALTHY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus%27"><span class="hs-identifier hs-type">CoreDeviceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEALTHY&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus_UNHEALTHY"><span class="hs-identifier hs-type">CoreDeviceStatus_UNHEALTHY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus"><span class="hs-identifier hs-type">CoreDeviceStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCoreDeviceStatus_UNHEALTHY"><span id="%24mCoreDeviceStatus_UNHEALTHY"><span id="CoreDeviceStatus_UNHEALTHY"><span class="annot"><span class="annottext">$bCoreDeviceStatus_UNHEALTHY :: CoreDeviceStatus
+$mCoreDeviceStatus_UNHEALTHY :: forall r. CoreDeviceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#%24bCoreDeviceStatus_UNHEALTHY"><span class="hs-identifier hs-var hs-var hs-var">CoreDeviceStatus_UNHEALTHY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus%27"><span class="hs-identifier hs-type">CoreDeviceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNHEALTHY&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus_HEALTHY"><span class="hs-pragma hs-type">CoreDeviceStatus_HEALTHY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus_UNHEALTHY"><span class="hs-pragma hs-type">CoreDeviceStatus_UNHEALTHY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.GreengrassV2.Types.CoreDeviceStatus.html#CoreDeviceStatus%27"><span class="hs-pragma hs-type">CoreDeviceStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

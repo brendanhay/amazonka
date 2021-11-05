@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CustomerProfiles.Types.SourceConnectorProperties</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.SourceConnectorProperties</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MarketoSourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.MarketoSourceProperties</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3SourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.S3SourceProperties</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Specifies the information that is required to query a particular Amazon</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- AppFlow connector. Customer Profiles supports Salesforce, Zendesk,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Marketo, ServiceNow and Amazon S3.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newSourceConnectorProperties' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679271756"><span id="local-6989586621679271757"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceConnectorProperties"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-var">SourceConnectorProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceConnectorProperties%27"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-var">SourceConnectorProperties'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The properties that are applied when ServiceNow is being used as a</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AserviceNow%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe ServiceNowSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3AserviceNow%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">serviceNow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties.html#ServiceNowSourceProperties"><span class="hs-identifier hs-type">ServiceNowSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The properties that are applied when Marketo is being used as a source.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Amarketo%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe MarketoSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3Amarketo%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">marketo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MarketoSourceProperties.html#MarketoSourceProperties"><span class="hs-identifier hs-type">MarketoSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The properties that are applied when Salesforce is being used as a</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Asalesforce%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe SalesforceSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3Asalesforce%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">salesforce</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties.html#SalesforceSourceProperties"><span class="hs-identifier hs-type">SalesforceSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The properties that are applied when using Zendesk as a flow source.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Azendesk%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe ZendeskSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3Azendesk%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">zendesk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties.html#ZendeskSourceProperties"><span class="hs-identifier hs-type">ZendeskSourceProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The properties that are applied when Amazon S3 is being used as the flow</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3As3%3ASourceConnectorProperties%27"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; Maybe S3SourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3As3%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3SourceProperties.html#S3SourceProperties"><span class="hs-identifier hs-type">S3SourceProperties</span></a></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271746"><span id="local-6989586621679271748"><span class="annot"><span class="annottext">SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+(SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool)
+-&gt; (SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool)
+-&gt; Eq SourceConnectorProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+$c/= :: SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+== :: SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+$c== :: SourceConnectorProperties -&gt; SourceConnectorProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271737"><span id="local-6989586621679271739"><span id="local-6989586621679271741"><span id="local-6989586621679271743"><span class="annot"><span class="annottext">ReadPrec [SourceConnectorProperties]
+ReadPrec SourceConnectorProperties
+Int -&gt; ReadS SourceConnectorProperties
+ReadS [SourceConnectorProperties]
+(Int -&gt; ReadS SourceConnectorProperties)
+-&gt; ReadS [SourceConnectorProperties]
+-&gt; ReadPrec SourceConnectorProperties
+-&gt; ReadPrec [SourceConnectorProperties]
+-&gt; Read SourceConnectorProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SourceConnectorProperties]
+$creadListPrec :: ReadPrec [SourceConnectorProperties]
+readPrec :: ReadPrec SourceConnectorProperties
+$creadPrec :: ReadPrec SourceConnectorProperties
+readList :: ReadS [SourceConnectorProperties]
+$creadList :: ReadS [SourceConnectorProperties]
+readsPrec :: Int -&gt; ReadS SourceConnectorProperties
+$creadsPrec :: Int -&gt; ReadS SourceConnectorProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271730"><span id="local-6989586621679271732"><span id="local-6989586621679271734"><span class="annot"><span class="annottext">Int -&gt; SourceConnectorProperties -&gt; ShowS
+[SourceConnectorProperties] -&gt; ShowS
+SourceConnectorProperties -&gt; String
+(Int -&gt; SourceConnectorProperties -&gt; ShowS)
+-&gt; (SourceConnectorProperties -&gt; String)
+-&gt; ([SourceConnectorProperties] -&gt; ShowS)
+-&gt; Show SourceConnectorProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SourceConnectorProperties] -&gt; ShowS
+$cshowList :: [SourceConnectorProperties] -&gt; ShowS
+show :: SourceConnectorProperties -&gt; String
+$cshow :: SourceConnectorProperties -&gt; String
+showsPrec :: Int -&gt; SourceConnectorProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; SourceConnectorProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SourceConnectorProperties -&gt; Rep SourceConnectorProperties x)
+-&gt; (forall x.
+    Rep SourceConnectorProperties x -&gt; SourceConnectorProperties)
+-&gt; Generic SourceConnectorProperties
+forall x.
+Rep SourceConnectorProperties x -&gt; SourceConnectorProperties
+forall x.
+SourceConnectorProperties -&gt; Rep SourceConnectorProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SourceConnectorProperties x -&gt; SourceConnectorProperties
+$cfrom :: forall x.
+SourceConnectorProperties -&gt; Rep SourceConnectorProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'SourceConnectorProperties' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'serviceNow', 'sourceConnectorProperties_serviceNow' - The properties that are applied when ServiceNow is being used as a</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'marketo', 'sourceConnectorProperties_marketo' - The properties that are applied when Marketo is being used as a source.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'salesforce', 'sourceConnectorProperties_salesforce' - The properties that are applied when Salesforce is being used as a</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'zendesk', 'sourceConnectorProperties_zendesk' - The properties that are applied when using Zendesk as a flow source.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 's3', 'sourceConnectorProperties_s3' - The properties that are applied when Amazon S3 is being used as the flow</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#newSourceConnectorProperties"><span class="hs-identifier hs-type">newSourceConnectorProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span>
+</span><span id="line-75"></span><span id="newSourceConnectorProperties"><span class="annot"><span class="annottext">newSourceConnectorProperties :: SourceConnectorProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#newSourceConnectorProperties"><span class="hs-identifier hs-var hs-var">newSourceConnectorProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">SourceConnectorProperties' :: Maybe ServiceNowSourceProperties
+-&gt; Maybe MarketoSourceProperties
+-&gt; Maybe SalesforceSourceProperties
+-&gt; Maybe ZendeskSourceProperties
+-&gt; Maybe S3SourceProperties
+-&gt; SourceConnectorProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceNow:SourceConnectorProperties' :: Maybe ServiceNowSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3AserviceNow%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">serviceNow</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:marketo:SourceConnectorProperties' :: Maybe MarketoSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3Amarketo%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">marketo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:salesforce:SourceConnectorProperties' :: Maybe SalesforceSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3Asalesforce%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">salesforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:zendesk:SourceConnectorProperties' :: Maybe ZendeskSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3Azendesk%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">zendesk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3:SourceConnectorProperties' :: Maybe S3SourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3As3%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3SourceProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The properties that are applied when ServiceNow is being used as a</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_serviceNow"><span class="hs-identifier hs-type">sourceConnectorProperties_serviceNow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties.html#ServiceNowSourceProperties"><span class="hs-identifier hs-type">ServiceNowSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="sourceConnectorProperties_serviceNow"><span class="annot"><span class="annottext">sourceConnectorProperties_serviceNow :: (Maybe ServiceNowSourceProperties
+ -&gt; f (Maybe ServiceNowSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_serviceNow"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_serviceNow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe ServiceNowSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe ServiceNowSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe ServiceNowSourceProperties)
+     (Maybe ServiceNowSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271721"><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+serviceNow :: Maybe ServiceNowSourceProperties
+$sel:serviceNow:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679271721"><span class="hs-identifier hs-var hs-var">serviceNow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679271721"><span class="hs-identifier hs-var">serviceNow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271720"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679271720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271719"><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679271719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679271720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNow:SourceConnectorProperties' :: Maybe ServiceNowSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3AserviceNow%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">serviceNow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679271719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The properties that are applied when Marketo is being used as a source.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_marketo"><span class="hs-identifier hs-type">sourceConnectorProperties_marketo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.MarketoSourceProperties.html#MarketoSourceProperties"><span class="hs-identifier hs-type">MarketoSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="sourceConnectorProperties_marketo"><span class="annot"><span class="annottext">sourceConnectorProperties_marketo :: (Maybe MarketoSourceProperties
+ -&gt; f (Maybe MarketoSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_marketo"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_marketo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe MarketoSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe MarketoSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe MarketoSourceProperties)
+     (Maybe MarketoSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271717"><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+marketo :: Maybe MarketoSourceProperties
+$sel:marketo:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679271717"><span class="hs-identifier hs-var hs-var">marketo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679271717"><span class="hs-identifier hs-var">marketo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271716"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679271716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271715"><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679271715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679271716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marketo:SourceConnectorProperties' :: Maybe MarketoSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3Amarketo%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">marketo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679271715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The properties that are applied when Salesforce is being used as a</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_salesforce"><span class="hs-identifier hs-type">sourceConnectorProperties_salesforce</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties.html#SalesforceSourceProperties"><span class="hs-identifier hs-type">SalesforceSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="sourceConnectorProperties_salesforce"><span class="annot"><span class="annottext">sourceConnectorProperties_salesforce :: (Maybe SalesforceSourceProperties
+ -&gt; f (Maybe SalesforceSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_salesforce"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_salesforce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe SalesforceSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe SalesforceSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe SalesforceSourceProperties)
+     (Maybe SalesforceSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271713"><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+salesforce :: Maybe SalesforceSourceProperties
+$sel:salesforce:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679271713"><span class="hs-identifier hs-var hs-var">salesforce</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679271713"><span class="hs-identifier hs-var">salesforce</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271712"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679271712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271711"><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679271711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679271712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:salesforce:SourceConnectorProperties' :: Maybe SalesforceSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3Asalesforce%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">salesforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679271711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The properties that are applied when using Zendesk as a flow source.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_zendesk"><span class="hs-identifier hs-type">sourceConnectorProperties_zendesk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties.html#ZendeskSourceProperties"><span class="hs-identifier hs-type">ZendeskSourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="sourceConnectorProperties_zendesk"><span class="annot"><span class="annottext">sourceConnectorProperties_zendesk :: (Maybe ZendeskSourceProperties
+ -&gt; f (Maybe ZendeskSourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_zendesk"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_zendesk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe ZendeskSourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe ZendeskSourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe ZendeskSourceProperties)
+     (Maybe ZendeskSourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271709"><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+zendesk :: Maybe ZendeskSourceProperties
+$sel:zendesk:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679271709"><span class="hs-identifier hs-var hs-var">zendesk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679271709"><span class="hs-identifier hs-var">zendesk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271708"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679271708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271707"><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679271707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679271708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zendesk:SourceConnectorProperties' :: Maybe ZendeskSourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3Azendesk%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">zendesk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679271707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The properties that are applied when Amazon S3 is being used as the flow</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_s3"><span class="hs-identifier hs-type">sourceConnectorProperties_s3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.S3SourceProperties.html#S3SourceProperties"><span class="hs-identifier hs-type">S3SourceProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="sourceConnectorProperties_s3"><span class="annot"><span class="annottext">sourceConnectorProperties_s3 :: (Maybe S3SourceProperties -&gt; f (Maybe S3SourceProperties))
+-&gt; SourceConnectorProperties -&gt; f SourceConnectorProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#sourceConnectorProperties_s3"><span class="hs-identifier hs-var hs-var">sourceConnectorProperties_s3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConnectorProperties -&gt; Maybe S3SourceProperties)
+-&gt; (SourceConnectorProperties
+    -&gt; Maybe S3SourceProperties -&gt; SourceConnectorProperties)
+-&gt; Lens
+     SourceConnectorProperties
+     SourceConnectorProperties
+     (Maybe S3SourceProperties)
+     (Maybe S3SourceProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271705"><span class="annot"><span class="annottext">Maybe S3SourceProperties
+s3 :: Maybe S3SourceProperties
+$sel:s3:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe S3SourceProperties
+</span><a href="#local-6989586621679271705"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3SourceProperties
+</span><a href="#local-6989586621679271705"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271704"><span class="annot"><span class="annottext">s :: SourceConnectorProperties
+</span><a href="#local-6989586621679271704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271703"><span class="annot"><span class="annottext">Maybe S3SourceProperties
+</span><a href="#local-6989586621679271703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConnectorProperties
+</span><a href="#local-6989586621679271704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:SourceConnectorProperties' :: Maybe S3SourceProperties
+</span><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#%24sel%3As3%3ASourceConnectorProperties%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3SourceProperties
+</span><a href="#local-6989586621679271703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271699"><span id="local-6989586621679271701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271688"><span id="local-6989586621679271690"><span id="local-6989586621679271692"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties"><span class="hs-identifier hs-type">SourceConnectorProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679271686"><span class="annot"><span class="annottext">toJSON :: SourceConnectorProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.SourceConnectorProperties.html#SourceConnectorProperties%27"><span class="hs-identifier hs-type">SourceConnectorProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271680"><span id="local-6989586621679271681"><span id="local-6989586621679271682"><span id="local-6989586621679271683"><span id="local-6989586621679271684"><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+Maybe S3SourceProperties
+Maybe SalesforceSourceProperties
+Maybe ServiceNowSourceProperties
+Maybe ZendeskSourceProperties
+s3 :: Maybe S3SourceProperties
+zendesk :: Maybe ZendeskSourceProperties
+salesforce :: Maybe SalesforceSourceProperties
+marketo :: Maybe MarketoSourceProperties
+serviceNow :: Maybe ServiceNowSourceProperties
+$sel:s3:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe S3SourceProperties
+$sel:zendesk:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe ZendeskSourceProperties
+$sel:salesforce:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe SalesforceSourceProperties
+$sel:marketo:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe MarketoSourceProperties
+$sel:serviceNow:SourceConnectorProperties' :: SourceConnectorProperties -&gt; Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679271680"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceNow&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceNowSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ServiceNowSourceProperties -&gt; Pair)
+-&gt; Maybe ServiceNowSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ServiceNowSourceProperties
+</span><a href="#local-6989586621679271684"><span class="hs-identifier hs-var">serviceNow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marketo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MarketoSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MarketoSourceProperties -&gt; Pair)
+-&gt; Maybe MarketoSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MarketoSourceProperties
+</span><a href="#local-6989586621679271683"><span class="hs-identifier hs-var">marketo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Salesforce&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SalesforceSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SalesforceSourceProperties -&gt; Pair)
+-&gt; Maybe SalesforceSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceSourceProperties
+</span><a href="#local-6989586621679271682"><span class="hs-identifier hs-var">salesforce</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Zendesk&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ZendeskSourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ZendeskSourceProperties -&gt; Pair)
+-&gt; Maybe ZendeskSourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ZendeskSourceProperties
+</span><a href="#local-6989586621679271681"><span class="hs-identifier hs-var">zendesk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3SourceProperties -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3SourceProperties -&gt; Pair)
+-&gt; Maybe S3SourceProperties -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3SourceProperties
+</span><a href="#local-6989586621679271680"><span class="hs-identifier hs-var">s3</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span></pre></body></html>

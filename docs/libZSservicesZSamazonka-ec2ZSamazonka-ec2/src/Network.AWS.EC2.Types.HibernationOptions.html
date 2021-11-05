@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon EC2 User Guide/.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newHibernationOptions' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621681111066"><span id="local-6989586621681111067"></span></span><span class="hs-keyword">data</span><span> </span><span id="HibernationOptions"><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions"><span class="hs-identifier hs-var">HibernationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HibernationOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions%27"><span class="hs-identifier hs-var">HibernationOptions'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681111075"><span id="local-6989586621681111076"></span></span><span class="hs-keyword">data</span><span> </span><span id="HibernationOptions"><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions"><span class="hs-identifier hs-var">HibernationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HibernationOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions%27"><span class="hs-identifier hs-var">HibernationOptions'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If this parameter is set to @true@, your instance is enabled for</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- hibernation; otherwise, it is not enabled for hibernation.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aconfigured%3AHibernationOptions%27"><span class="annot"><span class="annottext">HibernationOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.Types.HibernationOptions.html#%24sel%3Aconfigured%3AHibernationOptions%27"><span class="hs-identifier hs-var hs-var">configured</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681111060"><span id="local-6989586621681111062"><span class="annot"><span class="annottext">HibernationOptions -&gt; HibernationOptions -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681111069"><span id="local-6989586621681111071"><span class="annot"><span class="annottext">HibernationOptions -&gt; HibernationOptions -&gt; Bool
 (HibernationOptions -&gt; HibernationOptions -&gt; Bool)
 -&gt; (HibernationOptions -&gt; HibernationOptions -&gt; Bool)
 -&gt; Eq HibernationOptions
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HibernationOptions -&gt; HibernationOptions -&gt; Bool
 == :: HibernationOptions -&gt; HibernationOptions -&gt; Bool
 $c== :: HibernationOptions -&gt; HibernationOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681111051"><span id="local-6989586621681111053"><span id="local-6989586621681111055"><span id="local-6989586621681111057"><span class="annot"><span class="annottext">ReadPrec [HibernationOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681111060"><span id="local-6989586621681111062"><span id="local-6989586621681111064"><span id="local-6989586621681111066"><span class="annot"><span class="annottext">ReadPrec [HibernationOptions]
 ReadPrec HibernationOptions
 Int -&gt; ReadS HibernationOptions
 ReadS [HibernationOptions]
@@ -67,7 +67,7 @@ readList :: ReadS [HibernationOptions]
 $creadList :: ReadS [HibernationOptions]
 readsPrec :: Int -&gt; ReadS HibernationOptions
 $creadsPrec :: Int -&gt; ReadS HibernationOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681111044"><span id="local-6989586621681111046"><span id="local-6989586621681111048"><span class="annot"><span class="annottext">Int -&gt; HibernationOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681111053"><span id="local-6989586621681111055"><span id="local-6989586621681111057"><span class="annot"><span class="annottext">Int -&gt; HibernationOptions -&gt; ShowS
 [HibernationOptions] -&gt; ShowS
 HibernationOptions -&gt; String
 (Int -&gt; HibernationOptions -&gt; ShowS)
@@ -123,33 +123,33 @@ forall a. Maybe a
 -&gt; Lens
      HibernationOptions HibernationOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions%27"><span class="hs-identifier hs-type">HibernationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681111035"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions%27"><span class="hs-identifier hs-type">HibernationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681111044"><span class="annot"><span class="annottext">Maybe Bool
 configured :: Maybe Bool
 $sel:configured:HibernationOptions' :: HibernationOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681111035"><span class="hs-identifier hs-var hs-var">configured</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681111035"><span class="hs-identifier hs-var">configured</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681111034"><span class="annot"><span class="annottext">s :: HibernationOptions
-</span><a href="#local-6989586621681111034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions%27"><span class="hs-identifier hs-type">HibernationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681111033"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681111033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HibernationOptions
-</span><a href="#local-6989586621681111034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configured:HibernationOptions' :: Maybe Bool
+</span><a href="#local-6989586621681111044"><span class="hs-identifier hs-var hs-var">configured</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681111044"><span class="hs-identifier hs-var">configured</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681111043"><span class="annot"><span class="annottext">s :: HibernationOptions
+</span><a href="#local-6989586621681111043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions%27"><span class="hs-identifier hs-type">HibernationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681111042"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681111042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HibernationOptions
+</span><a href="#local-6989586621681111043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configured:HibernationOptions' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.HibernationOptions.html#%24sel%3Aconfigured%3AHibernationOptions%27"><span class="hs-identifier hs-var">configured</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681111033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions"><span class="hs-identifier hs-type">HibernationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681111042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions"><span class="hs-identifier hs-type">HibernationOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions"><span class="hs-identifier hs-type">HibernationOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621681111030"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HibernationOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681111028"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681111028"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621681111039"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HibernationOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681111037"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681111037"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; HibernationOptions
 </span><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions%27"><span class="hs-identifier hs-var">HibernationOptions'</span></a></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; HibernationOptions)
 -&gt; Either String (Maybe Bool) -&gt; Either String HibernationOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681111028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621681111037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configured&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681111022"><span id="local-6989586621681111024"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions"><span class="hs-identifier hs-type">HibernationOptions</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681111031"><span id="local-6989586621681111033"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions"><span class="hs-identifier hs-type">HibernationOptions</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681111019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions"><span class="hs-identifier hs-type">HibernationOptions</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681111028"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HibernationOptions.html#HibernationOptions"><span class="hs-identifier hs-type">HibernationOptions</span></a></span></span><span>
 </span><span id="line-70"></span></pre></body></html>

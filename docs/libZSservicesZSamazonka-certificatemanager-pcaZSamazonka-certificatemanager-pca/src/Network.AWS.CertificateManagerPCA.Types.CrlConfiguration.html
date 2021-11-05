@@ -102,7 +102,7 @@
 </span><span id="line-102"></span><span class="hs-comment">-- Guide/</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- /See:/ 'newCrlConfiguration' smart constructor.</span><span>
-</span><span id="line-105"></span><span id="local-6989586621679212102"><span id="local-6989586621679212103"></span></span><span class="hs-keyword">data</span><span> </span><span id="CrlConfiguration"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-var">CrlConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CrlConfiguration%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-var">CrlConfiguration'</span></a></span></span><span>
+</span><span id="line-105"></span><span id="local-6989586621679212111"><span id="local-6989586621679212112"></span></span><span class="hs-keyword">data</span><span> </span><span id="CrlConfiguration"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-var">CrlConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CrlConfiguration%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-var">CrlConfiguration'</span></a></span></span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name inserted into the certificate __CRL Distribution Points__ extension</span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-comment">-- that enables the use of an alias for the CRL distribution point. Use</span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-comment">-- this value if you don\'t want the name of your S3 bucket to be public.</span><span>
@@ -151,7 +151,7 @@
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3Aenabled%3ACrlConfiguration%27"><span class="annot"><span class="annottext">CrlConfiguration -&gt; Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#%24sel%3Aenabled%3ACrlConfiguration%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212092"><span id="local-6989586621679212094"><span class="annot"><span class="annottext">CrlConfiguration -&gt; CrlConfiguration -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212101"><span id="local-6989586621679212103"><span class="annot"><span class="annottext">CrlConfiguration -&gt; CrlConfiguration -&gt; Bool
 (CrlConfiguration -&gt; CrlConfiguration -&gt; Bool)
 -&gt; (CrlConfiguration -&gt; CrlConfiguration -&gt; Bool)
 -&gt; Eq CrlConfiguration
@@ -160,7 +160,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CrlConfiguration -&gt; CrlConfiguration -&gt; Bool
 == :: CrlConfiguration -&gt; CrlConfiguration -&gt; Bool
 $c== :: CrlConfiguration -&gt; CrlConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212083"><span id="local-6989586621679212085"><span id="local-6989586621679212087"><span id="local-6989586621679212089"><span class="annot"><span class="annottext">ReadPrec [CrlConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212092"><span id="local-6989586621679212094"><span id="local-6989586621679212096"><span id="local-6989586621679212098"><span class="annot"><span class="annottext">ReadPrec [CrlConfiguration]
 ReadPrec CrlConfiguration
 Int -&gt; ReadS CrlConfiguration
 ReadS [CrlConfiguration]
@@ -180,7 +180,7 @@ readList :: ReadS [CrlConfiguration]
 $creadList :: ReadS [CrlConfiguration]
 readsPrec :: Int -&gt; ReadS CrlConfiguration
 $creadsPrec :: Int -&gt; ReadS CrlConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212076"><span id="local-6989586621679212078"><span id="local-6989586621679212080"><span class="annot"><span class="annottext">Int -&gt; CrlConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212085"><span id="local-6989586621679212087"><span id="local-6989586621679212089"><span class="annot"><span class="annottext">Int -&gt; CrlConfiguration -&gt; ShowS
 [CrlConfiguration] -&gt; ShowS
 CrlConfiguration -&gt; String
 (Int -&gt; CrlConfiguration -&gt; ShowS)
@@ -260,8 +260,8 @@ $cfrom :: forall x. CrlConfiguration -&gt; Rep CrlConfiguration x
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span>
 </span><span id="line-204"></span><span id="newCrlConfiguration"><span class="annot"><span class="annottext">newCrlConfiguration :: Bool -&gt; CrlConfiguration
-</span><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#newCrlConfiguration"><span class="hs-identifier hs-var hs-var">newCrlConfiguration</span></a></span></span><span> </span><span id="local-6989586621679212070"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679212070"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#newCrlConfiguration"><span class="hs-identifier hs-var hs-var">newCrlConfiguration</span></a></span></span><span> </span><span id="local-6989586621679212079"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679212079"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">CrlConfiguration' :: Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe S3ObjectAcl
@@ -287,7 +287,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:CrlConfiguration' :: Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#%24sel%3Aenabled%3ACrlConfiguration%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679212070"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span>
+</span><a href="#local-6989586621679212079"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | Name inserted into the certificate __CRL Distribution Points__ extension</span><span>
@@ -300,16 +300,16 @@ forall a. Maybe a
 -&gt; (CrlConfiguration -&gt; Maybe Text -&gt; CrlConfiguration)
 -&gt; Lens CrlConfiguration CrlConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212066"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212075"><span class="annot"><span class="annottext">Maybe Text
 customCname :: Maybe Text
 $sel:customCname:CrlConfiguration' :: CrlConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679212066"><span class="hs-identifier hs-var hs-var">customCname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212066"><span class="hs-identifier hs-var">customCname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212065"><span class="annot"><span class="annottext">s :: CrlConfiguration
-</span><a href="#local-6989586621679212065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212064"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
-</span><a href="#local-6989586621679212065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customCname:CrlConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679212075"><span class="hs-identifier hs-var hs-var">customCname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212075"><span class="hs-identifier hs-var">customCname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212074"><span class="annot"><span class="annottext">s :: CrlConfiguration
+</span><a href="#local-6989586621679212074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
+</span><a href="#local-6989586621679212074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customCname:CrlConfiguration' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#%24sel%3AcustomCname%3ACrlConfiguration%27"><span class="hs-identifier hs-var">customCname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | Validity period of the CRL in days.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#crlConfiguration_expirationInDays"><span class="hs-identifier hs-type">crlConfiguration_expirationInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -320,16 +320,16 @@ $sel:customCname:CrlConfiguration' :: CrlConfiguration -&gt; Maybe Text
 -&gt; Lens
      CrlConfiguration CrlConfiguration (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212062"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212071"><span class="annot"><span class="annottext">Maybe Natural
 expirationInDays :: Maybe Natural
 $sel:expirationInDays:CrlConfiguration' :: CrlConfiguration -&gt; Maybe Natural
-</span><a href="#local-6989586621679212062"><span class="hs-identifier hs-var hs-var">expirationInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679212062"><span class="hs-identifier hs-var">expirationInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212061"><span class="annot"><span class="annottext">s :: CrlConfiguration
-</span><a href="#local-6989586621679212061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212060"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679212060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
-</span><a href="#local-6989586621679212061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationInDays:CrlConfiguration' :: Maybe Natural
+</span><a href="#local-6989586621679212071"><span class="hs-identifier hs-var hs-var">expirationInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679212071"><span class="hs-identifier hs-var">expirationInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212070"><span class="annot"><span class="annottext">s :: CrlConfiguration
+</span><a href="#local-6989586621679212070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212069"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679212069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
+</span><a href="#local-6989586621679212070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationInDays:CrlConfiguration' :: Maybe Natural
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#%24sel%3AexpirationInDays%3ACrlConfiguration%27"><span class="hs-identifier hs-var">expirationInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679212060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | Determines whether the CRL will be publicly readable or privately held</span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be</span><span>
@@ -360,16 +360,16 @@ $sel:expirationInDays:CrlConfiguration' :: CrlConfiguration -&gt; Maybe Natural
      (Maybe S3ObjectAcl)
      (Maybe S3ObjectAcl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212058"><span class="annot"><span class="annottext">Maybe S3ObjectAcl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212067"><span class="annot"><span class="annottext">Maybe S3ObjectAcl
 s3ObjectAcl :: Maybe S3ObjectAcl
 $sel:s3ObjectAcl:CrlConfiguration' :: CrlConfiguration -&gt; Maybe S3ObjectAcl
-</span><a href="#local-6989586621679212058"><span class="hs-identifier hs-var hs-var">s3ObjectAcl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3ObjectAcl
-</span><a href="#local-6989586621679212058"><span class="hs-identifier hs-var">s3ObjectAcl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212057"><span class="annot"><span class="annottext">s :: CrlConfiguration
-</span><a href="#local-6989586621679212057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212056"><span class="annot"><span class="annottext">Maybe S3ObjectAcl
-</span><a href="#local-6989586621679212056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
-</span><a href="#local-6989586621679212057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ObjectAcl:CrlConfiguration' :: Maybe S3ObjectAcl
+</span><a href="#local-6989586621679212067"><span class="hs-identifier hs-var hs-var">s3ObjectAcl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3ObjectAcl
+</span><a href="#local-6989586621679212067"><span class="hs-identifier hs-var">s3ObjectAcl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212066"><span class="annot"><span class="annottext">s :: CrlConfiguration
+</span><a href="#local-6989586621679212066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212065"><span class="annot"><span class="annottext">Maybe S3ObjectAcl
+</span><a href="#local-6989586621679212065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
+</span><a href="#local-6989586621679212066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ObjectAcl:CrlConfiguration' :: Maybe S3ObjectAcl
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#%24sel%3As3ObjectAcl%3ACrlConfiguration%27"><span class="hs-identifier hs-var">s3ObjectAcl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3ObjectAcl
-</span><a href="#local-6989586621679212056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | Name of the S3 bucket that contains the CRL. If you do not provide a</span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- value for the __CustomCname__ argument, the name of your S3 bucket is</span><span>
@@ -386,16 +386,16 @@ $sel:s3ObjectAcl:CrlConfiguration' :: CrlConfiguration -&gt; Maybe S3ObjectAcl
 -&gt; (CrlConfiguration -&gt; Maybe Text -&gt; CrlConfiguration)
 -&gt; Lens CrlConfiguration CrlConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212054"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212063"><span class="annot"><span class="annottext">Maybe Text
 s3BucketName :: Maybe Text
 $sel:s3BucketName:CrlConfiguration' :: CrlConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679212054"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212054"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212053"><span class="annot"><span class="annottext">s :: CrlConfiguration
-</span><a href="#local-6989586621679212053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212052"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
-</span><a href="#local-6989586621679212053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:CrlConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679212063"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212063"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212062"><span class="annot"><span class="annottext">s :: CrlConfiguration
+</span><a href="#local-6989586621679212062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212061"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
+</span><a href="#local-6989586621679212062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:CrlConfiguration' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#%24sel%3As3BucketName%3ACrlConfiguration%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- | Boolean value that specifies whether certificate revocation lists (CRLs)</span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- are enabled. You can use this value to enable certificate revocation for</span><span>
@@ -410,19 +410,19 @@ $sel:s3BucketName:CrlConfiguration' :: CrlConfiguration -&gt; Maybe Text
 -&gt; (CrlConfiguration -&gt; Bool -&gt; CrlConfiguration)
 -&gt; Lens CrlConfiguration CrlConfiguration Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212050"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212059"><span class="annot"><span class="annottext">Bool
 enabled :: Bool
 $sel:enabled:CrlConfiguration' :: CrlConfiguration -&gt; Bool
-</span><a href="#local-6989586621679212050"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679212050"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212049"><span class="annot"><span class="annottext">s :: CrlConfiguration
-</span><a href="#local-6989586621679212049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212048"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679212048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
-</span><a href="#local-6989586621679212049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:CrlConfiguration' :: Bool
+</span><a href="#local-6989586621679212059"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679212059"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212058"><span class="annot"><span class="annottext">s :: CrlConfiguration
+</span><a href="#local-6989586621679212058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212057"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679212057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrlConfiguration
+</span><a href="#local-6989586621679212058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:CrlConfiguration' :: Bool
 </span><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#%24sel%3Aenabled%3ACrlConfiguration%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679212048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212045"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679212043"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CrlConfiguration
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212054"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679212052"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CrlConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CrlConfiguration)
@@ -432,8 +432,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CrlConfiguration&quot;</span></span><span>
-</span><span id="line-269"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212040"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212049"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212049"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-270"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe S3ObjectAcl
@@ -453,7 +453,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe S3ObjectAcl -&gt; Maybe Text -&gt; Bool -&gt; CrlConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomCname&quot;</span></span><span class="hs-special">)</span><span>
@@ -465,7 +465,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe S3ObjectAcl -&gt; Maybe Text -&gt; Bool -&gt; CrlConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679212049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpirationInDays&quot;</span></span><span class="hs-special">)</span><span>
@@ -475,7 +475,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Bool -&gt; CrlConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3ObjectAcl)
+</span><a href="#local-6989586621679212049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3ObjectAcl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3ObjectAcl&quot;</span></span><span class="hs-special">)</span><span>
@@ -483,7 +483,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Bool -&gt; CrlConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span class="hs-special">)</span><span>
@@ -491,19 +491,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Bool -&gt; Parser CrlConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679212049"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212033"><span id="local-6989586621679212035"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span></span></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212042"><span id="local-6989586621679212044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span></span></span><span>
 </span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span></span><span>
 </span><span id="line-281"></span><span>
-</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212022"><span id="local-6989586621679212024"><span id="local-6989586621679212026"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621679212020"><span class="annot"><span class="annottext">toJSON :: CrlConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212014"><span id="local-6989586621679212015"><span id="local-6989586621679212016"><span id="local-6989586621679212017"><span id="local-6989586621679212018"><span class="annot"><span class="annottext">Bool
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212031"><span id="local-6989586621679212033"><span id="local-6989586621679212035"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679212029"><span class="annot"><span class="annottext">toJSON :: CrlConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration%27"><span class="hs-identifier hs-type">CrlConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212023"><span id="local-6989586621679212024"><span id="local-6989586621679212025"><span id="local-6989586621679212026"><span id="local-6989586621679212027"><span class="annot"><span class="annottext">Bool
 Maybe Natural
 Maybe Text
 Maybe S3ObjectAcl
@@ -517,7 +517,7 @@ $sel:s3BucketName:CrlConfiguration' :: CrlConfiguration -&gt; Maybe Text
 $sel:s3ObjectAcl:CrlConfiguration' :: CrlConfiguration -&gt; Maybe S3ObjectAcl
 $sel:expirationInDays:CrlConfiguration' :: CrlConfiguration -&gt; Maybe Natural
 $sel:customCname:CrlConfiguration' :: CrlConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679212014"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679212023"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-285"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -529,7 +529,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212018"><span class="hs-identifier hs-var">customCname</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212027"><span class="hs-identifier hs-var">customCname</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpirationInDays&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -537,28 +537,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-288"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679212017"><span class="hs-identifier hs-var">expirationInDays</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212026"><span class="hs-identifier hs-var">expirationInDays</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3ObjectAcl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3ObjectAcl -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3ObjectAcl -&gt; Pair) -&gt; Maybe S3ObjectAcl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3ObjectAcl
-</span><a href="#local-6989586621679212016"><span class="hs-identifier hs-var">s3ObjectAcl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212025"><span class="hs-identifier hs-var">s3ObjectAcl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-290"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212015"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212024"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679212014"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212023"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-293"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-294"></span></pre></body></html>

@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Proton.UpdateEnvironment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Update an environment.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- If the environment is associated with an environment account connection,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- /don\'t/ update or include the @protonServiceRoleArn@ parameter to</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- update or connect to an environment account connection.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- You can only update to a new environment account connection if it was</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- created in the same environment account that the current environment</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- account connection was created in and is associated with the current</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- environment.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- If the environment /isn\'t/ associated with an environment account</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- connection, /don\'t/ update or include the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @environmentAccountConnectionId@ parameter to update or connect to an</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- environment account connection.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- You can update either the @environmentAccountConnectionId@ or</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- @protonServiceRoleArn@ parameter and value. You can&#8217;t update both.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- There are four modes for updating an environment as described in the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- following. The @deploymentType@ field defines the mode.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     @NONE@</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     In this mode, a deployment /doesn\'t/ occur. Only the requested</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     metadata parameters are updated.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     @CURRENT_VERSION@</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the new</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     spec that you provide. Only requested parameters are updated.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--     /Don&#8217;t/ include minor or major version parameters when you use this</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--     @deployment-type@.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--     @MINOR_VERSION@</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--     published, recommended (latest) minor version of the current major</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--     version in use, by default. You can also specify a different minor</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--     version of the current major version in use.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--     @MAJOR_VERSION@</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--     published, recommended (latest) major and minor version of the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--     current template, by default. You can also specify a different major</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--     version that\'s higher than the major version in use and a minor</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     version (optional).</span><span>
+</span><span id="line-75"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Proton.UpdateEnvironment</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier">UpdateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#newUpdateEnvironment"><span class="hs-identifier">newUpdateEnvironment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_protonServiceRoleArn"><span class="hs-identifier">updateEnvironment_protonServiceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_environmentAccountConnectionId"><span class="hs-identifier">updateEnvironment_environmentAccountConnectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_spec"><span class="hs-identifier">updateEnvironment_spec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_templateMinorVersion"><span class="hs-identifier">updateEnvironment_templateMinorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_description"><span class="hs-identifier">updateEnvironment_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_templateMajorVersion"><span class="hs-identifier">updateEnvironment_templateMajorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_deploymentType"><span class="hs-identifier">updateEnvironment_deploymentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_name"><span class="hs-identifier">updateEnvironment_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse"><span class="hs-identifier">UpdateEnvironmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#newUpdateEnvironmentResponse"><span class="hs-identifier">newUpdateEnvironmentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironmentResponse_httpStatus"><span class="hs-identifier">updateEnvironmentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironmentResponse_environment"><span class="hs-identifier">updateEnvironmentResponse_environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.html"><span class="hs-identifier">Network.AWS.Proton.Types</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newUpdateEnvironment' smart constructor.</span><span>
+</span><span id="line-108"></span><span id="local-6989586621679275598"><span id="local-6989586621679275599"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEnvironment"><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-var">UpdateEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEnvironment%27"><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-var">UpdateEnvironment'</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Proton service role that</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- allows AWS Proton to make API calls to other services your behalf.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AprotonServiceRoleArn%3AUpdateEnvironment%27"><span class="annot"><span class="annottext">UpdateEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AprotonServiceRoleArn%3AUpdateEnvironment%27"><span class="hs-identifier hs-var hs-var">protonServiceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The ID of the environment account connection.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- You can only update to a new environment account connection if it was</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- created in the same environment account that the current environment</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- account connection was created in and is associated with the current</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- environment.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AenvironmentAccountConnectionId%3AUpdateEnvironment%27"><span class="annot"><span class="annottext">UpdateEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AenvironmentAccountConnectionId%3AUpdateEnvironment%27"><span class="hs-identifier hs-var hs-var">environmentAccountConnectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The formatted specification that defines the update.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3Aspec%3AUpdateEnvironment%27"><span class="annot"><span class="annottext">UpdateEnvironment -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Aspec%3AUpdateEnvironment%27"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The ID of the minor version of the environment to update.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AtemplateMinorVersion%3AUpdateEnvironment%27"><span class="annot"><span class="annottext">UpdateEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AtemplateMinorVersion%3AUpdateEnvironment%27"><span class="hs-identifier hs-var hs-var">templateMinorVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | A description of the environment update.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateEnvironment%27"><span class="annot"><span class="annottext">UpdateEnvironment -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Adescription%3AUpdateEnvironment%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The ID of the major version of the environment to update.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AtemplateMajorVersion%3AUpdateEnvironment%27"><span class="annot"><span class="annottext">UpdateEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AtemplateMajorVersion%3AUpdateEnvironment%27"><span class="hs-identifier hs-var hs-var">templateMajorVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | There are four modes for updating an environment as described in the</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- following. The @deploymentType@ field defines the mode.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- []</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     @NONE@</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--     In this mode, a deployment /doesn\'t/ occur. Only the requested</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--     metadata parameters are updated.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- []</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--     @CURRENT_VERSION@</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the new</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--     spec that you provide. Only requested parameters are updated.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--     /Don&#8217;t/ include minor or major version parameters when you use this</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--     @deployment-type@.</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- []</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">--     @MINOR_VERSION@</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--     published, recommended (latest) minor version of the current major</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--     version in use, by default. You can also specify a different minor</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--     version of the current major version in use.</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- []</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--     @MAJOR_VERSION@</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">--     published, recommended (latest) major and minor version of the</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--     current template, by default. You can also specify a different major</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">--     version that is higher than the major version in use and a minor</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--     version (optional).</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AdeploymentType%3AUpdateEnvironment%27"><span class="annot"><span class="annottext">UpdateEnvironment -&gt; DeploymentUpdateType
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AdeploymentType%3AUpdateEnvironment%27"><span class="hs-identifier hs-var hs-var">deploymentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType"><span class="hs-identifier hs-type">DeploymentUpdateType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The name of the environment to update.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3Aname%3AUpdateEnvironment%27"><span class="annot"><span class="annottext">UpdateEnvironment -&gt; Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Aname%3AUpdateEnvironment%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275585"><span id="local-6989586621679275587"><span class="annot"><span class="annottext">UpdateEnvironment -&gt; UpdateEnvironment -&gt; Bool
+(UpdateEnvironment -&gt; UpdateEnvironment -&gt; Bool)
+-&gt; (UpdateEnvironment -&gt; UpdateEnvironment -&gt; Bool)
+-&gt; Eq UpdateEnvironment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEnvironment -&gt; UpdateEnvironment -&gt; Bool
+$c/= :: UpdateEnvironment -&gt; UpdateEnvironment -&gt; Bool
+== :: UpdateEnvironment -&gt; UpdateEnvironment -&gt; Bool
+$c== :: UpdateEnvironment -&gt; UpdateEnvironment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275578"><span id="local-6989586621679275580"><span id="local-6989586621679275582"><span class="annot"><span class="annottext">Int -&gt; UpdateEnvironment -&gt; ShowS
+[UpdateEnvironment] -&gt; ShowS
+UpdateEnvironment -&gt; String
+(Int -&gt; UpdateEnvironment -&gt; ShowS)
+-&gt; (UpdateEnvironment -&gt; String)
+-&gt; ([UpdateEnvironment] -&gt; ShowS)
+-&gt; Show UpdateEnvironment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEnvironment] -&gt; ShowS
+$cshowList :: [UpdateEnvironment] -&gt; ShowS
+show :: UpdateEnvironment -&gt; String
+$cshow :: UpdateEnvironment -&gt; String
+showsPrec :: Int -&gt; UpdateEnvironment -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEnvironment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateEnvironment -&gt; Rep UpdateEnvironment x)
+-&gt; (forall x. Rep UpdateEnvironment x -&gt; UpdateEnvironment)
+-&gt; Generic UpdateEnvironment
+forall x. Rep UpdateEnvironment x -&gt; UpdateEnvironment
+forall x. UpdateEnvironment -&gt; Rep UpdateEnvironment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateEnvironment x -&gt; UpdateEnvironment
+$cfrom :: forall x. UpdateEnvironment -&gt; Rep UpdateEnvironment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'UpdateEnvironment' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'protonServiceRoleArn', 'updateEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the AWS Proton service role that</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- allows AWS Proton to make API calls to other services your behalf.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'environmentAccountConnectionId', 'updateEnvironment_environmentAccountConnectionId' - The ID of the environment account connection.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- You can only update to a new environment account connection if it was</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- created in the same environment account that the current environment</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- account connection was created in and is associated with the current</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- environment.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'spec', 'updateEnvironment_spec' - The formatted specification that defines the update.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'templateMinorVersion', 'updateEnvironment_templateMinorVersion' - The ID of the minor version of the environment to update.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'description', 'updateEnvironment_description' - A description of the environment update.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'templateMajorVersion', 'updateEnvironment_templateMajorVersion' - The ID of the major version of the environment to update.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'deploymentType', 'updateEnvironment_deploymentType' - There are four modes for updating an environment as described in the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- following. The @deploymentType@ field defines the mode.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     @NONE@</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     In this mode, a deployment /doesn\'t/ occur. Only the requested</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     metadata parameters are updated.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     @CURRENT_VERSION@</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the new</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     spec that you provide. Only requested parameters are updated.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     /Don&#8217;t/ include minor or major version parameters when you use this</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     @deployment-type@.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     @MINOR_VERSION@</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     published, recommended (latest) minor version of the current major</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     version in use, by default. You can also specify a different minor</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     version of the current major version in use.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     @MAJOR_VERSION@</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     published, recommended (latest) major and minor version of the</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     current template, by default. You can also specify a different major</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--     version that is higher than the major version in use and a minor</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--     version (optional).</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'name', 'updateEnvironment_name' - The name of the environment to update.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#newUpdateEnvironment"><span class="hs-identifier hs-type">newUpdateEnvironment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-comment">-- | 'deploymentType'</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType"><span class="hs-identifier hs-type">DeploymentUpdateType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span>
+</span><span id="line-233"></span><span id="newUpdateEnvironment"><span class="annot"><span class="annottext">newUpdateEnvironment :: DeploymentUpdateType -&gt; Text -&gt; UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#newUpdateEnvironment"><span class="hs-identifier hs-var hs-var">newUpdateEnvironment</span></a></span></span><span> </span><span id="local-6989586621679275573"><span class="annot"><span class="annottext">DeploymentUpdateType
+</span><a href="#local-6989586621679275573"><span class="hs-identifier hs-var">pDeploymentType_</span></a></span></span><span> </span><span id="local-6989586621679275572"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275572"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">UpdateEnvironment' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; DeploymentUpdateType
+-&gt; Text
+-&gt; UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:protonServiceRoleArn:UpdateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AprotonServiceRoleArn%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentAccountConnectionId:UpdateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AenvironmentAccountConnectionId%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:spec:UpdateEnvironment' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Aspec%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateMinorVersion:UpdateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AtemplateMinorVersion%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateEnvironment' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Adescription%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateMajorVersion:UpdateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AtemplateMajorVersion%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentType:UpdateEnvironment' :: DeploymentUpdateType
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AdeploymentType%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">deploymentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentUpdateType
+</span><a href="#local-6989586621679275573"><span class="hs-identifier hs-var">pDeploymentType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateEnvironment' :: Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Aname%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275572"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Proton service role that</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- allows AWS Proton to make API calls to other services your behalf.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_protonServiceRoleArn"><span class="hs-identifier hs-type">updateEnvironment_protonServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="updateEnvironment_protonServiceRoleArn"><span class="annot"><span class="annottext">updateEnvironment_protonServiceRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironment -&gt; f UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_protonServiceRoleArn"><span class="hs-identifier hs-var hs-var">updateEnvironment_protonServiceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironment -&gt; Maybe Text)
+-&gt; (UpdateEnvironment -&gt; Maybe Text -&gt; UpdateEnvironment)
+-&gt; Lens
+     UpdateEnvironment UpdateEnvironment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275569"><span class="annot"><span class="annottext">Maybe Text
+protonServiceRoleArn :: Maybe Text
+$sel:protonServiceRoleArn:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679275569"><span class="hs-identifier hs-var hs-var">protonServiceRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275569"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275568"><span class="annot"><span class="annottext">s :: UpdateEnvironment
+</span><a href="#local-6989586621679275568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironment
+</span><a href="#local-6989586621679275568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protonServiceRoleArn:UpdateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AprotonServiceRoleArn%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The ID of the environment account connection.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- You can only update to a new environment account connection if it was</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- created in the same environment account that the current environment</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- account connection was created in and is associated with the current</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- environment.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_environmentAccountConnectionId"><span class="hs-identifier hs-type">updateEnvironment_environmentAccountConnectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="updateEnvironment_environmentAccountConnectionId"><span class="annot"><span class="annottext">updateEnvironment_environmentAccountConnectionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironment -&gt; f UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_environmentAccountConnectionId"><span class="hs-identifier hs-var hs-var">updateEnvironment_environmentAccountConnectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironment -&gt; Maybe Text)
+-&gt; (UpdateEnvironment -&gt; Maybe Text -&gt; UpdateEnvironment)
+-&gt; Lens
+     UpdateEnvironment UpdateEnvironment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275566"><span class="annot"><span class="annottext">Maybe Text
+environmentAccountConnectionId :: Maybe Text
+$sel:environmentAccountConnectionId:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679275566"><span class="hs-identifier hs-var hs-var">environmentAccountConnectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275566"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275565"><span class="annot"><span class="annottext">s :: UpdateEnvironment
+</span><a href="#local-6989586621679275565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275564"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironment
+</span><a href="#local-6989586621679275565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentAccountConnectionId:UpdateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AenvironmentAccountConnectionId%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The formatted specification that defines the update.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_spec"><span class="hs-identifier hs-type">updateEnvironment_spec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="updateEnvironment_spec"><span class="annot"><span class="annottext">updateEnvironment_spec :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironment -&gt; f UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_spec"><span class="hs-identifier hs-var hs-var">updateEnvironment_spec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironment -&gt; Maybe (Sensitive Text))
+-&gt; (UpdateEnvironment
+    -&gt; Maybe (Sensitive Text) -&gt; UpdateEnvironment)
+-&gt; Lens
+     UpdateEnvironment
+     UpdateEnvironment
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275563"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+spec :: Maybe (Sensitive Text)
+$sel:spec:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275563"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275563"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275562"><span class="annot"><span class="annottext">s :: UpdateEnvironment
+</span><a href="#local-6989586621679275562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275561"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironment
+</span><a href="#local-6989586621679275562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spec:UpdateEnvironment' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Aspec%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; UpdateEnvironment -&gt; f UpdateEnvironment)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironment
+-&gt; f UpdateEnvironment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The ID of the minor version of the environment to update.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_templateMinorVersion"><span class="hs-identifier hs-type">updateEnvironment_templateMinorVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="updateEnvironment_templateMinorVersion"><span class="annot"><span class="annottext">updateEnvironment_templateMinorVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironment -&gt; f UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_templateMinorVersion"><span class="hs-identifier hs-var hs-var">updateEnvironment_templateMinorVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironment -&gt; Maybe Text)
+-&gt; (UpdateEnvironment -&gt; Maybe Text -&gt; UpdateEnvironment)
+-&gt; Lens
+     UpdateEnvironment UpdateEnvironment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275557"><span class="annot"><span class="annottext">Maybe Text
+templateMinorVersion :: Maybe Text
+$sel:templateMinorVersion:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679275557"><span class="hs-identifier hs-var hs-var">templateMinorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275557"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275556"><span class="annot"><span class="annottext">s :: UpdateEnvironment
+</span><a href="#local-6989586621679275556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275555"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironment
+</span><a href="#local-6989586621679275556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateMinorVersion:UpdateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AtemplateMinorVersion%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | A description of the environment update.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_description"><span class="hs-identifier hs-type">updateEnvironment_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="updateEnvironment_description"><span class="annot"><span class="annottext">updateEnvironment_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironment -&gt; f UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_description"><span class="hs-identifier hs-var hs-var">updateEnvironment_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironment -&gt; Maybe (Sensitive Text))
+-&gt; (UpdateEnvironment
+    -&gt; Maybe (Sensitive Text) -&gt; UpdateEnvironment)
+-&gt; Lens
+     UpdateEnvironment
+     UpdateEnvironment
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275554"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+description :: Maybe (Sensitive Text)
+$sel:description:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275554"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275554"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275553"><span class="annot"><span class="annottext">s :: UpdateEnvironment
+</span><a href="#local-6989586621679275553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275552"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironment
+</span><a href="#local-6989586621679275553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateEnvironment' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Adescription%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; UpdateEnvironment -&gt; f UpdateEnvironment)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironment
+-&gt; f UpdateEnvironment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The ID of the major version of the environment to update.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_templateMajorVersion"><span class="hs-identifier hs-type">updateEnvironment_templateMajorVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="updateEnvironment_templateMajorVersion"><span class="annot"><span class="annottext">updateEnvironment_templateMajorVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironment -&gt; f UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_templateMajorVersion"><span class="hs-identifier hs-var hs-var">updateEnvironment_templateMajorVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironment -&gt; Maybe Text)
+-&gt; (UpdateEnvironment -&gt; Maybe Text -&gt; UpdateEnvironment)
+-&gt; Lens
+     UpdateEnvironment UpdateEnvironment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275551"><span class="annot"><span class="annottext">Maybe Text
+templateMajorVersion :: Maybe Text
+$sel:templateMajorVersion:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679275551"><span class="hs-identifier hs-var hs-var">templateMajorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275551"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275550"><span class="annot"><span class="annottext">s :: UpdateEnvironment
+</span><a href="#local-6989586621679275550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275549"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironment
+</span><a href="#local-6989586621679275550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateMajorVersion:UpdateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AtemplateMajorVersion%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | There are four modes for updating an environment as described in the</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- following. The @deploymentType@ field defines the mode.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     @NONE@</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--     In this mode, a deployment /doesn\'t/ occur. Only the requested</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--     metadata parameters are updated.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--     @CURRENT_VERSION@</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the new</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--     spec that you provide. Only requested parameters are updated.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--     /Don&#8217;t/ include minor or major version parameters when you use this</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--     @deployment-type@.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--     @MINOR_VERSION@</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--     published, recommended (latest) minor version of the current major</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--     version in use, by default. You can also specify a different minor</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--     version of the current major version in use.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- []</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--     @MAJOR_VERSION@</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--     In this mode, the environment is deployed and updated with the</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--     published, recommended (latest) major and minor version of the</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     current template, by default. You can also specify a different major</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     version that is higher than the major version in use and a minor</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     version (optional).</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_deploymentType"><span class="hs-identifier hs-type">updateEnvironment_deploymentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.DeploymentUpdateType.html#DeploymentUpdateType"><span class="hs-identifier hs-type">DeploymentUpdateType</span></a></span><span>
+</span><span id="line-310"></span><span id="updateEnvironment_deploymentType"><span class="annot"><span class="annottext">updateEnvironment_deploymentType :: (DeploymentUpdateType -&gt; f DeploymentUpdateType)
+-&gt; UpdateEnvironment -&gt; f UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_deploymentType"><span class="hs-identifier hs-var hs-var">updateEnvironment_deploymentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironment -&gt; DeploymentUpdateType)
+-&gt; (UpdateEnvironment -&gt; DeploymentUpdateType -&gt; UpdateEnvironment)
+-&gt; Lens
+     UpdateEnvironment
+     UpdateEnvironment
+     DeploymentUpdateType
+     DeploymentUpdateType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275548"><span class="annot"><span class="annottext">DeploymentUpdateType
+deploymentType :: DeploymentUpdateType
+$sel:deploymentType:UpdateEnvironment' :: UpdateEnvironment -&gt; DeploymentUpdateType
+</span><a href="#local-6989586621679275548"><span class="hs-identifier hs-var hs-var">deploymentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentUpdateType
+</span><a href="#local-6989586621679275548"><span class="hs-identifier hs-var">deploymentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275547"><span class="annot"><span class="annottext">s :: UpdateEnvironment
+</span><a href="#local-6989586621679275547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275546"><span class="annot"><span class="annottext">DeploymentUpdateType
+</span><a href="#local-6989586621679275546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironment
+</span><a href="#local-6989586621679275547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentType:UpdateEnvironment' :: DeploymentUpdateType
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AdeploymentType%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">deploymentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentUpdateType
+</span><a href="#local-6989586621679275546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- | The name of the environment to update.</span><span>
+</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_name"><span class="hs-identifier hs-type">updateEnvironment_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-314"></span><span id="updateEnvironment_name"><span class="annot"><span class="annottext">updateEnvironment_name :: (Text -&gt; f Text) -&gt; UpdateEnvironment -&gt; f UpdateEnvironment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironment_name"><span class="hs-identifier hs-var hs-var">updateEnvironment_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironment -&gt; Text)
+-&gt; (UpdateEnvironment -&gt; Text -&gt; UpdateEnvironment)
+-&gt; Lens UpdateEnvironment UpdateEnvironment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275545"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:UpdateEnvironment' :: UpdateEnvironment -&gt; Text
+</span><a href="#local-6989586621679275545"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275545"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275544"><span class="annot"><span class="annottext">s :: UpdateEnvironment
+</span><a href="#local-6989586621679275544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironment
+</span><a href="#local-6989586621679275544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateEnvironment' :: Text
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Aname%3AUpdateEnvironment%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-317"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-318"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-319"></span><span>      </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse"><span class="hs-identifier hs-type">UpdateEnvironmentResponse</span></a></span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679275539"><span class="annot"><span class="annottext">request :: UpdateEnvironment -&gt; Request UpdateEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateEnvironment -&gt; Request UpdateEnvironment
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Proton.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-321"></span><span>  </span><span id="local-6989586621679275535"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateEnvironment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateEnvironment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateEnvironment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateEnvironment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateEnvironment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-323"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679275531"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679275531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679275530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-324"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Environment -&gt; UpdateEnvironmentResponse
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse%27"><span class="hs-identifier hs-var">UpdateEnvironmentResponse'</span></a></span><span>
+</span><span id="line-325"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Environment -&gt; UpdateEnvironmentResponse)
+-&gt; Either String Int
+-&gt; Either String (Environment -&gt; UpdateEnvironmentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>            </span><span class="annot"><span class="annottext">Either String (Environment -&gt; UpdateEnvironmentResponse)
+-&gt; Either String Environment
+-&gt; Either String UpdateEnvironmentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Environment
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275522"><span id="local-6989586621679275524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span></span></span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span></span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679275515"><span class="annot"><span class="annottext">toHeaders :: UpdateEnvironment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateEnvironment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-336"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-337"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-338"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AwsProton20200720.UpdateEnvironment&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-339"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-340"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-342"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-343"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-344"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-345"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-346"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275505"><span id="local-6989586621679275507"><span id="local-6989586621679275509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621679275503"><span class="annot"><span class="annottext">toJSON :: UpdateEnvironment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment%27"><span class="hs-identifier hs-type">UpdateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275494"><span id="local-6989586621679275495"><span id="local-6989586621679275496"><span id="local-6989586621679275497"><span id="local-6989586621679275498"><span id="local-6989586621679275499"><span id="local-6989586621679275500"><span id="local-6989586621679275501"><span class="annot"><span class="annottext">Maybe Text
+Maybe (Sensitive Text)
+Text
+DeploymentUpdateType
+name :: Text
+deploymentType :: DeploymentUpdateType
+templateMajorVersion :: Maybe Text
+description :: Maybe (Sensitive Text)
+templateMinorVersion :: Maybe Text
+spec :: Maybe (Sensitive Text)
+environmentAccountConnectionId :: Maybe Text
+protonServiceRoleArn :: Maybe Text
+$sel:name:UpdateEnvironment' :: UpdateEnvironment -&gt; Text
+$sel:deploymentType:UpdateEnvironment' :: UpdateEnvironment -&gt; DeploymentUpdateType
+$sel:templateMajorVersion:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe Text
+$sel:description:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe (Sensitive Text)
+$sel:templateMinorVersion:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe Text
+$sel:spec:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe (Sensitive Text)
+$sel:environmentAccountConnectionId:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe Text
+$sel:protonServiceRoleArn:UpdateEnvironment' :: UpdateEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679275494"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-351"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-352"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protonServiceRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275501"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentAccountConnectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275500"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-356"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275499"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateMinorVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275498"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275497"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateMajorVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275496"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-363"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeploymentUpdateType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeploymentUpdateType
+</span><a href="#local-6989586621679275495"><span class="hs-identifier hs-var">deploymentType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275494"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-366"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-369"></span><span>  </span><span id="local-6989586621679275488"><span class="annot"><span class="annottext">toPath :: UpdateEnvironment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateEnvironment -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironment"><span class="hs-identifier hs-type">UpdateEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-372"></span><span>  </span><span id="local-6989586621679275484"><span class="annot"><span class="annottext">toQuery :: UpdateEnvironment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateEnvironment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- | /See:/ 'newUpdateEnvironmentResponse' smart constructor.</span><span>
+</span><span id="line-375"></span><span id="local-6989586621679275481"><span id="local-6989586621679275482"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEnvironmentResponse"><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse"><span class="hs-identifier hs-var">UpdateEnvironmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEnvironmentResponse%27"><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse%27"><span class="hs-identifier hs-var">UpdateEnvironmentResponse'</span></a></span></span><span>
+</span><span id="line-376"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-377"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateEnvironmentResponse%27"><span class="annot"><span class="annottext">UpdateEnvironmentResponse -&gt; Int
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AhttpStatus%3AUpdateEnvironmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>    </span><span class="hs-comment">-- | The environment detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-379"></span><span>    </span><span id="%24sel%3Aenvironment%3AUpdateEnvironmentResponse%27"><span class="annot"><span class="annottext">UpdateEnvironmentResponse -&gt; Environment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Aenvironment%3AUpdateEnvironmentResponse%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span>
+</span><span id="line-380"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-381"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275475"><span id="local-6989586621679275477"><span class="annot"><span class="annottext">UpdateEnvironmentResponse -&gt; UpdateEnvironmentResponse -&gt; Bool
+(UpdateEnvironmentResponse -&gt; UpdateEnvironmentResponse -&gt; Bool)
+-&gt; (UpdateEnvironmentResponse -&gt; UpdateEnvironmentResponse -&gt; Bool)
+-&gt; Eq UpdateEnvironmentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEnvironmentResponse -&gt; UpdateEnvironmentResponse -&gt; Bool
+$c/= :: UpdateEnvironmentResponse -&gt; UpdateEnvironmentResponse -&gt; Bool
+== :: UpdateEnvironmentResponse -&gt; UpdateEnvironmentResponse -&gt; Bool
+$c== :: UpdateEnvironmentResponse -&gt; UpdateEnvironmentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275469"><span id="local-6989586621679275471"><span id="local-6989586621679275473"><span class="annot"><span class="annottext">Int -&gt; UpdateEnvironmentResponse -&gt; ShowS
+[UpdateEnvironmentResponse] -&gt; ShowS
+UpdateEnvironmentResponse -&gt; String
+(Int -&gt; UpdateEnvironmentResponse -&gt; ShowS)
+-&gt; (UpdateEnvironmentResponse -&gt; String)
+-&gt; ([UpdateEnvironmentResponse] -&gt; ShowS)
+-&gt; Show UpdateEnvironmentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEnvironmentResponse] -&gt; ShowS
+$cshowList :: [UpdateEnvironmentResponse] -&gt; ShowS
+show :: UpdateEnvironmentResponse -&gt; String
+$cshow :: UpdateEnvironmentResponse -&gt; String
+showsPrec :: Int -&gt; UpdateEnvironmentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEnvironmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateEnvironmentResponse -&gt; Rep UpdateEnvironmentResponse x)
+-&gt; (forall x.
+    Rep UpdateEnvironmentResponse x -&gt; UpdateEnvironmentResponse)
+-&gt; Generic UpdateEnvironmentResponse
+forall x.
+Rep UpdateEnvironmentResponse x -&gt; UpdateEnvironmentResponse
+forall x.
+UpdateEnvironmentResponse -&gt; Rep UpdateEnvironmentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateEnvironmentResponse x -&gt; UpdateEnvironmentResponse
+$cfrom :: forall x.
+UpdateEnvironmentResponse -&gt; Rep UpdateEnvironmentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- Create a value of 'UpdateEnvironmentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- 'httpStatus', 'updateEnvironmentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- 'environment', 'updateEnvironmentResponse_environment' - The environment detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-394"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#newUpdateEnvironmentResponse"><span class="hs-identifier hs-type">newUpdateEnvironmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-395"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-396"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-397"></span><span>  </span><span class="hs-comment">-- | 'environment'</span><span>
+</span><span id="line-398"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-399"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse"><span class="hs-identifier hs-type">UpdateEnvironmentResponse</span></a></span><span>
+</span><span id="line-400"></span><span id="newUpdateEnvironmentResponse"><span class="annot"><span class="annottext">newUpdateEnvironmentResponse :: Int -&gt; Environment -&gt; UpdateEnvironmentResponse
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#newUpdateEnvironmentResponse"><span class="hs-identifier hs-var hs-var">newUpdateEnvironmentResponse</span></a></span></span><span>
+</span><span id="line-401"></span><span>  </span><span id="local-6989586621679275466"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-402"></span><span>  </span><span id="local-6989586621679275465"><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679275465"><span class="hs-identifier hs-var">pEnvironment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-403"></span><span>    </span><span class="annot"><span class="annottext">UpdateEnvironmentResponse' :: Int -&gt; Environment -&gt; UpdateEnvironmentResponse
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentResponse'</span></a></span><span>
+</span><span id="line-404"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEnvironmentResponse' :: Int
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AhttpStatus%3AUpdateEnvironmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-405"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275466"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-406"></span><span>        </span><span class="annot"><span class="annottext">$sel:environment:UpdateEnvironmentResponse' :: Environment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Aenvironment%3AUpdateEnvironmentResponse%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679275465"><span class="hs-identifier hs-var">pEnvironment_</span></a></span><span>
+</span><span id="line-407"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-408"></span><span>
+</span><span id="line-409"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-410"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironmentResponse_httpStatus"><span class="hs-identifier hs-type">updateEnvironmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse"><span class="hs-identifier hs-type">UpdateEnvironmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-411"></span><span id="updateEnvironmentResponse_httpStatus"><span class="annot"><span class="annottext">updateEnvironmentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateEnvironmentResponse -&gt; f UpdateEnvironmentResponse
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironmentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateEnvironmentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironmentResponse -&gt; Int)
+-&gt; (UpdateEnvironmentResponse -&gt; Int -&gt; UpdateEnvironmentResponse)
+-&gt; Lens UpdateEnvironmentResponse UpdateEnvironmentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275464"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateEnvironmentResponse' :: UpdateEnvironmentResponse -&gt; Int
+</span><a href="#local-6989586621679275464"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275464"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275463"><span class="annot"><span class="annottext">s :: UpdateEnvironmentResponse
+</span><a href="#local-6989586621679275463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironmentResponse
+</span><a href="#local-6989586621679275463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEnvironmentResponse' :: Int
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3AhttpStatus%3AUpdateEnvironmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse"><span class="hs-identifier hs-type">UpdateEnvironmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-412"></span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- | The environment detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-414"></span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironmentResponse_environment"><span class="hs-identifier hs-type">updateEnvironmentResponse_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse"><span class="hs-identifier hs-type">UpdateEnvironmentResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span>
+</span><span id="line-415"></span><span id="updateEnvironmentResponse_environment"><span class="annot"><span class="annottext">updateEnvironmentResponse_environment :: (Environment -&gt; f Environment)
+-&gt; UpdateEnvironmentResponse -&gt; f UpdateEnvironmentResponse
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#updateEnvironmentResponse_environment"><span class="hs-identifier hs-var hs-var">updateEnvironmentResponse_environment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironmentResponse -&gt; Environment)
+-&gt; (UpdateEnvironmentResponse
+    -&gt; Environment -&gt; UpdateEnvironmentResponse)
+-&gt; Lens
+     UpdateEnvironmentResponse
+     UpdateEnvironmentResponse
+     Environment
+     Environment
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275461"><span class="annot"><span class="annottext">Environment
+environment :: Environment
+$sel:environment:UpdateEnvironmentResponse' :: UpdateEnvironmentResponse -&gt; Environment
+</span><a href="#local-6989586621679275461"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679275461"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275460"><span class="annot"><span class="annottext">s :: UpdateEnvironmentResponse
+</span><a href="#local-6989586621679275460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275459"><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679275459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironmentResponse
+</span><a href="#local-6989586621679275460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:UpdateEnvironmentResponse' :: Environment
+</span><a href="Network.AWS.Proton.UpdateEnvironment.html#%24sel%3Aenvironment%3AUpdateEnvironmentResponse%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679275459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse"><span class="hs-identifier hs-type">UpdateEnvironmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span>
+</span><span id="line-417"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.UpdateEnvironment.html#UpdateEnvironmentResponse"><span class="hs-identifier hs-type">UpdateEnvironmentResponse</span></a></span></span><span>
+</span><span id="line-418"></span></pre></body></html>

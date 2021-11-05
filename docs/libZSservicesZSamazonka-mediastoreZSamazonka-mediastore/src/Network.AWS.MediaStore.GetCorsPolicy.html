@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetCorsPolicy' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679166985"><span id="local-6989586621679166986"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCorsPolicy"><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-var">GetCorsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCorsPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy%27"><span class="hs-identifier hs-var">GetCorsPolicy'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679166994"><span id="local-6989586621679166995"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCorsPolicy"><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-var">GetCorsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCorsPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy%27"><span class="hs-identifier hs-var">GetCorsPolicy'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container that the policy is assigned to.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AcontainerName%3AGetCorsPolicy%27"><span class="annot"><span class="annottext">GetCorsPolicy -&gt; Text
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#%24sel%3AcontainerName%3AGetCorsPolicy%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679166979"><span id="local-6989586621679166981"><span class="annot"><span class="annottext">GetCorsPolicy -&gt; GetCorsPolicy -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679166988"><span id="local-6989586621679166990"><span class="annot"><span class="annottext">GetCorsPolicy -&gt; GetCorsPolicy -&gt; Bool
 (GetCorsPolicy -&gt; GetCorsPolicy -&gt; Bool)
 -&gt; (GetCorsPolicy -&gt; GetCorsPolicy -&gt; Bool) -&gt; Eq GetCorsPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCorsPolicy -&gt; GetCorsPolicy -&gt; Bool
 == :: GetCorsPolicy -&gt; GetCorsPolicy -&gt; Bool
 $c== :: GetCorsPolicy -&gt; GetCorsPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166970"><span id="local-6989586621679166972"><span id="local-6989586621679166974"><span id="local-6989586621679166976"><span class="annot"><span class="annottext">ReadPrec [GetCorsPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166979"><span id="local-6989586621679166981"><span id="local-6989586621679166983"><span id="local-6989586621679166985"><span class="annot"><span class="annottext">ReadPrec [GetCorsPolicy]
 ReadPrec GetCorsPolicy
 Int -&gt; ReadS GetCorsPolicy
 ReadS [GetCorsPolicy]
@@ -85,7 +85,7 @@ readList :: ReadS [GetCorsPolicy]
 $creadList :: ReadS [GetCorsPolicy]
 readsPrec :: Int -&gt; ReadS GetCorsPolicy
 $creadsPrec :: Int -&gt; ReadS GetCorsPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166963"><span id="local-6989586621679166965"><span id="local-6989586621679166967"><span class="annot"><span class="annottext">Int -&gt; GetCorsPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166972"><span id="local-6989586621679166974"><span id="local-6989586621679166976"><span class="annot"><span class="annottext">Int -&gt; GetCorsPolicy -&gt; ShowS
 [GetCorsPolicy] -&gt; ShowS
 GetCorsPolicy -&gt; String
 (Int -&gt; GetCorsPolicy -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. GetCorsPolicy -&gt; Rep GetCorsPolicy x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span><span>
 </span><span id="line-74"></span><span id="newGetCorsPolicy"><span class="annot"><span class="annottext">newGetCorsPolicy :: Text -&gt; GetCorsPolicy
-</span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#newGetCorsPolicy"><span class="hs-identifier hs-var hs-var">newGetCorsPolicy</span></a></span></span><span> </span><span id="local-6989586621679166958"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679166958"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#newGetCorsPolicy"><span class="hs-identifier hs-var hs-var">newGetCorsPolicy</span></a></span></span><span> </span><span id="local-6989586621679166967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679166967"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetCorsPolicy' :: Text -&gt; GetCorsPolicy
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy%27"><span class="hs-identifier hs-type">GetCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:GetCorsPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#%24sel%3AcontainerName%3AGetCorsPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679166958"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679166967"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the container that the policy is assigned to.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#getCorsPolicy_containerName"><span class="hs-identifier hs-type">getCorsPolicy_containerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. GetCorsPolicy -&gt; Rep GetCorsPolicy x
 -&gt; (GetCorsPolicy -&gt; Text -&gt; GetCorsPolicy)
 -&gt; Lens GetCorsPolicy GetCorsPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy%27"><span class="hs-identifier hs-type">GetCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166955"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy%27"><span class="hs-identifier hs-type">GetCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166964"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:GetCorsPolicy' :: GetCorsPolicy -&gt; Text
-</span><a href="#local-6989586621679166955"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679166955"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679166954"><span class="annot"><span class="annottext">s :: GetCorsPolicy
-</span><a href="#local-6989586621679166954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy%27"><span class="hs-identifier hs-type">GetCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679166953"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679166953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCorsPolicy
-</span><a href="#local-6989586621679166954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:GetCorsPolicy' :: Text
+</span><a href="#local-6989586621679166964"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679166964"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679166963"><span class="annot"><span class="annottext">s :: GetCorsPolicy
+</span><a href="#local-6989586621679166963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy%27"><span class="hs-identifier hs-type">GetCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679166962"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679166962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCorsPolicy
+</span><a href="#local-6989586621679166963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:GetCorsPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#%24sel%3AcontainerName%3AGetCorsPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679166953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679166962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-type">GetCorsPolicyResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679166949"><span class="annot"><span class="annottext">request :: GetCorsPolicy -&gt; Request GetCorsPolicy
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679166958"><span class="annot"><span class="annottext">request :: GetCorsPolicy -&gt; Request GetCorsPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCorsPolicy -&gt; Request GetCorsPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStore.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679166945"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679166954"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCorsPolicy
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679166942"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679166942"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679166941"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679166941"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679166940"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679166940"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679166951"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679166951"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679166950"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679166950"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679166949"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679166949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; NonEmpty CorsRule -&gt; GetCorsPolicyResponse
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-var">GetCorsPolicyResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; NonEmpty CorsRule -&gt; GetCorsPolicyResponse)
@@ -198,24 +198,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679166942"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679166951"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (NonEmpty CorsRule -&gt; GetCorsPolicyResponse)
 -&gt; Either String (NonEmpty CorsRule)
 -&gt; Either String GetCorsPolicyResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679166940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (NonEmpty CorsRule)
+</span><a href="#local-6989586621679166949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (NonEmpty CorsRule)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CorsPolicy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166932"><span id="local-6989586621679166934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166941"><span id="local-6989586621679166943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679166925"><span class="annot"><span class="annottext">toHeaders :: GetCorsPolicy -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679166934"><span class="annot"><span class="annottext">toHeaders :: GetCorsPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCorsPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,12 +242,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166915"><span id="local-6989586621679166917"><span id="local-6989586621679166919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679166913"><span class="annot"><span class="annottext">toJSON :: GetCorsPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy%27"><span class="hs-identifier hs-type">GetCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166911"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166924"><span id="local-6989586621679166926"><span id="local-6989586621679166928"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679166922"><span class="annot"><span class="annottext">toJSON :: GetCorsPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy%27"><span class="hs-identifier hs-type">GetCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166920"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:GetCorsPolicy' :: GetCorsPolicy -&gt; Text
-</span><a href="#local-6989586621679166911"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679166920"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,19 +260,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679166911"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679166920"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679166905"><span class="annot"><span class="annottext">toPath :: GetCorsPolicy -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679166914"><span class="annot"><span class="annottext">toPath :: GetCorsPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCorsPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicy"><span class="hs-identifier hs-type">GetCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679166901"><span class="annot"><span class="annottext">toQuery :: GetCorsPolicy -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679166910"><span class="annot"><span class="annottext">toQuery :: GetCorsPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCorsPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -280,7 +280,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newGetCorsPolicyResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679166898"><span id="local-6989586621679166899"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCorsPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-var">GetCorsPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCorsPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-var">GetCorsPolicyResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679166907"><span id="local-6989586621679166908"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCorsPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-var">GetCorsPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCorsPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-var">GetCorsPolicyResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCorsPolicyResponse%27"><span class="annot"><span class="annottext">GetCorsPolicyResponse -&gt; Int
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#%24sel%3AhttpStatus%3AGetCorsPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -288,7 +288,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AcorsPolicy%3AGetCorsPolicyResponse%27"><span class="annot"><span class="annottext">GetCorsPolicyResponse -&gt; NonEmpty CorsRule
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#%24sel%3AcorsPolicy%3AGetCorsPolicyResponse%27"><span class="hs-identifier hs-var hs-var">corsPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679166892"><span id="local-6989586621679166894"><span class="annot"><span class="annottext">GetCorsPolicyResponse -&gt; GetCorsPolicyResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679166901"><span id="local-6989586621679166903"><span class="annot"><span class="annottext">GetCorsPolicyResponse -&gt; GetCorsPolicyResponse -&gt; Bool
 (GetCorsPolicyResponse -&gt; GetCorsPolicyResponse -&gt; Bool)
 -&gt; (GetCorsPolicyResponse -&gt; GetCorsPolicyResponse -&gt; Bool)
 -&gt; Eq GetCorsPolicyResponse
@@ -297,7 +297,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCorsPolicyResponse -&gt; GetCorsPolicyResponse -&gt; Bool
 == :: GetCorsPolicyResponse -&gt; GetCorsPolicyResponse -&gt; Bool
 $c== :: GetCorsPolicyResponse -&gt; GetCorsPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166884"><span id="local-6989586621679166886"><span id="local-6989586621679166888"><span id="local-6989586621679166890"><span class="annot"><span class="annottext">ReadPrec [GetCorsPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166893"><span id="local-6989586621679166895"><span id="local-6989586621679166897"><span id="local-6989586621679166899"><span class="annot"><span class="annottext">ReadPrec [GetCorsPolicyResponse]
 ReadPrec GetCorsPolicyResponse
 Int -&gt; ReadS GetCorsPolicyResponse
 ReadS [GetCorsPolicyResponse]
@@ -317,7 +317,7 @@ readList :: ReadS [GetCorsPolicyResponse]
 $creadList :: ReadS [GetCorsPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetCorsPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetCorsPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166878"><span id="local-6989586621679166880"><span id="local-6989586621679166882"><span class="annot"><span class="annottext">Int -&gt; GetCorsPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679166887"><span id="local-6989586621679166889"><span id="local-6989586621679166891"><span class="annot"><span class="annottext">Int -&gt; GetCorsPolicyResponse -&gt; ShowS
 [GetCorsPolicyResponse] -&gt; ShowS
 GetCorsPolicyResponse -&gt; String
 (Int -&gt; GetCorsPolicyResponse -&gt; ShowS)
@@ -361,14 +361,14 @@ $cfrom :: forall x. GetCorsPolicyResponse -&gt; Rep GetCorsPolicyResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-type">GetCorsPolicyResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newGetCorsPolicyResponse"><span class="annot"><span class="annottext">newGetCorsPolicyResponse :: Int -&gt; NonEmpty CorsRule -&gt; GetCorsPolicyResponse
-</span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#newGetCorsPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetCorsPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679166875"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679166875"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679166874"><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679166874"><span class="hs-identifier hs-var">pCorsPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#newGetCorsPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetCorsPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679166884"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679166884"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679166883"><span class="annot"><span class="annottext">NonEmpty CorsRule
+</span><a href="#local-6989586621679166883"><span class="hs-identifier hs-var">pCorsPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">GetCorsPolicyResponse' :: Int -&gt; NonEmpty CorsRule -&gt; GetCorsPolicyResponse
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-type">GetCorsPolicyResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCorsPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#%24sel%3AhttpStatus%3AGetCorsPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679166875"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679166884"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:corsPolicy:GetCorsPolicyResponse' :: NonEmpty CorsRule
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#%24sel%3AcorsPolicy%3AGetCorsPolicyResponse%27"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty CorsRule) (Identity (NonEmpty CorsRule))
 -&gt; Tagged (NonEmpty CorsRule) (Identity (NonEmpty CorsRule))
@@ -378,7 +378,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty CorsRule -&gt; NonEmpty CorsRule
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679166874"><span class="hs-identifier hs-var">pCorsPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679166883"><span class="hs-identifier hs-var">pCorsPolicy_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -388,16 +388,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (GetCorsPolicyResponse -&gt; Int -&gt; GetCorsPolicyResponse)
 -&gt; Lens GetCorsPolicyResponse GetCorsPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-type">GetCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166871"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-type">GetCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166880"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCorsPolicyResponse' :: GetCorsPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679166871"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679166871"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679166870"><span class="annot"><span class="annottext">s :: GetCorsPolicyResponse
-</span><a href="#local-6989586621679166870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-type">GetCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679166869"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679166869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCorsPolicyResponse
-</span><a href="#local-6989586621679166870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCorsPolicyResponse' :: Int
+</span><a href="#local-6989586621679166880"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679166880"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679166879"><span class="annot"><span class="annottext">s :: GetCorsPolicyResponse
+</span><a href="#local-6989586621679166879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-type">GetCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679166878"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679166878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCorsPolicyResponse
+</span><a href="#local-6989586621679166879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCorsPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#%24sel%3AhttpStatus%3AGetCorsPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679166869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-type">GetCorsPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679166878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-type">GetCorsPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The CORS policy assigned to the container.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#getCorsPolicyResponse_corsPolicy"><span class="hs-identifier hs-type">getCorsPolicyResponse_corsPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-type">GetCorsPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span>
@@ -412,16 +412,16 @@ $sel:httpStatus:GetCorsPolicyResponse' :: GetCorsPolicyResponse -&gt; Int
      (NonEmpty CorsRule)
      (NonEmpty CorsRule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-type">GetCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166868"><span class="annot"><span class="annottext">NonEmpty CorsRule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-type">GetCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679166877"><span class="annot"><span class="annottext">NonEmpty CorsRule
 corsPolicy :: NonEmpty CorsRule
 $sel:corsPolicy:GetCorsPolicyResponse' :: GetCorsPolicyResponse -&gt; NonEmpty CorsRule
-</span><a href="#local-6989586621679166868"><span class="hs-identifier hs-var hs-var">corsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679166868"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679166867"><span class="annot"><span class="annottext">s :: GetCorsPolicyResponse
-</span><a href="#local-6989586621679166867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-type">GetCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679166866"><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679166866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCorsPolicyResponse
-</span><a href="#local-6989586621679166867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:corsPolicy:GetCorsPolicyResponse' :: NonEmpty CorsRule
+</span><a href="#local-6989586621679166877"><span class="hs-identifier hs-var hs-var">corsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty CorsRule
+</span><a href="#local-6989586621679166877"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679166876"><span class="annot"><span class="annottext">s :: GetCorsPolicyResponse
+</span><a href="#local-6989586621679166876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse%27"><span class="hs-identifier hs-type">GetCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679166875"><span class="annot"><span class="annottext">NonEmpty CorsRule
+</span><a href="#local-6989586621679166875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCorsPolicyResponse
+</span><a href="#local-6989586621679166876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:corsPolicy:GetCorsPolicyResponse' :: NonEmpty CorsRule
 </span><a href="Network.AWS.MediaStore.GetCorsPolicy.html#%24sel%3AcorsPolicy%3AGetCorsPolicyResponse%27"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679166866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-type">GetCorsPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty CorsRule -&gt; f (NonEmpty CorsRule))
+</span><a href="#local-6989586621679166875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-type">GetCorsPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty CorsRule -&gt; f (NonEmpty CorsRule))
  -&gt; GetCorsPolicyResponse -&gt; f GetCorsPolicyResponse)
 -&gt; ((NonEmpty CorsRule -&gt; f (NonEmpty CorsRule))
     -&gt; NonEmpty CorsRule -&gt; f (NonEmpty CorsRule))
@@ -434,5 +434,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-type">GetCorsPolicyResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679166872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetCorsPolicy.html#GetCorsPolicyResponse"><span class="hs-identifier hs-type">GetCorsPolicyResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

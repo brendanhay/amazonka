@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption"><span class="hs-identifier">ReservedInstancePaymentOption</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption_ALL_UPFRONT"><span class="hs-identifier">ReservedInstancePaymentOption_ALL_UPFRONT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption_NO_UPFRONT"><span class="hs-identifier">ReservedInstancePaymentOption_NO_UPFRONT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption_PARTIAL_UPFRONT"><span class="hs-identifier">ReservedInstancePaymentOption_PARTIAL_UPFRONT</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679303491"><span id="local-6989586621679303492"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservedInstancePaymentOption"><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption"><span class="hs-identifier hs-var">ReservedInstancePaymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedInstancePaymentOption%27"><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption%27"><span class="hs-identifier hs-var">ReservedInstancePaymentOption'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReservedInstancePaymentOption"><span class="annot"><span class="annottext">ReservedInstancePaymentOption -&gt; Text
+</span><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#fromReservedInstancePaymentOption"><span class="hs-identifier hs-var hs-var">fromReservedInstancePaymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303483"><span id="local-6989586621679303485"><span id="local-6989586621679303487"><span class="annot"><span class="annottext">Int -&gt; ReservedInstancePaymentOption -&gt; ShowS
+[ReservedInstancePaymentOption] -&gt; ShowS
+ReservedInstancePaymentOption -&gt; String
+(Int -&gt; ReservedInstancePaymentOption -&gt; ShowS)
+-&gt; (ReservedInstancePaymentOption -&gt; String)
+-&gt; ([ReservedInstancePaymentOption] -&gt; ShowS)
+-&gt; Show ReservedInstancePaymentOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReservedInstancePaymentOption] -&gt; ShowS
+$cshowList :: [ReservedInstancePaymentOption] -&gt; ShowS
+show :: ReservedInstancePaymentOption -&gt; String
+$cshow :: ReservedInstancePaymentOption -&gt; String
+showsPrec :: Int -&gt; ReservedInstancePaymentOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReservedInstancePaymentOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679303474"><span id="local-6989586621679303476"><span id="local-6989586621679303478"><span id="local-6989586621679303480"><span class="annot"><span class="annottext">ReadPrec [ReservedInstancePaymentOption]
+ReadPrec ReservedInstancePaymentOption
+Int -&gt; ReadS ReservedInstancePaymentOption
+ReadS [ReservedInstancePaymentOption]
+(Int -&gt; ReadS ReservedInstancePaymentOption)
+-&gt; ReadS [ReservedInstancePaymentOption]
+-&gt; ReadPrec ReservedInstancePaymentOption
+-&gt; ReadPrec [ReservedInstancePaymentOption]
+-&gt; Read ReservedInstancePaymentOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReservedInstancePaymentOption]
+$creadListPrec :: ReadPrec [ReservedInstancePaymentOption]
+readPrec :: ReadPrec ReservedInstancePaymentOption
+$creadPrec :: ReadPrec ReservedInstancePaymentOption
+readList :: ReadS [ReservedInstancePaymentOption]
+$creadList :: ReadS [ReservedInstancePaymentOption]
+readsPrec :: Int -&gt; ReadS ReservedInstancePaymentOption
+$creadsPrec :: Int -&gt; ReadS ReservedInstancePaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679303469"><span id="local-6989586621679303471"><span class="annot"><span class="annottext">ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+(ReservedInstancePaymentOption
+ -&gt; ReservedInstancePaymentOption -&gt; Bool)
+-&gt; (ReservedInstancePaymentOption
+    -&gt; ReservedInstancePaymentOption -&gt; Bool)
+-&gt; Eq ReservedInstancePaymentOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+$c/= :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+== :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+$c== :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679303453"><span id="local-6989586621679303455"><span id="local-6989586621679303457"><span id="local-6989586621679303459"><span id="local-6989586621679303461"><span id="local-6989586621679303463"><span id="local-6989586621679303465"><span class="annot"><span class="annottext">Eq ReservedInstancePaymentOption
+Eq ReservedInstancePaymentOption
+-&gt; (ReservedInstancePaymentOption
+    -&gt; ReservedInstancePaymentOption -&gt; Ordering)
+-&gt; (ReservedInstancePaymentOption
+    -&gt; ReservedInstancePaymentOption -&gt; Bool)
+-&gt; (ReservedInstancePaymentOption
+    -&gt; ReservedInstancePaymentOption -&gt; Bool)
+-&gt; (ReservedInstancePaymentOption
+    -&gt; ReservedInstancePaymentOption -&gt; Bool)
+-&gt; (ReservedInstancePaymentOption
+    -&gt; ReservedInstancePaymentOption -&gt; Bool)
+-&gt; (ReservedInstancePaymentOption
+    -&gt; ReservedInstancePaymentOption -&gt; ReservedInstancePaymentOption)
+-&gt; (ReservedInstancePaymentOption
+    -&gt; ReservedInstancePaymentOption -&gt; ReservedInstancePaymentOption)
+-&gt; Ord ReservedInstancePaymentOption
+ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Ordering
+ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; ReservedInstancePaymentOption
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; ReservedInstancePaymentOption
+$cmin :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; ReservedInstancePaymentOption
+max :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; ReservedInstancePaymentOption
+$cmax :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; ReservedInstancePaymentOption
+&gt;= :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+$c&gt;= :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+&gt; :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+$c&gt; :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+&lt;= :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+$c&lt;= :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+&lt; :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+$c&lt; :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Bool
+compare :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Ordering
+$ccompare :: ReservedInstancePaymentOption
+-&gt; ReservedInstancePaymentOption -&gt; Ordering
+$cp1Ord :: Eq ReservedInstancePaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ReservedInstancePaymentOption
+ -&gt; Rep ReservedInstancePaymentOption x)
+-&gt; (forall x.
+    Rep ReservedInstancePaymentOption x
+    -&gt; ReservedInstancePaymentOption)
+-&gt; Generic ReservedInstancePaymentOption
+forall x.
+Rep ReservedInstancePaymentOption x
+-&gt; ReservedInstancePaymentOption
+forall x.
+ReservedInstancePaymentOption
+-&gt; Rep ReservedInstancePaymentOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReservedInstancePaymentOption x
+-&gt; ReservedInstancePaymentOption
+$cfrom :: forall x.
+ReservedInstancePaymentOption
+-&gt; Rep ReservedInstancePaymentOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679303445"><span id="local-6989586621679303447"><span class="annot"><span class="annottext">Int -&gt; ReservedInstancePaymentOption -&gt; Int
+ReservedInstancePaymentOption -&gt; Int
+(Int -&gt; ReservedInstancePaymentOption -&gt; Int)
+-&gt; (ReservedInstancePaymentOption -&gt; Int)
+-&gt; Hashable ReservedInstancePaymentOption
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReservedInstancePaymentOption -&gt; Int
+$chash :: ReservedInstancePaymentOption -&gt; Int
+hashWithSalt :: Int -&gt; ReservedInstancePaymentOption -&gt; Int
+$chashWithSalt :: Int -&gt; ReservedInstancePaymentOption -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679303442"><span class="annot"><span class="annottext">ReservedInstancePaymentOption -&gt; ()
+(ReservedInstancePaymentOption -&gt; ())
+-&gt; NFData ReservedInstancePaymentOption
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReservedInstancePaymentOption -&gt; ()
+$crnf :: ReservedInstancePaymentOption -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679303439"><span class="annot"><span class="annottext">Text -&gt; Either String ReservedInstancePaymentOption
+(Text -&gt; Either String ReservedInstancePaymentOption)
+-&gt; FromText ReservedInstancePaymentOption
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReservedInstancePaymentOption
+$cfromText :: Text -&gt; Either String ReservedInstancePaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679303436"><span class="annot"><span class="annottext">ReservedInstancePaymentOption -&gt; Text
+(ReservedInstancePaymentOption -&gt; Text)
+-&gt; ToText ReservedInstancePaymentOption
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReservedInstancePaymentOption -&gt; Text
+$ctoText :: ReservedInstancePaymentOption -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679303433"><span class="annot"><span class="annottext">ReservedInstancePaymentOption -&gt; ByteString
+(ReservedInstancePaymentOption -&gt; ByteString)
+-&gt; ToByteString ReservedInstancePaymentOption
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReservedInstancePaymentOption -&gt; ByteString
+$ctoBS :: ReservedInstancePaymentOption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679303430"><span class="annot"><span class="annottext">ReservedInstancePaymentOption -&gt; ByteStringBuilder
+(ReservedInstancePaymentOption -&gt; ByteStringBuilder)
+-&gt; ToLog ReservedInstancePaymentOption
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReservedInstancePaymentOption -&gt; ByteStringBuilder
+$cbuild :: ReservedInstancePaymentOption -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679303427"><span class="annot"><span class="annottext">HeaderName -&gt; ReservedInstancePaymentOption -&gt; [Header]
+(HeaderName -&gt; ReservedInstancePaymentOption -&gt; [Header])
+-&gt; ToHeader ReservedInstancePaymentOption
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReservedInstancePaymentOption -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReservedInstancePaymentOption -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679303424"><span class="annot"><span class="annottext">ReservedInstancePaymentOption -&gt; QueryString
+(ReservedInstancePaymentOption -&gt; QueryString)
+-&gt; ToQuery ReservedInstancePaymentOption
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReservedInstancePaymentOption -&gt; QueryString
+$ctoQuery :: ReservedInstancePaymentOption -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679303419"><span id="local-6989586621679303421"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservedInstancePaymentOption]
+Value -&gt; Parser ReservedInstancePaymentOption
+(Value -&gt; Parser ReservedInstancePaymentOption)
+-&gt; (Value -&gt; Parser [ReservedInstancePaymentOption])
+-&gt; FromJSON ReservedInstancePaymentOption
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReservedInstancePaymentOption]
+$cparseJSONList :: Value -&gt; Parser [ReservedInstancePaymentOption]
+parseJSON :: Value -&gt; Parser ReservedInstancePaymentOption
+$cparseJSON :: Value -&gt; Parser ReservedInstancePaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679303414"><span id="local-6989586621679303416"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservedInstancePaymentOption]
+FromJSONKeyFunction ReservedInstancePaymentOption
+FromJSONKeyFunction ReservedInstancePaymentOption
+-&gt; FromJSONKeyFunction [ReservedInstancePaymentOption]
+-&gt; FromJSONKey ReservedInstancePaymentOption
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReservedInstancePaymentOption]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReservedInstancePaymentOption]
+fromJSONKey :: FromJSONKeyFunction ReservedInstancePaymentOption
+$cfromJSONKey :: FromJSONKeyFunction ReservedInstancePaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679303405"><span id="local-6989586621679303407"><span id="local-6989586621679303409"><span id="local-6989586621679303411"><span class="annot"><span class="annottext">[ReservedInstancePaymentOption] -&gt; Encoding
+[ReservedInstancePaymentOption] -&gt; Value
+ReservedInstancePaymentOption -&gt; Encoding
+ReservedInstancePaymentOption -&gt; Value
+(ReservedInstancePaymentOption -&gt; Value)
+-&gt; (ReservedInstancePaymentOption -&gt; Encoding)
+-&gt; ([ReservedInstancePaymentOption] -&gt; Value)
+-&gt; ([ReservedInstancePaymentOption] -&gt; Encoding)
+-&gt; ToJSON ReservedInstancePaymentOption
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReservedInstancePaymentOption] -&gt; Encoding
+$ctoEncodingList :: [ReservedInstancePaymentOption] -&gt; Encoding
+toJSONList :: [ReservedInstancePaymentOption] -&gt; Value
+$ctoJSONList :: [ReservedInstancePaymentOption] -&gt; Value
+toEncoding :: ReservedInstancePaymentOption -&gt; Encoding
+$ctoEncoding :: ReservedInstancePaymentOption -&gt; Encoding
+toJSON :: ReservedInstancePaymentOption -&gt; Value
+$ctoJSON :: ReservedInstancePaymentOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679303400"><span id="local-6989586621679303402"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservedInstancePaymentOption]
+ToJSONKeyFunction ReservedInstancePaymentOption
+ToJSONKeyFunction ReservedInstancePaymentOption
+-&gt; ToJSONKeyFunction [ReservedInstancePaymentOption]
+-&gt; ToJSONKey ReservedInstancePaymentOption
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReservedInstancePaymentOption]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReservedInstancePaymentOption]
+toJSONKey :: ToJSONKeyFunction ReservedInstancePaymentOption
+$ctoJSONKey :: ToJSONKeyFunction ReservedInstancePaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679303397"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservedInstancePaymentOption
+([Node] -&gt; Either String ReservedInstancePaymentOption)
+-&gt; FromXML ReservedInstancePaymentOption
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReservedInstancePaymentOption
+$cparseXML :: [Node] -&gt; Either String ReservedInstancePaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679303394"><span class="annot"><span class="annottext">ReservedInstancePaymentOption -&gt; XML
+(ReservedInstancePaymentOption -&gt; XML)
+-&gt; ToXML ReservedInstancePaymentOption
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReservedInstancePaymentOption -&gt; XML
+$ctoXML :: ReservedInstancePaymentOption -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption_ALL_UPFRONT"><span class="hs-identifier hs-type">ReservedInstancePaymentOption_ALL_UPFRONT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption"><span class="hs-identifier hs-type">ReservedInstancePaymentOption</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservedInstancePaymentOption_ALL_UPFRONT"><span id="%24mReservedInstancePaymentOption_ALL_UPFRONT"><span id="ReservedInstancePaymentOption_ALL_UPFRONT"><span class="annot"><span class="annottext">$bReservedInstancePaymentOption_ALL_UPFRONT :: ReservedInstancePaymentOption
+$mReservedInstancePaymentOption_ALL_UPFRONT :: forall r.
+ReservedInstancePaymentOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#%24bReservedInstancePaymentOption_ALL_UPFRONT"><span class="hs-identifier hs-var hs-var hs-var">ReservedInstancePaymentOption_ALL_UPFRONT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption%27"><span class="hs-identifier hs-type">ReservedInstancePaymentOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALL_UPFRONT&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption_NO_UPFRONT"><span class="hs-identifier hs-type">ReservedInstancePaymentOption_NO_UPFRONT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption"><span class="hs-identifier hs-type">ReservedInstancePaymentOption</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservedInstancePaymentOption_NO_UPFRONT"><span id="%24mReservedInstancePaymentOption_NO_UPFRONT"><span id="ReservedInstancePaymentOption_NO_UPFRONT"><span class="annot"><span class="annottext">$bReservedInstancePaymentOption_NO_UPFRONT :: ReservedInstancePaymentOption
+$mReservedInstancePaymentOption_NO_UPFRONT :: forall r.
+ReservedInstancePaymentOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#%24bReservedInstancePaymentOption_NO_UPFRONT"><span class="hs-identifier hs-var hs-var hs-var">ReservedInstancePaymentOption_NO_UPFRONT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption%27"><span class="hs-identifier hs-type">ReservedInstancePaymentOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_UPFRONT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption_PARTIAL_UPFRONT"><span class="hs-identifier hs-type">ReservedInstancePaymentOption_PARTIAL_UPFRONT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption"><span class="hs-identifier hs-type">ReservedInstancePaymentOption</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReservedInstancePaymentOption_PARTIAL_UPFRONT"><span id="%24mReservedInstancePaymentOption_PARTIAL_UPFRONT"><span id="ReservedInstancePaymentOption_PARTIAL_UPFRONT"><span class="annot"><span class="annottext">$bReservedInstancePaymentOption_PARTIAL_UPFRONT :: ReservedInstancePaymentOption
+$mReservedInstancePaymentOption_PARTIAL_UPFRONT :: forall r.
+ReservedInstancePaymentOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#%24bReservedInstancePaymentOption_PARTIAL_UPFRONT"><span class="hs-identifier hs-var hs-var hs-var">ReservedInstancePaymentOption_PARTIAL_UPFRONT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption%27"><span class="hs-identifier hs-type">ReservedInstancePaymentOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARTIAL_UPFRONT&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption_ALL_UPFRONT"><span class="hs-pragma hs-type">ReservedInstancePaymentOption_ALL_UPFRONT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption_NO_UPFRONT"><span class="hs-pragma hs-type">ReservedInstancePaymentOption_NO_UPFRONT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption_PARTIAL_UPFRONT"><span class="hs-pragma hs-type">ReservedInstancePaymentOption_PARTIAL_UPFRONT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ReservedInstancePaymentOption.html#ReservedInstancePaymentOption%27"><span class="hs-pragma hs-type">ReservedInstancePaymentOption'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

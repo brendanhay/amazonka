@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Data used to transfer a certificate to an Amazon Web Services account.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTransferData' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679805432"><span id="local-6989586621679805433"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransferData"><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-var">TransferData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferData%27"><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-var">TransferData'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679805441"><span id="local-6989586621679805442"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransferData"><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-var">TransferData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferData%27"><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-var">TransferData'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date the transfer took place.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AtransferDate%3ATransferData%27"><span class="annot"><span class="annottext">TransferData -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.TransferData.html#%24sel%3AtransferDate%3ATransferData%27"><span class="hs-identifier hs-var hs-var">transferDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3ArejectReason%3ATransferData%27"><span class="annot"><span class="annottext">TransferData -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.TransferData.html#%24sel%3ArejectReason%3ATransferData%27"><span class="hs-identifier hs-var hs-var">rejectReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805422"><span id="local-6989586621679805424"><span class="annot"><span class="annottext">TransferData -&gt; TransferData -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805431"><span id="local-6989586621679805433"><span class="annot"><span class="annottext">TransferData -&gt; TransferData -&gt; Bool
 (TransferData -&gt; TransferData -&gt; Bool)
 -&gt; (TransferData -&gt; TransferData -&gt; Bool) -&gt; Eq TransferData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransferData -&gt; TransferData -&gt; Bool
 == :: TransferData -&gt; TransferData -&gt; Bool
 $c== :: TransferData -&gt; TransferData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805413"><span id="local-6989586621679805415"><span id="local-6989586621679805417"><span id="local-6989586621679805419"><span class="annot"><span class="annottext">ReadPrec [TransferData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805422"><span id="local-6989586621679805424"><span id="local-6989586621679805426"><span id="local-6989586621679805428"><span class="annot"><span class="annottext">ReadPrec [TransferData]
 ReadPrec TransferData
 Int -&gt; ReadS TransferData
 ReadS [TransferData]
@@ -71,7 +71,7 @@ readList :: ReadS [TransferData]
 $creadList :: ReadS [TransferData]
 readsPrec :: Int -&gt; ReadS TransferData
 $creadsPrec :: Int -&gt; ReadS TransferData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805406"><span id="local-6989586621679805408"><span id="local-6989586621679805410"><span class="annot"><span class="annottext">Int -&gt; TransferData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805415"><span id="local-6989586621679805417"><span id="local-6989586621679805419"><span class="annot"><span class="annottext">Int -&gt; TransferData -&gt; ShowS
 [TransferData] -&gt; ShowS
 TransferData -&gt; String
 (Int -&gt; TransferData -&gt; ShowS)
@@ -155,16 +155,16 @@ forall a. Maybe a
 -&gt; (TransferData -&gt; Maybe POSIX -&gt; TransferData)
 -&gt; Lens TransferData TransferData (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805397"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805406"><span class="annot"><span class="annottext">Maybe POSIX
 transferDate :: Maybe POSIX
 $sel:transferDate:TransferData' :: TransferData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679805397"><span class="hs-identifier hs-var hs-var">transferDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805397"><span class="hs-identifier hs-var">transferDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805396"><span class="annot"><span class="annottext">s :: TransferData
-</span><a href="#local-6989586621679805396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805395"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
-</span><a href="#local-6989586621679805396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferDate:TransferData' :: Maybe POSIX
+</span><a href="#local-6989586621679805406"><span class="hs-identifier hs-var hs-var">transferDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679805406"><span class="hs-identifier hs-var">transferDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805405"><span class="annot"><span class="annottext">s :: TransferData
+</span><a href="#local-6989586621679805405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805404"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679805404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
+</span><a href="#local-6989586621679805405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferDate:TransferData' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.TransferData.html#%24sel%3AtransferDate%3ATransferData%27"><span class="hs-identifier hs-var">transferDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679805404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TransferData -&gt; f TransferData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -189,16 +189,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (TransferData -&gt; Maybe POSIX -&gt; TransferData)
 -&gt; Lens TransferData TransferData (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805390"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805399"><span class="annot"><span class="annottext">Maybe POSIX
 acceptDate :: Maybe POSIX
 $sel:acceptDate:TransferData' :: TransferData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679805390"><span class="hs-identifier hs-var hs-var">acceptDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805390"><span class="hs-identifier hs-var">acceptDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805389"><span class="annot"><span class="annottext">s :: TransferData
-</span><a href="#local-6989586621679805389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805388"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
-</span><a href="#local-6989586621679805389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptDate:TransferData' :: Maybe POSIX
+</span><a href="#local-6989586621679805399"><span class="hs-identifier hs-var hs-var">acceptDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679805399"><span class="hs-identifier hs-var">acceptDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805398"><span class="annot"><span class="annottext">s :: TransferData
+</span><a href="#local-6989586621679805398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805397"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679805397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
+</span><a href="#local-6989586621679805398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptDate:TransferData' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.TransferData.html#%24sel%3AacceptDate%3ATransferData%27"><span class="hs-identifier hs-var">acceptDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679805397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TransferData -&gt; f TransferData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -222,16 +222,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (TransferData -&gt; Maybe Text -&gt; TransferData)
 -&gt; Lens TransferData TransferData (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805386"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805395"><span class="annot"><span class="annottext">Maybe Text
 transferMessage :: Maybe Text
 $sel:transferMessage:TransferData' :: TransferData -&gt; Maybe Text
-</span><a href="#local-6989586621679805386"><span class="hs-identifier hs-var hs-var">transferMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805386"><span class="hs-identifier hs-var">transferMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805385"><span class="annot"><span class="annottext">s :: TransferData
-</span><a href="#local-6989586621679805385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805384"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
-</span><a href="#local-6989586621679805385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferMessage:TransferData' :: Maybe Text
+</span><a href="#local-6989586621679805395"><span class="hs-identifier hs-var hs-var">transferMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805395"><span class="hs-identifier hs-var">transferMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805394"><span class="annot"><span class="annottext">s :: TransferData
+</span><a href="#local-6989586621679805394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805393"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
+</span><a href="#local-6989586621679805394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferMessage:TransferData' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.TransferData.html#%24sel%3AtransferMessage%3ATransferData%27"><span class="hs-identifier hs-var">transferMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The date the transfer was rejected.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#transferData_rejectDate"><span class="hs-identifier hs-type">transferData_rejectDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -241,16 +241,16 @@ $sel:transferMessage:TransferData' :: TransferData -&gt; Maybe Text
 -&gt; (TransferData -&gt; Maybe POSIX -&gt; TransferData)
 -&gt; Lens TransferData TransferData (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805382"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805391"><span class="annot"><span class="annottext">Maybe POSIX
 rejectDate :: Maybe POSIX
 $sel:rejectDate:TransferData' :: TransferData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679805382"><span class="hs-identifier hs-var hs-var">rejectDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805382"><span class="hs-identifier hs-var">rejectDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805381"><span class="annot"><span class="annottext">s :: TransferData
-</span><a href="#local-6989586621679805381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805380"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
-</span><a href="#local-6989586621679805381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rejectDate:TransferData' :: Maybe POSIX
+</span><a href="#local-6989586621679805391"><span class="hs-identifier hs-var hs-var">rejectDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679805391"><span class="hs-identifier hs-var">rejectDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805390"><span class="annot"><span class="annottext">s :: TransferData
+</span><a href="#local-6989586621679805390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805389"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679805389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
+</span><a href="#local-6989586621679805390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rejectDate:TransferData' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.TransferData.html#%24sel%3ArejectDate%3ATransferData%27"><span class="hs-identifier hs-var">rejectDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679805380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679805389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TransferData -&gt; f TransferData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -274,19 +274,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (TransferData -&gt; Maybe Text -&gt; TransferData)
 -&gt; Lens TransferData TransferData (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805378"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805387"><span class="annot"><span class="annottext">Maybe Text
 rejectReason :: Maybe Text
 $sel:rejectReason:TransferData' :: TransferData -&gt; Maybe Text
-</span><a href="#local-6989586621679805378"><span class="hs-identifier hs-var hs-var">rejectReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805378"><span class="hs-identifier hs-var">rejectReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805377"><span class="annot"><span class="annottext">s :: TransferData
-</span><a href="#local-6989586621679805377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805376"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
-</span><a href="#local-6989586621679805377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rejectReason:TransferData' :: Maybe Text
+</span><a href="#local-6989586621679805387"><span class="hs-identifier hs-var hs-var">rejectReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805387"><span class="hs-identifier hs-var">rejectReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805386"><span class="annot"><span class="annottext">s :: TransferData
+</span><a href="#local-6989586621679805386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData%27"><span class="hs-identifier hs-type">TransferData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805385"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferData
+</span><a href="#local-6989586621679805386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rejectReason:TransferData' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.TransferData.html#%24sel%3ArejectReason%3ATransferData%27"><span class="hs-identifier hs-var">rejectReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679805376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805373"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679805371"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransferData
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805382"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679805380"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransferData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TransferData) -&gt; Value -&gt; Parser TransferData
@@ -294,8 +294,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TransferData&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679805368"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805368"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679805377"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679805377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe Text
@@ -315,7 +315,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; TransferData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679805377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transferDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -326,7 +326,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; TransferData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679805377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;acceptDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; TransferData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transferMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -343,7 +343,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; TransferData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679805377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rejectDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -351,13 +351,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser TransferData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rejectReason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805362"><span id="local-6989586621679805364"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805371"><span id="local-6989586621679805373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TransferData.html#TransferData"><span class="hs-identifier hs-type">TransferData</span></a></span></span><span>
 </span><span id="line-107"></span></pre></body></html>

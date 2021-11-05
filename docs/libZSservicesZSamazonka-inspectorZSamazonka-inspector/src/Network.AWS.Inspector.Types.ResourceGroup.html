@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- in the DescribeResourceGroups action.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newResourceGroup' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679247612"><span id="local-6989586621679247613"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceGroup"><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-var">ResourceGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceGroup%27"><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-var">ResourceGroup'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679247621"><span id="local-6989586621679247622"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceGroup"><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-var">ResourceGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceGroup%27"><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-var">ResourceGroup'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the resource group.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aarn%3AResourceGroup%27"><span class="annot"><span class="annottext">ResourceGroup -&gt; Text
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#%24sel%3Aarn%3AResourceGroup%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AcreatedAt%3AResourceGroup%27"><span class="annot"><span class="annottext">ResourceGroup -&gt; POSIX
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#%24sel%3AcreatedAt%3AResourceGroup%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247604"><span id="local-6989586621679247606"><span class="annot"><span class="annottext">ResourceGroup -&gt; ResourceGroup -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247613"><span id="local-6989586621679247615"><span class="annot"><span class="annottext">ResourceGroup -&gt; ResourceGroup -&gt; Bool
 (ResourceGroup -&gt; ResourceGroup -&gt; Bool)
 -&gt; (ResourceGroup -&gt; ResourceGroup -&gt; Bool) -&gt; Eq ResourceGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceGroup -&gt; ResourceGroup -&gt; Bool
 == :: ResourceGroup -&gt; ResourceGroup -&gt; Bool
 $c== :: ResourceGroup -&gt; ResourceGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247595"><span id="local-6989586621679247597"><span id="local-6989586621679247599"><span id="local-6989586621679247601"><span class="annot"><span class="annottext">ReadPrec [ResourceGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247604"><span id="local-6989586621679247606"><span id="local-6989586621679247608"><span id="local-6989586621679247610"><span class="annot"><span class="annottext">ReadPrec [ResourceGroup]
 ReadPrec ResourceGroup
 Int -&gt; ReadS ResourceGroup
 ReadS [ResourceGroup]
@@ -70,7 +70,7 @@ readList :: ReadS [ResourceGroup]
 $creadList :: ReadS [ResourceGroup]
 readsPrec :: Int -&gt; ReadS ResourceGroup
 $creadsPrec :: Int -&gt; ReadS ResourceGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247588"><span id="local-6989586621679247590"><span id="local-6989586621679247592"><span class="annot"><span class="annottext">Int -&gt; ResourceGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247597"><span id="local-6989586621679247599"><span id="local-6989586621679247601"><span class="annot"><span class="annottext">Int -&gt; ResourceGroup -&gt; ShowS
 [ResourceGroup] -&gt; ShowS
 ResourceGroup -&gt; String
 (Int -&gt; ResourceGroup -&gt; ShowS)
@@ -119,15 +119,15 @@ $cfrom :: forall x. ResourceGroup -&gt; Rep ResourceGroup x
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span>
 </span><span id="line-66"></span><span id="newResourceGroup"><span class="annot"><span class="annottext">newResourceGroup :: Text -&gt; NonEmpty ResourceGroupTag -&gt; UTCTime -&gt; ResourceGroup
-</span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#newResourceGroup"><span class="hs-identifier hs-var hs-var">newResourceGroup</span></a></span></span><span> </span><span id="local-6989586621679247582"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247582"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679247581"><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
-</span><a href="#local-6989586621679247581"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span id="local-6989586621679247580"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679247580"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#newResourceGroup"><span class="hs-identifier hs-var hs-var">newResourceGroup</span></a></span></span><span> </span><span id="local-6989586621679247591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247591"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679247590"><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
+</span><a href="#local-6989586621679247590"><span class="hs-identifier hs-var">pTags_</span></a></span></span><span> </span><span id="local-6989586621679247589"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679247589"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">ResourceGroup' :: Text -&gt; NonEmpty ResourceGroupTag -&gt; POSIX -&gt; ResourceGroup
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:ResourceGroup' :: Text
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#%24sel%3Aarn%3AResourceGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247582"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679247591"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ResourceGroup' :: NonEmpty ResourceGroupTag
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#%24sel%3Atags%3AResourceGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
   (NonEmpty ResourceGroupTag) (Identity (NonEmpty ResourceGroupTag))
@@ -141,7 +141,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty ResourceGroupTag -&gt; NonEmpty ResourceGroupTag
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
-</span><a href="#local-6989586621679247581"><span class="hs-identifier hs-var">pTags_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679247590"><span class="hs-identifier hs-var">pTags_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:ResourceGroup' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#%24sel%3AcreatedAt%3AResourceGroup%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -150,7 +150,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679247580"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span>
+</span><a href="#local-6989586621679247589"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The ARN of the resource group.</span><span>
@@ -160,16 +160,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ResourceGroup -&gt; Text -&gt; ResourceGroup)
 -&gt; Lens ResourceGroup ResourceGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247573"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247582"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:ResourceGroup' :: ResourceGroup -&gt; Text
-</span><a href="#local-6989586621679247573"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247573"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247572"><span class="annot"><span class="annottext">s :: ResourceGroup
-</span><a href="#local-6989586621679247572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247571"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceGroup
-</span><a href="#local-6989586621679247572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ResourceGroup' :: Text
+</span><a href="#local-6989586621679247582"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247582"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247581"><span class="annot"><span class="annottext">s :: ResourceGroup
+</span><a href="#local-6989586621679247581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247580"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceGroup
+</span><a href="#local-6989586621679247581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ResourceGroup' :: Text
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#%24sel%3Aarn%3AResourceGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The tags (key and value pairs) of the resource group. This data type</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- property is used in the CreateResourceGroup action.</span><span>
@@ -184,16 +184,16 @@ $sel:arn:ResourceGroup' :: ResourceGroup -&gt; Text
      (NonEmpty ResourceGroupTag)
      (NonEmpty ResourceGroupTag)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247569"><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247578"><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
 tags :: NonEmpty ResourceGroupTag
 $sel:tags:ResourceGroup' :: ResourceGroup -&gt; NonEmpty ResourceGroupTag
-</span><a href="#local-6989586621679247569"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
-</span><a href="#local-6989586621679247569"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247568"><span class="annot"><span class="annottext">s :: ResourceGroup
-</span><a href="#local-6989586621679247568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247567"><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
-</span><a href="#local-6989586621679247567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceGroup
-</span><a href="#local-6989586621679247568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ResourceGroup' :: NonEmpty ResourceGroupTag
+</span><a href="#local-6989586621679247578"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
+</span><a href="#local-6989586621679247578"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247577"><span class="annot"><span class="annottext">s :: ResourceGroup
+</span><a href="#local-6989586621679247577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247576"><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
+</span><a href="#local-6989586621679247576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceGroup
+</span><a href="#local-6989586621679247577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ResourceGroup' :: NonEmpty ResourceGroupTag
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#%24sel%3Atags%3AResourceGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty ResourceGroupTag
-</span><a href="#local-6989586621679247567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ResourceGroupTag -&gt; f (NonEmpty ResourceGroupTag))
+</span><a href="#local-6989586621679247576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ResourceGroupTag -&gt; f (NonEmpty ResourceGroupTag))
  -&gt; ResourceGroup -&gt; f ResourceGroup)
 -&gt; ((NonEmpty ResourceGroupTag -&gt; f (NonEmpty ResourceGroupTag))
     -&gt; NonEmpty ResourceGroupTag -&gt; f (NonEmpty ResourceGroupTag))
@@ -213,16 +213,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ResourceGroup -&gt; POSIX -&gt; ResourceGroup)
 -&gt; Lens ResourceGroup ResourceGroup POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247564"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247573"><span class="annot"><span class="annottext">POSIX
 createdAt :: POSIX
 $sel:createdAt:ResourceGroup' :: ResourceGroup -&gt; POSIX
-</span><a href="#local-6989586621679247564"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679247564"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247563"><span class="annot"><span class="annottext">s :: ResourceGroup
-</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247562"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679247562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceGroup
-</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ResourceGroup' :: POSIX
+</span><a href="#local-6989586621679247573"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679247573"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247572"><span class="annot"><span class="annottext">s :: ResourceGroup
+</span><a href="#local-6989586621679247572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-type">ResourceGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247571"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679247571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceGroup
+</span><a href="#local-6989586621679247572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ResourceGroup' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#%24sel%3AcreatedAt%3AResourceGroup%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679247562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ResourceGroup -&gt; f ResourceGroup)
+</span><a href="#local-6989586621679247571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ResourceGroup -&gt; f ResourceGroup)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ResourceGroup
@@ -232,8 +232,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247559"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679247557"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceGroup
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247568"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679247566"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceGroup)
@@ -243,8 +243,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceGroup&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247554"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247554"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247563"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourceGroupTag -&gt; POSIX -&gt; ResourceGroup
 </span><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup%27"><span class="hs-identifier hs-var">ResourceGroup'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; NonEmpty ResourceGroupTag -&gt; POSIX -&gt; ResourceGroup)
@@ -252,7 +252,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (NonEmpty ResourceGroupTag -&gt; POSIX -&gt; ResourceGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,7 +261,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; ResourceGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty ResourceGroupTag)
+</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty ResourceGroupTag)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span class="hs-special">)</span><span>
@@ -269,13 +269,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser ResourceGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247548"><span id="local-6989586621679247550"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247557"><span id="local-6989586621679247559"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span></span><span>
 </span><span id="line-100"></span></pre></body></html>

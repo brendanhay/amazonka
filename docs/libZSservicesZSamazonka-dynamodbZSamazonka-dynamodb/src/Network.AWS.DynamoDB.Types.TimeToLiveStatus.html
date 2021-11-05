@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679383115"><span id="local-6989586621679383116"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimeToLiveStatus"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus"><span class="hs-identifier hs-var">TimeToLiveStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeToLiveStatus%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus%27"><span class="hs-identifier hs-var">TimeToLiveStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679383124"><span id="local-6989586621679383125"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TimeToLiveStatus"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus"><span class="hs-identifier hs-var">TimeToLiveStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeToLiveStatus%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#TimeToLiveStatus%27"><span class="hs-identifier hs-var">TimeToLiveStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTimeToLiveStatus"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.TimeToLiveStatus.html#fromTimeToLiveStatus"><span class="hs-identifier hs-var hs-var">fromTimeToLiveStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679383107"><span id="local-6989586621679383109"><span id="local-6989586621679383111"><span class="annot"><span class="annottext">Int -&gt; TimeToLiveStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679383116"><span id="local-6989586621679383118"><span id="local-6989586621679383120"><span class="annot"><span class="annottext">Int -&gt; TimeToLiveStatus -&gt; ShowS
 [TimeToLiveStatus] -&gt; ShowS
 TimeToLiveStatus -&gt; String
 (Int -&gt; TimeToLiveStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: TimeToLiveStatus -&gt; String
 showsPrec :: Int -&gt; TimeToLiveStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; TimeToLiveStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679383098"><span id="local-6989586621679383100"><span id="local-6989586621679383102"><span id="local-6989586621679383104"><span class="annot"><span class="annottext">ReadPrec [TimeToLiveStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679383107"><span id="local-6989586621679383109"><span id="local-6989586621679383111"><span id="local-6989586621679383113"><span class="annot"><span class="annottext">ReadPrec [TimeToLiveStatus]
 ReadPrec TimeToLiveStatus
 Int -&gt; ReadS TimeToLiveStatus
 ReadS [TimeToLiveStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [TimeToLiveStatus]
 readsPrec :: Int -&gt; ReadS TimeToLiveStatus
 $creadsPrec :: Int -&gt; ReadS TimeToLiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679383093"><span id="local-6989586621679383095"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679383102"><span id="local-6989586621679383104"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
 (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool)
 -&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool)
 -&gt; Eq TimeToLiveStatus
@@ -84,7 +84,7 @@ $c/= :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
 == :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
 $c== :: TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679383077"><span id="local-6989586621679383079"><span id="local-6989586621679383081"><span id="local-6989586621679383083"><span id="local-6989586621679383085"><span id="local-6989586621679383087"><span id="local-6989586621679383089"><span class="annot"><span class="annottext">Eq TimeToLiveStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679383086"><span id="local-6989586621679383088"><span id="local-6989586621679383090"><span id="local-6989586621679383092"><span id="local-6989586621679383094"><span id="local-6989586621679383096"><span id="local-6989586621679383098"><span class="annot"><span class="annottext">Eq TimeToLiveStatus
 Eq TimeToLiveStatus
 -&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Ordering)
 -&gt; (TimeToLiveStatus -&gt; TimeToLiveStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. TimeToLiveStatus -&gt; Rep TimeToLiveStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679383069"><span id="local-6989586621679383071"><span class="annot"><span class="annottext">Int -&gt; TimeToLiveStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679383078"><span id="local-6989586621679383080"><span class="annot"><span class="annottext">Int -&gt; TimeToLiveStatus -&gt; Int
 TimeToLiveStatus -&gt; Int
 (Int -&gt; TimeToLiveStatus -&gt; Int)
 -&gt; (TimeToLiveStatus -&gt; Int) -&gt; Hashable TimeToLiveStatus
@@ -145,51 +145,51 @@ $chash :: TimeToLiveStatus -&gt; Int
 hashWithSalt :: Int -&gt; TimeToLiveStatus -&gt; Int
 $chashWithSalt :: Int -&gt; TimeToLiveStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679383066"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679383075"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; ()
 (TimeToLiveStatus -&gt; ()) -&gt; NFData TimeToLiveStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TimeToLiveStatus -&gt; ()
 $crnf :: TimeToLiveStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679383063"><span class="annot"><span class="annottext">Text -&gt; Either String TimeToLiveStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679383072"><span class="annot"><span class="annottext">Text -&gt; Either String TimeToLiveStatus
 (Text -&gt; Either String TimeToLiveStatus)
 -&gt; FromText TimeToLiveStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TimeToLiveStatus
 $cfromText :: Text -&gt; Either String TimeToLiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679383060"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679383069"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; Text
 (TimeToLiveStatus -&gt; Text) -&gt; ToText TimeToLiveStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TimeToLiveStatus -&gt; Text
 $ctoText :: TimeToLiveStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679383057"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679383066"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; ByteString
 (TimeToLiveStatus -&gt; ByteString) -&gt; ToByteString TimeToLiveStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TimeToLiveStatus -&gt; ByteString
 $ctoBS :: TimeToLiveStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679383054"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679383063"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; ByteStringBuilder
 (TimeToLiveStatus -&gt; ByteStringBuilder) -&gt; ToLog TimeToLiveStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TimeToLiveStatus -&gt; ByteStringBuilder
 $cbuild :: TimeToLiveStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679383051"><span class="annot"><span class="annottext">HeaderName -&gt; TimeToLiveStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679383060"><span class="annot"><span class="annottext">HeaderName -&gt; TimeToLiveStatus -&gt; [Header]
 (HeaderName -&gt; TimeToLiveStatus -&gt; [Header])
 -&gt; ToHeader TimeToLiveStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TimeToLiveStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TimeToLiveStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679383048"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679383057"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; QueryString
 (TimeToLiveStatus -&gt; QueryString) -&gt; ToQuery TimeToLiveStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TimeToLiveStatus -&gt; QueryString
 $ctoQuery :: TimeToLiveStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679383043"><span id="local-6989586621679383045"><span class="annot"><span class="annottext">Value -&gt; Parser [TimeToLiveStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679383052"><span id="local-6989586621679383054"><span class="annot"><span class="annottext">Value -&gt; Parser [TimeToLiveStatus]
 Value -&gt; Parser TimeToLiveStatus
 (Value -&gt; Parser TimeToLiveStatus)
 -&gt; (Value -&gt; Parser [TimeToLiveStatus])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [TimeToLiveStatus]
 parseJSON :: Value -&gt; Parser TimeToLiveStatus
 $cparseJSON :: Value -&gt; Parser TimeToLiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679383038"><span id="local-6989586621679383040"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimeToLiveStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679383047"><span id="local-6989586621679383049"><span class="annot"><span class="annottext">FromJSONKeyFunction [TimeToLiveStatus]
 FromJSONKeyFunction TimeToLiveStatus
 FromJSONKeyFunction TimeToLiveStatus
 -&gt; FromJSONKeyFunction [TimeToLiveStatus]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TimeToLiveStatus]
 fromJSONKey :: FromJSONKeyFunction TimeToLiveStatus
 $cfromJSONKey :: FromJSONKeyFunction TimeToLiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679383029"><span id="local-6989586621679383031"><span id="local-6989586621679383033"><span id="local-6989586621679383035"><span class="annot"><span class="annottext">[TimeToLiveStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679383038"><span id="local-6989586621679383040"><span id="local-6989586621679383042"><span id="local-6989586621679383044"><span class="annot"><span class="annottext">[TimeToLiveStatus] -&gt; Encoding
 [TimeToLiveStatus] -&gt; Value
 TimeToLiveStatus -&gt; Encoding
 TimeToLiveStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: TimeToLiveStatus -&gt; Encoding
 toJSON :: TimeToLiveStatus -&gt; Value
 $ctoJSON :: TimeToLiveStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679383024"><span id="local-6989586621679383026"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimeToLiveStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679383033"><span id="local-6989586621679383035"><span class="annot"><span class="annottext">ToJSONKeyFunction [TimeToLiveStatus]
 ToJSONKeyFunction TimeToLiveStatus
 ToJSONKeyFunction TimeToLiveStatus
 -&gt; ToJSONKeyFunction [TimeToLiveStatus]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TimeToLiveStatus]
 toJSONKey :: ToJSONKeyFunction TimeToLiveStatus
 $ctoJSONKey :: ToJSONKeyFunction TimeToLiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679383021"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimeToLiveStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679383030"><span class="annot"><span class="annottext">[Node] -&gt; Either String TimeToLiveStatus
 ([Node] -&gt; Either String TimeToLiveStatus)
 -&gt; FromXML TimeToLiveStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TimeToLiveStatus
 $cparseXML :: [Node] -&gt; Either String TimeToLiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679383018"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679383027"><span class="annot"><span class="annottext">TimeToLiveStatus -&gt; XML
 (TimeToLiveStatus -&gt; XML) -&gt; ToXML TimeToLiveStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TimeToLiveStatus -&gt; XML

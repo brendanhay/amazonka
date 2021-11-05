@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-39"></span><span>
-</span><span id="line-40"></span><span id="local-6989586621681143173"><span id="local-6989586621681143174"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportInstanceReasonCodes"><span class="annot"><a href="Network.AWS.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-var">ReportInstanceReasonCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportInstanceReasonCodes%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-var">ReportInstanceReasonCodes'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621681143182"><span id="local-6989586621681143183"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportInstanceReasonCodes"><span class="annot"><a href="Network.AWS.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes"><span class="hs-identifier hs-var">ReportInstanceReasonCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportInstanceReasonCodes%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReportInstanceReasonCodes.html#ReportInstanceReasonCodes%27"><span class="hs-identifier hs-var">ReportInstanceReasonCodes'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReportInstanceReasonCodes"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ReportInstanceReasonCodes.html#fromReportInstanceReasonCodes"><span class="hs-identifier hs-var hs-var">fromReportInstanceReasonCodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143165"><span id="local-6989586621681143167"><span id="local-6989586621681143169"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceReasonCodes -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143174"><span id="local-6989586621681143176"><span id="local-6989586621681143178"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceReasonCodes -&gt; ShowS
 [ReportInstanceReasonCodes] -&gt; ShowS
 ReportInstanceReasonCodes -&gt; String
 (Int -&gt; ReportInstanceReasonCodes -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: ReportInstanceReasonCodes -&gt; String
 showsPrec :: Int -&gt; ReportInstanceReasonCodes -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReportInstanceReasonCodes -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681143156"><span id="local-6989586621681143158"><span id="local-6989586621681143160"><span id="local-6989586621681143162"><span class="annot"><span class="annottext">ReadPrec [ReportInstanceReasonCodes]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681143165"><span id="local-6989586621681143167"><span id="local-6989586621681143169"><span id="local-6989586621681143171"><span class="annot"><span class="annottext">ReadPrec [ReportInstanceReasonCodes]
 ReadPrec ReportInstanceReasonCodes
 Int -&gt; ReadS ReportInstanceReasonCodes
 ReadS [ReportInstanceReasonCodes]
@@ -80,7 +80,7 @@ $creadList :: ReadS [ReportInstanceReasonCodes]
 readsPrec :: Int -&gt; ReadS ReportInstanceReasonCodes
 $creadsPrec :: Int -&gt; ReadS ReportInstanceReasonCodes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681143151"><span id="local-6989586621681143153"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681143160"><span id="local-6989586621681143162"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
 (ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool)
 -&gt; (ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool)
 -&gt; Eq ReportInstanceReasonCodes
@@ -90,7 +90,7 @@ $c/= :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
 == :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
 $c== :: ReportInstanceReasonCodes -&gt; ReportInstanceReasonCodes -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681143135"><span id="local-6989586621681143137"><span id="local-6989586621681143139"><span id="local-6989586621681143141"><span id="local-6989586621681143143"><span id="local-6989586621681143145"><span id="local-6989586621681143147"><span class="annot"><span class="annottext">Eq ReportInstanceReasonCodes
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681143144"><span id="local-6989586621681143146"><span id="local-6989586621681143148"><span id="local-6989586621681143150"><span id="local-6989586621681143152"><span id="local-6989586621681143154"><span id="local-6989586621681143156"><span class="annot"><span class="annottext">Eq ReportInstanceReasonCodes
 Eq ReportInstanceReasonCodes
 -&gt; (ReportInstanceReasonCodes
     -&gt; ReportInstanceReasonCodes -&gt; Ordering)
@@ -155,7 +155,7 @@ ReportInstanceReasonCodes -&gt; Rep ReportInstanceReasonCodes x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143127"><span id="local-6989586621681143129"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceReasonCodes -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143136"><span id="local-6989586621681143138"><span class="annot"><span class="annottext">Int -&gt; ReportInstanceReasonCodes -&gt; Int
 ReportInstanceReasonCodes -&gt; Int
 (Int -&gt; ReportInstanceReasonCodes -&gt; Int)
 -&gt; (ReportInstanceReasonCodes -&gt; Int)
@@ -166,56 +166,56 @@ $chash :: ReportInstanceReasonCodes -&gt; Int
 hashWithSalt :: Int -&gt; ReportInstanceReasonCodes -&gt; Int
 $chashWithSalt :: Int -&gt; ReportInstanceReasonCodes -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681143124"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681143133"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ()
 (ReportInstanceReasonCodes -&gt; ())
 -&gt; NFData ReportInstanceReasonCodes
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReportInstanceReasonCodes -&gt; ()
 $crnf :: ReportInstanceReasonCodes -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681143121"><span class="annot"><span class="annottext">Text -&gt; Either String ReportInstanceReasonCodes
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681143130"><span class="annot"><span class="annottext">Text -&gt; Either String ReportInstanceReasonCodes
 (Text -&gt; Either String ReportInstanceReasonCodes)
 -&gt; FromText ReportInstanceReasonCodes
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReportInstanceReasonCodes
 $cfromText :: Text -&gt; Either String ReportInstanceReasonCodes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681143118"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681143127"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; Text
 (ReportInstanceReasonCodes -&gt; Text)
 -&gt; ToText ReportInstanceReasonCodes
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReportInstanceReasonCodes -&gt; Text
 $ctoText :: ReportInstanceReasonCodes -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681143115"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681143124"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ByteString
 (ReportInstanceReasonCodes -&gt; ByteString)
 -&gt; ToByteString ReportInstanceReasonCodes
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReportInstanceReasonCodes -&gt; ByteString
 $ctoBS :: ReportInstanceReasonCodes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681143112"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681143121"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; ByteStringBuilder
 (ReportInstanceReasonCodes -&gt; ByteStringBuilder)
 -&gt; ToLog ReportInstanceReasonCodes
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReportInstanceReasonCodes -&gt; ByteStringBuilder
 $cbuild :: ReportInstanceReasonCodes -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681143109"><span class="annot"><span class="annottext">HeaderName -&gt; ReportInstanceReasonCodes -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681143118"><span class="annot"><span class="annottext">HeaderName -&gt; ReportInstanceReasonCodes -&gt; [Header]
 (HeaderName -&gt; ReportInstanceReasonCodes -&gt; [Header])
 -&gt; ToHeader ReportInstanceReasonCodes
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReportInstanceReasonCodes -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReportInstanceReasonCodes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681143106"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681143115"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; QueryString
 (ReportInstanceReasonCodes -&gt; QueryString)
 -&gt; ToQuery ReportInstanceReasonCodes
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReportInstanceReasonCodes -&gt; QueryString
 $ctoQuery :: ReportInstanceReasonCodes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681143101"><span id="local-6989586621681143103"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportInstanceReasonCodes]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681143110"><span id="local-6989586621681143112"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportInstanceReasonCodes]
 Value -&gt; Parser ReportInstanceReasonCodes
 (Value -&gt; Parser ReportInstanceReasonCodes)
 -&gt; (Value -&gt; Parser [ReportInstanceReasonCodes])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [ReportInstanceReasonCodes]
 parseJSON :: Value -&gt; Parser ReportInstanceReasonCodes
 $cparseJSON :: Value -&gt; Parser ReportInstanceReasonCodes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681143096"><span id="local-6989586621681143098"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportInstanceReasonCodes]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681143105"><span id="local-6989586621681143107"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportInstanceReasonCodes]
 FromJSONKeyFunction ReportInstanceReasonCodes
 FromJSONKeyFunction ReportInstanceReasonCodes
 -&gt; FromJSONKeyFunction [ReportInstanceReasonCodes]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReportInstanceReasonCodes]
 fromJSONKey :: FromJSONKeyFunction ReportInstanceReasonCodes
 $cfromJSONKey :: FromJSONKeyFunction ReportInstanceReasonCodes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621681143087"><span id="local-6989586621681143089"><span id="local-6989586621681143091"><span id="local-6989586621681143093"><span class="annot"><span class="annottext">[ReportInstanceReasonCodes] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681143096"><span id="local-6989586621681143098"><span id="local-6989586621681143100"><span id="local-6989586621681143102"><span class="annot"><span class="annottext">[ReportInstanceReasonCodes] -&gt; Encoding
 [ReportInstanceReasonCodes] -&gt; Value
 ReportInstanceReasonCodes -&gt; Encoding
 ReportInstanceReasonCodes -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: ReportInstanceReasonCodes -&gt; Encoding
 toJSON :: ReportInstanceReasonCodes -&gt; Value
 $ctoJSON :: ReportInstanceReasonCodes -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621681143082"><span id="local-6989586621681143084"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportInstanceReasonCodes]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681143091"><span id="local-6989586621681143093"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportInstanceReasonCodes]
 ToJSONKeyFunction ReportInstanceReasonCodes
 ToJSONKeyFunction ReportInstanceReasonCodes
 -&gt; ToJSONKeyFunction [ReportInstanceReasonCodes]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReportInstanceReasonCodes]
 toJSONKey :: ToJSONKeyFunction ReportInstanceReasonCodes
 $ctoJSONKey :: ToJSONKeyFunction ReportInstanceReasonCodes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621681143079"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportInstanceReasonCodes
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621681143088"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportInstanceReasonCodes
 ([Node] -&gt; Either String ReportInstanceReasonCodes)
 -&gt; FromXML ReportInstanceReasonCodes
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReportInstanceReasonCodes
 $cparseXML :: [Node] -&gt; Either String ReportInstanceReasonCodes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621681143076"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621681143085"><span class="annot"><span class="annottext">ReportInstanceReasonCodes -&gt; XML
 (ReportInstanceReasonCodes -&gt; XML)
 -&gt; ToXML ReportInstanceReasonCodes
 forall a. (a -&gt; XML) -&gt; ToXML a

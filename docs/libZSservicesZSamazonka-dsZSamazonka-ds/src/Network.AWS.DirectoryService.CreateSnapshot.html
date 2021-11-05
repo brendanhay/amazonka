@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Contains the inputs for the CreateSnapshot operation.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newCreateSnapshot' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679313390"><span id="local-6989586621679313391"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSnapshot"><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-var">CreateSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSnapshot%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-var">CreateSnapshot'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679313399"><span id="local-6989586621679313400"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSnapshot"><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-var">CreateSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSnapshot%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-var">CreateSnapshot'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The descriptive name to apply to the snapshot.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3ACreateSnapshot%27"><span class="annot"><span class="annottext">CreateSnapshot -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3Aname%3ACreateSnapshot%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdirectoryId%3ACreateSnapshot%27"><span class="annot"><span class="annottext">CreateSnapshot -&gt; Text
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3AdirectoryId%3ACreateSnapshot%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313383"><span id="local-6989586621679313385"><span class="annot"><span class="annottext">CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313392"><span id="local-6989586621679313394"><span class="annot"><span class="annottext">CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
 (CreateSnapshot -&gt; CreateSnapshot -&gt; Bool)
 -&gt; (CreateSnapshot -&gt; CreateSnapshot -&gt; Bool) -&gt; Eq CreateSnapshot
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
 == :: CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
 $c== :: CreateSnapshot -&gt; CreateSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313374"><span id="local-6989586621679313376"><span id="local-6989586621679313378"><span id="local-6989586621679313380"><span class="annot"><span class="annottext">ReadPrec [CreateSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313383"><span id="local-6989586621679313385"><span id="local-6989586621679313387"><span id="local-6989586621679313389"><span class="annot"><span class="annottext">ReadPrec [CreateSnapshot]
 ReadPrec CreateSnapshot
 Int -&gt; ReadS CreateSnapshot
 ReadS [CreateSnapshot]
@@ -89,7 +89,7 @@ readList :: ReadS [CreateSnapshot]
 $creadList :: ReadS [CreateSnapshot]
 readsPrec :: Int -&gt; ReadS CreateSnapshot
 $creadsPrec :: Int -&gt; ReadS CreateSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313367"><span id="local-6989586621679313369"><span id="local-6989586621679313371"><span class="annot"><span class="annottext">Int -&gt; CreateSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313376"><span id="local-6989586621679313378"><span id="local-6989586621679313380"><span class="annot"><span class="annottext">Int -&gt; CreateSnapshot -&gt; ShowS
 [CreateSnapshot] -&gt; ShowS
 CreateSnapshot -&gt; String
 (Int -&gt; CreateSnapshot -&gt; ShowS)
@@ -131,8 +131,8 @@ $cfrom :: forall x. CreateSnapshot -&gt; Rep CreateSnapshot x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span>
 </span><span id="line-79"></span><span id="newCreateSnapshot"><span class="annot"><span class="annottext">newCreateSnapshot :: Text -&gt; CreateSnapshot
-</span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#newCreateSnapshot"><span class="hs-identifier hs-var hs-var">newCreateSnapshot</span></a></span></span><span> </span><span id="local-6989586621679313362"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313362"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#newCreateSnapshot"><span class="hs-identifier hs-var hs-var">newCreateSnapshot</span></a></span></span><span> </span><span id="local-6989586621679313371"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313371"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">CreateSnapshot' :: Maybe Text -&gt; Text -&gt; CreateSnapshot
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:CreateSnapshot' :: Maybe Text
@@ -141,7 +141,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryId:CreateSnapshot' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3AdirectoryId%3ACreateSnapshot%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313362"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span>
+</span><a href="#local-6989586621679313371"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The descriptive name to apply to the snapshot.</span><span>
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (CreateSnapshot -&gt; Maybe Text -&gt; CreateSnapshot)
 -&gt; Lens CreateSnapshot CreateSnapshot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313359"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313368"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:CreateSnapshot' :: CreateSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679313359"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313359"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313358"><span class="annot"><span class="annottext">s :: CreateSnapshot
-</span><a href="#local-6989586621679313358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313357"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshot
-</span><a href="#local-6989586621679313358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateSnapshot' :: Maybe Text
+</span><a href="#local-6989586621679313368"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313368"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313367"><span class="annot"><span class="annottext">s :: CreateSnapshot
+</span><a href="#local-6989586621679313367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313366"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshot
+</span><a href="#local-6989586621679313367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateSnapshot' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3Aname%3ACreateSnapshot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The identifier of the directory of which to take a snapshot.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#createSnapshot_directoryId"><span class="hs-identifier hs-type">createSnapshot_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -170,27 +170,27 @@ $sel:name:CreateSnapshot' :: CreateSnapshot -&gt; Maybe Text
 -&gt; (CreateSnapshot -&gt; Text -&gt; CreateSnapshot)
 -&gt; Lens CreateSnapshot CreateSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313356"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313365"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:CreateSnapshot' :: CreateSnapshot -&gt; Text
-</span><a href="#local-6989586621679313356"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313356"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313355"><span class="annot"><span class="annottext">s :: CreateSnapshot
-</span><a href="#local-6989586621679313355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313354"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshot
-</span><a href="#local-6989586621679313355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:CreateSnapshot' :: Text
+</span><a href="#local-6989586621679313365"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313365"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313364"><span class="annot"><span class="annottext">s :: CreateSnapshot
+</span><a href="#local-6989586621679313364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313363"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshot
+</span><a href="#local-6989586621679313364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:CreateSnapshot' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3AdirectoryId%3ACreateSnapshot%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679313350"><span class="annot"><span class="annottext">request :: CreateSnapshot -&gt; Request CreateSnapshot
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679313359"><span class="annot"><span class="annottext">request :: CreateSnapshot -&gt; Request CreateSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSnapshot -&gt; Request CreateSnapshot
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679313346"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679313355"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateSnapshot
 -&gt; ClientResponse ClientBody
@@ -214,10 +214,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313343"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313343"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313342"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679313342"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313341"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313341"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313352"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313352"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313351"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313351"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313350"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313350"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateSnapshotResponse
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-var">CreateSnapshotResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateSnapshotResponse)
@@ -225,7 +225,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateSnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313341"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679313350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnapshotId&quot;</span></span><span class="hs-special">)</span><span>
@@ -237,15 +237,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313343"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313352"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313333"><span id="local-6989586621679313335"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313342"><span id="local-6989586621679313344"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679313326"><span class="annot"><span class="annottext">toHeaders :: CreateSnapshot -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679313335"><span class="annot"><span class="annottext">toHeaders :: CreateSnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSnapshot -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -272,15 +272,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313316"><span id="local-6989586621679313318"><span id="local-6989586621679313320"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679313314"><span class="annot"><span class="annottext">toJSON :: CreateSnapshot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313311"><span id="local-6989586621679313312"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313325"><span id="local-6989586621679313327"><span id="local-6989586621679313329"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679313323"><span class="annot"><span class="annottext">toJSON :: CreateSnapshot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot%27"><span class="hs-identifier hs-type">CreateSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313320"><span id="local-6989586621679313321"><span class="annot"><span class="annottext">Maybe Text
 Text
 directoryId :: Text
 name :: Maybe Text
 $sel:directoryId:CreateSnapshot' :: CreateSnapshot -&gt; Text
 $sel:name:CreateSnapshot' :: CreateSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679313311"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679313320"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -292,26 +292,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313312"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313321"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313311"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313320"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679313305"><span class="annot"><span class="annottext">toPath :: CreateSnapshot -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679313314"><span class="annot"><span class="annottext">toPath :: CreateSnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshot"><span class="hs-identifier hs-type">CreateSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679313301"><span class="annot"><span class="annottext">toQuery :: CreateSnapshot -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679313310"><span class="annot"><span class="annottext">toQuery :: CreateSnapshot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSnapshot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -321,7 +321,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span class="hs-comment">-- | Contains the results of the CreateSnapshot operation.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- /See:/ 'newCreateSnapshotResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679313298"><span id="local-6989586621679313299"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSnapshotResponse"><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-var">CreateSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSnapshotResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-var">CreateSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679313307"><span id="local-6989586621679313308"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSnapshotResponse"><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-var">CreateSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSnapshotResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-var">CreateSnapshotResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the snapshot that was created.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AsnapshotId%3ACreateSnapshotResponse%27"><span class="annot"><span class="annottext">CreateSnapshotResponse -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3AsnapshotId%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -329,7 +329,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSnapshotResponse%27"><span class="annot"><span class="annottext">CreateSnapshotResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3AhttpStatus%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313292"><span id="local-6989586621679313294"><span class="annot"><span class="annottext">CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313301"><span id="local-6989586621679313303"><span class="annot"><span class="annottext">CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
 (CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool)
 -&gt; (CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool)
 -&gt; Eq CreateSnapshotResponse
@@ -338,7 +338,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
 == :: CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
 $c== :: CreateSnapshotResponse -&gt; CreateSnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313284"><span id="local-6989586621679313286"><span id="local-6989586621679313288"><span id="local-6989586621679313290"><span class="annot"><span class="annottext">ReadPrec [CreateSnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313293"><span id="local-6989586621679313295"><span id="local-6989586621679313297"><span id="local-6989586621679313299"><span class="annot"><span class="annottext">ReadPrec [CreateSnapshotResponse]
 ReadPrec CreateSnapshotResponse
 Int -&gt; ReadS CreateSnapshotResponse
 ReadS [CreateSnapshotResponse]
@@ -358,7 +358,7 @@ readList :: ReadS [CreateSnapshotResponse]
 $creadList :: ReadS [CreateSnapshotResponse]
 readsPrec :: Int -&gt; ReadS CreateSnapshotResponse
 $creadsPrec :: Int -&gt; ReadS CreateSnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313278"><span id="local-6989586621679313280"><span id="local-6989586621679313282"><span class="annot"><span class="annottext">Int -&gt; CreateSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313287"><span id="local-6989586621679313289"><span id="local-6989586621679313291"><span class="annot"><span class="annottext">Int -&gt; CreateSnapshotResponse -&gt; ShowS
 [CreateSnapshotResponse] -&gt; ShowS
 CreateSnapshotResponse -&gt; String
 (Int -&gt; CreateSnapshotResponse -&gt; ShowS)
@@ -401,8 +401,8 @@ $cfrom :: forall x. CreateSnapshotResponse -&gt; Rep CreateSnapshotResponse x
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newCreateSnapshotResponse"><span class="annot"><span class="annottext">newCreateSnapshotResponse :: Int -&gt; CreateSnapshotResponse
-</span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#newCreateSnapshotResponse"><span class="hs-identifier hs-var hs-var">newCreateSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679313275"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313275"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#newCreateSnapshotResponse"><span class="hs-identifier hs-var hs-var">newCreateSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679313284"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">CreateSnapshotResponse' :: Maybe Text -&gt; Int -&gt; CreateSnapshotResponse
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snapshotId:CreateSnapshotResponse' :: Maybe Text
@@ -412,7 +412,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSnapshotResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3AhttpStatus%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313275"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679313284"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The identifier of the snapshot that was created.</span><span>
@@ -427,16 +427,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313274"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313283"><span class="annot"><span class="annottext">Maybe Text
 snapshotId :: Maybe Text
 $sel:snapshotId:CreateSnapshotResponse' :: CreateSnapshotResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679313274"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313274"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313273"><span class="annot"><span class="annottext">s :: CreateSnapshotResponse
-</span><a href="#local-6989586621679313273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313272"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotResponse
-</span><a href="#local-6989586621679313273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:CreateSnapshotResponse' :: Maybe Text
+</span><a href="#local-6989586621679313283"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313283"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313282"><span class="annot"><span class="annottext">s :: CreateSnapshotResponse
+</span><a href="#local-6989586621679313282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotResponse
+</span><a href="#local-6989586621679313282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:CreateSnapshotResponse' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3AsnapshotId%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#createSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">createSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -446,16 +446,16 @@ $sel:snapshotId:CreateSnapshotResponse' :: CreateSnapshotResponse -&gt; Maybe Te
 -&gt; (CreateSnapshotResponse -&gt; Int -&gt; CreateSnapshotResponse)
 -&gt; Lens CreateSnapshotResponse CreateSnapshotResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313271"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313280"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateSnapshotResponse' :: CreateSnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679313271"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313271"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313270"><span class="annot"><span class="annottext">s :: CreateSnapshotResponse
-</span><a href="#local-6989586621679313270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313269"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotResponse
-</span><a href="#local-6989586621679313270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSnapshotResponse' :: Int
+</span><a href="#local-6989586621679313280"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313280"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313279"><span class="annot"><span class="annottext">s :: CreateSnapshotResponse
+</span><a href="#local-6989586621679313279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse%27"><span class="hs-identifier hs-type">CreateSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313278"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSnapshotResponse
+</span><a href="#local-6989586621679313279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSnapshotResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.CreateSnapshot.html#%24sel%3AhttpStatus%3ACreateSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313276"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateSnapshot.html#CreateSnapshotResponse"><span class="hs-identifier hs-type">CreateSnapshotResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

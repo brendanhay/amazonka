@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newPolicyVersion' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679428719"><span id="local-6989586621679428720"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyVersion"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-var">PolicyVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyVersion%27"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-var">PolicyVersion'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679428728"><span id="local-6989586621679428729"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyVersion"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-var">PolicyVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyVersion%27"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-var">PolicyVersion'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the policy version.</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Policy version identifiers always begin with @v@ (always lowercase).</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AisDefaultVersion%3APolicyVersion%27"><span class="annot"><span class="annottext">PolicyVersion -&gt; Maybe Bool
 </span><a href="Network.AWS.IAM.Types.PolicyVersion.html#%24sel%3AisDefaultVersion%3APolicyVersion%27"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428710"><span id="local-6989586621679428712"><span class="annot"><span class="annottext">PolicyVersion -&gt; PolicyVersion -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679428719"><span id="local-6989586621679428721"><span class="annot"><span class="annottext">PolicyVersion -&gt; PolicyVersion -&gt; Bool
 (PolicyVersion -&gt; PolicyVersion -&gt; Bool)
 -&gt; (PolicyVersion -&gt; PolicyVersion -&gt; Bool) -&gt; Eq PolicyVersion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PolicyVersion -&gt; PolicyVersion -&gt; Bool
 == :: PolicyVersion -&gt; PolicyVersion -&gt; Bool
 $c== :: PolicyVersion -&gt; PolicyVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428701"><span id="local-6989586621679428703"><span id="local-6989586621679428705"><span id="local-6989586621679428707"><span class="annot"><span class="annottext">ReadPrec [PolicyVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428710"><span id="local-6989586621679428712"><span id="local-6989586621679428714"><span id="local-6989586621679428716"><span class="annot"><span class="annottext">ReadPrec [PolicyVersion]
 ReadPrec PolicyVersion
 Int -&gt; ReadS PolicyVersion
 ReadS [PolicyVersion]
@@ -93,7 +93,7 @@ readList :: ReadS [PolicyVersion]
 $creadList :: ReadS [PolicyVersion]
 readsPrec :: Int -&gt; ReadS PolicyVersion
 $creadsPrec :: Int -&gt; ReadS PolicyVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428694"><span id="local-6989586621679428696"><span id="local-6989586621679428698"><span class="annot"><span class="annottext">Int -&gt; PolicyVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679428703"><span id="local-6989586621679428705"><span id="local-6989586621679428707"><span class="annot"><span class="annottext">Int -&gt; PolicyVersion -&gt; ShowS
 [PolicyVersion] -&gt; ShowS
 PolicyVersion -&gt; String
 (Int -&gt; PolicyVersion -&gt; ShowS)
@@ -186,16 +186,16 @@ forall a. Maybe a
 -&gt; (PolicyVersion -&gt; Maybe Text -&gt; PolicyVersion)
 -&gt; Lens PolicyVersion PolicyVersion (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428685"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428694"><span class="annot"><span class="annottext">Maybe Text
 versionId :: Maybe Text
 $sel:versionId:PolicyVersion' :: PolicyVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679428685"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679428685"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428684"><span class="annot"><span class="annottext">s :: PolicyVersion
-</span><a href="#local-6989586621679428684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428683"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679428683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
-</span><a href="#local-6989586621679428684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:PolicyVersion' :: Maybe Text
+</span><a href="#local-6989586621679428694"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428694"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428693"><span class="annot"><span class="annottext">s :: PolicyVersion
+</span><a href="#local-6989586621679428693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428692"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
+</span><a href="#local-6989586621679428693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:PolicyVersion' :: Maybe Text
 </span><a href="Network.AWS.IAM.Types.PolicyVersion.html#%24sel%3AversionId%3APolicyVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679428683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679428692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The date and time, in</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- &lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when the</span><span>
@@ -207,16 +207,16 @@ $sel:versionId:PolicyVersion' :: PolicyVersion -&gt; Maybe Text
 -&gt; (PolicyVersion -&gt; Maybe ISO8601 -&gt; PolicyVersion)
 -&gt; Lens PolicyVersion PolicyVersion (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428681"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428690"><span class="annot"><span class="annottext">Maybe ISO8601
 createDate :: Maybe ISO8601
 $sel:createDate:PolicyVersion' :: PolicyVersion -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679428681"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679428681"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428680"><span class="annot"><span class="annottext">s :: PolicyVersion
-</span><a href="#local-6989586621679428680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428679"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679428679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
-</span><a href="#local-6989586621679428680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:PolicyVersion' :: Maybe ISO8601
+</span><a href="#local-6989586621679428690"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679428690"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428689"><span class="annot"><span class="annottext">s :: PolicyVersion
+</span><a href="#local-6989586621679428689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428688"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679428688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
+</span><a href="#local-6989586621679428689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:PolicyVersion' :: Maybe ISO8601
 </span><a href="Network.AWS.IAM.Types.PolicyVersion.html#%24sel%3AcreateDate%3APolicyVersion%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679428679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679428688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; PolicyVersion -&gt; f PolicyVersion)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -252,16 +252,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (PolicyVersion -&gt; Maybe Text -&gt; PolicyVersion)
 -&gt; Lens PolicyVersion PolicyVersion (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428674"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428683"><span class="annot"><span class="annottext">Maybe Text
 document :: Maybe Text
 $sel:document:PolicyVersion' :: PolicyVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679428674"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679428674"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428673"><span class="annot"><span class="annottext">s :: PolicyVersion
-</span><a href="#local-6989586621679428673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428672"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679428672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
-</span><a href="#local-6989586621679428673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:document:PolicyVersion' :: Maybe Text
+</span><a href="#local-6989586621679428683"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428683"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428682"><span class="annot"><span class="annottext">s :: PolicyVersion
+</span><a href="#local-6989586621679428682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679428681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
+</span><a href="#local-6989586621679428682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:document:PolicyVersion' :: Maybe Text
 </span><a href="Network.AWS.IAM.Types.PolicyVersion.html#%24sel%3Adocument%3APolicyVersion%27"><span class="hs-identifier hs-var">document</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679428672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679428681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | Specifies whether the policy version is set as the policy\'s default</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- version.</span><span>
@@ -271,21 +271,21 @@ $sel:document:PolicyVersion' :: PolicyVersion -&gt; Maybe Text
 -&gt; (PolicyVersion -&gt; Maybe Bool -&gt; PolicyVersion)
 -&gt; Lens PolicyVersion PolicyVersion (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428670"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679428679"><span class="annot"><span class="annottext">Maybe Bool
 isDefaultVersion :: Maybe Bool
 $sel:isDefaultVersion:PolicyVersion' :: PolicyVersion -&gt; Maybe Bool
-</span><a href="#local-6989586621679428670"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679428670"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428669"><span class="annot"><span class="annottext">s :: PolicyVersion
-</span><a href="#local-6989586621679428669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428668"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679428668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
-</span><a href="#local-6989586621679428669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefaultVersion:PolicyVersion' :: Maybe Bool
+</span><a href="#local-6989586621679428679"><span class="hs-identifier hs-var hs-var">isDefaultVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679428679"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679428678"><span class="annot"><span class="annottext">s :: PolicyVersion
+</span><a href="#local-6989586621679428678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-type">PolicyVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679428677"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679428677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyVersion
+</span><a href="#local-6989586621679428678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefaultVersion:PolicyVersion' :: Maybe Bool
 </span><a href="Network.AWS.IAM.Types.PolicyVersion.html#%24sel%3AisDefaultVersion%3APolicyVersion%27"><span class="hs-identifier hs-var">isDefaultVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679428668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679428677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679428665"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PolicyVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679428663"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679428674"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PolicyVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679428672"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679428672"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Bool -&gt; PolicyVersion
 </span><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion%27"><span class="hs-identifier hs-var">PolicyVersion'</span></a></span><span>
@@ -296,7 +296,7 @@ $sel:isDefaultVersion:PolicyVersion' :: PolicyVersion -&gt; Maybe Bool
      String (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Bool -&gt; PolicyVersion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679428672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VersionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -306,7 +306,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Maybe Bool -&gt; PolicyVersion)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679428672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -315,7 +315,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool -&gt; PolicyVersion)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679428672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Document&quot;</span></span><span class="hs-special">)</span><span>
@@ -323,12 +323,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool) -&gt; Either String PolicyVersion
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679428663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679428672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsDefaultVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428657"><span id="local-6989586621679428659"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428666"><span id="local-6989586621679428668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679428663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicyVersion.html#PolicyVersion"><span class="hs-identifier hs-type">PolicyVersion</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

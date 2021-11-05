@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newImportCertificate' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679447234"><span id="local-6989586621679447235"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportCertificate"><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-var">ImportCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportCertificate%27"><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-var">ImportCertificate'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679447243"><span id="local-6989586621679447244"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportCertificate"><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-var">ImportCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportCertificate%27"><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-var">ImportCertificate'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The contents of a @.pem@ file, which contains an X.509 certificate.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AcertificatePem%3AImportCertificate%27"><span class="annot"><span class="annottext">ImportCertificate -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3AcertificatePem%3AImportCertificate%27"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AcertificateIdentifier%3AImportCertificate%27"><span class="annot"><span class="annottext">ImportCertificate -&gt; Text
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3AcertificateIdentifier%3AImportCertificate%27"><span class="hs-identifier hs-var hs-var">certificateIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447225"><span id="local-6989586621679447227"><span class="annot"><span class="annottext">ImportCertificate -&gt; ImportCertificate -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447234"><span id="local-6989586621679447236"><span class="annot"><span class="annottext">ImportCertificate -&gt; ImportCertificate -&gt; Bool
 (ImportCertificate -&gt; ImportCertificate -&gt; Bool)
 -&gt; (ImportCertificate -&gt; ImportCertificate -&gt; Bool)
 -&gt; Eq ImportCertificate
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportCertificate -&gt; ImportCertificate -&gt; Bool
 == :: ImportCertificate -&gt; ImportCertificate -&gt; Bool
 $c== :: ImportCertificate -&gt; ImportCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447218"><span id="local-6989586621679447220"><span id="local-6989586621679447222"><span class="annot"><span class="annottext">Int -&gt; ImportCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447227"><span id="local-6989586621679447229"><span id="local-6989586621679447231"><span class="annot"><span class="annottext">Int -&gt; ImportCertificate -&gt; ShowS
 [ImportCertificate] -&gt; ShowS
 ImportCertificate -&gt; String
 (Int -&gt; ImportCertificate -&gt; ShowS)
@@ -131,8 +131,8 @@ $cfrom :: forall x. ImportCertificate -&gt; Rep ImportCertificate x
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span>
 </span><span id="line-96"></span><span id="newImportCertificate"><span class="annot"><span class="annottext">newImportCertificate :: Text -&gt; ImportCertificate
-</span><a href="Network.AWS.DMS.ImportCertificate.html#newImportCertificate"><span class="hs-identifier hs-var hs-var">newImportCertificate</span></a></span></span><span> </span><span id="local-6989586621679447213"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447213"><span class="hs-identifier hs-var">pCertificateIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.ImportCertificate.html#newImportCertificate"><span class="hs-identifier hs-var hs-var">newImportCertificate</span></a></span></span><span> </span><span id="local-6989586621679447222"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447222"><span class="hs-identifier hs-var">pCertificateIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">ImportCertificate' :: Maybe (Sensitive Text)
 -&gt; Maybe Base64 -&gt; Maybe [Tag] -&gt; Text -&gt; ImportCertificate
 </span><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span>
@@ -151,7 +151,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateIdentifier:ImportCertificate' :: Text
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3AcertificateIdentifier%3AImportCertificate%27"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447213"><span class="hs-identifier hs-var">pCertificateIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679447222"><span class="hs-identifier hs-var">pCertificateIdentifier_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The contents of a @.pem@ file, which contains an X.509 certificate.</span><span>
@@ -167,16 +167,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447210"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447219"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 certificatePem :: Maybe (Sensitive Text)
 $sel:certificatePem:ImportCertificate' :: ImportCertificate -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447210"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447210"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447209"><span class="annot"><span class="annottext">s :: ImportCertificate
-</span><a href="#local-6989586621679447209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447208"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificate
-</span><a href="#local-6989586621679447209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificatePem:ImportCertificate' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679447219"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679447219"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447218"><span class="annot"><span class="annottext">s :: ImportCertificate
+</span><a href="#local-6989586621679447218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447217"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679447217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificate
+</span><a href="#local-6989586621679447218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificatePem:ImportCertificate' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3AcertificatePem%3AImportCertificate%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679447217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ImportCertificate -&gt; f ImportCertificate)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -212,16 +212,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; Lens
      ImportCertificate ImportCertificate (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447204"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447213"><span class="annot"><span class="annottext">Maybe Base64
 certificateWallet :: Maybe Base64
 $sel:certificateWallet:ImportCertificate' :: ImportCertificate -&gt; Maybe Base64
-</span><a href="#local-6989586621679447204"><span class="hs-identifier hs-var hs-var">certificateWallet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679447204"><span class="hs-identifier hs-var">certificateWallet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447203"><span class="annot"><span class="annottext">s :: ImportCertificate
-</span><a href="#local-6989586621679447203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447202"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679447202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificate
-</span><a href="#local-6989586621679447203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateWallet:ImportCertificate' :: Maybe Base64
+</span><a href="#local-6989586621679447213"><span class="hs-identifier hs-var hs-var">certificateWallet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679447213"><span class="hs-identifier hs-var">certificateWallet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447212"><span class="annot"><span class="annottext">s :: ImportCertificate
+</span><a href="#local-6989586621679447212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447211"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679447211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificate
+</span><a href="#local-6989586621679447212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateWallet:ImportCertificate' :: Maybe Base64
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3AcertificateWallet%3AImportCertificate%27"><span class="hs-identifier hs-var">certificateWallet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679447202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679447211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; ImportCertificate -&gt; f ImportCertificate)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -248,16 +248,16 @@ Iso' Base64 ByteString
 -&gt; Lens
      ImportCertificate ImportCertificate (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447200"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447209"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:ImportCertificate' :: ImportCertificate -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679447200"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679447200"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447199"><span class="annot"><span class="annottext">s :: ImportCertificate
-</span><a href="#local-6989586621679447199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447198"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679447198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificate
-</span><a href="#local-6989586621679447199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ImportCertificate' :: Maybe [Tag]
+</span><a href="#local-6989586621679447209"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679447209"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447208"><span class="annot"><span class="annottext">s :: ImportCertificate
+</span><a href="#local-6989586621679447208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447207"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679447207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificate
+</span><a href="#local-6989586621679447208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ImportCertificate' :: Maybe [Tag]
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3Atags%3AImportCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679447198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679447207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; ImportCertificate -&gt; f ImportCertificate)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -283,27 +283,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ImportCertificate -&gt; Text -&gt; ImportCertificate)
 -&gt; Lens ImportCertificate ImportCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447196"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447205"><span class="annot"><span class="annottext">Text
 certificateIdentifier :: Text
 $sel:certificateIdentifier:ImportCertificate' :: ImportCertificate -&gt; Text
-</span><a href="#local-6989586621679447196"><span class="hs-identifier hs-var hs-var">certificateIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447196"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447195"><span class="annot"><span class="annottext">s :: ImportCertificate
-</span><a href="#local-6989586621679447195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447194"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificate
-</span><a href="#local-6989586621679447195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateIdentifier:ImportCertificate' :: Text
+</span><a href="#local-6989586621679447205"><span class="hs-identifier hs-var hs-var">certificateIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447205"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447204"><span class="annot"><span class="annottext">s :: ImportCertificate
+</span><a href="#local-6989586621679447204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447203"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificate
+</span><a href="#local-6989586621679447204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateIdentifier:ImportCertificate' :: Text
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3AcertificateIdentifier%3AImportCertificate%27"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679447190"><span class="annot"><span class="annottext">request :: ImportCertificate -&gt; Request ImportCertificate
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679447199"><span class="annot"><span class="annottext">request :: ImportCertificate -&gt; Request ImportCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportCertificate -&gt; Request ImportCertificate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679447186"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679447195"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ImportCertificate
 -&gt; ClientResponse ClientBody
@@ -329,10 +329,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679447183"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447183"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679447182"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679447182"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679447181"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679447192"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447192"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679447191"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679447191"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679447190"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679447190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Certificate -&gt; Int -&gt; ImportCertificateResponse
 </span><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-var">ImportCertificateResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Certificate -&gt; Int -&gt; ImportCertificateResponse)
@@ -340,7 +340,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ImportCertificateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Certificate)
+</span><a href="#local-6989586621679447190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Certificate)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span class="hs-special">)</span><span>
@@ -352,15 +352,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447183"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447192"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447173"><span id="local-6989586621679447175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447182"><span id="local-6989586621679447184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679447166"><span class="annot"><span class="annottext">toHeaders :: ImportCertificate -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679447175"><span class="annot"><span class="annottext">toHeaders :: ImportCertificate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportCertificate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -387,9 +387,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447156"><span id="local-6989586621679447158"><span id="local-6989586621679447160"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679447154"><span class="annot"><span class="annottext">toJSON :: ImportCertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447149"><span id="local-6989586621679447150"><span id="local-6989586621679447151"><span id="local-6989586621679447152"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447165"><span id="local-6989586621679447167"><span id="local-6989586621679447169"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679447163"><span class="annot"><span class="annottext">toJSON :: ImportCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate%27"><span class="hs-identifier hs-type">ImportCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447158"><span id="local-6989586621679447159"><span id="local-6989586621679447160"><span id="local-6989586621679447161"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Base64
 Maybe (Sensitive Text)
 Text
@@ -401,7 +401,7 @@ $sel:certificateIdentifier:ImportCertificate' :: ImportCertificate -&gt; Text
 $sel:tags:ImportCertificate' :: ImportCertificate -&gt; Maybe [Tag]
 $sel:certificateWallet:ImportCertificate' :: ImportCertificate -&gt; Maybe Base64
 $sel:certificatePem:ImportCertificate' :: ImportCertificate -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447149"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679447158"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -414,7 +414,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447152"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447161"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CertificateWallet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -422,14 +422,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">(Base64 -&gt; Pair) -&gt; Maybe Base64 -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679447151"><span class="hs-identifier hs-var">certificateWallet</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447160"><span class="hs-identifier hs-var">certificateWallet</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679447150"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447159"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -438,20 +438,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-172"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447149"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679447158"><span class="hs-identifier hs-var">certificateIdentifier</span></a></span><span>
 </span><span id="line-173"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679447143"><span class="annot"><span class="annottext">toPath :: ImportCertificate -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679447152"><span class="annot"><span class="annottext">toPath :: ImportCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificate"><span class="hs-identifier hs-type">ImportCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679447139"><span class="annot"><span class="annottext">toQuery :: ImportCertificate -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679447148"><span class="annot"><span class="annottext">toQuery :: ImportCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ImportCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -459,7 +459,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newImportCertificateResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679447136"><span id="local-6989586621679447137"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportCertificateResponse"><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-var">ImportCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportCertificateResponse%27"><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-var">ImportCertificateResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679447145"><span id="local-6989586621679447146"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportCertificateResponse"><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-var">ImportCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportCertificateResponse%27"><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-var">ImportCertificateResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The certificate to be uploaded.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3Acertificate%3AImportCertificateResponse%27"><span class="annot"><span class="annottext">ImportCertificateResponse -&gt; Maybe Certificate
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3Acertificate%3AImportCertificateResponse%27"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.Certificate.html#Certificate"><span class="hs-identifier hs-type">Certificate</span></a></span><span class="hs-special">,</span><span>
@@ -467,7 +467,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportCertificateResponse%27"><span class="annot"><span class="annottext">ImportCertificateResponse -&gt; Int
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3AhttpStatus%3AImportCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447130"><span id="local-6989586621679447132"><span class="annot"><span class="annottext">ImportCertificateResponse -&gt; ImportCertificateResponse -&gt; Bool
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447139"><span id="local-6989586621679447141"><span class="annot"><span class="annottext">ImportCertificateResponse -&gt; ImportCertificateResponse -&gt; Bool
 (ImportCertificateResponse -&gt; ImportCertificateResponse -&gt; Bool)
 -&gt; (ImportCertificateResponse -&gt; ImportCertificateResponse -&gt; Bool)
 -&gt; Eq ImportCertificateResponse
@@ -476,7 +476,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportCertificateResponse -&gt; ImportCertificateResponse -&gt; Bool
 == :: ImportCertificateResponse -&gt; ImportCertificateResponse -&gt; Bool
 $c== :: ImportCertificateResponse -&gt; ImportCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447122"><span id="local-6989586621679447124"><span id="local-6989586621679447126"><span id="local-6989586621679447128"><span class="annot"><span class="annottext">ReadPrec [ImportCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447131"><span id="local-6989586621679447133"><span id="local-6989586621679447135"><span id="local-6989586621679447137"><span class="annot"><span class="annottext">ReadPrec [ImportCertificateResponse]
 ReadPrec ImportCertificateResponse
 Int -&gt; ReadS ImportCertificateResponse
 ReadS [ImportCertificateResponse]
@@ -496,7 +496,7 @@ readList :: ReadS [ImportCertificateResponse]
 $creadList :: ReadS [ImportCertificateResponse]
 readsPrec :: Int -&gt; ReadS ImportCertificateResponse
 $creadsPrec :: Int -&gt; ReadS ImportCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447115"><span id="local-6989586621679447117"><span id="local-6989586621679447119"><span class="annot"><span class="annottext">Int -&gt; ImportCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447124"><span id="local-6989586621679447126"><span id="local-6989586621679447128"><span class="annot"><span class="annottext">Int -&gt; ImportCertificateResponse -&gt; ShowS
 [ImportCertificateResponse] -&gt; ShowS
 ImportCertificateResponse -&gt; String
 (Int -&gt; ImportCertificateResponse -&gt; ShowS)
@@ -544,8 +544,8 @@ ImportCertificateResponse -&gt; Rep ImportCertificateResponse x
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateResponse</span></a></span><span>
 </span><span id="line-207"></span><span id="newImportCertificateResponse"><span class="annot"><span class="annottext">newImportCertificateResponse :: Int -&gt; ImportCertificateResponse
-</span><a href="Network.AWS.DMS.ImportCertificate.html#newImportCertificateResponse"><span class="hs-identifier hs-var hs-var">newImportCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679447112"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447112"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.ImportCertificate.html#newImportCertificateResponse"><span class="hs-identifier hs-var hs-var">newImportCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679447121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447121"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">ImportCertificateResponse' :: Maybe Certificate -&gt; Int -&gt; ImportCertificateResponse
 </span><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-type">ImportCertificateResponse'</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificate:ImportCertificateResponse' :: Maybe Certificate
@@ -555,7 +555,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportCertificateResponse' :: Int
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3AhttpStatus%3AImportCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447112"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679447121"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The certificate to be uploaded.</span><span>
@@ -571,16 +571,16 @@ forall a. Maybe a
      (Maybe Certificate)
      (Maybe Certificate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-type">ImportCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447111"><span class="annot"><span class="annottext">Maybe Certificate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-type">ImportCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447120"><span class="annot"><span class="annottext">Maybe Certificate
 certificate :: Maybe Certificate
 $sel:certificate:ImportCertificateResponse' :: ImportCertificateResponse -&gt; Maybe Certificate
-</span><a href="#local-6989586621679447111"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Certificate
-</span><a href="#local-6989586621679447111"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447110"><span class="annot"><span class="annottext">s :: ImportCertificateResponse
-</span><a href="#local-6989586621679447110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-type">ImportCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447109"><span class="annot"><span class="annottext">Maybe Certificate
-</span><a href="#local-6989586621679447109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateResponse
-</span><a href="#local-6989586621679447110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ImportCertificateResponse' :: Maybe Certificate
+</span><a href="#local-6989586621679447120"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Certificate
+</span><a href="#local-6989586621679447120"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447119"><span class="annot"><span class="annottext">s :: ImportCertificateResponse
+</span><a href="#local-6989586621679447119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-type">ImportCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447118"><span class="annot"><span class="annottext">Maybe Certificate
+</span><a href="#local-6989586621679447118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateResponse
+</span><a href="#local-6989586621679447119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ImportCertificateResponse' :: Maybe Certificate
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3Acertificate%3AImportCertificateResponse%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Certificate
-</span><a href="#local-6989586621679447109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#importCertificateResponse_httpStatus"><span class="hs-identifier hs-type">importCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -590,16 +590,16 @@ $sel:certificate:ImportCertificateResponse' :: ImportCertificateResponse -&gt; M
 -&gt; (ImportCertificateResponse -&gt; Int -&gt; ImportCertificateResponse)
 -&gt; Lens ImportCertificateResponse ImportCertificateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-type">ImportCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447108"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-type">ImportCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447117"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ImportCertificateResponse' :: ImportCertificateResponse -&gt; Int
-</span><a href="#local-6989586621679447108"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447108"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447107"><span class="annot"><span class="annottext">s :: ImportCertificateResponse
-</span><a href="#local-6989586621679447107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-type">ImportCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447106"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateResponse
-</span><a href="#local-6989586621679447107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportCertificateResponse' :: Int
+</span><a href="#local-6989586621679447117"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447117"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447116"><span class="annot"><span class="annottext">s :: ImportCertificateResponse
+</span><a href="#local-6989586621679447116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse%27"><span class="hs-identifier hs-type">ImportCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447115"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportCertificateResponse
+</span><a href="#local-6989586621679447116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportCertificateResponse' :: Int
 </span><a href="Network.AWS.DMS.ImportCertificate.html#%24sel%3AhttpStatus%3AImportCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.ImportCertificate.html#ImportCertificateResponse"><span class="hs-identifier hs-type">ImportCertificateResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Mpeg2 Color Metadata</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679904997"><span id="local-6989586621679904998"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2ColorMetadata"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2ColorMetadata.html#Mpeg2ColorMetadata"><span class="hs-identifier hs-var">Mpeg2ColorMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2ColorMetadata%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2ColorMetadata.html#Mpeg2ColorMetadata%27"><span class="hs-identifier hs-var">Mpeg2ColorMetadata'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679905006"><span id="local-6989586621679905007"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2ColorMetadata"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2ColorMetadata.html#Mpeg2ColorMetadata"><span class="hs-identifier hs-var">Mpeg2ColorMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2ColorMetadata%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2ColorMetadata.html#Mpeg2ColorMetadata%27"><span class="hs-identifier hs-var">Mpeg2ColorMetadata'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2ColorMetadata"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2ColorMetadata.html#fromMpeg2ColorMetadata"><span class="hs-identifier hs-var hs-var">fromMpeg2ColorMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679904989"><span id="local-6989586621679904991"><span id="local-6989586621679904993"><span class="annot"><span class="annottext">Int -&gt; Mpeg2ColorMetadata -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679904998"><span id="local-6989586621679905000"><span id="local-6989586621679905002"><span class="annot"><span class="annottext">Int -&gt; Mpeg2ColorMetadata -&gt; ShowS
 [Mpeg2ColorMetadata] -&gt; ShowS
 Mpeg2ColorMetadata -&gt; String
 (Int -&gt; Mpeg2ColorMetadata -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Mpeg2ColorMetadata -&gt; String
 showsPrec :: Int -&gt; Mpeg2ColorMetadata -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mpeg2ColorMetadata -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679904980"><span id="local-6989586621679904982"><span id="local-6989586621679904984"><span id="local-6989586621679904986"><span class="annot"><span class="annottext">ReadPrec [Mpeg2ColorMetadata]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679904989"><span id="local-6989586621679904991"><span id="local-6989586621679904993"><span id="local-6989586621679904995"><span class="annot"><span class="annottext">ReadPrec [Mpeg2ColorMetadata]
 ReadPrec Mpeg2ColorMetadata
 Int -&gt; ReadS Mpeg2ColorMetadata
 ReadS [Mpeg2ColorMetadata]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Mpeg2ColorMetadata]
 readsPrec :: Int -&gt; ReadS Mpeg2ColorMetadata
 $creadsPrec :: Int -&gt; ReadS Mpeg2ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679904975"><span id="local-6989586621679904977"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; Mpeg2ColorMetadata -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679904984"><span id="local-6989586621679904986"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; Mpeg2ColorMetadata -&gt; Bool
 (Mpeg2ColorMetadata -&gt; Mpeg2ColorMetadata -&gt; Bool)
 -&gt; (Mpeg2ColorMetadata -&gt; Mpeg2ColorMetadata -&gt; Bool)
 -&gt; Eq Mpeg2ColorMetadata
@@ -83,7 +83,7 @@ $c/= :: Mpeg2ColorMetadata -&gt; Mpeg2ColorMetadata -&gt; Bool
 == :: Mpeg2ColorMetadata -&gt; Mpeg2ColorMetadata -&gt; Bool
 $c== :: Mpeg2ColorMetadata -&gt; Mpeg2ColorMetadata -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679904959"><span id="local-6989586621679904961"><span id="local-6989586621679904963"><span id="local-6989586621679904965"><span id="local-6989586621679904967"><span id="local-6989586621679904969"><span id="local-6989586621679904971"><span class="annot"><span class="annottext">Eq Mpeg2ColorMetadata
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679904968"><span id="local-6989586621679904970"><span id="local-6989586621679904972"><span id="local-6989586621679904974"><span id="local-6989586621679904976"><span id="local-6989586621679904978"><span id="local-6989586621679904980"><span class="annot"><span class="annottext">Eq Mpeg2ColorMetadata
 Eq Mpeg2ColorMetadata
 -&gt; (Mpeg2ColorMetadata -&gt; Mpeg2ColorMetadata -&gt; Ordering)
 -&gt; (Mpeg2ColorMetadata -&gt; Mpeg2ColorMetadata -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Mpeg2ColorMetadata -&gt; Rep Mpeg2ColorMetadata x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679904951"><span id="local-6989586621679904953"><span class="annot"><span class="annottext">Int -&gt; Mpeg2ColorMetadata -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679904960"><span id="local-6989586621679904962"><span class="annot"><span class="annottext">Int -&gt; Mpeg2ColorMetadata -&gt; Int
 Mpeg2ColorMetadata -&gt; Int
 (Int -&gt; Mpeg2ColorMetadata -&gt; Int)
 -&gt; (Mpeg2ColorMetadata -&gt; Int) -&gt; Hashable Mpeg2ColorMetadata
@@ -144,53 +144,53 @@ $chash :: Mpeg2ColorMetadata -&gt; Int
 hashWithSalt :: Int -&gt; Mpeg2ColorMetadata -&gt; Int
 $chashWithSalt :: Int -&gt; Mpeg2ColorMetadata -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679904948"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679904957"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; ()
 (Mpeg2ColorMetadata -&gt; ()) -&gt; NFData Mpeg2ColorMetadata
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mpeg2ColorMetadata -&gt; ()
 $crnf :: Mpeg2ColorMetadata -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679904945"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2ColorMetadata
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679904954"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2ColorMetadata
 (Text -&gt; Either String Mpeg2ColorMetadata)
 -&gt; FromText Mpeg2ColorMetadata
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mpeg2ColorMetadata
 $cfromText :: Text -&gt; Either String Mpeg2ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679904942"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679904951"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; Text
 (Mpeg2ColorMetadata -&gt; Text) -&gt; ToText Mpeg2ColorMetadata
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mpeg2ColorMetadata -&gt; Text
 $ctoText :: Mpeg2ColorMetadata -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679904939"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679904948"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; ByteString
 (Mpeg2ColorMetadata -&gt; ByteString)
 -&gt; ToByteString Mpeg2ColorMetadata
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mpeg2ColorMetadata -&gt; ByteString
 $ctoBS :: Mpeg2ColorMetadata -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679904936"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679904945"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; ByteStringBuilder
 (Mpeg2ColorMetadata -&gt; ByteStringBuilder)
 -&gt; ToLog Mpeg2ColorMetadata
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mpeg2ColorMetadata -&gt; ByteStringBuilder
 $cbuild :: Mpeg2ColorMetadata -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679904933"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2ColorMetadata -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679904942"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2ColorMetadata -&gt; [Header]
 (HeaderName -&gt; Mpeg2ColorMetadata -&gt; [Header])
 -&gt; ToHeader Mpeg2ColorMetadata
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mpeg2ColorMetadata -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mpeg2ColorMetadata -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679904930"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679904939"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; QueryString
 (Mpeg2ColorMetadata -&gt; QueryString) -&gt; ToQuery Mpeg2ColorMetadata
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mpeg2ColorMetadata -&gt; QueryString
 $ctoQuery :: Mpeg2ColorMetadata -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679904925"><span id="local-6989586621679904927"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2ColorMetadata]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679904934"><span id="local-6989586621679904936"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2ColorMetadata]
 Value -&gt; Parser Mpeg2ColorMetadata
 (Value -&gt; Parser Mpeg2ColorMetadata)
 -&gt; (Value -&gt; Parser [Mpeg2ColorMetadata])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [Mpeg2ColorMetadata]
 parseJSON :: Value -&gt; Parser Mpeg2ColorMetadata
 $cparseJSON :: Value -&gt; Parser Mpeg2ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679904920"><span id="local-6989586621679904922"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2ColorMetadata]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679904929"><span id="local-6989586621679904931"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2ColorMetadata]
 FromJSONKeyFunction Mpeg2ColorMetadata
 FromJSONKeyFunction Mpeg2ColorMetadata
 -&gt; FromJSONKeyFunction [Mpeg2ColorMetadata]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2ColorMetadata]
 fromJSONKey :: FromJSONKeyFunction Mpeg2ColorMetadata
 $cfromJSONKey :: FromJSONKeyFunction Mpeg2ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679904911"><span id="local-6989586621679904913"><span id="local-6989586621679904915"><span id="local-6989586621679904917"><span class="annot"><span class="annottext">[Mpeg2ColorMetadata] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679904920"><span id="local-6989586621679904922"><span id="local-6989586621679904924"><span id="local-6989586621679904926"><span class="annot"><span class="annottext">[Mpeg2ColorMetadata] -&gt; Encoding
 [Mpeg2ColorMetadata] -&gt; Value
 Mpeg2ColorMetadata -&gt; Encoding
 Mpeg2ColorMetadata -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: Mpeg2ColorMetadata -&gt; Encoding
 toJSON :: Mpeg2ColorMetadata -&gt; Value
 $ctoJSON :: Mpeg2ColorMetadata -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679904906"><span id="local-6989586621679904908"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2ColorMetadata]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679904915"><span id="local-6989586621679904917"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2ColorMetadata]
 ToJSONKeyFunction Mpeg2ColorMetadata
 ToJSONKeyFunction Mpeg2ColorMetadata
 -&gt; ToJSONKeyFunction [Mpeg2ColorMetadata]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2ColorMetadata]
 toJSONKey :: ToJSONKeyFunction Mpeg2ColorMetadata
 $ctoJSONKey :: ToJSONKeyFunction Mpeg2ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679904903"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2ColorMetadata
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679904912"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2ColorMetadata
 ([Node] -&gt; Either String Mpeg2ColorMetadata)
 -&gt; FromXML Mpeg2ColorMetadata
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mpeg2ColorMetadata
 $cparseXML :: [Node] -&gt; Either String Mpeg2ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679904900"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679904909"><span class="annot"><span class="annottext">Mpeg2ColorMetadata -&gt; XML
 (Mpeg2ColorMetadata -&gt; XML) -&gt; ToXML Mpeg2ColorMetadata
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mpeg2ColorMetadata -&gt; XML

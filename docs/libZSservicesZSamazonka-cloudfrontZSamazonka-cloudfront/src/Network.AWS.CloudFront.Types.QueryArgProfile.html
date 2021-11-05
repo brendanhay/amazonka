@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Query argument-profile mapping for field-level encryption.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newQueryArgProfile' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679398307"><span id="local-6989586621679398308"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryArgProfile"><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-var">QueryArgProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryArgProfile%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-var">QueryArgProfile'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679398316"><span id="local-6989586621679398317"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryArgProfile"><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-var">QueryArgProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryArgProfile%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-var">QueryArgProfile'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Query argument for field-level encryption query argument-profile</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- mapping.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AqueryArg%3AQueryArgProfile%27"><span class="annot"><span class="annottext">QueryArgProfile -&gt; Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AprofileId%3AQueryArgProfile%27"><span class="annot"><span class="annottext">QueryArgProfile -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#%24sel%3AprofileId%3AQueryArgProfile%27"><span class="hs-identifier hs-var hs-var">profileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398300"><span id="local-6989586621679398302"><span class="annot"><span class="annottext">QueryArgProfile -&gt; QueryArgProfile -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398309"><span id="local-6989586621679398311"><span class="annot"><span class="annottext">QueryArgProfile -&gt; QueryArgProfile -&gt; Bool
 (QueryArgProfile -&gt; QueryArgProfile -&gt; Bool)
 -&gt; (QueryArgProfile -&gt; QueryArgProfile -&gt; Bool)
 -&gt; Eq QueryArgProfile
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: QueryArgProfile -&gt; QueryArgProfile -&gt; Bool
 == :: QueryArgProfile -&gt; QueryArgProfile -&gt; Bool
 $c== :: QueryArgProfile -&gt; QueryArgProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398291"><span id="local-6989586621679398293"><span id="local-6989586621679398295"><span id="local-6989586621679398297"><span class="annot"><span class="annottext">ReadPrec [QueryArgProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398300"><span id="local-6989586621679398302"><span id="local-6989586621679398304"><span id="local-6989586621679398306"><span class="annot"><span class="annottext">ReadPrec [QueryArgProfile]
 ReadPrec QueryArgProfile
 Int -&gt; ReadS QueryArgProfile
 ReadS [QueryArgProfile]
@@ -65,7 +65,7 @@ readList :: ReadS [QueryArgProfile]
 $creadList :: ReadS [QueryArgProfile]
 readsPrec :: Int -&gt; ReadS QueryArgProfile
 $creadsPrec :: Int -&gt; ReadS QueryArgProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398284"><span id="local-6989586621679398286"><span id="local-6989586621679398288"><span class="annot"><span class="annottext">Int -&gt; QueryArgProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398293"><span id="local-6989586621679398295"><span id="local-6989586621679398297"><span class="annot"><span class="annottext">Int -&gt; QueryArgProfile -&gt; ShowS
 [QueryArgProfile] -&gt; ShowS
 QueryArgProfile -&gt; String
 (Int -&gt; QueryArgProfile -&gt; ShowS)
@@ -111,17 +111,17 @@ $cfrom :: forall x. QueryArgProfile -&gt; Rep QueryArgProfile x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span><span>
 </span><span id="line-58"></span><span id="newQueryArgProfile"><span class="annot"><span class="annottext">newQueryArgProfile :: Text -&gt; Text -&gt; QueryArgProfile
-</span><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#newQueryArgProfile"><span class="hs-identifier hs-var hs-var">newQueryArgProfile</span></a></span></span><span> </span><span id="local-6989586621679398278"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398278"><span class="hs-identifier hs-var">pQueryArg_</span></a></span></span><span> </span><span id="local-6989586621679398277"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398277"><span class="hs-identifier hs-var">pProfileId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#newQueryArgProfile"><span class="hs-identifier hs-var hs-var">newQueryArgProfile</span></a></span></span><span> </span><span id="local-6989586621679398287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398287"><span class="hs-identifier hs-var">pQueryArg_</span></a></span></span><span> </span><span id="local-6989586621679398286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398286"><span class="hs-identifier hs-var">pProfileId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">QueryArgProfile' :: Text -&gt; Text -&gt; QueryArgProfile
 </span><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryArg:QueryArgProfile' :: Text
 </span><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#%24sel%3AqueryArg%3AQueryArgProfile%27"><span class="hs-identifier hs-var">queryArg</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398278"><span class="hs-identifier hs-var">pQueryArg_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679398287"><span class="hs-identifier hs-var">pQueryArg_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileId:QueryArgProfile' :: Text
 </span><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#%24sel%3AprofileId%3AQueryArgProfile%27"><span class="hs-identifier hs-var">profileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398277"><span class="hs-identifier hs-var">pProfileId_</span></a></span><span>
+</span><a href="#local-6989586621679398286"><span class="hs-identifier hs-var">pProfileId_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Query argument for field-level encryption query argument-profile</span><span>
@@ -132,16 +132,16 @@ $cfrom :: forall x. QueryArgProfile -&gt; Rep QueryArgProfile x
 -&gt; (QueryArgProfile -&gt; Text -&gt; QueryArgProfile)
 -&gt; Lens QueryArgProfile QueryArgProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398273"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398282"><span class="annot"><span class="annottext">Text
 queryArg :: Text
 $sel:queryArg:QueryArgProfile' :: QueryArgProfile -&gt; Text
-</span><a href="#local-6989586621679398273"><span class="hs-identifier hs-var hs-var">queryArg</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398273"><span class="hs-identifier hs-var">queryArg</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398272"><span class="annot"><span class="annottext">s :: QueryArgProfile
-</span><a href="#local-6989586621679398272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398271"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryArgProfile
-</span><a href="#local-6989586621679398272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryArg:QueryArgProfile' :: Text
+</span><a href="#local-6989586621679398282"><span class="hs-identifier hs-var hs-var">queryArg</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398282"><span class="hs-identifier hs-var">queryArg</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398281"><span class="annot"><span class="annottext">s :: QueryArgProfile
+</span><a href="#local-6989586621679398281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398280"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryArgProfile
+</span><a href="#local-6989586621679398281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryArg:QueryArgProfile' :: Text
 </span><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#%24sel%3AqueryArg%3AQueryArgProfile%27"><span class="hs-identifier hs-var">queryArg</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679398280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | ID of profile to use for field-level encryption query argument-profile</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- mapping</span><span>
@@ -151,28 +151,28 @@ $sel:queryArg:QueryArgProfile' :: QueryArgProfile -&gt; Text
 -&gt; (QueryArgProfile -&gt; Text -&gt; QueryArgProfile)
 -&gt; Lens QueryArgProfile QueryArgProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398269"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398278"><span class="annot"><span class="annottext">Text
 profileId :: Text
 $sel:profileId:QueryArgProfile' :: QueryArgProfile -&gt; Text
-</span><a href="#local-6989586621679398269"><span class="hs-identifier hs-var hs-var">profileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398269"><span class="hs-identifier hs-var">profileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398268"><span class="annot"><span class="annottext">s :: QueryArgProfile
-</span><a href="#local-6989586621679398268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398267"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryArgProfile
-</span><a href="#local-6989586621679398268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileId:QueryArgProfile' :: Text
+</span><a href="#local-6989586621679398278"><span class="hs-identifier hs-var hs-var">profileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398278"><span class="hs-identifier hs-var">profileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398277"><span class="annot"><span class="annottext">s :: QueryArgProfile
+</span><a href="#local-6989586621679398277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398276"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679398276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryArgProfile
+</span><a href="#local-6989586621679398277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileId:QueryArgProfile' :: Text
 </span><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#%24sel%3AprofileId%3AQueryArgProfile%27"><span class="hs-identifier hs-var">profileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679398276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679398264"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String QueryArgProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679398262"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679398262"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679398273"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String QueryArgProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679398271"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679398271"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; QueryArgProfile
 </span><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-var">QueryArgProfile'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; QueryArgProfile)
 -&gt; Either String Text -&gt; Either String (Text -&gt; QueryArgProfile)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679398262"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679398271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryArg&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,23 +180,23 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String QueryArgProfile
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679398262"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679398271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProfileId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398256"><span id="local-6989586621679398258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398265"><span id="local-6989586621679398267"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile"><span class="hs-identifier hs-type">QueryArgProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679398249"><span class="annot"><span class="annottext">toXML :: QueryArgProfile -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398246"><span id="local-6989586621679398247"><span class="annot"><span class="annottext">Text
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679398258"><span class="annot"><span class="annottext">toXML :: QueryArgProfile -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.QueryArgProfile.html#QueryArgProfile%27"><span class="hs-identifier hs-type">QueryArgProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398255"><span id="local-6989586621679398256"><span class="annot"><span class="annottext">Text
 profileId :: Text
 queryArg :: Text
 $sel:profileId:QueryArgProfile' :: QueryArgProfile -&gt; Text
 $sel:queryArg:QueryArgProfile' :: QueryArgProfile -&gt; Text
-</span><a href="#local-6989586621679398246"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679398255"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -204,11 +204,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;QueryArg&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398247"><span class="hs-identifier hs-var">queryArg</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679398256"><span class="hs-identifier hs-var">queryArg</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ProfileId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679398246"><span class="hs-identifier hs-var">profileId</span></a></span><span>
+</span><a href="#local-6989586621679398255"><span class="hs-identifier hs-var">profileId</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span></pre></body></html>

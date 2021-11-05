@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681154897"><span id="local-6989586621681154898"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubnetCidrReservationType"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservationType.html#SubnetCidrReservationType"><span class="hs-identifier hs-var">SubnetCidrReservationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetCidrReservationType%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservationType.html#SubnetCidrReservationType%27"><span class="hs-identifier hs-var">SubnetCidrReservationType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681154906"><span id="local-6989586621681154907"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubnetCidrReservationType"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservationType.html#SubnetCidrReservationType"><span class="hs-identifier hs-var">SubnetCidrReservationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetCidrReservationType%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservationType.html#SubnetCidrReservationType%27"><span class="hs-identifier hs-var">SubnetCidrReservationType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSubnetCidrReservationType"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservationType.html#fromSubnetCidrReservationType"><span class="hs-identifier hs-var hs-var">fromSubnetCidrReservationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681154889"><span id="local-6989586621681154891"><span id="local-6989586621681154893"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrReservationType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681154898"><span id="local-6989586621681154900"><span id="local-6989586621681154902"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrReservationType -&gt; ShowS
 [SubnetCidrReservationType] -&gt; ShowS
 SubnetCidrReservationType -&gt; String
 (Int -&gt; SubnetCidrReservationType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SubnetCidrReservationType -&gt; String
 showsPrec :: Int -&gt; SubnetCidrReservationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SubnetCidrReservationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681154880"><span id="local-6989586621681154882"><span id="local-6989586621681154884"><span id="local-6989586621681154886"><span class="annot"><span class="annottext">ReadPrec [SubnetCidrReservationType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681154889"><span id="local-6989586621681154891"><span id="local-6989586621681154893"><span id="local-6989586621681154895"><span class="annot"><span class="annottext">ReadPrec [SubnetCidrReservationType]
 ReadPrec SubnetCidrReservationType
 Int -&gt; ReadS SubnetCidrReservationType
 ReadS [SubnetCidrReservationType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SubnetCidrReservationType]
 readsPrec :: Int -&gt; ReadS SubnetCidrReservationType
 $creadsPrec :: Int -&gt; ReadS SubnetCidrReservationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681154875"><span id="local-6989586621681154877"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; SubnetCidrReservationType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681154884"><span id="local-6989586621681154886"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; SubnetCidrReservationType -&gt; Bool
 (SubnetCidrReservationType -&gt; SubnetCidrReservationType -&gt; Bool)
 -&gt; (SubnetCidrReservationType -&gt; SubnetCidrReservationType -&gt; Bool)
 -&gt; Eq SubnetCidrReservationType
@@ -83,7 +83,7 @@ $c/= :: SubnetCidrReservationType -&gt; SubnetCidrReservationType -&gt; Bool
 == :: SubnetCidrReservationType -&gt; SubnetCidrReservationType -&gt; Bool
 $c== :: SubnetCidrReservationType -&gt; SubnetCidrReservationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681154859"><span id="local-6989586621681154861"><span id="local-6989586621681154863"><span id="local-6989586621681154865"><span id="local-6989586621681154867"><span id="local-6989586621681154869"><span id="local-6989586621681154871"><span class="annot"><span class="annottext">Eq SubnetCidrReservationType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681154868"><span id="local-6989586621681154870"><span id="local-6989586621681154872"><span id="local-6989586621681154874"><span id="local-6989586621681154876"><span id="local-6989586621681154878"><span id="local-6989586621681154880"><span class="annot"><span class="annottext">Eq SubnetCidrReservationType
 Eq SubnetCidrReservationType
 -&gt; (SubnetCidrReservationType
     -&gt; SubnetCidrReservationType -&gt; Ordering)
@@ -148,7 +148,7 @@ SubnetCidrReservationType -&gt; Rep SubnetCidrReservationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681154851"><span id="local-6989586621681154853"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrReservationType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681154860"><span id="local-6989586621681154862"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrReservationType -&gt; Int
 SubnetCidrReservationType -&gt; Int
 (Int -&gt; SubnetCidrReservationType -&gt; Int)
 -&gt; (SubnetCidrReservationType -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: SubnetCidrReservationType -&gt; Int
 hashWithSalt :: Int -&gt; SubnetCidrReservationType -&gt; Int
 $chashWithSalt :: Int -&gt; SubnetCidrReservationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681154848"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681154857"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; ()
 (SubnetCidrReservationType -&gt; ())
 -&gt; NFData SubnetCidrReservationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SubnetCidrReservationType -&gt; ()
 $crnf :: SubnetCidrReservationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681154845"><span class="annot"><span class="annottext">Text -&gt; Either String SubnetCidrReservationType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681154854"><span class="annot"><span class="annottext">Text -&gt; Either String SubnetCidrReservationType
 (Text -&gt; Either String SubnetCidrReservationType)
 -&gt; FromText SubnetCidrReservationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SubnetCidrReservationType
 $cfromText :: Text -&gt; Either String SubnetCidrReservationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681154842"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681154851"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; Text
 (SubnetCidrReservationType -&gt; Text)
 -&gt; ToText SubnetCidrReservationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SubnetCidrReservationType -&gt; Text
 $ctoText :: SubnetCidrReservationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681154839"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681154848"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; ByteString
 (SubnetCidrReservationType -&gt; ByteString)
 -&gt; ToByteString SubnetCidrReservationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SubnetCidrReservationType -&gt; ByteString
 $ctoBS :: SubnetCidrReservationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681154836"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681154845"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; ByteStringBuilder
 (SubnetCidrReservationType -&gt; ByteStringBuilder)
 -&gt; ToLog SubnetCidrReservationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SubnetCidrReservationType -&gt; ByteStringBuilder
 $cbuild :: SubnetCidrReservationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681154833"><span class="annot"><span class="annottext">HeaderName -&gt; SubnetCidrReservationType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681154842"><span class="annot"><span class="annottext">HeaderName -&gt; SubnetCidrReservationType -&gt; [Header]
 (HeaderName -&gt; SubnetCidrReservationType -&gt; [Header])
 -&gt; ToHeader SubnetCidrReservationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SubnetCidrReservationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SubnetCidrReservationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681154830"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681154839"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; QueryString
 (SubnetCidrReservationType -&gt; QueryString)
 -&gt; ToQuery SubnetCidrReservationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SubnetCidrReservationType -&gt; QueryString
 $ctoQuery :: SubnetCidrReservationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681154825"><span id="local-6989586621681154827"><span class="annot"><span class="annottext">Value -&gt; Parser [SubnetCidrReservationType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681154834"><span id="local-6989586621681154836"><span class="annot"><span class="annottext">Value -&gt; Parser [SubnetCidrReservationType]
 Value -&gt; Parser SubnetCidrReservationType
 (Value -&gt; Parser SubnetCidrReservationType)
 -&gt; (Value -&gt; Parser [SubnetCidrReservationType])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [SubnetCidrReservationType]
 parseJSON :: Value -&gt; Parser SubnetCidrReservationType
 $cparseJSON :: Value -&gt; Parser SubnetCidrReservationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681154820"><span id="local-6989586621681154822"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubnetCidrReservationType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681154829"><span id="local-6989586621681154831"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubnetCidrReservationType]
 FromJSONKeyFunction SubnetCidrReservationType
 FromJSONKeyFunction SubnetCidrReservationType
 -&gt; FromJSONKeyFunction [SubnetCidrReservationType]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SubnetCidrReservationType]
 fromJSONKey :: FromJSONKeyFunction SubnetCidrReservationType
 $cfromJSONKey :: FromJSONKeyFunction SubnetCidrReservationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681154811"><span id="local-6989586621681154813"><span id="local-6989586621681154815"><span id="local-6989586621681154817"><span class="annot"><span class="annottext">[SubnetCidrReservationType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681154820"><span id="local-6989586621681154822"><span id="local-6989586621681154824"><span id="local-6989586621681154826"><span class="annot"><span class="annottext">[SubnetCidrReservationType] -&gt; Encoding
 [SubnetCidrReservationType] -&gt; Value
 SubnetCidrReservationType -&gt; Encoding
 SubnetCidrReservationType -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: SubnetCidrReservationType -&gt; Encoding
 toJSON :: SubnetCidrReservationType -&gt; Value
 $ctoJSON :: SubnetCidrReservationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681154806"><span id="local-6989586621681154808"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubnetCidrReservationType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681154815"><span id="local-6989586621681154817"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubnetCidrReservationType]
 ToJSONKeyFunction SubnetCidrReservationType
 ToJSONKeyFunction SubnetCidrReservationType
 -&gt; ToJSONKeyFunction [SubnetCidrReservationType]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SubnetCidrReservationType]
 toJSONKey :: ToJSONKeyFunction SubnetCidrReservationType
 $ctoJSONKey :: ToJSONKeyFunction SubnetCidrReservationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681154803"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubnetCidrReservationType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681154812"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubnetCidrReservationType
 ([Node] -&gt; Either String SubnetCidrReservationType)
 -&gt; FromXML SubnetCidrReservationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SubnetCidrReservationType
 $cparseXML :: [Node] -&gt; Either String SubnetCidrReservationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681154800"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681154809"><span class="annot"><span class="annottext">SubnetCidrReservationType -&gt; XML
 (SubnetCidrReservationType -&gt; XML)
 -&gt; ToXML SubnetCidrReservationType
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679170643"><span id="local-6989586621679170644"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Engine"><span class="annot"><a href="Network.AWS.Polly.Types.Engine.html#Engine"><span class="hs-identifier hs-var">Engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Engine%27"><span class="annot"><a href="Network.AWS.Polly.Types.Engine.html#Engine%27"><span class="hs-identifier hs-var">Engine'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromEngine"><span class="annot"><span class="annottext">Engine -&gt; Text
+</span><span id="line-32"></span><span id="local-6989586621679170652"><span id="local-6989586621679170653"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Engine"><span class="annot"><a href="Network.AWS.Polly.Types.Engine.html#Engine"><span class="hs-identifier hs-var">Engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Engine%27"><span class="annot"><a href="Network.AWS.Polly.Types.Engine.html#Engine%27"><span class="hs-identifier hs-var">Engine'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromEngine"><span class="annot"><span class="annottext">Engine -&gt; Text
 </span><a href="Network.AWS.Polly.Types.Engine.html#fromEngine"><span class="hs-identifier hs-var hs-var">fromEngine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679170635"><span id="local-6989586621679170637"><span id="local-6989586621679170639"><span class="annot"><span class="annottext">Int -&gt; Engine -&gt; ShowS
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679170644"><span id="local-6989586621679170646"><span id="local-6989586621679170648"><span class="annot"><span class="annottext">Int -&gt; Engine -&gt; ShowS
 [Engine] -&gt; ShowS
 Engine -&gt; String
 (Int -&gt; Engine -&gt; ShowS)
@@ -46,7 +46,7 @@ $cshow :: Engine -&gt; String
 showsPrec :: Int -&gt; Engine -&gt; ShowS
 $cshowsPrec :: Int -&gt; Engine -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>      </span><span id="local-6989586621679170626"><span id="local-6989586621679170628"><span id="local-6989586621679170630"><span id="local-6989586621679170632"><span class="annot"><span class="annottext">ReadPrec [Engine]
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679170635"><span id="local-6989586621679170637"><span id="local-6989586621679170639"><span id="local-6989586621679170641"><span class="annot"><span class="annottext">ReadPrec [Engine]
 ReadPrec Engine
 Int -&gt; ReadS Engine
 ReadS [Engine]
@@ -67,7 +67,7 @@ $creadList :: ReadS [Engine]
 readsPrec :: Int -&gt; ReadS Engine
 $creadsPrec :: Int -&gt; ReadS Engine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679170621"><span id="local-6989586621679170623"><span class="annot"><span class="annottext">Engine -&gt; Engine -&gt; Bool
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679170630"><span id="local-6989586621679170632"><span class="annot"><span class="annottext">Engine -&gt; Engine -&gt; Bool
 (Engine -&gt; Engine -&gt; Bool)
 -&gt; (Engine -&gt; Engine -&gt; Bool) -&gt; Eq Engine
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ $c/= :: Engine -&gt; Engine -&gt; Bool
 == :: Engine -&gt; Engine -&gt; Bool
 $c== :: Engine -&gt; Engine -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679170605"><span id="local-6989586621679170607"><span id="local-6989586621679170609"><span id="local-6989586621679170611"><span id="local-6989586621679170613"><span id="local-6989586621679170615"><span id="local-6989586621679170617"><span class="annot"><span class="annottext">Eq Engine
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679170614"><span id="local-6989586621679170616"><span id="local-6989586621679170618"><span id="local-6989586621679170620"><span id="local-6989586621679170622"><span id="local-6989586621679170624"><span id="local-6989586621679170626"><span class="annot"><span class="annottext">Eq Engine
 Eq Engine
 -&gt; (Engine -&gt; Engine -&gt; Ordering)
 -&gt; (Engine -&gt; Engine -&gt; Bool)
@@ -126,7 +126,7 @@ $cfrom :: forall x. Engine -&gt; Rep Engine x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679170597"><span id="local-6989586621679170599"><span class="annot"><span class="annottext">Int -&gt; Engine -&gt; Int
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679170606"><span id="local-6989586621679170608"><span class="annot"><span class="annottext">Int -&gt; Engine -&gt; Int
 Engine -&gt; Int
 (Int -&gt; Engine -&gt; Int) -&gt; (Engine -&gt; Int) -&gt; Hashable Engine
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -135,49 +135,49 @@ $chash :: Engine -&gt; Int
 hashWithSalt :: Int -&gt; Engine -&gt; Int
 $chashWithSalt :: Int -&gt; Engine -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679170594"><span class="annot"><span class="annottext">Engine -&gt; ()
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679170603"><span class="annot"><span class="annottext">Engine -&gt; ()
 (Engine -&gt; ()) -&gt; NFData Engine
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Engine -&gt; ()
 $crnf :: Engine -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679170591"><span class="annot"><span class="annottext">Text -&gt; Either String Engine
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679170600"><span class="annot"><span class="annottext">Text -&gt; Either String Engine
 (Text -&gt; Either String Engine) -&gt; FromText Engine
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Engine
 $cfromText :: Text -&gt; Either String Engine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679170588"><span class="annot"><span class="annottext">Engine -&gt; Text
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679170597"><span class="annot"><span class="annottext">Engine -&gt; Text
 (Engine -&gt; Text) -&gt; ToText Engine
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Engine -&gt; Text
 $ctoText :: Engine -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679170585"><span class="annot"><span class="annottext">Engine -&gt; ByteString
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679170594"><span class="annot"><span class="annottext">Engine -&gt; ByteString
 (Engine -&gt; ByteString) -&gt; ToByteString Engine
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Engine -&gt; ByteString
 $ctoBS :: Engine -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679170582"><span class="annot"><span class="annottext">Engine -&gt; ByteStringBuilder
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679170591"><span class="annot"><span class="annottext">Engine -&gt; ByteStringBuilder
 (Engine -&gt; ByteStringBuilder) -&gt; ToLog Engine
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Engine -&gt; ByteStringBuilder
 $cbuild :: Engine -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679170579"><span class="annot"><span class="annottext">HeaderName -&gt; Engine -&gt; [Header]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679170588"><span class="annot"><span class="annottext">HeaderName -&gt; Engine -&gt; [Header]
 (HeaderName -&gt; Engine -&gt; [Header]) -&gt; ToHeader Engine
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Engine -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Engine -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679170576"><span class="annot"><span class="annottext">Engine -&gt; QueryString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679170585"><span class="annot"><span class="annottext">Engine -&gt; QueryString
 (Engine -&gt; QueryString) -&gt; ToQuery Engine
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Engine -&gt; QueryString
 $ctoQuery :: Engine -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679170571"><span id="local-6989586621679170573"><span class="annot"><span class="annottext">Value -&gt; Parser [Engine]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679170580"><span id="local-6989586621679170582"><span class="annot"><span class="annottext">Value -&gt; Parser [Engine]
 Value -&gt; Parser Engine
 (Value -&gt; Parser Engine)
 -&gt; (Value -&gt; Parser [Engine]) -&gt; FromJSON Engine
@@ -188,7 +188,7 @@ $cparseJSONList :: Value -&gt; Parser [Engine]
 parseJSON :: Value -&gt; Parser Engine
 $cparseJSON :: Value -&gt; Parser Engine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679170566"><span id="local-6989586621679170568"><span class="annot"><span class="annottext">FromJSONKeyFunction [Engine]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679170575"><span id="local-6989586621679170577"><span class="annot"><span class="annottext">FromJSONKeyFunction [Engine]
 FromJSONKeyFunction Engine
 FromJSONKeyFunction Engine
 -&gt; FromJSONKeyFunction [Engine] -&gt; FromJSONKey Engine
@@ -199,7 +199,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Engine]
 fromJSONKey :: FromJSONKeyFunction Engine
 $cfromJSONKey :: FromJSONKeyFunction Engine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679170557"><span id="local-6989586621679170559"><span id="local-6989586621679170561"><span id="local-6989586621679170563"><span class="annot"><span class="annottext">[Engine] -&gt; Encoding
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679170566"><span id="local-6989586621679170568"><span id="local-6989586621679170570"><span id="local-6989586621679170572"><span class="annot"><span class="annottext">[Engine] -&gt; Encoding
 [Engine] -&gt; Value
 Engine -&gt; Encoding
 Engine -&gt; Value
@@ -223,7 +223,7 @@ $ctoEncoding :: Engine -&gt; Encoding
 toJSON :: Engine -&gt; Value
 $ctoJSON :: Engine -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679170552"><span id="local-6989586621679170554"><span class="annot"><span class="annottext">ToJSONKeyFunction [Engine]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679170561"><span id="local-6989586621679170563"><span class="annot"><span class="annottext">ToJSONKeyFunction [Engine]
 ToJSONKeyFunction Engine
 ToJSONKeyFunction Engine
 -&gt; ToJSONKeyFunction [Engine] -&gt; ToJSONKey Engine
@@ -234,13 +234,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Engine]
 toJSONKey :: ToJSONKeyFunction Engine
 $ctoJSONKey :: ToJSONKeyFunction Engine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679170549"><span class="annot"><span class="annottext">[Node] -&gt; Either String Engine
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679170558"><span class="annot"><span class="annottext">[Node] -&gt; Either String Engine
 ([Node] -&gt; Either String Engine) -&gt; FromXML Engine
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Engine
 $cparseXML :: [Node] -&gt; Either String Engine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679170546"><span class="annot"><span class="annottext">Engine -&gt; XML
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679170555"><span class="annot"><span class="annottext">Engine -&gt; XML
 (Engine -&gt; XML) -&gt; ToXML Engine
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Engine -&gt; XML

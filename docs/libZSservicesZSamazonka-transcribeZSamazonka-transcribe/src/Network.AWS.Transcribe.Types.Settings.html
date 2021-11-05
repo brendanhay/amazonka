@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides optional settings for the @StartTranscriptionJob@ operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679277710"><span id="local-6989586621679277711"></span></span><span class="hs-keyword">data</span><span> </span><span id="Settings"><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-var">Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Settings%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-var">Settings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679277719"><span id="local-6989586621679277720"></span></span><span class="hs-keyword">data</span><span> </span><span id="Settings"><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-var">Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Settings%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-var">Settings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a vocabulary to use when processing the transcription job.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AvocabularyName%3ASettings%27"><span class="annot"><span class="annottext">Settings -&gt; Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AvocabularyName%3ASettings%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -87,7 +87,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AvocabularyFilterMethod%3ASettings%27"><span class="annot"><span class="annottext">Settings -&gt; Maybe VocabularyFilterMethod
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AvocabularyFilterMethod%3ASettings%27"><span class="hs-identifier hs-var hs-var">vocabularyFilterMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyFilterMethod.html#VocabularyFilterMethod"><span class="hs-identifier hs-type">VocabularyFilterMethod</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277697"><span id="local-6989586621679277699"><span class="annot"><span class="annottext">Settings -&gt; Settings -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277706"><span id="local-6989586621679277708"><span class="annot"><span class="annottext">Settings -&gt; Settings -&gt; Bool
 (Settings -&gt; Settings -&gt; Bool)
 -&gt; (Settings -&gt; Settings -&gt; Bool) -&gt; Eq Settings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Settings -&gt; Settings -&gt; Bool
 == :: Settings -&gt; Settings -&gt; Bool
 $c== :: Settings -&gt; Settings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277688"><span id="local-6989586621679277690"><span id="local-6989586621679277692"><span id="local-6989586621679277694"><span class="annot"><span class="annottext">ReadPrec [Settings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277697"><span id="local-6989586621679277699"><span id="local-6989586621679277701"><span id="local-6989586621679277703"><span class="annot"><span class="annottext">ReadPrec [Settings]
 ReadPrec Settings
 Int -&gt; ReadS Settings
 ReadS [Settings]
@@ -115,7 +115,7 @@ readList :: ReadS [Settings]
 $creadList :: ReadS [Settings]
 readsPrec :: Int -&gt; ReadS Settings
 $creadsPrec :: Int -&gt; ReadS Settings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277681"><span id="local-6989586621679277683"><span id="local-6989586621679277685"><span class="annot"><span class="annottext">Int -&gt; Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277690"><span id="local-6989586621679277692"><span id="local-6989586621679277694"><span class="annot"><span class="annottext">Int -&gt; Settings -&gt; ShowS
 [Settings] -&gt; ShowS
 Settings -&gt; String
 (Int -&gt; Settings -&gt; ShowS)
@@ -250,16 +250,16 @@ forall a. Maybe a
 -&gt; (Settings -&gt; Maybe Text -&gt; Settings)
 -&gt; Lens Settings Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277672"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277681"><span class="annot"><span class="annottext">Maybe Text
 vocabularyName :: Maybe Text
 $sel:vocabularyName:Settings' :: Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679277672"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277672"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277671"><span class="annot"><span class="annottext">s :: Settings
-</span><a href="#local-6989586621679277671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277670"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
-</span><a href="#local-6989586621679277671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:Settings' :: Maybe Text
+</span><a href="#local-6989586621679277681"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277681"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277680"><span class="annot"><span class="annottext">s :: Settings
+</span><a href="#local-6989586621679277680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277679"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
+</span><a href="#local-6989586621679277680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:Settings' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AvocabularyName%3ASettings%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The number of alternative transcriptions that the service should return.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- If you specify the @MaxAlternatives@ field, you must set the</span><span>
@@ -270,16 +270,16 @@ $sel:vocabularyName:Settings' :: Settings -&gt; Maybe Text
 -&gt; (Settings -&gt; Maybe Natural -&gt; Settings)
 -&gt; Lens Settings Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277668"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277677"><span class="annot"><span class="annottext">Maybe Natural
 maxAlternatives :: Maybe Natural
 $sel:maxAlternatives:Settings' :: Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679277668"><span class="hs-identifier hs-var hs-var">maxAlternatives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679277668"><span class="hs-identifier hs-var">maxAlternatives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277667"><span class="annot"><span class="annottext">s :: Settings
-</span><a href="#local-6989586621679277667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277666"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679277666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
-</span><a href="#local-6989586621679277667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAlternatives:Settings' :: Maybe Natural
+</span><a href="#local-6989586621679277677"><span class="hs-identifier hs-var hs-var">maxAlternatives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679277677"><span class="hs-identifier hs-var">maxAlternatives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277676"><span class="annot"><span class="annottext">s :: Settings
+</span><a href="#local-6989586621679277676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277675"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679277675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
+</span><a href="#local-6989586621679277676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAlternatives:Settings' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AmaxAlternatives%3ASettings%27"><span class="hs-identifier hs-var">maxAlternatives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679277666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | Instructs Amazon Transcribe to process each audio channel separately and</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- then merge the transcription output of each channel into a single</span><span>
@@ -299,16 +299,16 @@ $sel:maxAlternatives:Settings' :: Settings -&gt; Maybe Natural
 -&gt; (Settings -&gt; Maybe Bool -&gt; Settings)
 -&gt; Lens Settings Settings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277664"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277673"><span class="annot"><span class="annottext">Maybe Bool
 channelIdentification :: Maybe Bool
 $sel:channelIdentification:Settings' :: Settings -&gt; Maybe Bool
-</span><a href="#local-6989586621679277664"><span class="hs-identifier hs-var hs-var">channelIdentification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277664"><span class="hs-identifier hs-var">channelIdentification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277663"><span class="annot"><span class="annottext">s :: Settings
-</span><a href="#local-6989586621679277663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277662"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
-</span><a href="#local-6989586621679277663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelIdentification:Settings' :: Maybe Bool
+</span><a href="#local-6989586621679277673"><span class="hs-identifier hs-var hs-var">channelIdentification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277673"><span class="hs-identifier hs-var">channelIdentification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277672"><span class="annot"><span class="annottext">s :: Settings
+</span><a href="#local-6989586621679277672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277671"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
+</span><a href="#local-6989586621679277672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelIdentification:Settings' :: Maybe Bool
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AchannelIdentification%3ASettings%27"><span class="hs-identifier hs-var">channelIdentification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | Determines whether the transcription contains alternative</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- transcriptions. If you set the @ShowAlternatives@ field to true, you</span><span>
@@ -320,16 +320,16 @@ $sel:channelIdentification:Settings' :: Settings -&gt; Maybe Bool
 -&gt; (Settings -&gt; Maybe Bool -&gt; Settings)
 -&gt; Lens Settings Settings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277660"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277669"><span class="annot"><span class="annottext">Maybe Bool
 showAlternatives :: Maybe Bool
 $sel:showAlternatives:Settings' :: Settings -&gt; Maybe Bool
-</span><a href="#local-6989586621679277660"><span class="hs-identifier hs-var hs-var">showAlternatives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277660"><span class="hs-identifier hs-var">showAlternatives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277659"><span class="annot"><span class="annottext">s :: Settings
-</span><a href="#local-6989586621679277659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277658"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
-</span><a href="#local-6989586621679277659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showAlternatives:Settings' :: Maybe Bool
+</span><a href="#local-6989586621679277669"><span class="hs-identifier hs-var hs-var">showAlternatives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277669"><span class="hs-identifier hs-var">showAlternatives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277668"><span class="annot"><span class="annottext">s :: Settings
+</span><a href="#local-6989586621679277668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277667"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
+</span><a href="#local-6989586621679277668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showAlternatives:Settings' :: Maybe Bool
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AshowAlternatives%3ASettings%27"><span class="hs-identifier hs-var">showAlternatives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The maximum number of speakers to identify in the input audio. If there</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- are more speakers in the audio than this number, multiple speakers are</span><span>
@@ -341,16 +341,16 @@ $sel:showAlternatives:Settings' :: Settings -&gt; Maybe Bool
 -&gt; (Settings -&gt; Maybe Natural -&gt; Settings)
 -&gt; Lens Settings Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277656"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277665"><span class="annot"><span class="annottext">Maybe Natural
 maxSpeakerLabels :: Maybe Natural
 $sel:maxSpeakerLabels:Settings' :: Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679277656"><span class="hs-identifier hs-var hs-var">maxSpeakerLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679277656"><span class="hs-identifier hs-var">maxSpeakerLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277655"><span class="annot"><span class="annottext">s :: Settings
-</span><a href="#local-6989586621679277655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277654"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679277654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
-</span><a href="#local-6989586621679277655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSpeakerLabels:Settings' :: Maybe Natural
+</span><a href="#local-6989586621679277665"><span class="hs-identifier hs-var hs-var">maxSpeakerLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679277665"><span class="hs-identifier hs-var">maxSpeakerLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277664"><span class="annot"><span class="annottext">s :: Settings
+</span><a href="#local-6989586621679277664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277663"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679277663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
+</span><a href="#local-6989586621679277664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSpeakerLabels:Settings' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AmaxSpeakerLabels%3ASettings%27"><span class="hs-identifier hs-var">maxSpeakerLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679277654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The name of the vocabulary filter to use when transcribing the audio.</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- The filter that you specify must have the same language code as the</span><span>
@@ -361,16 +361,16 @@ $sel:maxSpeakerLabels:Settings' :: Settings -&gt; Maybe Natural
 -&gt; (Settings -&gt; Maybe Text -&gt; Settings)
 -&gt; Lens Settings Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277652"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277661"><span class="annot"><span class="annottext">Maybe Text
 vocabularyFilterName :: Maybe Text
 $sel:vocabularyFilterName:Settings' :: Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679277652"><span class="hs-identifier hs-var hs-var">vocabularyFilterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277652"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277651"><span class="annot"><span class="annottext">s :: Settings
-</span><a href="#local-6989586621679277651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277650"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
-</span><a href="#local-6989586621679277651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterName:Settings' :: Maybe Text
+</span><a href="#local-6989586621679277661"><span class="hs-identifier hs-var hs-var">vocabularyFilterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277661"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277660"><span class="annot"><span class="annottext">s :: Settings
+</span><a href="#local-6989586621679277660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277659"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
+</span><a href="#local-6989586621679277660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterName:Settings' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AvocabularyFilterName%3ASettings%27"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | Determines whether the transcription job uses speaker recognition to</span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- identify different speakers in the input audio. Speaker recognition</span><span>
@@ -387,16 +387,16 @@ $sel:vocabularyFilterName:Settings' :: Settings -&gt; Maybe Text
 -&gt; (Settings -&gt; Maybe Bool -&gt; Settings)
 -&gt; Lens Settings Settings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277648"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277657"><span class="annot"><span class="annottext">Maybe Bool
 showSpeakerLabels :: Maybe Bool
 $sel:showSpeakerLabels:Settings' :: Settings -&gt; Maybe Bool
-</span><a href="#local-6989586621679277648"><span class="hs-identifier hs-var hs-var">showSpeakerLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277648"><span class="hs-identifier hs-var">showSpeakerLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277647"><span class="annot"><span class="annottext">s :: Settings
-</span><a href="#local-6989586621679277647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277646"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
-</span><a href="#local-6989586621679277647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showSpeakerLabels:Settings' :: Maybe Bool
+</span><a href="#local-6989586621679277657"><span class="hs-identifier hs-var hs-var">showSpeakerLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277657"><span class="hs-identifier hs-var">showSpeakerLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277656"><span class="annot"><span class="annottext">s :: Settings
+</span><a href="#local-6989586621679277656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277655"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
+</span><a href="#local-6989586621679277656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showSpeakerLabels:Settings' :: Maybe Bool
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AshowSpeakerLabels%3ASettings%27"><span class="hs-identifier hs-var">showSpeakerLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | Set to @mask@ to remove filtered text from the transcript and replace it</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- with three asterisks (\&quot;***\&quot;) as placeholder text. Set to @remove@ to</span><span>
@@ -415,27 +415,27 @@ $sel:showSpeakerLabels:Settings' :: Settings -&gt; Maybe Bool
      (Maybe VocabularyFilterMethod)
      (Maybe VocabularyFilterMethod)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277644"><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277653"><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
 vocabularyFilterMethod :: Maybe VocabularyFilterMethod
 $sel:vocabularyFilterMethod:Settings' :: Settings -&gt; Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277644"><span class="hs-identifier hs-var hs-var">vocabularyFilterMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277644"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277643"><span class="annot"><span class="annottext">s :: Settings
-</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277642"><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
-</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterMethod:Settings' :: Maybe VocabularyFilterMethod
+</span><a href="#local-6989586621679277653"><span class="hs-identifier hs-var hs-var">vocabularyFilterMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
+</span><a href="#local-6989586621679277653"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277652"><span class="annot"><span class="annottext">s :: Settings
+</span><a href="#local-6989586621679277652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277651"><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
+</span><a href="#local-6989586621679277651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Settings
+</span><a href="#local-6989586621679277652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterMethod:Settings' :: Maybe VocabularyFilterMethod
 </span><a href="Network.AWS.Transcribe.Types.Settings.html#%24sel%3AvocabularyFilterMethod%3ASettings%27"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277639"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679277637"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Settings
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277648"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679277646"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Settings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Settings) -&gt; Value -&gt; Parser Settings
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Settings&quot;</span></span><span>
-</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277634"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277643"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe Bool
@@ -467,7 +467,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Settings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span class="hs-special">)</span><span>
@@ -491,7 +491,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxAlternatives&quot;</span></span><span class="hs-special">)</span><span>
@@ -513,7 +513,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChannelIdentification&quot;</span></span><span class="hs-special">)</span><span>
@@ -533,7 +533,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShowAlternatives&quot;</span></span><span class="hs-special">)</span><span>
@@ -549,7 +549,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Bool -&gt; Maybe VocabularyFilterMethod -&gt; Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxSpeakerLabels&quot;</span></span><span class="hs-special">)</span><span>
@@ -560,7 +560,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; Maybe VocabularyFilterMethod -&gt; Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VocabularyFilterName&quot;</span></span><span class="hs-special">)</span><span>
@@ -569,7 +569,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe VocabularyFilterMethod -&gt; Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShowSpeakerLabels&quot;</span></span><span class="hs-special">)</span><span>
@@ -577,19 +577,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe VocabularyFilterMethod) -&gt; Parser Settings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VocabularyFilterMethod)
+</span><a href="#local-6989586621679277643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VocabularyFilterMethod)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VocabularyFilterMethod&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277628"><span id="local-6989586621679277630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span></span></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277637"><span id="local-6989586621679277639"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span></span></span><span>
 </span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span></span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277617"><span id="local-6989586621679277619"><span id="local-6989586621679277621"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679277615"><span class="annot"><span class="annottext">toJSON :: Settings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277606"><span id="local-6989586621679277607"><span id="local-6989586621679277608"><span id="local-6989586621679277609"><span id="local-6989586621679277610"><span id="local-6989586621679277611"><span id="local-6989586621679277612"><span id="local-6989586621679277613"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277626"><span id="local-6989586621679277628"><span id="local-6989586621679277630"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings"><span class="hs-identifier hs-type">Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679277624"><span class="annot"><span class="annottext">toJSON :: Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Settings.html#Settings%27"><span class="hs-identifier hs-type">Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277615"><span id="local-6989586621679277616"><span id="local-6989586621679277617"><span id="local-6989586621679277618"><span id="local-6989586621679277619"><span id="local-6989586621679277620"><span id="local-6989586621679277621"><span id="local-6989586621679277622"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 Maybe VocabularyFilterMethod
@@ -609,7 +609,7 @@ $sel:showAlternatives:Settings' :: Settings -&gt; Maybe Bool
 $sel:channelIdentification:Settings' :: Settings -&gt; Maybe Bool
 $sel:maxAlternatives:Settings' :: Settings -&gt; Maybe Natural
 $sel:vocabularyName:Settings' :: Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679277606"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679277615"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -622,7 +622,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277613"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277622"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxAlternatives&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -630,7 +630,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-248"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679277612"><span class="hs-identifier hs-var">maxAlternatives</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277621"><span class="hs-identifier hs-var">maxAlternatives</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChannelIdentification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -638,7 +638,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-250"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277611"><span class="hs-identifier hs-var">channelIdentification</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277620"><span class="hs-identifier hs-var">channelIdentification</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShowAlternatives&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -646,7 +646,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277610"><span class="hs-identifier hs-var">showAlternatives</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277619"><span class="hs-identifier hs-var">showAlternatives</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxSpeakerLabels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -654,7 +654,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679277609"><span class="hs-identifier hs-var">maxSpeakerLabels</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277618"><span class="hs-identifier hs-var">maxSpeakerLabels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VocabularyFilterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -662,7 +662,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-256"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277608"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277617"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShowSpeakerLabels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -670,7 +670,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-258"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277607"><span class="hs-identifier hs-var">showSpeakerLabels</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277616"><span class="hs-identifier hs-var">showSpeakerLabels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VocabularyFilterMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VocabularyFilterMethod -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -679,7 +679,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe VocabularyFilterMethod -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277606"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span>
+</span><a href="#local-6989586621679277615"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span>
 </span><span id="line-261"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-262"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span></pre></body></html>

@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- source file includes a ticker, such as a scrolling headline at the</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- bottom of the frame.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679955999"><span id="local-6989586621679956000"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeinterlaceAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm.html#DeinterlaceAlgorithm"><span class="hs-identifier hs-var">DeinterlaceAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeinterlaceAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm.html#DeinterlaceAlgorithm%27"><span class="hs-identifier hs-var">DeinterlaceAlgorithm'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679956008"><span id="local-6989586621679956009"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeinterlaceAlgorithm"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm.html#DeinterlaceAlgorithm"><span class="hs-identifier hs-var">DeinterlaceAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeinterlaceAlgorithm%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm.html#DeinterlaceAlgorithm%27"><span class="hs-identifier hs-var">DeinterlaceAlgorithm'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeinterlaceAlgorithm"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm.html#fromDeinterlaceAlgorithm"><span class="hs-identifier hs-var hs-var">fromDeinterlaceAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679955991"><span id="local-6989586621679955993"><span id="local-6989586621679955995"><span class="annot"><span class="annottext">Int -&gt; DeinterlaceAlgorithm -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956000"><span id="local-6989586621679956002"><span id="local-6989586621679956004"><span class="annot"><span class="annottext">Int -&gt; DeinterlaceAlgorithm -&gt; ShowS
 [DeinterlaceAlgorithm] -&gt; ShowS
 DeinterlaceAlgorithm -&gt; String
 (Int -&gt; DeinterlaceAlgorithm -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: DeinterlaceAlgorithm -&gt; String
 showsPrec :: Int -&gt; DeinterlaceAlgorithm -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeinterlaceAlgorithm -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679955982"><span id="local-6989586621679955984"><span id="local-6989586621679955986"><span id="local-6989586621679955988"><span class="annot"><span class="annottext">ReadPrec [DeinterlaceAlgorithm]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679955991"><span id="local-6989586621679955993"><span id="local-6989586621679955995"><span id="local-6989586621679955997"><span class="annot"><span class="annottext">ReadPrec [DeinterlaceAlgorithm]
 ReadPrec DeinterlaceAlgorithm
 Int -&gt; ReadS DeinterlaceAlgorithm
 ReadS [DeinterlaceAlgorithm]
@@ -80,7 +80,7 @@ $creadList :: ReadS [DeinterlaceAlgorithm]
 readsPrec :: Int -&gt; ReadS DeinterlaceAlgorithm
 $creadsPrec :: Int -&gt; ReadS DeinterlaceAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679955977"><span id="local-6989586621679955979"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; DeinterlaceAlgorithm -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679955986"><span id="local-6989586621679955988"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; DeinterlaceAlgorithm -&gt; Bool
 (DeinterlaceAlgorithm -&gt; DeinterlaceAlgorithm -&gt; Bool)
 -&gt; (DeinterlaceAlgorithm -&gt; DeinterlaceAlgorithm -&gt; Bool)
 -&gt; Eq DeinterlaceAlgorithm
@@ -90,7 +90,7 @@ $c/= :: DeinterlaceAlgorithm -&gt; DeinterlaceAlgorithm -&gt; Bool
 == :: DeinterlaceAlgorithm -&gt; DeinterlaceAlgorithm -&gt; Bool
 $c== :: DeinterlaceAlgorithm -&gt; DeinterlaceAlgorithm -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679955961"><span id="local-6989586621679955963"><span id="local-6989586621679955965"><span id="local-6989586621679955967"><span id="local-6989586621679955969"><span id="local-6989586621679955971"><span id="local-6989586621679955973"><span class="annot"><span class="annottext">Eq DeinterlaceAlgorithm
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679955970"><span id="local-6989586621679955972"><span id="local-6989586621679955974"><span id="local-6989586621679955976"><span id="local-6989586621679955978"><span id="local-6989586621679955980"><span id="local-6989586621679955982"><span class="annot"><span class="annottext">Eq DeinterlaceAlgorithm
 Eq DeinterlaceAlgorithm
 -&gt; (DeinterlaceAlgorithm -&gt; DeinterlaceAlgorithm -&gt; Ordering)
 -&gt; (DeinterlaceAlgorithm -&gt; DeinterlaceAlgorithm -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. DeinterlaceAlgorithm -&gt; Rep DeinterlaceAlgorithm x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679955953"><span id="local-6989586621679955955"><span class="annot"><span class="annottext">Int -&gt; DeinterlaceAlgorithm -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679955962"><span id="local-6989586621679955964"><span class="annot"><span class="annottext">Int -&gt; DeinterlaceAlgorithm -&gt; Int
 DeinterlaceAlgorithm -&gt; Int
 (Int -&gt; DeinterlaceAlgorithm -&gt; Int)
 -&gt; (DeinterlaceAlgorithm -&gt; Int) -&gt; Hashable DeinterlaceAlgorithm
@@ -158,54 +158,54 @@ $chash :: DeinterlaceAlgorithm -&gt; Int
 hashWithSalt :: Int -&gt; DeinterlaceAlgorithm -&gt; Int
 $chashWithSalt :: Int -&gt; DeinterlaceAlgorithm -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679955950"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679955959"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; ()
 (DeinterlaceAlgorithm -&gt; ()) -&gt; NFData DeinterlaceAlgorithm
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeinterlaceAlgorithm -&gt; ()
 $crnf :: DeinterlaceAlgorithm -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679955947"><span class="annot"><span class="annottext">Text -&gt; Either String DeinterlaceAlgorithm
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679955956"><span class="annot"><span class="annottext">Text -&gt; Either String DeinterlaceAlgorithm
 (Text -&gt; Either String DeinterlaceAlgorithm)
 -&gt; FromText DeinterlaceAlgorithm
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeinterlaceAlgorithm
 $cfromText :: Text -&gt; Either String DeinterlaceAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679955944"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679955953"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; Text
 (DeinterlaceAlgorithm -&gt; Text) -&gt; ToText DeinterlaceAlgorithm
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeinterlaceAlgorithm -&gt; Text
 $ctoText :: DeinterlaceAlgorithm -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679955941"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679955950"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; ByteString
 (DeinterlaceAlgorithm -&gt; ByteString)
 -&gt; ToByteString DeinterlaceAlgorithm
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeinterlaceAlgorithm -&gt; ByteString
 $ctoBS :: DeinterlaceAlgorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679955938"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679955947"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; ByteStringBuilder
 (DeinterlaceAlgorithm -&gt; ByteStringBuilder)
 -&gt; ToLog DeinterlaceAlgorithm
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeinterlaceAlgorithm -&gt; ByteStringBuilder
 $cbuild :: DeinterlaceAlgorithm -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679955935"><span class="annot"><span class="annottext">HeaderName -&gt; DeinterlaceAlgorithm -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679955944"><span class="annot"><span class="annottext">HeaderName -&gt; DeinterlaceAlgorithm -&gt; [Header]
 (HeaderName -&gt; DeinterlaceAlgorithm -&gt; [Header])
 -&gt; ToHeader DeinterlaceAlgorithm
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeinterlaceAlgorithm -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeinterlaceAlgorithm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679955932"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679955941"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; QueryString
 (DeinterlaceAlgorithm -&gt; QueryString)
 -&gt; ToQuery DeinterlaceAlgorithm
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeinterlaceAlgorithm -&gt; QueryString
 $ctoQuery :: DeinterlaceAlgorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679955927"><span id="local-6989586621679955929"><span class="annot"><span class="annottext">Value -&gt; Parser [DeinterlaceAlgorithm]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679955936"><span id="local-6989586621679955938"><span class="annot"><span class="annottext">Value -&gt; Parser [DeinterlaceAlgorithm]
 Value -&gt; Parser DeinterlaceAlgorithm
 (Value -&gt; Parser DeinterlaceAlgorithm)
 -&gt; (Value -&gt; Parser [DeinterlaceAlgorithm])
@@ -217,7 +217,7 @@ $cparseJSONList :: Value -&gt; Parser [DeinterlaceAlgorithm]
 parseJSON :: Value -&gt; Parser DeinterlaceAlgorithm
 $cparseJSON :: Value -&gt; Parser DeinterlaceAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679955922"><span id="local-6989586621679955924"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeinterlaceAlgorithm]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679955931"><span id="local-6989586621679955933"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeinterlaceAlgorithm]
 FromJSONKeyFunction DeinterlaceAlgorithm
 FromJSONKeyFunction DeinterlaceAlgorithm
 -&gt; FromJSONKeyFunction [DeinterlaceAlgorithm]
@@ -229,7 +229,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeinterlaceAlgorithm]
 fromJSONKey :: FromJSONKeyFunction DeinterlaceAlgorithm
 $cfromJSONKey :: FromJSONKeyFunction DeinterlaceAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679955913"><span id="local-6989586621679955915"><span id="local-6989586621679955917"><span id="local-6989586621679955919"><span class="annot"><span class="annottext">[DeinterlaceAlgorithm] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679955922"><span id="local-6989586621679955924"><span id="local-6989586621679955926"><span id="local-6989586621679955928"><span class="annot"><span class="annottext">[DeinterlaceAlgorithm] -&gt; Encoding
 [DeinterlaceAlgorithm] -&gt; Value
 DeinterlaceAlgorithm -&gt; Encoding
 DeinterlaceAlgorithm -&gt; Value
@@ -253,7 +253,7 @@ $ctoEncoding :: DeinterlaceAlgorithm -&gt; Encoding
 toJSON :: DeinterlaceAlgorithm -&gt; Value
 $ctoJSON :: DeinterlaceAlgorithm -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679955908"><span id="local-6989586621679955910"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeinterlaceAlgorithm]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679955917"><span id="local-6989586621679955919"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeinterlaceAlgorithm]
 ToJSONKeyFunction DeinterlaceAlgorithm
 ToJSONKeyFunction DeinterlaceAlgorithm
 -&gt; ToJSONKeyFunction [DeinterlaceAlgorithm]
@@ -265,14 +265,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeinterlaceAlgorithm]
 toJSONKey :: ToJSONKeyFunction DeinterlaceAlgorithm
 $ctoJSONKey :: ToJSONKeyFunction DeinterlaceAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679955905"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeinterlaceAlgorithm
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679955914"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeinterlaceAlgorithm
 ([Node] -&gt; Either String DeinterlaceAlgorithm)
 -&gt; FromXML DeinterlaceAlgorithm
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeinterlaceAlgorithm
 $cparseXML :: [Node] -&gt; Either String DeinterlaceAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679955902"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679955911"><span class="annot"><span class="annottext">DeinterlaceAlgorithm -&gt; XML
 (DeinterlaceAlgorithm -&gt; XML) -&gt; ToXML DeinterlaceAlgorithm
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeinterlaceAlgorithm -&gt; XML

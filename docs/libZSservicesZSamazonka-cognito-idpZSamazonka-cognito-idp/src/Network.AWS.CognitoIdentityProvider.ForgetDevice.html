@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-comment">-- | Represents the request to forget the device.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newForgetDevice' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679447776"><span id="local-6989586621679447777"></span></span><span class="hs-keyword">data</span><span> </span><span id="ForgetDevice"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-var">ForgetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ForgetDevice%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-var">ForgetDevice'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679447785"><span id="local-6989586621679447786"></span></span><span class="hs-keyword">data</span><span> </span><span id="ForgetDevice"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-var">ForgetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ForgetDevice%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-var">ForgetDevice'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The access token for the forgotten device request.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AaccessToken%3AForgetDevice%27"><span class="annot"><span class="annottext">ForgetDevice -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#%24sel%3AaccessToken%3AForgetDevice%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdeviceKey%3AForgetDevice%27"><span class="annot"><span class="annottext">ForgetDevice -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#%24sel%3AdeviceKey%3AForgetDevice%27"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447769"><span id="local-6989586621679447771"><span class="annot"><span class="annottext">ForgetDevice -&gt; ForgetDevice -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447778"><span id="local-6989586621679447780"><span class="annot"><span class="annottext">ForgetDevice -&gt; ForgetDevice -&gt; Bool
 (ForgetDevice -&gt; ForgetDevice -&gt; Bool)
 -&gt; (ForgetDevice -&gt; ForgetDevice -&gt; Bool) -&gt; Eq ForgetDevice
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ForgetDevice -&gt; ForgetDevice -&gt; Bool
 == :: ForgetDevice -&gt; ForgetDevice -&gt; Bool
 $c== :: ForgetDevice -&gt; ForgetDevice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447762"><span id="local-6989586621679447764"><span id="local-6989586621679447766"><span class="annot"><span class="annottext">Int -&gt; ForgetDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447771"><span id="local-6989586621679447773"><span id="local-6989586621679447775"><span class="annot"><span class="annottext">Int -&gt; ForgetDevice -&gt; ShowS
 [ForgetDevice] -&gt; ShowS
 ForgetDevice -&gt; String
 (Int -&gt; ForgetDevice -&gt; ShowS)
@@ -104,8 +104,8 @@ $cfrom :: forall x. ForgetDevice -&gt; Rep ForgetDevice x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span>
 </span><span id="line-72"></span><span id="newForgetDevice"><span class="annot"><span class="annottext">newForgetDevice :: Text -&gt; ForgetDevice
-</span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#newForgetDevice"><span class="hs-identifier hs-var hs-var">newForgetDevice</span></a></span></span><span> </span><span id="local-6989586621679447757"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447757"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#newForgetDevice"><span class="hs-identifier hs-var hs-var">newForgetDevice</span></a></span></span><span> </span><span id="local-6989586621679447766"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447766"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">ForgetDevice' :: Maybe (Sensitive Text) -&gt; Text -&gt; ForgetDevice
 </span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accessToken:ForgetDevice' :: Maybe (Sensitive Text)
@@ -114,7 +114,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceKey:ForgetDevice' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#%24sel%3AdeviceKey%3AForgetDevice%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447757"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span><span>
+</span><a href="#local-6989586621679447766"><span class="hs-identifier hs-var">pDeviceKey_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The access token for the forgotten device request.</span><span>
@@ -128,16 +128,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447754"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447763"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 accessToken :: Maybe (Sensitive Text)
 $sel:accessToken:ForgetDevice' :: ForgetDevice -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447754"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447754"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447753"><span class="annot"><span class="annottext">s :: ForgetDevice
-</span><a href="#local-6989586621679447753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447752"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForgetDevice
-</span><a href="#local-6989586621679447753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:ForgetDevice' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679447763"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679447763"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447762"><span class="annot"><span class="annottext">s :: ForgetDevice
+</span><a href="#local-6989586621679447762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447761"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679447761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForgetDevice
+</span><a href="#local-6989586621679447762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:ForgetDevice' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#%24sel%3AaccessToken%3AForgetDevice%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679447761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ForgetDevice -&gt; f ForgetDevice)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -165,25 +165,25 @@ forall a. Iso' (Sensitive a) a
 -&gt; (ForgetDevice -&gt; Text -&gt; ForgetDevice)
 -&gt; Lens ForgetDevice ForgetDevice Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447748"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447757"><span class="annot"><span class="annottext">Text
 deviceKey :: Text
 $sel:deviceKey:ForgetDevice' :: ForgetDevice -&gt; Text
-</span><a href="#local-6989586621679447748"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447748"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447747"><span class="annot"><span class="annottext">s :: ForgetDevice
-</span><a href="#local-6989586621679447747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447746"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForgetDevice
-</span><a href="#local-6989586621679447747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:ForgetDevice' :: Text
+</span><a href="#local-6989586621679447757"><span class="hs-identifier hs-var hs-var">deviceKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447757"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447756"><span class="annot"><span class="annottext">s :: ForgetDevice
+</span><a href="#local-6989586621679447756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447755"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679447755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ForgetDevice
+</span><a href="#local-6989586621679447756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceKey:ForgetDevice' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#%24sel%3AdeviceKey%3AForgetDevice%27"><span class="hs-identifier hs-var">deviceKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDeviceResponse"><span class="hs-identifier hs-type">ForgetDeviceResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679447742"><span class="annot"><span class="annottext">request :: ForgetDevice -&gt; Request ForgetDevice
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679447751"><span class="annot"><span class="annottext">request :: ForgetDevice -&gt; Request ForgetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ForgetDevice -&gt; Request ForgetDevice
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679447738"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679447747"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ForgetDevice
 -&gt; ClientResponse ClientBody
@@ -206,12 +206,12 @@ AWSResponse a
 ForgetDeviceResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDeviceResponse%27"><span class="hs-identifier hs-var">ForgetDeviceResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447731"><span id="local-6989586621679447733"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447740"><span id="local-6989586621679447742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679447724"><span class="annot"><span class="annottext">toHeaders :: ForgetDevice -&gt; [Header]
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679447733"><span class="annot"><span class="annottext">toHeaders :: ForgetDevice -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; ForgetDevice -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -238,15 +238,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447714"><span id="local-6989586621679447716"><span id="local-6989586621679447718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679447712"><span class="annot"><span class="annottext">toJSON :: ForgetDevice -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447709"><span id="local-6989586621679447710"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447723"><span id="local-6989586621679447725"><span id="local-6989586621679447727"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679447721"><span class="annot"><span class="annottext">toJSON :: ForgetDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice%27"><span class="hs-identifier hs-type">ForgetDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447718"><span id="local-6989586621679447719"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Text
 deviceKey :: Text
 accessToken :: Maybe (Sensitive Text)
 $sel:deviceKey:ForgetDevice' :: ForgetDevice -&gt; Text
 $sel:accessToken:ForgetDevice' :: ForgetDevice -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447709"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679447718"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -258,26 +258,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679447710"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679447719"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeviceKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447709"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447718"><span class="hs-identifier hs-var">deviceKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679447702"><span class="annot"><span class="annottext">toPath :: ForgetDevice -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679447711"><span class="annot"><span class="annottext">toPath :: ForgetDevice -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ForgetDevice -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDevice"><span class="hs-identifier hs-type">ForgetDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679447698"><span class="annot"><span class="annottext">toQuery :: ForgetDevice -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679447707"><span class="annot"><span class="annottext">toQuery :: ForgetDevice -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ForgetDevice -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -285,10 +285,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newForgetDeviceResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679447695"><span id="local-6989586621679447696"></span></span><span class="hs-keyword">data</span><span> </span><span id="ForgetDeviceResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDeviceResponse"><span class="hs-identifier hs-var">ForgetDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ForgetDeviceResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDeviceResponse%27"><span class="hs-identifier hs-var">ForgetDeviceResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679447704"><span id="local-6989586621679447705"></span></span><span class="hs-keyword">data</span><span> </span><span id="ForgetDeviceResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDeviceResponse"><span class="hs-identifier hs-var">ForgetDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ForgetDeviceResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDeviceResponse%27"><span class="hs-identifier hs-var">ForgetDeviceResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447691"><span id="local-6989586621679447693"><span class="annot"><span class="annottext">ForgetDeviceResponse -&gt; ForgetDeviceResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447700"><span id="local-6989586621679447702"><span class="annot"><span class="annottext">ForgetDeviceResponse -&gt; ForgetDeviceResponse -&gt; Bool
 (ForgetDeviceResponse -&gt; ForgetDeviceResponse -&gt; Bool)
 -&gt; (ForgetDeviceResponse -&gt; ForgetDeviceResponse -&gt; Bool)
 -&gt; Eq ForgetDeviceResponse
@@ -297,7 +297,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ForgetDeviceResponse -&gt; ForgetDeviceResponse -&gt; Bool
 == :: ForgetDeviceResponse -&gt; ForgetDeviceResponse -&gt; Bool
 $c== :: ForgetDeviceResponse -&gt; ForgetDeviceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447683"><span id="local-6989586621679447685"><span id="local-6989586621679447687"><span id="local-6989586621679447689"><span class="annot"><span class="annottext">ReadPrec [ForgetDeviceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447692"><span id="local-6989586621679447694"><span id="local-6989586621679447696"><span id="local-6989586621679447698"><span class="annot"><span class="annottext">ReadPrec [ForgetDeviceResponse]
 ReadPrec ForgetDeviceResponse
 Int -&gt; ReadS ForgetDeviceResponse
 ReadS [ForgetDeviceResponse]
@@ -317,7 +317,7 @@ readList :: ReadS [ForgetDeviceResponse]
 $creadList :: ReadS [ForgetDeviceResponse]
 readsPrec :: Int -&gt; ReadS ForgetDeviceResponse
 $creadsPrec :: Int -&gt; ReadS ForgetDeviceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447676"><span id="local-6989586621679447678"><span id="local-6989586621679447680"><span class="annot"><span class="annottext">Int -&gt; ForgetDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447685"><span id="local-6989586621679447687"><span id="local-6989586621679447689"><span class="annot"><span class="annottext">Int -&gt; ForgetDeviceResponse -&gt; ShowS
 [ForgetDeviceResponse] -&gt; ShowS
 ForgetDeviceResponse -&gt; String
 (Int -&gt; ForgetDeviceResponse -&gt; ShowS)
@@ -353,5 +353,5 @@ $cfrom :: forall x. ForgetDeviceResponse -&gt; Rep ForgetDeviceResponse x
 </span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#newForgetDeviceResponse"><span class="hs-identifier hs-var hs-var">newForgetDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ForgetDeviceResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDeviceResponse%27"><span class="hs-identifier hs-var">ForgetDeviceResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDeviceResponse"><span class="hs-identifier hs-type">ForgetDeviceResponse</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ForgetDevice.html#ForgetDeviceResponse"><span class="hs-identifier hs-type">ForgetDeviceResponse</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

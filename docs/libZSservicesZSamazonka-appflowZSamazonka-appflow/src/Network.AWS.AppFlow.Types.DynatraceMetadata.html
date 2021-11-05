@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.DynatraceMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.DynatraceMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The connector metadata specific to Dynatrace.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDynatraceMetadata' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679314564"><span id="local-6989586621679314565"></span></span><span class="hs-keyword">data</span><span> </span><span id="DynatraceMetadata"><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata"><span class="hs-identifier hs-var">DynatraceMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynatraceMetadata%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata%27"><span class="hs-identifier hs-var">DynatraceMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314559"><span id="local-6989586621679314561"><span class="annot"><span class="annottext">DynatraceMetadata -&gt; DynatraceMetadata -&gt; Bool
+(DynatraceMetadata -&gt; DynatraceMetadata -&gt; Bool)
+-&gt; (DynatraceMetadata -&gt; DynatraceMetadata -&gt; Bool)
+-&gt; Eq DynatraceMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DynatraceMetadata -&gt; DynatraceMetadata -&gt; Bool
+$c/= :: DynatraceMetadata -&gt; DynatraceMetadata -&gt; Bool
+== :: DynatraceMetadata -&gt; DynatraceMetadata -&gt; Bool
+$c== :: DynatraceMetadata -&gt; DynatraceMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314550"><span id="local-6989586621679314552"><span id="local-6989586621679314554"><span id="local-6989586621679314556"><span class="annot"><span class="annottext">ReadPrec [DynatraceMetadata]
+ReadPrec DynatraceMetadata
+Int -&gt; ReadS DynatraceMetadata
+ReadS [DynatraceMetadata]
+(Int -&gt; ReadS DynatraceMetadata)
+-&gt; ReadS [DynatraceMetadata]
+-&gt; ReadPrec DynatraceMetadata
+-&gt; ReadPrec [DynatraceMetadata]
+-&gt; Read DynatraceMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DynatraceMetadata]
+$creadListPrec :: ReadPrec [DynatraceMetadata]
+readPrec :: ReadPrec DynatraceMetadata
+$creadPrec :: ReadPrec DynatraceMetadata
+readList :: ReadS [DynatraceMetadata]
+$creadList :: ReadS [DynatraceMetadata]
+readsPrec :: Int -&gt; ReadS DynatraceMetadata
+$creadsPrec :: Int -&gt; ReadS DynatraceMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314543"><span id="local-6989586621679314545"><span id="local-6989586621679314547"><span class="annot"><span class="annottext">Int -&gt; DynatraceMetadata -&gt; ShowS
+[DynatraceMetadata] -&gt; ShowS
+DynatraceMetadata -&gt; String
+(Int -&gt; DynatraceMetadata -&gt; ShowS)
+-&gt; (DynatraceMetadata -&gt; String)
+-&gt; ([DynatraceMetadata] -&gt; ShowS)
+-&gt; Show DynatraceMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DynatraceMetadata] -&gt; ShowS
+$cshowList :: [DynatraceMetadata] -&gt; ShowS
+show :: DynatraceMetadata -&gt; String
+$cshow :: DynatraceMetadata -&gt; String
+showsPrec :: Int -&gt; DynatraceMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; DynatraceMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DynatraceMetadata -&gt; Rep DynatraceMetadata x)
+-&gt; (forall x. Rep DynatraceMetadata x -&gt; DynatraceMetadata)
+-&gt; Generic DynatraceMetadata
+forall x. Rep DynatraceMetadata x -&gt; DynatraceMetadata
+forall x. DynatraceMetadata -&gt; Rep DynatraceMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DynatraceMetadata x -&gt; DynatraceMetadata
+$cfrom :: forall x. DynatraceMetadata -&gt; Rep DynatraceMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Create a value of 'DynatraceMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-38"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#newDynatraceMetadata"><span class="hs-identifier hs-type">newDynatraceMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata"><span class="hs-identifier hs-type">DynatraceMetadata</span></a></span><span>
+</span><span id="line-40"></span><span id="newDynatraceMetadata"><span class="annot"><span class="annottext">newDynatraceMetadata :: DynatraceMetadata
+</span><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#newDynatraceMetadata"><span class="hs-identifier hs-var hs-var">newDynatraceMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DynatraceMetadata
+</span><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata%27"><span class="hs-identifier hs-var">DynatraceMetadata'</span></a></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314535"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata"><span class="hs-identifier hs-type">DynatraceMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>  </span><span id="local-6989586621679314533"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DynatraceMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DynatraceMetadata)
+-&gt; Value
+-&gt; Parser DynatraceMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DynatraceMetadata&quot;</span></span><span>
+</span><span id="line-46"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynatraceMetadata -&gt; Parser DynatraceMetadata
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">DynatraceMetadata
+</span><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata%27"><span class="hs-identifier hs-var">DynatraceMetadata'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314526"><span id="local-6989586621679314528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata"><span class="hs-identifier hs-type">DynatraceMetadata</span></a></span></span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.DynatraceMetadata.html#DynatraceMetadata"><span class="hs-identifier hs-type">DynatraceMetadata</span></a></span></span><span>
+</span><span id="line-51"></span></pre></body></html>

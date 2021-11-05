@@ -59,13 +59,13 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span id="local-6989586621679371722"><span id="local-6989586621679371723"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UploadType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UploadType.html#UploadType"><span class="hs-identifier hs-var">UploadType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UploadType.html#UploadType%27"><span class="hs-identifier hs-var">UploadType'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679371731"><span id="local-6989586621679371732"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UploadType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UploadType.html#UploadType"><span class="hs-identifier hs-var">UploadType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UploadType.html#UploadType%27"><span class="hs-identifier hs-var">UploadType'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUploadType"><span class="annot"><span class="annottext">UploadType -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.UploadType.html#fromUploadType"><span class="hs-identifier hs-var hs-var">fromUploadType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371714"><span id="local-6989586621679371716"><span id="local-6989586621679371718"><span class="annot"><span class="annottext">Int -&gt; UploadType -&gt; ShowS
+</span><span id="line-67"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371723"><span id="local-6989586621679371725"><span id="local-6989586621679371727"><span class="annot"><span class="annottext">Int -&gt; UploadType -&gt; ShowS
 [UploadType] -&gt; ShowS
 UploadType -&gt; String
 (Int -&gt; UploadType -&gt; ShowS)
@@ -81,7 +81,7 @@ $cshow :: UploadType -&gt; String
 showsPrec :: Int -&gt; UploadType -&gt; ShowS
 $cshowsPrec :: Int -&gt; UploadType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679371705"><span id="local-6989586621679371707"><span id="local-6989586621679371709"><span id="local-6989586621679371711"><span class="annot"><span class="annottext">ReadPrec [UploadType]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679371714"><span id="local-6989586621679371716"><span id="local-6989586621679371718"><span id="local-6989586621679371720"><span class="annot"><span class="annottext">ReadPrec [UploadType]
 ReadPrec UploadType
 Int -&gt; ReadS UploadType
 ReadS [UploadType]
@@ -102,7 +102,7 @@ $creadList :: ReadS [UploadType]
 readsPrec :: Int -&gt; ReadS UploadType
 $creadsPrec :: Int -&gt; ReadS UploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679371700"><span id="local-6989586621679371702"><span class="annot"><span class="annottext">UploadType -&gt; UploadType -&gt; Bool
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679371709"><span id="local-6989586621679371711"><span class="annot"><span class="annottext">UploadType -&gt; UploadType -&gt; Bool
 (UploadType -&gt; UploadType -&gt; Bool)
 -&gt; (UploadType -&gt; UploadType -&gt; Bool) -&gt; Eq UploadType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -111,7 +111,7 @@ $c/= :: UploadType -&gt; UploadType -&gt; Bool
 == :: UploadType -&gt; UploadType -&gt; Bool
 $c== :: UploadType -&gt; UploadType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679371684"><span id="local-6989586621679371686"><span id="local-6989586621679371688"><span id="local-6989586621679371690"><span id="local-6989586621679371692"><span id="local-6989586621679371694"><span id="local-6989586621679371696"><span class="annot"><span class="annottext">Eq UploadType
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679371693"><span id="local-6989586621679371695"><span id="local-6989586621679371697"><span id="local-6989586621679371699"><span id="local-6989586621679371701"><span id="local-6989586621679371703"><span id="local-6989586621679371705"><span class="annot"><span class="annottext">Eq UploadType
 Eq UploadType
 -&gt; (UploadType -&gt; UploadType -&gt; Ordering)
 -&gt; (UploadType -&gt; UploadType -&gt; Bool)
@@ -161,7 +161,7 @@ $cfrom :: forall x. UploadType -&gt; Rep UploadType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371676"><span id="local-6989586621679371678"><span class="annot"><span class="annottext">Int -&gt; UploadType -&gt; Int
+</span><span id="line-74"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371685"><span id="local-6989586621679371687"><span class="annot"><span class="annottext">Int -&gt; UploadType -&gt; Int
 UploadType -&gt; Int
 (Int -&gt; UploadType -&gt; Int)
 -&gt; (UploadType -&gt; Int) -&gt; Hashable UploadType
@@ -171,49 +171,49 @@ $chash :: UploadType -&gt; Int
 hashWithSalt :: Int -&gt; UploadType -&gt; Int
 $chashWithSalt :: Int -&gt; UploadType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679371673"><span class="annot"><span class="annottext">UploadType -&gt; ()
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679371682"><span class="annot"><span class="annottext">UploadType -&gt; ()
 (UploadType -&gt; ()) -&gt; NFData UploadType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UploadType -&gt; ()
 $crnf :: UploadType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679371670"><span class="annot"><span class="annottext">Text -&gt; Either String UploadType
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679371679"><span class="annot"><span class="annottext">Text -&gt; Either String UploadType
 (Text -&gt; Either String UploadType) -&gt; FromText UploadType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UploadType
 $cfromText :: Text -&gt; Either String UploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679371667"><span class="annot"><span class="annottext">UploadType -&gt; Text
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679371676"><span class="annot"><span class="annottext">UploadType -&gt; Text
 (UploadType -&gt; Text) -&gt; ToText UploadType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UploadType -&gt; Text
 $ctoText :: UploadType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679371664"><span class="annot"><span class="annottext">UploadType -&gt; ByteString
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679371673"><span class="annot"><span class="annottext">UploadType -&gt; ByteString
 (UploadType -&gt; ByteString) -&gt; ToByteString UploadType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UploadType -&gt; ByteString
 $ctoBS :: UploadType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679371661"><span class="annot"><span class="annottext">UploadType -&gt; ByteStringBuilder
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679371670"><span class="annot"><span class="annottext">UploadType -&gt; ByteStringBuilder
 (UploadType -&gt; ByteStringBuilder) -&gt; ToLog UploadType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UploadType -&gt; ByteStringBuilder
 $cbuild :: UploadType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679371658"><span class="annot"><span class="annottext">HeaderName -&gt; UploadType -&gt; [Header]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679371667"><span class="annot"><span class="annottext">HeaderName -&gt; UploadType -&gt; [Header]
 (HeaderName -&gt; UploadType -&gt; [Header]) -&gt; ToHeader UploadType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UploadType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UploadType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679371655"><span class="annot"><span class="annottext">UploadType -&gt; QueryString
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679371664"><span class="annot"><span class="annottext">UploadType -&gt; QueryString
 (UploadType -&gt; QueryString) -&gt; ToQuery UploadType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UploadType -&gt; QueryString
 $ctoQuery :: UploadType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679371650"><span id="local-6989586621679371652"><span class="annot"><span class="annottext">Value -&gt; Parser [UploadType]
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679371659"><span id="local-6989586621679371661"><span class="annot"><span class="annottext">Value -&gt; Parser [UploadType]
 Value -&gt; Parser UploadType
 (Value -&gt; Parser UploadType)
 -&gt; (Value -&gt; Parser [UploadType]) -&gt; FromJSON UploadType
@@ -224,7 +224,7 @@ $cparseJSONList :: Value -&gt; Parser [UploadType]
 parseJSON :: Value -&gt; Parser UploadType
 $cparseJSON :: Value -&gt; Parser UploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679371645"><span id="local-6989586621679371647"><span class="annot"><span class="annottext">FromJSONKeyFunction [UploadType]
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679371654"><span id="local-6989586621679371656"><span class="annot"><span class="annottext">FromJSONKeyFunction [UploadType]
 FromJSONKeyFunction UploadType
 FromJSONKeyFunction UploadType
 -&gt; FromJSONKeyFunction [UploadType] -&gt; FromJSONKey UploadType
@@ -235,7 +235,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UploadType]
 fromJSONKey :: FromJSONKeyFunction UploadType
 $cfromJSONKey :: FromJSONKeyFunction UploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621679371636"><span id="local-6989586621679371638"><span id="local-6989586621679371640"><span id="local-6989586621679371642"><span class="annot"><span class="annottext">[UploadType] -&gt; Encoding
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679371645"><span id="local-6989586621679371647"><span id="local-6989586621679371649"><span id="local-6989586621679371651"><span class="annot"><span class="annottext">[UploadType] -&gt; Encoding
 [UploadType] -&gt; Value
 UploadType -&gt; Encoding
 UploadType -&gt; Value
@@ -259,7 +259,7 @@ $ctoEncoding :: UploadType -&gt; Encoding
 toJSON :: UploadType -&gt; Value
 $ctoJSON :: UploadType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621679371631"><span id="local-6989586621679371633"><span class="annot"><span class="annottext">ToJSONKeyFunction [UploadType]
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679371640"><span id="local-6989586621679371642"><span class="annot"><span class="annottext">ToJSONKeyFunction [UploadType]
 ToJSONKeyFunction UploadType
 ToJSONKeyFunction UploadType
 -&gt; ToJSONKeyFunction [UploadType] -&gt; ToJSONKey UploadType
@@ -270,13 +270,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UploadType]
 toJSONKey :: ToJSONKeyFunction UploadType
 $ctoJSONKey :: ToJSONKeyFunction UploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span id="local-6989586621679371628"><span class="annot"><span class="annottext">[Node] -&gt; Either String UploadType
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621679371637"><span class="annot"><span class="annottext">[Node] -&gt; Either String UploadType
 ([Node] -&gt; Either String UploadType) -&gt; FromXML UploadType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UploadType
 $cparseXML :: [Node] -&gt; Either String UploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span id="local-6989586621679371625"><span class="annot"><span class="annottext">UploadType -&gt; XML
+</span><span id="line-87"></span><span>      </span><span id="local-6989586621679371634"><span class="annot"><span class="annottext">UploadType -&gt; XML
 (UploadType -&gt; XML) -&gt; ToXML UploadType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UploadType -&gt; XML

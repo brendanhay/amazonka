@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Represents a VM server.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newVmServer' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679249434"><span id="local-6989586621679249435"></span></span><span class="hs-keyword">data</span><span> </span><span id="VmServer"><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-var">VmServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VmServer%27"><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-var">VmServer'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679249443"><span id="local-6989586621679249444"></span></span><span class="hs-keyword">data</span><span> </span><span id="VmServer"><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-var">VmServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VmServer%27"><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-var">VmServer'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the VM manager.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AvmManagerName%3AVmServer%27"><span class="annot"><span class="annottext">VmServer -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.Types.VmServer.html#%24sel%3AvmManagerName%3AVmServer%27"><span class="hs-identifier hs-var hs-var">vmManagerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AvmPath%3AVmServer%27"><span class="annot"><span class="annottext">VmServer -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.Types.VmServer.html#%24sel%3AvmPath%3AVmServer%27"><span class="hs-identifier hs-var hs-var">vmPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249424"><span id="local-6989586621679249426"><span class="annot"><span class="annottext">VmServer -&gt; VmServer -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249433"><span id="local-6989586621679249435"><span class="annot"><span class="annottext">VmServer -&gt; VmServer -&gt; Bool
 (VmServer -&gt; VmServer -&gt; Bool)
 -&gt; (VmServer -&gt; VmServer -&gt; Bool) -&gt; Eq VmServer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VmServer -&gt; VmServer -&gt; Bool
 == :: VmServer -&gt; VmServer -&gt; Bool
 $c== :: VmServer -&gt; VmServer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249415"><span id="local-6989586621679249417"><span id="local-6989586621679249419"><span id="local-6989586621679249421"><span class="annot"><span class="annottext">ReadPrec [VmServer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249424"><span id="local-6989586621679249426"><span id="local-6989586621679249428"><span id="local-6989586621679249430"><span class="annot"><span class="annottext">ReadPrec [VmServer]
 ReadPrec VmServer
 Int -&gt; ReadS VmServer
 ReadS [VmServer]
@@ -73,7 +73,7 @@ readList :: ReadS [VmServer]
 $creadList :: ReadS [VmServer]
 readsPrec :: Int -&gt; ReadS VmServer
 $creadsPrec :: Int -&gt; ReadS VmServer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249408"><span id="local-6989586621679249410"><span id="local-6989586621679249412"><span class="annot"><span class="annottext">Int -&gt; VmServer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249417"><span id="local-6989586621679249419"><span id="local-6989586621679249421"><span class="annot"><span class="annottext">Int -&gt; VmServer -&gt; ShowS
 [VmServer] -&gt; ShowS
 VmServer -&gt; String
 (Int -&gt; VmServer -&gt; ShowS)
@@ -153,16 +153,16 @@ forall a. Maybe a
 -&gt; (VmServer -&gt; Maybe Text -&gt; VmServer)
 -&gt; Lens VmServer VmServer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249399"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249408"><span class="annot"><span class="annottext">Maybe Text
 vmManagerName :: Maybe Text
 $sel:vmManagerName:VmServer' :: VmServer -&gt; Maybe Text
-</span><a href="#local-6989586621679249399"><span class="hs-identifier hs-var hs-var">vmManagerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249399"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249398"><span class="annot"><span class="annottext">s :: VmServer
-</span><a href="#local-6989586621679249398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249397"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
-</span><a href="#local-6989586621679249398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerName:VmServer' :: Maybe Text
+</span><a href="#local-6989586621679249408"><span class="hs-identifier hs-var hs-var">vmManagerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249408"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249407"><span class="annot"><span class="annottext">s :: VmServer
+</span><a href="#local-6989586621679249407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249406"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
+</span><a href="#local-6989586621679249407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerName:VmServer' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.VmServer.html#%24sel%3AvmManagerName%3AVmServer%27"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The type of VM management product.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#vmServer_vmManagerType"><span class="hs-identifier hs-type">vmServer_vmManagerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmManagerType.html#VmManagerType"><span class="hs-identifier hs-type">VmManagerType</span></a></span><span class="hs-special">)</span><span>
@@ -173,16 +173,16 @@ $sel:vmManagerName:VmServer' :: VmServer -&gt; Maybe Text
 -&gt; Lens
      VmServer VmServer (Maybe VmManagerType) (Maybe VmManagerType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249395"><span class="annot"><span class="annottext">Maybe VmManagerType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249404"><span class="annot"><span class="annottext">Maybe VmManagerType
 vmManagerType :: Maybe VmManagerType
 $sel:vmManagerType:VmServer' :: VmServer -&gt; Maybe VmManagerType
-</span><a href="#local-6989586621679249395"><span class="hs-identifier hs-var hs-var">vmManagerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VmManagerType
-</span><a href="#local-6989586621679249395"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249394"><span class="annot"><span class="annottext">s :: VmServer
-</span><a href="#local-6989586621679249394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249393"><span class="annot"><span class="annottext">Maybe VmManagerType
-</span><a href="#local-6989586621679249393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
-</span><a href="#local-6989586621679249394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerType:VmServer' :: Maybe VmManagerType
+</span><a href="#local-6989586621679249404"><span class="hs-identifier hs-var hs-var">vmManagerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VmManagerType
+</span><a href="#local-6989586621679249404"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249403"><span class="annot"><span class="annottext">s :: VmServer
+</span><a href="#local-6989586621679249403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249402"><span class="annot"><span class="annottext">Maybe VmManagerType
+</span><a href="#local-6989586621679249402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
+</span><a href="#local-6989586621679249403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmManagerType:VmServer' :: Maybe VmManagerType
 </span><a href="Network.AWS.SMS.Types.VmServer.html#%24sel%3AvmManagerType%3AVmServer%27"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VmManagerType
-</span><a href="#local-6989586621679249393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The VM server location.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#vmServer_vmServerAddress"><span class="hs-identifier hs-type">vmServer_vmServerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServerAddress.html#VmServerAddress"><span class="hs-identifier hs-type">VmServerAddress</span></a></span><span class="hs-special">)</span><span>
@@ -193,16 +193,16 @@ $sel:vmManagerType:VmServer' :: VmServer -&gt; Maybe VmManagerType
 -&gt; Lens
      VmServer VmServer (Maybe VmServerAddress) (Maybe VmServerAddress)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249391"><span class="annot"><span class="annottext">Maybe VmServerAddress
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249400"><span class="annot"><span class="annottext">Maybe VmServerAddress
 vmServerAddress :: Maybe VmServerAddress
 $sel:vmServerAddress:VmServer' :: VmServer -&gt; Maybe VmServerAddress
-</span><a href="#local-6989586621679249391"><span class="hs-identifier hs-var hs-var">vmServerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VmServerAddress
-</span><a href="#local-6989586621679249391"><span class="hs-identifier hs-var">vmServerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249390"><span class="annot"><span class="annottext">s :: VmServer
-</span><a href="#local-6989586621679249390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249389"><span class="annot"><span class="annottext">Maybe VmServerAddress
-</span><a href="#local-6989586621679249389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
-</span><a href="#local-6989586621679249390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmServerAddress:VmServer' :: Maybe VmServerAddress
+</span><a href="#local-6989586621679249400"><span class="hs-identifier hs-var hs-var">vmServerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VmServerAddress
+</span><a href="#local-6989586621679249400"><span class="hs-identifier hs-var">vmServerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249399"><span class="annot"><span class="annottext">s :: VmServer
+</span><a href="#local-6989586621679249399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249398"><span class="annot"><span class="annottext">Maybe VmServerAddress
+</span><a href="#local-6989586621679249398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
+</span><a href="#local-6989586621679249399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmServerAddress:VmServer' :: Maybe VmServerAddress
 </span><a href="Network.AWS.SMS.Types.VmServer.html#%24sel%3AvmServerAddress%3AVmServer%27"><span class="hs-identifier hs-var">vmServerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VmServerAddress
-</span><a href="#local-6989586621679249389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the VM.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#vmServer_vmName"><span class="hs-identifier hs-type">vmServer_vmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -211,16 +211,16 @@ $sel:vmServerAddress:VmServer' :: VmServer -&gt; Maybe VmServerAddress
 -&gt; (VmServer -&gt; Maybe Text -&gt; VmServer)
 -&gt; Lens VmServer VmServer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249387"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249396"><span class="annot"><span class="annottext">Maybe Text
 vmName :: Maybe Text
 $sel:vmName:VmServer' :: VmServer -&gt; Maybe Text
-</span><a href="#local-6989586621679249387"><span class="hs-identifier hs-var hs-var">vmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249387"><span class="hs-identifier hs-var">vmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249386"><span class="annot"><span class="annottext">s :: VmServer
-</span><a href="#local-6989586621679249386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249385"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
-</span><a href="#local-6989586621679249386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmName:VmServer' :: Maybe Text
+</span><a href="#local-6989586621679249396"><span class="hs-identifier hs-var hs-var">vmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249396"><span class="hs-identifier hs-var">vmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249395"><span class="annot"><span class="annottext">s :: VmServer
+</span><a href="#local-6989586621679249395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
+</span><a href="#local-6989586621679249395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmName:VmServer' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.VmServer.html#%24sel%3AvmName%3AVmServer%27"><span class="hs-identifier hs-var">vmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The VM folder path in the vCenter Server virtual machine inventory tree.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#vmServer_vmPath"><span class="hs-identifier hs-type">vmServer_vmPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -229,27 +229,27 @@ $sel:vmName:VmServer' :: VmServer -&gt; Maybe Text
 -&gt; (VmServer -&gt; Maybe Text -&gt; VmServer)
 -&gt; Lens VmServer VmServer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249383"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249392"><span class="annot"><span class="annottext">Maybe Text
 vmPath :: Maybe Text
 $sel:vmPath:VmServer' :: VmServer -&gt; Maybe Text
-</span><a href="#local-6989586621679249383"><span class="hs-identifier hs-var hs-var">vmPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249383"><span class="hs-identifier hs-var">vmPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249382"><span class="annot"><span class="annottext">s :: VmServer
-</span><a href="#local-6989586621679249382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249381"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
-</span><a href="#local-6989586621679249382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmPath:VmServer' :: Maybe Text
+</span><a href="#local-6989586621679249392"><span class="hs-identifier hs-var hs-var">vmPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249392"><span class="hs-identifier hs-var">vmPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249391"><span class="annot"><span class="annottext">s :: VmServer
+</span><a href="#local-6989586621679249391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249390"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VmServer
+</span><a href="#local-6989586621679249391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vmPath:VmServer' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.VmServer.html#%24sel%3AvmPath%3AVmServer%27"><span class="hs-identifier hs-var">vmPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249378"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679249376"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VmServer
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249387"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679249385"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VmServer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser VmServer) -&gt; Value -&gt; Parser VmServer
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VmServer&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249373"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249382"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249382"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe VmManagerType
 -&gt; Maybe VmServerAddress
@@ -269,7 +269,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe VmServerAddress -&gt; Maybe Text -&gt; Maybe Text -&gt; VmServer)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmManagerName&quot;</span></span><span class="hs-special">)</span><span>
@@ -281,7 +281,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe VmServerAddress -&gt; Maybe Text -&gt; Maybe Text -&gt; VmServer)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VmManagerType)
+</span><a href="#local-6989586621679249382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VmManagerType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmManagerType&quot;</span></span><span class="hs-special">)</span><span>
@@ -291,7 +291,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; VmServer)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VmServerAddress)
+</span><a href="#local-6989586621679249382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VmServerAddress)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmServerAddress&quot;</span></span><span class="hs-special">)</span><span>
@@ -299,7 +299,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; VmServer)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmName&quot;</span></span><span class="hs-special">)</span><span>
@@ -307,19 +307,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser VmServer
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249367"><span id="local-6989586621679249369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249376"><span id="local-6989586621679249378"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249356"><span id="local-6989586621679249358"><span id="local-6989586621679249360"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679249354"><span class="annot"><span class="annottext">toJSON :: VmServer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249348"><span id="local-6989586621679249349"><span id="local-6989586621679249350"><span id="local-6989586621679249351"><span id="local-6989586621679249352"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249365"><span id="local-6989586621679249367"><span id="local-6989586621679249369"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer"><span class="hs-identifier hs-type">VmServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679249363"><span class="annot"><span class="annottext">toJSON :: VmServer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.VmServer.html#VmServer%27"><span class="hs-identifier hs-type">VmServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249357"><span id="local-6989586621679249358"><span id="local-6989586621679249359"><span id="local-6989586621679249360"><span id="local-6989586621679249361"><span class="annot"><span class="annottext">Maybe Text
 Maybe VmManagerType
 Maybe VmServerAddress
 vmPath :: Maybe Text
@@ -332,7 +332,7 @@ $sel:vmName:VmServer' :: VmServer -&gt; Maybe Text
 $sel:vmServerAddress:VmServer' :: VmServer -&gt; Maybe VmServerAddress
 $sel:vmManagerType:VmServer' :: VmServer -&gt; Maybe VmManagerType
 $sel:vmManagerName:VmServer' :: VmServer -&gt; Maybe Text
-</span><a href="#local-6989586621679249348"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249357"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -344,14 +344,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249352"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249361"><span class="hs-identifier hs-var">vmManagerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmManagerType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VmManagerType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VmManagerType -&gt; Pair) -&gt; Maybe VmManagerType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VmManagerType
-</span><a href="#local-6989586621679249351"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249360"><span class="hs-identifier hs-var">vmManagerType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmServerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VmServerAddress -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -359,21 +359,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(VmServerAddress -&gt; Pair) -&gt; Maybe VmServerAddress -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VmServerAddress
-</span><a href="#local-6989586621679249350"><span class="hs-identifier hs-var">vmServerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249359"><span class="hs-identifier hs-var">vmServerAddress</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249349"><span class="hs-identifier hs-var">vmName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249358"><span class="hs-identifier hs-var">vmName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vmPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249348"><span class="hs-identifier hs-var">vmPath</span></a></span><span>
+</span><a href="#local-6989586621679249357"><span class="hs-identifier hs-var">vmPath</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span></pre></body></html>

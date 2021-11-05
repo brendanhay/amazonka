@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AMP.Types.WorkspaceStatusCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AMP.Types.WorkspaceStatusCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode"><span class="hs-identifier">WorkspaceStatusCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_ACTIVE"><span class="hs-identifier">WorkspaceStatusCode_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_CREATING"><span class="hs-identifier">WorkspaceStatusCode_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_CREATION_FAILED"><span class="hs-identifier">WorkspaceStatusCode_CREATION_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_DELETING"><span class="hs-identifier">WorkspaceStatusCode_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_UPDATING"><span class="hs-identifier">WorkspaceStatusCode_UPDATING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- | State of a workspace.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679171156"><span id="local-6989586621679171157"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkspaceStatusCode"><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode"><span class="hs-identifier hs-var">WorkspaceStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceStatusCode%27"><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode%27"><span class="hs-identifier hs-var">WorkspaceStatusCode'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkspaceStatusCode"><span class="annot"><span class="annottext">WorkspaceStatusCode -&gt; Text
+</span><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#fromWorkspaceStatusCode"><span class="hs-identifier hs-var hs-var">fromWorkspaceStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171148"><span id="local-6989586621679171150"><span id="local-6989586621679171152"><span class="annot"><span class="annottext">Int -&gt; WorkspaceStatusCode -&gt; ShowS
+[WorkspaceStatusCode] -&gt; ShowS
+WorkspaceStatusCode -&gt; String
+(Int -&gt; WorkspaceStatusCode -&gt; ShowS)
+-&gt; (WorkspaceStatusCode -&gt; String)
+-&gt; ([WorkspaceStatusCode] -&gt; ShowS)
+-&gt; Show WorkspaceStatusCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkspaceStatusCode] -&gt; ShowS
+$cshowList :: [WorkspaceStatusCode] -&gt; ShowS
+show :: WorkspaceStatusCode -&gt; String
+$cshow :: WorkspaceStatusCode -&gt; String
+showsPrec :: Int -&gt; WorkspaceStatusCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkspaceStatusCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679171139"><span id="local-6989586621679171141"><span id="local-6989586621679171143"><span id="local-6989586621679171145"><span class="annot"><span class="annottext">ReadPrec [WorkspaceStatusCode]
+ReadPrec WorkspaceStatusCode
+Int -&gt; ReadS WorkspaceStatusCode
+ReadS [WorkspaceStatusCode]
+(Int -&gt; ReadS WorkspaceStatusCode)
+-&gt; ReadS [WorkspaceStatusCode]
+-&gt; ReadPrec WorkspaceStatusCode
+-&gt; ReadPrec [WorkspaceStatusCode]
+-&gt; Read WorkspaceStatusCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkspaceStatusCode]
+$creadListPrec :: ReadPrec [WorkspaceStatusCode]
+readPrec :: ReadPrec WorkspaceStatusCode
+$creadPrec :: ReadPrec WorkspaceStatusCode
+readList :: ReadS [WorkspaceStatusCode]
+$creadList :: ReadS [WorkspaceStatusCode]
+readsPrec :: Int -&gt; ReadS WorkspaceStatusCode
+$creadsPrec :: Int -&gt; ReadS WorkspaceStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679171134"><span id="local-6989586621679171136"><span class="annot"><span class="annottext">WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+(WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool)
+-&gt; (WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool)
+-&gt; Eq WorkspaceStatusCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+$c/= :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+== :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+$c== :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679171118"><span id="local-6989586621679171120"><span id="local-6989586621679171122"><span id="local-6989586621679171124"><span id="local-6989586621679171126"><span id="local-6989586621679171128"><span id="local-6989586621679171130"><span class="annot"><span class="annottext">Eq WorkspaceStatusCode
+Eq WorkspaceStatusCode
+-&gt; (WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Ordering)
+-&gt; (WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool)
+-&gt; (WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool)
+-&gt; (WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool)
+-&gt; (WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool)
+-&gt; (WorkspaceStatusCode
+    -&gt; WorkspaceStatusCode -&gt; WorkspaceStatusCode)
+-&gt; (WorkspaceStatusCode
+    -&gt; WorkspaceStatusCode -&gt; WorkspaceStatusCode)
+-&gt; Ord WorkspaceStatusCode
+WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Ordering
+WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; WorkspaceStatusCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; WorkspaceStatusCode
+$cmin :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; WorkspaceStatusCode
+max :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; WorkspaceStatusCode
+$cmax :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; WorkspaceStatusCode
+&gt;= :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+$c&gt;= :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+&gt; :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+$c&gt; :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+&lt;= :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+$c&lt;= :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+&lt; :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+$c&lt; :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Bool
+compare :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Ordering
+$ccompare :: WorkspaceStatusCode -&gt; WorkspaceStatusCode -&gt; Ordering
+$cp1Ord :: Eq WorkspaceStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. WorkspaceStatusCode -&gt; Rep WorkspaceStatusCode x)
+-&gt; (forall x. Rep WorkspaceStatusCode x -&gt; WorkspaceStatusCode)
+-&gt; Generic WorkspaceStatusCode
+forall x. Rep WorkspaceStatusCode x -&gt; WorkspaceStatusCode
+forall x. WorkspaceStatusCode -&gt; Rep WorkspaceStatusCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkspaceStatusCode x -&gt; WorkspaceStatusCode
+$cfrom :: forall x. WorkspaceStatusCode -&gt; Rep WorkspaceStatusCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171110"><span id="local-6989586621679171112"><span class="annot"><span class="annottext">Int -&gt; WorkspaceStatusCode -&gt; Int
+WorkspaceStatusCode -&gt; Int
+(Int -&gt; WorkspaceStatusCode -&gt; Int)
+-&gt; (WorkspaceStatusCode -&gt; Int) -&gt; Hashable WorkspaceStatusCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WorkspaceStatusCode -&gt; Int
+$chash :: WorkspaceStatusCode -&gt; Int
+hashWithSalt :: Int -&gt; WorkspaceStatusCode -&gt; Int
+$chashWithSalt :: Int -&gt; WorkspaceStatusCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679171107"><span class="annot"><span class="annottext">WorkspaceStatusCode -&gt; ()
+(WorkspaceStatusCode -&gt; ()) -&gt; NFData WorkspaceStatusCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WorkspaceStatusCode -&gt; ()
+$crnf :: WorkspaceStatusCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679171104"><span class="annot"><span class="annottext">Text -&gt; Either String WorkspaceStatusCode
+(Text -&gt; Either String WorkspaceStatusCode)
+-&gt; FromText WorkspaceStatusCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WorkspaceStatusCode
+$cfromText :: Text -&gt; Either String WorkspaceStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679171101"><span class="annot"><span class="annottext">WorkspaceStatusCode -&gt; Text
+(WorkspaceStatusCode -&gt; Text) -&gt; ToText WorkspaceStatusCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WorkspaceStatusCode -&gt; Text
+$ctoText :: WorkspaceStatusCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679171098"><span class="annot"><span class="annottext">WorkspaceStatusCode -&gt; ByteString
+(WorkspaceStatusCode -&gt; ByteString)
+-&gt; ToByteString WorkspaceStatusCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WorkspaceStatusCode -&gt; ByteString
+$ctoBS :: WorkspaceStatusCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679171095"><span class="annot"><span class="annottext">WorkspaceStatusCode -&gt; ByteStringBuilder
+(WorkspaceStatusCode -&gt; ByteStringBuilder)
+-&gt; ToLog WorkspaceStatusCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WorkspaceStatusCode -&gt; ByteStringBuilder
+$cbuild :: WorkspaceStatusCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679171092"><span class="annot"><span class="annottext">HeaderName -&gt; WorkspaceStatusCode -&gt; [Header]
+(HeaderName -&gt; WorkspaceStatusCode -&gt; [Header])
+-&gt; ToHeader WorkspaceStatusCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WorkspaceStatusCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WorkspaceStatusCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679171089"><span class="annot"><span class="annottext">WorkspaceStatusCode -&gt; QueryString
+(WorkspaceStatusCode -&gt; QueryString) -&gt; ToQuery WorkspaceStatusCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WorkspaceStatusCode -&gt; QueryString
+$ctoQuery :: WorkspaceStatusCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679171084"><span id="local-6989586621679171086"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkspaceStatusCode]
+Value -&gt; Parser WorkspaceStatusCode
+(Value -&gt; Parser WorkspaceStatusCode)
+-&gt; (Value -&gt; Parser [WorkspaceStatusCode])
+-&gt; FromJSON WorkspaceStatusCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WorkspaceStatusCode]
+$cparseJSONList :: Value -&gt; Parser [WorkspaceStatusCode]
+parseJSON :: Value -&gt; Parser WorkspaceStatusCode
+$cparseJSON :: Value -&gt; Parser WorkspaceStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679171079"><span id="local-6989586621679171081"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkspaceStatusCode]
+FromJSONKeyFunction WorkspaceStatusCode
+FromJSONKeyFunction WorkspaceStatusCode
+-&gt; FromJSONKeyFunction [WorkspaceStatusCode]
+-&gt; FromJSONKey WorkspaceStatusCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WorkspaceStatusCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [WorkspaceStatusCode]
+fromJSONKey :: FromJSONKeyFunction WorkspaceStatusCode
+$cfromJSONKey :: FromJSONKeyFunction WorkspaceStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679171070"><span id="local-6989586621679171072"><span id="local-6989586621679171074"><span id="local-6989586621679171076"><span class="annot"><span class="annottext">[WorkspaceStatusCode] -&gt; Encoding
+[WorkspaceStatusCode] -&gt; Value
+WorkspaceStatusCode -&gt; Encoding
+WorkspaceStatusCode -&gt; Value
+(WorkspaceStatusCode -&gt; Value)
+-&gt; (WorkspaceStatusCode -&gt; Encoding)
+-&gt; ([WorkspaceStatusCode] -&gt; Value)
+-&gt; ([WorkspaceStatusCode] -&gt; Encoding)
+-&gt; ToJSON WorkspaceStatusCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WorkspaceStatusCode] -&gt; Encoding
+$ctoEncodingList :: [WorkspaceStatusCode] -&gt; Encoding
+toJSONList :: [WorkspaceStatusCode] -&gt; Value
+$ctoJSONList :: [WorkspaceStatusCode] -&gt; Value
+toEncoding :: WorkspaceStatusCode -&gt; Encoding
+$ctoEncoding :: WorkspaceStatusCode -&gt; Encoding
+toJSON :: WorkspaceStatusCode -&gt; Value
+$ctoJSON :: WorkspaceStatusCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679171065"><span id="local-6989586621679171067"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkspaceStatusCode]
+ToJSONKeyFunction WorkspaceStatusCode
+ToJSONKeyFunction WorkspaceStatusCode
+-&gt; ToJSONKeyFunction [WorkspaceStatusCode]
+-&gt; ToJSONKey WorkspaceStatusCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WorkspaceStatusCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [WorkspaceStatusCode]
+toJSONKey :: ToJSONKeyFunction WorkspaceStatusCode
+$ctoJSONKey :: ToJSONKeyFunction WorkspaceStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679171062"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkspaceStatusCode
+([Node] -&gt; Either String WorkspaceStatusCode)
+-&gt; FromXML WorkspaceStatusCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WorkspaceStatusCode
+$cparseXML :: [Node] -&gt; Either String WorkspaceStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679171059"><span class="annot"><span class="annottext">WorkspaceStatusCode -&gt; XML
+(WorkspaceStatusCode -&gt; XML) -&gt; ToXML WorkspaceStatusCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WorkspaceStatusCode -&gt; XML
+$ctoXML :: WorkspaceStatusCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_ACTIVE"><span class="hs-identifier hs-type">WorkspaceStatusCode_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode"><span class="hs-identifier hs-type">WorkspaceStatusCode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceStatusCode_ACTIVE"><span id="%24mWorkspaceStatusCode_ACTIVE"><span id="WorkspaceStatusCode_ACTIVE"><span class="annot"><span class="annottext">$bWorkspaceStatusCode_ACTIVE :: WorkspaceStatusCode
+$mWorkspaceStatusCode_ACTIVE :: forall r. WorkspaceStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#%24bWorkspaceStatusCode_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceStatusCode_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode%27"><span class="hs-identifier hs-type">WorkspaceStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_CREATING"><span class="hs-identifier hs-type">WorkspaceStatusCode_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode"><span class="hs-identifier hs-type">WorkspaceStatusCode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceStatusCode_CREATING"><span id="%24mWorkspaceStatusCode_CREATING"><span id="WorkspaceStatusCode_CREATING"><span class="annot"><span class="annottext">$bWorkspaceStatusCode_CREATING :: WorkspaceStatusCode
+$mWorkspaceStatusCode_CREATING :: forall r. WorkspaceStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#%24bWorkspaceStatusCode_CREATING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceStatusCode_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode%27"><span class="hs-identifier hs-type">WorkspaceStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_CREATION_FAILED"><span class="hs-identifier hs-type">WorkspaceStatusCode_CREATION_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode"><span class="hs-identifier hs-type">WorkspaceStatusCode</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceStatusCode_CREATION_FAILED"><span id="%24mWorkspaceStatusCode_CREATION_FAILED"><span id="WorkspaceStatusCode_CREATION_FAILED"><span class="annot"><span class="annottext">$bWorkspaceStatusCode_CREATION_FAILED :: WorkspaceStatusCode
+$mWorkspaceStatusCode_CREATION_FAILED :: forall r. WorkspaceStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#%24bWorkspaceStatusCode_CREATION_FAILED"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceStatusCode_CREATION_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode%27"><span class="hs-identifier hs-type">WorkspaceStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATION_FAILED&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_DELETING"><span class="hs-identifier hs-type">WorkspaceStatusCode_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode"><span class="hs-identifier hs-type">WorkspaceStatusCode</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceStatusCode_DELETING"><span id="%24mWorkspaceStatusCode_DELETING"><span id="WorkspaceStatusCode_DELETING"><span class="annot"><span class="annottext">$bWorkspaceStatusCode_DELETING :: WorkspaceStatusCode
+$mWorkspaceStatusCode_DELETING :: forall r. WorkspaceStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#%24bWorkspaceStatusCode_DELETING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceStatusCode_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode%27"><span class="hs-identifier hs-type">WorkspaceStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_UPDATING"><span class="hs-identifier hs-type">WorkspaceStatusCode_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode"><span class="hs-identifier hs-type">WorkspaceStatusCode</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkspaceStatusCode_UPDATING"><span id="%24mWorkspaceStatusCode_UPDATING"><span id="WorkspaceStatusCode_UPDATING"><span class="annot"><span class="annottext">$bWorkspaceStatusCode_UPDATING :: WorkspaceStatusCode
+$mWorkspaceStatusCode_UPDATING :: forall r. WorkspaceStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#%24bWorkspaceStatusCode_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">WorkspaceStatusCode_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode%27"><span class="hs-identifier hs-type">WorkspaceStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_ACTIVE"><span class="hs-pragma hs-type">WorkspaceStatusCode_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_CREATING"><span class="hs-pragma hs-type">WorkspaceStatusCode_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_CREATION_FAILED"><span class="hs-pragma hs-type">WorkspaceStatusCode_CREATION_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_DELETING"><span class="hs-pragma hs-type">WorkspaceStatusCode_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode_UPDATING"><span class="hs-pragma hs-type">WorkspaceStatusCode_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.WorkspaceStatusCode.html#WorkspaceStatusCode%27"><span class="hs-pragma hs-type">WorkspaceStatusCode'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

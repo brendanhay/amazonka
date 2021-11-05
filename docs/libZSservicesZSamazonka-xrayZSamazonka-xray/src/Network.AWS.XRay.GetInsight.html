@@ -50,13 +50,13 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.html"><span class="hs-identifier">Network.AWS.XRay.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetInsight' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679262915"><span id="local-6989586621679262916"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInsight"><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-var">GetInsight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInsight%27"><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight%27"><span class="hs-identifier hs-var">GetInsight'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679262924"><span id="local-6989586621679262925"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInsight"><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-var">GetInsight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInsight%27"><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight%27"><span class="hs-identifier hs-var">GetInsight'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The insight\'s unique identifier. Use the GetInsightSummaries action to</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- retrieve an InsightId.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AinsightId%3AGetInsight%27"><span class="annot"><span class="annottext">GetInsight -&gt; Text
 </span><a href="Network.AWS.XRay.GetInsight.html#%24sel%3AinsightId%3AGetInsight%27"><span class="hs-identifier hs-var hs-var">insightId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262909"><span id="local-6989586621679262911"><span class="annot"><span class="annottext">GetInsight -&gt; GetInsight -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262918"><span id="local-6989586621679262920"><span class="annot"><span class="annottext">GetInsight -&gt; GetInsight -&gt; Bool
 (GetInsight -&gt; GetInsight -&gt; Bool)
 -&gt; (GetInsight -&gt; GetInsight -&gt; Bool) -&gt; Eq GetInsight
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInsight -&gt; GetInsight -&gt; Bool
 == :: GetInsight -&gt; GetInsight -&gt; Bool
 $c== :: GetInsight -&gt; GetInsight -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262900"><span id="local-6989586621679262902"><span id="local-6989586621679262904"><span id="local-6989586621679262906"><span class="annot"><span class="annottext">ReadPrec [GetInsight]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262909"><span id="local-6989586621679262911"><span id="local-6989586621679262913"><span id="local-6989586621679262915"><span class="annot"><span class="annottext">ReadPrec [GetInsight]
 ReadPrec GetInsight
 Int -&gt; ReadS GetInsight
 ReadS [GetInsight]
@@ -84,7 +84,7 @@ readList :: ReadS [GetInsight]
 $creadList :: ReadS [GetInsight]
 readsPrec :: Int -&gt; ReadS GetInsight
 $creadsPrec :: Int -&gt; ReadS GetInsight
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262893"><span id="local-6989586621679262895"><span id="local-6989586621679262897"><span class="annot"><span class="annottext">Int -&gt; GetInsight -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262902"><span id="local-6989586621679262904"><span id="local-6989586621679262906"><span class="annot"><span class="annottext">Int -&gt; GetInsight -&gt; ShowS
 [GetInsight] -&gt; ShowS
 GetInsight -&gt; String
 (Int -&gt; GetInsight -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. GetInsight -&gt; Rep GetInsight x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span><span>
 </span><span id="line-74"></span><span id="newGetInsight"><span class="annot"><span class="annottext">newGetInsight :: Text -&gt; GetInsight
-</span><a href="Network.AWS.XRay.GetInsight.html#newGetInsight"><span class="hs-identifier hs-var hs-var">newGetInsight</span></a></span></span><span> </span><span id="local-6989586621679262888"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262888"><span class="hs-identifier hs-var">pInsightId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.XRay.GetInsight.html#newGetInsight"><span class="hs-identifier hs-var hs-var">newGetInsight</span></a></span></span><span> </span><span id="local-6989586621679262897"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262897"><span class="hs-identifier hs-var">pInsightId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetInsight' :: Text -&gt; GetInsight
 </span><a href="Network.AWS.XRay.GetInsight.html#GetInsight%27"><span class="hs-identifier hs-type">GetInsight'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightId:GetInsight' :: Text
 </span><a href="Network.AWS.XRay.GetInsight.html#%24sel%3AinsightId%3AGetInsight%27"><span class="hs-identifier hs-var">insightId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262888"><span class="hs-identifier hs-var">pInsightId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679262897"><span class="hs-identifier hs-var">pInsightId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The insight\'s unique identifier. Use the GetInsightSummaries action to</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- retrieve an InsightId.</span><span>
@@ -139,25 +139,25 @@ $cfrom :: forall x. GetInsight -&gt; Rep GetInsight x
 -&gt; (GetInsight -&gt; Text -&gt; GetInsight)
 -&gt; Lens GetInsight GetInsight Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight%27"><span class="hs-identifier hs-type">GetInsight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262885"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight%27"><span class="hs-identifier hs-type">GetInsight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262894"><span class="annot"><span class="annottext">Text
 insightId :: Text
 $sel:insightId:GetInsight' :: GetInsight -&gt; Text
-</span><a href="#local-6989586621679262885"><span class="hs-identifier hs-var hs-var">insightId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262885"><span class="hs-identifier hs-var">insightId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262884"><span class="annot"><span class="annottext">s :: GetInsight
-</span><a href="#local-6989586621679262884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight%27"><span class="hs-identifier hs-type">GetInsight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262883"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsight
-</span><a href="#local-6989586621679262884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightId:GetInsight' :: Text
+</span><a href="#local-6989586621679262894"><span class="hs-identifier hs-var hs-var">insightId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262894"><span class="hs-identifier hs-var">insightId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262893"><span class="annot"><span class="annottext">s :: GetInsight
+</span><a href="#local-6989586621679262893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight%27"><span class="hs-identifier hs-type">GetInsight'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262892"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsight
+</span><a href="#local-6989586621679262893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightId:GetInsight' :: Text
 </span><a href="Network.AWS.XRay.GetInsight.html#%24sel%3AinsightId%3AGetInsight%27"><span class="hs-identifier hs-var">insightId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-type">GetInsightResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679262879"><span class="annot"><span class="annottext">request :: GetInsight -&gt; Request GetInsight
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679262888"><span class="annot"><span class="annottext">request :: GetInsight -&gt; Request GetInsight
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInsight -&gt; Request GetInsight
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.XRay.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679262875"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679262884"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetInsight
 -&gt; ClientResponse ClientBody
@@ -181,10 +181,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262872"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262872"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262871"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679262871"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262870"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262870"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262881"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262880"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679262880"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262879"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Insight -&gt; Int -&gt; GetInsightResponse
 </span><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-var">GetInsightResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Insight -&gt; Int -&gt; GetInsightResponse)
@@ -192,7 +192,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetInsightResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Insight)
+</span><a href="#local-6989586621679262879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Insight)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Insight&quot;</span></span><span class="hs-special">)</span><span>
@@ -204,27 +204,27 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262872"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262881"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262862"><span id="local-6989586621679262864"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262871"><span id="local-6989586621679262873"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679262855"><span class="annot"><span class="annottext">toHeaders :: GetInsight -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679262864"><span class="annot"><span class="annottext">toHeaders :: GetInsight -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInsight -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262846"><span id="local-6989586621679262848"><span id="local-6989586621679262850"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679262844"><span class="annot"><span class="annottext">toJSON :: GetInsight -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight%27"><span class="hs-identifier hs-type">GetInsight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262842"><span class="annot"><span class="annottext">Text
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262855"><span id="local-6989586621679262857"><span id="local-6989586621679262859"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679262853"><span class="annot"><span class="annottext">toJSON :: GetInsight -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight%27"><span class="hs-identifier hs-type">GetInsight'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262851"><span class="annot"><span class="annottext">Text
 insightId :: Text
 $sel:insightId:GetInsight' :: GetInsight -&gt; Text
-</span><a href="#local-6989586621679262842"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679262851"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -236,18 +236,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InsightId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262842"><span class="hs-identifier hs-var">insightId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679262851"><span class="hs-identifier hs-var">insightId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679262836"><span class="annot"><span class="annottext">toPath :: GetInsight -&gt; ByteString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679262845"><span class="annot"><span class="annottext">toPath :: GetInsight -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInsight -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/Insight&quot;</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsight"><span class="hs-identifier hs-type">GetInsight</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679262832"><span class="annot"><span class="annottext">toQuery :: GetInsight -&gt; QueryString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679262841"><span class="annot"><span class="annottext">toQuery :: GetInsight -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInsight -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -255,7 +255,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newGetInsightResponse' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679262829"><span id="local-6989586621679262830"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInsightResponse"><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-var">GetInsightResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInsightResponse%27"><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-var">GetInsightResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679262838"><span id="local-6989586621679262839"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInsightResponse"><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-var">GetInsightResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInsightResponse%27"><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-var">GetInsightResponse'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The summary information of an insight.</span><span>
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3Ainsight%3AGetInsightResponse%27"><span class="annot"><span class="annottext">GetInsightResponse -&gt; Maybe Insight
 </span><a href="Network.AWS.XRay.GetInsight.html#%24sel%3Ainsight%3AGetInsightResponse%27"><span class="hs-identifier hs-var hs-var">insight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Insight.html#Insight"><span class="hs-identifier hs-type">Insight</span></a></span><span class="hs-special">,</span><span>
@@ -263,7 +263,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInsightResponse%27"><span class="annot"><span class="annottext">GetInsightResponse -&gt; Int
 </span><a href="Network.AWS.XRay.GetInsight.html#%24sel%3AhttpStatus%3AGetInsightResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262823"><span id="local-6989586621679262825"><span class="annot"><span class="annottext">GetInsightResponse -&gt; GetInsightResponse -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262832"><span id="local-6989586621679262834"><span class="annot"><span class="annottext">GetInsightResponse -&gt; GetInsightResponse -&gt; Bool
 (GetInsightResponse -&gt; GetInsightResponse -&gt; Bool)
 -&gt; (GetInsightResponse -&gt; GetInsightResponse -&gt; Bool)
 -&gt; Eq GetInsightResponse
@@ -272,7 +272,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInsightResponse -&gt; GetInsightResponse -&gt; Bool
 == :: GetInsightResponse -&gt; GetInsightResponse -&gt; Bool
 $c== :: GetInsightResponse -&gt; GetInsightResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262815"><span id="local-6989586621679262817"><span id="local-6989586621679262819"><span id="local-6989586621679262821"><span class="annot"><span class="annottext">ReadPrec [GetInsightResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262824"><span id="local-6989586621679262826"><span id="local-6989586621679262828"><span id="local-6989586621679262830"><span class="annot"><span class="annottext">ReadPrec [GetInsightResponse]
 ReadPrec GetInsightResponse
 Int -&gt; ReadS GetInsightResponse
 ReadS [GetInsightResponse]
@@ -292,7 +292,7 @@ readList :: ReadS [GetInsightResponse]
 $creadList :: ReadS [GetInsightResponse]
 readsPrec :: Int -&gt; ReadS GetInsightResponse
 $creadsPrec :: Int -&gt; ReadS GetInsightResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262809"><span id="local-6989586621679262811"><span id="local-6989586621679262813"><span class="annot"><span class="annottext">Int -&gt; GetInsightResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262818"><span id="local-6989586621679262820"><span id="local-6989586621679262822"><span class="annot"><span class="annottext">Int -&gt; GetInsightResponse -&gt; ShowS
 [GetInsightResponse] -&gt; ShowS
 GetInsightResponse -&gt; String
 (Int -&gt; GetInsightResponse -&gt; ShowS)
@@ -334,8 +334,8 @@ $cfrom :: forall x. GetInsightResponse -&gt; Rep GetInsightResponse x
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-type">GetInsightResponse</span></a></span><span>
 </span><span id="line-137"></span><span id="newGetInsightResponse"><span class="annot"><span class="annottext">newGetInsightResponse :: Int -&gt; GetInsightResponse
-</span><a href="Network.AWS.XRay.GetInsight.html#newGetInsightResponse"><span class="hs-identifier hs-var hs-var">newGetInsightResponse</span></a></span></span><span> </span><span id="local-6989586621679262806"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.XRay.GetInsight.html#newGetInsightResponse"><span class="hs-identifier hs-var hs-var">newGetInsightResponse</span></a></span></span><span> </span><span id="local-6989586621679262815"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">GetInsightResponse' :: Maybe Insight -&gt; Int -&gt; GetInsightResponse
 </span><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-type">GetInsightResponse'</span></a></span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:insight:GetInsightResponse' :: Maybe Insight
@@ -344,7 +344,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInsightResponse' :: Int
 </span><a href="Network.AWS.XRay.GetInsight.html#%24sel%3AhttpStatus%3AGetInsightResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679262815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The summary information of an insight.</span><span>
@@ -359,16 +359,16 @@ forall a. Maybe a
      (Maybe Insight)
      (Maybe Insight)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-type">GetInsightResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262805"><span class="annot"><span class="annottext">Maybe Insight
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-type">GetInsightResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262814"><span class="annot"><span class="annottext">Maybe Insight
 insight :: Maybe Insight
 $sel:insight:GetInsightResponse' :: GetInsightResponse -&gt; Maybe Insight
-</span><a href="#local-6989586621679262805"><span class="hs-identifier hs-var hs-var">insight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Insight
-</span><a href="#local-6989586621679262805"><span class="hs-identifier hs-var">insight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262804"><span class="annot"><span class="annottext">s :: GetInsightResponse
-</span><a href="#local-6989586621679262804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-type">GetInsightResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262803"><span class="annot"><span class="annottext">Maybe Insight
-</span><a href="#local-6989586621679262803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsightResponse
-</span><a href="#local-6989586621679262804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insight:GetInsightResponse' :: Maybe Insight
+</span><a href="#local-6989586621679262814"><span class="hs-identifier hs-var hs-var">insight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Insight
+</span><a href="#local-6989586621679262814"><span class="hs-identifier hs-var">insight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262813"><span class="annot"><span class="annottext">s :: GetInsightResponse
+</span><a href="#local-6989586621679262813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-type">GetInsightResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262812"><span class="annot"><span class="annottext">Maybe Insight
+</span><a href="#local-6989586621679262812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsightResponse
+</span><a href="#local-6989586621679262813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insight:GetInsightResponse' :: Maybe Insight
 </span><a href="Network.AWS.XRay.GetInsight.html#%24sel%3Ainsight%3AGetInsightResponse%27"><span class="hs-identifier hs-var">insight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Insight
-</span><a href="#local-6989586621679262803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-type">GetInsightResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-type">GetInsightResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#getInsightResponse_httpStatus"><span class="hs-identifier hs-type">getInsightResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-type">GetInsightResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -377,16 +377,16 @@ $sel:insight:GetInsightResponse' :: GetInsightResponse -&gt; Maybe Insight
 -&gt; (GetInsightResponse -&gt; Int -&gt; GetInsightResponse)
 -&gt; Lens GetInsightResponse GetInsightResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-type">GetInsightResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262802"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-type">GetInsightResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262811"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetInsightResponse' :: GetInsightResponse -&gt; Int
-</span><a href="#local-6989586621679262802"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262802"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262801"><span class="annot"><span class="annottext">s :: GetInsightResponse
-</span><a href="#local-6989586621679262801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-type">GetInsightResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262800"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsightResponse
-</span><a href="#local-6989586621679262801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInsightResponse' :: Int
+</span><a href="#local-6989586621679262811"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262811"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262810"><span class="annot"><span class="annottext">s :: GetInsightResponse
+</span><a href="#local-6989586621679262810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse%27"><span class="hs-identifier hs-type">GetInsightResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262809"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInsightResponse
+</span><a href="#local-6989586621679262810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInsightResponse' :: Int
 </span><a href="Network.AWS.XRay.GetInsight.html#%24sel%3AhttpStatus%3AGetInsightResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-type">GetInsightResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-type">GetInsightResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-type">GetInsightResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetInsight.html#GetInsightResponse"><span class="hs-identifier hs-type">GetInsightResponse</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

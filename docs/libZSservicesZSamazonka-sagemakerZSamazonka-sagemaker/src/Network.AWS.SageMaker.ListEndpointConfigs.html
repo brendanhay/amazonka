@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListEndpointConfigs' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621680383533"><span id="local-6989586621680383534"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEndpointConfigs"><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-var">ListEndpointConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEndpointConfigs%27"><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-var">ListEndpointConfigs'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621680383542"><span id="local-6989586621680383543"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEndpointConfigs"><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-var">ListEndpointConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEndpointConfigs%27"><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-var">ListEndpointConfigs'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string in the endpoint configuration name. This filter returns only</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- endpoint configurations whose name contains the specified string.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AnameContains%3AListEndpointConfigs%27"><span class="annot"><span class="annottext">ListEndpointConfigs -&gt; Maybe Text
@@ -84,7 +84,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AsortBy%3AListEndpointConfigs%27"><span class="annot"><span class="annottext">ListEndpointConfigs -&gt; Maybe EndpointConfigSortKey
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AsortBy%3AListEndpointConfigs%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointConfigSortKey.html#EndpointConfigSortKey"><span class="hs-identifier hs-type">EndpointConfigSortKey</span></a></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680383521"><span id="local-6989586621680383523"><span class="annot"><span class="annottext">ListEndpointConfigs -&gt; ListEndpointConfigs -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680383530"><span id="local-6989586621680383532"><span class="annot"><span class="annottext">ListEndpointConfigs -&gt; ListEndpointConfigs -&gt; Bool
 (ListEndpointConfigs -&gt; ListEndpointConfigs -&gt; Bool)
 -&gt; (ListEndpointConfigs -&gt; ListEndpointConfigs -&gt; Bool)
 -&gt; Eq ListEndpointConfigs
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListEndpointConfigs -&gt; ListEndpointConfigs -&gt; Bool
 == :: ListEndpointConfigs -&gt; ListEndpointConfigs -&gt; Bool
 $c== :: ListEndpointConfigs -&gt; ListEndpointConfigs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383512"><span id="local-6989586621680383514"><span id="local-6989586621680383516"><span id="local-6989586621680383518"><span class="annot"><span class="annottext">ReadPrec [ListEndpointConfigs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383521"><span id="local-6989586621680383523"><span id="local-6989586621680383525"><span id="local-6989586621680383527"><span class="annot"><span class="annottext">ReadPrec [ListEndpointConfigs]
 ReadPrec ListEndpointConfigs
 Int -&gt; ReadS ListEndpointConfigs
 ReadS [ListEndpointConfigs]
@@ -113,7 +113,7 @@ readList :: ReadS [ListEndpointConfigs]
 $creadList :: ReadS [ListEndpointConfigs]
 readsPrec :: Int -&gt; ReadS ListEndpointConfigs
 $creadsPrec :: Int -&gt; ReadS ListEndpointConfigs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383505"><span id="local-6989586621680383507"><span id="local-6989586621680383509"><span class="annot"><span class="annottext">Int -&gt; ListEndpointConfigs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383514"><span id="local-6989586621680383516"><span id="local-6989586621680383518"><span class="annot"><span class="annottext">Int -&gt; ListEndpointConfigs -&gt; ShowS
 [ListEndpointConfigs] -&gt; ShowS
 ListEndpointConfigs -&gt; String
 (Int -&gt; ListEndpointConfigs -&gt; ShowS)
@@ -219,16 +219,16 @@ forall a. Maybe a
 -&gt; Lens
      ListEndpointConfigs ListEndpointConfigs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383499"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383508"><span class="annot"><span class="annottext">Maybe Text
 nameContains :: Maybe Text
 $sel:nameContains:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621680383499"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383499"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383498"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
-</span><a href="#local-6989586621680383498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383497"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
-</span><a href="#local-6989586621680383498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListEndpointConfigs' :: Maybe Text
+</span><a href="#local-6989586621680383508"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680383508"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383507"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
+</span><a href="#local-6989586621680383507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383506"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680383506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
+</span><a href="#local-6989586621680383507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListEndpointConfigs' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AnameContains%3AListEndpointConfigs%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680383506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | A filter that returns only endpoint configurations with a creation time</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- greater than or equal to the specified time (timestamp).</span><span>
@@ -240,16 +240,16 @@ $sel:nameContains:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe Text
 -&gt; Lens
      ListEndpointConfigs ListEndpointConfigs (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383496"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383505"><span class="annot"><span class="annottext">Maybe POSIX
 creationTimeAfter :: Maybe POSIX
 $sel:creationTimeAfter:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe POSIX
-</span><a href="#local-6989586621680383496"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383496"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383495"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
-</span><a href="#local-6989586621680383495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383494"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
-</span><a href="#local-6989586621680383495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListEndpointConfigs' :: Maybe POSIX
+</span><a href="#local-6989586621680383505"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680383505"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383504"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
+</span><a href="#local-6989586621680383504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383503"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680383503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
+</span><a href="#local-6989586621680383504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListEndpointConfigs' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AcreationTimeAfter%3AListEndpointConfigs%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680383503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListEndpointConfigs -&gt; f ListEndpointConfigs)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -277,16 +277,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      ListEndpointConfigs ListEndpointConfigs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383490"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383499"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621680383490"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383490"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383489"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
-</span><a href="#local-6989586621680383489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383488"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
-</span><a href="#local-6989586621680383489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEndpointConfigs' :: Maybe Text
+</span><a href="#local-6989586621680383499"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680383499"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383498"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
+</span><a href="#local-6989586621680383498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383497"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680383497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
+</span><a href="#local-6989586621680383498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEndpointConfigs' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AnextToken%3AListEndpointConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680383497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The sort order for results. The default is @Descending@.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#listEndpointConfigs_sortOrder"><span class="hs-identifier hs-type">listEndpointConfigs_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OrderKey.html#OrderKey"><span class="hs-identifier hs-type">OrderKey</span></a></span><span class="hs-special">)</span><span>
@@ -300,16 +300,16 @@ $sel:nextToken:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe Text
      (Maybe OrderKey)
      (Maybe OrderKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383487"><span class="annot"><span class="annottext">Maybe OrderKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383496"><span class="annot"><span class="annottext">Maybe OrderKey
 sortOrder :: Maybe OrderKey
 $sel:sortOrder:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe OrderKey
-</span><a href="#local-6989586621680383487"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderKey
-</span><a href="#local-6989586621680383487"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383486"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
-</span><a href="#local-6989586621680383486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383485"><span class="annot"><span class="annottext">Maybe OrderKey
-</span><a href="#local-6989586621680383485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
-</span><a href="#local-6989586621680383486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListEndpointConfigs' :: Maybe OrderKey
+</span><a href="#local-6989586621680383496"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderKey
+</span><a href="#local-6989586621680383496"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383495"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
+</span><a href="#local-6989586621680383495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383494"><span class="annot"><span class="annottext">Maybe OrderKey
+</span><a href="#local-6989586621680383494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
+</span><a href="#local-6989586621680383495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListEndpointConfigs' :: Maybe OrderKey
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AsortOrder%3AListEndpointConfigs%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderKey
-</span><a href="#local-6989586621680383485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680383494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | A filter that returns only endpoint configurations created before the</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- specified time (timestamp).</span><span>
@@ -321,16 +321,16 @@ $sel:sortOrder:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe OrderKey
 -&gt; Lens
      ListEndpointConfigs ListEndpointConfigs (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383484"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383493"><span class="annot"><span class="annottext">Maybe POSIX
 creationTimeBefore :: Maybe POSIX
 $sel:creationTimeBefore:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe POSIX
-</span><a href="#local-6989586621680383484"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383484"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383483"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
-</span><a href="#local-6989586621680383483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383482"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
-</span><a href="#local-6989586621680383483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListEndpointConfigs' :: Maybe POSIX
+</span><a href="#local-6989586621680383493"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680383493"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383492"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
+</span><a href="#local-6989586621680383492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383491"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680383491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
+</span><a href="#local-6989586621680383492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListEndpointConfigs' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AcreationTimeBefore%3AListEndpointConfigs%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680383491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListEndpointConfigs -&gt; f ListEndpointConfigs)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -359,16 +359,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383481"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383490"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe Natural
-</span><a href="#local-6989586621680383481"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680383481"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383480"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
-</span><a href="#local-6989586621680383480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383479"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680383479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
-</span><a href="#local-6989586621680383480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListEndpointConfigs' :: Maybe Natural
+</span><a href="#local-6989586621680383490"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680383490"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383489"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
+</span><a href="#local-6989586621680383489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383488"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680383488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
+</span><a href="#local-6989586621680383489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListEndpointConfigs' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AmaxResults%3AListEndpointConfigs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680383479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680383488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The field to sort results by. The default is @CreationTime@.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#listEndpointConfigs_sortBy"><span class="hs-identifier hs-type">listEndpointConfigs_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointConfigSortKey.html#EndpointConfigSortKey"><span class="hs-identifier hs-type">EndpointConfigSortKey</span></a></span><span class="hs-special">)</span><span>
@@ -383,29 +383,29 @@ $sel:maxResults:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe Natural
      (Maybe EndpointConfigSortKey)
      (Maybe EndpointConfigSortKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383478"><span class="annot"><span class="annottext">Maybe EndpointConfigSortKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383487"><span class="annot"><span class="annottext">Maybe EndpointConfigSortKey
 sortBy :: Maybe EndpointConfigSortKey
 $sel:sortBy:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe EndpointConfigSortKey
-</span><a href="#local-6989586621680383478"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfigSortKey
-</span><a href="#local-6989586621680383478"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383477"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
-</span><a href="#local-6989586621680383477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383476"><span class="annot"><span class="annottext">Maybe EndpointConfigSortKey
-</span><a href="#local-6989586621680383476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
-</span><a href="#local-6989586621680383477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListEndpointConfigs' :: Maybe EndpointConfigSortKey
+</span><a href="#local-6989586621680383487"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfigSortKey
+</span><a href="#local-6989586621680383487"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383486"><span class="annot"><span class="annottext">s :: ListEndpointConfigs
+</span><a href="#local-6989586621680383486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383485"><span class="annot"><span class="annottext">Maybe EndpointConfigSortKey
+</span><a href="#local-6989586621680383485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigs
+</span><a href="#local-6989586621680383486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListEndpointConfigs' :: Maybe EndpointConfigSortKey
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AsortBy%3AListEndpointConfigs%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfigSortKey
-</span><a href="#local-6989586621680383476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680383485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621680383472"><span class="annot"><span class="annottext">page :: ListEndpointConfigs
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621680383481"><span class="annot"><span class="annottext">page :: ListEndpointConfigs
 -&gt; AWSResponse ListEndpointConfigs -&gt; Maybe ListEndpointConfigs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680383470"><span class="annot"><span class="annottext">ListEndpointConfigs
-</span><a href="#local-6989586621680383470"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680383469"><span class="annot"><span class="annottext">AWSResponse ListEndpointConfigs
-</span><a href="#local-6989586621680383469"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680383479"><span class="annot"><span class="annottext">ListEndpointConfigs
+</span><a href="#local-6989586621680383479"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680383478"><span class="annot"><span class="annottext">AWSResponse ListEndpointConfigs
+</span><a href="#local-6989586621680383478"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEndpointConfigs
 ListEndpointConfigsResponse
-</span><a href="#local-6989586621680383469"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680383478"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse
 -&gt; Getting (First Text) ListEndpointConfigsResponse Text
 -&gt; Maybe Text
@@ -435,7 +435,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-164"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEndpointConfigs
 ListEndpointConfigsResponse
-</span><a href="#local-6989586621680383469"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680383478"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse
 -&gt; Getting
      [EndpointConfigSummary]
@@ -462,7 +462,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ListEndpointConfigs
-</span><a href="#local-6989586621680383470"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680383479"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">ListEndpointConfigs
 -&gt; (ListEndpointConfigs -&gt; ListEndpointConfigs)
 -&gt; ListEndpointConfigs
@@ -478,7 +478,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEndpointConfigs
 ListEndpointConfigsResponse
-</span><a href="#local-6989586621680383469"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680383478"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse
 -&gt; Getting (First Text) ListEndpointConfigsResponse Text
 -&gt; Maybe Text
@@ -504,12 +504,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-178"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621680383459"><span class="annot"><span class="annottext">request :: ListEndpointConfigs -&gt; Request ListEndpointConfigs
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621680383468"><span class="annot"><span class="annottext">request :: ListEndpointConfigs -&gt; Request ListEndpointConfigs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListEndpointConfigs -&gt; Request ListEndpointConfigs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621680383455"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621680383464"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListEndpointConfigs
 -&gt; ClientResponse ClientBody
@@ -535,10 +535,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680383452"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383452"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680383451"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680383451"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680383450"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680383450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680383461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680383461"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680383460"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680383460"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680383459"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680383459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Int -&gt; [EndpointConfigSummary] -&gt; ListEndpointConfigsResponse
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-var">ListEndpointConfigsResponse'</span></a></span><span>
@@ -550,7 +550,7 @@ MonadResource m =&gt;
      (Int -&gt; [EndpointConfigSummary] -&gt; ListEndpointConfigsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680383450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680383459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -566,14 +566,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383452"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680383461"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either
   String ([EndpointConfigSummary] -&gt; ListEndpointConfigsResponse)
 -&gt; Either String [EndpointConfigSummary]
 -&gt; Either String ListEndpointConfigsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680383450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [EndpointConfigSummary])
+</span><a href="#local-6989586621680383459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [EndpointConfigSummary])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointConfigs&quot;</span></span><span>
@@ -586,12 +586,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-189"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383441"><span id="local-6989586621680383443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383450"><span id="local-6989586621680383452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span></span></span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621680383434"><span class="annot"><span class="annottext">toHeaders :: ListEndpointConfigs -&gt; ResponseHeaders
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621680383443"><span class="annot"><span class="annottext">toHeaders :: ListEndpointConfigs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListEndpointConfigs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -618,9 +618,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383424"><span id="local-6989586621680383426"><span id="local-6989586621680383428"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621680383422"><span class="annot"><span class="annottext">toJSON :: ListEndpointConfigs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383414"><span id="local-6989586621680383415"><span id="local-6989586621680383416"><span id="local-6989586621680383417"><span id="local-6989586621680383418"><span id="local-6989586621680383419"><span id="local-6989586621680383420"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383433"><span id="local-6989586621680383435"><span id="local-6989586621680383437"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621680383431"><span class="annot"><span class="annottext">toJSON :: ListEndpointConfigs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs%27"><span class="hs-identifier hs-type">ListEndpointConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383423"><span id="local-6989586621680383424"><span id="local-6989586621680383425"><span id="local-6989586621680383426"><span id="local-6989586621680383427"><span id="local-6989586621680383428"><span id="local-6989586621680383429"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe POSIX
 Maybe EndpointConfigSortKey
@@ -639,7 +639,7 @@ $sel:sortOrder:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe OrderKey
 $sel:nextToken:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe Text
 $sel:creationTimeAfter:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe POSIX
 $sel:nameContains:ListEndpointConfigs' :: ListEndpointConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621680383414"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680383423"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -651,7 +651,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383420"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680383429"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -659,21 +659,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383419"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680383428"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383418"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680383427"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrderKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrderKey -&gt; Pair) -&gt; Maybe OrderKey -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderKey
-</span><a href="#local-6989586621680383417"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680383426"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -681,14 +681,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680383416"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680383425"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680383415"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680383424"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EndpointConfigSortKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -696,19 +696,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EndpointConfigSortKey -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EndpointConfigSortKey
-</span><a href="#local-6989586621680383414"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><a href="#local-6989586621680383423"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
 </span><span id="line-224"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621680383408"><span class="annot"><span class="annottext">toPath :: ListEndpointConfigs -&gt; ByteString
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621680383417"><span class="annot"><span class="annottext">toPath :: ListEndpointConfigs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListEndpointConfigs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigs"><span class="hs-identifier hs-type">ListEndpointConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621680383404"><span class="annot"><span class="annottext">toQuery :: ListEndpointConfigs -&gt; QueryString
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621680383413"><span class="annot"><span class="annottext">toQuery :: ListEndpointConfigs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListEndpointConfigs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -716,7 +716,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | /See:/ 'newListEndpointConfigsResponse' smart constructor.</span><span>
-</span><span id="line-234"></span><span id="local-6989586621680383401"><span id="local-6989586621680383402"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEndpointConfigsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-var">ListEndpointConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEndpointConfigsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-var">ListEndpointConfigsResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span id="local-6989586621680383410"><span id="local-6989586621680383411"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEndpointConfigsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-var">ListEndpointConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEndpointConfigsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-var">ListEndpointConfigsResponse'</span></a></span></span><span>
 </span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the response is truncated, Amazon SageMaker returns this token. To</span><span>
 </span><span id="line-236"></span><span>    </span><span class="hs-comment">-- retrieve the next set of endpoint configurations, use it in the</span><span>
 </span><span id="line-237"></span><span>    </span><span class="hs-comment">-- subsequent request</span><span>
@@ -729,7 +729,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-242"></span><span>    </span><span id="%24sel%3AendpointConfigs%3AListEndpointConfigsResponse%27"><span class="annot"><span class="annottext">ListEndpointConfigsResponse -&gt; [EndpointConfigSummary]
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AendpointConfigs%3AListEndpointConfigsResponse%27"><span class="hs-identifier hs-var hs-var">endpointConfigs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointConfigSummary.html#EndpointConfigSummary"><span class="hs-identifier hs-type">EndpointConfigSummary</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-243"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-244"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680383394"><span id="local-6989586621680383396"><span class="annot"><span class="annottext">ListEndpointConfigsResponse -&gt; ListEndpointConfigsResponse -&gt; Bool
+</span><span id="line-244"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680383403"><span id="local-6989586621680383405"><span class="annot"><span class="annottext">ListEndpointConfigsResponse -&gt; ListEndpointConfigsResponse -&gt; Bool
 (ListEndpointConfigsResponse
  -&gt; ListEndpointConfigsResponse -&gt; Bool)
 -&gt; (ListEndpointConfigsResponse
@@ -740,7 +740,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListEndpointConfigsResponse -&gt; ListEndpointConfigsResponse -&gt; Bool
 == :: ListEndpointConfigsResponse -&gt; ListEndpointConfigsResponse -&gt; Bool
 $c== :: ListEndpointConfigsResponse -&gt; ListEndpointConfigsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383386"><span id="local-6989586621680383388"><span id="local-6989586621680383390"><span id="local-6989586621680383392"><span class="annot"><span class="annottext">ReadPrec [ListEndpointConfigsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383395"><span id="local-6989586621680383397"><span id="local-6989586621680383399"><span id="local-6989586621680383401"><span class="annot"><span class="annottext">ReadPrec [ListEndpointConfigsResponse]
 ReadPrec ListEndpointConfigsResponse
 Int -&gt; ReadS ListEndpointConfigsResponse
 ReadS [ListEndpointConfigsResponse]
@@ -760,7 +760,7 @@ readList :: ReadS [ListEndpointConfigsResponse]
 $creadList :: ReadS [ListEndpointConfigsResponse]
 readsPrec :: Int -&gt; ReadS ListEndpointConfigsResponse
 $creadsPrec :: Int -&gt; ReadS ListEndpointConfigsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383380"><span id="local-6989586621680383382"><span id="local-6989586621680383384"><span class="annot"><span class="annottext">Int -&gt; ListEndpointConfigsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680383389"><span id="local-6989586621680383391"><span id="local-6989586621680383393"><span class="annot"><span class="annottext">Int -&gt; ListEndpointConfigsResponse -&gt; ShowS
 [ListEndpointConfigsResponse] -&gt; ShowS
 ListEndpointConfigsResponse -&gt; String
 (Int -&gt; ListEndpointConfigsResponse -&gt; ShowS)
@@ -812,8 +812,8 @@ ListEndpointConfigsResponse -&gt; Rep ListEndpointConfigsResponse x
 </span><span id="line-263"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-264"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span>
 </span><span id="line-265"></span><span id="newListEndpointConfigsResponse"><span class="annot"><span class="annottext">newListEndpointConfigsResponse :: Int -&gt; ListEndpointConfigsResponse
-</span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#newListEndpointConfigsResponse"><span class="hs-identifier hs-var hs-var">newListEndpointConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621680383377"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383377"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#newListEndpointConfigsResponse"><span class="hs-identifier hs-var hs-var">newListEndpointConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621680383386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680383386"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-266"></span><span>  </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse' :: Maybe Text
 -&gt; Int -&gt; [EndpointConfigSummary] -&gt; ListEndpointConfigsResponse
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span>
@@ -824,7 +824,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListEndpointConfigsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AhttpStatus%3AListEndpointConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383377"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680383386"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointConfigs:ListEndpointConfigsResponse' :: [EndpointConfigSummary]
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AendpointConfigs%3AListEndpointConfigsResponse%27"><span class="hs-identifier hs-var">endpointConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EndpointConfigSummary]
 forall a. Monoid a =&gt; a
@@ -842,16 +842,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListEndpointConfigsResponse)
 -&gt; Lens' ListEndpointConfigsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383376"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383385"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListEndpointConfigsResponse' :: ListEndpointConfigsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680383376"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383376"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383375"><span class="annot"><span class="annottext">s :: ListEndpointConfigsResponse
-</span><a href="#local-6989586621680383375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383374"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse
-</span><a href="#local-6989586621680383375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEndpointConfigsResponse' :: Maybe Text
+</span><a href="#local-6989586621680383385"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680383385"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383384"><span class="annot"><span class="annottext">s :: ListEndpointConfigsResponse
+</span><a href="#local-6989586621680383384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680383383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse
+</span><a href="#local-6989586621680383384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEndpointConfigsResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AnextToken%3AListEndpointConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680383374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680383383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-280"></span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#listEndpointConfigsResponse_httpStatus"><span class="hs-identifier hs-type">listEndpointConfigsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -863,16 +863,16 @@ $sel:nextToken:ListEndpointConfigsResponse' :: ListEndpointConfigsResponse -&gt;
 -&gt; Lens
      ListEndpointConfigsResponse ListEndpointConfigsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383373"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383382"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListEndpointConfigsResponse' :: ListEndpointConfigsResponse -&gt; Int
-</span><a href="#local-6989586621680383373"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383373"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383372"><span class="annot"><span class="annottext">s :: ListEndpointConfigsResponse
-</span><a href="#local-6989586621680383372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383371"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse
-</span><a href="#local-6989586621680383372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEndpointConfigsResponse' :: Int
+</span><a href="#local-6989586621680383382"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680383382"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383381"><span class="annot"><span class="annottext">s :: ListEndpointConfigsResponse
+</span><a href="#local-6989586621680383381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680383380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse
+</span><a href="#local-6989586621680383381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEndpointConfigsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AhttpStatus%3AListEndpointConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680383371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680383380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | An array of endpoint configurations.</span><span>
 </span><span id="line-284"></span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#listEndpointConfigsResponse_endpointConfigs"><span class="hs-identifier hs-type">listEndpointConfigsResponse_endpointConfigs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointConfigSummary.html#EndpointConfigSummary"><span class="hs-identifier hs-type">EndpointConfigSummary</span></a></span><span class="hs-special">]</span><span>
@@ -883,16 +883,16 @@ $sel:httpStatus:ListEndpointConfigsResponse' :: ListEndpointConfigsResponse -&gt
     -&gt; [EndpointConfigSummary] -&gt; ListEndpointConfigsResponse)
 -&gt; Lens' ListEndpointConfigsResponse [EndpointConfigSummary]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383370"><span class="annot"><span class="annottext">[EndpointConfigSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680383379"><span class="annot"><span class="annottext">[EndpointConfigSummary]
 endpointConfigs :: [EndpointConfigSummary]
 $sel:endpointConfigs:ListEndpointConfigsResponse' :: ListEndpointConfigsResponse -&gt; [EndpointConfigSummary]
-</span><a href="#local-6989586621680383370"><span class="hs-identifier hs-var hs-var">endpointConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EndpointConfigSummary]
-</span><a href="#local-6989586621680383370"><span class="hs-identifier hs-var">endpointConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383369"><span class="annot"><span class="annottext">s :: ListEndpointConfigsResponse
-</span><a href="#local-6989586621680383369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383368"><span class="annot"><span class="annottext">[EndpointConfigSummary]
-</span><a href="#local-6989586621680383368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse
-</span><a href="#local-6989586621680383369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfigs:ListEndpointConfigsResponse' :: [EndpointConfigSummary]
+</span><a href="#local-6989586621680383379"><span class="hs-identifier hs-var hs-var">endpointConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EndpointConfigSummary]
+</span><a href="#local-6989586621680383379"><span class="hs-identifier hs-var">endpointConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680383378"><span class="annot"><span class="annottext">s :: ListEndpointConfigsResponse
+</span><a href="#local-6989586621680383378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse%27"><span class="hs-identifier hs-type">ListEndpointConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680383377"><span class="annot"><span class="annottext">[EndpointConfigSummary]
+</span><a href="#local-6989586621680383377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEndpointConfigsResponse
+</span><a href="#local-6989586621680383378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfigs:ListEndpointConfigsResponse' :: [EndpointConfigSummary]
 </span><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#%24sel%3AendpointConfigs%3AListEndpointConfigsResponse%27"><span class="hs-identifier hs-var">endpointConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EndpointConfigSummary]
-</span><a href="#local-6989586621680383368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EndpointConfigSummary] -&gt; f [EndpointConfigSummary])
+</span><a href="#local-6989586621680383377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EndpointConfigSummary] -&gt; f [EndpointConfigSummary])
  -&gt; ListEndpointConfigsResponse -&gt; f ListEndpointConfigsResponse)
 -&gt; (([EndpointConfigSummary] -&gt; f [EndpointConfigSummary])
     -&gt; [EndpointConfigSummary] -&gt; f [EndpointConfigSummary])
@@ -905,5 +905,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680383374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListEndpointConfigs.html#ListEndpointConfigsResponse"><span class="hs-identifier hs-type">ListEndpointConfigsResponse</span></a></span></span><span>
 </span><span id="line-288"></span></pre></body></html>

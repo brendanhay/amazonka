@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | The input properties for a topic detection job.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDocumentReaderConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679341469"><span id="local-6989586621679341470"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentReaderConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-var">DocumentReaderConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReaderConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-var">DocumentReaderConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679341478"><span id="local-6989586621679341479"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentReaderConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-var">DocumentReaderConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReaderConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-var">DocumentReaderConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how the text in an input file should be processed:</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfeatureTypes%3ADocumentReaderConfig%27"><span class="annot"><span class="annottext">DocumentReaderConfig -&gt; Maybe (NonEmpty DocumentReadFeatureTypes)
 </span><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#%24sel%3AfeatureTypes%3ADocumentReaderConfig%27"><span class="hs-identifier hs-var hs-var">featureTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadFeatureTypes.html#DocumentReadFeatureTypes"><span class="hs-identifier hs-type">DocumentReadFeatureTypes</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AdocumentReadAction%3ADocumentReaderConfig%27"><span class="annot"><span class="annottext">DocumentReaderConfig -&gt; DocumentReadAction
 </span><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#%24sel%3AdocumentReadAction%3ADocumentReaderConfig%27"><span class="hs-identifier hs-var hs-var">documentReadAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadAction.html#DocumentReadAction"><span class="hs-identifier hs-type">DocumentReadAction</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341461"><span id="local-6989586621679341463"><span class="annot"><span class="annottext">DocumentReaderConfig -&gt; DocumentReaderConfig -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341470"><span id="local-6989586621679341472"><span class="annot"><span class="annottext">DocumentReaderConfig -&gt; DocumentReaderConfig -&gt; Bool
 (DocumentReaderConfig -&gt; DocumentReaderConfig -&gt; Bool)
 -&gt; (DocumentReaderConfig -&gt; DocumentReaderConfig -&gt; Bool)
 -&gt; Eq DocumentReaderConfig
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DocumentReaderConfig -&gt; DocumentReaderConfig -&gt; Bool
 == :: DocumentReaderConfig -&gt; DocumentReaderConfig -&gt; Bool
 $c== :: DocumentReaderConfig -&gt; DocumentReaderConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341452"><span id="local-6989586621679341454"><span id="local-6989586621679341456"><span id="local-6989586621679341458"><span class="annot"><span class="annottext">ReadPrec [DocumentReaderConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341461"><span id="local-6989586621679341463"><span id="local-6989586621679341465"><span id="local-6989586621679341467"><span class="annot"><span class="annottext">ReadPrec [DocumentReaderConfig]
 ReadPrec DocumentReaderConfig
 Int -&gt; ReadS DocumentReaderConfig
 ReadS [DocumentReaderConfig]
@@ -82,7 +82,7 @@ readList :: ReadS [DocumentReaderConfig]
 $creadList :: ReadS [DocumentReaderConfig]
 readsPrec :: Int -&gt; ReadS DocumentReaderConfig
 $creadsPrec :: Int -&gt; ReadS DocumentReaderConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341445"><span id="local-6989586621679341447"><span id="local-6989586621679341449"><span class="annot"><span class="annottext">Int -&gt; DocumentReaderConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341454"><span id="local-6989586621679341456"><span id="local-6989586621679341458"><span class="annot"><span class="annottext">Int -&gt; DocumentReaderConfig -&gt; ShowS
 [DocumentReaderConfig] -&gt; ShowS
 DocumentReaderConfig -&gt; String
 (Int -&gt; DocumentReaderConfig -&gt; ShowS)
@@ -139,8 +139,8 @@ $cfrom :: forall x. DocumentReaderConfig -&gt; Rep DocumentReaderConfig x
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadAction.html#DocumentReadAction"><span class="hs-identifier hs-type">DocumentReadAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span><span>
 </span><span id="line-85"></span><span id="newDocumentReaderConfig"><span class="annot"><span class="annottext">newDocumentReaderConfig :: DocumentReadAction -&gt; DocumentReaderConfig
-</span><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#newDocumentReaderConfig"><span class="hs-identifier hs-var hs-var">newDocumentReaderConfig</span></a></span></span><span> </span><span id="local-6989586621679341439"><span class="annot"><span class="annottext">DocumentReadAction
-</span><a href="#local-6989586621679341439"><span class="hs-identifier hs-var">pDocumentReadAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#newDocumentReaderConfig"><span class="hs-identifier hs-var hs-var">newDocumentReaderConfig</span></a></span></span><span> </span><span id="local-6989586621679341448"><span class="annot"><span class="annottext">DocumentReadAction
+</span><a href="#local-6989586621679341448"><span class="hs-identifier hs-var">pDocumentReadAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DocumentReaderConfig' :: Maybe (NonEmpty DocumentReadFeatureTypes)
 -&gt; Maybe DocumentReadMode
 -&gt; DocumentReadAction
@@ -157,7 +157,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentReadAction:DocumentReaderConfig' :: DocumentReadAction
 </span><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#%24sel%3AdocumentReadAction%3ADocumentReaderConfig%27"><span class="hs-identifier hs-var">documentReadAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentReadAction
-</span><a href="#local-6989586621679341439"><span class="hs-identifier hs-var">pDocumentReadAction_</span></a></span><span>
+</span><a href="#local-6989586621679341448"><span class="hs-identifier hs-var">pDocumentReadAction_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Specifies how the text in an input file should be processed:</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
      (Maybe (NonEmpty DocumentReadFeatureTypes))
      (Maybe (NonEmpty DocumentReadFeatureTypes))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341435"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341444"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
 featureTypes :: Maybe (NonEmpty DocumentReadFeatureTypes)
 $sel:featureTypes:DocumentReaderConfig' :: DocumentReaderConfig -&gt; Maybe (NonEmpty DocumentReadFeatureTypes)
-</span><a href="#local-6989586621679341435"><span class="hs-identifier hs-var hs-var">featureTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
-</span><a href="#local-6989586621679341435"><span class="hs-identifier hs-var">featureTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341434"><span class="annot"><span class="annottext">s :: DocumentReaderConfig
-</span><a href="#local-6989586621679341434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341433"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
-</span><a href="#local-6989586621679341433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReaderConfig
-</span><a href="#local-6989586621679341434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureTypes:DocumentReaderConfig' :: Maybe (NonEmpty DocumentReadFeatureTypes)
+</span><a href="#local-6989586621679341444"><span class="hs-identifier hs-var hs-var">featureTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
+</span><a href="#local-6989586621679341444"><span class="hs-identifier hs-var">featureTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341443"><span class="annot"><span class="annottext">s :: DocumentReaderConfig
+</span><a href="#local-6989586621679341443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341442"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
+</span><a href="#local-6989586621679341442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReaderConfig
+</span><a href="#local-6989586621679341443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureTypes:DocumentReaderConfig' :: Maybe (NonEmpty DocumentReadFeatureTypes)
 </span><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#%24sel%3AfeatureTypes%3ADocumentReaderConfig%27"><span class="hs-identifier hs-var">featureTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
-</span><a href="#local-6989586621679341433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty DocumentReadFeatureTypes)
+</span><a href="#local-6989586621679341442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty DocumentReadFeatureTypes)
   -&gt; f (Maybe (NonEmpty DocumentReadFeatureTypes)))
  -&gt; DocumentReaderConfig -&gt; f DocumentReaderConfig)
 -&gt; ((Maybe (NonEmpty DocumentReadFeatureTypes)
@@ -237,16 +237,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe DocumentReadMode)
      (Maybe DocumentReadMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341428"><span class="annot"><span class="annottext">Maybe DocumentReadMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341437"><span class="annot"><span class="annottext">Maybe DocumentReadMode
 documentReadMode :: Maybe DocumentReadMode
 $sel:documentReadMode:DocumentReaderConfig' :: DocumentReaderConfig -&gt; Maybe DocumentReadMode
-</span><a href="#local-6989586621679341428"><span class="hs-identifier hs-var hs-var">documentReadMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentReadMode
-</span><a href="#local-6989586621679341428"><span class="hs-identifier hs-var">documentReadMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341427"><span class="annot"><span class="annottext">s :: DocumentReaderConfig
-</span><a href="#local-6989586621679341427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341426"><span class="annot"><span class="annottext">Maybe DocumentReadMode
-</span><a href="#local-6989586621679341426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReaderConfig
-</span><a href="#local-6989586621679341427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentReadMode:DocumentReaderConfig' :: Maybe DocumentReadMode
+</span><a href="#local-6989586621679341437"><span class="hs-identifier hs-var hs-var">documentReadMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentReadMode
+</span><a href="#local-6989586621679341437"><span class="hs-identifier hs-var">documentReadMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341436"><span class="annot"><span class="annottext">s :: DocumentReaderConfig
+</span><a href="#local-6989586621679341436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341435"><span class="annot"><span class="annottext">Maybe DocumentReadMode
+</span><a href="#local-6989586621679341435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReaderConfig
+</span><a href="#local-6989586621679341436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentReadMode:DocumentReaderConfig' :: Maybe DocumentReadMode
 </span><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#%24sel%3AdocumentReadMode%3ADocumentReaderConfig%27"><span class="hs-identifier hs-var">documentReadMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentReadMode
-</span><a href="#local-6989586621679341426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | This enum field will start with two values which will apply to PDFs:</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
@@ -267,19 +267,19 @@ $sel:documentReadMode:DocumentReaderConfig' :: DocumentReaderConfig -&gt; Maybe 
      DocumentReadAction
      DocumentReadAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341424"><span class="annot"><span class="annottext">DocumentReadAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341433"><span class="annot"><span class="annottext">DocumentReadAction
 documentReadAction :: DocumentReadAction
 $sel:documentReadAction:DocumentReaderConfig' :: DocumentReaderConfig -&gt; DocumentReadAction
-</span><a href="#local-6989586621679341424"><span class="hs-identifier hs-var hs-var">documentReadAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReadAction
-</span><a href="#local-6989586621679341424"><span class="hs-identifier hs-var">documentReadAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341423"><span class="annot"><span class="annottext">s :: DocumentReaderConfig
-</span><a href="#local-6989586621679341423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341422"><span class="annot"><span class="annottext">DocumentReadAction
-</span><a href="#local-6989586621679341422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReaderConfig
-</span><a href="#local-6989586621679341423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentReadAction:DocumentReaderConfig' :: DocumentReadAction
+</span><a href="#local-6989586621679341433"><span class="hs-identifier hs-var hs-var">documentReadAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReadAction
+</span><a href="#local-6989586621679341433"><span class="hs-identifier hs-var">documentReadAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341432"><span class="annot"><span class="annottext">s :: DocumentReaderConfig
+</span><a href="#local-6989586621679341432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341431"><span class="annot"><span class="annottext">DocumentReadAction
+</span><a href="#local-6989586621679341431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReaderConfig
+</span><a href="#local-6989586621679341432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentReadAction:DocumentReaderConfig' :: DocumentReadAction
 </span><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#%24sel%3AdocumentReadAction%3ADocumentReaderConfig%27"><span class="hs-identifier hs-var">documentReadAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentReadAction
-</span><a href="#local-6989586621679341422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341419"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679341417"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentReaderConfig
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341428"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679341426"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentReaderConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DocumentReaderConfig)
@@ -289,8 +289,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DocumentReaderConfig&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341414"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341414"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341423"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
 -&gt; Maybe DocumentReadMode
 -&gt; DocumentReadAction
@@ -306,7 +306,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DocumentReadAction -&gt; DocumentReaderConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (NonEmpty DocumentReadFeatureTypes))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -318,7 +318,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (DocumentReadAction -&gt; DocumentReaderConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentReadMode)
+</span><a href="#local-6989586621679341423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentReadMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocumentReadMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -326,19 +326,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser DocumentReadAction -&gt; Parser DocumentReaderConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DocumentReadAction
+</span><a href="#local-6989586621679341423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DocumentReadAction
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocumentReadAction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341407"><span id="local-6989586621679341409"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341416"><span id="local-6989586621679341418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341396"><span id="local-6989586621679341398"><span id="local-6989586621679341400"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679341394"><span class="annot"><span class="annottext">toJSON :: DocumentReaderConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341390"><span id="local-6989586621679341391"><span id="local-6989586621679341392"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341405"><span id="local-6989586621679341407"><span id="local-6989586621679341409"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig"><span class="hs-identifier hs-type">DocumentReaderConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679341403"><span class="annot"><span class="annottext">toJSON :: DocumentReaderConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReaderConfig.html#DocumentReaderConfig%27"><span class="hs-identifier hs-type">DocumentReaderConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341399"><span id="local-6989586621679341400"><span id="local-6989586621679341401"><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
 Maybe DocumentReadMode
 DocumentReadAction
 documentReadAction :: DocumentReadAction
@@ -347,7 +347,7 @@ featureTypes :: Maybe (NonEmpty DocumentReadFeatureTypes)
 $sel:documentReadAction:DocumentReaderConfig' :: DocumentReaderConfig -&gt; DocumentReadAction
 $sel:documentReadMode:DocumentReaderConfig' :: DocumentReaderConfig -&gt; Maybe DocumentReadMode
 $sel:featureTypes:DocumentReaderConfig' :: DocumentReaderConfig -&gt; Maybe (NonEmpty DocumentReadFeatureTypes)
-</span><a href="#local-6989586621679341390"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679341399"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -360,7 +360,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (NonEmpty DocumentReadFeatureTypes) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty DocumentReadFeatureTypes)
-</span><a href="#local-6989586621679341392"><span class="hs-identifier hs-var">featureTypes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341401"><span class="hs-identifier hs-var">featureTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocumentReadMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentReadMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -368,7 +368,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(DocumentReadMode -&gt; Pair) -&gt; Maybe DocumentReadMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DocumentReadMode
-</span><a href="#local-6989586621679341391"><span class="hs-identifier hs-var">documentReadMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341400"><span class="hs-identifier hs-var">documentReadMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -376,7 +376,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DocumentReadAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentReadAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DocumentReadAction
-</span><a href="#local-6989586621679341390"><span class="hs-identifier hs-var">documentReadAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341399"><span class="hs-identifier hs-var">documentReadAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span></pre></body></html>

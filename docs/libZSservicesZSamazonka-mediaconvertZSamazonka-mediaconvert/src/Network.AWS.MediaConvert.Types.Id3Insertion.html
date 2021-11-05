@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- (Id3Insertion).</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newId3Insertion' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679981072"><span id="local-6989586621679981073"></span></span><span class="hs-keyword">data</span><span> </span><span id="Id3Insertion"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-var">Id3Insertion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Id3Insertion%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-var">Id3Insertion'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679981081"><span id="local-6989586621679981082"></span></span><span class="hs-keyword">data</span><span> </span><span id="Id3Insertion"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-var">Id3Insertion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Id3Insertion%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-var">Id3Insertion'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use ID3 tag (Id3) to provide a tag value in base64-encode format.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aid3%3AId3Insertion%27"><span class="annot"><span class="annottext">Id3Insertion -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#%24sel%3Aid3%3AId3Insertion%27"><span class="hs-identifier hs-var hs-var">id3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Atimecode%3AId3Insertion%27"><span class="annot"><span class="annottext">Id3Insertion -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#%24sel%3Atimecode%3AId3Insertion%27"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679981065"><span id="local-6989586621679981067"><span class="annot"><span class="annottext">Id3Insertion -&gt; Id3Insertion -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679981074"><span id="local-6989586621679981076"><span class="annot"><span class="annottext">Id3Insertion -&gt; Id3Insertion -&gt; Bool
 (Id3Insertion -&gt; Id3Insertion -&gt; Bool)
 -&gt; (Id3Insertion -&gt; Id3Insertion -&gt; Bool) -&gt; Eq Id3Insertion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Id3Insertion -&gt; Id3Insertion -&gt; Bool
 == :: Id3Insertion -&gt; Id3Insertion -&gt; Bool
 $c== :: Id3Insertion -&gt; Id3Insertion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981056"><span id="local-6989586621679981058"><span id="local-6989586621679981060"><span id="local-6989586621679981062"><span class="annot"><span class="annottext">ReadPrec [Id3Insertion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981065"><span id="local-6989586621679981067"><span id="local-6989586621679981069"><span id="local-6989586621679981071"><span class="annot"><span class="annottext">ReadPrec [Id3Insertion]
 ReadPrec Id3Insertion
 Int -&gt; ReadS Id3Insertion
 ReadS [Id3Insertion]
@@ -66,7 +66,7 @@ readList :: ReadS [Id3Insertion]
 $creadList :: ReadS [Id3Insertion]
 readsPrec :: Int -&gt; ReadS Id3Insertion
 $creadsPrec :: Int -&gt; ReadS Id3Insertion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981049"><span id="local-6989586621679981051"><span id="local-6989586621679981053"><span class="annot"><span class="annottext">Int -&gt; Id3Insertion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981058"><span id="local-6989586621679981060"><span id="local-6989586621679981062"><span class="annot"><span class="annottext">Int -&gt; Id3Insertion -&gt; ShowS
 [Id3Insertion] -&gt; ShowS
 Id3Insertion -&gt; String
 (Int -&gt; Id3Insertion -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (Id3Insertion -&gt; Maybe Text -&gt; Id3Insertion)
 -&gt; Lens Id3Insertion Id3Insertion (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981040"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981049"><span class="annot"><span class="annottext">Maybe Text
 id3 :: Maybe Text
 $sel:id3:Id3Insertion' :: Id3Insertion -&gt; Maybe Text
-</span><a href="#local-6989586621679981040"><span class="hs-identifier hs-var hs-var">id3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981040"><span class="hs-identifier hs-var">id3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981039"><span class="annot"><span class="annottext">s :: Id3Insertion
-</span><a href="#local-6989586621679981039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981038"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Id3Insertion
-</span><a href="#local-6989586621679981039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id3:Id3Insertion' :: Maybe Text
+</span><a href="#local-6989586621679981049"><span class="hs-identifier hs-var hs-var">id3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679981049"><span class="hs-identifier hs-var">id3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981048"><span class="annot"><span class="annottext">s :: Id3Insertion
+</span><a href="#local-6989586621679981048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981047"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679981047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Id3Insertion
+</span><a href="#local-6989586621679981048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id3:Id3Insertion' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#%24sel%3Aid3%3AId3Insertion%27"><span class="hs-identifier hs-var">id3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679981047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#id3Insertion_timecode"><span class="hs-identifier hs-type">id3Insertion_timecode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -144,19 +144,19 @@ $sel:id3:Id3Insertion' :: Id3Insertion -&gt; Maybe Text
 -&gt; (Id3Insertion -&gt; Maybe Text -&gt; Id3Insertion)
 -&gt; Lens Id3Insertion Id3Insertion (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981036"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981045"><span class="annot"><span class="annottext">Maybe Text
 timecode :: Maybe Text
 $sel:timecode:Id3Insertion' :: Id3Insertion -&gt; Maybe Text
-</span><a href="#local-6989586621679981036"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981036"><span class="hs-identifier hs-var">timecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981035"><span class="annot"><span class="annottext">s :: Id3Insertion
-</span><a href="#local-6989586621679981035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981034"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Id3Insertion
-</span><a href="#local-6989586621679981035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecode:Id3Insertion' :: Maybe Text
+</span><a href="#local-6989586621679981045"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679981045"><span class="hs-identifier hs-var">timecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981044"><span class="annot"><span class="annottext">s :: Id3Insertion
+</span><a href="#local-6989586621679981044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981043"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679981043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Id3Insertion
+</span><a href="#local-6989586621679981044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecode:Id3Insertion' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#%24sel%3Atimecode%3AId3Insertion%27"><span class="hs-identifier hs-var">timecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679981043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679981029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Id3Insertion
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981040"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679981038"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Id3Insertion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Id3Insertion) -&gt; Value -&gt; Parser Id3Insertion
@@ -164,15 +164,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Id3Insertion&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679981026"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679981026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679981035"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679981035"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Id3Insertion
 </span><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-var">Id3Insertion'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Id3Insertion)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Id3Insertion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679981026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679981035"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id3&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,24 +180,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Id3Insertion
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679981026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679981035"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981020"><span id="local-6989586621679981022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981029"><span id="local-6989586621679981031"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981009"><span id="local-6989586621679981011"><span id="local-6989586621679981013"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679981007"><span class="annot"><span class="annottext">toJSON :: Id3Insertion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981004"><span id="local-6989586621679981005"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981018"><span id="local-6989586621679981020"><span id="local-6989586621679981022"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion"><span class="hs-identifier hs-type">Id3Insertion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679981016"><span class="annot"><span class="annottext">toJSON :: Id3Insertion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Id3Insertion.html#Id3Insertion%27"><span class="hs-identifier hs-type">Id3Insertion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981013"><span id="local-6989586621679981014"><span class="annot"><span class="annottext">Maybe Text
 timecode :: Maybe Text
 id3 :: Maybe Text
 $sel:timecode:Id3Insertion' :: Id3Insertion -&gt; Maybe Text
 $sel:id3:Id3Insertion' :: Id3Insertion -&gt; Maybe Text
-</span><a href="#local-6989586621679981004"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679981013"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -209,14 +209,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981005"><span class="hs-identifier hs-var">id3</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679981014"><span class="hs-identifier hs-var">id3</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981004"><span class="hs-identifier hs-var">timecode</span></a></span><span>
+</span><a href="#local-6989586621679981013"><span class="hs-identifier hs-var">timecode</span></a></span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679405815"><span id="local-6989586621679405816"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SlaMet"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlaMet.html#SlaMet"><span class="hs-identifier hs-var">SlaMet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SlaMet%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlaMet.html#SlaMet%27"><span class="hs-identifier hs-var">SlaMet'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromSlaMet"><span class="annot"><span class="annottext">SlaMet -&gt; Text
+</span><span id="line-33"></span><span id="local-6989586621679405824"><span id="local-6989586621679405825"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SlaMet"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlaMet.html#SlaMet"><span class="hs-identifier hs-var">SlaMet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SlaMet%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlaMet.html#SlaMet%27"><span class="hs-identifier hs-var">SlaMet'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromSlaMet"><span class="annot"><span class="annottext">SlaMet -&gt; Text
 </span><a href="Network.AWS.ElastiCache.Types.SlaMet.html#fromSlaMet"><span class="hs-identifier hs-var hs-var">fromSlaMet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405807"><span id="local-6989586621679405809"><span id="local-6989586621679405811"><span class="annot"><span class="annottext">Int -&gt; SlaMet -&gt; ShowS
+</span><span id="line-35"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405816"><span id="local-6989586621679405818"><span id="local-6989586621679405820"><span class="annot"><span class="annottext">Int -&gt; SlaMet -&gt; ShowS
 [SlaMet] -&gt; ShowS
 SlaMet -&gt; String
 (Int -&gt; SlaMet -&gt; ShowS)
@@ -47,7 +47,7 @@ $cshow :: SlaMet -&gt; String
 showsPrec :: Int -&gt; SlaMet -&gt; ShowS
 $cshowsPrec :: Int -&gt; SlaMet -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679405798"><span id="local-6989586621679405800"><span id="local-6989586621679405802"><span id="local-6989586621679405804"><span class="annot"><span class="annottext">ReadPrec [SlaMet]
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679405807"><span id="local-6989586621679405809"><span id="local-6989586621679405811"><span id="local-6989586621679405813"><span class="annot"><span class="annottext">ReadPrec [SlaMet]
 ReadPrec SlaMet
 Int -&gt; ReadS SlaMet
 ReadS [SlaMet]
@@ -68,7 +68,7 @@ $creadList :: ReadS [SlaMet]
 readsPrec :: Int -&gt; ReadS SlaMet
 $creadsPrec :: Int -&gt; ReadS SlaMet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679405793"><span id="local-6989586621679405795"><span class="annot"><span class="annottext">SlaMet -&gt; SlaMet -&gt; Bool
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679405802"><span id="local-6989586621679405804"><span class="annot"><span class="annottext">SlaMet -&gt; SlaMet -&gt; Bool
 (SlaMet -&gt; SlaMet -&gt; Bool)
 -&gt; (SlaMet -&gt; SlaMet -&gt; Bool) -&gt; Eq SlaMet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ $c/= :: SlaMet -&gt; SlaMet -&gt; Bool
 == :: SlaMet -&gt; SlaMet -&gt; Bool
 $c== :: SlaMet -&gt; SlaMet -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679405777"><span id="local-6989586621679405779"><span id="local-6989586621679405781"><span id="local-6989586621679405783"><span id="local-6989586621679405785"><span id="local-6989586621679405787"><span id="local-6989586621679405789"><span class="annot"><span class="annottext">Eq SlaMet
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679405786"><span id="local-6989586621679405788"><span id="local-6989586621679405790"><span id="local-6989586621679405792"><span id="local-6989586621679405794"><span id="local-6989586621679405796"><span id="local-6989586621679405798"><span class="annot"><span class="annottext">Eq SlaMet
 Eq SlaMet
 -&gt; (SlaMet -&gt; SlaMet -&gt; Ordering)
 -&gt; (SlaMet -&gt; SlaMet -&gt; Bool)
@@ -127,7 +127,7 @@ $cfrom :: forall x. SlaMet -&gt; Rep SlaMet x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405769"><span id="local-6989586621679405771"><span class="annot"><span class="annottext">Int -&gt; SlaMet -&gt; Int
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405778"><span id="local-6989586621679405780"><span class="annot"><span class="annottext">Int -&gt; SlaMet -&gt; Int
 SlaMet -&gt; Int
 (Int -&gt; SlaMet -&gt; Int) -&gt; (SlaMet -&gt; Int) -&gt; Hashable SlaMet
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -136,49 +136,49 @@ $chash :: SlaMet -&gt; Int
 hashWithSalt :: Int -&gt; SlaMet -&gt; Int
 $chashWithSalt :: Int -&gt; SlaMet -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679405766"><span class="annot"><span class="annottext">SlaMet -&gt; ()
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679405775"><span class="annot"><span class="annottext">SlaMet -&gt; ()
 (SlaMet -&gt; ()) -&gt; NFData SlaMet
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SlaMet -&gt; ()
 $crnf :: SlaMet -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679405763"><span class="annot"><span class="annottext">Text -&gt; Either String SlaMet
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679405772"><span class="annot"><span class="annottext">Text -&gt; Either String SlaMet
 (Text -&gt; Either String SlaMet) -&gt; FromText SlaMet
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SlaMet
 $cfromText :: Text -&gt; Either String SlaMet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679405760"><span class="annot"><span class="annottext">SlaMet -&gt; Text
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679405769"><span class="annot"><span class="annottext">SlaMet -&gt; Text
 (SlaMet -&gt; Text) -&gt; ToText SlaMet
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SlaMet -&gt; Text
 $ctoText :: SlaMet -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679405757"><span class="annot"><span class="annottext">SlaMet -&gt; ByteString
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679405766"><span class="annot"><span class="annottext">SlaMet -&gt; ByteString
 (SlaMet -&gt; ByteString) -&gt; ToByteString SlaMet
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SlaMet -&gt; ByteString
 $ctoBS :: SlaMet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679405754"><span class="annot"><span class="annottext">SlaMet -&gt; ByteStringBuilder
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679405763"><span class="annot"><span class="annottext">SlaMet -&gt; ByteStringBuilder
 (SlaMet -&gt; ByteStringBuilder) -&gt; ToLog SlaMet
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SlaMet -&gt; ByteStringBuilder
 $cbuild :: SlaMet -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679405751"><span class="annot"><span class="annottext">HeaderName -&gt; SlaMet -&gt; [Header]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679405760"><span class="annot"><span class="annottext">HeaderName -&gt; SlaMet -&gt; [Header]
 (HeaderName -&gt; SlaMet -&gt; [Header]) -&gt; ToHeader SlaMet
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SlaMet -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SlaMet -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679405748"><span class="annot"><span class="annottext">SlaMet -&gt; QueryString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679405757"><span class="annot"><span class="annottext">SlaMet -&gt; QueryString
 (SlaMet -&gt; QueryString) -&gt; ToQuery SlaMet
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SlaMet -&gt; QueryString
 $ctoQuery :: SlaMet -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679405743"><span id="local-6989586621679405745"><span class="annot"><span class="annottext">Value -&gt; Parser [SlaMet]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679405752"><span id="local-6989586621679405754"><span class="annot"><span class="annottext">Value -&gt; Parser [SlaMet]
 Value -&gt; Parser SlaMet
 (Value -&gt; Parser SlaMet)
 -&gt; (Value -&gt; Parser [SlaMet]) -&gt; FromJSON SlaMet
@@ -189,7 +189,7 @@ $cparseJSONList :: Value -&gt; Parser [SlaMet]
 parseJSON :: Value -&gt; Parser SlaMet
 $cparseJSON :: Value -&gt; Parser SlaMet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679405738"><span id="local-6989586621679405740"><span class="annot"><span class="annottext">FromJSONKeyFunction [SlaMet]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679405747"><span id="local-6989586621679405749"><span class="annot"><span class="annottext">FromJSONKeyFunction [SlaMet]
 FromJSONKeyFunction SlaMet
 FromJSONKeyFunction SlaMet
 -&gt; FromJSONKeyFunction [SlaMet] -&gt; FromJSONKey SlaMet
@@ -200,7 +200,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SlaMet]
 fromJSONKey :: FromJSONKeyFunction SlaMet
 $cfromJSONKey :: FromJSONKeyFunction SlaMet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679405729"><span id="local-6989586621679405731"><span id="local-6989586621679405733"><span id="local-6989586621679405735"><span class="annot"><span class="annottext">[SlaMet] -&gt; Encoding
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679405738"><span id="local-6989586621679405740"><span id="local-6989586621679405742"><span id="local-6989586621679405744"><span class="annot"><span class="annottext">[SlaMet] -&gt; Encoding
 [SlaMet] -&gt; Value
 SlaMet -&gt; Encoding
 SlaMet -&gt; Value
@@ -224,7 +224,7 @@ $ctoEncoding :: SlaMet -&gt; Encoding
 toJSON :: SlaMet -&gt; Value
 $ctoJSON :: SlaMet -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679405724"><span id="local-6989586621679405726"><span class="annot"><span class="annottext">ToJSONKeyFunction [SlaMet]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679405733"><span id="local-6989586621679405735"><span class="annot"><span class="annottext">ToJSONKeyFunction [SlaMet]
 ToJSONKeyFunction SlaMet
 ToJSONKeyFunction SlaMet
 -&gt; ToJSONKeyFunction [SlaMet] -&gt; ToJSONKey SlaMet
@@ -235,13 +235,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SlaMet]
 toJSONKey :: ToJSONKeyFunction SlaMet
 $ctoJSONKey :: ToJSONKeyFunction SlaMet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679405721"><span class="annot"><span class="annottext">[Node] -&gt; Either String SlaMet
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679405730"><span class="annot"><span class="annottext">[Node] -&gt; Either String SlaMet
 ([Node] -&gt; Either String SlaMet) -&gt; FromXML SlaMet
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SlaMet
 $cparseXML :: [Node] -&gt; Either String SlaMet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679405718"><span class="annot"><span class="annottext">SlaMet -&gt; XML
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679405727"><span class="annot"><span class="annottext">SlaMet -&gt; XML
 (SlaMet -&gt; XML) -&gt; ToXML SlaMet
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SlaMet -&gt; XML

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/assembling-multiple-inputs-and-input-clips.html.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newInputClipping' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679981466"><span id="local-6989586621679981467"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputClipping"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-var">InputClipping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputClipping%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-var">InputClipping'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679981475"><span id="local-6989586621679981476"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputClipping"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-var">InputClipping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputClipping%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-var">InputClipping'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set End timecode (EndTimecode) to the end of the portion of the input</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- you are clipping. The frame corresponding to the End timecode value is</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- included in the clip. Start timecode or End timecode may be left blank,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AstartTimecode%3AInputClipping%27"><span class="annot"><span class="annottext">InputClipping -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.InputClipping.html#%24sel%3AstartTimecode%3AInputClipping%27"><span class="hs-identifier hs-var hs-var">startTimecode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679981459"><span id="local-6989586621679981461"><span class="annot"><span class="annottext">InputClipping -&gt; InputClipping -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679981468"><span id="local-6989586621679981470"><span class="annot"><span class="annottext">InputClipping -&gt; InputClipping -&gt; Bool
 (InputClipping -&gt; InputClipping -&gt; Bool)
 -&gt; (InputClipping -&gt; InputClipping -&gt; Bool) -&gt; Eq InputClipping
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputClipping -&gt; InputClipping -&gt; Bool
 == :: InputClipping -&gt; InputClipping -&gt; Bool
 $c== :: InputClipping -&gt; InputClipping -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981450"><span id="local-6989586621679981452"><span id="local-6989586621679981454"><span id="local-6989586621679981456"><span class="annot"><span class="annottext">ReadPrec [InputClipping]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981459"><span id="local-6989586621679981461"><span id="local-6989586621679981463"><span id="local-6989586621679981465"><span class="annot"><span class="annottext">ReadPrec [InputClipping]
 ReadPrec InputClipping
 Int -&gt; ReadS InputClipping
 ReadS [InputClipping]
@@ -82,7 +82,7 @@ readList :: ReadS [InputClipping]
 $creadList :: ReadS [InputClipping]
 readsPrec :: Int -&gt; ReadS InputClipping
 $creadsPrec :: Int -&gt; ReadS InputClipping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981443"><span id="local-6989586621679981445"><span id="local-6989586621679981447"><span class="annot"><span class="annottext">Int -&gt; InputClipping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679981452"><span id="local-6989586621679981454"><span id="local-6989586621679981456"><span class="annot"><span class="annottext">Int -&gt; InputClipping -&gt; ShowS
 [InputClipping] -&gt; ShowS
 InputClipping -&gt; String
 (Int -&gt; InputClipping -&gt; ShowS)
@@ -166,16 +166,16 @@ forall a. Maybe a
 -&gt; (InputClipping -&gt; Maybe Text -&gt; InputClipping)
 -&gt; Lens InputClipping InputClipping (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981434"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981443"><span class="annot"><span class="annottext">Maybe Text
 endTimecode :: Maybe Text
 $sel:endTimecode:InputClipping' :: InputClipping -&gt; Maybe Text
-</span><a href="#local-6989586621679981434"><span class="hs-identifier hs-var hs-var">endTimecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981434"><span class="hs-identifier hs-var">endTimecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981433"><span class="annot"><span class="annottext">s :: InputClipping
-</span><a href="#local-6989586621679981433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981432"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClipping
-</span><a href="#local-6989586621679981433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTimecode:InputClipping' :: Maybe Text
+</span><a href="#local-6989586621679981443"><span class="hs-identifier hs-var hs-var">endTimecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679981443"><span class="hs-identifier hs-var">endTimecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981442"><span class="annot"><span class="annottext">s :: InputClipping
+</span><a href="#local-6989586621679981442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981441"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679981441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClipping
+</span><a href="#local-6989586621679981442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTimecode:InputClipping' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.InputClipping.html#%24sel%3AendTimecode%3AInputClipping%27"><span class="hs-identifier hs-var">endTimecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679981441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Set Start timecode (StartTimecode) to the beginning of the portion of</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- the input you are clipping. The frame corresponding to the Start</span><span>
@@ -192,19 +192,19 @@ $sel:endTimecode:InputClipping' :: InputClipping -&gt; Maybe Text
 -&gt; (InputClipping -&gt; Maybe Text -&gt; InputClipping)
 -&gt; Lens InputClipping InputClipping (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981430"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981439"><span class="annot"><span class="annottext">Maybe Text
 startTimecode :: Maybe Text
 $sel:startTimecode:InputClipping' :: InputClipping -&gt; Maybe Text
-</span><a href="#local-6989586621679981430"><span class="hs-identifier hs-var hs-var">startTimecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981430"><span class="hs-identifier hs-var">startTimecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981429"><span class="annot"><span class="annottext">s :: InputClipping
-</span><a href="#local-6989586621679981429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981428"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClipping
-</span><a href="#local-6989586621679981429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimecode:InputClipping' :: Maybe Text
+</span><a href="#local-6989586621679981439"><span class="hs-identifier hs-var hs-var">startTimecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679981439"><span class="hs-identifier hs-var">startTimecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679981438"><span class="annot"><span class="annottext">s :: InputClipping
+</span><a href="#local-6989586621679981438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679981437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679981437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputClipping
+</span><a href="#local-6989586621679981438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimecode:InputClipping' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.InputClipping.html#%24sel%3AstartTimecode%3AInputClipping%27"><span class="hs-identifier hs-var">startTimecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679981437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981425"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679981423"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputClipping
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981434"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679981432"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputClipping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputClipping)
@@ -214,15 +214,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputClipping&quot;</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679981420"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679981420"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679981429"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679981429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; InputClipping
 </span><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-var">InputClipping'</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; InputClipping)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; InputClipping)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679981420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679981429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endTimecode&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,24 +230,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser InputClipping
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679981420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679981429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTimecode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981414"><span id="local-6989586621679981416"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981423"><span id="local-6989586621679981425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981411"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981403"><span id="local-6989586621679981405"><span id="local-6989586621679981407"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679981401"><span class="annot"><span class="annottext">toJSON :: InputClipping -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981398"><span id="local-6989586621679981399"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679981412"><span id="local-6989586621679981414"><span id="local-6989586621679981416"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping"><span class="hs-identifier hs-type">InputClipping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679981410"><span class="annot"><span class="annottext">toJSON :: InputClipping -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputClipping.html#InputClipping%27"><span class="hs-identifier hs-type">InputClipping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679981407"><span id="local-6989586621679981408"><span class="annot"><span class="annottext">Maybe Text
 startTimecode :: Maybe Text
 endTimecode :: Maybe Text
 $sel:startTimecode:InputClipping' :: InputClipping -&gt; Maybe Text
 $sel:endTimecode:InputClipping' :: InputClipping -&gt; Maybe Text
-</span><a href="#local-6989586621679981398"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679981407"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -259,14 +259,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981399"><span class="hs-identifier hs-var">endTimecode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679981408"><span class="hs-identifier hs-var">endTimecode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTimecode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679981398"><span class="hs-identifier hs-var">startTimecode</span></a></span><span>
+</span><a href="#local-6989586621679981407"><span class="hs-identifier hs-var">startTimecode</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span></pre></body></html>

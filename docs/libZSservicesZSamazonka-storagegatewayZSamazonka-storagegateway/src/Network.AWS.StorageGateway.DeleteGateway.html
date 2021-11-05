@@ -66,11 +66,11 @@
 </span><span id="line-66"></span><span class="hs-comment">-- | A JSON object containing the ID of the gateway to delete.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newDeleteGateway' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679389453"><span id="local-6989586621679389454"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGateway"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-var">DeleteGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGateway%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway%27"><span class="hs-identifier hs-var">DeleteGateway'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679389462"><span id="local-6989586621679389463"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGateway"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-var">DeleteGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGateway%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway%27"><span class="hs-identifier hs-var">DeleteGateway'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3ADeleteGateway%27"><span class="annot"><span class="annottext">DeleteGateway -&gt; Text
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#%24sel%3AgatewayARN%3ADeleteGateway%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389447"><span id="local-6989586621679389449"><span class="annot"><span class="annottext">DeleteGateway -&gt; DeleteGateway -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389456"><span id="local-6989586621679389458"><span class="annot"><span class="annottext">DeleteGateway -&gt; DeleteGateway -&gt; Bool
 (DeleteGateway -&gt; DeleteGateway -&gt; Bool)
 -&gt; (DeleteGateway -&gt; DeleteGateway -&gt; Bool) -&gt; Eq DeleteGateway
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteGateway -&gt; DeleteGateway -&gt; Bool
 == :: DeleteGateway -&gt; DeleteGateway -&gt; Bool
 $c== :: DeleteGateway -&gt; DeleteGateway -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389438"><span id="local-6989586621679389440"><span id="local-6989586621679389442"><span id="local-6989586621679389444"><span class="annot"><span class="annottext">ReadPrec [DeleteGateway]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389447"><span id="local-6989586621679389449"><span id="local-6989586621679389451"><span id="local-6989586621679389453"><span class="annot"><span class="annottext">ReadPrec [DeleteGateway]
 ReadPrec DeleteGateway
 Int -&gt; ReadS DeleteGateway
 ReadS [DeleteGateway]
@@ -98,7 +98,7 @@ readList :: ReadS [DeleteGateway]
 $creadList :: ReadS [DeleteGateway]
 readsPrec :: Int -&gt; ReadS DeleteGateway
 $creadsPrec :: Int -&gt; ReadS DeleteGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389431"><span id="local-6989586621679389433"><span id="local-6989586621679389435"><span class="annot"><span class="annottext">Int -&gt; DeleteGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389440"><span id="local-6989586621679389442"><span id="local-6989586621679389444"><span class="annot"><span class="annottext">Int -&gt; DeleteGateway -&gt; ShowS
 [DeleteGateway] -&gt; ShowS
 DeleteGateway -&gt; String
 (Int -&gt; DeleteGateway -&gt; ShowS)
@@ -138,12 +138,12 @@ $cfrom :: forall x. DeleteGateway -&gt; Rep DeleteGateway x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span><span>
 </span><span id="line-87"></span><span id="newDeleteGateway"><span class="annot"><span class="annottext">newDeleteGateway :: Text -&gt; DeleteGateway
-</span><a href="Network.AWS.StorageGateway.DeleteGateway.html#newDeleteGateway"><span class="hs-identifier hs-var hs-var">newDeleteGateway</span></a></span></span><span> </span><span id="local-6989586621679389426"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389426"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DeleteGateway.html#newDeleteGateway"><span class="hs-identifier hs-var hs-var">newDeleteGateway</span></a></span></span><span> </span><span id="local-6989586621679389435"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389435"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DeleteGateway' :: Text -&gt; DeleteGateway
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway%27"><span class="hs-identifier hs-type">DeleteGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:DeleteGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#%24sel%3AgatewayARN%3ADeleteGateway%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389426"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679389435"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#deleteGateway_gatewayARN"><span class="hs-identifier hs-type">deleteGateway_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -152,27 +152,27 @@ $cfrom :: forall x. DeleteGateway -&gt; Rep DeleteGateway x
 -&gt; (DeleteGateway -&gt; Text -&gt; DeleteGateway)
 -&gt; Lens DeleteGateway DeleteGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway%27"><span class="hs-identifier hs-type">DeleteGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389423"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway%27"><span class="hs-identifier hs-type">DeleteGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389432"><span class="annot"><span class="annottext">Text
 gatewayARN :: Text
 $sel:gatewayARN:DeleteGateway' :: DeleteGateway -&gt; Text
-</span><a href="#local-6989586621679389423"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389423"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389422"><span class="annot"><span class="annottext">s :: DeleteGateway
-</span><a href="#local-6989586621679389422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway%27"><span class="hs-identifier hs-type">DeleteGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389421"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGateway
-</span><a href="#local-6989586621679389422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:DeleteGateway' :: Text
+</span><a href="#local-6989586621679389432"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389432"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389431"><span class="annot"><span class="annottext">s :: DeleteGateway
+</span><a href="#local-6989586621679389431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway%27"><span class="hs-identifier hs-type">DeleteGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389430"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGateway
+</span><a href="#local-6989586621679389431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:DeleteGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#%24sel%3AgatewayARN%3ADeleteGateway%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-type">DeleteGatewayResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679389417"><span class="annot"><span class="annottext">request :: DeleteGateway -&gt; Request DeleteGateway
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679389426"><span class="annot"><span class="annottext">request :: DeleteGateway -&gt; Request DeleteGateway
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGateway -&gt; Request DeleteGateway
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679389413"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679389422"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteGateway
 -&gt; ClientResponse ClientBody
@@ -196,10 +196,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389410"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389410"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389409"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679389409"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389408"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389419"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389419"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389418"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389418"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389417"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteGatewayResponse
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-var">DeleteGatewayResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteGatewayResponse)
@@ -207,7 +207,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteGatewayResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679389417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,15 +219,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389410"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389419"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389400"><span id="local-6989586621679389402"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389409"><span id="local-6989586621679389411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679389393"><span class="annot"><span class="annottext">toHeaders :: DeleteGateway -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679389402"><span class="annot"><span class="annottext">toHeaders :: DeleteGateway -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteGateway -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -254,12 +254,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389383"><span id="local-6989586621679389385"><span id="local-6989586621679389387"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679389381"><span class="annot"><span class="annottext">toJSON :: DeleteGateway -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway%27"><span class="hs-identifier hs-type">DeleteGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389379"><span class="annot"><span class="annottext">Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389392"><span id="local-6989586621679389394"><span id="local-6989586621679389396"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679389390"><span class="annot"><span class="annottext">toJSON :: DeleteGateway -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway%27"><span class="hs-identifier hs-type">DeleteGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389388"><span class="annot"><span class="annottext">Text
 gatewayARN :: Text
 $sel:gatewayARN:DeleteGateway' :: DeleteGateway -&gt; Text
-</span><a href="#local-6989586621679389379"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389388"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -271,18 +271,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389379"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679389388"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679389373"><span class="annot"><span class="annottext">toPath :: DeleteGateway -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679389382"><span class="annot"><span class="annottext">toPath :: DeleteGateway -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteGateway -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGateway"><span class="hs-identifier hs-type">DeleteGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679389369"><span class="annot"><span class="annottext">toQuery :: DeleteGateway -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679389378"><span class="annot"><span class="annottext">toQuery :: DeleteGateway -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteGateway -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -292,14 +292,14 @@ forall a. Monoid a =&gt; a
 </span><span id="line-139"></span><span class="hs-comment">-- | A JSON object containing the ID of the deleted gateway.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- /See:/ 'newDeleteGatewayResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679389366"><span id="local-6989586621679389367"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGatewayResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-var">DeleteGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGatewayResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-var">DeleteGatewayResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679389375"><span id="local-6989586621679389376"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGatewayResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-var">DeleteGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGatewayResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-var">DeleteGatewayResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3ADeleteGatewayResponse%27"><span class="annot"><span class="annottext">DeleteGatewayResponse -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#%24sel%3AgatewayARN%3ADeleteGatewayResponse%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteGatewayResponse%27"><span class="annot"><span class="annottext">DeleteGatewayResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#%24sel%3AhttpStatus%3ADeleteGatewayResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389360"><span id="local-6989586621679389362"><span class="annot"><span class="annottext">DeleteGatewayResponse -&gt; DeleteGatewayResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389369"><span id="local-6989586621679389371"><span class="annot"><span class="annottext">DeleteGatewayResponse -&gt; DeleteGatewayResponse -&gt; Bool
 (DeleteGatewayResponse -&gt; DeleteGatewayResponse -&gt; Bool)
 -&gt; (DeleteGatewayResponse -&gt; DeleteGatewayResponse -&gt; Bool)
 -&gt; Eq DeleteGatewayResponse
@@ -308,7 +308,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteGatewayResponse -&gt; DeleteGatewayResponse -&gt; Bool
 == :: DeleteGatewayResponse -&gt; DeleteGatewayResponse -&gt; Bool
 $c== :: DeleteGatewayResponse -&gt; DeleteGatewayResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389352"><span id="local-6989586621679389354"><span id="local-6989586621679389356"><span id="local-6989586621679389358"><span class="annot"><span class="annottext">ReadPrec [DeleteGatewayResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389361"><span id="local-6989586621679389363"><span id="local-6989586621679389365"><span id="local-6989586621679389367"><span class="annot"><span class="annottext">ReadPrec [DeleteGatewayResponse]
 ReadPrec DeleteGatewayResponse
 Int -&gt; ReadS DeleteGatewayResponse
 ReadS [DeleteGatewayResponse]
@@ -328,7 +328,7 @@ readList :: ReadS [DeleteGatewayResponse]
 $creadList :: ReadS [DeleteGatewayResponse]
 readsPrec :: Int -&gt; ReadS DeleteGatewayResponse
 $creadsPrec :: Int -&gt; ReadS DeleteGatewayResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389346"><span id="local-6989586621679389348"><span id="local-6989586621679389350"><span class="annot"><span class="annottext">Int -&gt; DeleteGatewayResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389355"><span id="local-6989586621679389357"><span id="local-6989586621679389359"><span class="annot"><span class="annottext">Int -&gt; DeleteGatewayResponse -&gt; ShowS
 [DeleteGatewayResponse] -&gt; ShowS
 DeleteGatewayResponse -&gt; String
 (Int -&gt; DeleteGatewayResponse -&gt; ShowS)
@@ -370,8 +370,8 @@ $cfrom :: forall x. DeleteGatewayResponse -&gt; Rep DeleteGatewayResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-type">DeleteGatewayResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newDeleteGatewayResponse"><span class="annot"><span class="annottext">newDeleteGatewayResponse :: Int -&gt; DeleteGatewayResponse
-</span><a href="Network.AWS.StorageGateway.DeleteGateway.html#newDeleteGatewayResponse"><span class="hs-identifier hs-var hs-var">newDeleteGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679389343"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DeleteGateway.html#newDeleteGatewayResponse"><span class="hs-identifier hs-var hs-var">newDeleteGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679389352"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389352"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">DeleteGatewayResponse' :: Maybe Text -&gt; Int -&gt; DeleteGatewayResponse
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-type">DeleteGatewayResponse'</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayARN:DeleteGatewayResponse' :: Maybe Text
@@ -381,7 +381,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGatewayResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#%24sel%3AhttpStatus%3ADeleteGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679389352"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -396,16 +396,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-type">DeleteGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389342"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-type">DeleteGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389351"><span class="annot"><span class="annottext">Maybe Text
 gatewayARN :: Maybe Text
 $sel:gatewayARN:DeleteGatewayResponse' :: DeleteGatewayResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679389342"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389342"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389341"><span class="annot"><span class="annottext">s :: DeleteGatewayResponse
-</span><a href="#local-6989586621679389341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-type">DeleteGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389340"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayResponse
-</span><a href="#local-6989586621679389341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:DeleteGatewayResponse' :: Maybe Text
+</span><a href="#local-6989586621679389351"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389351"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389350"><span class="annot"><span class="annottext">s :: DeleteGatewayResponse
+</span><a href="#local-6989586621679389350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-type">DeleteGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389349"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayResponse
+</span><a href="#local-6989586621679389350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:DeleteGatewayResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#%24sel%3AgatewayARN%3ADeleteGatewayResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-type">DeleteGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-type">DeleteGatewayResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#deleteGatewayResponse_httpStatus"><span class="hs-identifier hs-type">deleteGatewayResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-type">DeleteGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -414,16 +414,16 @@ $sel:gatewayARN:DeleteGatewayResponse' :: DeleteGatewayResponse -&gt; Maybe Text
 -&gt; (DeleteGatewayResponse -&gt; Int -&gt; DeleteGatewayResponse)
 -&gt; Lens DeleteGatewayResponse DeleteGatewayResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-type">DeleteGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389339"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-type">DeleteGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389348"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteGatewayResponse' :: DeleteGatewayResponse -&gt; Int
-</span><a href="#local-6989586621679389339"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389339"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389338"><span class="annot"><span class="annottext">s :: DeleteGatewayResponse
-</span><a href="#local-6989586621679389338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-type">DeleteGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389337"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayResponse
-</span><a href="#local-6989586621679389338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGatewayResponse' :: Int
+</span><a href="#local-6989586621679389348"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389348"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389347"><span class="annot"><span class="annottext">s :: DeleteGatewayResponse
+</span><a href="#local-6989586621679389347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse%27"><span class="hs-identifier hs-type">DeleteGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389346"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGatewayResponse
+</span><a href="#local-6989586621679389347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGatewayResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DeleteGateway.html#%24sel%3AhttpStatus%3ADeleteGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-type">DeleteGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-type">DeleteGatewayResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-type">DeleteGatewayResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DeleteGateway.html#DeleteGatewayResponse"><span class="hs-identifier hs-type">DeleteGatewayResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

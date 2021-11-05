@@ -35,10 +35,10 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621681191871"><span id="local-6989586621681191872"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WeekDay"><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay"><span class="hs-identifier hs-var">WeekDay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WeekDay%27"><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay%27"><span class="hs-identifier hs-var">WeekDay'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromWeekDay"><span class="annot"><span class="annottext">WeekDay -&gt; Text
+</span><span id="line-38"></span><span id="local-6989586621681191880"><span id="local-6989586621681191881"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WeekDay"><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay"><span class="hs-identifier hs-var">WeekDay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WeekDay%27"><span class="annot"><a href="Network.AWS.EC2.Types.WeekDay.html#WeekDay%27"><span class="hs-identifier hs-var">WeekDay'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromWeekDay"><span class="annot"><span class="annottext">WeekDay -&gt; Text
 </span><a href="Network.AWS.EC2.Types.WeekDay.html#fromWeekDay"><span class="hs-identifier hs-var hs-var">fromWeekDay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681191863"><span id="local-6989586621681191865"><span id="local-6989586621681191867"><span class="annot"><span class="annottext">Int -&gt; WeekDay -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681191872"><span id="local-6989586621681191874"><span id="local-6989586621681191876"><span class="annot"><span class="annottext">Int -&gt; WeekDay -&gt; ShowS
 [WeekDay] -&gt; ShowS
 WeekDay -&gt; String
 (Int -&gt; WeekDay -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: WeekDay -&gt; String
 showsPrec :: Int -&gt; WeekDay -&gt; ShowS
 $cshowsPrec :: Int -&gt; WeekDay -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681191854"><span id="local-6989586621681191856"><span id="local-6989586621681191858"><span id="local-6989586621681191860"><span class="annot"><span class="annottext">ReadPrec [WeekDay]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681191863"><span id="local-6989586621681191865"><span id="local-6989586621681191867"><span id="local-6989586621681191869"><span class="annot"><span class="annottext">ReadPrec [WeekDay]
 ReadPrec WeekDay
 Int -&gt; ReadS WeekDay
 ReadS [WeekDay]
@@ -73,7 +73,7 @@ $creadList :: ReadS [WeekDay]
 readsPrec :: Int -&gt; ReadS WeekDay
 $creadsPrec :: Int -&gt; ReadS WeekDay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681191849"><span id="local-6989586621681191851"><span class="annot"><span class="annottext">WeekDay -&gt; WeekDay -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681191858"><span id="local-6989586621681191860"><span class="annot"><span class="annottext">WeekDay -&gt; WeekDay -&gt; Bool
 (WeekDay -&gt; WeekDay -&gt; Bool)
 -&gt; (WeekDay -&gt; WeekDay -&gt; Bool) -&gt; Eq WeekDay
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: WeekDay -&gt; WeekDay -&gt; Bool
 == :: WeekDay -&gt; WeekDay -&gt; Bool
 $c== :: WeekDay -&gt; WeekDay -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681191833"><span id="local-6989586621681191835"><span id="local-6989586621681191837"><span id="local-6989586621681191839"><span id="local-6989586621681191841"><span id="local-6989586621681191843"><span id="local-6989586621681191845"><span class="annot"><span class="annottext">Eq WeekDay
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681191842"><span id="local-6989586621681191844"><span id="local-6989586621681191846"><span id="local-6989586621681191848"><span id="local-6989586621681191850"><span id="local-6989586621681191852"><span id="local-6989586621681191854"><span class="annot"><span class="annottext">Eq WeekDay
 Eq WeekDay
 -&gt; (WeekDay -&gt; WeekDay -&gt; Ordering)
 -&gt; (WeekDay -&gt; WeekDay -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. WeekDay -&gt; Rep WeekDay x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681191825"><span id="local-6989586621681191827"><span class="annot"><span class="annottext">Int -&gt; WeekDay -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681191834"><span id="local-6989586621681191836"><span class="annot"><span class="annottext">Int -&gt; WeekDay -&gt; Int
 WeekDay -&gt; Int
 (Int -&gt; WeekDay -&gt; Int) -&gt; (WeekDay -&gt; Int) -&gt; Hashable WeekDay
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -141,49 +141,49 @@ $chash :: WeekDay -&gt; Int
 hashWithSalt :: Int -&gt; WeekDay -&gt; Int
 $chashWithSalt :: Int -&gt; WeekDay -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681191822"><span class="annot"><span class="annottext">WeekDay -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681191831"><span class="annot"><span class="annottext">WeekDay -&gt; ()
 (WeekDay -&gt; ()) -&gt; NFData WeekDay
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WeekDay -&gt; ()
 $crnf :: WeekDay -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681191819"><span class="annot"><span class="annottext">Text -&gt; Either String WeekDay
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681191828"><span class="annot"><span class="annottext">Text -&gt; Either String WeekDay
 (Text -&gt; Either String WeekDay) -&gt; FromText WeekDay
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WeekDay
 $cfromText :: Text -&gt; Either String WeekDay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681191816"><span class="annot"><span class="annottext">WeekDay -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681191825"><span class="annot"><span class="annottext">WeekDay -&gt; Text
 (WeekDay -&gt; Text) -&gt; ToText WeekDay
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WeekDay -&gt; Text
 $ctoText :: WeekDay -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681191813"><span class="annot"><span class="annottext">WeekDay -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681191822"><span class="annot"><span class="annottext">WeekDay -&gt; ByteString
 (WeekDay -&gt; ByteString) -&gt; ToByteString WeekDay
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WeekDay -&gt; ByteString
 $ctoBS :: WeekDay -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681191810"><span class="annot"><span class="annottext">WeekDay -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681191819"><span class="annot"><span class="annottext">WeekDay -&gt; ByteStringBuilder
 (WeekDay -&gt; ByteStringBuilder) -&gt; ToLog WeekDay
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WeekDay -&gt; ByteStringBuilder
 $cbuild :: WeekDay -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681191807"><span class="annot"><span class="annottext">HeaderName -&gt; WeekDay -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681191816"><span class="annot"><span class="annottext">HeaderName -&gt; WeekDay -&gt; [Header]
 (HeaderName -&gt; WeekDay -&gt; [Header]) -&gt; ToHeader WeekDay
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WeekDay -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WeekDay -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681191804"><span class="annot"><span class="annottext">WeekDay -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681191813"><span class="annot"><span class="annottext">WeekDay -&gt; QueryString
 (WeekDay -&gt; QueryString) -&gt; ToQuery WeekDay
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WeekDay -&gt; QueryString
 $ctoQuery :: WeekDay -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681191799"><span id="local-6989586621681191801"><span class="annot"><span class="annottext">Value -&gt; Parser [WeekDay]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681191808"><span id="local-6989586621681191810"><span class="annot"><span class="annottext">Value -&gt; Parser [WeekDay]
 Value -&gt; Parser WeekDay
 (Value -&gt; Parser WeekDay)
 -&gt; (Value -&gt; Parser [WeekDay]) -&gt; FromJSON WeekDay
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [WeekDay]
 parseJSON :: Value -&gt; Parser WeekDay
 $cparseJSON :: Value -&gt; Parser WeekDay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681191794"><span id="local-6989586621681191796"><span class="annot"><span class="annottext">FromJSONKeyFunction [WeekDay]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681191803"><span id="local-6989586621681191805"><span class="annot"><span class="annottext">FromJSONKeyFunction [WeekDay]
 FromJSONKeyFunction WeekDay
 FromJSONKeyFunction WeekDay
 -&gt; FromJSONKeyFunction [WeekDay] -&gt; FromJSONKey WeekDay
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WeekDay]
 fromJSONKey :: FromJSONKeyFunction WeekDay
 $cfromJSONKey :: FromJSONKeyFunction WeekDay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681191785"><span id="local-6989586621681191787"><span id="local-6989586621681191789"><span id="local-6989586621681191791"><span class="annot"><span class="annottext">[WeekDay] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681191794"><span id="local-6989586621681191796"><span id="local-6989586621681191798"><span id="local-6989586621681191800"><span class="annot"><span class="annottext">[WeekDay] -&gt; Encoding
 [WeekDay] -&gt; Value
 WeekDay -&gt; Encoding
 WeekDay -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: WeekDay -&gt; Encoding
 toJSON :: WeekDay -&gt; Value
 $ctoJSON :: WeekDay -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681191780"><span id="local-6989586621681191782"><span class="annot"><span class="annottext">ToJSONKeyFunction [WeekDay]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681191789"><span id="local-6989586621681191791"><span class="annot"><span class="annottext">ToJSONKeyFunction [WeekDay]
 ToJSONKeyFunction WeekDay
 ToJSONKeyFunction WeekDay
 -&gt; ToJSONKeyFunction [WeekDay] -&gt; ToJSONKey WeekDay
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WeekDay]
 toJSONKey :: ToJSONKeyFunction WeekDay
 $ctoJSONKey :: ToJSONKeyFunction WeekDay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681191777"><span class="annot"><span class="annottext">[Node] -&gt; Either String WeekDay
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681191786"><span class="annot"><span class="annottext">[Node] -&gt; Either String WeekDay
 ([Node] -&gt; Either String WeekDay) -&gt; FromXML WeekDay
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WeekDay
 $cparseXML :: [Node] -&gt; Either String WeekDay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681191774"><span class="annot"><span class="annottext">WeekDay -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681191783"><span class="annot"><span class="annottext">WeekDay -&gt; XML
 (WeekDay -&gt; XML) -&gt; ToXML WeekDay
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WeekDay -&gt; XML

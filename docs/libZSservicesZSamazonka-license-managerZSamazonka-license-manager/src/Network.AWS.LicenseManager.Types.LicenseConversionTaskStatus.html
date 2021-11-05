@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus"><span class="hs-identifier">LicenseConversionTaskStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus_FAILED"><span class="hs-identifier">LicenseConversionTaskStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus_IN_PROGRESS"><span class="hs-identifier">LicenseConversionTaskStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus_SUCCEEDED"><span class="hs-identifier">LicenseConversionTaskStatus_SUCCEEDED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679298398"><span id="local-6989586621679298399"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LicenseConversionTaskStatus"><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus"><span class="hs-identifier hs-var">LicenseConversionTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LicenseConversionTaskStatus%27"><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus%27"><span class="hs-identifier hs-var">LicenseConversionTaskStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLicenseConversionTaskStatus"><span class="annot"><span class="annottext">LicenseConversionTaskStatus -&gt; Text
+</span><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#fromLicenseConversionTaskStatus"><span class="hs-identifier hs-var hs-var">fromLicenseConversionTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298390"><span id="local-6989586621679298392"><span id="local-6989586621679298394"><span class="annot"><span class="annottext">Int -&gt; LicenseConversionTaskStatus -&gt; ShowS
+[LicenseConversionTaskStatus] -&gt; ShowS
+LicenseConversionTaskStatus -&gt; String
+(Int -&gt; LicenseConversionTaskStatus -&gt; ShowS)
+-&gt; (LicenseConversionTaskStatus -&gt; String)
+-&gt; ([LicenseConversionTaskStatus] -&gt; ShowS)
+-&gt; Show LicenseConversionTaskStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LicenseConversionTaskStatus] -&gt; ShowS
+$cshowList :: [LicenseConversionTaskStatus] -&gt; ShowS
+show :: LicenseConversionTaskStatus -&gt; String
+$cshow :: LicenseConversionTaskStatus -&gt; String
+showsPrec :: Int -&gt; LicenseConversionTaskStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; LicenseConversionTaskStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298381"><span id="local-6989586621679298383"><span id="local-6989586621679298385"><span id="local-6989586621679298387"><span class="annot"><span class="annottext">ReadPrec [LicenseConversionTaskStatus]
+ReadPrec LicenseConversionTaskStatus
+Int -&gt; ReadS LicenseConversionTaskStatus
+ReadS [LicenseConversionTaskStatus]
+(Int -&gt; ReadS LicenseConversionTaskStatus)
+-&gt; ReadS [LicenseConversionTaskStatus]
+-&gt; ReadPrec LicenseConversionTaskStatus
+-&gt; ReadPrec [LicenseConversionTaskStatus]
+-&gt; Read LicenseConversionTaskStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LicenseConversionTaskStatus]
+$creadListPrec :: ReadPrec [LicenseConversionTaskStatus]
+readPrec :: ReadPrec LicenseConversionTaskStatus
+$creadPrec :: ReadPrec LicenseConversionTaskStatus
+readList :: ReadS [LicenseConversionTaskStatus]
+$creadList :: ReadS [LicenseConversionTaskStatus]
+readsPrec :: Int -&gt; ReadS LicenseConversionTaskStatus
+$creadsPrec :: Int -&gt; ReadS LicenseConversionTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679298376"><span id="local-6989586621679298378"><span class="annot"><span class="annottext">LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+(LicenseConversionTaskStatus
+ -&gt; LicenseConversionTaskStatus -&gt; Bool)
+-&gt; (LicenseConversionTaskStatus
+    -&gt; LicenseConversionTaskStatus -&gt; Bool)
+-&gt; Eq LicenseConversionTaskStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+$c/= :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+== :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+$c== :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679298360"><span id="local-6989586621679298362"><span id="local-6989586621679298364"><span id="local-6989586621679298366"><span id="local-6989586621679298368"><span id="local-6989586621679298370"><span id="local-6989586621679298372"><span class="annot"><span class="annottext">Eq LicenseConversionTaskStatus
+Eq LicenseConversionTaskStatus
+-&gt; (LicenseConversionTaskStatus
+    -&gt; LicenseConversionTaskStatus -&gt; Ordering)
+-&gt; (LicenseConversionTaskStatus
+    -&gt; LicenseConversionTaskStatus -&gt; Bool)
+-&gt; (LicenseConversionTaskStatus
+    -&gt; LicenseConversionTaskStatus -&gt; Bool)
+-&gt; (LicenseConversionTaskStatus
+    -&gt; LicenseConversionTaskStatus -&gt; Bool)
+-&gt; (LicenseConversionTaskStatus
+    -&gt; LicenseConversionTaskStatus -&gt; Bool)
+-&gt; (LicenseConversionTaskStatus
+    -&gt; LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus)
+-&gt; (LicenseConversionTaskStatus
+    -&gt; LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus)
+-&gt; Ord LicenseConversionTaskStatus
+LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+LicenseConversionTaskStatus
+-&gt; LicenseConversionTaskStatus -&gt; Ordering
+LicenseConversionTaskStatus
+-&gt; LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LicenseConversionTaskStatus
+-&gt; LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus
+$cmin :: LicenseConversionTaskStatus
+-&gt; LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus
+max :: LicenseConversionTaskStatus
+-&gt; LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus
+$cmax :: LicenseConversionTaskStatus
+-&gt; LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus
+&gt;= :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+$c&gt;= :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+&gt; :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+$c&gt; :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+&lt;= :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+$c&lt;= :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+&lt; :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+$c&lt; :: LicenseConversionTaskStatus -&gt; LicenseConversionTaskStatus -&gt; Bool
+compare :: LicenseConversionTaskStatus
+-&gt; LicenseConversionTaskStatus -&gt; Ordering
+$ccompare :: LicenseConversionTaskStatus
+-&gt; LicenseConversionTaskStatus -&gt; Ordering
+$cp1Ord :: Eq LicenseConversionTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ LicenseConversionTaskStatus -&gt; Rep LicenseConversionTaskStatus x)
+-&gt; (forall x.
+    Rep LicenseConversionTaskStatus x -&gt; LicenseConversionTaskStatus)
+-&gt; Generic LicenseConversionTaskStatus
+forall x.
+Rep LicenseConversionTaskStatus x -&gt; LicenseConversionTaskStatus
+forall x.
+LicenseConversionTaskStatus -&gt; Rep LicenseConversionTaskStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LicenseConversionTaskStatus x -&gt; LicenseConversionTaskStatus
+$cfrom :: forall x.
+LicenseConversionTaskStatus -&gt; Rep LicenseConversionTaskStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298352"><span id="local-6989586621679298354"><span class="annot"><span class="annottext">Int -&gt; LicenseConversionTaskStatus -&gt; Int
+LicenseConversionTaskStatus -&gt; Int
+(Int -&gt; LicenseConversionTaskStatus -&gt; Int)
+-&gt; (LicenseConversionTaskStatus -&gt; Int)
+-&gt; Hashable LicenseConversionTaskStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LicenseConversionTaskStatus -&gt; Int
+$chash :: LicenseConversionTaskStatus -&gt; Int
+hashWithSalt :: Int -&gt; LicenseConversionTaskStatus -&gt; Int
+$chashWithSalt :: Int -&gt; LicenseConversionTaskStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298349"><span class="annot"><span class="annottext">LicenseConversionTaskStatus -&gt; ()
+(LicenseConversionTaskStatus -&gt; ())
+-&gt; NFData LicenseConversionTaskStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LicenseConversionTaskStatus -&gt; ()
+$crnf :: LicenseConversionTaskStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298346"><span class="annot"><span class="annottext">Text -&gt; Either String LicenseConversionTaskStatus
+(Text -&gt; Either String LicenseConversionTaskStatus)
+-&gt; FromText LicenseConversionTaskStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LicenseConversionTaskStatus
+$cfromText :: Text -&gt; Either String LicenseConversionTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298343"><span class="annot"><span class="annottext">LicenseConversionTaskStatus -&gt; Text
+(LicenseConversionTaskStatus -&gt; Text)
+-&gt; ToText LicenseConversionTaskStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LicenseConversionTaskStatus -&gt; Text
+$ctoText :: LicenseConversionTaskStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298340"><span class="annot"><span class="annottext">LicenseConversionTaskStatus -&gt; ByteString
+(LicenseConversionTaskStatus -&gt; ByteString)
+-&gt; ToByteString LicenseConversionTaskStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LicenseConversionTaskStatus -&gt; ByteString
+$ctoBS :: LicenseConversionTaskStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298337"><span class="annot"><span class="annottext">LicenseConversionTaskStatus -&gt; ByteStringBuilder
+(LicenseConversionTaskStatus -&gt; ByteStringBuilder)
+-&gt; ToLog LicenseConversionTaskStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LicenseConversionTaskStatus -&gt; ByteStringBuilder
+$cbuild :: LicenseConversionTaskStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298334"><span class="annot"><span class="annottext">HeaderName -&gt; LicenseConversionTaskStatus -&gt; [Header]
+(HeaderName -&gt; LicenseConversionTaskStatus -&gt; [Header])
+-&gt; ToHeader LicenseConversionTaskStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LicenseConversionTaskStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LicenseConversionTaskStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298331"><span class="annot"><span class="annottext">LicenseConversionTaskStatus -&gt; QueryString
+(LicenseConversionTaskStatus -&gt; QueryString)
+-&gt; ToQuery LicenseConversionTaskStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LicenseConversionTaskStatus -&gt; QueryString
+$ctoQuery :: LicenseConversionTaskStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298326"><span id="local-6989586621679298328"><span class="annot"><span class="annottext">Value -&gt; Parser [LicenseConversionTaskStatus]
+Value -&gt; Parser LicenseConversionTaskStatus
+(Value -&gt; Parser LicenseConversionTaskStatus)
+-&gt; (Value -&gt; Parser [LicenseConversionTaskStatus])
+-&gt; FromJSON LicenseConversionTaskStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LicenseConversionTaskStatus]
+$cparseJSONList :: Value -&gt; Parser [LicenseConversionTaskStatus]
+parseJSON :: Value -&gt; Parser LicenseConversionTaskStatus
+$cparseJSON :: Value -&gt; Parser LicenseConversionTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298321"><span id="local-6989586621679298323"><span class="annot"><span class="annottext">FromJSONKeyFunction [LicenseConversionTaskStatus]
+FromJSONKeyFunction LicenseConversionTaskStatus
+FromJSONKeyFunction LicenseConversionTaskStatus
+-&gt; FromJSONKeyFunction [LicenseConversionTaskStatus]
+-&gt; FromJSONKey LicenseConversionTaskStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LicenseConversionTaskStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [LicenseConversionTaskStatus]
+fromJSONKey :: FromJSONKeyFunction LicenseConversionTaskStatus
+$cfromJSONKey :: FromJSONKeyFunction LicenseConversionTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298312"><span id="local-6989586621679298314"><span id="local-6989586621679298316"><span id="local-6989586621679298318"><span class="annot"><span class="annottext">[LicenseConversionTaskStatus] -&gt; Encoding
+[LicenseConversionTaskStatus] -&gt; Value
+LicenseConversionTaskStatus -&gt; Encoding
+LicenseConversionTaskStatus -&gt; Value
+(LicenseConversionTaskStatus -&gt; Value)
+-&gt; (LicenseConversionTaskStatus -&gt; Encoding)
+-&gt; ([LicenseConversionTaskStatus] -&gt; Value)
+-&gt; ([LicenseConversionTaskStatus] -&gt; Encoding)
+-&gt; ToJSON LicenseConversionTaskStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LicenseConversionTaskStatus] -&gt; Encoding
+$ctoEncodingList :: [LicenseConversionTaskStatus] -&gt; Encoding
+toJSONList :: [LicenseConversionTaskStatus] -&gt; Value
+$ctoJSONList :: [LicenseConversionTaskStatus] -&gt; Value
+toEncoding :: LicenseConversionTaskStatus -&gt; Encoding
+$ctoEncoding :: LicenseConversionTaskStatus -&gt; Encoding
+toJSON :: LicenseConversionTaskStatus -&gt; Value
+$ctoJSON :: LicenseConversionTaskStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298307"><span id="local-6989586621679298309"><span class="annot"><span class="annottext">ToJSONKeyFunction [LicenseConversionTaskStatus]
+ToJSONKeyFunction LicenseConversionTaskStatus
+ToJSONKeyFunction LicenseConversionTaskStatus
+-&gt; ToJSONKeyFunction [LicenseConversionTaskStatus]
+-&gt; ToJSONKey LicenseConversionTaskStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LicenseConversionTaskStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [LicenseConversionTaskStatus]
+toJSONKey :: ToJSONKeyFunction LicenseConversionTaskStatus
+$ctoJSONKey :: ToJSONKeyFunction LicenseConversionTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298304"><span class="annot"><span class="annottext">[Node] -&gt; Either String LicenseConversionTaskStatus
+([Node] -&gt; Either String LicenseConversionTaskStatus)
+-&gt; FromXML LicenseConversionTaskStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LicenseConversionTaskStatus
+$cparseXML :: [Node] -&gt; Either String LicenseConversionTaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298301"><span class="annot"><span class="annottext">LicenseConversionTaskStatus -&gt; XML
+(LicenseConversionTaskStatus -&gt; XML)
+-&gt; ToXML LicenseConversionTaskStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LicenseConversionTaskStatus -&gt; XML
+$ctoXML :: LicenseConversionTaskStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus_FAILED"><span class="hs-identifier hs-type">LicenseConversionTaskStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus"><span class="hs-identifier hs-type">LicenseConversionTaskStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseConversionTaskStatus_FAILED"><span id="%24mLicenseConversionTaskStatus_FAILED"><span id="LicenseConversionTaskStatus_FAILED"><span class="annot"><span class="annottext">$bLicenseConversionTaskStatus_FAILED :: LicenseConversionTaskStatus
+$mLicenseConversionTaskStatus_FAILED :: forall r.
+LicenseConversionTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#%24bLicenseConversionTaskStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">LicenseConversionTaskStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus%27"><span class="hs-identifier hs-type">LicenseConversionTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus_IN_PROGRESS"><span class="hs-identifier hs-type">LicenseConversionTaskStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus"><span class="hs-identifier hs-type">LicenseConversionTaskStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseConversionTaskStatus_IN_PROGRESS"><span id="%24mLicenseConversionTaskStatus_IN_PROGRESS"><span id="LicenseConversionTaskStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bLicenseConversionTaskStatus_IN_PROGRESS :: LicenseConversionTaskStatus
+$mLicenseConversionTaskStatus_IN_PROGRESS :: forall r.
+LicenseConversionTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#%24bLicenseConversionTaskStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">LicenseConversionTaskStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus%27"><span class="hs-identifier hs-type">LicenseConversionTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus_SUCCEEDED"><span class="hs-identifier hs-type">LicenseConversionTaskStatus_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus"><span class="hs-identifier hs-type">LicenseConversionTaskStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseConversionTaskStatus_SUCCEEDED"><span id="%24mLicenseConversionTaskStatus_SUCCEEDED"><span id="LicenseConversionTaskStatus_SUCCEEDED"><span class="annot"><span class="annottext">$bLicenseConversionTaskStatus_SUCCEEDED :: LicenseConversionTaskStatus
+$mLicenseConversionTaskStatus_SUCCEEDED :: forall r.
+LicenseConversionTaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#%24bLicenseConversionTaskStatus_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">LicenseConversionTaskStatus_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus%27"><span class="hs-identifier hs-type">LicenseConversionTaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus_FAILED"><span class="hs-pragma hs-type">LicenseConversionTaskStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus_IN_PROGRESS"><span class="hs-pragma hs-type">LicenseConversionTaskStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus_SUCCEEDED"><span class="hs-pragma hs-type">LicenseConversionTaskStatus_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus.html#LicenseConversionTaskStatus%27"><span class="hs-pragma hs-type">LicenseConversionTaskStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | This structure contains the definition for a Contributor Insights rule.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInsightRule' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679254440"><span id="local-6989586621679254441"></span></span><span class="hs-keyword">data</span><span> </span><span id="InsightRule"><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-var">InsightRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightRule%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-var">InsightRule'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679254449"><span id="local-6989586621679254450"></span></span><span class="hs-keyword">data</span><span> </span><span id="InsightRule"><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-var">InsightRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightRule%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-var">InsightRule'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the rule.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AInsightRule%27"><span class="annot"><span class="annottext">InsightRule -&gt; Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Aname%3AInsightRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Adefinition%3AInsightRule%27"><span class="annot"><span class="annottext">InsightRule -&gt; Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Adefinition%3AInsightRule%27"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254431"><span id="local-6989586621679254433"><span class="annot"><span class="annottext">InsightRule -&gt; InsightRule -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254440"><span id="local-6989586621679254442"><span class="annot"><span class="annottext">InsightRule -&gt; InsightRule -&gt; Bool
 (InsightRule -&gt; InsightRule -&gt; Bool)
 -&gt; (InsightRule -&gt; InsightRule -&gt; Bool) -&gt; Eq InsightRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InsightRule -&gt; InsightRule -&gt; Bool
 == :: InsightRule -&gt; InsightRule -&gt; Bool
 $c== :: InsightRule -&gt; InsightRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254422"><span id="local-6989586621679254424"><span id="local-6989586621679254426"><span id="local-6989586621679254428"><span class="annot"><span class="annottext">ReadPrec [InsightRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254431"><span id="local-6989586621679254433"><span id="local-6989586621679254435"><span id="local-6989586621679254437"><span class="annot"><span class="annottext">ReadPrec [InsightRule]
 ReadPrec InsightRule
 Int -&gt; ReadS InsightRule
 ReadS [InsightRule]
@@ -74,7 +74,7 @@ readList :: ReadS [InsightRule]
 $creadList :: ReadS [InsightRule]
 readsPrec :: Int -&gt; ReadS InsightRule
 $creadsPrec :: Int -&gt; ReadS InsightRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254415"><span id="local-6989586621679254417"><span id="local-6989586621679254419"><span class="annot"><span class="annottext">Int -&gt; InsightRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254424"><span id="local-6989586621679254426"><span id="local-6989586621679254428"><span class="annot"><span class="annottext">Int -&gt; InsightRule -&gt; ShowS
 [InsightRule] -&gt; ShowS
 InsightRule -&gt; String
 (Int -&gt; InsightRule -&gt; ShowS)
@@ -132,25 +132,25 @@ $cfrom :: forall x. InsightRule -&gt; Rep InsightRule x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span>
 </span><span id="line-78"></span><span id="newInsightRule"><span class="annot"><span class="annottext">newInsightRule :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; InsightRule
-</span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#newInsightRule"><span class="hs-identifier hs-var hs-var">newInsightRule</span></a></span></span><span> </span><span id="local-6989586621679254409"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254409"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679254408"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254408"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span id="local-6989586621679254407"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254407"><span class="hs-identifier hs-var">pSchema_</span></a></span></span><span> </span><span id="local-6989586621679254406"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254406"><span class="hs-identifier hs-var">pDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#newInsightRule"><span class="hs-identifier hs-var hs-var">newInsightRule</span></a></span></span><span> </span><span id="local-6989586621679254418"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254418"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679254417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254417"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span id="local-6989586621679254416"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254416"><span class="hs-identifier hs-var">pSchema_</span></a></span></span><span> </span><span id="local-6989586621679254415"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254415"><span class="hs-identifier hs-var">pDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">InsightRule' :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; InsightRule
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:InsightRule' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Aname%3AInsightRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254409"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254418"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:InsightRule' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Astate%3AInsightRule%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254408"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254417"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:schema:InsightRule' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Aschema%3AInsightRule%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254407"><span class="hs-identifier hs-var">pSchema_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679254416"><span class="hs-identifier hs-var">pSchema_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:definition:InsightRule' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Adefinition%3AInsightRule%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254406"><span class="hs-identifier hs-var">pDefinition_</span></a></span><span>
+</span><a href="#local-6989586621679254415"><span class="hs-identifier hs-var">pDefinition_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name of the rule.</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. InsightRule -&gt; Rep InsightRule x
 -&gt; (InsightRule -&gt; Text -&gt; InsightRule)
 -&gt; Lens InsightRule InsightRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254402"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254411"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:InsightRule' :: InsightRule -&gt; Text
-</span><a href="#local-6989586621679254402"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254402"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254401"><span class="annot"><span class="annottext">s :: InsightRule
-</span><a href="#local-6989586621679254401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254400"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRule
-</span><a href="#local-6989586621679254401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InsightRule' :: Text
+</span><a href="#local-6989586621679254411"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254411"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254410"><span class="annot"><span class="annottext">s :: InsightRule
+</span><a href="#local-6989586621679254410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRule
+</span><a href="#local-6989586621679254410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InsightRule' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Aname%3AInsightRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Indicates whether the rule is enabled or disabled.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#insightRule_state"><span class="hs-identifier hs-type">insightRule_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -178,16 +178,16 @@ $sel:name:InsightRule' :: InsightRule -&gt; Text
 -&gt; (InsightRule -&gt; Text -&gt; InsightRule)
 -&gt; Lens InsightRule InsightRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254398"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254407"><span class="annot"><span class="annottext">Text
 state :: Text
 $sel:state:InsightRule' :: InsightRule -&gt; Text
-</span><a href="#local-6989586621679254398"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254398"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254397"><span class="annot"><span class="annottext">s :: InsightRule
-</span><a href="#local-6989586621679254397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254396"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRule
-</span><a href="#local-6989586621679254397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:InsightRule' :: Text
+</span><a href="#local-6989586621679254407"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254407"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254406"><span class="annot"><span class="annottext">s :: InsightRule
+</span><a href="#local-6989586621679254406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254405"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRule
+</span><a href="#local-6989586621679254406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:InsightRule' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Astate%3AInsightRule%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | For rules that you create, this is always</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- @{\&quot;Name\&quot;: \&quot;CloudWatchLogRule\&quot;, \&quot;Version\&quot;: 1}@. For built-in rules,</span><span>
@@ -198,16 +198,16 @@ $sel:state:InsightRule' :: InsightRule -&gt; Text
 -&gt; (InsightRule -&gt; Text -&gt; InsightRule)
 -&gt; Lens InsightRule InsightRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254394"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254403"><span class="annot"><span class="annottext">Text
 schema :: Text
 $sel:schema:InsightRule' :: InsightRule -&gt; Text
-</span><a href="#local-6989586621679254394"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254394"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254393"><span class="annot"><span class="annottext">s :: InsightRule
-</span><a href="#local-6989586621679254393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254392"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRule
-</span><a href="#local-6989586621679254393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:InsightRule' :: Text
+</span><a href="#local-6989586621679254403"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254403"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254402"><span class="annot"><span class="annottext">s :: InsightRule
+</span><a href="#local-6989586621679254402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRule
+</span><a href="#local-6989586621679254402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:InsightRule' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Aschema%3AInsightRule%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The definition of the rule, as a JSON object. The definition contains</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- the keywords used to define contributors, the value to aggregate on if</span><span>
@@ -220,21 +220,21 @@ $sel:schema:InsightRule' :: InsightRule -&gt; Text
 -&gt; (InsightRule -&gt; Text -&gt; InsightRule)
 -&gt; Lens InsightRule InsightRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254390"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254399"><span class="annot"><span class="annottext">Text
 definition :: Text
 $sel:definition:InsightRule' :: InsightRule -&gt; Text
-</span><a href="#local-6989586621679254390"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254390"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254389"><span class="annot"><span class="annottext">s :: InsightRule
-</span><a href="#local-6989586621679254389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254388"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRule
-</span><a href="#local-6989586621679254389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:InsightRule' :: Text
+</span><a href="#local-6989586621679254399"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254399"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254398"><span class="annot"><span class="annottext">s :: InsightRule
+</span><a href="#local-6989586621679254398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-type">InsightRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightRule
+</span><a href="#local-6989586621679254398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:InsightRule' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#%24sel%3Adefinition%3AInsightRule%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679254388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679254385"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InsightRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679254383"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679254394"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InsightRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679254392"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; Text -&gt; InsightRule
 </span><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule%27"><span class="hs-identifier hs-var">InsightRule'</span></a></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; Text -&gt; InsightRule)
@@ -242,7 +242,7 @@ $sel:definition:InsightRule' :: InsightRule -&gt; Text
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; InsightRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,7 +251,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; Text -&gt; InsightRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,7 +259,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (Text -&gt; InsightRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Schema&quot;</span></span><span class="hs-special">)</span><span>
@@ -267,12 +267,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String InsightRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679254383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679254392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Definition&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254377"><span id="local-6989586621679254379"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254386"><span id="local-6989586621679254388"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

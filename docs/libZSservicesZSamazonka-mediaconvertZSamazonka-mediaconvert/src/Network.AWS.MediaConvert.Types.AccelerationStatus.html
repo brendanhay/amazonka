@@ -44,13 +44,13 @@
 </span><span id="line-44"></span><span class="hs-comment">-- depending on how you set Acceleration (AccelerationMode). When the</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- service runs your job without accelerated transcoding,</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- AccelerationStatus is NOT_ACCELERATED.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679939684"><span id="local-6989586621679939685"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccelerationStatus"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationStatus.html#AccelerationStatus"><span class="hs-identifier hs-var">AccelerationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccelerationStatus%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationStatus.html#AccelerationStatus%27"><span class="hs-identifier hs-var">AccelerationStatus'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679939693"><span id="local-6989586621679939694"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccelerationStatus"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationStatus.html#AccelerationStatus"><span class="hs-identifier hs-var">AccelerationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccelerationStatus%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AccelerationStatus.html#AccelerationStatus%27"><span class="hs-identifier hs-var">AccelerationStatus'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccelerationStatus"><span class="annot"><span class="annottext">AccelerationStatus -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AccelerationStatus.html#fromAccelerationStatus"><span class="hs-identifier hs-var hs-var">fromAccelerationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939676"><span id="local-6989586621679939678"><span id="local-6989586621679939680"><span class="annot"><span class="annottext">Int -&gt; AccelerationStatus -&gt; ShowS
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939685"><span id="local-6989586621679939687"><span id="local-6989586621679939689"><span class="annot"><span class="annottext">Int -&gt; AccelerationStatus -&gt; ShowS
 [AccelerationStatus] -&gt; ShowS
 AccelerationStatus -&gt; String
 (Int -&gt; AccelerationStatus -&gt; ShowS)
@@ -66,7 +66,7 @@ $cshow :: AccelerationStatus -&gt; String
 showsPrec :: Int -&gt; AccelerationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AccelerationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679939667"><span id="local-6989586621679939669"><span id="local-6989586621679939671"><span id="local-6989586621679939673"><span class="annot"><span class="annottext">ReadPrec [AccelerationStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679939676"><span id="local-6989586621679939678"><span id="local-6989586621679939680"><span id="local-6989586621679939682"><span class="annot"><span class="annottext">ReadPrec [AccelerationStatus]
 ReadPrec AccelerationStatus
 Int -&gt; ReadS AccelerationStatus
 ReadS [AccelerationStatus]
@@ -87,7 +87,7 @@ $creadList :: ReadS [AccelerationStatus]
 readsPrec :: Int -&gt; ReadS AccelerationStatus
 $creadsPrec :: Int -&gt; ReadS AccelerationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679939662"><span id="local-6989586621679939664"><span class="annot"><span class="annottext">AccelerationStatus -&gt; AccelerationStatus -&gt; Bool
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679939671"><span id="local-6989586621679939673"><span class="annot"><span class="annottext">AccelerationStatus -&gt; AccelerationStatus -&gt; Bool
 (AccelerationStatus -&gt; AccelerationStatus -&gt; Bool)
 -&gt; (AccelerationStatus -&gt; AccelerationStatus -&gt; Bool)
 -&gt; Eq AccelerationStatus
@@ -97,7 +97,7 @@ $c/= :: AccelerationStatus -&gt; AccelerationStatus -&gt; Bool
 == :: AccelerationStatus -&gt; AccelerationStatus -&gt; Bool
 $c== :: AccelerationStatus -&gt; AccelerationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679939646"><span id="local-6989586621679939648"><span id="local-6989586621679939650"><span id="local-6989586621679939652"><span id="local-6989586621679939654"><span id="local-6989586621679939656"><span id="local-6989586621679939658"><span class="annot"><span class="annottext">Eq AccelerationStatus
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679939655"><span id="local-6989586621679939657"><span id="local-6989586621679939659"><span id="local-6989586621679939661"><span id="local-6989586621679939663"><span id="local-6989586621679939665"><span id="local-6989586621679939667"><span class="annot"><span class="annottext">Eq AccelerationStatus
 Eq AccelerationStatus
 -&gt; (AccelerationStatus -&gt; AccelerationStatus -&gt; Ordering)
 -&gt; (AccelerationStatus -&gt; AccelerationStatus -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. AccelerationStatus -&gt; Rep AccelerationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939638"><span id="local-6989586621679939640"><span class="annot"><span class="annottext">Int -&gt; AccelerationStatus -&gt; Int
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679939647"><span id="local-6989586621679939649"><span class="annot"><span class="annottext">Int -&gt; AccelerationStatus -&gt; Int
 AccelerationStatus -&gt; Int
 (Int -&gt; AccelerationStatus -&gt; Int)
 -&gt; (AccelerationStatus -&gt; Int) -&gt; Hashable AccelerationStatus
@@ -158,53 +158,53 @@ $chash :: AccelerationStatus -&gt; Int
 hashWithSalt :: Int -&gt; AccelerationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AccelerationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679939635"><span class="annot"><span class="annottext">AccelerationStatus -&gt; ()
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679939644"><span class="annot"><span class="annottext">AccelerationStatus -&gt; ()
 (AccelerationStatus -&gt; ()) -&gt; NFData AccelerationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AccelerationStatus -&gt; ()
 $crnf :: AccelerationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679939632"><span class="annot"><span class="annottext">Text -&gt; Either String AccelerationStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679939641"><span class="annot"><span class="annottext">Text -&gt; Either String AccelerationStatus
 (Text -&gt; Either String AccelerationStatus)
 -&gt; FromText AccelerationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AccelerationStatus
 $cfromText :: Text -&gt; Either String AccelerationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679939629"><span class="annot"><span class="annottext">AccelerationStatus -&gt; Text
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679939638"><span class="annot"><span class="annottext">AccelerationStatus -&gt; Text
 (AccelerationStatus -&gt; Text) -&gt; ToText AccelerationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AccelerationStatus -&gt; Text
 $ctoText :: AccelerationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679939626"><span class="annot"><span class="annottext">AccelerationStatus -&gt; ByteString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679939635"><span class="annot"><span class="annottext">AccelerationStatus -&gt; ByteString
 (AccelerationStatus -&gt; ByteString)
 -&gt; ToByteString AccelerationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AccelerationStatus -&gt; ByteString
 $ctoBS :: AccelerationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679939623"><span class="annot"><span class="annottext">AccelerationStatus -&gt; ByteStringBuilder
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679939632"><span class="annot"><span class="annottext">AccelerationStatus -&gt; ByteStringBuilder
 (AccelerationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog AccelerationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AccelerationStatus -&gt; ByteStringBuilder
 $cbuild :: AccelerationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679939620"><span class="annot"><span class="annottext">HeaderName -&gt; AccelerationStatus -&gt; [Header]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679939629"><span class="annot"><span class="annottext">HeaderName -&gt; AccelerationStatus -&gt; [Header]
 (HeaderName -&gt; AccelerationStatus -&gt; [Header])
 -&gt; ToHeader AccelerationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AccelerationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AccelerationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679939617"><span class="annot"><span class="annottext">AccelerationStatus -&gt; QueryString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679939626"><span class="annot"><span class="annottext">AccelerationStatus -&gt; QueryString
 (AccelerationStatus -&gt; QueryString) -&gt; ToQuery AccelerationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AccelerationStatus -&gt; QueryString
 $ctoQuery :: AccelerationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679939612"><span id="local-6989586621679939614"><span class="annot"><span class="annottext">Value -&gt; Parser [AccelerationStatus]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679939621"><span id="local-6989586621679939623"><span class="annot"><span class="annottext">Value -&gt; Parser [AccelerationStatus]
 Value -&gt; Parser AccelerationStatus
 (Value -&gt; Parser AccelerationStatus)
 -&gt; (Value -&gt; Parser [AccelerationStatus])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [AccelerationStatus]
 parseJSON :: Value -&gt; Parser AccelerationStatus
 $cparseJSON :: Value -&gt; Parser AccelerationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679939607"><span id="local-6989586621679939609"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccelerationStatus]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679939616"><span id="local-6989586621679939618"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccelerationStatus]
 FromJSONKeyFunction AccelerationStatus
 FromJSONKeyFunction AccelerationStatus
 -&gt; FromJSONKeyFunction [AccelerationStatus]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AccelerationStatus]
 fromJSONKey :: FromJSONKeyFunction AccelerationStatus
 $cfromJSONKey :: FromJSONKeyFunction AccelerationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679939598"><span id="local-6989586621679939600"><span id="local-6989586621679939602"><span id="local-6989586621679939604"><span class="annot"><span class="annottext">[AccelerationStatus] -&gt; Encoding
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679939607"><span id="local-6989586621679939609"><span id="local-6989586621679939611"><span id="local-6989586621679939613"><span class="annot"><span class="annottext">[AccelerationStatus] -&gt; Encoding
 [AccelerationStatus] -&gt; Value
 AccelerationStatus -&gt; Encoding
 AccelerationStatus -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: AccelerationStatus -&gt; Encoding
 toJSON :: AccelerationStatus -&gt; Value
 $ctoJSON :: AccelerationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679939593"><span id="local-6989586621679939595"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccelerationStatus]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679939602"><span id="local-6989586621679939604"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccelerationStatus]
 ToJSONKeyFunction AccelerationStatus
 ToJSONKeyFunction AccelerationStatus
 -&gt; ToJSONKeyFunction [AccelerationStatus]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AccelerationStatus]
 toJSONKey :: ToJSONKeyFunction AccelerationStatus
 $ctoJSONKey :: ToJSONKeyFunction AccelerationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679939590"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccelerationStatus
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679939599"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccelerationStatus
 ([Node] -&gt; Either String AccelerationStatus)
 -&gt; FromXML AccelerationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AccelerationStatus
 $cparseXML :: [Node] -&gt; Either String AccelerationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679939587"><span class="annot"><span class="annottext">AccelerationStatus -&gt; XML
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679939596"><span class="annot"><span class="annottext">AccelerationStatus -&gt; XML
 (AccelerationStatus -&gt; XML) -&gt; ToXML AccelerationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AccelerationStatus -&gt; XML

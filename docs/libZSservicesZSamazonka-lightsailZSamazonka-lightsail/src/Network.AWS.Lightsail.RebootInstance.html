@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newRebootInstance' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679632939"><span id="local-6989586621679632940"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootInstance"><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-var">RebootInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootInstance%27"><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance%27"><span class="hs-identifier hs-var">RebootInstance'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679632948"><span id="local-6989586621679632949"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootInstance"><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-var">RebootInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootInstance%27"><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance%27"><span class="hs-identifier hs-var">RebootInstance'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the instance to reboot.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceName%3ARebootInstance%27"><span class="annot"><span class="annottext">RebootInstance -&gt; Text
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#%24sel%3AinstanceName%3ARebootInstance%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632933"><span id="local-6989586621679632935"><span class="annot"><span class="annottext">RebootInstance -&gt; RebootInstance -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632942"><span id="local-6989586621679632944"><span class="annot"><span class="annottext">RebootInstance -&gt; RebootInstance -&gt; Bool
 (RebootInstance -&gt; RebootInstance -&gt; Bool)
 -&gt; (RebootInstance -&gt; RebootInstance -&gt; Bool) -&gt; Eq RebootInstance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootInstance -&gt; RebootInstance -&gt; Bool
 == :: RebootInstance -&gt; RebootInstance -&gt; Bool
 $c== :: RebootInstance -&gt; RebootInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632924"><span id="local-6989586621679632926"><span id="local-6989586621679632928"><span id="local-6989586621679632930"><span class="annot"><span class="annottext">ReadPrec [RebootInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632933"><span id="local-6989586621679632935"><span id="local-6989586621679632937"><span id="local-6989586621679632939"><span class="annot"><span class="annottext">ReadPrec [RebootInstance]
 ReadPrec RebootInstance
 Int -&gt; ReadS RebootInstance
 ReadS [RebootInstance]
@@ -85,7 +85,7 @@ readList :: ReadS [RebootInstance]
 $creadList :: ReadS [RebootInstance]
 readsPrec :: Int -&gt; ReadS RebootInstance
 $creadsPrec :: Int -&gt; ReadS RebootInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632917"><span id="local-6989586621679632919"><span id="local-6989586621679632921"><span class="annot"><span class="annottext">Int -&gt; RebootInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632926"><span id="local-6989586621679632928"><span id="local-6989586621679632930"><span class="annot"><span class="annottext">Int -&gt; RebootInstance -&gt; ShowS
 [RebootInstance] -&gt; ShowS
 RebootInstance -&gt; String
 (Int -&gt; RebootInstance -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. RebootInstance -&gt; Rep RebootInstance x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span><span>
 </span><span id="line-74"></span><span id="newRebootInstance"><span class="annot"><span class="annottext">newRebootInstance :: Text -&gt; RebootInstance
-</span><a href="Network.AWS.Lightsail.RebootInstance.html#newRebootInstance"><span class="hs-identifier hs-var hs-var">newRebootInstance</span></a></span></span><span> </span><span id="local-6989586621679632912"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632912"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.RebootInstance.html#newRebootInstance"><span class="hs-identifier hs-var hs-var">newRebootInstance</span></a></span></span><span> </span><span id="local-6989586621679632921"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632921"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">RebootInstance' :: Text -&gt; RebootInstance
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance%27"><span class="hs-identifier hs-type">RebootInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:RebootInstance' :: Text
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#%24sel%3AinstanceName%3ARebootInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632912"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679632921"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the instance to reboot.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#rebootInstance_instanceName"><span class="hs-identifier hs-type">rebootInstance_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. RebootInstance -&gt; Rep RebootInstance x
 -&gt; (RebootInstance -&gt; Text -&gt; RebootInstance)
 -&gt; Lens RebootInstance RebootInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance%27"><span class="hs-identifier hs-type">RebootInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632909"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance%27"><span class="hs-identifier hs-type">RebootInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632918"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:RebootInstance' :: RebootInstance -&gt; Text
-</span><a href="#local-6989586621679632909"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632909"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632908"><span class="annot"><span class="annottext">s :: RebootInstance
-</span><a href="#local-6989586621679632908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance%27"><span class="hs-identifier hs-type">RebootInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632907"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootInstance
-</span><a href="#local-6989586621679632908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:RebootInstance' :: Text
+</span><a href="#local-6989586621679632918"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632918"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632917"><span class="annot"><span class="annottext">s :: RebootInstance
+</span><a href="#local-6989586621679632917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance%27"><span class="hs-identifier hs-type">RebootInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632916"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679632916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootInstance
+</span><a href="#local-6989586621679632917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:RebootInstance' :: Text
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#%24sel%3AinstanceName%3ARebootInstance%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-type">RebootInstanceResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679632903"><span class="annot"><span class="annottext">request :: RebootInstance -&gt; Request RebootInstance
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679632912"><span class="annot"><span class="annottext">request :: RebootInstance -&gt; Request RebootInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RebootInstance -&gt; Request RebootInstance
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679632899"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679632908"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RebootInstance
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679632896"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632896"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679632895"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679632895"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679632894"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679632894"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679632905"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632905"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679632904"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679632904"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679632903"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679632903"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; RebootInstanceResponse
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-var">RebootInstanceResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; RebootInstanceResponse)
@@ -194,7 +194,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RebootInstanceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679632894"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679632903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -211,15 +211,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632896"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632905"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632885"><span id="local-6989586621679632887"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632894"><span id="local-6989586621679632896"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632882"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679632878"><span class="annot"><span class="annottext">toHeaders :: RebootInstance -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679632887"><span class="annot"><span class="annottext">toHeaders :: RebootInstance -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RebootInstance -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -246,12 +246,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632868"><span id="local-6989586621679632870"><span id="local-6989586621679632872"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679632866"><span class="annot"><span class="annottext">toJSON :: RebootInstance -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance%27"><span class="hs-identifier hs-type">RebootInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632864"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632877"><span id="local-6989586621679632879"><span id="local-6989586621679632881"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679632875"><span class="annot"><span class="annottext">toJSON :: RebootInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance%27"><span class="hs-identifier hs-type">RebootInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632873"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:RebootInstance' :: RebootInstance -&gt; Text
-</span><a href="#local-6989586621679632864"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679632873"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,18 +263,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;instanceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679632864"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679632873"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679632858"><span class="annot"><span class="annottext">toPath :: RebootInstance -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679632867"><span class="annot"><span class="annottext">toPath :: RebootInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RebootInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstance"><span class="hs-identifier hs-type">RebootInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679632854"><span class="annot"><span class="annottext">toQuery :: RebootInstance -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679632863"><span class="annot"><span class="annottext">toQuery :: RebootInstance -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RebootInstance -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -282,7 +282,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newRebootInstanceResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679632851"><span id="local-6989586621679632852"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootInstanceResponse"><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-var">RebootInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootInstanceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-var">RebootInstanceResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679632860"><span id="local-6989586621679632861"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootInstanceResponse"><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-var">RebootInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootInstanceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-var">RebootInstanceResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -292,7 +292,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARebootInstanceResponse%27"><span class="annot"><span class="annottext">RebootInstanceResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#%24sel%3AhttpStatus%3ARebootInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632845"><span id="local-6989586621679632847"><span class="annot"><span class="annottext">RebootInstanceResponse -&gt; RebootInstanceResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679632854"><span id="local-6989586621679632856"><span class="annot"><span class="annottext">RebootInstanceResponse -&gt; RebootInstanceResponse -&gt; Bool
 (RebootInstanceResponse -&gt; RebootInstanceResponse -&gt; Bool)
 -&gt; (RebootInstanceResponse -&gt; RebootInstanceResponse -&gt; Bool)
 -&gt; Eq RebootInstanceResponse
@@ -301,7 +301,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootInstanceResponse -&gt; RebootInstanceResponse -&gt; Bool
 == :: RebootInstanceResponse -&gt; RebootInstanceResponse -&gt; Bool
 $c== :: RebootInstanceResponse -&gt; RebootInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632837"><span id="local-6989586621679632839"><span id="local-6989586621679632841"><span id="local-6989586621679632843"><span class="annot"><span class="annottext">ReadPrec [RebootInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632846"><span id="local-6989586621679632848"><span id="local-6989586621679632850"><span id="local-6989586621679632852"><span class="annot"><span class="annottext">ReadPrec [RebootInstanceResponse]
 ReadPrec RebootInstanceResponse
 Int -&gt; ReadS RebootInstanceResponse
 ReadS [RebootInstanceResponse]
@@ -321,7 +321,7 @@ readList :: ReadS [RebootInstanceResponse]
 $creadList :: ReadS [RebootInstanceResponse]
 readsPrec :: Int -&gt; ReadS RebootInstanceResponse
 $creadsPrec :: Int -&gt; ReadS RebootInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632831"><span id="local-6989586621679632833"><span id="local-6989586621679632835"><span class="annot"><span class="annottext">Int -&gt; RebootInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679632840"><span id="local-6989586621679632842"><span id="local-6989586621679632844"><span class="annot"><span class="annottext">Int -&gt; RebootInstanceResponse -&gt; ShowS
 [RebootInstanceResponse] -&gt; ShowS
 RebootInstanceResponse -&gt; String
 (Int -&gt; RebootInstanceResponse -&gt; ShowS)
@@ -366,8 +366,8 @@ $cfrom :: forall x. RebootInstanceResponse -&gt; Rep RebootInstanceResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-type">RebootInstanceResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newRebootInstanceResponse"><span class="annot"><span class="annottext">newRebootInstanceResponse :: Int -&gt; RebootInstanceResponse
-</span><a href="Network.AWS.Lightsail.RebootInstance.html#newRebootInstanceResponse"><span class="hs-identifier hs-var hs-var">newRebootInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679632828"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.RebootInstance.html#newRebootInstanceResponse"><span class="hs-identifier hs-var hs-var">newRebootInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679632837"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">RebootInstanceResponse' :: Maybe [Operation] -&gt; Int -&gt; RebootInstanceResponse
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-type">RebootInstanceResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:RebootInstanceResponse' :: Maybe [Operation]
@@ -377,7 +377,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RebootInstanceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#%24sel%3AhttpStatus%3ARebootInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679632837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -395,16 +395,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-type">RebootInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632827"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-type">RebootInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632836"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:RebootInstanceResponse' :: RebootInstanceResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679632827"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679632827"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632826"><span class="annot"><span class="annottext">s :: RebootInstanceResponse
-</span><a href="#local-6989586621679632826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-type">RebootInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632825"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679632825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootInstanceResponse
-</span><a href="#local-6989586621679632826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:RebootInstanceResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679632836"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679632836"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632835"><span class="annot"><span class="annottext">s :: RebootInstanceResponse
+</span><a href="#local-6989586621679632835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-type">RebootInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632834"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679632834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootInstanceResponse
+</span><a href="#local-6989586621679632835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:RebootInstanceResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#%24sel%3Aoperations%3ARebootInstanceResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679632825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-type">RebootInstanceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679632834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-type">RebootInstanceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; RebootInstanceResponse -&gt; f RebootInstanceResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -433,16 +433,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (RebootInstanceResponse -&gt; Int -&gt; RebootInstanceResponse)
 -&gt; Lens RebootInstanceResponse RebootInstanceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-type">RebootInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632821"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-type">RebootInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679632830"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RebootInstanceResponse' :: RebootInstanceResponse -&gt; Int
-</span><a href="#local-6989586621679632821"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632821"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632820"><span class="annot"><span class="annottext">s :: RebootInstanceResponse
-</span><a href="#local-6989586621679632820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-type">RebootInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632819"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootInstanceResponse
-</span><a href="#local-6989586621679632820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootInstanceResponse' :: Int
+</span><a href="#local-6989586621679632830"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632830"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679632829"><span class="annot"><span class="annottext">s :: RebootInstanceResponse
+</span><a href="#local-6989586621679632829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse%27"><span class="hs-identifier hs-type">RebootInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679632828"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679632828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootInstanceResponse
+</span><a href="#local-6989586621679632829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootInstanceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.RebootInstance.html#%24sel%3AhttpStatus%3ARebootInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679632819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-type">RebootInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679632828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-type">RebootInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-type">RebootInstanceResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679632826"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.RebootInstance.html#RebootInstanceResponse"><span class="hs-identifier hs-type">RebootInstanceResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680298821"><span id="local-6989586621680298822"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConditionOutcome"><span class="annot"><a href="Network.AWS.SageMaker.Types.ConditionOutcome.html#ConditionOutcome"><span class="hs-identifier hs-var">ConditionOutcome</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConditionOutcome%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ConditionOutcome.html#ConditionOutcome%27"><span class="hs-identifier hs-var">ConditionOutcome'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680298830"><span id="local-6989586621680298831"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConditionOutcome"><span class="annot"><a href="Network.AWS.SageMaker.Types.ConditionOutcome.html#ConditionOutcome"><span class="hs-identifier hs-var">ConditionOutcome</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConditionOutcome%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ConditionOutcome.html#ConditionOutcome%27"><span class="hs-identifier hs-var">ConditionOutcome'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConditionOutcome"><span class="annot"><span class="annottext">ConditionOutcome -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ConditionOutcome.html#fromConditionOutcome"><span class="hs-identifier hs-var hs-var">fromConditionOutcome</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680298813"><span id="local-6989586621680298815"><span id="local-6989586621680298817"><span class="annot"><span class="annottext">Int -&gt; ConditionOutcome -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680298822"><span id="local-6989586621680298824"><span id="local-6989586621680298826"><span class="annot"><span class="annottext">Int -&gt; ConditionOutcome -&gt; ShowS
 [ConditionOutcome] -&gt; ShowS
 ConditionOutcome -&gt; String
 (Int -&gt; ConditionOutcome -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ConditionOutcome -&gt; String
 showsPrec :: Int -&gt; ConditionOutcome -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConditionOutcome -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680298804"><span id="local-6989586621680298806"><span id="local-6989586621680298808"><span id="local-6989586621680298810"><span class="annot"><span class="annottext">ReadPrec [ConditionOutcome]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680298813"><span id="local-6989586621680298815"><span id="local-6989586621680298817"><span id="local-6989586621680298819"><span class="annot"><span class="annottext">ReadPrec [ConditionOutcome]
 ReadPrec ConditionOutcome
 Int -&gt; ReadS ConditionOutcome
 ReadS [ConditionOutcome]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ConditionOutcome]
 readsPrec :: Int -&gt; ReadS ConditionOutcome
 $creadsPrec :: Int -&gt; ReadS ConditionOutcome
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680298799"><span id="local-6989586621680298801"><span class="annot"><span class="annottext">ConditionOutcome -&gt; ConditionOutcome -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680298808"><span id="local-6989586621680298810"><span class="annot"><span class="annottext">ConditionOutcome -&gt; ConditionOutcome -&gt; Bool
 (ConditionOutcome -&gt; ConditionOutcome -&gt; Bool)
 -&gt; (ConditionOutcome -&gt; ConditionOutcome -&gt; Bool)
 -&gt; Eq ConditionOutcome
@@ -82,7 +82,7 @@ $c/= :: ConditionOutcome -&gt; ConditionOutcome -&gt; Bool
 == :: ConditionOutcome -&gt; ConditionOutcome -&gt; Bool
 $c== :: ConditionOutcome -&gt; ConditionOutcome -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680298783"><span id="local-6989586621680298785"><span id="local-6989586621680298787"><span id="local-6989586621680298789"><span id="local-6989586621680298791"><span id="local-6989586621680298793"><span id="local-6989586621680298795"><span class="annot"><span class="annottext">Eq ConditionOutcome
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680298792"><span id="local-6989586621680298794"><span id="local-6989586621680298796"><span id="local-6989586621680298798"><span id="local-6989586621680298800"><span id="local-6989586621680298802"><span id="local-6989586621680298804"><span class="annot"><span class="annottext">Eq ConditionOutcome
 Eq ConditionOutcome
 -&gt; (ConditionOutcome -&gt; ConditionOutcome -&gt; Ordering)
 -&gt; (ConditionOutcome -&gt; ConditionOutcome -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ConditionOutcome -&gt; Rep ConditionOutcome x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680298775"><span id="local-6989586621680298777"><span class="annot"><span class="annottext">Int -&gt; ConditionOutcome -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680298784"><span id="local-6989586621680298786"><span class="annot"><span class="annottext">Int -&gt; ConditionOutcome -&gt; Int
 ConditionOutcome -&gt; Int
 (Int -&gt; ConditionOutcome -&gt; Int)
 -&gt; (ConditionOutcome -&gt; Int) -&gt; Hashable ConditionOutcome
@@ -143,51 +143,51 @@ $chash :: ConditionOutcome -&gt; Int
 hashWithSalt :: Int -&gt; ConditionOutcome -&gt; Int
 $chashWithSalt :: Int -&gt; ConditionOutcome -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680298772"><span class="annot"><span class="annottext">ConditionOutcome -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680298781"><span class="annot"><span class="annottext">ConditionOutcome -&gt; ()
 (ConditionOutcome -&gt; ()) -&gt; NFData ConditionOutcome
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConditionOutcome -&gt; ()
 $crnf :: ConditionOutcome -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680298769"><span class="annot"><span class="annottext">Text -&gt; Either String ConditionOutcome
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680298778"><span class="annot"><span class="annottext">Text -&gt; Either String ConditionOutcome
 (Text -&gt; Either String ConditionOutcome)
 -&gt; FromText ConditionOutcome
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConditionOutcome
 $cfromText :: Text -&gt; Either String ConditionOutcome
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680298766"><span class="annot"><span class="annottext">ConditionOutcome -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680298775"><span class="annot"><span class="annottext">ConditionOutcome -&gt; Text
 (ConditionOutcome -&gt; Text) -&gt; ToText ConditionOutcome
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConditionOutcome -&gt; Text
 $ctoText :: ConditionOutcome -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680298763"><span class="annot"><span class="annottext">ConditionOutcome -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680298772"><span class="annot"><span class="annottext">ConditionOutcome -&gt; ByteString
 (ConditionOutcome -&gt; ByteString) -&gt; ToByteString ConditionOutcome
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConditionOutcome -&gt; ByteString
 $ctoBS :: ConditionOutcome -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680298760"><span class="annot"><span class="annottext">ConditionOutcome -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680298769"><span class="annot"><span class="annottext">ConditionOutcome -&gt; ByteStringBuilder
 (ConditionOutcome -&gt; ByteStringBuilder) -&gt; ToLog ConditionOutcome
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConditionOutcome -&gt; ByteStringBuilder
 $cbuild :: ConditionOutcome -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680298757"><span class="annot"><span class="annottext">HeaderName -&gt; ConditionOutcome -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680298766"><span class="annot"><span class="annottext">HeaderName -&gt; ConditionOutcome -&gt; [Header]
 (HeaderName -&gt; ConditionOutcome -&gt; [Header])
 -&gt; ToHeader ConditionOutcome
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConditionOutcome -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConditionOutcome -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680298754"><span class="annot"><span class="annottext">ConditionOutcome -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680298763"><span class="annot"><span class="annottext">ConditionOutcome -&gt; QueryString
 (ConditionOutcome -&gt; QueryString) -&gt; ToQuery ConditionOutcome
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConditionOutcome -&gt; QueryString
 $ctoQuery :: ConditionOutcome -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680298749"><span id="local-6989586621680298751"><span class="annot"><span class="annottext">Value -&gt; Parser [ConditionOutcome]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680298758"><span id="local-6989586621680298760"><span class="annot"><span class="annottext">Value -&gt; Parser [ConditionOutcome]
 Value -&gt; Parser ConditionOutcome
 (Value -&gt; Parser ConditionOutcome)
 -&gt; (Value -&gt; Parser [ConditionOutcome])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ConditionOutcome]
 parseJSON :: Value -&gt; Parser ConditionOutcome
 $cparseJSON :: Value -&gt; Parser ConditionOutcome
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680298744"><span id="local-6989586621680298746"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConditionOutcome]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680298753"><span id="local-6989586621680298755"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConditionOutcome]
 FromJSONKeyFunction ConditionOutcome
 FromJSONKeyFunction ConditionOutcome
 -&gt; FromJSONKeyFunction [ConditionOutcome]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConditionOutcome]
 fromJSONKey :: FromJSONKeyFunction ConditionOutcome
 $cfromJSONKey :: FromJSONKeyFunction ConditionOutcome
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680298735"><span id="local-6989586621680298737"><span id="local-6989586621680298739"><span id="local-6989586621680298741"><span class="annot"><span class="annottext">[ConditionOutcome] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680298744"><span id="local-6989586621680298746"><span id="local-6989586621680298748"><span id="local-6989586621680298750"><span class="annot"><span class="annottext">[ConditionOutcome] -&gt; Encoding
 [ConditionOutcome] -&gt; Value
 ConditionOutcome -&gt; Encoding
 ConditionOutcome -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ConditionOutcome -&gt; Encoding
 toJSON :: ConditionOutcome -&gt; Value
 $ctoJSON :: ConditionOutcome -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680298730"><span id="local-6989586621680298732"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConditionOutcome]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680298739"><span id="local-6989586621680298741"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConditionOutcome]
 ToJSONKeyFunction ConditionOutcome
 ToJSONKeyFunction ConditionOutcome
 -&gt; ToJSONKeyFunction [ConditionOutcome]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConditionOutcome]
 toJSONKey :: ToJSONKeyFunction ConditionOutcome
 $ctoJSONKey :: ToJSONKeyFunction ConditionOutcome
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680298727"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConditionOutcome
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680298736"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConditionOutcome
 ([Node] -&gt; Either String ConditionOutcome)
 -&gt; FromXML ConditionOutcome
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConditionOutcome
 $cparseXML :: [Node] -&gt; Either String ConditionOutcome
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680298724"><span class="annot"><span class="annottext">ConditionOutcome -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680298733"><span class="annot"><span class="annottext">ConditionOutcome -&gt; XML
 (ConditionOutcome -&gt; XML) -&gt; ToXML ConditionOutcome
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConditionOutcome -&gt; XML

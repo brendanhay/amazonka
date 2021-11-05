@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- Providing both results in @InvalidArgsException@.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAccessMethod' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679207996"><span id="local-6989586621679207997"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessMethod"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-var">AccessMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessMethod%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-var">AccessMethod'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679208005"><span id="local-6989586621679208006"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessMethod"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-var">AccessMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessMethod%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-var">AccessMethod'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the @AccessMethod@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AaccessMethodType%3AAccessMethod%27"><span class="annot"><span class="annottext">AccessMethod -&gt; Maybe AccessMethodType
 </span><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#%24sel%3AaccessMethodType%3AAccessMethod%27"><span class="hs-identifier hs-var hs-var">accessMethodType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethodType.html#AccessMethodType"><span class="hs-identifier hs-type">AccessMethodType</span></a></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AcustomObjectIdentifier%3AAccessMethod%27"><span class="annot"><span class="annottext">AccessMethod -&gt; Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#%24sel%3AcustomObjectIdentifier%3AAccessMethod%27"><span class="hs-identifier hs-var hs-var">customObjectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207989"><span id="local-6989586621679207991"><span class="annot"><span class="annottext">AccessMethod -&gt; AccessMethod -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207998"><span id="local-6989586621679208000"><span class="annot"><span class="annottext">AccessMethod -&gt; AccessMethod -&gt; Bool
 (AccessMethod -&gt; AccessMethod -&gt; Bool)
 -&gt; (AccessMethod -&gt; AccessMethod -&gt; Bool) -&gt; Eq AccessMethod
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessMethod -&gt; AccessMethod -&gt; Bool
 == :: AccessMethod -&gt; AccessMethod -&gt; Bool
 $c== :: AccessMethod -&gt; AccessMethod -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207980"><span id="local-6989586621679207982"><span id="local-6989586621679207984"><span id="local-6989586621679207986"><span class="annot"><span class="annottext">ReadPrec [AccessMethod]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207989"><span id="local-6989586621679207991"><span id="local-6989586621679207993"><span id="local-6989586621679207995"><span class="annot"><span class="annottext">ReadPrec [AccessMethod]
 ReadPrec AccessMethod
 Int -&gt; ReadS AccessMethod
 ReadS [AccessMethod]
@@ -68,7 +68,7 @@ readList :: ReadS [AccessMethod]
 $creadList :: ReadS [AccessMethod]
 readsPrec :: Int -&gt; ReadS AccessMethod
 $creadsPrec :: Int -&gt; ReadS AccessMethod
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207973"><span id="local-6989586621679207975"><span id="local-6989586621679207977"><span class="annot"><span class="annottext">Int -&gt; AccessMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207982"><span id="local-6989586621679207984"><span id="local-6989586621679207986"><span class="annot"><span class="annottext">Int -&gt; AccessMethod -&gt; ShowS
 [AccessMethod] -&gt; ShowS
 AccessMethod -&gt; String
 (Int -&gt; AccessMethod -&gt; ShowS)
@@ -136,16 +136,16 @@ forall a. Maybe a
      (Maybe AccessMethodType)
      (Maybe AccessMethodType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207964"><span class="annot"><span class="annottext">Maybe AccessMethodType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207973"><span class="annot"><span class="annottext">Maybe AccessMethodType
 accessMethodType :: Maybe AccessMethodType
 $sel:accessMethodType:AccessMethod' :: AccessMethod -&gt; Maybe AccessMethodType
-</span><a href="#local-6989586621679207964"><span class="hs-identifier hs-var hs-var">accessMethodType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessMethodType
-</span><a href="#local-6989586621679207964"><span class="hs-identifier hs-var">accessMethodType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207963"><span class="annot"><span class="annottext">s :: AccessMethod
-</span><a href="#local-6989586621679207963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207962"><span class="annot"><span class="annottext">Maybe AccessMethodType
-</span><a href="#local-6989586621679207962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessMethod
-</span><a href="#local-6989586621679207963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessMethodType:AccessMethod' :: Maybe AccessMethodType
+</span><a href="#local-6989586621679207973"><span class="hs-identifier hs-var hs-var">accessMethodType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessMethodType
+</span><a href="#local-6989586621679207973"><span class="hs-identifier hs-var">accessMethodType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207972"><span class="annot"><span class="annottext">s :: AccessMethod
+</span><a href="#local-6989586621679207972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207971"><span class="annot"><span class="annottext">Maybe AccessMethodType
+</span><a href="#local-6989586621679207971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessMethod
+</span><a href="#local-6989586621679207972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessMethodType:AccessMethod' :: Maybe AccessMethodType
 </span><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#%24sel%3AaccessMethodType%3AAccessMethod%27"><span class="hs-identifier hs-var">accessMethodType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessMethodType
-</span><a href="#local-6989586621679207962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | An object identifier (OID) specifying the @AccessMethod@. The OID must</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- satisfy the regular expression shown below. For more information, see</span><span>
@@ -157,19 +157,19 @@ $sel:accessMethodType:AccessMethod' :: AccessMethod -&gt; Maybe AccessMethodType
 -&gt; (AccessMethod -&gt; Maybe Text -&gt; AccessMethod)
 -&gt; Lens AccessMethod AccessMethod (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207960"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207969"><span class="annot"><span class="annottext">Maybe Text
 customObjectIdentifier :: Maybe Text
 $sel:customObjectIdentifier:AccessMethod' :: AccessMethod -&gt; Maybe Text
-</span><a href="#local-6989586621679207960"><span class="hs-identifier hs-var hs-var">customObjectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679207960"><span class="hs-identifier hs-var">customObjectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207959"><span class="annot"><span class="annottext">s :: AccessMethod
-</span><a href="#local-6989586621679207959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207958"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679207958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessMethod
-</span><a href="#local-6989586621679207959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customObjectIdentifier:AccessMethod' :: Maybe Text
+</span><a href="#local-6989586621679207969"><span class="hs-identifier hs-var hs-var">customObjectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207969"><span class="hs-identifier hs-var">customObjectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207968"><span class="annot"><span class="annottext">s :: AccessMethod
+</span><a href="#local-6989586621679207968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207967"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessMethod
+</span><a href="#local-6989586621679207968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customObjectIdentifier:AccessMethod' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#%24sel%3AcustomObjectIdentifier%3AAccessMethod%27"><span class="hs-identifier hs-var">customObjectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679207958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207955"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679207953"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessMethod
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207964"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679207962"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccessMethod) -&gt; Value -&gt; Parser AccessMethod
@@ -177,8 +177,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccessMethod&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207950"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207950"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207959"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207959"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccessMethodType -&gt; Maybe Text -&gt; AccessMethod
 </span><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-var">AccessMethod'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccessMethodType -&gt; Maybe Text -&gt; AccessMethod)
@@ -186,7 +186,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; AccessMethod)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessMethodType)
+</span><a href="#local-6989586621679207959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessMethodType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessMethodType&quot;</span></span><span class="hs-special">)</span><span>
@@ -194,25 +194,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser AccessMethod
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679207959"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207944"><span id="local-6989586621679207946"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207953"><span id="local-6989586621679207955"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207941"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207933"><span id="local-6989586621679207935"><span id="local-6989586621679207937"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679207931"><span class="annot"><span class="annottext">toJSON :: AccessMethod -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207928"><span id="local-6989586621679207929"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207942"><span id="local-6989586621679207944"><span id="local-6989586621679207946"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod"><span class="hs-identifier hs-type">AccessMethod</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679207940"><span class="annot"><span class="annottext">toJSON :: AccessMethod -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AccessMethod.html#AccessMethod%27"><span class="hs-identifier hs-type">AccessMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207937"><span id="local-6989586621679207938"><span class="annot"><span class="annottext">Maybe Text
 Maybe AccessMethodType
 customObjectIdentifier :: Maybe Text
 accessMethodType :: Maybe AccessMethodType
 $sel:customObjectIdentifier:AccessMethod' :: AccessMethod -&gt; Maybe Text
 $sel:accessMethodType:AccessMethod' :: AccessMethod -&gt; Maybe AccessMethodType
-</span><a href="#local-6989586621679207928"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679207937"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -225,7 +225,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(AccessMethodType -&gt; Pair) -&gt; Maybe AccessMethodType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessMethodType
-</span><a href="#local-6989586621679207929"><span class="hs-identifier hs-var">accessMethodType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207938"><span class="hs-identifier hs-var">accessMethodType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomObjectIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -233,7 +233,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679207928"><span class="hs-identifier hs-var">customObjectIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679207937"><span class="hs-identifier hs-var">customObjectIdentifier</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

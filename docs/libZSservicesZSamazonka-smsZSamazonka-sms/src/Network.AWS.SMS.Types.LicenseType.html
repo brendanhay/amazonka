@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679245705"><span id="local-6989586621679245706"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LicenseType"><span class="annot"><a href="Network.AWS.SMS.Types.LicenseType.html#LicenseType"><span class="hs-identifier hs-var">LicenseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LicenseType%27"><span class="annot"><a href="Network.AWS.SMS.Types.LicenseType.html#LicenseType%27"><span class="hs-identifier hs-var">LicenseType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679245714"><span id="local-6989586621679245715"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LicenseType"><span class="annot"><a href="Network.AWS.SMS.Types.LicenseType.html#LicenseType"><span class="hs-identifier hs-var">LicenseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LicenseType%27"><span class="annot"><a href="Network.AWS.SMS.Types.LicenseType.html#LicenseType%27"><span class="hs-identifier hs-var">LicenseType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLicenseType"><span class="annot"><span class="annottext">LicenseType -&gt; Text
 </span><a href="Network.AWS.SMS.Types.LicenseType.html#fromLicenseType"><span class="hs-identifier hs-var hs-var">fromLicenseType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245697"><span id="local-6989586621679245699"><span id="local-6989586621679245701"><span class="annot"><span class="annottext">Int -&gt; LicenseType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245706"><span id="local-6989586621679245708"><span id="local-6989586621679245710"><span class="annot"><span class="annottext">Int -&gt; LicenseType -&gt; ShowS
 [LicenseType] -&gt; ShowS
 LicenseType -&gt; String
 (Int -&gt; LicenseType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: LicenseType -&gt; String
 showsPrec :: Int -&gt; LicenseType -&gt; ShowS
 $cshowsPrec :: Int -&gt; LicenseType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679245688"><span id="local-6989586621679245690"><span id="local-6989586621679245692"><span id="local-6989586621679245694"><span class="annot"><span class="annottext">ReadPrec [LicenseType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679245697"><span id="local-6989586621679245699"><span id="local-6989586621679245701"><span id="local-6989586621679245703"><span class="annot"><span class="annottext">ReadPrec [LicenseType]
 ReadPrec LicenseType
 Int -&gt; ReadS LicenseType
 ReadS [LicenseType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [LicenseType]
 readsPrec :: Int -&gt; ReadS LicenseType
 $creadsPrec :: Int -&gt; ReadS LicenseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679245683"><span id="local-6989586621679245685"><span class="annot"><span class="annottext">LicenseType -&gt; LicenseType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679245692"><span id="local-6989586621679245694"><span class="annot"><span class="annottext">LicenseType -&gt; LicenseType -&gt; Bool
 (LicenseType -&gt; LicenseType -&gt; Bool)
 -&gt; (LicenseType -&gt; LicenseType -&gt; Bool) -&gt; Eq LicenseType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: LicenseType -&gt; LicenseType -&gt; Bool
 == :: LicenseType -&gt; LicenseType -&gt; Bool
 $c== :: LicenseType -&gt; LicenseType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245667"><span id="local-6989586621679245669"><span id="local-6989586621679245671"><span id="local-6989586621679245673"><span id="local-6989586621679245675"><span id="local-6989586621679245677"><span id="local-6989586621679245679"><span class="annot"><span class="annottext">Eq LicenseType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245676"><span id="local-6989586621679245678"><span id="local-6989586621679245680"><span id="local-6989586621679245682"><span id="local-6989586621679245684"><span id="local-6989586621679245686"><span id="local-6989586621679245688"><span class="annot"><span class="annottext">Eq LicenseType
 Eq LicenseType
 -&gt; (LicenseType -&gt; LicenseType -&gt; Ordering)
 -&gt; (LicenseType -&gt; LicenseType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. LicenseType -&gt; Rep LicenseType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245659"><span id="local-6989586621679245661"><span class="annot"><span class="annottext">Int -&gt; LicenseType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245668"><span id="local-6989586621679245670"><span class="annot"><span class="annottext">Int -&gt; LicenseType -&gt; Int
 LicenseType -&gt; Int
 (Int -&gt; LicenseType -&gt; Int)
 -&gt; (LicenseType -&gt; Int) -&gt; Hashable LicenseType
@@ -142,49 +142,49 @@ $chash :: LicenseType -&gt; Int
 hashWithSalt :: Int -&gt; LicenseType -&gt; Int
 $chashWithSalt :: Int -&gt; LicenseType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679245656"><span class="annot"><span class="annottext">LicenseType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679245665"><span class="annot"><span class="annottext">LicenseType -&gt; ()
 (LicenseType -&gt; ()) -&gt; NFData LicenseType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LicenseType -&gt; ()
 $crnf :: LicenseType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679245653"><span class="annot"><span class="annottext">Text -&gt; Either String LicenseType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679245662"><span class="annot"><span class="annottext">Text -&gt; Either String LicenseType
 (Text -&gt; Either String LicenseType) -&gt; FromText LicenseType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LicenseType
 $cfromText :: Text -&gt; Either String LicenseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245650"><span class="annot"><span class="annottext">LicenseType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245659"><span class="annot"><span class="annottext">LicenseType -&gt; Text
 (LicenseType -&gt; Text) -&gt; ToText LicenseType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LicenseType -&gt; Text
 $ctoText :: LicenseType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245647"><span class="annot"><span class="annottext">LicenseType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245656"><span class="annot"><span class="annottext">LicenseType -&gt; ByteString
 (LicenseType -&gt; ByteString) -&gt; ToByteString LicenseType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LicenseType -&gt; ByteString
 $ctoBS :: LicenseType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245644"><span class="annot"><span class="annottext">LicenseType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245653"><span class="annot"><span class="annottext">LicenseType -&gt; ByteStringBuilder
 (LicenseType -&gt; ByteStringBuilder) -&gt; ToLog LicenseType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LicenseType -&gt; ByteStringBuilder
 $cbuild :: LicenseType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245641"><span class="annot"><span class="annottext">HeaderName -&gt; LicenseType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245650"><span class="annot"><span class="annottext">HeaderName -&gt; LicenseType -&gt; [Header]
 (HeaderName -&gt; LicenseType -&gt; [Header]) -&gt; ToHeader LicenseType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LicenseType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LicenseType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245638"><span class="annot"><span class="annottext">LicenseType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245647"><span class="annot"><span class="annottext">LicenseType -&gt; QueryString
 (LicenseType -&gt; QueryString) -&gt; ToQuery LicenseType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LicenseType -&gt; QueryString
 $ctoQuery :: LicenseType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245633"><span id="local-6989586621679245635"><span class="annot"><span class="annottext">Value -&gt; Parser [LicenseType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245642"><span id="local-6989586621679245644"><span class="annot"><span class="annottext">Value -&gt; Parser [LicenseType]
 Value -&gt; Parser LicenseType
 (Value -&gt; Parser LicenseType)
 -&gt; (Value -&gt; Parser [LicenseType]) -&gt; FromJSON LicenseType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [LicenseType]
 parseJSON :: Value -&gt; Parser LicenseType
 $cparseJSON :: Value -&gt; Parser LicenseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245628"><span id="local-6989586621679245630"><span class="annot"><span class="annottext">FromJSONKeyFunction [LicenseType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245637"><span id="local-6989586621679245639"><span class="annot"><span class="annottext">FromJSONKeyFunction [LicenseType]
 FromJSONKeyFunction LicenseType
 FromJSONKeyFunction LicenseType
 -&gt; FromJSONKeyFunction [LicenseType] -&gt; FromJSONKey LicenseType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LicenseType]
 fromJSONKey :: FromJSONKeyFunction LicenseType
 $cfromJSONKey :: FromJSONKeyFunction LicenseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245619"><span id="local-6989586621679245621"><span id="local-6989586621679245623"><span id="local-6989586621679245625"><span class="annot"><span class="annottext">[LicenseType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245628"><span id="local-6989586621679245630"><span id="local-6989586621679245632"><span id="local-6989586621679245634"><span class="annot"><span class="annottext">[LicenseType] -&gt; Encoding
 [LicenseType] -&gt; Value
 LicenseType -&gt; Encoding
 LicenseType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: LicenseType -&gt; Encoding
 toJSON :: LicenseType -&gt; Value
 $ctoJSON :: LicenseType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245614"><span id="local-6989586621679245616"><span class="annot"><span class="annottext">ToJSONKeyFunction [LicenseType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245623"><span id="local-6989586621679245625"><span class="annot"><span class="annottext">ToJSONKeyFunction [LicenseType]
 ToJSONKeyFunction LicenseType
 ToJSONKeyFunction LicenseType
 -&gt; ToJSONKeyFunction [LicenseType] -&gt; ToJSONKey LicenseType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LicenseType]
 toJSONKey :: ToJSONKeyFunction LicenseType
 $ctoJSONKey :: ToJSONKeyFunction LicenseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245611"><span class="annot"><span class="annottext">[Node] -&gt; Either String LicenseType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245620"><span class="annot"><span class="annottext">[Node] -&gt; Either String LicenseType
 ([Node] -&gt; Either String LicenseType) -&gt; FromXML LicenseType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LicenseType
 $cparseXML :: [Node] -&gt; Either String LicenseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245608"><span class="annot"><span class="annottext">LicenseType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245617"><span class="annot"><span class="annottext">LicenseType -&gt; XML
 (LicenseType -&gt; XML) -&gt; ToXML LicenseType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LicenseType -&gt; XML

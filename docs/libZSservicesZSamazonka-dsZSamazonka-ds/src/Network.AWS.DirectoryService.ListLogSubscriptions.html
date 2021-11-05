@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListLogSubscriptions' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679305967"><span id="local-6989586621679305968"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLogSubscriptions"><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-var">ListLogSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLogSubscriptions%27"><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-var">ListLogSubscriptions'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679305976"><span id="local-6989586621679305977"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLogSubscriptions"><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-var">ListLogSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLogSubscriptions%27"><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-var">ListLogSubscriptions'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a /DirectoryID/ is provided, lists only the log subscription</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- associated with that directory. If no /DirectoryId/ is provided, lists</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- all log subscriptions associated with your Amazon Web Services account.</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Alimit%3AListLogSubscriptions%27"><span class="annot"><span class="annottext">ListLogSubscriptions -&gt; Maybe Natural
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3Alimit%3AListLogSubscriptions%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305959"><span id="local-6989586621679305961"><span class="annot"><span class="annottext">ListLogSubscriptions -&gt; ListLogSubscriptions -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305968"><span id="local-6989586621679305970"><span class="annot"><span class="annottext">ListLogSubscriptions -&gt; ListLogSubscriptions -&gt; Bool
 (ListLogSubscriptions -&gt; ListLogSubscriptions -&gt; Bool)
 -&gt; (ListLogSubscriptions -&gt; ListLogSubscriptions -&gt; Bool)
 -&gt; Eq ListLogSubscriptions
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListLogSubscriptions -&gt; ListLogSubscriptions -&gt; Bool
 == :: ListLogSubscriptions -&gt; ListLogSubscriptions -&gt; Bool
 $c== :: ListLogSubscriptions -&gt; ListLogSubscriptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305950"><span id="local-6989586621679305952"><span id="local-6989586621679305954"><span id="local-6989586621679305956"><span class="annot"><span class="annottext">ReadPrec [ListLogSubscriptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305959"><span id="local-6989586621679305961"><span id="local-6989586621679305963"><span id="local-6989586621679305965"><span class="annot"><span class="annottext">ReadPrec [ListLogSubscriptions]
 ReadPrec ListLogSubscriptions
 Int -&gt; ReadS ListLogSubscriptions
 ReadS [ListLogSubscriptions]
@@ -96,7 +96,7 @@ readList :: ReadS [ListLogSubscriptions]
 $creadList :: ReadS [ListLogSubscriptions]
 readsPrec :: Int -&gt; ReadS ListLogSubscriptions
 $creadsPrec :: Int -&gt; ReadS ListLogSubscriptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305943"><span id="local-6989586621679305945"><span id="local-6989586621679305947"><span class="annot"><span class="annottext">Int -&gt; ListLogSubscriptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305952"><span id="local-6989586621679305954"><span id="local-6989586621679305956"><span class="annot"><span class="annottext">Int -&gt; ListLogSubscriptions -&gt; ShowS
 [ListLogSubscriptions] -&gt; ShowS
 ListLogSubscriptions -&gt; String
 (Int -&gt; ListLogSubscriptions -&gt; ShowS)
@@ -173,16 +173,16 @@ forall a. Maybe a
 -&gt; Lens
      ListLogSubscriptions ListLogSubscriptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305937"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305946"><span class="annot"><span class="annottext">Maybe Text
 directoryId :: Maybe Text
 $sel:directoryId:ListLogSubscriptions' :: ListLogSubscriptions -&gt; Maybe Text
-</span><a href="#local-6989586621679305937"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305937"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305936"><span class="annot"><span class="annottext">s :: ListLogSubscriptions
-</span><a href="#local-6989586621679305936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305935"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptions
-</span><a href="#local-6989586621679305936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:ListLogSubscriptions' :: Maybe Text
+</span><a href="#local-6989586621679305946"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305946"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305945"><span class="annot"><span class="annottext">s :: ListLogSubscriptions
+</span><a href="#local-6989586621679305945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305944"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptions
+</span><a href="#local-6989586621679305945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:ListLogSubscriptions' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3AdirectoryId%3AListLogSubscriptions%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The token for the next set of items to return.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#listLogSubscriptions_nextToken"><span class="hs-identifier hs-type">listLogSubscriptions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -193,16 +193,16 @@ $sel:directoryId:ListLogSubscriptions' :: ListLogSubscriptions -&gt; Maybe Text
 -&gt; Lens
      ListLogSubscriptions ListLogSubscriptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305934"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305943"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListLogSubscriptions' :: ListLogSubscriptions -&gt; Maybe Text
-</span><a href="#local-6989586621679305934"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305934"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305933"><span class="annot"><span class="annottext">s :: ListLogSubscriptions
-</span><a href="#local-6989586621679305933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305932"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptions
-</span><a href="#local-6989586621679305933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLogSubscriptions' :: Maybe Text
+</span><a href="#local-6989586621679305943"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305943"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305942"><span class="annot"><span class="annottext">s :: ListLogSubscriptions
+</span><a href="#local-6989586621679305942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptions
+</span><a href="#local-6989586621679305942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLogSubscriptions' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3AnextToken%3AListLogSubscriptions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The maximum number of items returned.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#listLogSubscriptions_limit"><span class="hs-identifier hs-type">listLogSubscriptions_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -216,29 +216,29 @@ $sel:nextToken:ListLogSubscriptions' :: ListLogSubscriptions -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305931"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305940"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListLogSubscriptions' :: ListLogSubscriptions -&gt; Maybe Natural
-</span><a href="#local-6989586621679305931"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305931"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305930"><span class="annot"><span class="annottext">s :: ListLogSubscriptions
-</span><a href="#local-6989586621679305930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305929"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptions
-</span><a href="#local-6989586621679305930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListLogSubscriptions' :: Maybe Natural
+</span><a href="#local-6989586621679305940"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679305940"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305939"><span class="annot"><span class="annottext">s :: ListLogSubscriptions
+</span><a href="#local-6989586621679305939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305938"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679305938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptions
+</span><a href="#local-6989586621679305939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListLogSubscriptions' :: Maybe Natural
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3Alimit%3AListLogSubscriptions%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679305925"><span class="annot"><span class="annottext">page :: ListLogSubscriptions
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679305934"><span class="annot"><span class="annottext">page :: ListLogSubscriptions
 -&gt; AWSResponse ListLogSubscriptions -&gt; Maybe ListLogSubscriptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679305923"><span class="annot"><span class="annottext">ListLogSubscriptions
-</span><a href="#local-6989586621679305923"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679305922"><span class="annot"><span class="annottext">AWSResponse ListLogSubscriptions
-</span><a href="#local-6989586621679305922"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679305932"><span class="annot"><span class="annottext">ListLogSubscriptions
+</span><a href="#local-6989586621679305932"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679305931"><span class="annot"><span class="annottext">AWSResponse ListLogSubscriptions
+</span><a href="#local-6989586621679305931"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLogSubscriptions
 ListLogSubscriptionsResponse
-</span><a href="#local-6989586621679305922"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305931"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
 -&gt; Getting (First Text) ListLogSubscriptionsResponse Text
 -&gt; Maybe Text
@@ -268,7 +268,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-121"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLogSubscriptions
 ListLogSubscriptionsResponse
-</span><a href="#local-6989586621679305922"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305931"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
 -&gt; Getting
      (First [LogSubscription])
@@ -314,7 +314,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ListLogSubscriptions
-</span><a href="#local-6989586621679305923"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679305932"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListLogSubscriptions
 -&gt; (ListLogSubscriptions -&gt; ListLogSubscriptions)
 -&gt; ListLogSubscriptions
@@ -330,7 +330,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLogSubscriptions
 ListLogSubscriptionsResponse
-</span><a href="#local-6989586621679305922"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305931"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
 -&gt; Getting (First Text) ListLogSubscriptionsResponse Text
 -&gt; Maybe Text
@@ -356,12 +356,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679305912"><span class="annot"><span class="annottext">request :: ListLogSubscriptions -&gt; Request ListLogSubscriptions
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679305921"><span class="annot"><span class="annottext">request :: ListLogSubscriptions -&gt; Request ListLogSubscriptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListLogSubscriptions -&gt; Request ListLogSubscriptions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679305908"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679305917"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListLogSubscriptions
 -&gt; ClientResponse ClientBody
@@ -387,10 +387,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305905"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305905"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305904"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679305904"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305903"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305903"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305914"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305914"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305913"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679305913"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305912"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305912"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [LogSubscription] -&gt; Int -&gt; ListLogSubscriptionsResponse
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-var">ListLogSubscriptionsResponse'</span></a></span><span>
@@ -402,7 +402,7 @@ MonadResource m =&gt;
      (Maybe [LogSubscription] -&gt; Int -&gt; ListLogSubscriptionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679305912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -413,7 +413,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListLogSubscriptionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LogSubscription]))
+</span><a href="#local-6989586621679305912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LogSubscription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogSubscriptions&quot;</span></span><span>
@@ -433,15 +433,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305905"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305914"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305894"><span id="local-6989586621679305896"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305903"><span id="local-6989586621679305905"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305900"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679305887"><span class="annot"><span class="annottext">toHeaders :: ListLogSubscriptions -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679305896"><span class="annot"><span class="annottext">toHeaders :: ListLogSubscriptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListLogSubscriptions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -468,9 +468,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305877"><span id="local-6989586621679305879"><span id="local-6989586621679305881"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679305875"><span class="annot"><span class="annottext">toJSON :: ListLogSubscriptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305871"><span id="local-6989586621679305872"><span id="local-6989586621679305873"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305886"><span id="local-6989586621679305888"><span id="local-6989586621679305890"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679305884"><span class="annot"><span class="annottext">toJSON :: ListLogSubscriptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions%27"><span class="hs-identifier hs-type">ListLogSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305880"><span id="local-6989586621679305881"><span id="local-6989586621679305882"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 nextToken :: Maybe Text
@@ -478,7 +478,7 @@ directoryId :: Maybe Text
 $sel:limit:ListLogSubscriptions' :: ListLogSubscriptions -&gt; Maybe Natural
 $sel:nextToken:ListLogSubscriptions' :: ListLogSubscriptions -&gt; Maybe Text
 $sel:directoryId:ListLogSubscriptions' :: ListLogSubscriptions -&gt; Maybe Text
-</span><a href="#local-6989586621679305871"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679305880"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -490,33 +490,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305873"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305882"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305872"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305881"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679305871"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679305880"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679305865"><span class="annot"><span class="annottext">toPath :: ListLogSubscriptions -&gt; ByteString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679305874"><span class="annot"><span class="annottext">toPath :: ListLogSubscriptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListLogSubscriptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptions"><span class="hs-identifier hs-type">ListLogSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679305861"><span class="annot"><span class="annottext">toQuery :: ListLogSubscriptions -&gt; QueryString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679305870"><span class="annot"><span class="annottext">toQuery :: ListLogSubscriptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListLogSubscriptions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -524,7 +524,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newListLogSubscriptionsResponse' smart constructor.</span><span>
-</span><span id="line-186"></span><span id="local-6989586621679305858"><span id="local-6989586621679305859"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLogSubscriptionsResponse"><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-var">ListLogSubscriptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLogSubscriptionsResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-var">ListLogSubscriptionsResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span id="local-6989586621679305867"><span id="local-6989586621679305868"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLogSubscriptionsResponse"><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-var">ListLogSubscriptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLogSubscriptionsResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-var">ListLogSubscriptionsResponse'</span></a></span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return.</span><span>
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AnextToken%3AListLogSubscriptionsResponse%27"><span class="annot"><span class="annottext">ListLogSubscriptionsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3AnextToken%3AListLogSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -536,7 +536,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListLogSubscriptionsResponse%27"><span class="annot"><span class="annottext">ListLogSubscriptionsResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3AhttpStatus%3AListLogSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305851"><span id="local-6989586621679305853"><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305860"><span id="local-6989586621679305862"><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
 -&gt; ListLogSubscriptionsResponse -&gt; Bool
 (ListLogSubscriptionsResponse
  -&gt; ListLogSubscriptionsResponse -&gt; Bool)
@@ -552,7 +552,7 @@ $c/= :: ListLogSubscriptionsResponse
 -&gt; ListLogSubscriptionsResponse -&gt; Bool
 $c== :: ListLogSubscriptionsResponse
 -&gt; ListLogSubscriptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305843"><span id="local-6989586621679305845"><span id="local-6989586621679305847"><span id="local-6989586621679305849"><span class="annot"><span class="annottext">ReadPrec [ListLogSubscriptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305852"><span id="local-6989586621679305854"><span id="local-6989586621679305856"><span id="local-6989586621679305858"><span class="annot"><span class="annottext">ReadPrec [ListLogSubscriptionsResponse]
 ReadPrec ListLogSubscriptionsResponse
 Int -&gt; ReadS ListLogSubscriptionsResponse
 ReadS [ListLogSubscriptionsResponse]
@@ -572,7 +572,7 @@ readList :: ReadS [ListLogSubscriptionsResponse]
 $creadList :: ReadS [ListLogSubscriptionsResponse]
 readsPrec :: Int -&gt; ReadS ListLogSubscriptionsResponse
 $creadsPrec :: Int -&gt; ReadS ListLogSubscriptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305837"><span id="local-6989586621679305839"><span id="local-6989586621679305841"><span class="annot"><span class="annottext">Int -&gt; ListLogSubscriptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305846"><span id="local-6989586621679305848"><span id="local-6989586621679305850"><span class="annot"><span class="annottext">Int -&gt; ListLogSubscriptionsResponse -&gt; ShowS
 [ListLogSubscriptionsResponse] -&gt; ShowS
 ListLogSubscriptionsResponse -&gt; String
 (Int -&gt; ListLogSubscriptionsResponse -&gt; ShowS)
@@ -623,8 +623,8 @@ ListLogSubscriptionsResponse -&gt; Rep ListLogSubscriptionsResponse x
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span><span>
 </span><span id="line-215"></span><span id="newListLogSubscriptionsResponse"><span class="annot"><span class="annottext">newListLogSubscriptionsResponse :: Int -&gt; ListLogSubscriptionsResponse
-</span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#newListLogSubscriptionsResponse"><span class="hs-identifier hs-var hs-var">newListLogSubscriptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679305834"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305834"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#newListLogSubscriptionsResponse"><span class="hs-identifier hs-var hs-var">newListLogSubscriptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679305843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse' :: Maybe Text
 -&gt; Maybe [LogSubscription] -&gt; Int -&gt; ListLogSubscriptionsResponse
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span>
@@ -639,7 +639,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListLogSubscriptionsResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3AhttpStatus%3AListLogSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305834"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679305843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The token for the next set of items to return.</span><span>
@@ -651,16 +651,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListLogSubscriptionsResponse)
 -&gt; Lens' ListLogSubscriptionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305833"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305842"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListLogSubscriptionsResponse' :: ListLogSubscriptionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679305833"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305833"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305832"><span class="annot"><span class="annottext">s :: ListLogSubscriptionsResponse
-</span><a href="#local-6989586621679305832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305831"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
-</span><a href="#local-6989586621679305832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLogSubscriptionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679305842"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305842"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305841"><span class="annot"><span class="annottext">s :: ListLogSubscriptionsResponse
+</span><a href="#local-6989586621679305841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305840"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
+</span><a href="#local-6989586621679305841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLogSubscriptionsResponse' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3AnextToken%3AListLogSubscriptionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | A list of active LogSubscription objects for calling the Amazon Web</span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- Services account.</span><span>
@@ -672,16 +672,16 @@ $sel:nextToken:ListLogSubscriptionsResponse' :: ListLogSubscriptionsResponse -&g
     -&gt; Maybe [LogSubscription] -&gt; ListLogSubscriptionsResponse)
 -&gt; Lens' ListLogSubscriptionsResponse (Maybe [LogSubscription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305830"><span class="annot"><span class="annottext">Maybe [LogSubscription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305839"><span class="annot"><span class="annottext">Maybe [LogSubscription]
 logSubscriptions :: Maybe [LogSubscription]
 $sel:logSubscriptions:ListLogSubscriptionsResponse' :: ListLogSubscriptionsResponse -&gt; Maybe [LogSubscription]
-</span><a href="#local-6989586621679305830"><span class="hs-identifier hs-var hs-var">logSubscriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogSubscription]
-</span><a href="#local-6989586621679305830"><span class="hs-identifier hs-var">logSubscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305829"><span class="annot"><span class="annottext">s :: ListLogSubscriptionsResponse
-</span><a href="#local-6989586621679305829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305828"><span class="annot"><span class="annottext">Maybe [LogSubscription]
-</span><a href="#local-6989586621679305828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
-</span><a href="#local-6989586621679305829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logSubscriptions:ListLogSubscriptionsResponse' :: Maybe [LogSubscription]
+</span><a href="#local-6989586621679305839"><span class="hs-identifier hs-var hs-var">logSubscriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogSubscription]
+</span><a href="#local-6989586621679305839"><span class="hs-identifier hs-var">logSubscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305838"><span class="annot"><span class="annottext">s :: ListLogSubscriptionsResponse
+</span><a href="#local-6989586621679305838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305837"><span class="annot"><span class="annottext">Maybe [LogSubscription]
+</span><a href="#local-6989586621679305837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
+</span><a href="#local-6989586621679305838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logSubscriptions:ListLogSubscriptionsResponse' :: Maybe [LogSubscription]
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3AlogSubscriptions%3AListLogSubscriptionsResponse%27"><span class="hs-identifier hs-var">logSubscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogSubscription]
-</span><a href="#local-6989586621679305828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogSubscription] -&gt; f (Maybe [LogSubscription]))
+</span><a href="#local-6989586621679305837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogSubscription] -&gt; f (Maybe [LogSubscription]))
  -&gt; ListLogSubscriptionsResponse -&gt; f ListLogSubscriptionsResponse)
 -&gt; ((Maybe [LogSubscription] -&gt; f (Maybe [LogSubscription]))
     -&gt; Maybe [LogSubscription] -&gt; f (Maybe [LogSubscription]))
@@ -720,16 +720,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListLogSubscriptionsResponse ListLogSubscriptionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305825"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305834"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListLogSubscriptionsResponse' :: ListLogSubscriptionsResponse -&gt; Int
-</span><a href="#local-6989586621679305825"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305825"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305824"><span class="annot"><span class="annottext">s :: ListLogSubscriptionsResponse
-</span><a href="#local-6989586621679305824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305823"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
-</span><a href="#local-6989586621679305824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLogSubscriptionsResponse' :: Int
+</span><a href="#local-6989586621679305834"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305834"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305833"><span class="annot"><span class="annottext">s :: ListLogSubscriptionsResponse
+</span><a href="#local-6989586621679305833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305832"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLogSubscriptionsResponse
+</span><a href="#local-6989586621679305833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLogSubscriptionsResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#%24sel%3AhttpStatus%3AListLogSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679305823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListLogSubscriptions.html#ListLogSubscriptionsResponse"><span class="hs-identifier hs-type">ListLogSubscriptionsResponse</span></a></span></span><span>
 </span><span id="line-237"></span></pre></body></html>

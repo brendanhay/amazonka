@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | The input for the EnableTopicRuleRequest operation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newEnableTopicRule' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679833556"><span id="local-6989586621679833557"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableTopicRule"><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-var">EnableTopicRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableTopicRule%27"><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule%27"><span class="hs-identifier hs-var">EnableTopicRule'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679833565"><span id="local-6989586621679833566"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableTopicRule"><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-var">EnableTopicRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableTopicRule%27"><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule%27"><span class="hs-identifier hs-var">EnableTopicRule'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the topic rule to enable.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AruleName%3AEnableTopicRule%27"><span class="annot"><span class="annottext">EnableTopicRule -&gt; Text
 </span><a href="Network.AWS.IoT.EnableTopicRule.html#%24sel%3AruleName%3AEnableTopicRule%27"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833550"><span id="local-6989586621679833552"><span class="annot"><span class="annottext">EnableTopicRule -&gt; EnableTopicRule -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833559"><span id="local-6989586621679833561"><span class="annot"><span class="annottext">EnableTopicRule -&gt; EnableTopicRule -&gt; Bool
 (EnableTopicRule -&gt; EnableTopicRule -&gt; Bool)
 -&gt; (EnableTopicRule -&gt; EnableTopicRule -&gt; Bool)
 -&gt; Eq EnableTopicRule
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableTopicRule -&gt; EnableTopicRule -&gt; Bool
 == :: EnableTopicRule -&gt; EnableTopicRule -&gt; Bool
 $c== :: EnableTopicRule -&gt; EnableTopicRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833541"><span id="local-6989586621679833543"><span id="local-6989586621679833545"><span id="local-6989586621679833547"><span class="annot"><span class="annottext">ReadPrec [EnableTopicRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833550"><span id="local-6989586621679833552"><span id="local-6989586621679833554"><span id="local-6989586621679833556"><span class="annot"><span class="annottext">ReadPrec [EnableTopicRule]
 ReadPrec EnableTopicRule
 Int -&gt; ReadS EnableTopicRule
 ReadS [EnableTopicRule]
@@ -83,7 +83,7 @@ readList :: ReadS [EnableTopicRule]
 $creadList :: ReadS [EnableTopicRule]
 readsPrec :: Int -&gt; ReadS EnableTopicRule
 $creadsPrec :: Int -&gt; ReadS EnableTopicRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833534"><span id="local-6989586621679833536"><span id="local-6989586621679833538"><span class="annot"><span class="annottext">Int -&gt; EnableTopicRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833543"><span id="local-6989586621679833545"><span id="local-6989586621679833547"><span class="annot"><span class="annottext">Int -&gt; EnableTopicRule -&gt; ShowS
 [EnableTopicRule] -&gt; ShowS
 EnableTopicRule -&gt; String
 (Int -&gt; EnableTopicRule -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. EnableTopicRule -&gt; Rep EnableTopicRule x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span><span>
 </span><span id="line-71"></span><span id="newEnableTopicRule"><span class="annot"><span class="annottext">newEnableTopicRule :: Text -&gt; EnableTopicRule
-</span><a href="Network.AWS.IoT.EnableTopicRule.html#newEnableTopicRule"><span class="hs-identifier hs-var hs-var">newEnableTopicRule</span></a></span></span><span> </span><span id="local-6989586621679833529"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833529"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.EnableTopicRule.html#newEnableTopicRule"><span class="hs-identifier hs-var hs-var">newEnableTopicRule</span></a></span></span><span> </span><span id="local-6989586621679833538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679833538"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">EnableTopicRule' :: Text -&gt; EnableTopicRule
 </span><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule%27"><span class="hs-identifier hs-type">EnableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:EnableTopicRule' :: Text
 </span><a href="Network.AWS.IoT.EnableTopicRule.html#%24sel%3AruleName%3AEnableTopicRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833529"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679833538"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The name of the topic rule to enable.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#enableTopicRule_ruleName"><span class="hs-identifier hs-type">enableTopicRule_ruleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. EnableTopicRule -&gt; Rep EnableTopicRule x
 -&gt; (EnableTopicRule -&gt; Text -&gt; EnableTopicRule)
 -&gt; Lens EnableTopicRule EnableTopicRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule%27"><span class="hs-identifier hs-type">EnableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833526"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule%27"><span class="hs-identifier hs-type">EnableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833535"><span class="annot"><span class="annottext">Text
 ruleName :: Text
 $sel:ruleName:EnableTopicRule' :: EnableTopicRule -&gt; Text
-</span><a href="#local-6989586621679833526"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833526"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833525"><span class="annot"><span class="annottext">s :: EnableTopicRule
-</span><a href="#local-6989586621679833525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule%27"><span class="hs-identifier hs-type">EnableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833524"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableTopicRule
-</span><a href="#local-6989586621679833525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:EnableTopicRule' :: Text
+</span><a href="#local-6989586621679833535"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679833535"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833534"><span class="annot"><span class="annottext">s :: EnableTopicRule
+</span><a href="#local-6989586621679833534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule%27"><span class="hs-identifier hs-type">EnableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679833533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableTopicRule
+</span><a href="#local-6989586621679833534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:EnableTopicRule' :: Text
 </span><a href="Network.AWS.IoT.EnableTopicRule.html#%24sel%3AruleName%3AEnableTopicRule%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRuleResponse"><span class="hs-identifier hs-type">EnableTopicRuleResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679833520"><span class="annot"><span class="annottext">request :: EnableTopicRule -&gt; Request EnableTopicRule
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679833529"><span class="annot"><span class="annottext">request :: EnableTopicRule -&gt; Request EnableTopicRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableTopicRule -&gt; Request EnableTopicRule
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679833516"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679833525"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy EnableTopicRule
 -&gt; ClientResponse ClientBody
@@ -181,20 +181,20 @@ AWSResponse a
 EnableTopicRuleResponse
 </span><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRuleResponse%27"><span class="hs-identifier hs-var">EnableTopicRuleResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833509"><span id="local-6989586621679833511"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833518"><span id="local-6989586621679833520"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833515"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679833502"><span class="annot"><span class="annottext">toHeaders :: EnableTopicRule -&gt; [Header]
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679833511"><span class="annot"><span class="annottext">toHeaders :: EnableTopicRule -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; EnableTopicRule -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833493"><span id="local-6989586621679833495"><span id="local-6989586621679833497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679833491"><span class="annot"><span class="annottext">toJSON :: EnableTopicRule -&gt; Value
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833502"><span id="local-6989586621679833504"><span id="local-6989586621679833506"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679833500"><span class="annot"><span class="annottext">toJSON :: EnableTopicRule -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; EnableTopicRule -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -203,11 +203,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679833486"><span class="annot"><span class="annottext">toPath :: EnableTopicRule -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule%27"><span class="hs-identifier hs-type">EnableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833484"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679833495"><span class="annot"><span class="annottext">toPath :: EnableTopicRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule%27"><span class="hs-identifier hs-type">EnableTopicRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833493"><span class="annot"><span class="annottext">Text
 ruleName :: Text
 $sel:ruleName:EnableTopicRule' :: EnableTopicRule -&gt; Text
-</span><a href="#local-6989586621679833484"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679833493"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -215,11 +215,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/rules/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833484"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679833493"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/enable&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRule"><span class="hs-identifier hs-type">EnableTopicRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679833480"><span class="annot"><span class="annottext">toQuery :: EnableTopicRule -&gt; QueryString
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679833489"><span class="annot"><span class="annottext">toQuery :: EnableTopicRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; EnableTopicRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -227,10 +227,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | /See:/ 'newEnableTopicRuleResponse' smart constructor.</span><span>
-</span><span id="line-105"></span><span id="local-6989586621679833477"><span id="local-6989586621679833478"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableTopicRuleResponse"><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRuleResponse"><span class="hs-identifier hs-var">EnableTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableTopicRuleResponse%27"><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRuleResponse%27"><span class="hs-identifier hs-var">EnableTopicRuleResponse'</span></a></span></span><span>
+</span><span id="line-105"></span><span id="local-6989586621679833486"><span id="local-6989586621679833487"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableTopicRuleResponse"><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRuleResponse"><span class="hs-identifier hs-var">EnableTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableTopicRuleResponse%27"><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRuleResponse%27"><span class="hs-identifier hs-var">EnableTopicRuleResponse'</span></a></span></span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833473"><span id="local-6989586621679833475"><span class="annot"><span class="annottext">EnableTopicRuleResponse -&gt; EnableTopicRuleResponse -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833482"><span id="local-6989586621679833484"><span class="annot"><span class="annottext">EnableTopicRuleResponse -&gt; EnableTopicRuleResponse -&gt; Bool
 (EnableTopicRuleResponse -&gt; EnableTopicRuleResponse -&gt; Bool)
 -&gt; (EnableTopicRuleResponse -&gt; EnableTopicRuleResponse -&gt; Bool)
 -&gt; Eq EnableTopicRuleResponse
@@ -239,7 +239,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableTopicRuleResponse -&gt; EnableTopicRuleResponse -&gt; Bool
 == :: EnableTopicRuleResponse -&gt; EnableTopicRuleResponse -&gt; Bool
 $c== :: EnableTopicRuleResponse -&gt; EnableTopicRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833465"><span id="local-6989586621679833467"><span id="local-6989586621679833469"><span id="local-6989586621679833471"><span class="annot"><span class="annottext">ReadPrec [EnableTopicRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833474"><span id="local-6989586621679833476"><span id="local-6989586621679833478"><span id="local-6989586621679833480"><span class="annot"><span class="annottext">ReadPrec [EnableTopicRuleResponse]
 ReadPrec EnableTopicRuleResponse
 Int -&gt; ReadS EnableTopicRuleResponse
 ReadS [EnableTopicRuleResponse]
@@ -259,7 +259,7 @@ readList :: ReadS [EnableTopicRuleResponse]
 $creadList :: ReadS [EnableTopicRuleResponse]
 readsPrec :: Int -&gt; ReadS EnableTopicRuleResponse
 $creadsPrec :: Int -&gt; ReadS EnableTopicRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833459"><span id="local-6989586621679833461"><span id="local-6989586621679833463"><span class="annot"><span class="annottext">Int -&gt; EnableTopicRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833468"><span id="local-6989586621679833470"><span id="local-6989586621679833472"><span class="annot"><span class="annottext">Int -&gt; EnableTopicRuleResponse -&gt; ShowS
 [EnableTopicRuleResponse] -&gt; ShowS
 EnableTopicRuleResponse -&gt; String
 (Int -&gt; EnableTopicRuleResponse -&gt; ShowS)
@@ -297,5 +297,5 @@ $cfrom :: forall x. EnableTopicRuleResponse -&gt; Rep EnableTopicRuleResponse x
 </span><a href="Network.AWS.IoT.EnableTopicRule.html#newEnableTopicRuleResponse"><span class="hs-identifier hs-var hs-var">newEnableTopicRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EnableTopicRuleResponse
 </span><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRuleResponse%27"><span class="hs-identifier hs-var">EnableTopicRuleResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRuleResponse"><span class="hs-identifier hs-type">EnableTopicRuleResponse</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.EnableTopicRule.html#EnableTopicRuleResponse"><span class="hs-identifier hs-type">EnableTopicRuleResponse</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679306782"><span id="local-6989586621679306783"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WafActionType"><span class="annot"><a href="Network.AWS.WAF.Types.WafActionType.html#WafActionType"><span class="hs-identifier hs-var">WafActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WafActionType%27"><span class="annot"><a href="Network.AWS.WAF.Types.WafActionType.html#WafActionType%27"><span class="hs-identifier hs-var">WafActionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679306791"><span id="local-6989586621679306792"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WafActionType"><span class="annot"><a href="Network.AWS.WAF.Types.WafActionType.html#WafActionType"><span class="hs-identifier hs-var">WafActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WafActionType%27"><span class="annot"><a href="Network.AWS.WAF.Types.WafActionType.html#WafActionType%27"><span class="hs-identifier hs-var">WafActionType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWafActionType"><span class="annot"><span class="annottext">WafActionType -&gt; Text
 </span><a href="Network.AWS.WAF.Types.WafActionType.html#fromWafActionType"><span class="hs-identifier hs-var hs-var">fromWafActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306774"><span id="local-6989586621679306776"><span id="local-6989586621679306778"><span class="annot"><span class="annottext">Int -&gt; WafActionType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306783"><span id="local-6989586621679306785"><span id="local-6989586621679306787"><span class="annot"><span class="annottext">Int -&gt; WafActionType -&gt; ShowS
 [WafActionType] -&gt; ShowS
 WafActionType -&gt; String
 (Int -&gt; WafActionType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: WafActionType -&gt; String
 showsPrec :: Int -&gt; WafActionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; WafActionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306765"><span id="local-6989586621679306767"><span id="local-6989586621679306769"><span id="local-6989586621679306771"><span class="annot"><span class="annottext">ReadPrec [WafActionType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306774"><span id="local-6989586621679306776"><span id="local-6989586621679306778"><span id="local-6989586621679306780"><span class="annot"><span class="annottext">ReadPrec [WafActionType]
 ReadPrec WafActionType
 Int -&gt; ReadS WafActionType
 ReadS [WafActionType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [WafActionType]
 readsPrec :: Int -&gt; ReadS WafActionType
 $creadsPrec :: Int -&gt; ReadS WafActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306760"><span id="local-6989586621679306762"><span class="annot"><span class="annottext">WafActionType -&gt; WafActionType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306769"><span id="local-6989586621679306771"><span class="annot"><span class="annottext">WafActionType -&gt; WafActionType -&gt; Bool
 (WafActionType -&gt; WafActionType -&gt; Bool)
 -&gt; (WafActionType -&gt; WafActionType -&gt; Bool) -&gt; Eq WafActionType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: WafActionType -&gt; WafActionType -&gt; Bool
 == :: WafActionType -&gt; WafActionType -&gt; Bool
 $c== :: WafActionType -&gt; WafActionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679306744"><span id="local-6989586621679306746"><span id="local-6989586621679306748"><span id="local-6989586621679306750"><span id="local-6989586621679306752"><span id="local-6989586621679306754"><span id="local-6989586621679306756"><span class="annot"><span class="annottext">Eq WafActionType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679306753"><span id="local-6989586621679306755"><span id="local-6989586621679306757"><span id="local-6989586621679306759"><span id="local-6989586621679306761"><span id="local-6989586621679306763"><span id="local-6989586621679306765"><span class="annot"><span class="annottext">Eq WafActionType
 Eq WafActionType
 -&gt; (WafActionType -&gt; WafActionType -&gt; Ordering)
 -&gt; (WafActionType -&gt; WafActionType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. WafActionType -&gt; Rep WafActionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306736"><span id="local-6989586621679306738"><span class="annot"><span class="annottext">Int -&gt; WafActionType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306745"><span id="local-6989586621679306747"><span class="annot"><span class="annottext">Int -&gt; WafActionType -&gt; Int
 WafActionType -&gt; Int
 (Int -&gt; WafActionType -&gt; Int)
 -&gt; (WafActionType -&gt; Int) -&gt; Hashable WafActionType
@@ -143,49 +143,49 @@ $chash :: WafActionType -&gt; Int
 hashWithSalt :: Int -&gt; WafActionType -&gt; Int
 $chashWithSalt :: Int -&gt; WafActionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306733"><span class="annot"><span class="annottext">WafActionType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306742"><span class="annot"><span class="annottext">WafActionType -&gt; ()
 (WafActionType -&gt; ()) -&gt; NFData WafActionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WafActionType -&gt; ()
 $crnf :: WafActionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306730"><span class="annot"><span class="annottext">Text -&gt; Either String WafActionType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306739"><span class="annot"><span class="annottext">Text -&gt; Either String WafActionType
 (Text -&gt; Either String WafActionType) -&gt; FromText WafActionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WafActionType
 $cfromText :: Text -&gt; Either String WafActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306727"><span class="annot"><span class="annottext">WafActionType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306736"><span class="annot"><span class="annottext">WafActionType -&gt; Text
 (WafActionType -&gt; Text) -&gt; ToText WafActionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WafActionType -&gt; Text
 $ctoText :: WafActionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306724"><span class="annot"><span class="annottext">WafActionType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306733"><span class="annot"><span class="annottext">WafActionType -&gt; ByteString
 (WafActionType -&gt; ByteString) -&gt; ToByteString WafActionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WafActionType -&gt; ByteString
 $ctoBS :: WafActionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306721"><span class="annot"><span class="annottext">WafActionType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306730"><span class="annot"><span class="annottext">WafActionType -&gt; ByteStringBuilder
 (WafActionType -&gt; ByteStringBuilder) -&gt; ToLog WafActionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WafActionType -&gt; ByteStringBuilder
 $cbuild :: WafActionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306718"><span class="annot"><span class="annottext">HeaderName -&gt; WafActionType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306727"><span class="annot"><span class="annottext">HeaderName -&gt; WafActionType -&gt; [Header]
 (HeaderName -&gt; WafActionType -&gt; [Header]) -&gt; ToHeader WafActionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WafActionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WafActionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306715"><span class="annot"><span class="annottext">WafActionType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306724"><span class="annot"><span class="annottext">WafActionType -&gt; QueryString
 (WafActionType -&gt; QueryString) -&gt; ToQuery WafActionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WafActionType -&gt; QueryString
 $ctoQuery :: WafActionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306710"><span id="local-6989586621679306712"><span class="annot"><span class="annottext">Value -&gt; Parser [WafActionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306719"><span id="local-6989586621679306721"><span class="annot"><span class="annottext">Value -&gt; Parser [WafActionType]
 Value -&gt; Parser WafActionType
 (Value -&gt; Parser WafActionType)
 -&gt; (Value -&gt; Parser [WafActionType]) -&gt; FromJSON WafActionType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [WafActionType]
 parseJSON :: Value -&gt; Parser WafActionType
 $cparseJSON :: Value -&gt; Parser WafActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306705"><span id="local-6989586621679306707"><span class="annot"><span class="annottext">FromJSONKeyFunction [WafActionType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306714"><span id="local-6989586621679306716"><span class="annot"><span class="annottext">FromJSONKeyFunction [WafActionType]
 FromJSONKeyFunction WafActionType
 FromJSONKeyFunction WafActionType
 -&gt; FromJSONKeyFunction [WafActionType] -&gt; FromJSONKey WafActionType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WafActionType]
 fromJSONKey :: FromJSONKeyFunction WafActionType
 $cfromJSONKey :: FromJSONKeyFunction WafActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306696"><span id="local-6989586621679306698"><span id="local-6989586621679306700"><span id="local-6989586621679306702"><span class="annot"><span class="annottext">[WafActionType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306705"><span id="local-6989586621679306707"><span id="local-6989586621679306709"><span id="local-6989586621679306711"><span class="annot"><span class="annottext">[WafActionType] -&gt; Encoding
 [WafActionType] -&gt; Value
 WafActionType -&gt; Encoding
 WafActionType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: WafActionType -&gt; Encoding
 toJSON :: WafActionType -&gt; Value
 $ctoJSON :: WafActionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306691"><span id="local-6989586621679306693"><span class="annot"><span class="annottext">ToJSONKeyFunction [WafActionType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306700"><span id="local-6989586621679306702"><span class="annot"><span class="annottext">ToJSONKeyFunction [WafActionType]
 ToJSONKeyFunction WafActionType
 ToJSONKeyFunction WafActionType
 -&gt; ToJSONKeyFunction [WafActionType] -&gt; ToJSONKey WafActionType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WafActionType]
 toJSONKey :: ToJSONKeyFunction WafActionType
 $ctoJSONKey :: ToJSONKeyFunction WafActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306688"><span class="annot"><span class="annottext">[Node] -&gt; Either String WafActionType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306697"><span class="annot"><span class="annottext">[Node] -&gt; Either String WafActionType
 ([Node] -&gt; Either String WafActionType) -&gt; FromXML WafActionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WafActionType
 $cparseXML :: [Node] -&gt; Either String WafActionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679306685"><span class="annot"><span class="annottext">WafActionType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679306694"><span class="annot"><span class="annottext">WafActionType -&gt; XML
 (WafActionType -&gt; XML) -&gt; ToXML WafActionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WafActionType -&gt; XML

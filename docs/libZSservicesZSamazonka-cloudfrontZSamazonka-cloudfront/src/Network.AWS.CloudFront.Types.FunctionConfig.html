@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains configuration information about a CloudFront function.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFunctionConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679391412"><span id="local-6989586621679391413"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-var">FunctionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-var">FunctionConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679391421"><span id="local-6989586621679391422"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-var">FunctionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-var">FunctionConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A comment to describe the function.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Acomment%3AFunctionConfig%27"><span class="annot"><span class="annottext">FunctionConfig -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#%24sel%3Acomment%3AFunctionConfig%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aruntime%3AFunctionConfig%27"><span class="annot"><span class="annottext">FunctionConfig -&gt; FunctionRuntime
 </span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#%24sel%3Aruntime%3AFunctionConfig%27"><span class="hs-identifier hs-var hs-var">runtime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionRuntime.html#FunctionRuntime"><span class="hs-identifier hs-type">FunctionRuntime</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391405"><span id="local-6989586621679391407"><span class="annot"><span class="annottext">FunctionConfig -&gt; FunctionConfig -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391414"><span id="local-6989586621679391416"><span class="annot"><span class="annottext">FunctionConfig -&gt; FunctionConfig -&gt; Bool
 (FunctionConfig -&gt; FunctionConfig -&gt; Bool)
 -&gt; (FunctionConfig -&gt; FunctionConfig -&gt; Bool) -&gt; Eq FunctionConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FunctionConfig -&gt; FunctionConfig -&gt; Bool
 == :: FunctionConfig -&gt; FunctionConfig -&gt; Bool
 $c== :: FunctionConfig -&gt; FunctionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391396"><span id="local-6989586621679391398"><span id="local-6989586621679391400"><span id="local-6989586621679391402"><span class="annot"><span class="annottext">ReadPrec [FunctionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391405"><span id="local-6989586621679391407"><span id="local-6989586621679391409"><span id="local-6989586621679391411"><span class="annot"><span class="annottext">ReadPrec [FunctionConfig]
 ReadPrec FunctionConfig
 Int -&gt; ReadS FunctionConfig
 ReadS [FunctionConfig]
@@ -64,7 +64,7 @@ readList :: ReadS [FunctionConfig]
 $creadList :: ReadS [FunctionConfig]
 readsPrec :: Int -&gt; ReadS FunctionConfig
 $creadsPrec :: Int -&gt; ReadS FunctionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391389"><span id="local-6989586621679391391"><span id="local-6989586621679391393"><span class="annot"><span class="annottext">Int -&gt; FunctionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391398"><span id="local-6989586621679391400"><span id="local-6989586621679391402"><span class="annot"><span class="annottext">Int -&gt; FunctionConfig -&gt; ShowS
 [FunctionConfig] -&gt; ShowS
 FunctionConfig -&gt; String
 (Int -&gt; FunctionConfig -&gt; ShowS)
@@ -109,17 +109,17 @@ $cfrom :: forall x. FunctionConfig -&gt; Rep FunctionConfig x
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionRuntime.html#FunctionRuntime"><span class="hs-identifier hs-type">FunctionRuntime</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span><span>
 </span><span id="line-57"></span><span id="newFunctionConfig"><span class="annot"><span class="annottext">newFunctionConfig :: Text -&gt; FunctionRuntime -&gt; FunctionConfig
-</span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#newFunctionConfig"><span class="hs-identifier hs-var hs-var">newFunctionConfig</span></a></span></span><span> </span><span id="local-6989586621679391383"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391383"><span class="hs-identifier hs-var">pComment_</span></a></span></span><span> </span><span id="local-6989586621679391382"><span class="annot"><span class="annottext">FunctionRuntime
-</span><a href="#local-6989586621679391382"><span class="hs-identifier hs-var">pRuntime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#newFunctionConfig"><span class="hs-identifier hs-var hs-var">newFunctionConfig</span></a></span></span><span> </span><span id="local-6989586621679391392"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391392"><span class="hs-identifier hs-var">pComment_</span></a></span></span><span> </span><span id="local-6989586621679391391"><span class="annot"><span class="annottext">FunctionRuntime
+</span><a href="#local-6989586621679391391"><span class="hs-identifier hs-var">pRuntime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">FunctionConfig' :: Text -&gt; FunctionRuntime -&gt; FunctionConfig
 </span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:FunctionConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#%24sel%3Acomment%3AFunctionConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391383"><span class="hs-identifier hs-var">pComment_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391392"><span class="hs-identifier hs-var">pComment_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:runtime:FunctionConfig' :: FunctionRuntime
 </span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#%24sel%3Aruntime%3AFunctionConfig%27"><span class="hs-identifier hs-var">runtime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FunctionRuntime
-</span><a href="#local-6989586621679391382"><span class="hs-identifier hs-var">pRuntime_</span></a></span><span>
+</span><a href="#local-6989586621679391391"><span class="hs-identifier hs-var">pRuntime_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | A comment to describe the function.</span><span>
@@ -129,16 +129,16 @@ $cfrom :: forall x. FunctionConfig -&gt; Rep FunctionConfig x
 -&gt; (FunctionConfig -&gt; Text -&gt; FunctionConfig)
 -&gt; Lens FunctionConfig FunctionConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391378"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391387"><span class="annot"><span class="annottext">Text
 comment :: Text
 $sel:comment:FunctionConfig' :: FunctionConfig -&gt; Text
-</span><a href="#local-6989586621679391378"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391378"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391377"><span class="annot"><span class="annottext">s :: FunctionConfig
-</span><a href="#local-6989586621679391377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391376"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionConfig
-</span><a href="#local-6989586621679391377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:FunctionConfig' :: Text
+</span><a href="#local-6989586621679391387"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391387"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391386"><span class="annot"><span class="annottext">s :: FunctionConfig
+</span><a href="#local-6989586621679391386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionConfig
+</span><a href="#local-6989586621679391386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:FunctionConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#%24sel%3Acomment%3AFunctionConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The function&#8217;s runtime environment. The only valid value is</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- @cloudfront-js-1.0@.</span><span>
@@ -150,21 +150,21 @@ $sel:comment:FunctionConfig' :: FunctionConfig -&gt; Text
 -&gt; Lens
      FunctionConfig FunctionConfig FunctionRuntime FunctionRuntime
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391374"><span class="annot"><span class="annottext">FunctionRuntime
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391383"><span class="annot"><span class="annottext">FunctionRuntime
 runtime :: FunctionRuntime
 $sel:runtime:FunctionConfig' :: FunctionConfig -&gt; FunctionRuntime
-</span><a href="#local-6989586621679391374"><span class="hs-identifier hs-var hs-var">runtime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionRuntime
-</span><a href="#local-6989586621679391374"><span class="hs-identifier hs-var">runtime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391373"><span class="annot"><span class="annottext">s :: FunctionConfig
-</span><a href="#local-6989586621679391373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391372"><span class="annot"><span class="annottext">FunctionRuntime
-</span><a href="#local-6989586621679391372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionConfig
-</span><a href="#local-6989586621679391373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runtime:FunctionConfig' :: FunctionRuntime
+</span><a href="#local-6989586621679391383"><span class="hs-identifier hs-var hs-var">runtime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionRuntime
+</span><a href="#local-6989586621679391383"><span class="hs-identifier hs-var">runtime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391382"><span class="annot"><span class="annottext">s :: FunctionConfig
+</span><a href="#local-6989586621679391382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391381"><span class="annot"><span class="annottext">FunctionRuntime
+</span><a href="#local-6989586621679391381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionConfig
+</span><a href="#local-6989586621679391382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runtime:FunctionConfig' :: FunctionRuntime
 </span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#%24sel%3Aruntime%3AFunctionConfig%27"><span class="hs-identifier hs-var">runtime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FunctionRuntime
-</span><a href="#local-6989586621679391372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679391369"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FunctionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679391367"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679391367"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679391378"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FunctionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679391376"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679391376"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; FunctionRuntime -&gt; FunctionConfig
 </span><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-var">FunctionConfig'</span></a></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; FunctionRuntime -&gt; FunctionConfig)
@@ -172,7 +172,7 @@ $sel:runtime:FunctionConfig' :: FunctionConfig -&gt; FunctionRuntime
 -&gt; Either String (FunctionRuntime -&gt; FunctionConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679391367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679391376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,24 +180,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String FunctionRuntime -&gt; Either String FunctionConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679391367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String FunctionRuntime
+</span><a href="#local-6989586621679391376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String FunctionRuntime
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Runtime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391361"><span id="local-6989586621679391363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391370"><span id="local-6989586621679391372"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig"><span class="hs-identifier hs-type">FunctionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679391354"><span class="annot"><span class="annottext">toXML :: FunctionConfig -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391351"><span id="local-6989586621679391352"><span class="annot"><span class="annottext">Text
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679391363"><span class="annot"><span class="annottext">toXML :: FunctionConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionConfig.html#FunctionConfig%27"><span class="hs-identifier hs-type">FunctionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391360"><span id="local-6989586621679391361"><span class="annot"><span class="annottext">Text
 FunctionRuntime
 runtime :: FunctionRuntime
 comment :: Text
 $sel:runtime:FunctionConfig' :: FunctionConfig -&gt; FunctionRuntime
 $sel:comment:FunctionConfig' :: FunctionConfig -&gt; Text
-</span><a href="#local-6989586621679391351"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391360"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -205,11 +205,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391352"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391361"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Runtime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; FunctionRuntime -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">FunctionRuntime
-</span><a href="#local-6989586621679391351"><span class="hs-identifier hs-var">runtime</span></a></span><span>
+</span><a href="#local-6989586621679391360"><span class="hs-identifier hs-var">runtime</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span></pre></body></html>

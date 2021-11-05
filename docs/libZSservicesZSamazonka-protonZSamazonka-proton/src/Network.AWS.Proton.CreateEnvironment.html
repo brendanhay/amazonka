@@ -1,0 +1,838 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Proton.CreateEnvironment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deploy a new environment. An AWS Proton environment is created from an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- environment template that defines infrastructure and resources that can</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- be shared across services. For more information, see the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /AWS Proton Administrator Guide./</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Proton.CreateEnvironment</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier">CreateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#newCreateEnvironment"><span class="hs-identifier">newCreateEnvironment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_protonServiceRoleArn"><span class="hs-identifier">createEnvironment_protonServiceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_environmentAccountConnectionId"><span class="hs-identifier">createEnvironment_environmentAccountConnectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_templateMinorVersion"><span class="hs-identifier">createEnvironment_templateMinorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_description"><span class="hs-identifier">createEnvironment_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_tags"><span class="hs-identifier">createEnvironment_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_name"><span class="hs-identifier">createEnvironment_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_spec"><span class="hs-identifier">createEnvironment_spec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_templateMajorVersion"><span class="hs-identifier">createEnvironment_templateMajorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_templateName"><span class="hs-identifier">createEnvironment_templateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse"><span class="hs-identifier">CreateEnvironmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#newCreateEnvironmentResponse"><span class="hs-identifier">newCreateEnvironmentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironmentResponse_httpStatus"><span class="hs-identifier">createEnvironmentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironmentResponse_environment"><span class="hs-identifier">createEnvironmentResponse_environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.html"><span class="hs-identifier">Network.AWS.Proton.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateEnvironment' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679274090"><span id="local-6989586621679274091"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEnvironment"><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-var">CreateEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEnvironment%27"><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-var">CreateEnvironment'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Proton service role that</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- allows AWS Proton to make calls to other services on your behalf. You</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- must include either the @environmentAccountConnectionId@ or</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @protonServiceRoleArn@ parameter and value.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AprotonServiceRoleArn%3ACreateEnvironment%27"><span class="annot"><span class="annottext">CreateEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AprotonServiceRoleArn%3ACreateEnvironment%27"><span class="hs-identifier hs-var hs-var">protonServiceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The ID of the environment account connection that you provide if you\'re</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- provisioning your environment infrastructure resources to an environment</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- account. You must include either the @environmentAccountConnectionId@ or</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @protonServiceRoleArn@ parameter and value. For more information, see</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections&gt;</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- in the /AWS Proton Administrator guide/.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AenvironmentAccountConnectionId%3ACreateEnvironment%27"><span class="annot"><span class="annottext">CreateEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AenvironmentAccountConnectionId%3ACreateEnvironment%27"><span class="hs-identifier hs-var hs-var">environmentAccountConnectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The ID of the minor version of the environment template.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AtemplateMinorVersion%3ACreateEnvironment%27"><span class="annot"><span class="annottext">CreateEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AtemplateMinorVersion%3ACreateEnvironment%27"><span class="hs-identifier hs-var hs-var">templateMinorVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A description of the environment that\'s being created and deployed.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Adescription%3ACreateEnvironment%27"><span class="annot"><span class="annottext">CreateEnvironment -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Adescription%3ACreateEnvironment%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Create tags for your environment. For more information, see /AWS Proton</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- resources and tagging/ in the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide&gt;</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- or</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide&gt;.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Atags%3ACreateEnvironment%27"><span class="annot"><span class="annottext">CreateEnvironment -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Atags%3ACreateEnvironment%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Proton.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The name of the environment.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Aname%3ACreateEnvironment%27"><span class="annot"><span class="annottext">CreateEnvironment -&gt; Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Aname%3ACreateEnvironment%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A link to a YAML formatted spec file that provides inputs as defined in</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- the environment template bundle schema file. For more information, see</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments&gt;</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- in the /AWS Proton Administrator Guide/.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3Aspec%3ACreateEnvironment%27"><span class="annot"><span class="annottext">CreateEnvironment -&gt; Sensitive Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Aspec%3ACreateEnvironment%27"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The ID of the major version of the environment template.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AtemplateMajorVersion%3ACreateEnvironment%27"><span class="annot"><span class="annottext">CreateEnvironment -&gt; Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AtemplateMajorVersion%3ACreateEnvironment%27"><span class="hs-identifier hs-var hs-var">templateMajorVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The name of the environment template. For more information, see</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html Environment Templates&gt;</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- in the /AWS Proton Administrator Guide/.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AtemplateName%3ACreateEnvironment%27"><span class="annot"><span class="annottext">CreateEnvironment -&gt; Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AtemplateName%3ACreateEnvironment%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274076"><span id="local-6989586621679274078"><span class="annot"><span class="annottext">CreateEnvironment -&gt; CreateEnvironment -&gt; Bool
+(CreateEnvironment -&gt; CreateEnvironment -&gt; Bool)
+-&gt; (CreateEnvironment -&gt; CreateEnvironment -&gt; Bool)
+-&gt; Eq CreateEnvironment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateEnvironment -&gt; CreateEnvironment -&gt; Bool
+$c/= :: CreateEnvironment -&gt; CreateEnvironment -&gt; Bool
+== :: CreateEnvironment -&gt; CreateEnvironment -&gt; Bool
+$c== :: CreateEnvironment -&gt; CreateEnvironment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274069"><span id="local-6989586621679274071"><span id="local-6989586621679274073"><span class="annot"><span class="annottext">Int -&gt; CreateEnvironment -&gt; ShowS
+[CreateEnvironment] -&gt; ShowS
+CreateEnvironment -&gt; String
+(Int -&gt; CreateEnvironment -&gt; ShowS)
+-&gt; (CreateEnvironment -&gt; String)
+-&gt; ([CreateEnvironment] -&gt; ShowS)
+-&gt; Show CreateEnvironment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateEnvironment] -&gt; ShowS
+$cshowList :: [CreateEnvironment] -&gt; ShowS
+show :: CreateEnvironment -&gt; String
+$cshow :: CreateEnvironment -&gt; String
+showsPrec :: Int -&gt; CreateEnvironment -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateEnvironment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateEnvironment -&gt; Rep CreateEnvironment x)
+-&gt; (forall x. Rep CreateEnvironment x -&gt; CreateEnvironment)
+-&gt; Generic CreateEnvironment
+forall x. Rep CreateEnvironment x -&gt; CreateEnvironment
+forall x. CreateEnvironment -&gt; Rep CreateEnvironment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateEnvironment x -&gt; CreateEnvironment
+$cfrom :: forall x. CreateEnvironment -&gt; Rep CreateEnvironment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'CreateEnvironment' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'protonServiceRoleArn', 'createEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the AWS Proton service role that</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- allows AWS Proton to make calls to other services on your behalf. You</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- must include either the @environmentAccountConnectionId@ or</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @protonServiceRoleArn@ parameter and value.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'environmentAccountConnectionId', 'createEnvironment_environmentAccountConnectionId' - The ID of the environment account connection that you provide if you\'re</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- provisioning your environment infrastructure resources to an environment</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- account. You must include either the @environmentAccountConnectionId@ or</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- @protonServiceRoleArn@ parameter and value. For more information, see</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections&gt;</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- in the /AWS Proton Administrator guide/.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'templateMinorVersion', 'createEnvironment_templateMinorVersion' - The ID of the minor version of the environment template.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'description', 'createEnvironment_description' - A description of the environment that\'s being created and deployed.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'tags', 'createEnvironment_tags' - Create tags for your environment. For more information, see /AWS Proton</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- resources and tagging/ in the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide&gt;</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- or</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide&gt;.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'name', 'createEnvironment_name' - The name of the environment.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'spec', 'createEnvironment_spec' - A link to a YAML formatted spec file that provides inputs as defined in</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the environment template bundle schema file. For more information, see</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments&gt;</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- in the /AWS Proton Administrator Guide/.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'templateMajorVersion', 'createEnvironment_templateMajorVersion' - The ID of the major version of the environment template.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'templateName', 'createEnvironment_templateName' - The name of the environment template. For more information, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html Environment Templates&gt;</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- in the /AWS Proton Administrator Guide/.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#newCreateEnvironment"><span class="hs-identifier hs-type">newCreateEnvironment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'spec'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 'templateMajorVersion'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'templateName'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span>
+</span><span id="line-153"></span><span id="newCreateEnvironment"><span class="annot"><span class="annottext">newCreateEnvironment :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#newCreateEnvironment"><span class="hs-identifier hs-var hs-var">newCreateEnvironment</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679274064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274064"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679274063"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274063"><span class="hs-identifier hs-var">pSpec_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679274062"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274062"><span class="hs-identifier hs-var">pTemplateMajorVersion_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679274061"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274061"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">CreateEnvironment' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; Text
+-&gt; Text
+-&gt; CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:protonServiceRoleArn:CreateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AprotonServiceRoleArn%3ACreateEnvironment%27"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:environmentAccountConnectionId:CreateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AenvironmentAccountConnectionId%3ACreateEnvironment%27"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateMinorVersion:CreateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AtemplateMinorVersion%3ACreateEnvironment%27"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateEnvironment' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Adescription%3ACreateEnvironment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateEnvironment' :: Maybe [Tag]
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Atags%3ACreateEnvironment%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateEnvironment' :: Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Aname%3ACreateEnvironment%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274064"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:spec:CreateEnvironment' :: Sensitive Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Aspec%3ACreateEnvironment%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274063"><span class="hs-identifier hs-var">pSpec_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateMajorVersion:CreateEnvironment' :: Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AtemplateMajorVersion%3ACreateEnvironment%27"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274062"><span class="hs-identifier hs-var">pTemplateMajorVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateName:CreateEnvironment' :: Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AtemplateName%3ACreateEnvironment%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274061"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Proton service role that</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- allows AWS Proton to make calls to other services on your behalf. You</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- must include either the @environmentAccountConnectionId@ or</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- @protonServiceRoleArn@ parameter and value.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_protonServiceRoleArn"><span class="hs-identifier hs-type">createEnvironment_protonServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="createEnvironment_protonServiceRoleArn"><span class="annot"><span class="annottext">createEnvironment_protonServiceRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateEnvironment -&gt; f CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_protonServiceRoleArn"><span class="hs-identifier hs-var hs-var">createEnvironment_protonServiceRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironment -&gt; Maybe Text)
+-&gt; (CreateEnvironment -&gt; Maybe Text -&gt; CreateEnvironment)
+-&gt; Lens
+     CreateEnvironment CreateEnvironment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274056"><span class="annot"><span class="annottext">Maybe Text
+protonServiceRoleArn :: Maybe Text
+$sel:protonServiceRoleArn:CreateEnvironment' :: CreateEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679274056"><span class="hs-identifier hs-var hs-var">protonServiceRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274056"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274055"><span class="annot"><span class="annottext">s :: CreateEnvironment
+</span><a href="#local-6989586621679274055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274054"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironment
+</span><a href="#local-6989586621679274055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protonServiceRoleArn:CreateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AprotonServiceRoleArn%3ACreateEnvironment%27"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The ID of the environment account connection that you provide if you\'re</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- provisioning your environment infrastructure resources to an environment</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- account. You must include either the @environmentAccountConnectionId@ or</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- @protonServiceRoleArn@ parameter and value. For more information, see</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections&gt;</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- in the /AWS Proton Administrator guide/.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_environmentAccountConnectionId"><span class="hs-identifier hs-type">createEnvironment_environmentAccountConnectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="createEnvironment_environmentAccountConnectionId"><span class="annot"><span class="annottext">createEnvironment_environmentAccountConnectionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateEnvironment -&gt; f CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_environmentAccountConnectionId"><span class="hs-identifier hs-var hs-var">createEnvironment_environmentAccountConnectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironment -&gt; Maybe Text)
+-&gt; (CreateEnvironment -&gt; Maybe Text -&gt; CreateEnvironment)
+-&gt; Lens
+     CreateEnvironment CreateEnvironment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274053"><span class="annot"><span class="annottext">Maybe Text
+environmentAccountConnectionId :: Maybe Text
+$sel:environmentAccountConnectionId:CreateEnvironment' :: CreateEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679274053"><span class="hs-identifier hs-var hs-var">environmentAccountConnectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274053"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274052"><span class="annot"><span class="annottext">s :: CreateEnvironment
+</span><a href="#local-6989586621679274052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironment
+</span><a href="#local-6989586621679274052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentAccountConnectionId:CreateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AenvironmentAccountConnectionId%3ACreateEnvironment%27"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The ID of the minor version of the environment template.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_templateMinorVersion"><span class="hs-identifier hs-type">createEnvironment_templateMinorVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="createEnvironment_templateMinorVersion"><span class="annot"><span class="annottext">createEnvironment_templateMinorVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateEnvironment -&gt; f CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_templateMinorVersion"><span class="hs-identifier hs-var hs-var">createEnvironment_templateMinorVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironment -&gt; Maybe Text)
+-&gt; (CreateEnvironment -&gt; Maybe Text -&gt; CreateEnvironment)
+-&gt; Lens
+     CreateEnvironment CreateEnvironment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274050"><span class="annot"><span class="annottext">Maybe Text
+templateMinorVersion :: Maybe Text
+$sel:templateMinorVersion:CreateEnvironment' :: CreateEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679274050"><span class="hs-identifier hs-var hs-var">templateMinorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274050"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274049"><span class="annot"><span class="annottext">s :: CreateEnvironment
+</span><a href="#local-6989586621679274049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironment
+</span><a href="#local-6989586621679274049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateMinorVersion:CreateEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AtemplateMinorVersion%3ACreateEnvironment%27"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | A description of the environment that\'s being created and deployed.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_description"><span class="hs-identifier hs-type">createEnvironment_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="createEnvironment_description"><span class="annot"><span class="annottext">createEnvironment_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateEnvironment -&gt; f CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_description"><span class="hs-identifier hs-var hs-var">createEnvironment_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironment -&gt; Maybe (Sensitive Text))
+-&gt; (CreateEnvironment
+    -&gt; Maybe (Sensitive Text) -&gt; CreateEnvironment)
+-&gt; Lens
+     CreateEnvironment
+     CreateEnvironment
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274047"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+description :: Maybe (Sensitive Text)
+$sel:description:CreateEnvironment' :: CreateEnvironment -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274047"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274047"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274046"><span class="annot"><span class="annottext">s :: CreateEnvironment
+</span><a href="#local-6989586621679274046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274045"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironment
+</span><a href="#local-6989586621679274046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateEnvironment' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Adescription%3ACreateEnvironment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateEnvironment -&gt; f CreateEnvironment)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateEnvironment
+-&gt; f CreateEnvironment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Create tags for your environment. For more information, see /AWS Proton</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- resources and tagging/ in the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide&gt;</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- or</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide&gt;.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_tags"><span class="hs-identifier hs-type">createEnvironment_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Proton.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="createEnvironment_tags"><span class="annot"><span class="annottext">createEnvironment_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateEnvironment -&gt; f CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_tags"><span class="hs-identifier hs-var hs-var">createEnvironment_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironment -&gt; Maybe [Tag])
+-&gt; (CreateEnvironment -&gt; Maybe [Tag] -&gt; CreateEnvironment)
+-&gt; Lens
+     CreateEnvironment CreateEnvironment (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274042"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateEnvironment' :: CreateEnvironment -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679274042"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679274042"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274041"><span class="annot"><span class="annottext">s :: CreateEnvironment
+</span><a href="#local-6989586621679274041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274040"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679274040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironment
+</span><a href="#local-6989586621679274041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateEnvironment' :: Maybe [Tag]
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Atags%3ACreateEnvironment%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679274040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateEnvironment -&gt; f CreateEnvironment)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateEnvironment
+-&gt; f CreateEnvironment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The name of the environment.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_name"><span class="hs-identifier hs-type">createEnvironment_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-205"></span><span id="createEnvironment_name"><span class="annot"><span class="annottext">createEnvironment_name :: (Text -&gt; f Text) -&gt; CreateEnvironment -&gt; f CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_name"><span class="hs-identifier hs-var hs-var">createEnvironment_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironment -&gt; Text)
+-&gt; (CreateEnvironment -&gt; Text -&gt; CreateEnvironment)
+-&gt; Lens CreateEnvironment CreateEnvironment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274038"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateEnvironment' :: CreateEnvironment -&gt; Text
+</span><a href="#local-6989586621679274038"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274038"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274037"><span class="annot"><span class="annottext">s :: CreateEnvironment
+</span><a href="#local-6989586621679274037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironment
+</span><a href="#local-6989586621679274037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateEnvironment' :: Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Aname%3ACreateEnvironment%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | A link to a YAML formatted spec file that provides inputs as defined in</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- the environment template bundle schema file. For more information, see</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments&gt;</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- in the /AWS Proton Administrator Guide/.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_spec"><span class="hs-identifier hs-type">createEnvironment_spec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-212"></span><span id="createEnvironment_spec"><span class="annot"><span class="annottext">createEnvironment_spec :: (Text -&gt; f Text) -&gt; CreateEnvironment -&gt; f CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_spec"><span class="hs-identifier hs-var hs-var">createEnvironment_spec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironment -&gt; Sensitive Text)
+-&gt; (CreateEnvironment -&gt; Sensitive Text -&gt; CreateEnvironment)
+-&gt; Lens
+     CreateEnvironment
+     CreateEnvironment
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274035"><span class="annot"><span class="annottext">Sensitive Text
+spec :: Sensitive Text
+$sel:spec:CreateEnvironment' :: CreateEnvironment -&gt; Sensitive Text
+</span><a href="#local-6989586621679274035"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679274035"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274034"><span class="annot"><span class="annottext">s :: CreateEnvironment
+</span><a href="#local-6989586621679274034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274033"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679274033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironment
+</span><a href="#local-6989586621679274034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spec:CreateEnvironment' :: Sensitive Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Aspec%3ACreateEnvironment%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679274033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; CreateEnvironment -&gt; f CreateEnvironment)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; CreateEnvironment
+-&gt; f CreateEnvironment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The ID of the major version of the environment template.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_templateMajorVersion"><span class="hs-identifier hs-type">createEnvironment_templateMajorVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-216"></span><span id="createEnvironment_templateMajorVersion"><span class="annot"><span class="annottext">createEnvironment_templateMajorVersion :: (Text -&gt; f Text) -&gt; CreateEnvironment -&gt; f CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_templateMajorVersion"><span class="hs-identifier hs-var hs-var">createEnvironment_templateMajorVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironment -&gt; Text)
+-&gt; (CreateEnvironment -&gt; Text -&gt; CreateEnvironment)
+-&gt; Lens CreateEnvironment CreateEnvironment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274032"><span class="annot"><span class="annottext">Text
+templateMajorVersion :: Text
+$sel:templateMajorVersion:CreateEnvironment' :: CreateEnvironment -&gt; Text
+</span><a href="#local-6989586621679274032"><span class="hs-identifier hs-var hs-var">templateMajorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274032"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274031"><span class="annot"><span class="annottext">s :: CreateEnvironment
+</span><a href="#local-6989586621679274031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironment
+</span><a href="#local-6989586621679274031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateMajorVersion:CreateEnvironment' :: Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AtemplateMajorVersion%3ACreateEnvironment%27"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The name of the environment template. For more information, see</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html Environment Templates&gt;</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- in the /AWS Proton Administrator Guide/.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_templateName"><span class="hs-identifier hs-type">createEnvironment_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-222"></span><span id="createEnvironment_templateName"><span class="annot"><span class="annottext">createEnvironment_templateName :: (Text -&gt; f Text) -&gt; CreateEnvironment -&gt; f CreateEnvironment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironment_templateName"><span class="hs-identifier hs-var hs-var">createEnvironment_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironment -&gt; Text)
+-&gt; (CreateEnvironment -&gt; Text -&gt; CreateEnvironment)
+-&gt; Lens CreateEnvironment CreateEnvironment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274029"><span class="annot"><span class="annottext">Text
+templateName :: Text
+$sel:templateName:CreateEnvironment' :: CreateEnvironment -&gt; Text
+</span><a href="#local-6989586621679274029"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274029"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274028"><span class="annot"><span class="annottext">s :: CreateEnvironment
+</span><a href="#local-6989586621679274028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironment
+</span><a href="#local-6989586621679274028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:CreateEnvironment' :: Text
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AtemplateName%3ACreateEnvironment%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-226"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse"><span class="hs-identifier hs-type">CreateEnvironmentResponse</span></a></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679274023"><span class="annot"><span class="annottext">request :: CreateEnvironment -&gt; Request CreateEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateEnvironment -&gt; Request CreateEnvironment
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Proton.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679274019"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateEnvironment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateEnvironment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateEnvironment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateEnvironment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateEnvironment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274016"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274015"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679274015"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274014"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Environment -&gt; CreateEnvironmentResponse
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse%27"><span class="hs-identifier hs-var">CreateEnvironmentResponse'</span></a></span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Environment -&gt; CreateEnvironmentResponse)
+-&gt; Either String Int
+-&gt; Either String (Environment -&gt; CreateEnvironmentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274016"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Either String (Environment -&gt; CreateEnvironmentResponse)
+-&gt; Either String Environment
+-&gt; Either String CreateEnvironmentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Environment
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274006"><span id="local-6989586621679274008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span></span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679273999"><span class="annot"><span class="annottext">toHeaders :: CreateEnvironment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateEnvironment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-245"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AwsProton20200720.CreateEnvironment&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-248"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-250"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-251"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-252"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273989"><span id="local-6989586621679273991"><span id="local-6989586621679273993"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679273987"><span class="annot"><span class="annottext">toJSON :: CreateEnvironment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment%27"><span class="hs-identifier hs-type">CreateEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273977"><span id="local-6989586621679273978"><span id="local-6989586621679273979"><span id="local-6989586621679273980"><span id="local-6989586621679273981"><span id="local-6989586621679273982"><span id="local-6989586621679273983"><span id="local-6989586621679273984"><span id="local-6989586621679273985"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Maybe (Sensitive Text)
+Text
+Sensitive Text
+templateName :: Text
+templateMajorVersion :: Text
+spec :: Sensitive Text
+name :: Text
+tags :: Maybe [Tag]
+description :: Maybe (Sensitive Text)
+templateMinorVersion :: Maybe Text
+environmentAccountConnectionId :: Maybe Text
+protonServiceRoleArn :: Maybe Text
+$sel:templateName:CreateEnvironment' :: CreateEnvironment -&gt; Text
+$sel:templateMajorVersion:CreateEnvironment' :: CreateEnvironment -&gt; Text
+$sel:spec:CreateEnvironment' :: CreateEnvironment -&gt; Sensitive Text
+$sel:name:CreateEnvironment' :: CreateEnvironment -&gt; Text
+$sel:tags:CreateEnvironment' :: CreateEnvironment -&gt; Maybe [Tag]
+$sel:description:CreateEnvironment' :: CreateEnvironment -&gt; Maybe (Sensitive Text)
+$sel:templateMinorVersion:CreateEnvironment' :: CreateEnvironment -&gt; Maybe Text
+$sel:environmentAccountConnectionId:CreateEnvironment' :: CreateEnvironment -&gt; Maybe Text
+$sel:protonServiceRoleArn:CreateEnvironment' :: CreateEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679273977"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-260"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protonServiceRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273985"><span class="hs-identifier hs-var">protonServiceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentAccountConnectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273984"><span class="hs-identifier hs-var">environmentAccountConnectionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateMinorVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273983"><span class="hs-identifier hs-var">templateMinorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679273982"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679273981"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273980"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679273979"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-271"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateMajorVersion&quot;</span></span><span>
+</span><span id="line-272"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273978"><span class="hs-identifier hs-var">templateMajorVersion</span></a></span><span>
+</span><span id="line-273"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273977"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621679273971"><span class="annot"><span class="annottext">toPath :: CreateEnvironment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateEnvironment -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironment"><span class="hs-identifier hs-type">CreateEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-282"></span><span>  </span><span id="local-6989586621679273967"><span class="annot"><span class="annottext">toQuery :: CreateEnvironment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateEnvironment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | /See:/ 'newCreateEnvironmentResponse' smart constructor.</span><span>
+</span><span id="line-285"></span><span id="local-6989586621679273964"><span id="local-6989586621679273965"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEnvironmentResponse"><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse"><span class="hs-identifier hs-var">CreateEnvironmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEnvironmentResponse%27"><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse%27"><span class="hs-identifier hs-var">CreateEnvironmentResponse'</span></a></span></span><span>
+</span><span id="line-286"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-287"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateEnvironmentResponse%27"><span class="annot"><span class="annottext">CreateEnvironmentResponse -&gt; Int
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AhttpStatus%3ACreateEnvironmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-comment">-- | The environment detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-289"></span><span>    </span><span id="%24sel%3Aenvironment%3ACreateEnvironmentResponse%27"><span class="annot"><span class="annottext">CreateEnvironmentResponse -&gt; Environment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Aenvironment%3ACreateEnvironmentResponse%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span>
+</span><span id="line-290"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-291"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273958"><span id="local-6989586621679273960"><span class="annot"><span class="annottext">CreateEnvironmentResponse -&gt; CreateEnvironmentResponse -&gt; Bool
+(CreateEnvironmentResponse -&gt; CreateEnvironmentResponse -&gt; Bool)
+-&gt; (CreateEnvironmentResponse -&gt; CreateEnvironmentResponse -&gt; Bool)
+-&gt; Eq CreateEnvironmentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateEnvironmentResponse -&gt; CreateEnvironmentResponse -&gt; Bool
+$c/= :: CreateEnvironmentResponse -&gt; CreateEnvironmentResponse -&gt; Bool
+== :: CreateEnvironmentResponse -&gt; CreateEnvironmentResponse -&gt; Bool
+$c== :: CreateEnvironmentResponse -&gt; CreateEnvironmentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273952"><span id="local-6989586621679273954"><span id="local-6989586621679273956"><span class="annot"><span class="annottext">Int -&gt; CreateEnvironmentResponse -&gt; ShowS
+[CreateEnvironmentResponse] -&gt; ShowS
+CreateEnvironmentResponse -&gt; String
+(Int -&gt; CreateEnvironmentResponse -&gt; ShowS)
+-&gt; (CreateEnvironmentResponse -&gt; String)
+-&gt; ([CreateEnvironmentResponse] -&gt; ShowS)
+-&gt; Show CreateEnvironmentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateEnvironmentResponse] -&gt; ShowS
+$cshowList :: [CreateEnvironmentResponse] -&gt; ShowS
+show :: CreateEnvironmentResponse -&gt; String
+$cshow :: CreateEnvironmentResponse -&gt; String
+showsPrec :: Int -&gt; CreateEnvironmentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateEnvironmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateEnvironmentResponse -&gt; Rep CreateEnvironmentResponse x)
+-&gt; (forall x.
+    Rep CreateEnvironmentResponse x -&gt; CreateEnvironmentResponse)
+-&gt; Generic CreateEnvironmentResponse
+forall x.
+Rep CreateEnvironmentResponse x -&gt; CreateEnvironmentResponse
+forall x.
+CreateEnvironmentResponse -&gt; Rep CreateEnvironmentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateEnvironmentResponse x -&gt; CreateEnvironmentResponse
+$cfrom :: forall x.
+CreateEnvironmentResponse -&gt; Rep CreateEnvironmentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- Create a value of 'CreateEnvironmentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- 'httpStatus', 'createEnvironmentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'environment', 'createEnvironmentResponse_environment' - The environment detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#newCreateEnvironmentResponse"><span class="hs-identifier hs-type">newCreateEnvironmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-305"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-306"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-307"></span><span>  </span><span class="hs-comment">-- | 'environment'</span><span>
+</span><span id="line-308"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-309"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse"><span class="hs-identifier hs-type">CreateEnvironmentResponse</span></a></span><span>
+</span><span id="line-310"></span><span id="newCreateEnvironmentResponse"><span class="annot"><span class="annottext">newCreateEnvironmentResponse :: Int -&gt; Environment -&gt; CreateEnvironmentResponse
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#newCreateEnvironmentResponse"><span class="hs-identifier hs-var hs-var">newCreateEnvironmentResponse</span></a></span></span><span>
+</span><span id="line-311"></span><span>  </span><span id="local-6989586621679273949"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-312"></span><span>  </span><span id="local-6989586621679273948"><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679273948"><span class="hs-identifier hs-var">pEnvironment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><span class="annottext">CreateEnvironmentResponse' :: Int -&gt; Environment -&gt; CreateEnvironmentResponse
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateEnvironmentResponse'</span></a></span><span>
+</span><span id="line-314"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEnvironmentResponse' :: Int
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AhttpStatus%3ACreateEnvironmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-315"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>        </span><span class="annot"><span class="annottext">$sel:environment:CreateEnvironmentResponse' :: Environment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Aenvironment%3ACreateEnvironmentResponse%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679273948"><span class="hs-identifier hs-var">pEnvironment_</span></a></span><span>
+</span><span id="line-317"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironmentResponse_httpStatus"><span class="hs-identifier hs-type">createEnvironmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse"><span class="hs-identifier hs-type">CreateEnvironmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-321"></span><span id="createEnvironmentResponse_httpStatus"><span class="annot"><span class="annottext">createEnvironmentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateEnvironmentResponse -&gt; f CreateEnvironmentResponse
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironmentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createEnvironmentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironmentResponse -&gt; Int)
+-&gt; (CreateEnvironmentResponse -&gt; Int -&gt; CreateEnvironmentResponse)
+-&gt; Lens CreateEnvironmentResponse CreateEnvironmentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273947"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateEnvironmentResponse' :: CreateEnvironmentResponse -&gt; Int
+</span><a href="#local-6989586621679273947"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273947"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273946"><span class="annot"><span class="annottext">s :: CreateEnvironmentResponse
+</span><a href="#local-6989586621679273946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273945"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironmentResponse
+</span><a href="#local-6989586621679273946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEnvironmentResponse' :: Int
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3AhttpStatus%3ACreateEnvironmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse"><span class="hs-identifier hs-type">CreateEnvironmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- | The environment detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-324"></span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironmentResponse_environment"><span class="hs-identifier hs-type">createEnvironmentResponse_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse"><span class="hs-identifier hs-type">CreateEnvironmentResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span>
+</span><span id="line-325"></span><span id="createEnvironmentResponse_environment"><span class="annot"><span class="annottext">createEnvironmentResponse_environment :: (Environment -&gt; f Environment)
+-&gt; CreateEnvironmentResponse -&gt; f CreateEnvironmentResponse
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#createEnvironmentResponse_environment"><span class="hs-identifier hs-var hs-var">createEnvironmentResponse_environment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateEnvironmentResponse -&gt; Environment)
+-&gt; (CreateEnvironmentResponse
+    -&gt; Environment -&gt; CreateEnvironmentResponse)
+-&gt; Lens
+     CreateEnvironmentResponse
+     CreateEnvironmentResponse
+     Environment
+     Environment
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273944"><span class="annot"><span class="annottext">Environment
+environment :: Environment
+$sel:environment:CreateEnvironmentResponse' :: CreateEnvironmentResponse -&gt; Environment
+</span><a href="#local-6989586621679273944"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679273944"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273943"><span class="annot"><span class="annottext">s :: CreateEnvironmentResponse
+</span><a href="#local-6989586621679273943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273942"><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679273942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEnvironmentResponse
+</span><a href="#local-6989586621679273943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:CreateEnvironmentResponse' :: Environment
+</span><a href="Network.AWS.Proton.CreateEnvironment.html#%24sel%3Aenvironment%3ACreateEnvironmentResponse%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Environment
+</span><a href="#local-6989586621679273942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse"><span class="hs-identifier hs-type">CreateEnvironmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.CreateEnvironment.html#CreateEnvironmentResponse"><span class="hs-identifier hs-type">CreateEnvironmentResponse</span></a></span></span><span>
+</span><span id="line-328"></span></pre></body></html>

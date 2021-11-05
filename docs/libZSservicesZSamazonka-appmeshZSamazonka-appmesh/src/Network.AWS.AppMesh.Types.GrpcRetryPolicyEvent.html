@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent"><span class="hs-identifier">GrpcRetryPolicyEvent</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Cancelled"><span class="hs-identifier">GrpcRetryPolicyEvent_Cancelled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Deadline_exceeded"><span class="hs-identifier">GrpcRetryPolicyEvent_Deadline_exceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Internal"><span class="hs-identifier">GrpcRetryPolicyEvent_Internal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Resource_exhausted"><span class="hs-identifier">GrpcRetryPolicyEvent_Resource_exhausted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Unavailable"><span class="hs-identifier">GrpcRetryPolicyEvent_Unavailable</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679325633"><span id="local-6989586621679325634"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GrpcRetryPolicyEvent"><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent"><span class="hs-identifier hs-var">GrpcRetryPolicyEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrpcRetryPolicyEvent%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent%27"><span class="hs-identifier hs-var">GrpcRetryPolicyEvent'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGrpcRetryPolicyEvent"><span class="annot"><span class="annottext">GrpcRetryPolicyEvent -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#fromGrpcRetryPolicyEvent"><span class="hs-identifier hs-var hs-var">fromGrpcRetryPolicyEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325625"><span id="local-6989586621679325627"><span id="local-6989586621679325629"><span class="annot"><span class="annottext">Int -&gt; GrpcRetryPolicyEvent -&gt; ShowS
+[GrpcRetryPolicyEvent] -&gt; ShowS
+GrpcRetryPolicyEvent -&gt; String
+(Int -&gt; GrpcRetryPolicyEvent -&gt; ShowS)
+-&gt; (GrpcRetryPolicyEvent -&gt; String)
+-&gt; ([GrpcRetryPolicyEvent] -&gt; ShowS)
+-&gt; Show GrpcRetryPolicyEvent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GrpcRetryPolicyEvent] -&gt; ShowS
+$cshowList :: [GrpcRetryPolicyEvent] -&gt; ShowS
+show :: GrpcRetryPolicyEvent -&gt; String
+$cshow :: GrpcRetryPolicyEvent -&gt; String
+showsPrec :: Int -&gt; GrpcRetryPolicyEvent -&gt; ShowS
+$cshowsPrec :: Int -&gt; GrpcRetryPolicyEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679325616"><span id="local-6989586621679325618"><span id="local-6989586621679325620"><span id="local-6989586621679325622"><span class="annot"><span class="annottext">ReadPrec [GrpcRetryPolicyEvent]
+ReadPrec GrpcRetryPolicyEvent
+Int -&gt; ReadS GrpcRetryPolicyEvent
+ReadS [GrpcRetryPolicyEvent]
+(Int -&gt; ReadS GrpcRetryPolicyEvent)
+-&gt; ReadS [GrpcRetryPolicyEvent]
+-&gt; ReadPrec GrpcRetryPolicyEvent
+-&gt; ReadPrec [GrpcRetryPolicyEvent]
+-&gt; Read GrpcRetryPolicyEvent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GrpcRetryPolicyEvent]
+$creadListPrec :: ReadPrec [GrpcRetryPolicyEvent]
+readPrec :: ReadPrec GrpcRetryPolicyEvent
+$creadPrec :: ReadPrec GrpcRetryPolicyEvent
+readList :: ReadS [GrpcRetryPolicyEvent]
+$creadList :: ReadS [GrpcRetryPolicyEvent]
+readsPrec :: Int -&gt; ReadS GrpcRetryPolicyEvent
+$creadsPrec :: Int -&gt; ReadS GrpcRetryPolicyEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679325611"><span id="local-6989586621679325613"><span class="annot"><span class="annottext">GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+(GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool)
+-&gt; (GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool)
+-&gt; Eq GrpcRetryPolicyEvent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+$c/= :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+== :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+$c== :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679325595"><span id="local-6989586621679325597"><span id="local-6989586621679325599"><span id="local-6989586621679325601"><span id="local-6989586621679325603"><span id="local-6989586621679325605"><span id="local-6989586621679325607"><span class="annot"><span class="annottext">Eq GrpcRetryPolicyEvent
+Eq GrpcRetryPolicyEvent
+-&gt; (GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Ordering)
+-&gt; (GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool)
+-&gt; (GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool)
+-&gt; (GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool)
+-&gt; (GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool)
+-&gt; (GrpcRetryPolicyEvent
+    -&gt; GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent)
+-&gt; (GrpcRetryPolicyEvent
+    -&gt; GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent)
+-&gt; Ord GrpcRetryPolicyEvent
+GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Ordering
+GrpcRetryPolicyEvent
+-&gt; GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GrpcRetryPolicyEvent
+-&gt; GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent
+$cmin :: GrpcRetryPolicyEvent
+-&gt; GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent
+max :: GrpcRetryPolicyEvent
+-&gt; GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent
+$cmax :: GrpcRetryPolicyEvent
+-&gt; GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent
+&gt;= :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+$c&gt;= :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+&gt; :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+$c&gt; :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+&lt;= :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+$c&lt;= :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+&lt; :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+$c&lt; :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Bool
+compare :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Ordering
+$ccompare :: GrpcRetryPolicyEvent -&gt; GrpcRetryPolicyEvent -&gt; Ordering
+$cp1Ord :: Eq GrpcRetryPolicyEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. GrpcRetryPolicyEvent -&gt; Rep GrpcRetryPolicyEvent x)
+-&gt; (forall x. Rep GrpcRetryPolicyEvent x -&gt; GrpcRetryPolicyEvent)
+-&gt; Generic GrpcRetryPolicyEvent
+forall x. Rep GrpcRetryPolicyEvent x -&gt; GrpcRetryPolicyEvent
+forall x. GrpcRetryPolicyEvent -&gt; Rep GrpcRetryPolicyEvent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GrpcRetryPolicyEvent x -&gt; GrpcRetryPolicyEvent
+$cfrom :: forall x. GrpcRetryPolicyEvent -&gt; Rep GrpcRetryPolicyEvent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325587"><span id="local-6989586621679325589"><span class="annot"><span class="annottext">Int -&gt; GrpcRetryPolicyEvent -&gt; Int
+GrpcRetryPolicyEvent -&gt; Int
+(Int -&gt; GrpcRetryPolicyEvent -&gt; Int)
+-&gt; (GrpcRetryPolicyEvent -&gt; Int) -&gt; Hashable GrpcRetryPolicyEvent
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GrpcRetryPolicyEvent -&gt; Int
+$chash :: GrpcRetryPolicyEvent -&gt; Int
+hashWithSalt :: Int -&gt; GrpcRetryPolicyEvent -&gt; Int
+$chashWithSalt :: Int -&gt; GrpcRetryPolicyEvent -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679325584"><span class="annot"><span class="annottext">GrpcRetryPolicyEvent -&gt; ()
+(GrpcRetryPolicyEvent -&gt; ()) -&gt; NFData GrpcRetryPolicyEvent
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GrpcRetryPolicyEvent -&gt; ()
+$crnf :: GrpcRetryPolicyEvent -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679325581"><span class="annot"><span class="annottext">Text -&gt; Either String GrpcRetryPolicyEvent
+(Text -&gt; Either String GrpcRetryPolicyEvent)
+-&gt; FromText GrpcRetryPolicyEvent
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GrpcRetryPolicyEvent
+$cfromText :: Text -&gt; Either String GrpcRetryPolicyEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325578"><span class="annot"><span class="annottext">GrpcRetryPolicyEvent -&gt; Text
+(GrpcRetryPolicyEvent -&gt; Text) -&gt; ToText GrpcRetryPolicyEvent
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GrpcRetryPolicyEvent -&gt; Text
+$ctoText :: GrpcRetryPolicyEvent -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679325575"><span class="annot"><span class="annottext">GrpcRetryPolicyEvent -&gt; ByteString
+(GrpcRetryPolicyEvent -&gt; ByteString)
+-&gt; ToByteString GrpcRetryPolicyEvent
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GrpcRetryPolicyEvent -&gt; ByteString
+$ctoBS :: GrpcRetryPolicyEvent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679325572"><span class="annot"><span class="annottext">GrpcRetryPolicyEvent -&gt; ByteStringBuilder
+(GrpcRetryPolicyEvent -&gt; ByteStringBuilder)
+-&gt; ToLog GrpcRetryPolicyEvent
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GrpcRetryPolicyEvent -&gt; ByteStringBuilder
+$cbuild :: GrpcRetryPolicyEvent -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679325569"><span class="annot"><span class="annottext">HeaderName -&gt; GrpcRetryPolicyEvent -&gt; [Header]
+(HeaderName -&gt; GrpcRetryPolicyEvent -&gt; [Header])
+-&gt; ToHeader GrpcRetryPolicyEvent
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GrpcRetryPolicyEvent -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GrpcRetryPolicyEvent -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679325566"><span class="annot"><span class="annottext">GrpcRetryPolicyEvent -&gt; QueryString
+(GrpcRetryPolicyEvent -&gt; QueryString)
+-&gt; ToQuery GrpcRetryPolicyEvent
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GrpcRetryPolicyEvent -&gt; QueryString
+$ctoQuery :: GrpcRetryPolicyEvent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679325561"><span id="local-6989586621679325563"><span class="annot"><span class="annottext">Value -&gt; Parser [GrpcRetryPolicyEvent]
+Value -&gt; Parser GrpcRetryPolicyEvent
+(Value -&gt; Parser GrpcRetryPolicyEvent)
+-&gt; (Value -&gt; Parser [GrpcRetryPolicyEvent])
+-&gt; FromJSON GrpcRetryPolicyEvent
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GrpcRetryPolicyEvent]
+$cparseJSONList :: Value -&gt; Parser [GrpcRetryPolicyEvent]
+parseJSON :: Value -&gt; Parser GrpcRetryPolicyEvent
+$cparseJSON :: Value -&gt; Parser GrpcRetryPolicyEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679325556"><span id="local-6989586621679325558"><span class="annot"><span class="annottext">FromJSONKeyFunction [GrpcRetryPolicyEvent]
+FromJSONKeyFunction GrpcRetryPolicyEvent
+FromJSONKeyFunction GrpcRetryPolicyEvent
+-&gt; FromJSONKeyFunction [GrpcRetryPolicyEvent]
+-&gt; FromJSONKey GrpcRetryPolicyEvent
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GrpcRetryPolicyEvent]
+$cfromJSONKeyList :: FromJSONKeyFunction [GrpcRetryPolicyEvent]
+fromJSONKey :: FromJSONKeyFunction GrpcRetryPolicyEvent
+$cfromJSONKey :: FromJSONKeyFunction GrpcRetryPolicyEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679325547"><span id="local-6989586621679325549"><span id="local-6989586621679325551"><span id="local-6989586621679325553"><span class="annot"><span class="annottext">[GrpcRetryPolicyEvent] -&gt; Encoding
+[GrpcRetryPolicyEvent] -&gt; Value
+GrpcRetryPolicyEvent -&gt; Encoding
+GrpcRetryPolicyEvent -&gt; Value
+(GrpcRetryPolicyEvent -&gt; Value)
+-&gt; (GrpcRetryPolicyEvent -&gt; Encoding)
+-&gt; ([GrpcRetryPolicyEvent] -&gt; Value)
+-&gt; ([GrpcRetryPolicyEvent] -&gt; Encoding)
+-&gt; ToJSON GrpcRetryPolicyEvent
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GrpcRetryPolicyEvent] -&gt; Encoding
+$ctoEncodingList :: [GrpcRetryPolicyEvent] -&gt; Encoding
+toJSONList :: [GrpcRetryPolicyEvent] -&gt; Value
+$ctoJSONList :: [GrpcRetryPolicyEvent] -&gt; Value
+toEncoding :: GrpcRetryPolicyEvent -&gt; Encoding
+$ctoEncoding :: GrpcRetryPolicyEvent -&gt; Encoding
+toJSON :: GrpcRetryPolicyEvent -&gt; Value
+$ctoJSON :: GrpcRetryPolicyEvent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679325542"><span id="local-6989586621679325544"><span class="annot"><span class="annottext">ToJSONKeyFunction [GrpcRetryPolicyEvent]
+ToJSONKeyFunction GrpcRetryPolicyEvent
+ToJSONKeyFunction GrpcRetryPolicyEvent
+-&gt; ToJSONKeyFunction [GrpcRetryPolicyEvent]
+-&gt; ToJSONKey GrpcRetryPolicyEvent
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GrpcRetryPolicyEvent]
+$ctoJSONKeyList :: ToJSONKeyFunction [GrpcRetryPolicyEvent]
+toJSONKey :: ToJSONKeyFunction GrpcRetryPolicyEvent
+$ctoJSONKey :: ToJSONKeyFunction GrpcRetryPolicyEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679325539"><span class="annot"><span class="annottext">[Node] -&gt; Either String GrpcRetryPolicyEvent
+([Node] -&gt; Either String GrpcRetryPolicyEvent)
+-&gt; FromXML GrpcRetryPolicyEvent
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GrpcRetryPolicyEvent
+$cparseXML :: [Node] -&gt; Either String GrpcRetryPolicyEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679325536"><span class="annot"><span class="annottext">GrpcRetryPolicyEvent -&gt; XML
+(GrpcRetryPolicyEvent -&gt; XML) -&gt; ToXML GrpcRetryPolicyEvent
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GrpcRetryPolicyEvent -&gt; XML
+$ctoXML :: GrpcRetryPolicyEvent -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Cancelled"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent_Cancelled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrpcRetryPolicyEvent_Cancelled"><span id="%24mGrpcRetryPolicyEvent_Cancelled"><span id="GrpcRetryPolicyEvent_Cancelled"><span class="annot"><span class="annottext">$bGrpcRetryPolicyEvent_Cancelled :: GrpcRetryPolicyEvent
+$mGrpcRetryPolicyEvent_Cancelled :: forall r. GrpcRetryPolicyEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#%24bGrpcRetryPolicyEvent_Cancelled"><span class="hs-identifier hs-var hs-var hs-var">GrpcRetryPolicyEvent_Cancelled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent%27"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;cancelled&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Deadline_exceeded"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent_Deadline_exceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrpcRetryPolicyEvent_Deadline_exceeded"><span id="%24mGrpcRetryPolicyEvent_Deadline_exceeded"><span id="GrpcRetryPolicyEvent_Deadline_exceeded"><span class="annot"><span class="annottext">$bGrpcRetryPolicyEvent_Deadline_exceeded :: GrpcRetryPolicyEvent
+$mGrpcRetryPolicyEvent_Deadline_exceeded :: forall r. GrpcRetryPolicyEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#%24bGrpcRetryPolicyEvent_Deadline_exceeded"><span class="hs-identifier hs-var hs-var hs-var">GrpcRetryPolicyEvent_Deadline_exceeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent%27"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;deadline-exceeded&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Internal"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent_Internal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrpcRetryPolicyEvent_Internal"><span id="%24mGrpcRetryPolicyEvent_Internal"><span id="GrpcRetryPolicyEvent_Internal"><span class="annot"><span class="annottext">$bGrpcRetryPolicyEvent_Internal :: GrpcRetryPolicyEvent
+$mGrpcRetryPolicyEvent_Internal :: forall r. GrpcRetryPolicyEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#%24bGrpcRetryPolicyEvent_Internal"><span class="hs-identifier hs-var hs-var hs-var">GrpcRetryPolicyEvent_Internal</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent%27"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;internal&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Resource_exhausted"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent_Resource_exhausted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrpcRetryPolicyEvent_Resource_exhausted"><span id="%24mGrpcRetryPolicyEvent_Resource_exhausted"><span id="GrpcRetryPolicyEvent_Resource_exhausted"><span class="annot"><span class="annottext">$bGrpcRetryPolicyEvent_Resource_exhausted :: GrpcRetryPolicyEvent
+$mGrpcRetryPolicyEvent_Resource_exhausted :: forall r. GrpcRetryPolicyEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#%24bGrpcRetryPolicyEvent_Resource_exhausted"><span class="hs-identifier hs-var hs-var hs-var">GrpcRetryPolicyEvent_Resource_exhausted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent%27"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;resource-exhausted&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Unavailable"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent_Unavailable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGrpcRetryPolicyEvent_Unavailable"><span id="%24mGrpcRetryPolicyEvent_Unavailable"><span id="GrpcRetryPolicyEvent_Unavailable"><span class="annot"><span class="annottext">$bGrpcRetryPolicyEvent_Unavailable :: GrpcRetryPolicyEvent
+$mGrpcRetryPolicyEvent_Unavailable :: forall r. GrpcRetryPolicyEvent -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#%24bGrpcRetryPolicyEvent_Unavailable"><span class="hs-identifier hs-var hs-var hs-var">GrpcRetryPolicyEvent_Unavailable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent%27"><span class="hs-identifier hs-type">GrpcRetryPolicyEvent'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;unavailable&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Cancelled"><span class="hs-pragma hs-type">GrpcRetryPolicyEvent_Cancelled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Deadline_exceeded"><span class="hs-pragma hs-type">GrpcRetryPolicyEvent_Deadline_exceeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Internal"><span class="hs-pragma hs-type">GrpcRetryPolicyEvent_Internal</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Resource_exhausted"><span class="hs-pragma hs-type">GrpcRetryPolicyEvent_Resource_exhausted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent_Unavailable"><span class="hs-pragma hs-type">GrpcRetryPolicyEvent_Unavailable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.GrpcRetryPolicyEvent.html#GrpcRetryPolicyEvent%27"><span class="hs-pragma hs-type">GrpcRetryPolicyEvent'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

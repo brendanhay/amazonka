@@ -77,7 +77,7 @@
 </span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | /See:/ 'newSubscribeToShard' smart constructor.</span><span>
-</span><span id="line-80"></span><span id="local-6989586621679200055"><span id="local-6989586621679200056"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeToShard"><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-var">SubscribeToShard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeToShard%27"><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-var">SubscribeToShard'</span></a></span></span><span>
+</span><span id="line-80"></span><span id="local-6989586621679200064"><span id="local-6989586621679200065"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeToShard"><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-var">SubscribeToShard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeToShard%27"><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-var">SubscribeToShard'</span></a></span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For this parameter, use the value you obtained when you called</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- RegisterStreamConsumer.</span><span>
 </span><span id="line-83"></span><span>    </span><span id="%24sel%3AconsumerARN%3ASubscribeToShard%27"><span class="annot"><span class="annottext">SubscribeToShard -&gt; Text
@@ -89,7 +89,7 @@
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3AstartingPosition%3ASubscribeToShard%27"><span class="annot"><span class="annottext">SubscribeToShard -&gt; StartingPosition
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AstartingPosition%3ASubscribeToShard%27"><span class="hs-identifier hs-var hs-var">startingPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200047"><span id="local-6989586621679200049"><span class="annot"><span class="annottext">SubscribeToShard -&gt; SubscribeToShard -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200056"><span id="local-6989586621679200058"><span class="annot"><span class="annottext">SubscribeToShard -&gt; SubscribeToShard -&gt; Bool
 (SubscribeToShard -&gt; SubscribeToShard -&gt; Bool)
 -&gt; (SubscribeToShard -&gt; SubscribeToShard -&gt; Bool)
 -&gt; Eq SubscribeToShard
@@ -98,7 +98,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubscribeToShard -&gt; SubscribeToShard -&gt; Bool
 == :: SubscribeToShard -&gt; SubscribeToShard -&gt; Bool
 $c== :: SubscribeToShard -&gt; SubscribeToShard -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200038"><span id="local-6989586621679200040"><span id="local-6989586621679200042"><span id="local-6989586621679200044"><span class="annot"><span class="annottext">ReadPrec [SubscribeToShard]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200047"><span id="local-6989586621679200049"><span id="local-6989586621679200051"><span id="local-6989586621679200053"><span class="annot"><span class="annottext">ReadPrec [SubscribeToShard]
 ReadPrec SubscribeToShard
 Int -&gt; ReadS SubscribeToShard
 ReadS [SubscribeToShard]
@@ -118,7 +118,7 @@ readList :: ReadS [SubscribeToShard]
 $creadList :: ReadS [SubscribeToShard]
 readsPrec :: Int -&gt; ReadS SubscribeToShard
 $creadsPrec :: Int -&gt; ReadS SubscribeToShard
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200031"><span id="local-6989586621679200033"><span id="local-6989586621679200035"><span class="annot"><span class="annottext">Int -&gt; SubscribeToShard -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200040"><span id="local-6989586621679200042"><span id="local-6989586621679200044"><span class="annot"><span class="annottext">Int -&gt; SubscribeToShard -&gt; ShowS
 [SubscribeToShard] -&gt; ShowS
 SubscribeToShard -&gt; String
 (Int -&gt; SubscribeToShard -&gt; ShowS)
@@ -169,23 +169,23 @@ $cfrom :: forall x. SubscribeToShard -&gt; Rep SubscribeToShard x
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span>
 </span><span id="line-114"></span><span id="newSubscribeToShard"><span class="annot"><span class="annottext">newSubscribeToShard :: Text -&gt; Text -&gt; StartingPosition -&gt; SubscribeToShard
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#newSubscribeToShard"><span class="hs-identifier hs-var hs-var">newSubscribeToShard</span></a></span></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679200026"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200026"><span class="hs-identifier hs-var">pConsumerARN_</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679200025"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200025"><span class="hs-identifier hs-var">pShardId_</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679200024"><span class="annot"><span class="annottext">StartingPosition
-</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var">pStartingPosition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679200035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200035"><span class="hs-identifier hs-var">pConsumerARN_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679200034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200034"><span class="hs-identifier hs-var">pShardId_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679200033"><span class="annot"><span class="annottext">StartingPosition
+</span><a href="#local-6989586621679200033"><span class="hs-identifier hs-var">pStartingPosition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">SubscribeToShard' :: Text -&gt; Text -&gt; StartingPosition -&gt; SubscribeToShard
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:consumerARN:SubscribeToShard' :: Text
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AconsumerARN%3ASubscribeToShard%27"><span class="hs-identifier hs-var">consumerARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200026"><span class="hs-identifier hs-var">pConsumerARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200035"><span class="hs-identifier hs-var">pConsumerARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:shardId:SubscribeToShard' :: Text
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AshardId%3ASubscribeToShard%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200025"><span class="hs-identifier hs-var">pShardId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200034"><span class="hs-identifier hs-var">pShardId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:startingPosition:SubscribeToShard' :: StartingPosition
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AstartingPosition%3ASubscribeToShard%27"><span class="hs-identifier hs-var">startingPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartingPosition
-</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var">pStartingPosition_</span></a></span><span>
+</span><a href="#local-6989586621679200033"><span class="hs-identifier hs-var">pStartingPosition_</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | For this parameter, use the value you obtained when you called</span><span>
@@ -196,16 +196,16 @@ $cfrom :: forall x. SubscribeToShard -&gt; Rep SubscribeToShard x
 -&gt; (SubscribeToShard -&gt; Text -&gt; SubscribeToShard)
 -&gt; Lens SubscribeToShard SubscribeToShard Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200021"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200030"><span class="annot"><span class="annottext">Text
 consumerARN :: Text
 $sel:consumerARN:SubscribeToShard' :: SubscribeToShard -&gt; Text
-</span><a href="#local-6989586621679200021"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200021"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200020"><span class="annot"><span class="annottext">s :: SubscribeToShard
-</span><a href="#local-6989586621679200020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200019"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShard
-</span><a href="#local-6989586621679200020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerARN:SubscribeToShard' :: Text
+</span><a href="#local-6989586621679200030"><span class="hs-identifier hs-var hs-var">consumerARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200030"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200029"><span class="annot"><span class="annottext">s :: SubscribeToShard
+</span><a href="#local-6989586621679200029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShard
+</span><a href="#local-6989586621679200029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerARN:SubscribeToShard' :: Text
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AconsumerARN%3ASubscribeToShard%27"><span class="hs-identifier hs-var">consumerARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The ID of the shard you want to subscribe to. To see a list of all the</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- shards for a given stream, use ListShards.</span><span>
@@ -215,16 +215,16 @@ $sel:consumerARN:SubscribeToShard' :: SubscribeToShard -&gt; Text
 -&gt; (SubscribeToShard -&gt; Text -&gt; SubscribeToShard)
 -&gt; Lens SubscribeToShard SubscribeToShard Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200018"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200027"><span class="annot"><span class="annottext">Text
 shardId :: Text
 $sel:shardId:SubscribeToShard' :: SubscribeToShard -&gt; Text
-</span><a href="#local-6989586621679200018"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200018"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200017"><span class="annot"><span class="annottext">s :: SubscribeToShard
-</span><a href="#local-6989586621679200017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200016"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShard
-</span><a href="#local-6989586621679200017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:SubscribeToShard' :: Text
+</span><a href="#local-6989586621679200027"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200027"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200026"><span class="annot"><span class="annottext">s :: SubscribeToShard
+</span><a href="#local-6989586621679200026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200025"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShard
+</span><a href="#local-6989586621679200026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:SubscribeToShard' :: Text
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AshardId%3ASubscribeToShard%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#subscribeToShard_startingPosition"><span class="hs-identifier hs-type">subscribeToShard_startingPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span><span>
@@ -235,27 +235,27 @@ $sel:shardId:SubscribeToShard' :: SubscribeToShard -&gt; Text
 -&gt; Lens
      SubscribeToShard SubscribeToShard StartingPosition StartingPosition
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200015"><span class="annot"><span class="annottext">StartingPosition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200024"><span class="annot"><span class="annottext">StartingPosition
 startingPosition :: StartingPosition
 $sel:startingPosition:SubscribeToShard' :: SubscribeToShard -&gt; StartingPosition
-</span><a href="#local-6989586621679200015"><span class="hs-identifier hs-var hs-var">startingPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingPosition
-</span><a href="#local-6989586621679200015"><span class="hs-identifier hs-var">startingPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200014"><span class="annot"><span class="annottext">s :: SubscribeToShard
-</span><a href="#local-6989586621679200014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200013"><span class="annot"><span class="annottext">StartingPosition
-</span><a href="#local-6989586621679200013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShard
-</span><a href="#local-6989586621679200014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startingPosition:SubscribeToShard' :: StartingPosition
+</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var hs-var">startingPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingPosition
+</span><a href="#local-6989586621679200024"><span class="hs-identifier hs-var">startingPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200023"><span class="annot"><span class="annottext">s :: SubscribeToShard
+</span><a href="#local-6989586621679200023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200022"><span class="annot"><span class="annottext">StartingPosition
+</span><a href="#local-6989586621679200022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShard
+</span><a href="#local-6989586621679200023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startingPosition:SubscribeToShard' :: StartingPosition
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AstartingPosition%3ASubscribeToShard%27"><span class="hs-identifier hs-var">startingPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartingPosition
-</span><a href="#local-6989586621679200013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-type">SubscribeToShardResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679200009"><span class="annot"><span class="annottext">request :: SubscribeToShard -&gt; Request SubscribeToShard
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679200018"><span class="annot"><span class="annottext">request :: SubscribeToShard -&gt; Request SubscribeToShard
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SubscribeToShard -&gt; Request SubscribeToShard
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679200005"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679200014"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SubscribeToShard
 -&gt; ClientResponse ClientBody
@@ -279,10 +279,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200002"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200002"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200001"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679200001"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200000"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200000"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200011"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200011"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200010"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200010"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200009"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200009"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Value -&gt; SubscribeToShardResponse
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-var">SubscribeToShardResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Value -&gt; SubscribeToShardResponse)
@@ -294,23 +294,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200002"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200011"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Value -&gt; SubscribeToShardResponse)
 -&gt; Either String Value -&gt; Either String SubscribeToShardResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200000"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Value
+</span><a href="#local-6989586621679200009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Value
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventStream&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199992"><span id="local-6989586621679199994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200001"><span id="local-6989586621679200003"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679199985"><span class="annot"><span class="annottext">toHeaders :: SubscribeToShard -&gt; ResponseHeaders
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679199994"><span class="annot"><span class="annottext">toHeaders :: SubscribeToShard -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SubscribeToShard -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -337,9 +337,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199975"><span id="local-6989586621679199977"><span id="local-6989586621679199979"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679199973"><span class="annot"><span class="annottext">toJSON :: SubscribeToShard -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199969"><span id="local-6989586621679199970"><span id="local-6989586621679199971"><span class="annot"><span class="annottext">Text
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199984"><span id="local-6989586621679199986"><span id="local-6989586621679199988"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679199982"><span class="annot"><span class="annottext">toJSON :: SubscribeToShard -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard%27"><span class="hs-identifier hs-type">SubscribeToShard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199978"><span id="local-6989586621679199979"><span id="local-6989586621679199980"><span class="annot"><span class="annottext">Text
 StartingPosition
 startingPosition :: StartingPosition
 shardId :: Text
@@ -347,7 +347,7 @@ consumerARN :: Text
 $sel:startingPosition:SubscribeToShard' :: SubscribeToShard -&gt; StartingPosition
 $sel:shardId:SubscribeToShard' :: SubscribeToShard -&gt; Text
 $sel:consumerARN:SubscribeToShard' :: SubscribeToShard -&gt; Text
-</span><a href="#local-6989586621679199969"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679199978"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -359,14 +359,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ConsumerARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199971"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199980"><span class="hs-identifier hs-var">consumerARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShardId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199970"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199979"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -374,19 +374,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StartingPosition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StartingPosition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StartingPosition
-</span><a href="#local-6989586621679199969"><span class="hs-identifier hs-var">startingPosition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199978"><span class="hs-identifier hs-var">startingPosition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679199963"><span class="annot"><span class="annottext">toPath :: SubscribeToShard -&gt; ByteString
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679199972"><span class="annot"><span class="annottext">toPath :: SubscribeToShard -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SubscribeToShard -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShard"><span class="hs-identifier hs-type">SubscribeToShard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679199959"><span class="annot"><span class="annottext">toQuery :: SubscribeToShard -&gt; QueryString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679199968"><span class="annot"><span class="annottext">toQuery :: SubscribeToShard -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SubscribeToShard -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -394,7 +394,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newSubscribeToShardResponse' smart constructor.</span><span>
-</span><span id="line-188"></span><span id="local-6989586621679199956"><span id="local-6989586621679199957"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeToShardResponse"><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-var">SubscribeToShardResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeToShardResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-var">SubscribeToShardResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span id="local-6989586621679199965"><span id="local-6989586621679199966"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeToShardResponse"><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-var">SubscribeToShardResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeToShardResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-var">SubscribeToShardResponse'</span></a></span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASubscribeToShardResponse%27"><span class="annot"><span class="annottext">SubscribeToShardResponse -&gt; Int
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AhttpStatus%3ASubscribeToShardResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -440,19 +440,19 @@ SubscribeToShardResponse -&gt; Rep SubscribeToShardResponse x
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-type">SubscribeToShardResponse</span></a></span><span>
 </span><span id="line-215"></span><span id="newSubscribeToShardResponse"><span class="annot"><span class="annottext">newSubscribeToShardResponse :: Int -&gt; Value -&gt; SubscribeToShardResponse
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#newSubscribeToShardResponse"><span class="hs-identifier hs-var hs-var">newSubscribeToShardResponse</span></a></span></span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679199951"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679199950"><span class="annot"><span class="annottext">Value
-</span><a href="#local-6989586621679199950"><span class="hs-identifier hs-var">pEventStream_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679199960"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679199959"><span class="annot"><span class="annottext">Value
+</span><a href="#local-6989586621679199959"><span class="hs-identifier hs-var">pEventStream_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">SubscribeToShardResponse' :: Int -&gt; Value -&gt; SubscribeToShardResponse
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-type">SubscribeToShardResponse'</span></a></span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeToShardResponse' :: Int
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AhttpStatus%3ASubscribeToShardResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">$sel:eventStream:SubscribeToShardResponse' :: Value
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AeventStream%3ASubscribeToShardResponse%27"><span class="hs-identifier hs-var">eventStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value
-</span><a href="#local-6989586621679199950"><span class="hs-identifier hs-var">pEventStream_</span></a></span><span>
+</span><a href="#local-6989586621679199959"><span class="hs-identifier hs-var">pEventStream_</span></a></span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -463,16 +463,16 @@ SubscribeToShardResponse -&gt; Rep SubscribeToShardResponse x
 -&gt; (SubscribeToShardResponse -&gt; Int -&gt; SubscribeToShardResponse)
 -&gt; Lens SubscribeToShardResponse SubscribeToShardResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-type">SubscribeToShardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199949"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-type">SubscribeToShardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199958"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SubscribeToShardResponse' :: SubscribeToShardResponse -&gt; Int
-</span><a href="#local-6989586621679199949"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199949"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199948"><span class="annot"><span class="annottext">s :: SubscribeToShardResponse
-</span><a href="#local-6989586621679199948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-type">SubscribeToShardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199947"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardResponse
-</span><a href="#local-6989586621679199948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeToShardResponse' :: Int
+</span><a href="#local-6989586621679199958"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199958"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199957"><span class="annot"><span class="annottext">s :: SubscribeToShardResponse
+</span><a href="#local-6989586621679199957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-type">SubscribeToShardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardResponse
+</span><a href="#local-6989586621679199957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeToShardResponse' :: Int
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AhttpStatus%3ASubscribeToShardResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-type">SubscribeToShardResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-type">SubscribeToShardResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The event stream that your consumer can use to read records from the</span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- shard.</span><span>
@@ -484,16 +484,16 @@ $sel:httpStatus:SubscribeToShardResponse' :: SubscribeToShardResponse -&gt; Int
 -&gt; Lens
      SubscribeToShardResponse SubscribeToShardResponse Value Value
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-type">SubscribeToShardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199946"><span class="annot"><span class="annottext">Value
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-type">SubscribeToShardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199955"><span class="annot"><span class="annottext">Value
 eventStream :: Value
 $sel:eventStream:SubscribeToShardResponse' :: SubscribeToShardResponse -&gt; Value
-</span><a href="#local-6989586621679199946"><span class="hs-identifier hs-var hs-var">eventStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Value
-</span><a href="#local-6989586621679199946"><span class="hs-identifier hs-var">eventStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199945"><span class="annot"><span class="annottext">s :: SubscribeToShardResponse
-</span><a href="#local-6989586621679199945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-type">SubscribeToShardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199944"><span class="annot"><span class="annottext">Value
-</span><a href="#local-6989586621679199944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardResponse
-</span><a href="#local-6989586621679199945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventStream:SubscribeToShardResponse' :: Value
+</span><a href="#local-6989586621679199955"><span class="hs-identifier hs-var hs-var">eventStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Value
+</span><a href="#local-6989586621679199955"><span class="hs-identifier hs-var">eventStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199954"><span class="annot"><span class="annottext">s :: SubscribeToShardResponse
+</span><a href="#local-6989586621679199954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse%27"><span class="hs-identifier hs-type">SubscribeToShardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199953"><span class="annot"><span class="annottext">Value
+</span><a href="#local-6989586621679199953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardResponse
+</span><a href="#local-6989586621679199954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventStream:SubscribeToShardResponse' :: Value
 </span><a href="Network.AWS.Kinesis.SubscribeToShard.html#%24sel%3AeventStream%3ASubscribeToShardResponse%27"><span class="hs-identifier hs-var">eventStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value
-</span><a href="#local-6989586621679199944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-type">SubscribeToShardResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-type">SubscribeToShardResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-type">SubscribeToShardResponse</span></a></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.SubscribeToShard.html#SubscribeToShardResponse"><span class="hs-identifier hs-type">SubscribeToShardResponse</span></a></span></span><span>
 </span><span id="line-234"></span></pre></body></html>

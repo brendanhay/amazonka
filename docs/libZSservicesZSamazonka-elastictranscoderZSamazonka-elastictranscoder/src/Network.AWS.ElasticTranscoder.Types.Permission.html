@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The @Permission@ structure.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPermission' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679211582"><span id="local-6989586621679211583"></span></span><span class="hs-keyword">data</span><span> </span><span id="Permission"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-var">Permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Permission%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-var">Permission'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679211591"><span id="local-6989586621679211592"></span></span><span class="hs-keyword">data</span><span> </span><span id="Permission"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-var">Permission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Permission%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-var">Permission'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The permission that you want to give to the AWS user that is listed in</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Grantee. Valid values include:</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Agrantee%3APermission%27"><span class="annot"><span class="annottext">Permission -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#%24sel%3Agrantee%3APermission%27"><span class="hs-identifier hs-var hs-var">grantee</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211574"><span id="local-6989586621679211576"><span class="annot"><span class="annottext">Permission -&gt; Permission -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211583"><span id="local-6989586621679211585"><span class="annot"><span class="annottext">Permission -&gt; Permission -&gt; Bool
 (Permission -&gt; Permission -&gt; Bool)
 -&gt; (Permission -&gt; Permission -&gt; Bool) -&gt; Eq Permission
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Permission -&gt; Permission -&gt; Bool
 == :: Permission -&gt; Permission -&gt; Bool
 $c== :: Permission -&gt; Permission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211565"><span id="local-6989586621679211567"><span id="local-6989586621679211569"><span id="local-6989586621679211571"><span class="annot"><span class="annottext">ReadPrec [Permission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211574"><span id="local-6989586621679211576"><span id="local-6989586621679211578"><span id="local-6989586621679211580"><span class="annot"><span class="annottext">ReadPrec [Permission]
 ReadPrec Permission
 Int -&gt; ReadS Permission
 ReadS [Permission]
@@ -93,7 +93,7 @@ readList :: ReadS [Permission]
 $creadList :: ReadS [Permission]
 readsPrec :: Int -&gt; ReadS Permission
 $creadsPrec :: Int -&gt; ReadS Permission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211558"><span id="local-6989586621679211560"><span id="local-6989586621679211562"><span class="annot"><span class="annottext">Int -&gt; Permission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211567"><span id="local-6989586621679211569"><span id="local-6989586621679211571"><span class="annot"><span class="annottext">Int -&gt; Permission -&gt; ShowS
 [Permission] -&gt; ShowS
 Permission -&gt; String
 (Int -&gt; Permission -&gt; ShowS)
@@ -200,16 +200,16 @@ forall a. Maybe a
 -&gt; (Permission -&gt; Maybe [Text] -&gt; Permission)
 -&gt; Lens Permission Permission (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211549"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211558"><span class="annot"><span class="annottext">Maybe [Text]
 access :: Maybe [Text]
 $sel:access:Permission' :: Permission -&gt; Maybe [Text]
-</span><a href="#local-6989586621679211549"><span class="hs-identifier hs-var hs-var">access</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679211549"><span class="hs-identifier hs-var">access</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211548"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679211548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211547"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679211547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679211548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:access:Permission' :: Maybe [Text]
+</span><a href="#local-6989586621679211558"><span class="hs-identifier hs-var hs-var">access</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679211558"><span class="hs-identifier hs-var">access</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211557"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679211557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211556"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679211556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679211557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:access:Permission' :: Maybe [Text]
 </span><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#%24sel%3Aaccess%3APermission%27"><span class="hs-identifier hs-var">access</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679211547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Permission -&gt; f Permission)
+</span><a href="#local-6989586621679211556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Permission -&gt; f Permission)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -242,16 +242,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Permission -&gt; Maybe Text -&gt; Permission)
 -&gt; Lens Permission Permission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211542"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211551"><span class="annot"><span class="annottext">Maybe Text
 granteeType :: Maybe Text
 $sel:granteeType:Permission' :: Permission -&gt; Maybe Text
-</span><a href="#local-6989586621679211542"><span class="hs-identifier hs-var hs-var">granteeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211542"><span class="hs-identifier hs-var">granteeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211541"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679211541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211540"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679211541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granteeType:Permission' :: Maybe Text
+</span><a href="#local-6989586621679211551"><span class="hs-identifier hs-var hs-var">granteeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211551"><span class="hs-identifier hs-var">granteeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211550"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679211550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211549"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679211550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granteeType:Permission' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#%24sel%3AgranteeType%3APermission%27"><span class="hs-identifier hs-var">granteeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The AWS user or group that you want to have access to transcoded files</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- and playlists. To identify the user or group, you can specify the</span><span>
@@ -264,19 +264,19 @@ $sel:granteeType:Permission' :: Permission -&gt; Maybe Text
 -&gt; (Permission -&gt; Maybe Text -&gt; Permission)
 -&gt; Lens Permission Permission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211538"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211547"><span class="annot"><span class="annottext">Maybe Text
 grantee :: Maybe Text
 $sel:grantee:Permission' :: Permission -&gt; Maybe Text
-</span><a href="#local-6989586621679211538"><span class="hs-identifier hs-var hs-var">grantee</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211538"><span class="hs-identifier hs-var">grantee</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211537"><span class="annot"><span class="annottext">s :: Permission
-</span><a href="#local-6989586621679211537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211536"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679211537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantee:Permission' :: Maybe Text
+</span><a href="#local-6989586621679211547"><span class="hs-identifier hs-var hs-var">grantee</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211547"><span class="hs-identifier hs-var">grantee</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211546"><span class="annot"><span class="annottext">s :: Permission
+</span><a href="#local-6989586621679211546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211545"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679211546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantee:Permission' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#%24sel%3Agrantee%3APermission%27"><span class="hs-identifier hs-var">grantee</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211533"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679211531"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Permission
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211542"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679211540"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Permission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Permission) -&gt; Value -&gt; Parser Permission
@@ -284,8 +284,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Permission&quot;</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211528"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211528"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211537"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679211537"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Permission
 </span><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-var">Permission'</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Permission)
@@ -293,7 +293,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Permission)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679211537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Access&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -306,7 +306,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Permission)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679211537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GranteeType&quot;</span></span><span class="hs-special">)</span><span>
@@ -314,19 +314,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Permission
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679211537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Grantee&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211521"><span id="local-6989586621679211523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211530"><span id="local-6989586621679211532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211510"><span id="local-6989586621679211512"><span id="local-6989586621679211514"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679211508"><span class="annot"><span class="annottext">toJSON :: Permission -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211504"><span id="local-6989586621679211505"><span id="local-6989586621679211506"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211519"><span id="local-6989586621679211521"><span id="local-6989586621679211523"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679211517"><span class="annot"><span class="annottext">toJSON :: Permission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Permission.html#Permission%27"><span class="hs-identifier hs-type">Permission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211513"><span id="local-6989586621679211514"><span id="local-6989586621679211515"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 grantee :: Maybe Text
 granteeType :: Maybe Text
@@ -334,7 +334,7 @@ access :: Maybe [Text]
 $sel:grantee:Permission' :: Permission -&gt; Maybe Text
 $sel:granteeType:Permission' :: Permission -&gt; Maybe Text
 $sel:access:Permission' :: Permission -&gt; Maybe [Text]
-</span><a href="#local-6989586621679211504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679211513"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -346,21 +346,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679211506"><span class="hs-identifier hs-var">access</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211515"><span class="hs-identifier hs-var">access</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GranteeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211505"><span class="hs-identifier hs-var">granteeType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211514"><span class="hs-identifier hs-var">granteeType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Grantee&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211504"><span class="hs-identifier hs-var">grantee</span></a></span><span>
+</span><a href="#local-6989586621679211513"><span class="hs-identifier hs-var">grantee</span></a></span><span>
 </span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span></pre></body></html>

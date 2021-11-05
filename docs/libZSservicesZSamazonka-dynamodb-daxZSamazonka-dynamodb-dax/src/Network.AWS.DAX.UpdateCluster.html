@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUpdateCluster' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679201693"><span id="local-6989586621679201694"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCluster"><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-var">UpdateCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCluster%27"><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-var">UpdateCluster'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679201702"><span id="local-6989586621679201703"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCluster"><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-var">UpdateCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCluster%27"><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-var">UpdateCluster'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of user-specified security group IDs to be assigned to each node</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- in the DAX cluster. If this parameter is not specified, DAX assigns the</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- default VPC security group to each node.</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AclusterName%3AUpdateCluster%27"><span class="annot"><span class="annottext">UpdateCluster -&gt; Text
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AclusterName%3AUpdateCluster%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201681"><span id="local-6989586621679201683"><span class="annot"><span class="annottext">UpdateCluster -&gt; UpdateCluster -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201690"><span id="local-6989586621679201692"><span class="annot"><span class="annottext">UpdateCluster -&gt; UpdateCluster -&gt; Bool
 (UpdateCluster -&gt; UpdateCluster -&gt; Bool)
 -&gt; (UpdateCluster -&gt; UpdateCluster -&gt; Bool) -&gt; Eq UpdateCluster
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateCluster -&gt; UpdateCluster -&gt; Bool
 == :: UpdateCluster -&gt; UpdateCluster -&gt; Bool
 $c== :: UpdateCluster -&gt; UpdateCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201672"><span id="local-6989586621679201674"><span id="local-6989586621679201676"><span id="local-6989586621679201678"><span class="annot"><span class="annottext">ReadPrec [UpdateCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201681"><span id="local-6989586621679201683"><span id="local-6989586621679201685"><span id="local-6989586621679201687"><span class="annot"><span class="annottext">ReadPrec [UpdateCluster]
 ReadPrec UpdateCluster
 Int -&gt; ReadS UpdateCluster
 ReadS [UpdateCluster]
@@ -113,7 +113,7 @@ readList :: ReadS [UpdateCluster]
 $creadList :: ReadS [UpdateCluster]
 readsPrec :: Int -&gt; ReadS UpdateCluster
 $creadsPrec :: Int -&gt; ReadS UpdateCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201665"><span id="local-6989586621679201667"><span id="local-6989586621679201669"><span class="annot"><span class="annottext">Int -&gt; UpdateCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201674"><span id="local-6989586621679201676"><span id="local-6989586621679201678"><span class="annot"><span class="annottext">Int -&gt; UpdateCluster -&gt; ShowS
 [UpdateCluster] -&gt; ShowS
 UpdateCluster -&gt; String
 (Int -&gt; UpdateCluster -&gt; ShowS)
@@ -172,8 +172,8 @@ $cfrom :: forall x. UpdateCluster -&gt; Rep UpdateCluster x
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span>
 </span><span id="line-115"></span><span id="newUpdateCluster"><span class="annot"><span class="annottext">newUpdateCluster :: Text -&gt; UpdateCluster
-</span><a href="Network.AWS.DAX.UpdateCluster.html#newUpdateCluster"><span class="hs-identifier hs-var hs-var">newUpdateCluster</span></a></span></span><span> </span><span id="local-6989586621679201660"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201660"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.UpdateCluster.html#newUpdateCluster"><span class="hs-identifier hs-var hs-var">newUpdateCluster</span></a></span></span><span> </span><span id="local-6989586621679201669"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201669"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">UpdateCluster' :: Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -209,7 +209,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:UpdateCluster' :: Text
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AclusterName%3AUpdateCluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201660"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span>
+</span><a href="#local-6989586621679201669"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | A list of user-specified security group IDs to be assigned to each node</span><span>
@@ -222,16 +222,16 @@ forall a. Maybe a
 -&gt; (UpdateCluster -&gt; Maybe [Text] -&gt; UpdateCluster)
 -&gt; Lens UpdateCluster UpdateCluster (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201657"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201666"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroupIds :: Maybe [Text]
 $sel:securityGroupIds:UpdateCluster' :: UpdateCluster -&gt; Maybe [Text]
-</span><a href="#local-6989586621679201657"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679201657"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201656"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679201656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201655"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679201655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679201656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:UpdateCluster' :: Maybe [Text]
+</span><a href="#local-6989586621679201666"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679201666"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201665"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679201665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201664"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679201664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679201665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:UpdateCluster' :: Maybe [Text]
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AsecurityGroupIds%3AUpdateCluster%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679201655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679201664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpdateCluster -&gt; f UpdateCluster)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -258,16 +258,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateCluster -&gt; Maybe Text -&gt; UpdateCluster)
 -&gt; Lens UpdateCluster UpdateCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201651"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201660"><span class="annot"><span class="annottext">Maybe Text
 preferredMaintenanceWindow :: Maybe Text
 $sel:preferredMaintenanceWindow:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679201651"><span class="hs-identifier hs-var hs-var">preferredMaintenanceWindow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201651"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201650"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679201650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201649"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679201650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredMaintenanceWindow:UpdateCluster' :: Maybe Text
+</span><a href="#local-6989586621679201660"><span class="hs-identifier hs-var hs-var">preferredMaintenanceWindow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201660"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201659"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679201659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679201659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preferredMaintenanceWindow:UpdateCluster' :: Maybe Text
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3ApreferredMaintenanceWindow%3AUpdateCluster%27"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The current state of the topic. A value of &#8220;active&#8221; means that</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- notifications will be sent to the topic. A value of &#8220;inactive&#8221; means</span><span>
@@ -278,16 +278,16 @@ $sel:preferredMaintenanceWindow:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
 -&gt; (UpdateCluster -&gt; Maybe Text -&gt; UpdateCluster)
 -&gt; Lens UpdateCluster UpdateCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201648"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201657"><span class="annot"><span class="annottext">Maybe Text
 notificationTopicStatus :: Maybe Text
 $sel:notificationTopicStatus:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679201648"><span class="hs-identifier hs-var hs-var">notificationTopicStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201648"><span class="hs-identifier hs-var">notificationTopicStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201647"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679201647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201646"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679201647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationTopicStatus:UpdateCluster' :: Maybe Text
+</span><a href="#local-6989586621679201657"><span class="hs-identifier hs-var hs-var">notificationTopicStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201657"><span class="hs-identifier hs-var">notificationTopicStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201656"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679201656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201655"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679201656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationTopicStatus:UpdateCluster' :: Maybe Text
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AnotificationTopicStatus%3AUpdateCluster%27"><span class="hs-identifier hs-var">notificationTopicStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | A description of the changes being made to the cluster.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#updateCluster_description"><span class="hs-identifier hs-type">updateCluster_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -296,16 +296,16 @@ $sel:notificationTopicStatus:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
 -&gt; (UpdateCluster -&gt; Maybe Text -&gt; UpdateCluster)
 -&gt; Lens UpdateCluster UpdateCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201645"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201654"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679201645"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201645"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201644"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679201644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201643"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679201644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateCluster' :: Maybe Text
+</span><a href="#local-6989586621679201654"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201654"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201653"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679201653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201652"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679201653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateCluster' :: Maybe Text
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3Adescription%3AUpdateCluster%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the topic.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#updateCluster_notificationTopicArn"><span class="hs-identifier hs-type">updateCluster_notificationTopicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -314,16 +314,16 @@ $sel:description:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
 -&gt; (UpdateCluster -&gt; Maybe Text -&gt; UpdateCluster)
 -&gt; Lens UpdateCluster UpdateCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201642"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201651"><span class="annot"><span class="annottext">Maybe Text
 notificationTopicArn :: Maybe Text
 $sel:notificationTopicArn:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679201642"><span class="hs-identifier hs-var hs-var">notificationTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201642"><span class="hs-identifier hs-var">notificationTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201641"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679201641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201640"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679201641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationTopicArn:UpdateCluster' :: Maybe Text
+</span><a href="#local-6989586621679201651"><span class="hs-identifier hs-var hs-var">notificationTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201651"><span class="hs-identifier hs-var">notificationTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201650"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679201650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201649"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679201650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationTopicArn:UpdateCluster' :: Maybe Text
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AnotificationTopicArn%3AUpdateCluster%27"><span class="hs-identifier hs-var">notificationTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The name of a parameter group for this cluster.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#updateCluster_parameterGroupName"><span class="hs-identifier hs-type">updateCluster_parameterGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -332,16 +332,16 @@ $sel:notificationTopicArn:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
 -&gt; (UpdateCluster -&gt; Maybe Text -&gt; UpdateCluster)
 -&gt; Lens UpdateCluster UpdateCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201639"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201648"><span class="annot"><span class="annottext">Maybe Text
 parameterGroupName :: Maybe Text
 $sel:parameterGroupName:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679201639"><span class="hs-identifier hs-var hs-var">parameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201639"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201638"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679201638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201637"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679201638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroupName:UpdateCluster' :: Maybe Text
+</span><a href="#local-6989586621679201648"><span class="hs-identifier hs-var hs-var">parameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201648"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201647"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679201647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201646"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679201647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroupName:UpdateCluster' :: Maybe Text
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AparameterGroupName%3AUpdateCluster%27"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The name of the DAX cluster to be modified.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#updateCluster_clusterName"><span class="hs-identifier hs-type">updateCluster_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -350,27 +350,27 @@ $sel:parameterGroupName:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
 -&gt; (UpdateCluster -&gt; Text -&gt; UpdateCluster)
 -&gt; Lens UpdateCluster UpdateCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201636"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201645"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:UpdateCluster' :: UpdateCluster -&gt; Text
-</span><a href="#local-6989586621679201636"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201636"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201635"><span class="annot"><span class="annottext">s :: UpdateCluster
-</span><a href="#local-6989586621679201635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201634"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
-</span><a href="#local-6989586621679201635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:UpdateCluster' :: Text
+</span><a href="#local-6989586621679201645"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201645"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201644"><span class="annot"><span class="annottext">s :: UpdateCluster
+</span><a href="#local-6989586621679201644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201643"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCluster
+</span><a href="#local-6989586621679201644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:UpdateCluster' :: Text
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AclusterName%3AUpdateCluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679201630"><span class="annot"><span class="annottext">request :: UpdateCluster -&gt; Request UpdateCluster
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679201639"><span class="annot"><span class="annottext">request :: UpdateCluster -&gt; Request UpdateCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateCluster -&gt; Request UpdateCluster
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DAX.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679201626"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679201635"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateCluster
 -&gt; ClientResponse ClientBody
@@ -394,10 +394,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201623"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201623"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679201622"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679201622"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679201621"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201632"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201632"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679201631"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679201631"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679201630"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; UpdateClusterResponse
 </span><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-var">UpdateClusterResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; UpdateClusterResponse)
@@ -405,7 +405,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679201630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -417,15 +417,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201623"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201632"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201613"><span id="local-6989586621679201615"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201622"><span id="local-6989586621679201624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201610"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679201606"><span class="annot"><span class="annottext">toHeaders :: UpdateCluster -&gt; ResponseHeaders
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679201615"><span class="annot"><span class="annottext">toHeaders :: UpdateCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -450,9 +450,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201596"><span id="local-6989586621679201598"><span id="local-6989586621679201600"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679201594"><span class="annot"><span class="annottext">toJSON :: UpdateCluster -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201586"><span id="local-6989586621679201587"><span id="local-6989586621679201588"><span id="local-6989586621679201589"><span id="local-6989586621679201590"><span id="local-6989586621679201591"><span id="local-6989586621679201592"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201605"><span id="local-6989586621679201607"><span id="local-6989586621679201609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679201603"><span class="annot"><span class="annottext">toJSON :: UpdateCluster -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster%27"><span class="hs-identifier hs-type">UpdateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201595"><span id="local-6989586621679201596"><span id="local-6989586621679201597"><span id="local-6989586621679201598"><span id="local-6989586621679201599"><span id="local-6989586621679201600"><span id="local-6989586621679201601"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Text
 clusterName :: Text
@@ -469,7 +469,7 @@ $sel:description:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
 $sel:notificationTopicStatus:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
 $sel:preferredMaintenanceWindow:UpdateCluster' :: UpdateCluster -&gt; Maybe Text
 $sel:securityGroupIds:UpdateCluster' :: UpdateCluster -&gt; Maybe [Text]
-</span><a href="#local-6989586621679201586"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679201595"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -482,7 +482,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679201592"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201601"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PreferredMaintenanceWindow&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -490,7 +490,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201591"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201600"><span class="hs-identifier hs-var">preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotificationTopicStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -498,14 +498,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201590"><span class="hs-identifier hs-var">notificationTopicStatus</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201599"><span class="hs-identifier hs-var">notificationTopicStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201589"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201598"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotificationTopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -513,7 +513,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201588"><span class="hs-identifier hs-var">notificationTopicArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201597"><span class="hs-identifier hs-var">notificationTopicArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -521,26 +521,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201587"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201596"><span class="hs-identifier hs-var">parameterGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClusterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201586"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201595"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679201580"><span class="annot"><span class="annottext">toPath :: UpdateCluster -&gt; ByteString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679201589"><span class="annot"><span class="annottext">toPath :: UpdateCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateCluster"><span class="hs-identifier hs-type">UpdateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679201576"><span class="annot"><span class="annottext">toQuery :: UpdateCluster -&gt; QueryString
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679201585"><span class="annot"><span class="annottext">toQuery :: UpdateCluster -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateCluster -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -548,7 +548,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | /See:/ 'newUpdateClusterResponse' smart constructor.</span><span>
-</span><span id="line-217"></span><span id="local-6989586621679201573"><span id="local-6989586621679201574"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateClusterResponse"><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-var">UpdateClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateClusterResponse%27"><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-var">UpdateClusterResponse'</span></a></span></span><span>
+</span><span id="line-217"></span><span id="local-6989586621679201582"><span id="local-6989586621679201583"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateClusterResponse"><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-var">UpdateClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateClusterResponse%27"><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-var">UpdateClusterResponse'</span></a></span></span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the DAX cluster, after it has been modified.</span><span>
 </span><span id="line-219"></span><span>    </span><span id="%24sel%3Acluster%3AUpdateClusterResponse%27"><span class="annot"><span class="annottext">UpdateClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3Acluster%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
@@ -556,7 +556,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateClusterResponse%27"><span class="annot"><span class="annottext">UpdateClusterResponse -&gt; Int
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AhttpStatus%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201567"><span id="local-6989586621679201569"><span class="annot"><span class="annottext">UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201576"><span id="local-6989586621679201578"><span class="annot"><span class="annottext">UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
 (UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool)
 -&gt; (UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool)
 -&gt; Eq UpdateClusterResponse
@@ -565,7 +565,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
 == :: UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
 $c== :: UpdateClusterResponse -&gt; UpdateClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201559"><span id="local-6989586621679201561"><span id="local-6989586621679201563"><span id="local-6989586621679201565"><span class="annot"><span class="annottext">ReadPrec [UpdateClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201568"><span id="local-6989586621679201570"><span id="local-6989586621679201572"><span id="local-6989586621679201574"><span class="annot"><span class="annottext">ReadPrec [UpdateClusterResponse]
 ReadPrec UpdateClusterResponse
 Int -&gt; ReadS UpdateClusterResponse
 ReadS [UpdateClusterResponse]
@@ -585,7 +585,7 @@ readList :: ReadS [UpdateClusterResponse]
 $creadList :: ReadS [UpdateClusterResponse]
 readsPrec :: Int -&gt; ReadS UpdateClusterResponse
 $creadsPrec :: Int -&gt; ReadS UpdateClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201553"><span id="local-6989586621679201555"><span id="local-6989586621679201557"><span class="annot"><span class="annottext">Int -&gt; UpdateClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201562"><span id="local-6989586621679201564"><span id="local-6989586621679201566"><span class="annot"><span class="annottext">Int -&gt; UpdateClusterResponse -&gt; ShowS
 [UpdateClusterResponse] -&gt; ShowS
 UpdateClusterResponse -&gt; String
 (Int -&gt; UpdateClusterResponse -&gt; ShowS)
@@ -627,8 +627,8 @@ $cfrom :: forall x. UpdateClusterResponse -&gt; Rep UpdateClusterResponse x
 </span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span>
 </span><span id="line-240"></span><span id="newUpdateClusterResponse"><span class="annot"><span class="annottext">newUpdateClusterResponse :: Int -&gt; UpdateClusterResponse
-</span><a href="Network.AWS.DAX.UpdateCluster.html#newUpdateClusterResponse"><span class="hs-identifier hs-var hs-var">newUpdateClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679201550"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.UpdateCluster.html#newUpdateClusterResponse"><span class="hs-identifier hs-var hs-var">newUpdateClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679201559"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201559"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">UpdateClusterResponse' :: Maybe Cluster -&gt; Int -&gt; UpdateClusterResponse
 </span><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:UpdateClusterResponse' :: Maybe Cluster
@@ -637,7 +637,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClusterResponse' :: Int
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AhttpStatus%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679201559"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-244"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | A description of the DAX cluster, after it has been modified.</span><span>
@@ -653,16 +653,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201549"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201558"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:UpdateClusterResponse' :: UpdateClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679201549"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679201549"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201548"><span class="annot"><span class="annottext">s :: UpdateClusterResponse
-</span><a href="#local-6989586621679201548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201547"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679201547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterResponse
-</span><a href="#local-6989586621679201548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:UpdateClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679201558"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679201558"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201557"><span class="annot"><span class="annottext">s :: UpdateClusterResponse
+</span><a href="#local-6989586621679201557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201556"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679201556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterResponse
+</span><a href="#local-6989586621679201557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:UpdateClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3Acluster%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679201547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-251"></span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#updateClusterResponse_httpStatus"><span class="hs-identifier hs-type">updateClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -671,16 +671,16 @@ $sel:cluster:UpdateClusterResponse' :: UpdateClusterResponse -&gt; Maybe Cluster
 -&gt; (UpdateClusterResponse -&gt; Int -&gt; UpdateClusterResponse)
 -&gt; Lens UpdateClusterResponse UpdateClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201546"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201555"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateClusterResponse' :: UpdateClusterResponse -&gt; Int
-</span><a href="#local-6989586621679201546"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201546"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201545"><span class="annot"><span class="annottext">s :: UpdateClusterResponse
-</span><a href="#local-6989586621679201545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201544"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterResponse
-</span><a href="#local-6989586621679201545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClusterResponse' :: Int
+</span><a href="#local-6989586621679201555"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201555"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201554"><span class="annot"><span class="annottext">s :: UpdateClusterResponse
+</span><a href="#local-6989586621679201554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse%27"><span class="hs-identifier hs-type">UpdateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201553"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateClusterResponse
+</span><a href="#local-6989586621679201554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateClusterResponse' :: Int
 </span><a href="Network.AWS.DAX.UpdateCluster.html#%24sel%3AhttpStatus%3AUpdateClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201542"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.UpdateCluster.html#UpdateClusterResponse"><span class="hs-identifier hs-type">UpdateClusterResponse</span></a></span></span><span>
 </span><span id="line-255"></span></pre></body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53Resolver.Types.ResolverEndpointDirection</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53Resolver.Types.ResolverEndpointDirection</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection"><span class="hs-identifier">ResolverEndpointDirection</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection_INBOUND"><span class="hs-identifier">ResolverEndpointDirection_INBOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection_OUTBOUND"><span class="hs-identifier">ResolverEndpointDirection_OUTBOUND</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679284766"><span id="local-6989586621679284767"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResolverEndpointDirection"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection"><span class="hs-identifier hs-var">ResolverEndpointDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolverEndpointDirection%27"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection%27"><span class="hs-identifier hs-var">ResolverEndpointDirection'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResolverEndpointDirection"><span class="annot"><span class="annottext">ResolverEndpointDirection -&gt; Text
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#fromResolverEndpointDirection"><span class="hs-identifier hs-var hs-var">fromResolverEndpointDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679284758"><span id="local-6989586621679284760"><span id="local-6989586621679284762"><span class="annot"><span class="annottext">Int -&gt; ResolverEndpointDirection -&gt; ShowS
+[ResolverEndpointDirection] -&gt; ShowS
+ResolverEndpointDirection -&gt; String
+(Int -&gt; ResolverEndpointDirection -&gt; ShowS)
+-&gt; (ResolverEndpointDirection -&gt; String)
+-&gt; ([ResolverEndpointDirection] -&gt; ShowS)
+-&gt; Show ResolverEndpointDirection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResolverEndpointDirection] -&gt; ShowS
+$cshowList :: [ResolverEndpointDirection] -&gt; ShowS
+show :: ResolverEndpointDirection -&gt; String
+$cshow :: ResolverEndpointDirection -&gt; String
+showsPrec :: Int -&gt; ResolverEndpointDirection -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResolverEndpointDirection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679284749"><span id="local-6989586621679284751"><span id="local-6989586621679284753"><span id="local-6989586621679284755"><span class="annot"><span class="annottext">ReadPrec [ResolverEndpointDirection]
+ReadPrec ResolverEndpointDirection
+Int -&gt; ReadS ResolverEndpointDirection
+ReadS [ResolverEndpointDirection]
+(Int -&gt; ReadS ResolverEndpointDirection)
+-&gt; ReadS [ResolverEndpointDirection]
+-&gt; ReadPrec ResolverEndpointDirection
+-&gt; ReadPrec [ResolverEndpointDirection]
+-&gt; Read ResolverEndpointDirection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResolverEndpointDirection]
+$creadListPrec :: ReadPrec [ResolverEndpointDirection]
+readPrec :: ReadPrec ResolverEndpointDirection
+$creadPrec :: ReadPrec ResolverEndpointDirection
+readList :: ReadS [ResolverEndpointDirection]
+$creadList :: ReadS [ResolverEndpointDirection]
+readsPrec :: Int -&gt; ReadS ResolverEndpointDirection
+$creadsPrec :: Int -&gt; ReadS ResolverEndpointDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679284744"><span id="local-6989586621679284746"><span class="annot"><span class="annottext">ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+(ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool)
+-&gt; (ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool)
+-&gt; Eq ResolverEndpointDirection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+$c/= :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+== :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+$c== :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679284728"><span id="local-6989586621679284730"><span id="local-6989586621679284732"><span id="local-6989586621679284734"><span id="local-6989586621679284736"><span id="local-6989586621679284738"><span id="local-6989586621679284740"><span class="annot"><span class="annottext">Eq ResolverEndpointDirection
+Eq ResolverEndpointDirection
+-&gt; (ResolverEndpointDirection
+    -&gt; ResolverEndpointDirection -&gt; Ordering)
+-&gt; (ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool)
+-&gt; (ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool)
+-&gt; (ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool)
+-&gt; (ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool)
+-&gt; (ResolverEndpointDirection
+    -&gt; ResolverEndpointDirection -&gt; ResolverEndpointDirection)
+-&gt; (ResolverEndpointDirection
+    -&gt; ResolverEndpointDirection -&gt; ResolverEndpointDirection)
+-&gt; Ord ResolverEndpointDirection
+ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Ordering
+ResolverEndpointDirection
+-&gt; ResolverEndpointDirection -&gt; ResolverEndpointDirection
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResolverEndpointDirection
+-&gt; ResolverEndpointDirection -&gt; ResolverEndpointDirection
+$cmin :: ResolverEndpointDirection
+-&gt; ResolverEndpointDirection -&gt; ResolverEndpointDirection
+max :: ResolverEndpointDirection
+-&gt; ResolverEndpointDirection -&gt; ResolverEndpointDirection
+$cmax :: ResolverEndpointDirection
+-&gt; ResolverEndpointDirection -&gt; ResolverEndpointDirection
+&gt;= :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+$c&gt;= :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+&gt; :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+$c&gt; :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+&lt;= :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+$c&lt;= :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+&lt; :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+$c&lt; :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Bool
+compare :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Ordering
+$ccompare :: ResolverEndpointDirection -&gt; ResolverEndpointDirection -&gt; Ordering
+$cp1Ord :: Eq ResolverEndpointDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ResolverEndpointDirection -&gt; Rep ResolverEndpointDirection x)
+-&gt; (forall x.
+    Rep ResolverEndpointDirection x -&gt; ResolverEndpointDirection)
+-&gt; Generic ResolverEndpointDirection
+forall x.
+Rep ResolverEndpointDirection x -&gt; ResolverEndpointDirection
+forall x.
+ResolverEndpointDirection -&gt; Rep ResolverEndpointDirection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResolverEndpointDirection x -&gt; ResolverEndpointDirection
+$cfrom :: forall x.
+ResolverEndpointDirection -&gt; Rep ResolverEndpointDirection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679284720"><span id="local-6989586621679284722"><span class="annot"><span class="annottext">Int -&gt; ResolverEndpointDirection -&gt; Int
+ResolverEndpointDirection -&gt; Int
+(Int -&gt; ResolverEndpointDirection -&gt; Int)
+-&gt; (ResolverEndpointDirection -&gt; Int)
+-&gt; Hashable ResolverEndpointDirection
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResolverEndpointDirection -&gt; Int
+$chash :: ResolverEndpointDirection -&gt; Int
+hashWithSalt :: Int -&gt; ResolverEndpointDirection -&gt; Int
+$chashWithSalt :: Int -&gt; ResolverEndpointDirection -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679284717"><span class="annot"><span class="annottext">ResolverEndpointDirection -&gt; ()
+(ResolverEndpointDirection -&gt; ())
+-&gt; NFData ResolverEndpointDirection
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResolverEndpointDirection -&gt; ()
+$crnf :: ResolverEndpointDirection -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679284714"><span class="annot"><span class="annottext">Text -&gt; Either String ResolverEndpointDirection
+(Text -&gt; Either String ResolverEndpointDirection)
+-&gt; FromText ResolverEndpointDirection
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResolverEndpointDirection
+$cfromText :: Text -&gt; Either String ResolverEndpointDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679284711"><span class="annot"><span class="annottext">ResolverEndpointDirection -&gt; Text
+(ResolverEndpointDirection -&gt; Text)
+-&gt; ToText ResolverEndpointDirection
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResolverEndpointDirection -&gt; Text
+$ctoText :: ResolverEndpointDirection -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679284708"><span class="annot"><span class="annottext">ResolverEndpointDirection -&gt; ByteString
+(ResolverEndpointDirection -&gt; ByteString)
+-&gt; ToByteString ResolverEndpointDirection
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResolverEndpointDirection -&gt; ByteString
+$ctoBS :: ResolverEndpointDirection -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679284705"><span class="annot"><span class="annottext">ResolverEndpointDirection -&gt; ByteStringBuilder
+(ResolverEndpointDirection -&gt; ByteStringBuilder)
+-&gt; ToLog ResolverEndpointDirection
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResolverEndpointDirection -&gt; ByteStringBuilder
+$cbuild :: ResolverEndpointDirection -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679284702"><span class="annot"><span class="annottext">HeaderName -&gt; ResolverEndpointDirection -&gt; [Header]
+(HeaderName -&gt; ResolverEndpointDirection -&gt; [Header])
+-&gt; ToHeader ResolverEndpointDirection
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResolverEndpointDirection -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResolverEndpointDirection -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679284699"><span class="annot"><span class="annottext">ResolverEndpointDirection -&gt; QueryString
+(ResolverEndpointDirection -&gt; QueryString)
+-&gt; ToQuery ResolverEndpointDirection
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResolverEndpointDirection -&gt; QueryString
+$ctoQuery :: ResolverEndpointDirection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679284694"><span id="local-6989586621679284696"><span class="annot"><span class="annottext">Value -&gt; Parser [ResolverEndpointDirection]
+Value -&gt; Parser ResolverEndpointDirection
+(Value -&gt; Parser ResolverEndpointDirection)
+-&gt; (Value -&gt; Parser [ResolverEndpointDirection])
+-&gt; FromJSON ResolverEndpointDirection
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResolverEndpointDirection]
+$cparseJSONList :: Value -&gt; Parser [ResolverEndpointDirection]
+parseJSON :: Value -&gt; Parser ResolverEndpointDirection
+$cparseJSON :: Value -&gt; Parser ResolverEndpointDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679284689"><span id="local-6989586621679284691"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResolverEndpointDirection]
+FromJSONKeyFunction ResolverEndpointDirection
+FromJSONKeyFunction ResolverEndpointDirection
+-&gt; FromJSONKeyFunction [ResolverEndpointDirection]
+-&gt; FromJSONKey ResolverEndpointDirection
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResolverEndpointDirection]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResolverEndpointDirection]
+fromJSONKey :: FromJSONKeyFunction ResolverEndpointDirection
+$cfromJSONKey :: FromJSONKeyFunction ResolverEndpointDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679284680"><span id="local-6989586621679284682"><span id="local-6989586621679284684"><span id="local-6989586621679284686"><span class="annot"><span class="annottext">[ResolverEndpointDirection] -&gt; Encoding
+[ResolverEndpointDirection] -&gt; Value
+ResolverEndpointDirection -&gt; Encoding
+ResolverEndpointDirection -&gt; Value
+(ResolverEndpointDirection -&gt; Value)
+-&gt; (ResolverEndpointDirection -&gt; Encoding)
+-&gt; ([ResolverEndpointDirection] -&gt; Value)
+-&gt; ([ResolverEndpointDirection] -&gt; Encoding)
+-&gt; ToJSON ResolverEndpointDirection
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResolverEndpointDirection] -&gt; Encoding
+$ctoEncodingList :: [ResolverEndpointDirection] -&gt; Encoding
+toJSONList :: [ResolverEndpointDirection] -&gt; Value
+$ctoJSONList :: [ResolverEndpointDirection] -&gt; Value
+toEncoding :: ResolverEndpointDirection -&gt; Encoding
+$ctoEncoding :: ResolverEndpointDirection -&gt; Encoding
+toJSON :: ResolverEndpointDirection -&gt; Value
+$ctoJSON :: ResolverEndpointDirection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679284675"><span id="local-6989586621679284677"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResolverEndpointDirection]
+ToJSONKeyFunction ResolverEndpointDirection
+ToJSONKeyFunction ResolverEndpointDirection
+-&gt; ToJSONKeyFunction [ResolverEndpointDirection]
+-&gt; ToJSONKey ResolverEndpointDirection
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResolverEndpointDirection]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResolverEndpointDirection]
+toJSONKey :: ToJSONKeyFunction ResolverEndpointDirection
+$ctoJSONKey :: ToJSONKeyFunction ResolverEndpointDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679284672"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResolverEndpointDirection
+([Node] -&gt; Either String ResolverEndpointDirection)
+-&gt; FromXML ResolverEndpointDirection
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResolverEndpointDirection
+$cparseXML :: [Node] -&gt; Either String ResolverEndpointDirection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679284669"><span class="annot"><span class="annottext">ResolverEndpointDirection -&gt; XML
+(ResolverEndpointDirection -&gt; XML)
+-&gt; ToXML ResolverEndpointDirection
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResolverEndpointDirection -&gt; XML
+$ctoXML :: ResolverEndpointDirection -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection_INBOUND"><span class="hs-identifier hs-type">ResolverEndpointDirection_INBOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection"><span class="hs-identifier hs-type">ResolverEndpointDirection</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverEndpointDirection_INBOUND"><span id="%24mResolverEndpointDirection_INBOUND"><span id="ResolverEndpointDirection_INBOUND"><span class="annot"><span class="annottext">$bResolverEndpointDirection_INBOUND :: ResolverEndpointDirection
+$mResolverEndpointDirection_INBOUND :: forall r.
+ResolverEndpointDirection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#%24bResolverEndpointDirection_INBOUND"><span class="hs-identifier hs-var hs-var hs-var">ResolverEndpointDirection_INBOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection%27"><span class="hs-identifier hs-type">ResolverEndpointDirection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INBOUND&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection_OUTBOUND"><span class="hs-identifier hs-type">ResolverEndpointDirection_OUTBOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection"><span class="hs-identifier hs-type">ResolverEndpointDirection</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverEndpointDirection_OUTBOUND"><span id="%24mResolverEndpointDirection_OUTBOUND"><span id="ResolverEndpointDirection_OUTBOUND"><span class="annot"><span class="annottext">$bResolverEndpointDirection_OUTBOUND :: ResolverEndpointDirection
+$mResolverEndpointDirection_OUTBOUND :: forall r.
+ResolverEndpointDirection -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#%24bResolverEndpointDirection_OUTBOUND"><span class="hs-identifier hs-var hs-var hs-var">ResolverEndpointDirection_OUTBOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection%27"><span class="hs-identifier hs-type">ResolverEndpointDirection'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OUTBOUND&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection_INBOUND"><span class="hs-pragma hs-type">ResolverEndpointDirection_INBOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection_OUTBOUND"><span class="hs-pragma hs-type">ResolverEndpointDirection_OUTBOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointDirection.html#ResolverEndpointDirection%27"><span class="hs-pragma hs-type">ResolverEndpointDirection'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

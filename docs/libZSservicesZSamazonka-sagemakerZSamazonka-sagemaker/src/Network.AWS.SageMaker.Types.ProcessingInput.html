@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- exactly one of either @S3Input@ or @DatasetDefinition@ types.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newProcessingInput' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680336984"><span id="local-6989586621680336985"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessingInput"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-var">ProcessingInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingInput%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-var">ProcessingInput'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680336993"><span id="local-6989586621680336994"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessingInput"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-var">ProcessingInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingInput%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-var">ProcessingInput'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration for a Dataset Definition input.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdatasetDefinition%3AProcessingInput%27"><span class="annot"><span class="annottext">ProcessingInput -&gt; Maybe DatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#%24sel%3AdatasetDefinition%3AProcessingInput%27"><span class="hs-identifier hs-var hs-var">datasetDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DatasetDefinition.html#DatasetDefinition"><span class="hs-identifier hs-type">DatasetDefinition</span></a></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AinputName%3AProcessingInput%27"><span class="annot"><span class="annottext">ProcessingInput -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#%24sel%3AinputName%3AProcessingInput%27"><span class="hs-identifier hs-var hs-var">inputName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680336975"><span id="local-6989586621680336977"><span class="annot"><span class="annottext">ProcessingInput -&gt; ProcessingInput -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680336984"><span id="local-6989586621680336986"><span class="annot"><span class="annottext">ProcessingInput -&gt; ProcessingInput -&gt; Bool
 (ProcessingInput -&gt; ProcessingInput -&gt; Bool)
 -&gt; (ProcessingInput -&gt; ProcessingInput -&gt; Bool)
 -&gt; Eq ProcessingInput
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProcessingInput -&gt; ProcessingInput -&gt; Bool
 == :: ProcessingInput -&gt; ProcessingInput -&gt; Bool
 $c== :: ProcessingInput -&gt; ProcessingInput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336966"><span id="local-6989586621680336968"><span id="local-6989586621680336970"><span id="local-6989586621680336972"><span class="annot"><span class="annottext">ReadPrec [ProcessingInput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336975"><span id="local-6989586621680336977"><span id="local-6989586621680336979"><span id="local-6989586621680336981"><span class="annot"><span class="annottext">ReadPrec [ProcessingInput]
 ReadPrec ProcessingInput
 Int -&gt; ReadS ProcessingInput
 ReadS [ProcessingInput]
@@ -75,7 +75,7 @@ readList :: ReadS [ProcessingInput]
 $creadList :: ReadS [ProcessingInput]
 readsPrec :: Int -&gt; ReadS ProcessingInput
 $creadsPrec :: Int -&gt; ReadS ProcessingInput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336959"><span id="local-6989586621680336961"><span id="local-6989586621680336963"><span class="annot"><span class="annottext">Int -&gt; ProcessingInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336968"><span id="local-6989586621680336970"><span id="local-6989586621680336972"><span class="annot"><span class="annottext">Int -&gt; ProcessingInput -&gt; ShowS
 [ProcessingInput] -&gt; ShowS
 ProcessingInput -&gt; String
 (Int -&gt; ProcessingInput -&gt; ShowS)
@@ -124,8 +124,8 @@ $cfrom :: forall x. ProcessingInput -&gt; Rep ProcessingInput x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span>
 </span><span id="line-69"></span><span id="newProcessingInput"><span class="annot"><span class="annottext">newProcessingInput :: Text -&gt; ProcessingInput
-</span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#newProcessingInput"><span class="hs-identifier hs-var hs-var">newProcessingInput</span></a></span></span><span> </span><span id="local-6989586621680336953"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680336953"><span class="hs-identifier hs-var">pInputName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#newProcessingInput"><span class="hs-identifier hs-var hs-var">newProcessingInput</span></a></span></span><span> </span><span id="local-6989586621680336962"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680336962"><span class="hs-identifier hs-var">pInputName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">ProcessingInput' :: Maybe DatasetDefinition
 -&gt; Maybe Bool -&gt; Maybe ProcessingS3Input -&gt; Text -&gt; ProcessingInput
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span>
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputName:ProcessingInput' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#%24sel%3AinputName%3AProcessingInput%27"><span class="hs-identifier hs-var">inputName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680336953"><span class="hs-identifier hs-var">pInputName_</span></a></span><span>
+</span><a href="#local-6989586621680336962"><span class="hs-identifier hs-var">pInputName_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Configuration for a Dataset Definition input.</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
      (Maybe DatasetDefinition)
      (Maybe DatasetDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336949"><span class="annot"><span class="annottext">Maybe DatasetDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336958"><span class="annot"><span class="annottext">Maybe DatasetDefinition
 datasetDefinition :: Maybe DatasetDefinition
 $sel:datasetDefinition:ProcessingInput' :: ProcessingInput -&gt; Maybe DatasetDefinition
-</span><a href="#local-6989586621680336949"><span class="hs-identifier hs-var hs-var">datasetDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetDefinition
-</span><a href="#local-6989586621680336949"><span class="hs-identifier hs-var">datasetDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336948"><span class="annot"><span class="annottext">s :: ProcessingInput
-</span><a href="#local-6989586621680336948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336947"><span class="annot"><span class="annottext">Maybe DatasetDefinition
-</span><a href="#local-6989586621680336947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingInput
-</span><a href="#local-6989586621680336948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetDefinition:ProcessingInput' :: Maybe DatasetDefinition
+</span><a href="#local-6989586621680336958"><span class="hs-identifier hs-var hs-var">datasetDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetDefinition
+</span><a href="#local-6989586621680336958"><span class="hs-identifier hs-var">datasetDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336957"><span class="annot"><span class="annottext">s :: ProcessingInput
+</span><a href="#local-6989586621680336957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336956"><span class="annot"><span class="annottext">Maybe DatasetDefinition
+</span><a href="#local-6989586621680336956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingInput
+</span><a href="#local-6989586621680336957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetDefinition:ProcessingInput' :: Maybe DatasetDefinition
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#%24sel%3AdatasetDefinition%3AProcessingInput%27"><span class="hs-identifier hs-var">datasetDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetDefinition
-</span><a href="#local-6989586621680336947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680336956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | When @True@, input operations such as data download are managed natively</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- by the processing job application. When @False@ (default), input</span><span>
@@ -180,16 +180,16 @@ $sel:datasetDefinition:ProcessingInput' :: ProcessingInput -&gt; Maybe DatasetDe
 -&gt; (ProcessingInput -&gt; Maybe Bool -&gt; ProcessingInput)
 -&gt; Lens ProcessingInput ProcessingInput (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336945"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336954"><span class="annot"><span class="annottext">Maybe Bool
 appManaged :: Maybe Bool
 $sel:appManaged:ProcessingInput' :: ProcessingInput -&gt; Maybe Bool
-</span><a href="#local-6989586621680336945"><span class="hs-identifier hs-var hs-var">appManaged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680336945"><span class="hs-identifier hs-var">appManaged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336944"><span class="annot"><span class="annottext">s :: ProcessingInput
-</span><a href="#local-6989586621680336944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336943"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680336943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingInput
-</span><a href="#local-6989586621680336944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appManaged:ProcessingInput' :: Maybe Bool
+</span><a href="#local-6989586621680336954"><span class="hs-identifier hs-var hs-var">appManaged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680336954"><span class="hs-identifier hs-var">appManaged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336953"><span class="annot"><span class="annottext">s :: ProcessingInput
+</span><a href="#local-6989586621680336953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336952"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680336952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingInput
+</span><a href="#local-6989586621680336953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appManaged:ProcessingInput' :: Maybe Bool
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#%24sel%3AappManaged%3AProcessingInput%27"><span class="hs-identifier hs-var">appManaged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680336943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680336952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Configuration for downloading input data from Amazon S3 into the</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- processing container.</span><span>
@@ -204,16 +204,16 @@ $sel:appManaged:ProcessingInput' :: ProcessingInput -&gt; Maybe Bool
      (Maybe ProcessingS3Input)
      (Maybe ProcessingS3Input)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336941"><span class="annot"><span class="annottext">Maybe ProcessingS3Input
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336950"><span class="annot"><span class="annottext">Maybe ProcessingS3Input
 s3Input :: Maybe ProcessingS3Input
 $sel:s3Input:ProcessingInput' :: ProcessingInput -&gt; Maybe ProcessingS3Input
-</span><a href="#local-6989586621680336941"><span class="hs-identifier hs-var hs-var">s3Input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3Input
-</span><a href="#local-6989586621680336941"><span class="hs-identifier hs-var">s3Input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336940"><span class="annot"><span class="annottext">s :: ProcessingInput
-</span><a href="#local-6989586621680336940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336939"><span class="annot"><span class="annottext">Maybe ProcessingS3Input
-</span><a href="#local-6989586621680336939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingInput
-</span><a href="#local-6989586621680336940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Input:ProcessingInput' :: Maybe ProcessingS3Input
+</span><a href="#local-6989586621680336950"><span class="hs-identifier hs-var hs-var">s3Input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3Input
+</span><a href="#local-6989586621680336950"><span class="hs-identifier hs-var">s3Input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336949"><span class="annot"><span class="annottext">s :: ProcessingInput
+</span><a href="#local-6989586621680336949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336948"><span class="annot"><span class="annottext">Maybe ProcessingS3Input
+</span><a href="#local-6989586621680336948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingInput
+</span><a href="#local-6989586621680336949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Input:ProcessingInput' :: Maybe ProcessingS3Input
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#%24sel%3As3Input%3AProcessingInput%27"><span class="hs-identifier hs-var">s3Input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3Input
-</span><a href="#local-6989586621680336939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680336948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The name for the processing job input.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#processingInput_inputName"><span class="hs-identifier hs-type">processingInput_inputName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -222,19 +222,19 @@ $sel:s3Input:ProcessingInput' :: ProcessingInput -&gt; Maybe ProcessingS3Input
 -&gt; (ProcessingInput -&gt; Text -&gt; ProcessingInput)
 -&gt; Lens ProcessingInput ProcessingInput Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336937"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336946"><span class="annot"><span class="annottext">Text
 inputName :: Text
 $sel:inputName:ProcessingInput' :: ProcessingInput -&gt; Text
-</span><a href="#local-6989586621680336937"><span class="hs-identifier hs-var hs-var">inputName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680336937"><span class="hs-identifier hs-var">inputName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336936"><span class="annot"><span class="annottext">s :: ProcessingInput
-</span><a href="#local-6989586621680336936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336935"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680336935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingInput
-</span><a href="#local-6989586621680336936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputName:ProcessingInput' :: Text
+</span><a href="#local-6989586621680336946"><span class="hs-identifier hs-var hs-var">inputName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680336946"><span class="hs-identifier hs-var">inputName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336945"><span class="annot"><span class="annottext">s :: ProcessingInput
+</span><a href="#local-6989586621680336945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336944"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680336944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingInput
+</span><a href="#local-6989586621680336945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputName:ProcessingInput' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#%24sel%3AinputName%3AProcessingInput%27"><span class="hs-identifier hs-var">inputName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680336935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680336944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336932"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680336930"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProcessingInput
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336941"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680336939"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProcessingInput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProcessingInput)
@@ -244,8 +244,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProcessingInput&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680336927"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680336936"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680336936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe DatasetDefinition
 -&gt; Maybe Bool -&gt; Maybe ProcessingS3Input -&gt; Text -&gt; ProcessingInput
 </span><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-var">ProcessingInput'</span></a></span><span>
@@ -259,7 +259,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Bool -&gt; Maybe ProcessingS3Input -&gt; Text -&gt; ProcessingInput)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatasetDefinition)
+</span><a href="#local-6989586621680336936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatasetDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatasetDefinition&quot;</span></span><span class="hs-special">)</span><span>
@@ -269,7 +269,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ProcessingS3Input -&gt; Text -&gt; ProcessingInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621680336936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppManaged&quot;</span></span><span class="hs-special">)</span><span>
@@ -278,7 +278,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; ProcessingInput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingS3Input)
+</span><a href="#local-6989586621680336936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingS3Input)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Input&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,19 +286,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser ProcessingInput
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680336936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336920"><span id="local-6989586621680336922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336929"><span id="local-6989586621680336931"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336909"><span id="local-6989586621680336911"><span id="local-6989586621680336913"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621680336907"><span class="annot"><span class="annottext">toJSON :: ProcessingInput -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336902"><span id="local-6989586621680336903"><span id="local-6989586621680336904"><span id="local-6989586621680336905"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336918"><span id="local-6989586621680336920"><span id="local-6989586621680336922"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput"><span class="hs-identifier hs-type">ProcessingInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621680336916"><span class="annot"><span class="annottext">toJSON :: ProcessingInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInput.html#ProcessingInput%27"><span class="hs-identifier hs-type">ProcessingInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336911"><span id="local-6989586621680336912"><span id="local-6989586621680336913"><span id="local-6989586621680336914"><span class="annot"><span class="annottext">Maybe Bool
 Maybe ProcessingS3Input
 Maybe DatasetDefinition
 Text
@@ -310,7 +310,7 @@ $sel:inputName:ProcessingInput' :: ProcessingInput -&gt; Text
 $sel:s3Input:ProcessingInput' :: ProcessingInput -&gt; Maybe ProcessingS3Input
 $sel:appManaged:ProcessingInput' :: ProcessingInput -&gt; Maybe Bool
 $sel:datasetDefinition:ProcessingInput' :: ProcessingInput -&gt; Maybe DatasetDefinition
-</span><a href="#local-6989586621680336902"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680336911"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -324,14 +324,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DatasetDefinition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DatasetDefinition
-</span><a href="#local-6989586621680336905"><span class="hs-identifier hs-var">datasetDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680336914"><span class="hs-identifier hs-var">datasetDefinition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppManaged&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680336904"><span class="hs-identifier hs-var">appManaged</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680336913"><span class="hs-identifier hs-var">appManaged</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Input&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingS3Input -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -339,14 +339,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ProcessingS3Input -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingS3Input
-</span><a href="#local-6989586621680336903"><span class="hs-identifier hs-var">s3Input</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680336912"><span class="hs-identifier hs-var">s3Input</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680336902"><span class="hs-identifier hs-var">inputName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680336911"><span class="hs-identifier hs-var">inputName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span></pre></body></html>

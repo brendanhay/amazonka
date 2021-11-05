@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.UpdateControl</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a custom control in Audit Manager.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.UpdateControl</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier">UpdateControl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#newUpdateControl"><span class="hs-identifier">newUpdateControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_testingInformation"><span class="hs-identifier">updateControl_testingInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_actionPlanInstructions"><span class="hs-identifier">updateControl_actionPlanInstructions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_actionPlanTitle"><span class="hs-identifier">updateControl_actionPlanTitle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_description"><span class="hs-identifier">updateControl_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_controlId"><span class="hs-identifier">updateControl_controlId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_name"><span class="hs-identifier">updateControl_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_controlMappingSources"><span class="hs-identifier">updateControl_controlMappingSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse"><span class="hs-identifier">UpdateControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#newUpdateControlResponse"><span class="hs-identifier">newUpdateControlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControlResponse_control"><span class="hs-identifier">updateControlResponse_control</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControlResponse_httpStatus"><span class="hs-identifier">updateControlResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.html"><span class="hs-identifier">Network.AWS.AuditManager.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateControl' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679309567"><span id="local-6989586621679309568"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateControl"><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-var">UpdateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateControl%27"><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-var">UpdateControl'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The steps that to follow to determine if the control has been satisfied.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtestingInformation%3AUpdateControl%27"><span class="annot"><span class="annottext">UpdateControl -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AtestingInformation%3AUpdateControl%27"><span class="hs-identifier hs-var hs-var">testingInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The recommended actions to carry out if the control is not fulfilled.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AactionPlanInstructions%3AUpdateControl%27"><span class="annot"><span class="annottext">UpdateControl -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AactionPlanInstructions%3AUpdateControl%27"><span class="hs-identifier hs-var hs-var">actionPlanInstructions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The title of the action plan for remediating the control.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AactionPlanTitle%3AUpdateControl%27"><span class="annot"><span class="annottext">UpdateControl -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AactionPlanTitle%3AUpdateControl%27"><span class="hs-identifier hs-var hs-var">actionPlanTitle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The optional description of the control.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateControl%27"><span class="annot"><span class="annottext">UpdateControl -&gt; Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3Adescription%3AUpdateControl%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The identifier for the specified control.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AcontrolId%3AUpdateControl%27"><span class="annot"><span class="annottext">UpdateControl -&gt; Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AcontrolId%3AUpdateControl%27"><span class="hs-identifier hs-var hs-var">controlId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the control to be updated.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aname%3AUpdateControl%27"><span class="annot"><span class="annottext">UpdateControl -&gt; Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3Aname%3AUpdateControl%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The data mapping sources for the specified control.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AcontrolMappingSources%3AUpdateControl%27"><span class="annot"><span class="annottext">UpdateControl -&gt; NonEmpty ControlMappingSource
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AcontrolMappingSources%3AUpdateControl%27"><span class="hs-identifier hs-var hs-var">controlMappingSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlMappingSource.html#ControlMappingSource"><span class="hs-identifier hs-type">ControlMappingSource</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309555"><span id="local-6989586621679309557"><span class="annot"><span class="annottext">UpdateControl -&gt; UpdateControl -&gt; Bool
+(UpdateControl -&gt; UpdateControl -&gt; Bool)
+-&gt; (UpdateControl -&gt; UpdateControl -&gt; Bool) -&gt; Eq UpdateControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateControl -&gt; UpdateControl -&gt; Bool
+$c/= :: UpdateControl -&gt; UpdateControl -&gt; Bool
+== :: UpdateControl -&gt; UpdateControl -&gt; Bool
+$c== :: UpdateControl -&gt; UpdateControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309546"><span id="local-6989586621679309548"><span id="local-6989586621679309550"><span id="local-6989586621679309552"><span class="annot"><span class="annottext">ReadPrec [UpdateControl]
+ReadPrec UpdateControl
+Int -&gt; ReadS UpdateControl
+ReadS [UpdateControl]
+(Int -&gt; ReadS UpdateControl)
+-&gt; ReadS [UpdateControl]
+-&gt; ReadPrec UpdateControl
+-&gt; ReadPrec [UpdateControl]
+-&gt; Read UpdateControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateControl]
+$creadListPrec :: ReadPrec [UpdateControl]
+readPrec :: ReadPrec UpdateControl
+$creadPrec :: ReadPrec UpdateControl
+readList :: ReadS [UpdateControl]
+$creadList :: ReadS [UpdateControl]
+readsPrec :: Int -&gt; ReadS UpdateControl
+$creadsPrec :: Int -&gt; ReadS UpdateControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309539"><span id="local-6989586621679309541"><span id="local-6989586621679309543"><span class="annot"><span class="annottext">Int -&gt; UpdateControl -&gt; ShowS
+[UpdateControl] -&gt; ShowS
+UpdateControl -&gt; String
+(Int -&gt; UpdateControl -&gt; ShowS)
+-&gt; (UpdateControl -&gt; String)
+-&gt; ([UpdateControl] -&gt; ShowS)
+-&gt; Show UpdateControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateControl] -&gt; ShowS
+$cshowList :: [UpdateControl] -&gt; ShowS
+show :: UpdateControl -&gt; String
+$cshow :: UpdateControl -&gt; String
+showsPrec :: Int -&gt; UpdateControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateControl -&gt; Rep UpdateControl x)
+-&gt; (forall x. Rep UpdateControl x -&gt; UpdateControl)
+-&gt; Generic UpdateControl
+forall x. Rep UpdateControl x -&gt; UpdateControl
+forall x. UpdateControl -&gt; Rep UpdateControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateControl x -&gt; UpdateControl
+$cfrom :: forall x. UpdateControl -&gt; Rep UpdateControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'UpdateControl' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'testingInformation', 'updateControl_testingInformation' - The steps that to follow to determine if the control has been satisfied.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'actionPlanInstructions', 'updateControl_actionPlanInstructions' - The recommended actions to carry out if the control is not fulfilled.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'actionPlanTitle', 'updateControl_actionPlanTitle' - The title of the action plan for remediating the control.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'description', 'updateControl_description' - The optional description of the control.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'controlId', 'updateControl_controlId' - The identifier for the specified control.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'name', 'updateControl_name' - The name of the control to be updated.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'controlMappingSources', 'updateControl_controlMappingSources' - The data mapping sources for the specified control.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#newUpdateControl"><span class="hs-identifier hs-type">newUpdateControl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'controlId'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'controlMappingSources'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlMappingSource.html#ControlMappingSource"><span class="hs-identifier hs-type">ControlMappingSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span>
+</span><span id="line-103"></span><span id="newUpdateControl"><span class="annot"><span class="annottext">newUpdateControl :: Text -&gt; Text -&gt; NonEmpty ControlMappingSource -&gt; UpdateControl
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#newUpdateControl"><span class="hs-identifier hs-var hs-var">newUpdateControl</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679309534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309534"><span class="hs-identifier hs-var">pControlId_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679309533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309533"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679309532"><span class="annot"><span class="annottext">NonEmpty ControlMappingSource
+</span><a href="#local-6989586621679309532"><span class="hs-identifier hs-var">pControlMappingSources_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">UpdateControl' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; NonEmpty ControlMappingSource
+-&gt; UpdateControl
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:testingInformation:UpdateControl' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AtestingInformation%3AUpdateControl%27"><span class="hs-identifier hs-var">testingInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionPlanInstructions:UpdateControl' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AactionPlanInstructions%3AUpdateControl%27"><span class="hs-identifier hs-var">actionPlanInstructions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionPlanTitle:UpdateControl' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AactionPlanTitle%3AUpdateControl%27"><span class="hs-identifier hs-var">actionPlanTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:UpdateControl' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3Adescription%3AUpdateControl%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:controlId:UpdateControl' :: Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AcontrolId%3AUpdateControl%27"><span class="hs-identifier hs-var">controlId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309534"><span class="hs-identifier hs-var">pControlId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:UpdateControl' :: Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3Aname%3AUpdateControl%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309533"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:controlMappingSources:UpdateControl' :: NonEmpty ControlMappingSource
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AcontrolMappingSources%3AUpdateControl%27"><span class="hs-identifier hs-var">controlMappingSources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty ControlMappingSource)
+  (Identity (NonEmpty ControlMappingSource))
+-&gt; Tagged
+     (NonEmpty ControlMappingSource)
+     (Identity (NonEmpty ControlMappingSource))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty ControlMappingSource)
+   (Identity (NonEmpty ControlMappingSource))
+ -&gt; Tagged
+      (NonEmpty ControlMappingSource)
+      (Identity (NonEmpty ControlMappingSource)))
+-&gt; NonEmpty ControlMappingSource -&gt; NonEmpty ControlMappingSource
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ControlMappingSource
+</span><a href="#local-6989586621679309532"><span class="hs-identifier hs-var">pControlMappingSources_</span></a></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The steps that to follow to determine if the control has been satisfied.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_testingInformation"><span class="hs-identifier hs-type">updateControl_testingInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="updateControl_testingInformation"><span class="annot"><span class="annottext">updateControl_testingInformation :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateControl -&gt; f UpdateControl
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_testingInformation"><span class="hs-identifier hs-var hs-var">updateControl_testingInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateControl -&gt; Maybe Text)
+-&gt; (UpdateControl -&gt; Maybe Text -&gt; UpdateControl)
+-&gt; Lens UpdateControl UpdateControl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309527"><span class="annot"><span class="annottext">Maybe Text
+testingInformation :: Maybe Text
+$sel:testingInformation:UpdateControl' :: UpdateControl -&gt; Maybe Text
+</span><a href="#local-6989586621679309527"><span class="hs-identifier hs-var hs-var">testingInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309527"><span class="hs-identifier hs-var">testingInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309526"><span class="annot"><span class="annottext">s :: UpdateControl
+</span><a href="#local-6989586621679309526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309525"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateControl
+</span><a href="#local-6989586621679309526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testingInformation:UpdateControl' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AtestingInformation%3AUpdateControl%27"><span class="hs-identifier hs-var">testingInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The recommended actions to carry out if the control is not fulfilled.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_actionPlanInstructions"><span class="hs-identifier hs-type">updateControl_actionPlanInstructions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="updateControl_actionPlanInstructions"><span class="annot"><span class="annottext">updateControl_actionPlanInstructions :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateControl -&gt; f UpdateControl
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_actionPlanInstructions"><span class="hs-identifier hs-var hs-var">updateControl_actionPlanInstructions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateControl -&gt; Maybe Text)
+-&gt; (UpdateControl -&gt; Maybe Text -&gt; UpdateControl)
+-&gt; Lens UpdateControl UpdateControl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309524"><span class="annot"><span class="annottext">Maybe Text
+actionPlanInstructions :: Maybe Text
+$sel:actionPlanInstructions:UpdateControl' :: UpdateControl -&gt; Maybe Text
+</span><a href="#local-6989586621679309524"><span class="hs-identifier hs-var hs-var">actionPlanInstructions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309524"><span class="hs-identifier hs-var">actionPlanInstructions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309523"><span class="annot"><span class="annottext">s :: UpdateControl
+</span><a href="#local-6989586621679309523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309522"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateControl
+</span><a href="#local-6989586621679309523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionPlanInstructions:UpdateControl' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AactionPlanInstructions%3AUpdateControl%27"><span class="hs-identifier hs-var">actionPlanInstructions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The title of the action plan for remediating the control.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_actionPlanTitle"><span class="hs-identifier hs-type">updateControl_actionPlanTitle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="updateControl_actionPlanTitle"><span class="annot"><span class="annottext">updateControl_actionPlanTitle :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateControl -&gt; f UpdateControl
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_actionPlanTitle"><span class="hs-identifier hs-var hs-var">updateControl_actionPlanTitle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateControl -&gt; Maybe Text)
+-&gt; (UpdateControl -&gt; Maybe Text -&gt; UpdateControl)
+-&gt; Lens UpdateControl UpdateControl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309521"><span class="annot"><span class="annottext">Maybe Text
+actionPlanTitle :: Maybe Text
+$sel:actionPlanTitle:UpdateControl' :: UpdateControl -&gt; Maybe Text
+</span><a href="#local-6989586621679309521"><span class="hs-identifier hs-var hs-var">actionPlanTitle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309521"><span class="hs-identifier hs-var">actionPlanTitle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309520"><span class="annot"><span class="annottext">s :: UpdateControl
+</span><a href="#local-6989586621679309520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateControl
+</span><a href="#local-6989586621679309520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionPlanTitle:UpdateControl' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AactionPlanTitle%3AUpdateControl%27"><span class="hs-identifier hs-var">actionPlanTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The optional description of the control.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_description"><span class="hs-identifier hs-type">updateControl_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="updateControl_description"><span class="annot"><span class="annottext">updateControl_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateControl -&gt; f UpdateControl
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_description"><span class="hs-identifier hs-var hs-var">updateControl_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateControl -&gt; Maybe Text)
+-&gt; (UpdateControl -&gt; Maybe Text -&gt; UpdateControl)
+-&gt; Lens UpdateControl UpdateControl (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309518"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateControl' :: UpdateControl -&gt; Maybe Text
+</span><a href="#local-6989586621679309518"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309518"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309517"><span class="annot"><span class="annottext">s :: UpdateControl
+</span><a href="#local-6989586621679309517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateControl
+</span><a href="#local-6989586621679309517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateControl' :: Maybe Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3Adescription%3AUpdateControl%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The identifier for the specified control.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_controlId"><span class="hs-identifier hs-type">updateControl_controlId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="updateControl_controlId"><span class="annot"><span class="annottext">updateControl_controlId :: (Text -&gt; f Text) -&gt; UpdateControl -&gt; f UpdateControl
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_controlId"><span class="hs-identifier hs-var hs-var">updateControl_controlId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateControl -&gt; Text)
+-&gt; (UpdateControl -&gt; Text -&gt; UpdateControl)
+-&gt; Lens UpdateControl UpdateControl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309515"><span class="annot"><span class="annottext">Text
+controlId :: Text
+$sel:controlId:UpdateControl' :: UpdateControl -&gt; Text
+</span><a href="#local-6989586621679309515"><span class="hs-identifier hs-var hs-var">controlId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309515"><span class="hs-identifier hs-var">controlId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309514"><span class="annot"><span class="annottext">s :: UpdateControl
+</span><a href="#local-6989586621679309514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309513"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateControl
+</span><a href="#local-6989586621679309514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlId:UpdateControl' :: Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AcontrolId%3AUpdateControl%27"><span class="hs-identifier hs-var">controlId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The name of the control to be updated.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_name"><span class="hs-identifier hs-type">updateControl_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="updateControl_name"><span class="annot"><span class="annottext">updateControl_name :: (Text -&gt; f Text) -&gt; UpdateControl -&gt; f UpdateControl
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_name"><span class="hs-identifier hs-var hs-var">updateControl_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateControl -&gt; Text)
+-&gt; (UpdateControl -&gt; Text -&gt; UpdateControl)
+-&gt; Lens UpdateControl UpdateControl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309512"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:UpdateControl' :: UpdateControl -&gt; Text
+</span><a href="#local-6989586621679309512"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309512"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309511"><span class="annot"><span class="annottext">s :: UpdateControl
+</span><a href="#local-6989586621679309511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309510"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateControl
+</span><a href="#local-6989586621679309511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateControl' :: Text
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3Aname%3AUpdateControl%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The data mapping sources for the specified control.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_controlMappingSources"><span class="hs-identifier hs-type">updateControl_controlMappingSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.ControlMappingSource.html#ControlMappingSource"><span class="hs-identifier hs-type">ControlMappingSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="updateControl_controlMappingSources"><span class="annot"><span class="annottext">updateControl_controlMappingSources :: (NonEmpty ControlMappingSource
+ -&gt; f (NonEmpty ControlMappingSource))
+-&gt; UpdateControl -&gt; f UpdateControl
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#updateControl_controlMappingSources"><span class="hs-identifier hs-var hs-var">updateControl_controlMappingSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateControl -&gt; NonEmpty ControlMappingSource)
+-&gt; (UpdateControl
+    -&gt; NonEmpty ControlMappingSource -&gt; UpdateControl)
+-&gt; Lens
+     UpdateControl
+     UpdateControl
+     (NonEmpty ControlMappingSource)
+     (NonEmpty ControlMappingSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309509"><span class="annot"><span class="annottext">NonEmpty ControlMappingSource
+controlMappingSources :: NonEmpty ControlMappingSource
+$sel:controlMappingSources:UpdateControl' :: UpdateControl -&gt; NonEmpty ControlMappingSource
+</span><a href="#local-6989586621679309509"><span class="hs-identifier hs-var hs-var">controlMappingSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty ControlMappingSource
+</span><a href="#local-6989586621679309509"><span class="hs-identifier hs-var">controlMappingSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309508"><span class="annot"><span class="annottext">s :: UpdateControl
+</span><a href="#local-6989586621679309508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309507"><span class="annot"><span class="annottext">NonEmpty ControlMappingSource
+</span><a href="#local-6989586621679309507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateControl
+</span><a href="#local-6989586621679309508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlMappingSources:UpdateControl' :: NonEmpty ControlMappingSource
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AcontrolMappingSources%3AUpdateControl%27"><span class="hs-identifier hs-var">controlMappingSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty ControlMappingSource
+</span><a href="#local-6989586621679309507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty ControlMappingSource
+  -&gt; f (NonEmpty ControlMappingSource))
+ -&gt; UpdateControl -&gt; f UpdateControl)
+-&gt; ((NonEmpty ControlMappingSource
+     -&gt; f (NonEmpty ControlMappingSource))
+    -&gt; NonEmpty ControlMappingSource
+    -&gt; f (NonEmpty ControlMappingSource))
+-&gt; (NonEmpty ControlMappingSource
+    -&gt; f (NonEmpty ControlMappingSource))
+-&gt; UpdateControl
+-&gt; f UpdateControl
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty ControlMappingSource
+ -&gt; f (NonEmpty ControlMappingSource))
+-&gt; NonEmpty ControlMappingSource
+-&gt; f (NonEmpty ControlMappingSource)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-149"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse"><span class="hs-identifier hs-type">UpdateControlResponse</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679309502"><span class="annot"><span class="annottext">request :: UpdateControl -&gt; Request UpdateControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateControl -&gt; Request UpdateControl
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679309498"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateControl)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateControl))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateControl)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309495"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309495"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309494"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309494"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309493"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309493"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Control -&gt; Int -&gt; UpdateControlResponse
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse%27"><span class="hs-identifier hs-var">UpdateControlResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Control -&gt; Int -&gt; UpdateControlResponse)
+-&gt; Either String (Maybe Control)
+-&gt; Either String (Int -&gt; UpdateControlResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Control)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;control&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateControlResponse)
+-&gt; Either String Int -&gt; Either String UpdateControlResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309495"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309485"><span id="local-6989586621679309487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679309478"><span class="annot"><span class="annottext">toHeaders :: UpdateControl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateControl -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-171"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309468"><span id="local-6989586621679309470"><span id="local-6989586621679309472"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679309466"><span class="annot"><span class="annottext">toJSON :: UpdateControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309458"><span id="local-6989586621679309459"><span id="local-6989586621679309460"><span id="local-6989586621679309461"><span id="local-6989586621679309462"><span id="local-6989586621679309463"><span id="local-6989586621679309464"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty ControlMappingSource
+Text
+controlMappingSources :: NonEmpty ControlMappingSource
+name :: Text
+controlId :: Text
+description :: Maybe Text
+actionPlanTitle :: Maybe Text
+actionPlanInstructions :: Maybe Text
+testingInformation :: Maybe Text
+$sel:controlMappingSources:UpdateControl' :: UpdateControl -&gt; NonEmpty ControlMappingSource
+$sel:name:UpdateControl' :: UpdateControl -&gt; Text
+$sel:controlId:UpdateControl' :: UpdateControl -&gt; Text
+$sel:description:UpdateControl' :: UpdateControl -&gt; Maybe Text
+$sel:actionPlanTitle:UpdateControl' :: UpdateControl -&gt; Maybe Text
+$sel:actionPlanInstructions:UpdateControl' :: UpdateControl -&gt; Maybe Text
+$sel:testingInformation:UpdateControl' :: UpdateControl -&gt; Maybe Text
+</span><a href="#local-6989586621679309458"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;testingInformation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309464"><span class="hs-identifier hs-var">testingInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actionPlanInstructions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309463"><span class="hs-identifier hs-var">actionPlanInstructions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actionPlanTitle&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309462"><span class="hs-identifier hs-var">actionPlanTitle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309461"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309459"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-188"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;controlMappingSources&quot;</span></span><span>
+</span><span id="line-189"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ControlMappingSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty ControlMappingSource
+</span><a href="#local-6989586621679309458"><span class="hs-identifier hs-var">controlMappingSources</span></a></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679309452"><span class="annot"><span class="annottext">toPath :: UpdateControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl%27"><span class="hs-identifier hs-type">UpdateControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309444"><span id="local-6989586621679309445"><span id="local-6989586621679309446"><span id="local-6989586621679309447"><span id="local-6989586621679309448"><span id="local-6989586621679309449"><span id="local-6989586621679309450"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty ControlMappingSource
+Text
+controlMappingSources :: NonEmpty ControlMappingSource
+name :: Text
+controlId :: Text
+description :: Maybe Text
+actionPlanTitle :: Maybe Text
+actionPlanInstructions :: Maybe Text
+testingInformation :: Maybe Text
+$sel:controlMappingSources:UpdateControl' :: UpdateControl -&gt; NonEmpty ControlMappingSource
+$sel:name:UpdateControl' :: UpdateControl -&gt; Text
+$sel:controlId:UpdateControl' :: UpdateControl -&gt; Text
+$sel:description:UpdateControl' :: UpdateControl -&gt; Maybe Text
+$sel:actionPlanTitle:UpdateControl' :: UpdateControl -&gt; Maybe Text
+$sel:actionPlanInstructions:UpdateControl' :: UpdateControl -&gt; Maybe Text
+$sel:testingInformation:UpdateControl' :: UpdateControl -&gt; Maybe Text
+</span><a href="#local-6989586621679309444"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/controls/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309446"><span class="hs-identifier hs-var">controlId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControl"><span class="hs-identifier hs-type">UpdateControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679309440"><span class="annot"><span class="annottext">toQuery :: UpdateControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateControl -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | /See:/ 'newUpdateControlResponse' smart constructor.</span><span>
+</span><span id="line-202"></span><span id="local-6989586621679309437"><span id="local-6989586621679309438"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateControlResponse"><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse"><span class="hs-identifier hs-var">UpdateControlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateControlResponse%27"><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse%27"><span class="hs-identifier hs-var">UpdateControlResponse'</span></a></span></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the updated control set returned by the @UpdateControl@ API.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3Acontrol%3AUpdateControlResponse%27"><span class="annot"><span class="annottext">UpdateControlResponse -&gt; Maybe Control
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3Acontrol%3AUpdateControlResponse%27"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Control.html#Control"><span class="hs-identifier hs-type">Control</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateControlResponse%27"><span class="annot"><span class="annottext">UpdateControlResponse -&gt; Int
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AhttpStatus%3AUpdateControlResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309431"><span id="local-6989586621679309433"><span class="annot"><span class="annottext">UpdateControlResponse -&gt; UpdateControlResponse -&gt; Bool
+(UpdateControlResponse -&gt; UpdateControlResponse -&gt; Bool)
+-&gt; (UpdateControlResponse -&gt; UpdateControlResponse -&gt; Bool)
+-&gt; Eq UpdateControlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateControlResponse -&gt; UpdateControlResponse -&gt; Bool
+$c/= :: UpdateControlResponse -&gt; UpdateControlResponse -&gt; Bool
+== :: UpdateControlResponse -&gt; UpdateControlResponse -&gt; Bool
+$c== :: UpdateControlResponse -&gt; UpdateControlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309423"><span id="local-6989586621679309425"><span id="local-6989586621679309427"><span id="local-6989586621679309429"><span class="annot"><span class="annottext">ReadPrec [UpdateControlResponse]
+ReadPrec UpdateControlResponse
+Int -&gt; ReadS UpdateControlResponse
+ReadS [UpdateControlResponse]
+(Int -&gt; ReadS UpdateControlResponse)
+-&gt; ReadS [UpdateControlResponse]
+-&gt; ReadPrec UpdateControlResponse
+-&gt; ReadPrec [UpdateControlResponse]
+-&gt; Read UpdateControlResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateControlResponse]
+$creadListPrec :: ReadPrec [UpdateControlResponse]
+readPrec :: ReadPrec UpdateControlResponse
+$creadPrec :: ReadPrec UpdateControlResponse
+readList :: ReadS [UpdateControlResponse]
+$creadList :: ReadS [UpdateControlResponse]
+readsPrec :: Int -&gt; ReadS UpdateControlResponse
+$creadsPrec :: Int -&gt; ReadS UpdateControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309417"><span id="local-6989586621679309419"><span id="local-6989586621679309421"><span class="annot"><span class="annottext">Int -&gt; UpdateControlResponse -&gt; ShowS
+[UpdateControlResponse] -&gt; ShowS
+UpdateControlResponse -&gt; String
+(Int -&gt; UpdateControlResponse -&gt; ShowS)
+-&gt; (UpdateControlResponse -&gt; String)
+-&gt; ([UpdateControlResponse] -&gt; ShowS)
+-&gt; Show UpdateControlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateControlResponse] -&gt; ShowS
+$cshowList :: [UpdateControlResponse] -&gt; ShowS
+show :: UpdateControlResponse -&gt; String
+$cshow :: UpdateControlResponse -&gt; String
+showsPrec :: Int -&gt; UpdateControlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateControlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateControlResponse -&gt; Rep UpdateControlResponse x)
+-&gt; (forall x. Rep UpdateControlResponse x -&gt; UpdateControlResponse)
+-&gt; Generic UpdateControlResponse
+forall x. Rep UpdateControlResponse x -&gt; UpdateControlResponse
+forall x. UpdateControlResponse -&gt; Rep UpdateControlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateControlResponse x -&gt; UpdateControlResponse
+$cfrom :: forall x. UpdateControlResponse -&gt; Rep UpdateControlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Create a value of 'UpdateControlResponse' with all optional fields omitted.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'control', 'updateControlResponse_control' - The name of the updated control set returned by the @UpdateControl@ API.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'updateControlResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#newUpdateControlResponse"><span class="hs-identifier hs-type">newUpdateControlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse"><span class="hs-identifier hs-type">UpdateControlResponse</span></a></span><span>
+</span><span id="line-225"></span><span id="newUpdateControlResponse"><span class="annot"><span class="annottext">newUpdateControlResponse :: Int -&gt; UpdateControlResponse
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#newUpdateControlResponse"><span class="hs-identifier hs-var hs-var">newUpdateControlResponse</span></a></span></span><span> </span><span id="local-6989586621679309414"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">UpdateControlResponse' :: Maybe Control -&gt; Int -&gt; UpdateControlResponse
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse%27"><span class="hs-identifier hs-type">UpdateControlResponse'</span></a></span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:control:UpdateControlResponse' :: Maybe Control
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3Acontrol%3AUpdateControlResponse%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Control
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateControlResponse' :: Int
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AhttpStatus%3AUpdateControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The name of the updated control set returned by the @UpdateControl@ API.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControlResponse_control"><span class="hs-identifier hs-type">updateControlResponse_control</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse"><span class="hs-identifier hs-type">UpdateControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Control.html#Control"><span class="hs-identifier hs-type">Control</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="updateControlResponse_control"><span class="annot"><span class="annottext">updateControlResponse_control :: (Maybe Control -&gt; f (Maybe Control))
+-&gt; UpdateControlResponse -&gt; f UpdateControlResponse
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#updateControlResponse_control"><span class="hs-identifier hs-var hs-var">updateControlResponse_control</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateControlResponse -&gt; Maybe Control)
+-&gt; (UpdateControlResponse
+    -&gt; Maybe Control -&gt; UpdateControlResponse)
+-&gt; Lens
+     UpdateControlResponse
+     UpdateControlResponse
+     (Maybe Control)
+     (Maybe Control)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse%27"><span class="hs-identifier hs-type">UpdateControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309413"><span class="annot"><span class="annottext">Maybe Control
+control :: Maybe Control
+$sel:control:UpdateControlResponse' :: UpdateControlResponse -&gt; Maybe Control
+</span><a href="#local-6989586621679309413"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Control
+</span><a href="#local-6989586621679309413"><span class="hs-identifier hs-var">control</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309412"><span class="annot"><span class="annottext">s :: UpdateControlResponse
+</span><a href="#local-6989586621679309412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse%27"><span class="hs-identifier hs-type">UpdateControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309411"><span class="annot"><span class="annottext">Maybe Control
+</span><a href="#local-6989586621679309411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateControlResponse
+</span><a href="#local-6989586621679309412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:control:UpdateControlResponse' :: Maybe Control
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3Acontrol%3AUpdateControlResponse%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Control
+</span><a href="#local-6989586621679309411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse"><span class="hs-identifier hs-type">UpdateControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#updateControlResponse_httpStatus"><span class="hs-identifier hs-type">updateControlResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse"><span class="hs-identifier hs-type">UpdateControlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span id="updateControlResponse_httpStatus"><span class="annot"><span class="annottext">updateControlResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateControlResponse -&gt; f UpdateControlResponse
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#updateControlResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateControlResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateControlResponse -&gt; Int)
+-&gt; (UpdateControlResponse -&gt; Int -&gt; UpdateControlResponse)
+-&gt; Lens UpdateControlResponse UpdateControlResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse%27"><span class="hs-identifier hs-type">UpdateControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309410"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateControlResponse' :: UpdateControlResponse -&gt; Int
+</span><a href="#local-6989586621679309410"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309410"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309409"><span class="annot"><span class="annottext">s :: UpdateControlResponse
+</span><a href="#local-6989586621679309409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse%27"><span class="hs-identifier hs-type">UpdateControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309408"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateControlResponse
+</span><a href="#local-6989586621679309409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateControlResponse' :: Int
+</span><a href="Network.AWS.AuditManager.UpdateControl.html#%24sel%3AhttpStatus%3AUpdateControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse"><span class="hs-identifier hs-type">UpdateControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.UpdateControl.html#UpdateControlResponse"><span class="hs-identifier hs-type">UpdateControlResponse</span></a></span></span><span>
+</span><span id="line-240"></span></pre></body></html>

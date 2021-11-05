@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUploadSSHPublicKey' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679465723"><span id="local-6989586621679465724"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadSSHPublicKey"><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-var">UploadSSHPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadSSHPublicKey%27"><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-var">UploadSSHPublicKey'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679465732"><span id="local-6989586621679465733"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadSSHPublicKey"><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-var">UploadSSHPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadSSHPublicKey%27"><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-var">UploadSSHPublicKey'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM user to associate the SSH public key with.</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AsSHPublicKeyBody%3AUploadSSHPublicKey%27"><span class="annot"><span class="annottext">UploadSSHPublicKey -&gt; Text
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AsSHPublicKeyBody%3AUploadSSHPublicKey%27"><span class="hs-identifier hs-var hs-var">sSHPublicKeyBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465716"><span id="local-6989586621679465718"><span class="annot"><span class="annottext">UploadSSHPublicKey -&gt; UploadSSHPublicKey -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465725"><span id="local-6989586621679465727"><span class="annot"><span class="annottext">UploadSSHPublicKey -&gt; UploadSSHPublicKey -&gt; Bool
 (UploadSSHPublicKey -&gt; UploadSSHPublicKey -&gt; Bool)
 -&gt; (UploadSSHPublicKey -&gt; UploadSSHPublicKey -&gt; Bool)
 -&gt; Eq UploadSSHPublicKey
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UploadSSHPublicKey -&gt; UploadSSHPublicKey -&gt; Bool
 == :: UploadSSHPublicKey -&gt; UploadSSHPublicKey -&gt; Bool
 $c== :: UploadSSHPublicKey -&gt; UploadSSHPublicKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465707"><span id="local-6989586621679465709"><span id="local-6989586621679465711"><span id="local-6989586621679465713"><span class="annot"><span class="annottext">ReadPrec [UploadSSHPublicKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465716"><span id="local-6989586621679465718"><span id="local-6989586621679465720"><span id="local-6989586621679465722"><span class="annot"><span class="annottext">ReadPrec [UploadSSHPublicKey]
 ReadPrec UploadSSHPublicKey
 Int -&gt; ReadS UploadSSHPublicKey
 ReadS [UploadSSHPublicKey]
@@ -112,7 +112,7 @@ readList :: ReadS [UploadSSHPublicKey]
 $creadList :: ReadS [UploadSSHPublicKey]
 readsPrec :: Int -&gt; ReadS UploadSSHPublicKey
 $creadsPrec :: Int -&gt; ReadS UploadSSHPublicKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465700"><span id="local-6989586621679465702"><span id="local-6989586621679465704"><span class="annot"><span class="annottext">Int -&gt; UploadSSHPublicKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465709"><span id="local-6989586621679465711"><span id="local-6989586621679465713"><span class="annot"><span class="annottext">Int -&gt; UploadSSHPublicKey -&gt; ShowS
 [UploadSSHPublicKey] -&gt; ShowS
 UploadSSHPublicKey -&gt; String
 (Int -&gt; UploadSSHPublicKey -&gt; ShowS)
@@ -176,17 +176,17 @@ $cfrom :: forall x. UploadSSHPublicKey -&gt; Rep UploadSSHPublicKey x
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span>
 </span><span id="line-123"></span><span id="newUploadSSHPublicKey"><span class="annot"><span class="annottext">newUploadSSHPublicKey :: Text -&gt; Text -&gt; UploadSSHPublicKey
-</span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#newUploadSSHPublicKey"><span class="hs-identifier hs-var hs-var">newUploadSSHPublicKey</span></a></span></span><span> </span><span id="local-6989586621679465695"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465695"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679465694"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465694"><span class="hs-identifier hs-var">pSSHPublicKeyBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#newUploadSSHPublicKey"><span class="hs-identifier hs-var hs-var">newUploadSSHPublicKey</span></a></span></span><span> </span><span id="local-6989586621679465704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465704"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679465703"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465703"><span class="hs-identifier hs-var">pSSHPublicKeyBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">UploadSSHPublicKey' :: Text -&gt; Text -&gt; UploadSSHPublicKey
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userName:UploadSSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AuserName%3AUploadSSHPublicKey%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465695"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679465704"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:sSHPublicKeyBody:UploadSSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AsSHPublicKeyBody%3AUploadSSHPublicKey%27"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465694"><span class="hs-identifier hs-var">pSSHPublicKeyBody_</span></a></span><span>
+</span><a href="#local-6989586621679465703"><span class="hs-identifier hs-var">pSSHPublicKeyBody_</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The name of the IAM user to associate the SSH public key with.</span><span>
@@ -201,16 +201,16 @@ $cfrom :: forall x. UploadSSHPublicKey -&gt; Rep UploadSSHPublicKey x
 -&gt; (UploadSSHPublicKey -&gt; Text -&gt; UploadSSHPublicKey)
 -&gt; Lens UploadSSHPublicKey UploadSSHPublicKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465691"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465700"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:UploadSSHPublicKey' :: UploadSSHPublicKey -&gt; Text
-</span><a href="#local-6989586621679465691"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465691"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465690"><span class="annot"><span class="annottext">s :: UploadSSHPublicKey
-</span><a href="#local-6989586621679465690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465689"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadSSHPublicKey
-</span><a href="#local-6989586621679465690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UploadSSHPublicKey' :: Text
+</span><a href="#local-6989586621679465700"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465700"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465699"><span class="annot"><span class="annottext">s :: UploadSSHPublicKey
+</span><a href="#local-6989586621679465699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadSSHPublicKey
+</span><a href="#local-6989586621679465699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UploadSSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AuserName%3AUploadSSHPublicKey%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The SSH public key. The public key must be encoded in ssh-rsa format or</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- PEM format. The minimum bit-length of the public key is 2048 bits. For</span><span>
@@ -234,27 +234,27 @@ $sel:userName:UploadSSHPublicKey' :: UploadSSHPublicKey -&gt; Text
 -&gt; (UploadSSHPublicKey -&gt; Text -&gt; UploadSSHPublicKey)
 -&gt; Lens UploadSSHPublicKey UploadSSHPublicKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465688"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465697"><span class="annot"><span class="annottext">Text
 sSHPublicKeyBody :: Text
 $sel:sSHPublicKeyBody:UploadSSHPublicKey' :: UploadSSHPublicKey -&gt; Text
-</span><a href="#local-6989586621679465688"><span class="hs-identifier hs-var hs-var">sSHPublicKeyBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465688"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465687"><span class="annot"><span class="annottext">s :: UploadSSHPublicKey
-</span><a href="#local-6989586621679465687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465686"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadSSHPublicKey
-</span><a href="#local-6989586621679465687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKeyBody:UploadSSHPublicKey' :: Text
+</span><a href="#local-6989586621679465697"><span class="hs-identifier hs-var hs-var">sSHPublicKeyBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465697"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465696"><span class="annot"><span class="annottext">s :: UploadSSHPublicKey
+</span><a href="#local-6989586621679465696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadSSHPublicKey
+</span><a href="#local-6989586621679465696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKeyBody:UploadSSHPublicKey' :: Text
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AsSHPublicKeyBody%3AUploadSSHPublicKey%27"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-159"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse</span></a></span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679465682"><span class="annot"><span class="annottext">request :: UploadSSHPublicKey -&gt; Request UploadSSHPublicKey
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679465691"><span class="annot"><span class="annottext">request :: UploadSSHPublicKey -&gt; Request UploadSSHPublicKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UploadSSHPublicKey -&gt; Request UploadSSHPublicKey
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679465678"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679465687"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UploadSSHPublicKey
 -&gt; ClientResponse ClientBody
@@ -285,10 +285,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UploadSSHPublicKeyResult&quot;</span></span><span>
-</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465675"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465675"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679465674"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679465674"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679465673"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679465673"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465684"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465684"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679465683"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679465683"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679465682"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679465682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe SSHPublicKey -&gt; Int -&gt; UploadSSHPublicKeyResponse
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-var">UploadSSHPublicKeyResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SSHPublicKey -&gt; Int -&gt; UploadSSHPublicKeyResponse)
@@ -296,7 +296,7 @@ Text
 -&gt; Either String (Int -&gt; UploadSSHPublicKeyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679465673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSHPublicKey)
+</span><a href="#local-6989586621679465682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSHPublicKey)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SSHPublicKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,15 +308,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465675"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465684"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465665"><span id="local-6989586621679465667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465674"><span id="local-6989586621679465676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679465658"><span class="annot"><span class="annottext">toHeaders :: UploadSSHPublicKey -&gt; ResponseHeaders
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679465667"><span class="annot"><span class="annottext">toHeaders :: UploadSSHPublicKey -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UploadSSHPublicKey -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -324,20 +324,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679465653"><span class="annot"><span class="annottext">toPath :: UploadSSHPublicKey -&gt; ByteString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679465662"><span class="annot"><span class="annottext">toPath :: UploadSSHPublicKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UploadSSHPublicKey -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey"><span class="hs-identifier hs-type">UploadSSHPublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679465649"><span class="annot"><span class="annottext">toQuery :: UploadSSHPublicKey -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465646"><span id="local-6989586621679465647"><span class="annot"><span class="annottext">Text
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679465658"><span class="annot"><span class="annottext">toQuery :: UploadSSHPublicKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKey%27"><span class="hs-identifier hs-type">UploadSSHPublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465655"><span id="local-6989586621679465656"><span class="annot"><span class="annottext">Text
 sSHPublicKeyBody :: Text
 userName :: Text
 $sel:sSHPublicKeyBody:UploadSSHPublicKey' :: UploadSSHPublicKey -&gt; Text
 $sel:userName:UploadSSHPublicKey' :: UploadSSHPublicKey -&gt; Text
-</span><a href="#local-6989586621679465646"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679465655"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -357,18 +357,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465647"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679465656"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SSHPublicKeyBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465646"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span>
+</span><a href="#local-6989586621679465655"><span class="hs-identifier hs-var">sSHPublicKeyBody</span></a></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | Contains the response to a successful UploadSSHPublicKey request.</span><span>
 </span><span id="line-193"></span><span class="hs-comment">--</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- /See:/ 'newUploadSSHPublicKeyResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679465643"><span id="local-6989586621679465644"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadSSHPublicKeyResponse"><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-var">UploadSSHPublicKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadSSHPublicKeyResponse%27"><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-var">UploadSSHPublicKeyResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679465652"><span id="local-6989586621679465653"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadSSHPublicKeyResponse"><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-var">UploadSSHPublicKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadSSHPublicKeyResponse%27"><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-var">UploadSSHPublicKeyResponse'</span></a></span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information about the SSH public key.</span><span>
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AsSHPublicKey%3AUploadSSHPublicKeyResponse%27"><span class="annot"><span class="annottext">UploadSSHPublicKeyResponse -&gt; Maybe SSHPublicKey
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AsSHPublicKey%3AUploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-var hs-var">sSHPublicKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SSHPublicKey.html#SSHPublicKey"><span class="hs-identifier hs-type">SSHPublicKey</span></a></span><span class="hs-special">,</span><span>
@@ -376,7 +376,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUploadSSHPublicKeyResponse%27"><span class="annot"><span class="annottext">UploadSSHPublicKeyResponse -&gt; Int
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AhttpStatus%3AUploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465637"><span id="local-6989586621679465639"><span class="annot"><span class="annottext">UploadSSHPublicKeyResponse -&gt; UploadSSHPublicKeyResponse -&gt; Bool
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465646"><span id="local-6989586621679465648"><span class="annot"><span class="annottext">UploadSSHPublicKeyResponse -&gt; UploadSSHPublicKeyResponse -&gt; Bool
 (UploadSSHPublicKeyResponse -&gt; UploadSSHPublicKeyResponse -&gt; Bool)
 -&gt; (UploadSSHPublicKeyResponse
     -&gt; UploadSSHPublicKeyResponse -&gt; Bool)
@@ -386,7 +386,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UploadSSHPublicKeyResponse -&gt; UploadSSHPublicKeyResponse -&gt; Bool
 == :: UploadSSHPublicKeyResponse -&gt; UploadSSHPublicKeyResponse -&gt; Bool
 $c== :: UploadSSHPublicKeyResponse -&gt; UploadSSHPublicKeyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465629"><span id="local-6989586621679465631"><span id="local-6989586621679465633"><span id="local-6989586621679465635"><span class="annot"><span class="annottext">ReadPrec [UploadSSHPublicKeyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465638"><span id="local-6989586621679465640"><span id="local-6989586621679465642"><span id="local-6989586621679465644"><span class="annot"><span class="annottext">ReadPrec [UploadSSHPublicKeyResponse]
 ReadPrec UploadSSHPublicKeyResponse
 Int -&gt; ReadS UploadSSHPublicKeyResponse
 ReadS [UploadSSHPublicKeyResponse]
@@ -406,7 +406,7 @@ readList :: ReadS [UploadSSHPublicKeyResponse]
 $creadList :: ReadS [UploadSSHPublicKeyResponse]
 readsPrec :: Int -&gt; ReadS UploadSSHPublicKeyResponse
 $creadsPrec :: Int -&gt; ReadS UploadSSHPublicKeyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465623"><span id="local-6989586621679465625"><span id="local-6989586621679465627"><span class="annot"><span class="annottext">Int -&gt; UploadSSHPublicKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465632"><span id="local-6989586621679465634"><span id="local-6989586621679465636"><span class="annot"><span class="annottext">Int -&gt; UploadSSHPublicKeyResponse -&gt; ShowS
 [UploadSSHPublicKeyResponse] -&gt; ShowS
 UploadSSHPublicKeyResponse -&gt; String
 (Int -&gt; UploadSSHPublicKeyResponse -&gt; ShowS)
@@ -454,8 +454,8 @@ UploadSSHPublicKeyResponse -&gt; Rep UploadSSHPublicKeyResponse x
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newUploadSSHPublicKeyResponse"><span class="annot"><span class="annottext">newUploadSSHPublicKeyResponse :: Int -&gt; UploadSSHPublicKeyResponse
-</span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#newUploadSSHPublicKeyResponse"><span class="hs-identifier hs-var hs-var">newUploadSSHPublicKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679465620"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465620"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#newUploadSSHPublicKeyResponse"><span class="hs-identifier hs-var hs-var">newUploadSSHPublicKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679465629"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465629"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">UploadSSHPublicKeyResponse' :: Maybe SSHPublicKey -&gt; Int -&gt; UploadSSHPublicKeyResponse
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse'</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sSHPublicKey:UploadSSHPublicKeyResponse' :: Maybe SSHPublicKey
@@ -465,7 +465,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UploadSSHPublicKeyResponse' :: Int
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AhttpStatus%3AUploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465620"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679465629"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | Contains information about the SSH public key.</span><span>
@@ -481,16 +481,16 @@ forall a. Maybe a
      (Maybe SSHPublicKey)
      (Maybe SSHPublicKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465619"><span class="annot"><span class="annottext">Maybe SSHPublicKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465628"><span class="annot"><span class="annottext">Maybe SSHPublicKey
 sSHPublicKey :: Maybe SSHPublicKey
 $sel:sSHPublicKey:UploadSSHPublicKeyResponse' :: UploadSSHPublicKeyResponse -&gt; Maybe SSHPublicKey
-</span><a href="#local-6989586621679465619"><span class="hs-identifier hs-var hs-var">sSHPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSHPublicKey
-</span><a href="#local-6989586621679465619"><span class="hs-identifier hs-var">sSHPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465618"><span class="annot"><span class="annottext">s :: UploadSSHPublicKeyResponse
-</span><a href="#local-6989586621679465618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465617"><span class="annot"><span class="annottext">Maybe SSHPublicKey
-</span><a href="#local-6989586621679465617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadSSHPublicKeyResponse
-</span><a href="#local-6989586621679465618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKey:UploadSSHPublicKeyResponse' :: Maybe SSHPublicKey
+</span><a href="#local-6989586621679465628"><span class="hs-identifier hs-var hs-var">sSHPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSHPublicKey
+</span><a href="#local-6989586621679465628"><span class="hs-identifier hs-var">sSHPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465627"><span class="annot"><span class="annottext">s :: UploadSSHPublicKeyResponse
+</span><a href="#local-6989586621679465627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465626"><span class="annot"><span class="annottext">Maybe SSHPublicKey
+</span><a href="#local-6989586621679465626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadSSHPublicKeyResponse
+</span><a href="#local-6989586621679465627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sSHPublicKey:UploadSSHPublicKeyResponse' :: Maybe SSHPublicKey
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AsSHPublicKey%3AUploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-var">sSHPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSHPublicKey
-</span><a href="#local-6989586621679465617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-230"></span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#uploadSSHPublicKeyResponse_httpStatus"><span class="hs-identifier hs-type">uploadSSHPublicKeyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -502,16 +502,16 @@ $sel:sSHPublicKey:UploadSSHPublicKeyResponse' :: UploadSSHPublicKeyResponse -&gt
 -&gt; Lens
      UploadSSHPublicKeyResponse UploadSSHPublicKeyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465616"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465625"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UploadSSHPublicKeyResponse' :: UploadSSHPublicKeyResponse -&gt; Int
-</span><a href="#local-6989586621679465616"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465616"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465615"><span class="annot"><span class="annottext">s :: UploadSSHPublicKeyResponse
-</span><a href="#local-6989586621679465615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465614"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadSSHPublicKeyResponse
-</span><a href="#local-6989586621679465615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UploadSSHPublicKeyResponse' :: Int
+</span><a href="#local-6989586621679465625"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465625"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465624"><span class="annot"><span class="annottext">s :: UploadSSHPublicKeyResponse
+</span><a href="#local-6989586621679465624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465623"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadSSHPublicKeyResponse
+</span><a href="#local-6989586621679465624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UploadSSHPublicKeyResponse' :: Int
 </span><a href="Network.AWS.IAM.UploadSSHPublicKey.html#%24sel%3AhttpStatus%3AUploadSSHPublicKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse</span></a></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UploadSSHPublicKey.html#UploadSSHPublicKeyResponse"><span class="hs-identifier hs-type">UploadSSHPublicKeyResponse</span></a></span></span><span>
 </span><span id="line-234"></span></pre></body></html>

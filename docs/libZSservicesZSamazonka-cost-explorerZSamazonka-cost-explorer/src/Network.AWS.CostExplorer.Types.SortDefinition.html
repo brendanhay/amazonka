@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The details of how to sort the data.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSortDefinition' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679337659"><span id="local-6989586621679337660"></span></span><span class="hs-keyword">data</span><span> </span><span id="SortDefinition"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-var">SortDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortDefinition%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-var">SortDefinition'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679337668"><span id="local-6989586621679337669"></span></span><span class="hs-keyword">data</span><span> </span><span id="SortDefinition"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-var">SortDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortDefinition%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-var">SortDefinition'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The order that\'s used to sort the data.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsortOrder%3ASortDefinition%27"><span class="annot"><span class="annottext">SortDefinition -&gt; Maybe SortOrder
 </span><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#%24sel%3AsortOrder%3ASortDefinition%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Akey%3ASortDefinition%27"><span class="annot"><span class="annottext">SortDefinition -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#%24sel%3Akey%3ASortDefinition%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337652"><span id="local-6989586621679337654"><span class="annot"><span class="annottext">SortDefinition -&gt; SortDefinition -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337661"><span id="local-6989586621679337663"><span class="annot"><span class="annottext">SortDefinition -&gt; SortDefinition -&gt; Bool
 (SortDefinition -&gt; SortDefinition -&gt; Bool)
 -&gt; (SortDefinition -&gt; SortDefinition -&gt; Bool) -&gt; Eq SortDefinition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SortDefinition -&gt; SortDefinition -&gt; Bool
 == :: SortDefinition -&gt; SortDefinition -&gt; Bool
 $c== :: SortDefinition -&gt; SortDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337643"><span id="local-6989586621679337645"><span id="local-6989586621679337647"><span id="local-6989586621679337649"><span class="annot"><span class="annottext">ReadPrec [SortDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337652"><span id="local-6989586621679337654"><span id="local-6989586621679337656"><span id="local-6989586621679337658"><span class="annot"><span class="annottext">ReadPrec [SortDefinition]
 ReadPrec SortDefinition
 Int -&gt; ReadS SortDefinition
 ReadS [SortDefinition]
@@ -63,7 +63,7 @@ readList :: ReadS [SortDefinition]
 $creadList :: ReadS [SortDefinition]
 readsPrec :: Int -&gt; ReadS SortDefinition
 $creadsPrec :: Int -&gt; ReadS SortDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337636"><span id="local-6989586621679337638"><span id="local-6989586621679337640"><span class="annot"><span class="annottext">Int -&gt; SortDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337645"><span id="local-6989586621679337647"><span id="local-6989586621679337649"><span class="annot"><span class="annottext">Int -&gt; SortDefinition -&gt; ShowS
 [SortDefinition] -&gt; ShowS
 SortDefinition -&gt; String
 (Int -&gt; SortDefinition -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. SortDefinition -&gt; Rep SortDefinition x
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span><span>
 </span><span id="line-53"></span><span id="newSortDefinition"><span class="annot"><span class="annottext">newSortDefinition :: Text -&gt; SortDefinition
-</span><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#newSortDefinition"><span class="hs-identifier hs-var hs-var">newSortDefinition</span></a></span></span><span> </span><span id="local-6989586621679337630"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337630"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#newSortDefinition"><span class="hs-identifier hs-var hs-var">newSortDefinition</span></a></span></span><span> </span><span id="local-6989586621679337639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679337639"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">SortDefinition' :: Maybe SortOrder -&gt; Text -&gt; SortDefinition
 </span><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sortOrder:SortDefinition' :: Maybe SortOrder
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:SortDefinition' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#%24sel%3Akey%3ASortDefinition%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337630"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
+</span><a href="#local-6989586621679337639"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | The order that\'s used to sort the data.</span><span>
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; Lens
      SortDefinition SortDefinition (Maybe SortOrder) (Maybe SortOrder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337626"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337635"><span class="annot"><span class="annottext">Maybe SortOrder
 sortOrder :: Maybe SortOrder
 $sel:sortOrder:SortDefinition' :: SortDefinition -&gt; Maybe SortOrder
-</span><a href="#local-6989586621679337626"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621679337626"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337625"><span class="annot"><span class="annottext">s :: SortDefinition
-</span><a href="#local-6989586621679337625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337624"><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621679337624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SortDefinition
-</span><a href="#local-6989586621679337625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:SortDefinition' :: Maybe SortOrder
+</span><a href="#local-6989586621679337635"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679337635"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337634"><span class="annot"><span class="annottext">s :: SortDefinition
+</span><a href="#local-6989586621679337634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337633"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679337633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SortDefinition
+</span><a href="#local-6989586621679337634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:SortDefinition' :: Maybe SortOrder
 </span><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#%24sel%3AsortOrder%3ASortDefinition%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621679337624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The key that\'s used to sort the data.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#sortDefinition_key"><span class="hs-identifier hs-type">sortDefinition_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -145,30 +145,30 @@ $sel:sortOrder:SortDefinition' :: SortDefinition -&gt; Maybe SortOrder
 -&gt; (SortDefinition -&gt; Text -&gt; SortDefinition)
 -&gt; Lens SortDefinition SortDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337622"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337631"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:SortDefinition' :: SortDefinition -&gt; Text
-</span><a href="#local-6989586621679337622"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337622"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337621"><span class="annot"><span class="annottext">s :: SortDefinition
-</span><a href="#local-6989586621679337621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337620"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SortDefinition
-</span><a href="#local-6989586621679337621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:SortDefinition' :: Text
+</span><a href="#local-6989586621679337631"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679337631"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337630"><span class="annot"><span class="annottext">s :: SortDefinition
+</span><a href="#local-6989586621679337630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679337629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SortDefinition
+</span><a href="#local-6989586621679337630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:SortDefinition' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#%24sel%3Akey%3ASortDefinition%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337616"><span id="local-6989586621679337618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337625"><span id="local-6989586621679337627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337605"><span id="local-6989586621679337607"><span id="local-6989586621679337609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679337603"><span class="annot"><span class="annottext">toJSON :: SortDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337600"><span id="local-6989586621679337601"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337614"><span id="local-6989586621679337616"><span id="local-6989586621679337618"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition"><span class="hs-identifier hs-type">SortDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679337612"><span class="annot"><span class="annottext">toJSON :: SortDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SortDefinition.html#SortDefinition%27"><span class="hs-identifier hs-type">SortDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337609"><span id="local-6989586621679337610"><span class="annot"><span class="annottext">Maybe SortOrder
 Text
 key :: Text
 sortOrder :: Maybe SortOrder
 $sel:key:SortDefinition' :: SortDefinition -&gt; Text
 $sel:sortOrder:SortDefinition' :: SortDefinition -&gt; Maybe SortOrder
-</span><a href="#local-6989586621679337600"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679337609"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,14 +180,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621679337601"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679337610"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337600"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679337609"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

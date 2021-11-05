@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppRunner.Types.ImageRepositoryType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppRunner.Types.ImageRepositoryType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType"><span class="hs-identifier">ImageRepositoryType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType_ECR"><span class="hs-identifier">ImageRepositoryType_ECR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType_ECR_PUBLIC"><span class="hs-identifier">ImageRepositoryType_ECR_PUBLIC</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679204542"><span id="local-6989586621679204543"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageRepositoryType"><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType"><span class="hs-identifier hs-var">ImageRepositoryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageRepositoryType%27"><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType%27"><span class="hs-identifier hs-var">ImageRepositoryType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageRepositoryType"><span class="annot"><span class="annottext">ImageRepositoryType -&gt; Text
+</span><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#fromImageRepositoryType"><span class="hs-identifier hs-var hs-var">fromImageRepositoryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204534"><span id="local-6989586621679204536"><span id="local-6989586621679204538"><span class="annot"><span class="annottext">Int -&gt; ImageRepositoryType -&gt; ShowS
+[ImageRepositoryType] -&gt; ShowS
+ImageRepositoryType -&gt; String
+(Int -&gt; ImageRepositoryType -&gt; ShowS)
+-&gt; (ImageRepositoryType -&gt; String)
+-&gt; ([ImageRepositoryType] -&gt; ShowS)
+-&gt; Show ImageRepositoryType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImageRepositoryType] -&gt; ShowS
+$cshowList :: [ImageRepositoryType] -&gt; ShowS
+show :: ImageRepositoryType -&gt; String
+$cshow :: ImageRepositoryType -&gt; String
+showsPrec :: Int -&gt; ImageRepositoryType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImageRepositoryType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679204525"><span id="local-6989586621679204527"><span id="local-6989586621679204529"><span id="local-6989586621679204531"><span class="annot"><span class="annottext">ReadPrec [ImageRepositoryType]
+ReadPrec ImageRepositoryType
+Int -&gt; ReadS ImageRepositoryType
+ReadS [ImageRepositoryType]
+(Int -&gt; ReadS ImageRepositoryType)
+-&gt; ReadS [ImageRepositoryType]
+-&gt; ReadPrec ImageRepositoryType
+-&gt; ReadPrec [ImageRepositoryType]
+-&gt; Read ImageRepositoryType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImageRepositoryType]
+$creadListPrec :: ReadPrec [ImageRepositoryType]
+readPrec :: ReadPrec ImageRepositoryType
+$creadPrec :: ReadPrec ImageRepositoryType
+readList :: ReadS [ImageRepositoryType]
+$creadList :: ReadS [ImageRepositoryType]
+readsPrec :: Int -&gt; ReadS ImageRepositoryType
+$creadsPrec :: Int -&gt; ReadS ImageRepositoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679204520"><span id="local-6989586621679204522"><span class="annot"><span class="annottext">ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+(ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool)
+-&gt; (ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool)
+-&gt; Eq ImageRepositoryType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+$c/= :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+== :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+$c== :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679204504"><span id="local-6989586621679204506"><span id="local-6989586621679204508"><span id="local-6989586621679204510"><span id="local-6989586621679204512"><span id="local-6989586621679204514"><span id="local-6989586621679204516"><span class="annot"><span class="annottext">Eq ImageRepositoryType
+Eq ImageRepositoryType
+-&gt; (ImageRepositoryType -&gt; ImageRepositoryType -&gt; Ordering)
+-&gt; (ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool)
+-&gt; (ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool)
+-&gt; (ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool)
+-&gt; (ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool)
+-&gt; (ImageRepositoryType
+    -&gt; ImageRepositoryType -&gt; ImageRepositoryType)
+-&gt; (ImageRepositoryType
+    -&gt; ImageRepositoryType -&gt; ImageRepositoryType)
+-&gt; Ord ImageRepositoryType
+ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+ImageRepositoryType -&gt; ImageRepositoryType -&gt; Ordering
+ImageRepositoryType -&gt; ImageRepositoryType -&gt; ImageRepositoryType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; ImageRepositoryType
+$cmin :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; ImageRepositoryType
+max :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; ImageRepositoryType
+$cmax :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; ImageRepositoryType
+&gt;= :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+$c&gt;= :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+&gt; :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+$c&gt; :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+&lt;= :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+$c&lt;= :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+&lt; :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+$c&lt; :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Bool
+compare :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Ordering
+$ccompare :: ImageRepositoryType -&gt; ImageRepositoryType -&gt; Ordering
+$cp1Ord :: Eq ImageRepositoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ImageRepositoryType -&gt; Rep ImageRepositoryType x)
+-&gt; (forall x. Rep ImageRepositoryType x -&gt; ImageRepositoryType)
+-&gt; Generic ImageRepositoryType
+forall x. Rep ImageRepositoryType x -&gt; ImageRepositoryType
+forall x. ImageRepositoryType -&gt; Rep ImageRepositoryType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImageRepositoryType x -&gt; ImageRepositoryType
+$cfrom :: forall x. ImageRepositoryType -&gt; Rep ImageRepositoryType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679204496"><span id="local-6989586621679204498"><span class="annot"><span class="annottext">Int -&gt; ImageRepositoryType -&gt; Int
+ImageRepositoryType -&gt; Int
+(Int -&gt; ImageRepositoryType -&gt; Int)
+-&gt; (ImageRepositoryType -&gt; Int) -&gt; Hashable ImageRepositoryType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ImageRepositoryType -&gt; Int
+$chash :: ImageRepositoryType -&gt; Int
+hashWithSalt :: Int -&gt; ImageRepositoryType -&gt; Int
+$chashWithSalt :: Int -&gt; ImageRepositoryType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679204493"><span class="annot"><span class="annottext">ImageRepositoryType -&gt; ()
+(ImageRepositoryType -&gt; ()) -&gt; NFData ImageRepositoryType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ImageRepositoryType -&gt; ()
+$crnf :: ImageRepositoryType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679204490"><span class="annot"><span class="annottext">Text -&gt; Either String ImageRepositoryType
+(Text -&gt; Either String ImageRepositoryType)
+-&gt; FromText ImageRepositoryType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ImageRepositoryType
+$cfromText :: Text -&gt; Either String ImageRepositoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679204487"><span class="annot"><span class="annottext">ImageRepositoryType -&gt; Text
+(ImageRepositoryType -&gt; Text) -&gt; ToText ImageRepositoryType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ImageRepositoryType -&gt; Text
+$ctoText :: ImageRepositoryType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679204484"><span class="annot"><span class="annottext">ImageRepositoryType -&gt; ByteString
+(ImageRepositoryType -&gt; ByteString)
+-&gt; ToByteString ImageRepositoryType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ImageRepositoryType -&gt; ByteString
+$ctoBS :: ImageRepositoryType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679204481"><span class="annot"><span class="annottext">ImageRepositoryType -&gt; ByteStringBuilder
+(ImageRepositoryType -&gt; ByteStringBuilder)
+-&gt; ToLog ImageRepositoryType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ImageRepositoryType -&gt; ByteStringBuilder
+$cbuild :: ImageRepositoryType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679204478"><span class="annot"><span class="annottext">HeaderName -&gt; ImageRepositoryType -&gt; [Header]
+(HeaderName -&gt; ImageRepositoryType -&gt; [Header])
+-&gt; ToHeader ImageRepositoryType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ImageRepositoryType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ImageRepositoryType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679204475"><span class="annot"><span class="annottext">ImageRepositoryType -&gt; QueryString
+(ImageRepositoryType -&gt; QueryString) -&gt; ToQuery ImageRepositoryType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ImageRepositoryType -&gt; QueryString
+$ctoQuery :: ImageRepositoryType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679204470"><span id="local-6989586621679204472"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageRepositoryType]
+Value -&gt; Parser ImageRepositoryType
+(Value -&gt; Parser ImageRepositoryType)
+-&gt; (Value -&gt; Parser [ImageRepositoryType])
+-&gt; FromJSON ImageRepositoryType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ImageRepositoryType]
+$cparseJSONList :: Value -&gt; Parser [ImageRepositoryType]
+parseJSON :: Value -&gt; Parser ImageRepositoryType
+$cparseJSON :: Value -&gt; Parser ImageRepositoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679204465"><span id="local-6989586621679204467"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageRepositoryType]
+FromJSONKeyFunction ImageRepositoryType
+FromJSONKeyFunction ImageRepositoryType
+-&gt; FromJSONKeyFunction [ImageRepositoryType]
+-&gt; FromJSONKey ImageRepositoryType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ImageRepositoryType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ImageRepositoryType]
+fromJSONKey :: FromJSONKeyFunction ImageRepositoryType
+$cfromJSONKey :: FromJSONKeyFunction ImageRepositoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679204456"><span id="local-6989586621679204458"><span id="local-6989586621679204460"><span id="local-6989586621679204462"><span class="annot"><span class="annottext">[ImageRepositoryType] -&gt; Encoding
+[ImageRepositoryType] -&gt; Value
+ImageRepositoryType -&gt; Encoding
+ImageRepositoryType -&gt; Value
+(ImageRepositoryType -&gt; Value)
+-&gt; (ImageRepositoryType -&gt; Encoding)
+-&gt; ([ImageRepositoryType] -&gt; Value)
+-&gt; ([ImageRepositoryType] -&gt; Encoding)
+-&gt; ToJSON ImageRepositoryType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ImageRepositoryType] -&gt; Encoding
+$ctoEncodingList :: [ImageRepositoryType] -&gt; Encoding
+toJSONList :: [ImageRepositoryType] -&gt; Value
+$ctoJSONList :: [ImageRepositoryType] -&gt; Value
+toEncoding :: ImageRepositoryType -&gt; Encoding
+$ctoEncoding :: ImageRepositoryType -&gt; Encoding
+toJSON :: ImageRepositoryType -&gt; Value
+$ctoJSON :: ImageRepositoryType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679204451"><span id="local-6989586621679204453"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageRepositoryType]
+ToJSONKeyFunction ImageRepositoryType
+ToJSONKeyFunction ImageRepositoryType
+-&gt; ToJSONKeyFunction [ImageRepositoryType]
+-&gt; ToJSONKey ImageRepositoryType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ImageRepositoryType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ImageRepositoryType]
+toJSONKey :: ToJSONKeyFunction ImageRepositoryType
+$ctoJSONKey :: ToJSONKeyFunction ImageRepositoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679204448"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageRepositoryType
+([Node] -&gt; Either String ImageRepositoryType)
+-&gt; FromXML ImageRepositoryType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ImageRepositoryType
+$cparseXML :: [Node] -&gt; Either String ImageRepositoryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679204445"><span class="annot"><span class="annottext">ImageRepositoryType -&gt; XML
+(ImageRepositoryType -&gt; XML) -&gt; ToXML ImageRepositoryType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ImageRepositoryType -&gt; XML
+$ctoXML :: ImageRepositoryType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType_ECR"><span class="hs-identifier hs-type">ImageRepositoryType_ECR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType"><span class="hs-identifier hs-type">ImageRepositoryType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageRepositoryType_ECR"><span id="%24mImageRepositoryType_ECR"><span id="ImageRepositoryType_ECR"><span class="annot"><span class="annottext">$bImageRepositoryType_ECR :: ImageRepositoryType
+$mImageRepositoryType_ECR :: forall r. ImageRepositoryType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#%24bImageRepositoryType_ECR"><span class="hs-identifier hs-var hs-var hs-var">ImageRepositoryType_ECR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType%27"><span class="hs-identifier hs-type">ImageRepositoryType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECR&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType_ECR_PUBLIC"><span class="hs-identifier hs-type">ImageRepositoryType_ECR_PUBLIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType"><span class="hs-identifier hs-type">ImageRepositoryType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageRepositoryType_ECR_PUBLIC"><span id="%24mImageRepositoryType_ECR_PUBLIC"><span id="ImageRepositoryType_ECR_PUBLIC"><span class="annot"><span class="annottext">$bImageRepositoryType_ECR_PUBLIC :: ImageRepositoryType
+$mImageRepositoryType_ECR_PUBLIC :: forall r. ImageRepositoryType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#%24bImageRepositoryType_ECR_PUBLIC"><span class="hs-identifier hs-var hs-var hs-var">ImageRepositoryType_ECR_PUBLIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType%27"><span class="hs-identifier hs-type">ImageRepositoryType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ECR_PUBLIC&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType_ECR"><span class="hs-pragma hs-type">ImageRepositoryType_ECR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType_ECR_PUBLIC"><span class="hs-pragma hs-type">ImageRepositoryType_ECR_PUBLIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.Types.ImageRepositoryType.html#ImageRepositoryType%27"><span class="hs-pragma hs-type">ImageRepositoryType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

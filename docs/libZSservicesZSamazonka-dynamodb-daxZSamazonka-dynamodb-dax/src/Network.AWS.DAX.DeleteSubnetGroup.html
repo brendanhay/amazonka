@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteSubnetGroup' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679199784"><span id="local-6989586621679199785"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSubnetGroup"><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-var">DeleteSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSubnetGroup%27"><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup%27"><span class="hs-identifier hs-var">DeleteSubnetGroup'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679199793"><span id="local-6989586621679199794"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSubnetGroup"><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-var">DeleteSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSubnetGroup%27"><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup%27"><span class="hs-identifier hs-var">DeleteSubnetGroup'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the subnet group to delete.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AsubnetGroupName%3ADeleteSubnetGroup%27"><span class="annot"><span class="annottext">DeleteSubnetGroup -&gt; Text
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#%24sel%3AsubnetGroupName%3ADeleteSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199778"><span id="local-6989586621679199780"><span class="annot"><span class="annottext">DeleteSubnetGroup -&gt; DeleteSubnetGroup -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199787"><span id="local-6989586621679199789"><span class="annot"><span class="annottext">DeleteSubnetGroup -&gt; DeleteSubnetGroup -&gt; Bool
 (DeleteSubnetGroup -&gt; DeleteSubnetGroup -&gt; Bool)
 -&gt; (DeleteSubnetGroup -&gt; DeleteSubnetGroup -&gt; Bool)
 -&gt; Eq DeleteSubnetGroup
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSubnetGroup -&gt; DeleteSubnetGroup -&gt; Bool
 == :: DeleteSubnetGroup -&gt; DeleteSubnetGroup -&gt; Bool
 $c== :: DeleteSubnetGroup -&gt; DeleteSubnetGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199769"><span id="local-6989586621679199771"><span id="local-6989586621679199773"><span id="local-6989586621679199775"><span class="annot"><span class="annottext">ReadPrec [DeleteSubnetGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199778"><span id="local-6989586621679199780"><span id="local-6989586621679199782"><span id="local-6989586621679199784"><span class="annot"><span class="annottext">ReadPrec [DeleteSubnetGroup]
 ReadPrec DeleteSubnetGroup
 Int -&gt; ReadS DeleteSubnetGroup
 ReadS [DeleteSubnetGroup]
@@ -84,7 +84,7 @@ readList :: ReadS [DeleteSubnetGroup]
 $creadList :: ReadS [DeleteSubnetGroup]
 readsPrec :: Int -&gt; ReadS DeleteSubnetGroup
 $creadsPrec :: Int -&gt; ReadS DeleteSubnetGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199762"><span id="local-6989586621679199764"><span id="local-6989586621679199766"><span class="annot"><span class="annottext">Int -&gt; DeleteSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199771"><span id="local-6989586621679199773"><span id="local-6989586621679199775"><span class="annot"><span class="annottext">Int -&gt; DeleteSubnetGroup -&gt; ShowS
 [DeleteSubnetGroup] -&gt; ShowS
 DeleteSubnetGroup -&gt; String
 (Int -&gt; DeleteSubnetGroup -&gt; ShowS)
@@ -124,14 +124,14 @@ $cfrom :: forall x. DeleteSubnetGroup -&gt; Rep DeleteSubnetGroup x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteSubnetGroup"><span class="annot"><span class="annottext">newDeleteSubnetGroup :: Text -&gt; DeleteSubnetGroup
-</span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#newDeleteSubnetGroup"><span class="hs-identifier hs-var hs-var">newDeleteSubnetGroup</span></a></span></span><span> </span><span id="local-6989586621679199757"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199757"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#newDeleteSubnetGroup"><span class="hs-identifier hs-var hs-var">newDeleteSubnetGroup</span></a></span></span><span> </span><span id="local-6989586621679199766"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199766"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteSubnetGroup' :: Text -&gt; DeleteSubnetGroup
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup%27"><span class="hs-identifier hs-type">DeleteSubnetGroup'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetGroupName:DeleteSubnetGroup' :: Text
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#%24sel%3AsubnetGroupName%3ADeleteSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199757"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679199766"><span class="hs-identifier hs-var">pSubnetGroupName_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of the subnet group to delete.</span><span>
@@ -141,27 +141,27 @@ $cfrom :: forall x. DeleteSubnetGroup -&gt; Rep DeleteSubnetGroup x
 -&gt; (DeleteSubnetGroup -&gt; Text -&gt; DeleteSubnetGroup)
 -&gt; Lens DeleteSubnetGroup DeleteSubnetGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup%27"><span class="hs-identifier hs-type">DeleteSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199754"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup%27"><span class="hs-identifier hs-type">DeleteSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199763"><span class="annot"><span class="annottext">Text
 subnetGroupName :: Text
 $sel:subnetGroupName:DeleteSubnetGroup' :: DeleteSubnetGroup -&gt; Text
-</span><a href="#local-6989586621679199754"><span class="hs-identifier hs-var hs-var">subnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199754"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199753"><span class="annot"><span class="annottext">s :: DeleteSubnetGroup
-</span><a href="#local-6989586621679199753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup%27"><span class="hs-identifier hs-type">DeleteSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199752"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubnetGroup
-</span><a href="#local-6989586621679199753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroupName:DeleteSubnetGroup' :: Text
+</span><a href="#local-6989586621679199763"><span class="hs-identifier hs-var hs-var">subnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199763"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199762"><span class="annot"><span class="annottext">s :: DeleteSubnetGroup
+</span><a href="#local-6989586621679199762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup%27"><span class="hs-identifier hs-type">DeleteSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199761"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubnetGroup
+</span><a href="#local-6989586621679199762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroupName:DeleteSubnetGroup' :: Text
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#%24sel%3AsubnetGroupName%3ADeleteSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679199748"><span class="annot"><span class="annottext">request :: DeleteSubnetGroup -&gt; Request DeleteSubnetGroup
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679199757"><span class="annot"><span class="annottext">request :: DeleteSubnetGroup -&gt; Request DeleteSubnetGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSubnetGroup -&gt; Request DeleteSubnetGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DAX.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679199744"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679199753"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteSubnetGroup
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199741"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199741"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199740"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679199740"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199739"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199739"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199750"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199750"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199749"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679199749"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199748"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteSubnetGroupResponse
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-var">DeleteSubnetGroupResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteSubnetGroupResponse)
@@ -198,7 +198,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteSubnetGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199739"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679199748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeletionMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,15 +210,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199741"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199750"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199731"><span id="local-6989586621679199733"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199740"><span id="local-6989586621679199742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679199724"><span class="annot"><span class="annottext">toHeaders :: DeleteSubnetGroup -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679199733"><span class="annot"><span class="annottext">toHeaders :: DeleteSubnetGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSubnetGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -245,12 +245,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199714"><span id="local-6989586621679199716"><span id="local-6989586621679199718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679199712"><span class="annot"><span class="annottext">toJSON :: DeleteSubnetGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup%27"><span class="hs-identifier hs-type">DeleteSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199710"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199723"><span id="local-6989586621679199725"><span id="local-6989586621679199727"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679199721"><span class="annot"><span class="annottext">toJSON :: DeleteSubnetGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup%27"><span class="hs-identifier hs-type">DeleteSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199719"><span class="annot"><span class="annottext">Text
 subnetGroupName :: Text
 $sel:subnetGroupName:DeleteSubnetGroup' :: DeleteSubnetGroup -&gt; Text
-</span><a href="#local-6989586621679199710"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679199719"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,19 +263,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SubnetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199710"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199719"><span class="hs-identifier hs-var">subnetGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679199704"><span class="annot"><span class="annottext">toPath :: DeleteSubnetGroup -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679199713"><span class="annot"><span class="annottext">toPath :: DeleteSubnetGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteSubnetGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroup"><span class="hs-identifier hs-type">DeleteSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679199700"><span class="annot"><span class="annottext">toQuery :: DeleteSubnetGroup -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679199709"><span class="annot"><span class="annottext">toQuery :: DeleteSubnetGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSubnetGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -283,7 +283,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDeleteSubnetGroupResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679199697"><span id="local-6989586621679199698"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSubnetGroupResponse"><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-var">DeleteSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSubnetGroupResponse%27"><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-var">DeleteSubnetGroupResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679199706"><span id="local-6989586621679199707"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSubnetGroupResponse"><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-var">DeleteSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSubnetGroupResponse%27"><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-var">DeleteSubnetGroupResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-specified message for this action (i.e., a reason for deleting</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- the subnet group).</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AdeletionMessage%3ADeleteSubnetGroupResponse%27"><span class="annot"><span class="annottext">DeleteSubnetGroupResponse -&gt; Maybe Text
@@ -292,7 +292,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteSubnetGroupResponse%27"><span class="annot"><span class="annottext">DeleteSubnetGroupResponse -&gt; Int
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#%24sel%3AhttpStatus%3ADeleteSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199691"><span id="local-6989586621679199693"><span class="annot"><span class="annottext">DeleteSubnetGroupResponse -&gt; DeleteSubnetGroupResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199700"><span id="local-6989586621679199702"><span class="annot"><span class="annottext">DeleteSubnetGroupResponse -&gt; DeleteSubnetGroupResponse -&gt; Bool
 (DeleteSubnetGroupResponse -&gt; DeleteSubnetGroupResponse -&gt; Bool)
 -&gt; (DeleteSubnetGroupResponse -&gt; DeleteSubnetGroupResponse -&gt; Bool)
 -&gt; Eq DeleteSubnetGroupResponse
@@ -301,7 +301,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSubnetGroupResponse -&gt; DeleteSubnetGroupResponse -&gt; Bool
 == :: DeleteSubnetGroupResponse -&gt; DeleteSubnetGroupResponse -&gt; Bool
 $c== :: DeleteSubnetGroupResponse -&gt; DeleteSubnetGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199683"><span id="local-6989586621679199685"><span id="local-6989586621679199687"><span id="local-6989586621679199689"><span class="annot"><span class="annottext">ReadPrec [DeleteSubnetGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199692"><span id="local-6989586621679199694"><span id="local-6989586621679199696"><span id="local-6989586621679199698"><span class="annot"><span class="annottext">ReadPrec [DeleteSubnetGroupResponse]
 ReadPrec DeleteSubnetGroupResponse
 Int -&gt; ReadS DeleteSubnetGroupResponse
 ReadS [DeleteSubnetGroupResponse]
@@ -321,7 +321,7 @@ readList :: ReadS [DeleteSubnetGroupResponse]
 $creadList :: ReadS [DeleteSubnetGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteSubnetGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteSubnetGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199677"><span id="local-6989586621679199679"><span id="local-6989586621679199681"><span class="annot"><span class="annottext">Int -&gt; DeleteSubnetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199686"><span id="local-6989586621679199688"><span id="local-6989586621679199690"><span class="annot"><span class="annottext">Int -&gt; DeleteSubnetGroupResponse -&gt; ShowS
 [DeleteSubnetGroupResponse] -&gt; ShowS
 DeleteSubnetGroupResponse -&gt; String
 (Int -&gt; DeleteSubnetGroupResponse -&gt; ShowS)
@@ -370,8 +370,8 @@ DeleteSubnetGroupResponse -&gt; Rep DeleteSubnetGroupResponse x
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse</span></a></span><span>
 </span><span id="line-155"></span><span id="newDeleteSubnetGroupResponse"><span class="annot"><span class="annottext">newDeleteSubnetGroupResponse :: Int -&gt; DeleteSubnetGroupResponse
-</span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#newDeleteSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679199674"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#newDeleteSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679199683"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199683"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">DeleteSubnetGroupResponse' :: Maybe Text -&gt; Int -&gt; DeleteSubnetGroupResponse
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse'</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deletionMessage:DeleteSubnetGroupResponse' :: Maybe Text
@@ -381,7 +381,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSubnetGroupResponse' :: Int
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#%24sel%3AhttpStatus%3ADeleteSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679199683"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | A user-specified message for this action (i.e., a reason for deleting</span><span>
@@ -398,16 +398,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199673"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199682"><span class="annot"><span class="annottext">Maybe Text
 deletionMessage :: Maybe Text
 $sel:deletionMessage:DeleteSubnetGroupResponse' :: DeleteSubnetGroupResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679199673"><span class="hs-identifier hs-var hs-var">deletionMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199673"><span class="hs-identifier hs-var">deletionMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199672"><span class="annot"><span class="annottext">s :: DeleteSubnetGroupResponse
-</span><a href="#local-6989586621679199672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199671"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubnetGroupResponse
-</span><a href="#local-6989586621679199672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionMessage:DeleteSubnetGroupResponse' :: Maybe Text
+</span><a href="#local-6989586621679199682"><span class="hs-identifier hs-var hs-var">deletionMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199682"><span class="hs-identifier hs-var">deletionMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199681"><span class="annot"><span class="annottext">s :: DeleteSubnetGroupResponse
+</span><a href="#local-6989586621679199681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199680"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubnetGroupResponse
+</span><a href="#local-6989586621679199681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionMessage:DeleteSubnetGroupResponse' :: Maybe Text
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#%24sel%3AdeletionMessage%3ADeleteSubnetGroupResponse%27"><span class="hs-identifier hs-var">deletionMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#deleteSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-type">deleteSubnetGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -417,16 +417,16 @@ $sel:deletionMessage:DeleteSubnetGroupResponse' :: DeleteSubnetGroupResponse -&g
 -&gt; (DeleteSubnetGroupResponse -&gt; Int -&gt; DeleteSubnetGroupResponse)
 -&gt; Lens DeleteSubnetGroupResponse DeleteSubnetGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199670"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199679"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteSubnetGroupResponse' :: DeleteSubnetGroupResponse -&gt; Int
-</span><a href="#local-6989586621679199670"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199670"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199669"><span class="annot"><span class="annottext">s :: DeleteSubnetGroupResponse
-</span><a href="#local-6989586621679199669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199668"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubnetGroupResponse
-</span><a href="#local-6989586621679199669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSubnetGroupResponse' :: Int
+</span><a href="#local-6989586621679199679"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199679"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199678"><span class="annot"><span class="annottext">s :: DeleteSubnetGroupResponse
+</span><a href="#local-6989586621679199678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse%27"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSubnetGroupResponse
+</span><a href="#local-6989586621679199678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSubnetGroupResponse' :: Int
 </span><a href="Network.AWS.DAX.DeleteSubnetGroup.html#%24sel%3AhttpStatus%3ADeleteSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteSubnetGroup.html#DeleteSubnetGroupResponse"><span class="hs-identifier hs-type">DeleteSubnetGroupResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

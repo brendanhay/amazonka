@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679418998"><span id="local-6989586621679418999"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RegionConcurrencyType"><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegionConcurrencyType.html#RegionConcurrencyType"><span class="hs-identifier hs-var">RegionConcurrencyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegionConcurrencyType%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegionConcurrencyType.html#RegionConcurrencyType%27"><span class="hs-identifier hs-var">RegionConcurrencyType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679419007"><span id="local-6989586621679419008"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RegionConcurrencyType"><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegionConcurrencyType.html#RegionConcurrencyType"><span class="hs-identifier hs-var">RegionConcurrencyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegionConcurrencyType%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegionConcurrencyType.html#RegionConcurrencyType%27"><span class="hs-identifier hs-var">RegionConcurrencyType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRegionConcurrencyType"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.RegionConcurrencyType.html#fromRegionConcurrencyType"><span class="hs-identifier hs-var hs-var">fromRegionConcurrencyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679418990"><span id="local-6989586621679418992"><span id="local-6989586621679418994"><span class="annot"><span class="annottext">Int -&gt; RegionConcurrencyType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679418999"><span id="local-6989586621679419001"><span id="local-6989586621679419003"><span class="annot"><span class="annottext">Int -&gt; RegionConcurrencyType -&gt; ShowS
 [RegionConcurrencyType] -&gt; ShowS
 RegionConcurrencyType -&gt; String
 (Int -&gt; RegionConcurrencyType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RegionConcurrencyType -&gt; String
 showsPrec :: Int -&gt; RegionConcurrencyType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RegionConcurrencyType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679418981"><span id="local-6989586621679418983"><span id="local-6989586621679418985"><span id="local-6989586621679418987"><span class="annot"><span class="annottext">ReadPrec [RegionConcurrencyType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679418990"><span id="local-6989586621679418992"><span id="local-6989586621679418994"><span id="local-6989586621679418996"><span class="annot"><span class="annottext">ReadPrec [RegionConcurrencyType]
 ReadPrec RegionConcurrencyType
 Int -&gt; ReadS RegionConcurrencyType
 ReadS [RegionConcurrencyType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RegionConcurrencyType]
 readsPrec :: Int -&gt; ReadS RegionConcurrencyType
 $creadsPrec :: Int -&gt; ReadS RegionConcurrencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679418976"><span id="local-6989586621679418978"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; RegionConcurrencyType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679418985"><span id="local-6989586621679418987"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; RegionConcurrencyType -&gt; Bool
 (RegionConcurrencyType -&gt; RegionConcurrencyType -&gt; Bool)
 -&gt; (RegionConcurrencyType -&gt; RegionConcurrencyType -&gt; Bool)
 -&gt; Eq RegionConcurrencyType
@@ -82,7 +82,7 @@ $c/= :: RegionConcurrencyType -&gt; RegionConcurrencyType -&gt; Bool
 == :: RegionConcurrencyType -&gt; RegionConcurrencyType -&gt; Bool
 $c== :: RegionConcurrencyType -&gt; RegionConcurrencyType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679418960"><span id="local-6989586621679418962"><span id="local-6989586621679418964"><span id="local-6989586621679418966"><span id="local-6989586621679418968"><span id="local-6989586621679418970"><span id="local-6989586621679418972"><span class="annot"><span class="annottext">Eq RegionConcurrencyType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679418969"><span id="local-6989586621679418971"><span id="local-6989586621679418973"><span id="local-6989586621679418975"><span id="local-6989586621679418977"><span id="local-6989586621679418979"><span id="local-6989586621679418981"><span class="annot"><span class="annottext">Eq RegionConcurrencyType
 Eq RegionConcurrencyType
 -&gt; (RegionConcurrencyType -&gt; RegionConcurrencyType -&gt; Ordering)
 -&gt; (RegionConcurrencyType -&gt; RegionConcurrencyType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. RegionConcurrencyType -&gt; Rep RegionConcurrencyType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679418952"><span id="local-6989586621679418954"><span class="annot"><span class="annottext">Int -&gt; RegionConcurrencyType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679418961"><span id="local-6989586621679418963"><span class="annot"><span class="annottext">Int -&gt; RegionConcurrencyType -&gt; Int
 RegionConcurrencyType -&gt; Int
 (Int -&gt; RegionConcurrencyType -&gt; Int)
 -&gt; (RegionConcurrencyType -&gt; Int) -&gt; Hashable RegionConcurrencyType
@@ -150,54 +150,54 @@ $chash :: RegionConcurrencyType -&gt; Int
 hashWithSalt :: Int -&gt; RegionConcurrencyType -&gt; Int
 $chashWithSalt :: Int -&gt; RegionConcurrencyType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679418949"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679418958"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; ()
 (RegionConcurrencyType -&gt; ()) -&gt; NFData RegionConcurrencyType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RegionConcurrencyType -&gt; ()
 $crnf :: RegionConcurrencyType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679418946"><span class="annot"><span class="annottext">Text -&gt; Either String RegionConcurrencyType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679418955"><span class="annot"><span class="annottext">Text -&gt; Either String RegionConcurrencyType
 (Text -&gt; Either String RegionConcurrencyType)
 -&gt; FromText RegionConcurrencyType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RegionConcurrencyType
 $cfromText :: Text -&gt; Either String RegionConcurrencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679418943"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679418952"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; Text
 (RegionConcurrencyType -&gt; Text) -&gt; ToText RegionConcurrencyType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RegionConcurrencyType -&gt; Text
 $ctoText :: RegionConcurrencyType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679418940"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679418949"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; ByteString
 (RegionConcurrencyType -&gt; ByteString)
 -&gt; ToByteString RegionConcurrencyType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RegionConcurrencyType -&gt; ByteString
 $ctoBS :: RegionConcurrencyType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679418937"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679418946"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; ByteStringBuilder
 (RegionConcurrencyType -&gt; ByteStringBuilder)
 -&gt; ToLog RegionConcurrencyType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RegionConcurrencyType -&gt; ByteStringBuilder
 $cbuild :: RegionConcurrencyType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679418934"><span class="annot"><span class="annottext">HeaderName -&gt; RegionConcurrencyType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679418943"><span class="annot"><span class="annottext">HeaderName -&gt; RegionConcurrencyType -&gt; [Header]
 (HeaderName -&gt; RegionConcurrencyType -&gt; [Header])
 -&gt; ToHeader RegionConcurrencyType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RegionConcurrencyType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RegionConcurrencyType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679418931"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679418940"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; QueryString
 (RegionConcurrencyType -&gt; QueryString)
 -&gt; ToQuery RegionConcurrencyType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RegionConcurrencyType -&gt; QueryString
 $ctoQuery :: RegionConcurrencyType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679418926"><span id="local-6989586621679418928"><span class="annot"><span class="annottext">Value -&gt; Parser [RegionConcurrencyType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679418935"><span id="local-6989586621679418937"><span class="annot"><span class="annottext">Value -&gt; Parser [RegionConcurrencyType]
 Value -&gt; Parser RegionConcurrencyType
 (Value -&gt; Parser RegionConcurrencyType)
 -&gt; (Value -&gt; Parser [RegionConcurrencyType])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [RegionConcurrencyType]
 parseJSON :: Value -&gt; Parser RegionConcurrencyType
 $cparseJSON :: Value -&gt; Parser RegionConcurrencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679418921"><span id="local-6989586621679418923"><span class="annot"><span class="annottext">FromJSONKeyFunction [RegionConcurrencyType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679418930"><span id="local-6989586621679418932"><span class="annot"><span class="annottext">FromJSONKeyFunction [RegionConcurrencyType]
 FromJSONKeyFunction RegionConcurrencyType
 FromJSONKeyFunction RegionConcurrencyType
 -&gt; FromJSONKeyFunction [RegionConcurrencyType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RegionConcurrencyType]
 fromJSONKey :: FromJSONKeyFunction RegionConcurrencyType
 $cfromJSONKey :: FromJSONKeyFunction RegionConcurrencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679418912"><span id="local-6989586621679418914"><span id="local-6989586621679418916"><span id="local-6989586621679418918"><span class="annot"><span class="annottext">[RegionConcurrencyType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679418921"><span id="local-6989586621679418923"><span id="local-6989586621679418925"><span id="local-6989586621679418927"><span class="annot"><span class="annottext">[RegionConcurrencyType] -&gt; Encoding
 [RegionConcurrencyType] -&gt; Value
 RegionConcurrencyType -&gt; Encoding
 RegionConcurrencyType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: RegionConcurrencyType -&gt; Encoding
 toJSON :: RegionConcurrencyType -&gt; Value
 $ctoJSON :: RegionConcurrencyType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679418907"><span id="local-6989586621679418909"><span class="annot"><span class="annottext">ToJSONKeyFunction [RegionConcurrencyType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679418916"><span id="local-6989586621679418918"><span class="annot"><span class="annottext">ToJSONKeyFunction [RegionConcurrencyType]
 ToJSONKeyFunction RegionConcurrencyType
 ToJSONKeyFunction RegionConcurrencyType
 -&gt; ToJSONKeyFunction [RegionConcurrencyType]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RegionConcurrencyType]
 toJSONKey :: ToJSONKeyFunction RegionConcurrencyType
 $ctoJSONKey :: ToJSONKeyFunction RegionConcurrencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679418904"><span class="annot"><span class="annottext">[Node] -&gt; Either String RegionConcurrencyType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679418913"><span class="annot"><span class="annottext">[Node] -&gt; Either String RegionConcurrencyType
 ([Node] -&gt; Either String RegionConcurrencyType)
 -&gt; FromXML RegionConcurrencyType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RegionConcurrencyType
 $cparseXML :: [Node] -&gt; Either String RegionConcurrencyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679418901"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679418910"><span class="annot"><span class="annottext">RegionConcurrencyType -&gt; XML
 (RegionConcurrencyType -&gt; XML) -&gt; ToXML RegionConcurrencyType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RegionConcurrencyType -&gt; XML

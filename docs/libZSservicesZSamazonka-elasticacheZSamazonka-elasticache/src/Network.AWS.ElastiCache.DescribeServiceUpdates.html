@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeServiceUpdates' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679416349"><span id="local-6989586621679416350"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServiceUpdates"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-var">DescribeServiceUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServiceUpdates%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-var">DescribeServiceUpdates'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679416358"><span id="local-6989586621679416359"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServiceUpdates"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-var">DescribeServiceUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServiceUpdates%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-var">DescribeServiceUpdates'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the service update</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AserviceUpdateName%3ADescribeServiceUpdates%27"><span class="annot"><span class="annottext">DescribeServiceUpdates -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AserviceUpdateName%3ADescribeServiceUpdates%27"><span class="hs-identifier hs-var hs-var">serviceUpdateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AserviceUpdateStatus%3ADescribeServiceUpdates%27"><span class="annot"><span class="annottext">DescribeServiceUpdates -&gt; Maybe [ServiceUpdateStatus]
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AserviceUpdateStatus%3ADescribeServiceUpdates%27"><span class="hs-identifier hs-var hs-var">serviceUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus"><span class="hs-identifier hs-type">ServiceUpdateStatus</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416340"><span id="local-6989586621679416342"><span class="annot"><span class="annottext">DescribeServiceUpdates -&gt; DescribeServiceUpdates -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416349"><span id="local-6989586621679416351"><span class="annot"><span class="annottext">DescribeServiceUpdates -&gt; DescribeServiceUpdates -&gt; Bool
 (DescribeServiceUpdates -&gt; DescribeServiceUpdates -&gt; Bool)
 -&gt; (DescribeServiceUpdates -&gt; DescribeServiceUpdates -&gt; Bool)
 -&gt; Eq DescribeServiceUpdates
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeServiceUpdates -&gt; DescribeServiceUpdates -&gt; Bool
 == :: DescribeServiceUpdates -&gt; DescribeServiceUpdates -&gt; Bool
 $c== :: DescribeServiceUpdates -&gt; DescribeServiceUpdates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416331"><span id="local-6989586621679416333"><span id="local-6989586621679416335"><span id="local-6989586621679416337"><span class="annot"><span class="annottext">ReadPrec [DescribeServiceUpdates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416340"><span id="local-6989586621679416342"><span id="local-6989586621679416344"><span id="local-6989586621679416346"><span class="annot"><span class="annottext">ReadPrec [DescribeServiceUpdates]
 ReadPrec DescribeServiceUpdates
 Int -&gt; ReadS DescribeServiceUpdates
 ReadS [DescribeServiceUpdates]
@@ -99,7 +99,7 @@ readList :: ReadS [DescribeServiceUpdates]
 $creadList :: ReadS [DescribeServiceUpdates]
 readsPrec :: Int -&gt; ReadS DescribeServiceUpdates
 $creadsPrec :: Int -&gt; ReadS DescribeServiceUpdates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416324"><span id="local-6989586621679416326"><span id="local-6989586621679416328"><span class="annot"><span class="annottext">Int -&gt; DescribeServiceUpdates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416333"><span id="local-6989586621679416335"><span id="local-6989586621679416337"><span class="annot"><span class="annottext">Int -&gt; DescribeServiceUpdates -&gt; ShowS
 [DescribeServiceUpdates] -&gt; ShowS
 DescribeServiceUpdates -&gt; String
 (Int -&gt; DescribeServiceUpdates -&gt; ShowS)
@@ -185,16 +185,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416318"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416327"><span class="annot"><span class="annottext">Maybe Text
 serviceUpdateName :: Maybe Text
 $sel:serviceUpdateName:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; Maybe Text
-</span><a href="#local-6989586621679416318"><span class="hs-identifier hs-var hs-var">serviceUpdateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416318"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416317"><span class="annot"><span class="annottext">s :: DescribeServiceUpdates
-</span><a href="#local-6989586621679416317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416316"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdates
-</span><a href="#local-6989586621679416317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUpdateName:DescribeServiceUpdates' :: Maybe Text
+</span><a href="#local-6989586621679416327"><span class="hs-identifier hs-var hs-var">serviceUpdateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416327"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416326"><span class="annot"><span class="annottext">s :: DescribeServiceUpdates
+</span><a href="#local-6989586621679416326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416325"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdates
+</span><a href="#local-6989586621679416326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUpdateName:DescribeServiceUpdates' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AserviceUpdateName%3ADescribeServiceUpdates%27"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
@@ -211,16 +211,16 @@ $sel:serviceUpdateName:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416315"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416324"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; Maybe Text
-</span><a href="#local-6989586621679416315"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416315"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416314"><span class="annot"><span class="annottext">s :: DescribeServiceUpdates
-</span><a href="#local-6989586621679416314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416313"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdates
-</span><a href="#local-6989586621679416314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeServiceUpdates' :: Maybe Text
+</span><a href="#local-6989586621679416324"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416324"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416323"><span class="annot"><span class="annottext">s :: DescribeServiceUpdates
+</span><a href="#local-6989586621679416323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416322"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdates
+</span><a href="#local-6989586621679416323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeServiceUpdates' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3Amarker%3ADescribeServiceUpdates%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The maximum number of records to include in the response</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#describeServiceUpdates_maxRecords"><span class="hs-identifier hs-type">describeServiceUpdates_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -234,16 +234,16 @@ $sel:marker:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; Maybe Text
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416312"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416321"><span class="annot"><span class="annottext">Maybe Int
 maxRecords :: Maybe Int
 $sel:maxRecords:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; Maybe Int
-</span><a href="#local-6989586621679416312"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679416312"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416311"><span class="annot"><span class="annottext">s :: DescribeServiceUpdates
-</span><a href="#local-6989586621679416311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416310"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679416310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdates
-</span><a href="#local-6989586621679416311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeServiceUpdates' :: Maybe Int
+</span><a href="#local-6989586621679416321"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679416321"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416320"><span class="annot"><span class="annottext">s :: DescribeServiceUpdates
+</span><a href="#local-6989586621679416320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416319"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679416319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdates
+</span><a href="#local-6989586621679416320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeServiceUpdates' :: Maybe Int
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AmaxRecords%3ADescribeServiceUpdates%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679416310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The status of the service update</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#describeServiceUpdates_serviceUpdateStatus"><span class="hs-identifier hs-type">describeServiceUpdates_serviceUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus"><span class="hs-identifier hs-type">ServiceUpdateStatus</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -258,16 +258,16 @@ $sel:maxRecords:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; Maybe In
      (Maybe [ServiceUpdateStatus])
      (Maybe [ServiceUpdateStatus])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416309"><span class="annot"><span class="annottext">Maybe [ServiceUpdateStatus]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416318"><span class="annot"><span class="annottext">Maybe [ServiceUpdateStatus]
 serviceUpdateStatus :: Maybe [ServiceUpdateStatus]
 $sel:serviceUpdateStatus:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; Maybe [ServiceUpdateStatus]
-</span><a href="#local-6989586621679416309"><span class="hs-identifier hs-var hs-var">serviceUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceUpdateStatus]
-</span><a href="#local-6989586621679416309"><span class="hs-identifier hs-var">serviceUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416308"><span class="annot"><span class="annottext">s :: DescribeServiceUpdates
-</span><a href="#local-6989586621679416308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416307"><span class="annot"><span class="annottext">Maybe [ServiceUpdateStatus]
-</span><a href="#local-6989586621679416307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdates
-</span><a href="#local-6989586621679416308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUpdateStatus:DescribeServiceUpdates' :: Maybe [ServiceUpdateStatus]
+</span><a href="#local-6989586621679416318"><span class="hs-identifier hs-var hs-var">serviceUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceUpdateStatus]
+</span><a href="#local-6989586621679416318"><span class="hs-identifier hs-var">serviceUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416317"><span class="annot"><span class="annottext">s :: DescribeServiceUpdates
+</span><a href="#local-6989586621679416317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416316"><span class="annot"><span class="annottext">Maybe [ServiceUpdateStatus]
+</span><a href="#local-6989586621679416316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdates
+</span><a href="#local-6989586621679416317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUpdateStatus:DescribeServiceUpdates' :: Maybe [ServiceUpdateStatus]
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AserviceUpdateStatus%3ADescribeServiceUpdates%27"><span class="hs-identifier hs-var">serviceUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceUpdateStatus]
-</span><a href="#local-6989586621679416307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServiceUpdateStatus] -&gt; f (Maybe [ServiceUpdateStatus]))
+</span><a href="#local-6989586621679416316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServiceUpdateStatus] -&gt; f (Maybe [ServiceUpdateStatus]))
  -&gt; DescribeServiceUpdates -&gt; f DescribeServiceUpdates)
 -&gt; ((Maybe [ServiceUpdateStatus]
      -&gt; f (Maybe [ServiceUpdateStatus]))
@@ -298,18 +298,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679416300"><span class="annot"><span class="annottext">page :: DescribeServiceUpdates
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679416309"><span class="annot"><span class="annottext">page :: DescribeServiceUpdates
 -&gt; AWSResponse DescribeServiceUpdates
 -&gt; Maybe DescribeServiceUpdates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416298"><span class="annot"><span class="annottext">DescribeServiceUpdates
-</span><a href="#local-6989586621679416298"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416297"><span class="annot"><span class="annottext">AWSResponse DescribeServiceUpdates
-</span><a href="#local-6989586621679416297"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416307"><span class="annot"><span class="annottext">DescribeServiceUpdates
+</span><a href="#local-6989586621679416307"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416306"><span class="annot"><span class="annottext">AWSResponse DescribeServiceUpdates
+</span><a href="#local-6989586621679416306"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeServiceUpdates
 DescribeServiceUpdatesResponse
-</span><a href="#local-6989586621679416297"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416306"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
 -&gt; Getting (First Text) DescribeServiceUpdatesResponse Text
 -&gt; Maybe Text
@@ -339,7 +339,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeServiceUpdates
 DescribeServiceUpdatesResponse
-</span><a href="#local-6989586621679416297"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416306"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
 -&gt; Getting
      (First [ServiceUpdate])
@@ -384,7 +384,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">DescribeServiceUpdates
-</span><a href="#local-6989586621679416298"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679416307"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">DescribeServiceUpdates
 -&gt; (DescribeServiceUpdates -&gt; DescribeServiceUpdates)
 -&gt; DescribeServiceUpdates
@@ -403,7 +403,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeServiceUpdates
 DescribeServiceUpdatesResponse
-</span><a href="#local-6989586621679416297"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416306"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
 -&gt; Getting (First Text) DescribeServiceUpdatesResponse Text
 -&gt; Maybe Text
@@ -429,12 +429,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679416288"><span class="annot"><span class="annottext">request :: DescribeServiceUpdates -&gt; Request DescribeServiceUpdates
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679416297"><span class="annot"><span class="annottext">request :: DescribeServiceUpdates -&gt; Request DescribeServiceUpdates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeServiceUpdates -&gt; Request DescribeServiceUpdates
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679416284"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679416293"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeServiceUpdates
 -&gt; ClientResponse ClientBody
@@ -465,10 +465,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeServiceUpdatesResult&quot;</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416281"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416281"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416280"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679416280"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416279"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416279"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416290"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416290"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416289"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679416289"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416288"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ServiceUpdate]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeServiceUpdatesResponse
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-var">DescribeServiceUpdatesResponse'</span></a></span><span>
@@ -479,7 +479,7 @@ Text
      String (Maybe Text -&gt; Int -&gt; DescribeServiceUpdatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679416288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -506,7 +506,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeServiceUpdatesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -519,15 +519,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416281"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416290"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416268"><span id="local-6989586621679416270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416277"><span id="local-6989586621679416279"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416274"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679416261"><span class="annot"><span class="annottext">toHeaders :: DescribeServiceUpdates -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679416270"><span class="annot"><span class="annottext">toHeaders :: DescribeServiceUpdates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeServiceUpdates -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -535,15 +535,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679416256"><span class="annot"><span class="annottext">toPath :: DescribeServiceUpdates -&gt; ByteString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679416265"><span class="annot"><span class="annottext">toPath :: DescribeServiceUpdates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeServiceUpdates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates"><span class="hs-identifier hs-type">DescribeServiceUpdates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679416252"><span class="annot"><span class="annottext">toQuery :: DescribeServiceUpdates -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416247"><span id="local-6989586621679416248"><span id="local-6989586621679416249"><span id="local-6989586621679416250"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679416261"><span class="annot"><span class="annottext">toQuery :: DescribeServiceUpdates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdates%27"><span class="hs-identifier hs-type">DescribeServiceUpdates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416256"><span id="local-6989586621679416257"><span id="local-6989586621679416258"><span id="local-6989586621679416259"><span class="annot"><span class="annottext">Maybe Int
 Maybe [ServiceUpdateStatus]
 Maybe Text
 serviceUpdateStatus :: Maybe [ServiceUpdateStatus]
@@ -554,7 +554,7 @@ $sel:serviceUpdateStatus:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt;
 $sel:maxRecords:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; Maybe Int
 $sel:marker:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; Maybe Text
 $sel:serviceUpdateName:DescribeServiceUpdates' :: DescribeServiceUpdates -&gt; Maybe Text
-</span><a href="#local-6989586621679416247"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679416256"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -574,17 +574,17 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ServiceUpdateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416250"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679416259"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416249"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679416258"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679416248"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679416257"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ServiceUpdateStatus&quot;</span></span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -602,12 +602,12 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [ServiceUpdateStatus] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceUpdateStatus]
-</span><a href="#local-6989586621679416247"><span class="hs-identifier hs-var">serviceUpdateStatus</span></a></span><span>
+</span><a href="#local-6989586621679416256"><span class="hs-identifier hs-var">serviceUpdateStatus</span></a></span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | /See:/ 'newDescribeServiceUpdatesResponse' smart constructor.</span><span>
-</span><span id="line-186"></span><span id="local-6989586621679416243"><span id="local-6989586621679416244"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServiceUpdatesResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-var">DescribeServiceUpdatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServiceUpdatesResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-var">DescribeServiceUpdatesResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span id="local-6989586621679416252"><span id="local-6989586621679416253"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeServiceUpdatesResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-var">DescribeServiceUpdatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeServiceUpdatesResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-var">DescribeServiceUpdatesResponse'</span></a></span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of service updates</span><span>
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AserviceUpdates%3ADescribeServiceUpdatesResponse%27"><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse -&gt; Maybe [ServiceUpdate]
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AserviceUpdates%3ADescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-var hs-var">serviceUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ServiceUpdate.html#ServiceUpdate"><span class="hs-identifier hs-type">ServiceUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -621,7 +621,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeServiceUpdatesResponse%27"><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AhttpStatus%3ADescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416236"><span id="local-6989586621679416238"><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416245"><span id="local-6989586621679416247"><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
 -&gt; DescribeServiceUpdatesResponse -&gt; Bool
 (DescribeServiceUpdatesResponse
  -&gt; DescribeServiceUpdatesResponse -&gt; Bool)
@@ -637,7 +637,7 @@ $c/= :: DescribeServiceUpdatesResponse
 -&gt; DescribeServiceUpdatesResponse -&gt; Bool
 $c== :: DescribeServiceUpdatesResponse
 -&gt; DescribeServiceUpdatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416228"><span id="local-6989586621679416230"><span id="local-6989586621679416232"><span id="local-6989586621679416234"><span class="annot"><span class="annottext">ReadPrec [DescribeServiceUpdatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416237"><span id="local-6989586621679416239"><span id="local-6989586621679416241"><span id="local-6989586621679416243"><span class="annot"><span class="annottext">ReadPrec [DescribeServiceUpdatesResponse]
 ReadPrec DescribeServiceUpdatesResponse
 Int -&gt; ReadS DescribeServiceUpdatesResponse
 ReadS [DescribeServiceUpdatesResponse]
@@ -657,7 +657,7 @@ readList :: ReadS [DescribeServiceUpdatesResponse]
 $creadList :: ReadS [DescribeServiceUpdatesResponse]
 readsPrec :: Int -&gt; ReadS DescribeServiceUpdatesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeServiceUpdatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416222"><span id="local-6989586621679416224"><span id="local-6989586621679416226"><span class="annot"><span class="annottext">Int -&gt; DescribeServiceUpdatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416231"><span id="local-6989586621679416233"><span id="local-6989586621679416235"><span class="annot"><span class="annottext">Int -&gt; DescribeServiceUpdatesResponse -&gt; ShowS
 [DescribeServiceUpdatesResponse] -&gt; ShowS
 DescribeServiceUpdatesResponse -&gt; String
 (Int -&gt; DescribeServiceUpdatesResponse -&gt; ShowS)
@@ -716,8 +716,8 @@ DescribeServiceUpdatesResponse
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newDescribeServiceUpdatesResponse"><span class="annot"><span class="annottext">newDescribeServiceUpdatesResponse :: Int -&gt; DescribeServiceUpdatesResponse
-</span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#newDescribeServiceUpdatesResponse"><span class="hs-identifier hs-var hs-var">newDescribeServiceUpdatesResponse</span></a></span></span><span> </span><span id="local-6989586621679416219"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416219"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#newDescribeServiceUpdatesResponse"><span class="hs-identifier hs-var hs-var">newDescribeServiceUpdatesResponse</span></a></span></span><span> </span><span id="local-6989586621679416228"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse' :: Maybe [ServiceUpdate]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeServiceUpdatesResponse
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span>
@@ -732,7 +732,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeServiceUpdatesResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AhttpStatus%3ADescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416219"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679416228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | A list of service updates</span><span>
@@ -745,16 +745,16 @@ forall a. Maybe a
     -&gt; Maybe [ServiceUpdate] -&gt; DescribeServiceUpdatesResponse)
 -&gt; Lens' DescribeServiceUpdatesResponse (Maybe [ServiceUpdate])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416218"><span class="annot"><span class="annottext">Maybe [ServiceUpdate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416227"><span class="annot"><span class="annottext">Maybe [ServiceUpdate]
 serviceUpdates :: Maybe [ServiceUpdate]
 $sel:serviceUpdates:DescribeServiceUpdatesResponse' :: DescribeServiceUpdatesResponse -&gt; Maybe [ServiceUpdate]
-</span><a href="#local-6989586621679416218"><span class="hs-identifier hs-var hs-var">serviceUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceUpdate]
-</span><a href="#local-6989586621679416218"><span class="hs-identifier hs-var">serviceUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416217"><span class="annot"><span class="annottext">s :: DescribeServiceUpdatesResponse
-</span><a href="#local-6989586621679416217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416216"><span class="annot"><span class="annottext">Maybe [ServiceUpdate]
-</span><a href="#local-6989586621679416216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
-</span><a href="#local-6989586621679416217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUpdates:DescribeServiceUpdatesResponse' :: Maybe [ServiceUpdate]
+</span><a href="#local-6989586621679416227"><span class="hs-identifier hs-var hs-var">serviceUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceUpdate]
+</span><a href="#local-6989586621679416227"><span class="hs-identifier hs-var">serviceUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416226"><span class="annot"><span class="annottext">s :: DescribeServiceUpdatesResponse
+</span><a href="#local-6989586621679416226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416225"><span class="annot"><span class="annottext">Maybe [ServiceUpdate]
+</span><a href="#local-6989586621679416225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
+</span><a href="#local-6989586621679416226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUpdates:DescribeServiceUpdatesResponse' :: Maybe [ServiceUpdate]
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AserviceUpdates%3ADescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-var">serviceUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceUpdate]
-</span><a href="#local-6989586621679416216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServiceUpdate] -&gt; f (Maybe [ServiceUpdate]))
+</span><a href="#local-6989586621679416225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServiceUpdate] -&gt; f (Maybe [ServiceUpdate]))
  -&gt; DescribeServiceUpdatesResponse
  -&gt; f DescribeServiceUpdatesResponse)
 -&gt; ((Maybe [ServiceUpdate] -&gt; f (Maybe [ServiceUpdate]))
@@ -791,16 +791,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeServiceUpdatesResponse)
 -&gt; Lens' DescribeServiceUpdatesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416215"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416224"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeServiceUpdatesResponse' :: DescribeServiceUpdatesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679416215"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416215"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416214"><span class="annot"><span class="annottext">s :: DescribeServiceUpdatesResponse
-</span><a href="#local-6989586621679416214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416213"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
-</span><a href="#local-6989586621679416214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeServiceUpdatesResponse' :: Maybe Text
+</span><a href="#local-6989586621679416224"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416224"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416223"><span class="annot"><span class="annottext">s :: DescribeServiceUpdatesResponse
+</span><a href="#local-6989586621679416223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
+</span><a href="#local-6989586621679416223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeServiceUpdatesResponse' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3Amarker%3ADescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-239"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#describeServiceUpdatesResponse_httpStatus"><span class="hs-identifier hs-type">describeServiceUpdatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -816,18 +816,18 @@ $sel:marker:DescribeServiceUpdatesResponse' :: DescribeServiceUpdatesResponse -&
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416212"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416221"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeServiceUpdatesResponse' :: DescribeServiceUpdatesResponse -&gt; Int
-</span><a href="#local-6989586621679416212"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416212"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416211"><span class="annot"><span class="annottext">s :: DescribeServiceUpdatesResponse
-</span><a href="#local-6989586621679416211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416210"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
-</span><a href="#local-6989586621679416211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeServiceUpdatesResponse' :: Int
+</span><a href="#local-6989586621679416221"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416221"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416220"><span class="annot"><span class="annottext">s :: DescribeServiceUpdatesResponse
+</span><a href="#local-6989586621679416220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeServiceUpdatesResponse
+</span><a href="#local-6989586621679416220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeServiceUpdatesResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#%24sel%3AhttpStatus%3ADescribeServiceUpdatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621679416208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679416217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeServiceUpdates.html#DescribeServiceUpdatesResponse"><span class="hs-identifier hs-type">DescribeServiceUpdatesResponse</span></a></span></span><span>
 </span><span id="line-245"></span></pre></body></html>

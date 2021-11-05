@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679784120"><span id="local-6989586621679784121"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DynamicGroupStatus"><span class="annot"><a href="Network.AWS.IoT.Types.DynamicGroupStatus.html#DynamicGroupStatus"><span class="hs-identifier hs-var">DynamicGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamicGroupStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.DynamicGroupStatus.html#DynamicGroupStatus%27"><span class="hs-identifier hs-var">DynamicGroupStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679784129"><span id="local-6989586621679784130"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DynamicGroupStatus"><span class="annot"><a href="Network.AWS.IoT.Types.DynamicGroupStatus.html#DynamicGroupStatus"><span class="hs-identifier hs-var">DynamicGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamicGroupStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.DynamicGroupStatus.html#DynamicGroupStatus%27"><span class="hs-identifier hs-var">DynamicGroupStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDynamicGroupStatus"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; Text
 </span><a href="Network.AWS.IoT.Types.DynamicGroupStatus.html#fromDynamicGroupStatus"><span class="hs-identifier hs-var hs-var">fromDynamicGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679784112"><span id="local-6989586621679784114"><span id="local-6989586621679784116"><span class="annot"><span class="annottext">Int -&gt; DynamicGroupStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679784121"><span id="local-6989586621679784123"><span id="local-6989586621679784125"><span class="annot"><span class="annottext">Int -&gt; DynamicGroupStatus -&gt; ShowS
 [DynamicGroupStatus] -&gt; ShowS
 DynamicGroupStatus -&gt; String
 (Int -&gt; DynamicGroupStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DynamicGroupStatus -&gt; String
 showsPrec :: Int -&gt; DynamicGroupStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DynamicGroupStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679784103"><span id="local-6989586621679784105"><span id="local-6989586621679784107"><span id="local-6989586621679784109"><span class="annot"><span class="annottext">ReadPrec [DynamicGroupStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679784112"><span id="local-6989586621679784114"><span id="local-6989586621679784116"><span id="local-6989586621679784118"><span class="annot"><span class="annottext">ReadPrec [DynamicGroupStatus]
 ReadPrec DynamicGroupStatus
 Int -&gt; ReadS DynamicGroupStatus
 ReadS [DynamicGroupStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DynamicGroupStatus]
 readsPrec :: Int -&gt; ReadS DynamicGroupStatus
 $creadsPrec :: Int -&gt; ReadS DynamicGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679784098"><span id="local-6989586621679784100"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; DynamicGroupStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679784107"><span id="local-6989586621679784109"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; DynamicGroupStatus -&gt; Bool
 (DynamicGroupStatus -&gt; DynamicGroupStatus -&gt; Bool)
 -&gt; (DynamicGroupStatus -&gt; DynamicGroupStatus -&gt; Bool)
 -&gt; Eq DynamicGroupStatus
@@ -83,7 +83,7 @@ $c/= :: DynamicGroupStatus -&gt; DynamicGroupStatus -&gt; Bool
 == :: DynamicGroupStatus -&gt; DynamicGroupStatus -&gt; Bool
 $c== :: DynamicGroupStatus -&gt; DynamicGroupStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679784082"><span id="local-6989586621679784084"><span id="local-6989586621679784086"><span id="local-6989586621679784088"><span id="local-6989586621679784090"><span id="local-6989586621679784092"><span id="local-6989586621679784094"><span class="annot"><span class="annottext">Eq DynamicGroupStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679784091"><span id="local-6989586621679784093"><span id="local-6989586621679784095"><span id="local-6989586621679784097"><span id="local-6989586621679784099"><span id="local-6989586621679784101"><span id="local-6989586621679784103"><span class="annot"><span class="annottext">Eq DynamicGroupStatus
 Eq DynamicGroupStatus
 -&gt; (DynamicGroupStatus -&gt; DynamicGroupStatus -&gt; Ordering)
 -&gt; (DynamicGroupStatus -&gt; DynamicGroupStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. DynamicGroupStatus -&gt; Rep DynamicGroupStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679784074"><span id="local-6989586621679784076"><span class="annot"><span class="annottext">Int -&gt; DynamicGroupStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679784083"><span id="local-6989586621679784085"><span class="annot"><span class="annottext">Int -&gt; DynamicGroupStatus -&gt; Int
 DynamicGroupStatus -&gt; Int
 (Int -&gt; DynamicGroupStatus -&gt; Int)
 -&gt; (DynamicGroupStatus -&gt; Int) -&gt; Hashable DynamicGroupStatus
@@ -144,53 +144,53 @@ $chash :: DynamicGroupStatus -&gt; Int
 hashWithSalt :: Int -&gt; DynamicGroupStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DynamicGroupStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679784071"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679784080"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; ()
 (DynamicGroupStatus -&gt; ()) -&gt; NFData DynamicGroupStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DynamicGroupStatus -&gt; ()
 $crnf :: DynamicGroupStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679784068"><span class="annot"><span class="annottext">Text -&gt; Either String DynamicGroupStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679784077"><span class="annot"><span class="annottext">Text -&gt; Either String DynamicGroupStatus
 (Text -&gt; Either String DynamicGroupStatus)
 -&gt; FromText DynamicGroupStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DynamicGroupStatus
 $cfromText :: Text -&gt; Either String DynamicGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679784065"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679784074"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; Text
 (DynamicGroupStatus -&gt; Text) -&gt; ToText DynamicGroupStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DynamicGroupStatus -&gt; Text
 $ctoText :: DynamicGroupStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679784062"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679784071"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; ByteString
 (DynamicGroupStatus -&gt; ByteString)
 -&gt; ToByteString DynamicGroupStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DynamicGroupStatus -&gt; ByteString
 $ctoBS :: DynamicGroupStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679784059"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679784068"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; ByteStringBuilder
 (DynamicGroupStatus -&gt; ByteStringBuilder)
 -&gt; ToLog DynamicGroupStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DynamicGroupStatus -&gt; ByteStringBuilder
 $cbuild :: DynamicGroupStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679784056"><span class="annot"><span class="annottext">HeaderName -&gt; DynamicGroupStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679784065"><span class="annot"><span class="annottext">HeaderName -&gt; DynamicGroupStatus -&gt; [Header]
 (HeaderName -&gt; DynamicGroupStatus -&gt; [Header])
 -&gt; ToHeader DynamicGroupStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DynamicGroupStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DynamicGroupStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679784053"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679784062"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; QueryString
 (DynamicGroupStatus -&gt; QueryString) -&gt; ToQuery DynamicGroupStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DynamicGroupStatus -&gt; QueryString
 $ctoQuery :: DynamicGroupStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679784048"><span id="local-6989586621679784050"><span class="annot"><span class="annottext">Value -&gt; Parser [DynamicGroupStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679784057"><span id="local-6989586621679784059"><span class="annot"><span class="annottext">Value -&gt; Parser [DynamicGroupStatus]
 Value -&gt; Parser DynamicGroupStatus
 (Value -&gt; Parser DynamicGroupStatus)
 -&gt; (Value -&gt; Parser [DynamicGroupStatus])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [DynamicGroupStatus]
 parseJSON :: Value -&gt; Parser DynamicGroupStatus
 $cparseJSON :: Value -&gt; Parser DynamicGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679784043"><span id="local-6989586621679784045"><span class="annot"><span class="annottext">FromJSONKeyFunction [DynamicGroupStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679784052"><span id="local-6989586621679784054"><span class="annot"><span class="annottext">FromJSONKeyFunction [DynamicGroupStatus]
 FromJSONKeyFunction DynamicGroupStatus
 FromJSONKeyFunction DynamicGroupStatus
 -&gt; FromJSONKeyFunction [DynamicGroupStatus]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DynamicGroupStatus]
 fromJSONKey :: FromJSONKeyFunction DynamicGroupStatus
 $cfromJSONKey :: FromJSONKeyFunction DynamicGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679784034"><span id="local-6989586621679784036"><span id="local-6989586621679784038"><span id="local-6989586621679784040"><span class="annot"><span class="annottext">[DynamicGroupStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679784043"><span id="local-6989586621679784045"><span id="local-6989586621679784047"><span id="local-6989586621679784049"><span class="annot"><span class="annottext">[DynamicGroupStatus] -&gt; Encoding
 [DynamicGroupStatus] -&gt; Value
 DynamicGroupStatus -&gt; Encoding
 DynamicGroupStatus -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: DynamicGroupStatus -&gt; Encoding
 toJSON :: DynamicGroupStatus -&gt; Value
 $ctoJSON :: DynamicGroupStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679784029"><span id="local-6989586621679784031"><span class="annot"><span class="annottext">ToJSONKeyFunction [DynamicGroupStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679784038"><span id="local-6989586621679784040"><span class="annot"><span class="annottext">ToJSONKeyFunction [DynamicGroupStatus]
 ToJSONKeyFunction DynamicGroupStatus
 ToJSONKeyFunction DynamicGroupStatus
 -&gt; ToJSONKeyFunction [DynamicGroupStatus]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DynamicGroupStatus]
 toJSONKey :: ToJSONKeyFunction DynamicGroupStatus
 $ctoJSONKey :: ToJSONKeyFunction DynamicGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679784026"><span class="annot"><span class="annottext">[Node] -&gt; Either String DynamicGroupStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679784035"><span class="annot"><span class="annottext">[Node] -&gt; Either String DynamicGroupStatus
 ([Node] -&gt; Either String DynamicGroupStatus)
 -&gt; FromXML DynamicGroupStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DynamicGroupStatus
 $cparseXML :: [Node] -&gt; Either String DynamicGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679784023"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679784032"><span class="annot"><span class="annottext">DynamicGroupStatus -&gt; XML
 (DynamicGroupStatus -&gt; XML) -&gt; ToXML DynamicGroupStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DynamicGroupStatus -&gt; XML

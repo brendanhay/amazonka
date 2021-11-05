@@ -55,12 +55,12 @@
 </span><span id="line-55"></span><span class="hs-comment">-- details.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newExportProject' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679155069"><span id="local-6989586621679155070"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportProject"><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-var">ExportProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportProject%27"><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject%27"><span class="hs-identifier hs-var">ExportProject'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679155078"><span id="local-6989586621679155079"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportProject"><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-var">ExportProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportProject%27"><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject%27"><span class="hs-identifier hs-var">ExportProject'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique project identifier.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AprojectId%3AExportProject%27"><span class="annot"><span class="annottext">ExportProject -&gt; Text
 </span><a href="Network.AWS.Mobile.ExportProject.html#%24sel%3AprojectId%3AExportProject%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155063"><span id="local-6989586621679155065"><span class="annot"><span class="annottext">ExportProject -&gt; ExportProject -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155072"><span id="local-6989586621679155074"><span class="annot"><span class="annottext">ExportProject -&gt; ExportProject -&gt; Bool
 (ExportProject -&gt; ExportProject -&gt; Bool)
 -&gt; (ExportProject -&gt; ExportProject -&gt; Bool) -&gt; Eq ExportProject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExportProject -&gt; ExportProject -&gt; Bool
 == :: ExportProject -&gt; ExportProject -&gt; Bool
 $c== :: ExportProject -&gt; ExportProject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155054"><span id="local-6989586621679155056"><span id="local-6989586621679155058"><span id="local-6989586621679155060"><span class="annot"><span class="annottext">ReadPrec [ExportProject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155063"><span id="local-6989586621679155065"><span id="local-6989586621679155067"><span id="local-6989586621679155069"><span class="annot"><span class="annottext">ReadPrec [ExportProject]
 ReadPrec ExportProject
 Int -&gt; ReadS ExportProject
 ReadS [ExportProject]
@@ -88,7 +88,7 @@ readList :: ReadS [ExportProject]
 $creadList :: ReadS [ExportProject]
 readsPrec :: Int -&gt; ReadS ExportProject
 $creadsPrec :: Int -&gt; ReadS ExportProject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155047"><span id="local-6989586621679155049"><span id="local-6989586621679155051"><span class="annot"><span class="annottext">Int -&gt; ExportProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155056"><span id="local-6989586621679155058"><span id="local-6989586621679155060"><span class="annot"><span class="annottext">Int -&gt; ExportProject -&gt; ShowS
 [ExportProject] -&gt; ShowS
 ExportProject -&gt; String
 (Int -&gt; ExportProject -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. ExportProject -&gt; Rep ExportProject x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span><span>
 </span><span id="line-77"></span><span id="newExportProject"><span class="annot"><span class="annottext">newExportProject :: Text -&gt; ExportProject
-</span><a href="Network.AWS.Mobile.ExportProject.html#newExportProject"><span class="hs-identifier hs-var hs-var">newExportProject</span></a></span></span><span> </span><span id="local-6989586621679155042"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155042"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Mobile.ExportProject.html#newExportProject"><span class="hs-identifier hs-var hs-var">newExportProject</span></a></span></span><span> </span><span id="local-6989586621679155051"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155051"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ExportProject' :: Text -&gt; ExportProject
 </span><a href="Network.AWS.Mobile.ExportProject.html#ExportProject%27"><span class="hs-identifier hs-type">ExportProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ExportProject' :: Text
 </span><a href="Network.AWS.Mobile.ExportProject.html#%24sel%3AprojectId%3AExportProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155042"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679155051"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Unique project identifier.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#exportProject_projectId"><span class="hs-identifier hs-type">exportProject_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. ExportProject -&gt; Rep ExportProject x
 -&gt; (ExportProject -&gt; Text -&gt; ExportProject)
 -&gt; Lens ExportProject ExportProject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject%27"><span class="hs-identifier hs-type">ExportProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155039"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject%27"><span class="hs-identifier hs-type">ExportProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155048"><span class="annot"><span class="annottext">Text
 projectId :: Text
 $sel:projectId:ExportProject' :: ExportProject -&gt; Text
-</span><a href="#local-6989586621679155039"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155039"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155038"><span class="annot"><span class="annottext">s :: ExportProject
-</span><a href="#local-6989586621679155038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject%27"><span class="hs-identifier hs-type">ExportProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155037"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProject
-</span><a href="#local-6989586621679155038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ExportProject' :: Text
+</span><a href="#local-6989586621679155048"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155048"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155047"><span class="annot"><span class="annottext">s :: ExportProject
+</span><a href="#local-6989586621679155047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject%27"><span class="hs-identifier hs-type">ExportProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProject
+</span><a href="#local-6989586621679155047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ExportProject' :: Text
 </span><a href="Network.AWS.Mobile.ExportProject.html#%24sel%3AprojectId%3AExportProject%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679155046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679155033"><span class="annot"><span class="annottext">request :: ExportProject -&gt; Request ExportProject
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679155042"><span class="annot"><span class="annottext">request :: ExportProject -&gt; Request ExportProject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ExportProject -&gt; Request ExportProject
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Mobile.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679155029"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679155038"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ExportProject
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679155026"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679155026"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679155025"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679155025"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679155024"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679155024"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679155035"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155035"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679155034"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155034"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679155033"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155033"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExportProjectResponse
 </span><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-var">ExportProjectResponse'</span></a></span><span>
@@ -200,7 +200,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExportProjectResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679155024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679155033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;shareUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,7 +210,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ExportProjectResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679155024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679155033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;downloadUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,7 +219,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ExportProjectResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679155024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679155033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;snapshotId&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,15 +231,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679155026"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679155035"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155016"><span id="local-6989586621679155018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155025"><span id="local-6989586621679155027"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155022"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679155009"><span class="annot"><span class="annottext">toHeaders :: ExportProject -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679155018"><span class="annot"><span class="annottext">toHeaders :: ExportProject -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ExportProject -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -258,8 +258,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154999"><span id="local-6989586621679155001"><span id="local-6989586621679155003"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679154997"><span class="annot"><span class="annottext">toJSON :: ExportProject -&gt; Value
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155008"><span id="local-6989586621679155010"><span id="local-6989586621679155012"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679155006"><span class="annot"><span class="annottext">toJSON :: ExportProject -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; ExportProject -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -268,21 +268,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679154992"><span class="annot"><span class="annottext">toPath :: ExportProject -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject%27"><span class="hs-identifier hs-type">ExportProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154990"><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679155001"><span class="annot"><span class="annottext">toPath :: ExportProject -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject%27"><span class="hs-identifier hs-type">ExportProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154999"><span class="annot"><span class="annottext">Text
 projectId :: Text
 $sel:projectId:ExportProject' :: ExportProject -&gt; Text
-</span><a href="#local-6989586621679154990"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679154999"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/exports/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679154990"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679154999"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProject"><span class="hs-identifier hs-type">ExportProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679154986"><span class="annot"><span class="annottext">toQuery :: ExportProject -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679154995"><span class="annot"><span class="annottext">toQuery :: ExportProject -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ExportProject -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span class="hs-comment">-- details.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- /See:/ 'newExportProjectResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679154983"><span id="local-6989586621679154984"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportProjectResponse"><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-var">ExportProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportProjectResponse%27"><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-var">ExportProjectResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679154992"><span id="local-6989586621679154993"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportProjectResponse"><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-var">ExportProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportProjectResponse%27"><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-var">ExportProjectResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | URL which can be shared to allow other AWS users to create their own</span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-comment">-- project in AWS Mobile Hub with the same configuration as the specified</span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-comment">-- project. This URL pertains to a snapshot in time of the project</span><span>
@@ -314,7 +314,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExportProjectResponse%27"><span class="annot"><span class="annottext">ExportProjectResponse -&gt; Int
 </span><a href="Network.AWS.Mobile.ExportProject.html#%24sel%3AhttpStatus%3AExportProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154975"><span id="local-6989586621679154977"><span class="annot"><span class="annottext">ExportProjectResponse -&gt; ExportProjectResponse -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679154984"><span id="local-6989586621679154986"><span class="annot"><span class="annottext">ExportProjectResponse -&gt; ExportProjectResponse -&gt; Bool
 (ExportProjectResponse -&gt; ExportProjectResponse -&gt; Bool)
 -&gt; (ExportProjectResponse -&gt; ExportProjectResponse -&gt; Bool)
 -&gt; Eq ExportProjectResponse
@@ -323,7 +323,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExportProjectResponse -&gt; ExportProjectResponse -&gt; Bool
 == :: ExportProjectResponse -&gt; ExportProjectResponse -&gt; Bool
 $c== :: ExportProjectResponse -&gt; ExportProjectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154967"><span id="local-6989586621679154969"><span id="local-6989586621679154971"><span id="local-6989586621679154973"><span class="annot"><span class="annottext">ReadPrec [ExportProjectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154976"><span id="local-6989586621679154978"><span id="local-6989586621679154980"><span id="local-6989586621679154982"><span class="annot"><span class="annottext">ReadPrec [ExportProjectResponse]
 ReadPrec ExportProjectResponse
 Int -&gt; ReadS ExportProjectResponse
 ReadS [ExportProjectResponse]
@@ -343,7 +343,7 @@ readList :: ReadS [ExportProjectResponse]
 $creadList :: ReadS [ExportProjectResponse]
 readsPrec :: Int -&gt; ReadS ExportProjectResponse
 $creadsPrec :: Int -&gt; ReadS ExportProjectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154961"><span id="local-6989586621679154963"><span id="local-6989586621679154965"><span class="annot"><span class="annottext">Int -&gt; ExportProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679154970"><span id="local-6989586621679154972"><span id="local-6989586621679154974"><span class="annot"><span class="annottext">Int -&gt; ExportProjectResponse -&gt; ShowS
 [ExportProjectResponse] -&gt; ShowS
 ExportProjectResponse -&gt; String
 (Int -&gt; ExportProjectResponse -&gt; ShowS)
@@ -396,8 +396,8 @@ $cfrom :: forall x. ExportProjectResponse -&gt; Rep ExportProjectResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newExportProjectResponse"><span class="annot"><span class="annottext">newExportProjectResponse :: Int -&gt; ExportProjectResponse
-</span><a href="Network.AWS.Mobile.ExportProject.html#newExportProjectResponse"><span class="hs-identifier hs-var hs-var">newExportProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679154958"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154958"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Mobile.ExportProject.html#newExportProjectResponse"><span class="hs-identifier hs-var hs-var">newExportProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679154967"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">ExportProjectResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ExportProjectResponse
 </span><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span>
@@ -415,7 +415,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ExportProjectResponse' :: Int
 </span><a href="Network.AWS.Mobile.ExportProject.html#%24sel%3AhttpStatus%3AExportProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154958"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679154967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | URL which can be shared to allow other AWS users to create their own</span><span>
@@ -435,16 +435,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154957"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154966"><span class="annot"><span class="annottext">Maybe Text
 shareUrl :: Maybe Text
 $sel:shareUrl:ExportProjectResponse' :: ExportProjectResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679154957"><span class="hs-identifier hs-var hs-var">shareUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154957"><span class="hs-identifier hs-var">shareUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154956"><span class="annot"><span class="annottext">s :: ExportProjectResponse
-</span><a href="#local-6989586621679154956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154955"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProjectResponse
-</span><a href="#local-6989586621679154956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareUrl:ExportProjectResponse' :: Maybe Text
+</span><a href="#local-6989586621679154966"><span class="hs-identifier hs-var hs-var">shareUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154966"><span class="hs-identifier hs-var">shareUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154965"><span class="annot"><span class="annottext">s :: ExportProjectResponse
+</span><a href="#local-6989586621679154965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154964"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProjectResponse
+</span><a href="#local-6989586621679154965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareUrl:ExportProjectResponse' :: Maybe Text
 </span><a href="Network.AWS.Mobile.ExportProject.html#%24sel%3AshareUrl%3AExportProjectResponse%27"><span class="hs-identifier hs-var">shareUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679154964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | URL which can be used to download the exported project configuation</span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- file(s).</span><span>
@@ -459,16 +459,16 @@ $sel:shareUrl:ExportProjectResponse' :: ExportProjectResponse -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154954"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154963"><span class="annot"><span class="annottext">Maybe Text
 downloadUrl :: Maybe Text
 $sel:downloadUrl:ExportProjectResponse' :: ExportProjectResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679154954"><span class="hs-identifier hs-var hs-var">downloadUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154954"><span class="hs-identifier hs-var">downloadUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154953"><span class="annot"><span class="annottext">s :: ExportProjectResponse
-</span><a href="#local-6989586621679154953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154952"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProjectResponse
-</span><a href="#local-6989586621679154953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downloadUrl:ExportProjectResponse' :: Maybe Text
+</span><a href="#local-6989586621679154963"><span class="hs-identifier hs-var hs-var">downloadUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154963"><span class="hs-identifier hs-var">downloadUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154962"><span class="annot"><span class="annottext">s :: ExportProjectResponse
+</span><a href="#local-6989586621679154962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154961"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProjectResponse
+</span><a href="#local-6989586621679154962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downloadUrl:ExportProjectResponse' :: Maybe Text
 </span><a href="Network.AWS.Mobile.ExportProject.html#%24sel%3AdownloadUrl%3AExportProjectResponse%27"><span class="hs-identifier hs-var">downloadUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679154961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | Unique identifier for the exported snapshot of the project</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- configuration. This snapshot identifier is included in the share URL.</span><span>
@@ -483,16 +483,16 @@ $sel:downloadUrl:ExportProjectResponse' :: ExportProjectResponse -&gt; Maybe Tex
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154951"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154960"><span class="annot"><span class="annottext">Maybe Text
 snapshotId :: Maybe Text
 $sel:snapshotId:ExportProjectResponse' :: ExportProjectResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679154951"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154951"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154950"><span class="annot"><span class="annottext">s :: ExportProjectResponse
-</span><a href="#local-6989586621679154950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154949"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProjectResponse
-</span><a href="#local-6989586621679154950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:ExportProjectResponse' :: Maybe Text
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154960"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154959"><span class="annot"><span class="annottext">s :: ExportProjectResponse
+</span><a href="#local-6989586621679154959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154958"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679154958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProjectResponse
+</span><a href="#local-6989586621679154959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:ExportProjectResponse' :: Maybe Text
 </span><a href="Network.AWS.Mobile.ExportProject.html#%24sel%3AsnapshotId%3AExportProjectResponse%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679154949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679154958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-201"></span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#exportProjectResponse_httpStatus"><span class="hs-identifier hs-type">exportProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -501,16 +501,16 @@ $sel:snapshotId:ExportProjectResponse' :: ExportProjectResponse -&gt; Maybe Text
 -&gt; (ExportProjectResponse -&gt; Int -&gt; ExportProjectResponse)
 -&gt; Lens ExportProjectResponse ExportProjectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154948"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679154957"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ExportProjectResponse' :: ExportProjectResponse -&gt; Int
-</span><a href="#local-6989586621679154948"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154948"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154947"><span class="annot"><span class="annottext">s :: ExportProjectResponse
-</span><a href="#local-6989586621679154947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154946"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProjectResponse
-</span><a href="#local-6989586621679154947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExportProjectResponse' :: Int
+</span><a href="#local-6989586621679154957"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154957"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679154956"><span class="annot"><span class="annottext">s :: ExportProjectResponse
+</span><a href="#local-6989586621679154956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse%27"><span class="hs-identifier hs-type">ExportProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679154955"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679154955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportProjectResponse
+</span><a href="#local-6989586621679154956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExportProjectResponse' :: Int
 </span><a href="Network.AWS.Mobile.ExportProject.html#%24sel%3AhttpStatus%3AExportProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679154946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679154955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154944"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679154953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.ExportProject.html#ExportProjectResponse"><span class="hs-identifier hs-type">ExportProjectResponse</span></a></span></span><span>
 </span><span id="line-205"></span></pre></body></html>

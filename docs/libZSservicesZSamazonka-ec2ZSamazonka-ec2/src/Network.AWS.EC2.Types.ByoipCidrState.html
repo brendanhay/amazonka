@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621681089984"><span id="local-6989586621681089985"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ByoipCidrState"><span class="annot"><a href="Network.AWS.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-var">ByoipCidrState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ByoipCidrState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-var">ByoipCidrState'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621681089993"><span id="local-6989586621681089994"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ByoipCidrState"><span class="annot"><a href="Network.AWS.EC2.Types.ByoipCidrState.html#ByoipCidrState"><span class="hs-identifier hs-var">ByoipCidrState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ByoipCidrState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ByoipCidrState.html#ByoipCidrState%27"><span class="hs-identifier hs-var">ByoipCidrState'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromByoipCidrState"><span class="annot"><span class="annottext">ByoipCidrState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ByoipCidrState.html#fromByoipCidrState"><span class="hs-identifier hs-var hs-var">fromByoipCidrState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089976"><span id="local-6989586621681089978"><span id="local-6989586621681089980"><span class="annot"><span class="annottext">Int -&gt; ByoipCidrState -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089985"><span id="local-6989586621681089987"><span id="local-6989586621681089989"><span class="annot"><span class="annottext">Int -&gt; ByoipCidrState -&gt; ShowS
 [ByoipCidrState] -&gt; ShowS
 ByoipCidrState -&gt; String
 (Int -&gt; ByoipCidrState -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: ByoipCidrState -&gt; String
 showsPrec :: Int -&gt; ByoipCidrState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ByoipCidrState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681089967"><span id="local-6989586621681089969"><span id="local-6989586621681089971"><span id="local-6989586621681089973"><span class="annot"><span class="annottext">ReadPrec [ByoipCidrState]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681089976"><span id="local-6989586621681089978"><span id="local-6989586621681089980"><span id="local-6989586621681089982"><span class="annot"><span class="annottext">ReadPrec [ByoipCidrState]
 ReadPrec ByoipCidrState
 Int -&gt; ReadS ByoipCidrState
 ReadS [ByoipCidrState]
@@ -79,7 +79,7 @@ $creadList :: ReadS [ByoipCidrState]
 readsPrec :: Int -&gt; ReadS ByoipCidrState
 $creadsPrec :: Int -&gt; ReadS ByoipCidrState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681089962"><span id="local-6989586621681089964"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681089971"><span id="local-6989586621681089973"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
 (ByoipCidrState -&gt; ByoipCidrState -&gt; Bool)
 -&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; Bool) -&gt; Eq ByoipCidrState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ $c/= :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
 == :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
 $c== :: ByoipCidrState -&gt; ByoipCidrState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681089946"><span id="local-6989586621681089948"><span id="local-6989586621681089950"><span id="local-6989586621681089952"><span id="local-6989586621681089954"><span id="local-6989586621681089956"><span id="local-6989586621681089958"><span class="annot"><span class="annottext">Eq ByoipCidrState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681089955"><span id="local-6989586621681089957"><span id="local-6989586621681089959"><span id="local-6989586621681089961"><span id="local-6989586621681089963"><span id="local-6989586621681089965"><span id="local-6989586621681089967"><span class="annot"><span class="annottext">Eq ByoipCidrState
 Eq ByoipCidrState
 -&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; Ordering)
 -&gt; (ByoipCidrState -&gt; ByoipCidrState -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. ByoipCidrState -&gt; Rep ByoipCidrState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089938"><span id="local-6989586621681089940"><span class="annot"><span class="annottext">Int -&gt; ByoipCidrState -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089947"><span id="local-6989586621681089949"><span class="annot"><span class="annottext">Int -&gt; ByoipCidrState -&gt; Int
 ByoipCidrState -&gt; Int
 (Int -&gt; ByoipCidrState -&gt; Int)
 -&gt; (ByoipCidrState -&gt; Int) -&gt; Hashable ByoipCidrState
@@ -149,50 +149,50 @@ $chash :: ByoipCidrState -&gt; Int
 hashWithSalt :: Int -&gt; ByoipCidrState -&gt; Int
 $chashWithSalt :: Int -&gt; ByoipCidrState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681089935"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681089944"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ()
 (ByoipCidrState -&gt; ()) -&gt; NFData ByoipCidrState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ByoipCidrState -&gt; ()
 $crnf :: ByoipCidrState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681089932"><span class="annot"><span class="annottext">Text -&gt; Either String ByoipCidrState
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681089941"><span class="annot"><span class="annottext">Text -&gt; Either String ByoipCidrState
 (Text -&gt; Either String ByoipCidrState) -&gt; FromText ByoipCidrState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ByoipCidrState
 $cfromText :: Text -&gt; Either String ByoipCidrState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681089929"><span class="annot"><span class="annottext">ByoipCidrState -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681089938"><span class="annot"><span class="annottext">ByoipCidrState -&gt; Text
 (ByoipCidrState -&gt; Text) -&gt; ToText ByoipCidrState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ByoipCidrState -&gt; Text
 $ctoText :: ByoipCidrState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681089926"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681089935"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ByteString
 (ByoipCidrState -&gt; ByteString) -&gt; ToByteString ByoipCidrState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ByoipCidrState -&gt; ByteString
 $ctoBS :: ByoipCidrState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681089923"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681089932"><span class="annot"><span class="annottext">ByoipCidrState -&gt; ByteStringBuilder
 (ByoipCidrState -&gt; ByteStringBuilder) -&gt; ToLog ByoipCidrState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ByoipCidrState -&gt; ByteStringBuilder
 $cbuild :: ByoipCidrState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681089920"><span class="annot"><span class="annottext">HeaderName -&gt; ByoipCidrState -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681089929"><span class="annot"><span class="annottext">HeaderName -&gt; ByoipCidrState -&gt; [Header]
 (HeaderName -&gt; ByoipCidrState -&gt; [Header])
 -&gt; ToHeader ByoipCidrState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ByoipCidrState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ByoipCidrState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681089917"><span class="annot"><span class="annottext">ByoipCidrState -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681089926"><span class="annot"><span class="annottext">ByoipCidrState -&gt; QueryString
 (ByoipCidrState -&gt; QueryString) -&gt; ToQuery ByoipCidrState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ByoipCidrState -&gt; QueryString
 $ctoQuery :: ByoipCidrState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681089912"><span id="local-6989586621681089914"><span class="annot"><span class="annottext">Value -&gt; Parser [ByoipCidrState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681089921"><span id="local-6989586621681089923"><span class="annot"><span class="annottext">Value -&gt; Parser [ByoipCidrState]
 Value -&gt; Parser ByoipCidrState
 (Value -&gt; Parser ByoipCidrState)
 -&gt; (Value -&gt; Parser [ByoipCidrState]) -&gt; FromJSON ByoipCidrState
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ByoipCidrState]
 parseJSON :: Value -&gt; Parser ByoipCidrState
 $cparseJSON :: Value -&gt; Parser ByoipCidrState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681089907"><span id="local-6989586621681089909"><span class="annot"><span class="annottext">FromJSONKeyFunction [ByoipCidrState]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681089916"><span id="local-6989586621681089918"><span class="annot"><span class="annottext">FromJSONKeyFunction [ByoipCidrState]
 FromJSONKeyFunction ByoipCidrState
 FromJSONKeyFunction ByoipCidrState
 -&gt; FromJSONKeyFunction [ByoipCidrState]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ByoipCidrState]
 fromJSONKey :: FromJSONKeyFunction ByoipCidrState
 $cfromJSONKey :: FromJSONKeyFunction ByoipCidrState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681089898"><span id="local-6989586621681089900"><span id="local-6989586621681089902"><span id="local-6989586621681089904"><span class="annot"><span class="annottext">[ByoipCidrState] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681089907"><span id="local-6989586621681089909"><span id="local-6989586621681089911"><span id="local-6989586621681089913"><span class="annot"><span class="annottext">[ByoipCidrState] -&gt; Encoding
 [ByoipCidrState] -&gt; Value
 ByoipCidrState -&gt; Encoding
 ByoipCidrState -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ByoipCidrState -&gt; Encoding
 toJSON :: ByoipCidrState -&gt; Value
 $ctoJSON :: ByoipCidrState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621681089893"><span id="local-6989586621681089895"><span class="annot"><span class="annottext">ToJSONKeyFunction [ByoipCidrState]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681089902"><span id="local-6989586621681089904"><span class="annot"><span class="annottext">ToJSONKeyFunction [ByoipCidrState]
 ToJSONKeyFunction ByoipCidrState
 ToJSONKeyFunction ByoipCidrState
 -&gt; ToJSONKeyFunction [ByoipCidrState] -&gt; ToJSONKey ByoipCidrState
@@ -250,13 +250,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ByoipCidrState]
 toJSONKey :: ToJSONKeyFunction ByoipCidrState
 $ctoJSONKey :: ToJSONKeyFunction ByoipCidrState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621681089890"><span class="annot"><span class="annottext">[Node] -&gt; Either String ByoipCidrState
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681089899"><span class="annot"><span class="annottext">[Node] -&gt; Either String ByoipCidrState
 ([Node] -&gt; Either String ByoipCidrState) -&gt; FromXML ByoipCidrState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ByoipCidrState
 $cparseXML :: [Node] -&gt; Either String ByoipCidrState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621681089887"><span class="annot"><span class="annottext">ByoipCidrState -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621681089896"><span class="annot"><span class="annottext">ByoipCidrState -&gt; XML
 (ByoipCidrState -&gt; XML) -&gt; ToXML ByoipCidrState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ByoipCidrState -&gt; XML

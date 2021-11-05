@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An invalidation batch.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInvalidationBatch' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679397400"><span id="local-6989586621679397401"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvalidationBatch"><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-var">InvalidationBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvalidationBatch%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-var">InvalidationBatch'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679397409"><span id="local-6989586621679397410"></span></span><span class="hs-keyword">data</span><span> </span><span id="InvalidationBatch"><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-var">InvalidationBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InvalidationBatch%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-var">InvalidationBatch'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains information about the objects that you want</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- to invalidate. For more information, see</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects Specifying the Objects to Invalidate&gt;</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcallerReference%3AInvalidationBatch%27"><span class="annot"><span class="annottext">InvalidationBatch -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#%24sel%3AcallerReference%3AInvalidationBatch%27"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397393"><span id="local-6989586621679397395"><span class="annot"><span class="annottext">InvalidationBatch -&gt; InvalidationBatch -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397402"><span id="local-6989586621679397404"><span class="annot"><span class="annottext">InvalidationBatch -&gt; InvalidationBatch -&gt; Bool
 (InvalidationBatch -&gt; InvalidationBatch -&gt; Bool)
 -&gt; (InvalidationBatch -&gt; InvalidationBatch -&gt; Bool)
 -&gt; Eq InvalidationBatch
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InvalidationBatch -&gt; InvalidationBatch -&gt; Bool
 == :: InvalidationBatch -&gt; InvalidationBatch -&gt; Bool
 $c== :: InvalidationBatch -&gt; InvalidationBatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397384"><span id="local-6989586621679397386"><span id="local-6989586621679397388"><span id="local-6989586621679397390"><span class="annot"><span class="annottext">ReadPrec [InvalidationBatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397393"><span id="local-6989586621679397395"><span id="local-6989586621679397397"><span id="local-6989586621679397399"><span class="annot"><span class="annottext">ReadPrec [InvalidationBatch]
 ReadPrec InvalidationBatch
 Int -&gt; ReadS InvalidationBatch
 ReadS [InvalidationBatch]
@@ -84,7 +84,7 @@ readList :: ReadS [InvalidationBatch]
 $creadList :: ReadS [InvalidationBatch]
 readsPrec :: Int -&gt; ReadS InvalidationBatch
 $creadsPrec :: Int -&gt; ReadS InvalidationBatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397377"><span id="local-6989586621679397379"><span id="local-6989586621679397381"><span class="annot"><span class="annottext">Int -&gt; InvalidationBatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397386"><span id="local-6989586621679397388"><span id="local-6989586621679397390"><span class="annot"><span class="annottext">Int -&gt; InvalidationBatch -&gt; ShowS
 [InvalidationBatch] -&gt; ShowS
 InvalidationBatch -&gt; String
 (Int -&gt; InvalidationBatch -&gt; ShowS)
@@ -148,17 +148,17 @@ $cfrom :: forall x. InvalidationBatch -&gt; Rep InvalidationBatch x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span>
 </span><span id="line-95"></span><span id="newInvalidationBatch"><span class="annot"><span class="annottext">newInvalidationBatch :: Paths -&gt; Text -&gt; InvalidationBatch
-</span><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#newInvalidationBatch"><span class="hs-identifier hs-var hs-var">newInvalidationBatch</span></a></span></span><span> </span><span id="local-6989586621679397371"><span class="annot"><span class="annottext">Paths
-</span><a href="#local-6989586621679397371"><span class="hs-identifier hs-var">pPaths_</span></a></span></span><span> </span><span id="local-6989586621679397370"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397370"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#newInvalidationBatch"><span class="hs-identifier hs-var hs-var">newInvalidationBatch</span></a></span></span><span> </span><span id="local-6989586621679397380"><span class="annot"><span class="annottext">Paths
+</span><a href="#local-6989586621679397380"><span class="hs-identifier hs-var">pPaths_</span></a></span></span><span> </span><span id="local-6989586621679397379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397379"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">InvalidationBatch' :: Paths -&gt; Text -&gt; InvalidationBatch
 </span><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:paths:InvalidationBatch' :: Paths
 </span><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#%24sel%3Apaths%3AInvalidationBatch%27"><span class="hs-identifier hs-var">paths</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Paths
-</span><a href="#local-6989586621679397371"><span class="hs-identifier hs-var">pPaths_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397380"><span class="hs-identifier hs-var">pPaths_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:callerReference:InvalidationBatch' :: Text
 </span><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#%24sel%3AcallerReference%3AInvalidationBatch%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397370"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span>
+</span><a href="#local-6989586621679397379"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | A complex type that contains information about the objects that you want</span><span>
@@ -171,16 +171,16 @@ $cfrom :: forall x. InvalidationBatch -&gt; Rep InvalidationBatch x
 -&gt; (InvalidationBatch -&gt; Paths -&gt; InvalidationBatch)
 -&gt; Lens InvalidationBatch InvalidationBatch Paths Paths
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397366"><span class="annot"><span class="annottext">Paths
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397375"><span class="annot"><span class="annottext">Paths
 paths :: Paths
 $sel:paths:InvalidationBatch' :: InvalidationBatch -&gt; Paths
-</span><a href="#local-6989586621679397366"><span class="hs-identifier hs-var hs-var">paths</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Paths
-</span><a href="#local-6989586621679397366"><span class="hs-identifier hs-var">paths</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397365"><span class="annot"><span class="annottext">s :: InvalidationBatch
-</span><a href="#local-6989586621679397365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397364"><span class="annot"><span class="annottext">Paths
-</span><a href="#local-6989586621679397364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
-</span><a href="#local-6989586621679397365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paths:InvalidationBatch' :: Paths
+</span><a href="#local-6989586621679397375"><span class="hs-identifier hs-var hs-var">paths</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Paths
+</span><a href="#local-6989586621679397375"><span class="hs-identifier hs-var">paths</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397374"><span class="annot"><span class="annottext">s :: InvalidationBatch
+</span><a href="#local-6989586621679397374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397373"><span class="annot"><span class="annottext">Paths
+</span><a href="#local-6989586621679397373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679397374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paths:InvalidationBatch' :: Paths
 </span><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#%24sel%3Apaths%3AInvalidationBatch%27"><span class="hs-identifier hs-var">paths</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Paths
-</span><a href="#local-6989586621679397364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | A value that you specify to uniquely identify an invalidation request.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- CloudFront uses the value to prevent you from accidentally resubmitting</span><span>
@@ -206,28 +206,28 @@ $sel:paths:InvalidationBatch' :: InvalidationBatch -&gt; Paths
 -&gt; (InvalidationBatch -&gt; Text -&gt; InvalidationBatch)
 -&gt; Lens InvalidationBatch InvalidationBatch Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397362"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397371"><span class="annot"><span class="annottext">Text
 callerReference :: Text
 $sel:callerReference:InvalidationBatch' :: InvalidationBatch -&gt; Text
-</span><a href="#local-6989586621679397362"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397362"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397361"><span class="annot"><span class="annottext">s :: InvalidationBatch
-</span><a href="#local-6989586621679397361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397360"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
-</span><a href="#local-6989586621679397361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:InvalidationBatch' :: Text
+</span><a href="#local-6989586621679397371"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397371"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397370"><span class="annot"><span class="annottext">s :: InvalidationBatch
+</span><a href="#local-6989586621679397370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397369"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679397370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:InvalidationBatch' :: Text
 </span><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#%24sel%3AcallerReference%3AInvalidationBatch%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679397357"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InvalidationBatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397355"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397355"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679397366"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InvalidationBatch
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397364"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679397364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">Paths -&gt; Text -&gt; InvalidationBatch
 </span><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-var">InvalidationBatch'</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">(Paths -&gt; Text -&gt; InvalidationBatch)
 -&gt; Either String Paths -&gt; Either String (Text -&gt; InvalidationBatch)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Paths
+</span><a href="#local-6989586621679397364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Paths
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Paths&quot;</span></span><span class="hs-special">)</span><span>
@@ -235,24 +235,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String InvalidationBatch
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679397364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397349"><span id="local-6989586621679397351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397358"><span id="local-6989586621679397360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679397342"><span class="annot"><span class="annottext">toXML :: InvalidationBatch -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397339"><span id="local-6989586621679397340"><span class="annot"><span class="annottext">Text
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679397351"><span class="annot"><span class="annottext">toXML :: InvalidationBatch -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch%27"><span class="hs-identifier hs-type">InvalidationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397348"><span id="local-6989586621679397349"><span class="annot"><span class="annottext">Text
 Paths
 callerReference :: Text
 paths :: Paths
 $sel:callerReference:InvalidationBatch' :: InvalidationBatch -&gt; Text
 $sel:paths:InvalidationBatch' :: InvalidationBatch -&gt; Paths
-</span><a href="#local-6989586621679397339"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397348"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -260,11 +260,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Paths&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Paths -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Paths
-</span><a href="#local-6989586621679397340"><span class="hs-identifier hs-var">paths</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397349"><span class="hs-identifier hs-var">paths</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397339"><span class="hs-identifier hs-var">callerReference</span></a></span><span>
+</span><a href="#local-6989586621679397348"><span class="hs-identifier hs-var">callerReference</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span></pre></body></html>

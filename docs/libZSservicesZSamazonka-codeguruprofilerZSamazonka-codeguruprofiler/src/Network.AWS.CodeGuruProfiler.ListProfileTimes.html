@@ -1,0 +1,924 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeGuruProfiler.ListProfileTimes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the start times of the available aggregated profiles of a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- profiling group for an aggregation period within the specified time</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- range.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeGuruProfiler.ListProfileTimes</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier">ListProfileTimes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#newListProfileTimes"><span class="hs-identifier">newListProfileTimes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_orderBy"><span class="hs-identifier">listProfileTimes_orderBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_nextToken"><span class="hs-identifier">listProfileTimes_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_maxResults"><span class="hs-identifier">listProfileTimes_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_endTime"><span class="hs-identifier">listProfileTimes_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_period"><span class="hs-identifier">listProfileTimes_period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_profilingGroupName"><span class="hs-identifier">listProfileTimes_profilingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_startTime"><span class="hs-identifier">listProfileTimes_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier">ListProfileTimesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#newListProfileTimesResponse"><span class="hs-identifier">newListProfileTimesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_nextToken"><span class="hs-identifier">listProfileTimesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_httpStatus"><span class="hs-identifier">listProfileTimesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_profileTimes"><span class="hs-identifier">listProfileTimesResponse_profileTimes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.html"><span class="hs-identifier">Network.AWS.CodeGuruProfiler.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The structure representing the listProfileTimesRequest.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newListProfileTimes' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679202922"><span id="local-6989586621679202923"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProfileTimes"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-var">ListProfileTimes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProfileTimes%27"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-var">ListProfileTimes'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The order (ascending or descending by start time of the profile) to use</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AorderBy%3AListProfileTimes%27"><span class="annot"><span class="annottext">ListProfileTimes -&gt; Maybe OrderBy
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AorderBy%3AListProfileTimes%27"><span class="hs-identifier hs-var hs-var">orderBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.OrderBy.html#OrderBy"><span class="hs-identifier hs-type">OrderBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @ListProfileTimes@ request where @maxResults@ was used and the results</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- exceeded the value of that parameter. Pagination continues from the end</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AnextToken%3AListProfileTimes%27"><span class="annot"><span class="annottext">ListProfileTimes -&gt; Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AnextToken%3AListProfileTimes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The maximum number of profile time results returned by</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @ListProfileTimes@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @ListProfileTimes@ only returns @maxResults@ results in a single page</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- with a @nextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- initial request can be seen by sending another @ListProfileTimes@</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- request with the returned @nextToken@ value.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmaxResults%3AListProfileTimes%27"><span class="annot"><span class="annottext">ListProfileTimes -&gt; Maybe Natural
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AmaxResults%3AListProfileTimes%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The end time of the time range from which to list the profiles.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AendTime%3AListProfileTimes%27"><span class="annot"><span class="annottext">ListProfileTimes -&gt; POSIX
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AendTime%3AListProfileTimes%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The aggregation period. This specifies the period during which an</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- aggregation profile collects posted agent profiles for a profiling</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- group. There are 3 valid values.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @P1D@ &#8212; 1 day</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   @PT1H@ &#8212; 1 hour</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @PT5M@ &#8212; 5 minutes</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Aperiod%3AListProfileTimes%27"><span class="annot"><span class="annottext">ListProfileTimes -&gt; AggregationPeriod
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3Aperiod%3AListProfileTimes%27"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.html#AggregationPeriod"><span class="hs-identifier hs-type">AggregationPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The name of the profiling group.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AprofilingGroupName%3AListProfileTimes%27"><span class="annot"><span class="annottext">ListProfileTimes -&gt; Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AprofilingGroupName%3AListProfileTimes%27"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The start time of the time range from which to list the profiles.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AstartTime%3AListProfileTimes%27"><span class="annot"><span class="annottext">ListProfileTimes -&gt; POSIX
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AstartTime%3AListProfileTimes%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202910"><span id="local-6989586621679202912"><span class="annot"><span class="annottext">ListProfileTimes -&gt; ListProfileTimes -&gt; Bool
+(ListProfileTimes -&gt; ListProfileTimes -&gt; Bool)
+-&gt; (ListProfileTimes -&gt; ListProfileTimes -&gt; Bool)
+-&gt; Eq ListProfileTimes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProfileTimes -&gt; ListProfileTimes -&gt; Bool
+$c/= :: ListProfileTimes -&gt; ListProfileTimes -&gt; Bool
+== :: ListProfileTimes -&gt; ListProfileTimes -&gt; Bool
+$c== :: ListProfileTimes -&gt; ListProfileTimes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202901"><span id="local-6989586621679202903"><span id="local-6989586621679202905"><span id="local-6989586621679202907"><span class="annot"><span class="annottext">ReadPrec [ListProfileTimes]
+ReadPrec ListProfileTimes
+Int -&gt; ReadS ListProfileTimes
+ReadS [ListProfileTimes]
+(Int -&gt; ReadS ListProfileTimes)
+-&gt; ReadS [ListProfileTimes]
+-&gt; ReadPrec ListProfileTimes
+-&gt; ReadPrec [ListProfileTimes]
+-&gt; Read ListProfileTimes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProfileTimes]
+$creadListPrec :: ReadPrec [ListProfileTimes]
+readPrec :: ReadPrec ListProfileTimes
+$creadPrec :: ReadPrec ListProfileTimes
+readList :: ReadS [ListProfileTimes]
+$creadList :: ReadS [ListProfileTimes]
+readsPrec :: Int -&gt; ReadS ListProfileTimes
+$creadsPrec :: Int -&gt; ReadS ListProfileTimes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202894"><span id="local-6989586621679202896"><span id="local-6989586621679202898"><span class="annot"><span class="annottext">Int -&gt; ListProfileTimes -&gt; ShowS
+[ListProfileTimes] -&gt; ShowS
+ListProfileTimes -&gt; String
+(Int -&gt; ListProfileTimes -&gt; ShowS)
+-&gt; (ListProfileTimes -&gt; String)
+-&gt; ([ListProfileTimes] -&gt; ShowS)
+-&gt; Show ListProfileTimes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProfileTimes] -&gt; ShowS
+$cshowList :: [ListProfileTimes] -&gt; ShowS
+show :: ListProfileTimes -&gt; String
+$cshow :: ListProfileTimes -&gt; String
+showsPrec :: Int -&gt; ListProfileTimes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProfileTimes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListProfileTimes -&gt; Rep ListProfileTimes x)
+-&gt; (forall x. Rep ListProfileTimes x -&gt; ListProfileTimes)
+-&gt; Generic ListProfileTimes
+forall x. Rep ListProfileTimes x -&gt; ListProfileTimes
+forall x. ListProfileTimes -&gt; Rep ListProfileTimes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListProfileTimes x -&gt; ListProfileTimes
+$cfrom :: forall x. ListProfileTimes -&gt; Rep ListProfileTimes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'ListProfileTimes' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'orderBy', 'listProfileTimes_orderBy' - The order (ascending or descending by start time of the profile) to use</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'nextToken', 'listProfileTimes_nextToken' - The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @ListProfileTimes@ request where @maxResults@ was used and the results</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- exceeded the value of that parameter. Pagination continues from the end</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'maxResults', 'listProfileTimes_maxResults' - The maximum number of profile time results returned by</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @ListProfileTimes@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @ListProfileTimes@ only returns @maxResults@ results in a single page</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- with a @nextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- initial request can be seen by sending another @ListProfileTimes@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- request with the returned @nextToken@ value.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'endTime', 'listProfileTimes_endTime' - The end time of the time range from which to list the profiles.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'period', 'listProfileTimes_period' - The aggregation period. This specifies the period during which an</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- aggregation profile collects posted agent profiles for a profiling</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- group. There are 3 valid values.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   @P1D@ &#8212; 1 day</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @PT1H@ &#8212; 1 hour</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @PT5M@ &#8212; 5 minutes</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'profilingGroupName', 'listProfileTimes_profilingGroupName' - The name of the profiling group.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'startTime', 'listProfileTimes_startTime' - The start time of the time range from which to list the profiles.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#newListProfileTimes"><span class="hs-identifier hs-type">newListProfileTimes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'endTime'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'period'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.html#AggregationPeriod"><span class="hs-identifier hs-type">AggregationPeriod</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'profilingGroupName'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'startTime'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span>
+</span><span id="line-154"></span><span id="newListProfileTimes"><span class="annot"><span class="annottext">newListProfileTimes :: UTCTime -&gt; AggregationPeriod -&gt; Text -&gt; UTCTime -&gt; ListProfileTimes
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#newListProfileTimes"><span class="hs-identifier hs-var hs-var">newListProfileTimes</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679202889"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202889"><span class="hs-identifier hs-var">pEndTime_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679202888"><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679202888"><span class="hs-identifier hs-var">pPeriod_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679202887"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202887"><span class="hs-identifier hs-var">pProfilingGroupName_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679202886"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202886"><span class="hs-identifier hs-var">pStartTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ListProfileTimes' :: Maybe OrderBy
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; POSIX
+-&gt; AggregationPeriod
+-&gt; Text
+-&gt; POSIX
+-&gt; ListProfileTimes
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:orderBy:ListProfileTimes' :: Maybe OrderBy
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AorderBy%3AListProfileTimes%27"><span class="hs-identifier hs-var">orderBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:ListProfileTimes' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AnextToken%3AListProfileTimes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:ListProfileTimes' :: Maybe Natural
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AmaxResults%3AListProfileTimes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:endTime:ListProfileTimes' :: POSIX
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AendTime%3AListProfileTimes%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202889"><span class="hs-identifier hs-var">pEndTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:period:ListProfileTimes' :: AggregationPeriod
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3Aperiod%3AListProfileTimes%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679202888"><span class="hs-identifier hs-var">pPeriod_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:profilingGroupName:ListProfileTimes' :: Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AprofilingGroupName%3AListProfileTimes%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202887"><span class="hs-identifier hs-var">pProfilingGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:startTime:ListProfileTimes' :: POSIX
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AstartTime%3AListProfileTimes%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679202886"><span class="hs-identifier hs-var">pStartTime_</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The order (ascending or descending by start time of the profile) to use</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_orderBy"><span class="hs-identifier hs-type">listProfileTimes_orderBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.OrderBy.html#OrderBy"><span class="hs-identifier hs-type">OrderBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="listProfileTimes_orderBy"><span class="annot"><span class="annottext">listProfileTimes_orderBy :: (Maybe OrderBy -&gt; f (Maybe OrderBy))
+-&gt; ListProfileTimes -&gt; f ListProfileTimes
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_orderBy"><span class="hs-identifier hs-var hs-var">listProfileTimes_orderBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimes -&gt; Maybe OrderBy)
+-&gt; (ListProfileTimes -&gt; Maybe OrderBy -&gt; ListProfileTimes)
+-&gt; Lens
+     ListProfileTimes ListProfileTimes (Maybe OrderBy) (Maybe OrderBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202882"><span class="annot"><span class="annottext">Maybe OrderBy
+orderBy :: Maybe OrderBy
+$sel:orderBy:ListProfileTimes' :: ListProfileTimes -&gt; Maybe OrderBy
+</span><a href="#local-6989586621679202882"><span class="hs-identifier hs-var hs-var">orderBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679202882"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202881"><span class="annot"><span class="annottext">s :: ListProfileTimes
+</span><a href="#local-6989586621679202881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202880"><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679202880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimes
+</span><a href="#local-6989586621679202881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderBy:ListProfileTimes' :: Maybe OrderBy
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AorderBy%3AListProfileTimes%27"><span class="hs-identifier hs-var">orderBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679202880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- @ListProfileTimes@ request where @maxResults@ was used and the results</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- exceeded the value of that parameter. Pagination continues from the end</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- of the previous results that returned the @nextToken@ value.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- This token should be treated as an opaque identifier that is only used</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- to retrieve the next items in a list and not for other programmatic</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- purposes.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_nextToken"><span class="hs-identifier hs-type">listProfileTimes_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="listProfileTimes_nextToken"><span class="annot"><span class="annottext">listProfileTimes_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProfileTimes -&gt; f ListProfileTimes
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_nextToken"><span class="hs-identifier hs-var hs-var">listProfileTimes_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimes -&gt; Maybe Text)
+-&gt; (ListProfileTimes -&gt; Maybe Text -&gt; ListProfileTimes)
+-&gt; Lens ListProfileTimes ListProfileTimes (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202879"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProfileTimes' :: ListProfileTimes -&gt; Maybe Text
+</span><a href="#local-6989586621679202879"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202879"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202878"><span class="annot"><span class="annottext">s :: ListProfileTimes
+</span><a href="#local-6989586621679202878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202877"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimes
+</span><a href="#local-6989586621679202878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProfileTimes' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AnextToken%3AListProfileTimes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The maximum number of profile time results returned by</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- @ListProfileTimes@ in paginated output. When this parameter is used,</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @ListProfileTimes@ only returns @maxResults@ results in a single page</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- with a @nextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- initial request can be seen by sending another @ListProfileTimes@</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- request with the returned @nextToken@ value.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_maxResults"><span class="hs-identifier hs-type">listProfileTimes_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="listProfileTimes_maxResults"><span class="annot"><span class="annottext">listProfileTimes_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListProfileTimes -&gt; f ListProfileTimes
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_maxResults"><span class="hs-identifier hs-var hs-var">listProfileTimes_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimes -&gt; Maybe Natural)
+-&gt; (ListProfileTimes -&gt; Maybe Natural -&gt; ListProfileTimes)
+-&gt; Lens
+     ListProfileTimes ListProfileTimes (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202876"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListProfileTimes' :: ListProfileTimes -&gt; Maybe Natural
+</span><a href="#local-6989586621679202876"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202876"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202875"><span class="annot"><span class="annottext">s :: ListProfileTimes
+</span><a href="#local-6989586621679202875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202874"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimes
+</span><a href="#local-6989586621679202875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListProfileTimes' :: Maybe Natural
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AmaxResults%3AListProfileTimes%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The end time of the time range from which to list the profiles.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_endTime"><span class="hs-identifier hs-type">listProfileTimes_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-196"></span><span id="listProfileTimes_endTime"><span class="annot"><span class="annottext">listProfileTimes_endTime :: (UTCTime -&gt; f UTCTime) -&gt; ListProfileTimes -&gt; f ListProfileTimes
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_endTime"><span class="hs-identifier hs-var hs-var">listProfileTimes_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimes -&gt; POSIX)
+-&gt; (ListProfileTimes -&gt; POSIX -&gt; ListProfileTimes)
+-&gt; Lens ListProfileTimes ListProfileTimes POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202873"><span class="annot"><span class="annottext">POSIX
+endTime :: POSIX
+$sel:endTime:ListProfileTimes' :: ListProfileTimes -&gt; POSIX
+</span><a href="#local-6989586621679202873"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679202873"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202872"><span class="annot"><span class="annottext">s :: ListProfileTimes
+</span><a href="#local-6989586621679202872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202871"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679202871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimes
+</span><a href="#local-6989586621679202872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ListProfileTimes' :: POSIX
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AendTime%3AListProfileTimes%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679202871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ListProfileTimes -&gt; f ListProfileTimes)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ListProfileTimes
+-&gt; f ListProfileTimes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The aggregation period. This specifies the period during which an</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- aggregation profile collects posted agent profiles for a profiling</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- group. There are 3 valid values.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- -   @P1D@ &#8212; 1 day</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- -   @PT1H@ &#8212; 1 hour</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- -   @PT5M@ &#8212; 5 minutes</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_period"><span class="hs-identifier hs-type">listProfileTimes_period</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.AggregationPeriod.html#AggregationPeriod"><span class="hs-identifier hs-type">AggregationPeriod</span></a></span><span>
+</span><span id="line-208"></span><span id="listProfileTimes_period"><span class="annot"><span class="annottext">listProfileTimes_period :: (AggregationPeriod -&gt; f AggregationPeriod)
+-&gt; ListProfileTimes -&gt; f ListProfileTimes
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_period"><span class="hs-identifier hs-var hs-var">listProfileTimes_period</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimes -&gt; AggregationPeriod)
+-&gt; (ListProfileTimes -&gt; AggregationPeriod -&gt; ListProfileTimes)
+-&gt; Lens
+     ListProfileTimes
+     ListProfileTimes
+     AggregationPeriod
+     AggregationPeriod
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202869"><span class="annot"><span class="annottext">AggregationPeriod
+period :: AggregationPeriod
+$sel:period:ListProfileTimes' :: ListProfileTimes -&gt; AggregationPeriod
+</span><a href="#local-6989586621679202869"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679202869"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202868"><span class="annot"><span class="annottext">s :: ListProfileTimes
+</span><a href="#local-6989586621679202868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202867"><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679202867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimes
+</span><a href="#local-6989586621679202868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:ListProfileTimes' :: AggregationPeriod
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3Aperiod%3AListProfileTimes%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679202867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The name of the profiling group.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_profilingGroupName"><span class="hs-identifier hs-type">listProfileTimes_profilingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-212"></span><span id="listProfileTimes_profilingGroupName"><span class="annot"><span class="annottext">listProfileTimes_profilingGroupName :: (Text -&gt; f Text) -&gt; ListProfileTimes -&gt; f ListProfileTimes
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_profilingGroupName"><span class="hs-identifier hs-var hs-var">listProfileTimes_profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimes -&gt; Text)
+-&gt; (ListProfileTimes -&gt; Text -&gt; ListProfileTimes)
+-&gt; Lens ListProfileTimes ListProfileTimes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202866"><span class="annot"><span class="annottext">Text
+profilingGroupName :: Text
+$sel:profilingGroupName:ListProfileTimes' :: ListProfileTimes -&gt; Text
+</span><a href="#local-6989586621679202866"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202866"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202865"><span class="annot"><span class="annottext">s :: ListProfileTimes
+</span><a href="#local-6989586621679202865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202864"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimes
+</span><a href="#local-6989586621679202865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingGroupName:ListProfileTimes' :: Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AprofilingGroupName%3AListProfileTimes%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The start time of the time range from which to list the profiles.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_startTime"><span class="hs-identifier hs-type">listProfileTimes_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-216"></span><span id="listProfileTimes_startTime"><span class="annot"><span class="annottext">listProfileTimes_startTime :: (UTCTime -&gt; f UTCTime) -&gt; ListProfileTimes -&gt; f ListProfileTimes
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_startTime"><span class="hs-identifier hs-var hs-var">listProfileTimes_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimes -&gt; POSIX)
+-&gt; (ListProfileTimes -&gt; POSIX -&gt; ListProfileTimes)
+-&gt; Lens ListProfileTimes ListProfileTimes POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202863"><span class="annot"><span class="annottext">POSIX
+startTime :: POSIX
+$sel:startTime:ListProfileTimes' :: ListProfileTimes -&gt; POSIX
+</span><a href="#local-6989586621679202863"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679202863"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202862"><span class="annot"><span class="annottext">s :: ListProfileTimes
+</span><a href="#local-6989586621679202862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202861"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679202861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimes
+</span><a href="#local-6989586621679202862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ListProfileTimes' :: POSIX
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AstartTime%3AListProfileTimes%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679202861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ListProfileTimes -&gt; f ListProfileTimes)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; ListProfileTimes
+-&gt; f ListProfileTimes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679202857"><span class="annot"><span class="annottext">page :: ListProfileTimes
+-&gt; AWSResponse ListProfileTimes -&gt; Maybe ListProfileTimes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679202855"><span class="annot"><span class="annottext">ListProfileTimes
+</span><a href="#local-6989586621679202855"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202854"><span class="annot"><span class="annottext">AWSResponse ListProfileTimes
+</span><a href="#local-6989586621679202854"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-221"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProfileTimes
+ListProfileTimesResponse
+</span><a href="#local-6989586621679202854"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">ListProfileTimesResponse
+-&gt; Getting (First Text) ListProfileTimesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListProfileTimesResponse
+-&gt; Const (First Text) ListProfileTimesResponse
+Lens' ListProfileTimesResponse (Maybe Text)
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_nextToken"><span class="hs-identifier hs-var">listProfileTimesResponse_nextToken</span></a></span><span>
+</span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListProfileTimesResponse
+ -&gt; Const (First Text) ListProfileTimesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListProfileTimesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-224"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListProfileTimes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[ProfileTime] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-227"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListProfileTimes
+ListProfileTimesResponse
+</span><a href="#local-6989586621679202854"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListProfileTimesResponse
+-&gt; Getting [ProfileTime] ListProfileTimesResponse [ProfileTime]
+-&gt; [ProfileTime]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting [ProfileTime] ListProfileTimesResponse [ProfileTime]
+Lens' ListProfileTimesResponse [ProfileTime]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_profileTimes"><span class="hs-identifier hs-var">listProfileTimesResponse_profileTimes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListProfileTimes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">ListProfileTimes -&gt; Maybe ListProfileTimes
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListProfileTimes -&gt; Maybe ListProfileTimes)
+-&gt; ListProfileTimes -&gt; Maybe ListProfileTimes
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">ListProfileTimes
+</span><a href="#local-6989586621679202855"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">ListProfileTimes
+-&gt; (ListProfileTimes -&gt; ListProfileTimes) -&gt; ListProfileTimes
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListProfileTimes -&gt; Identity ListProfileTimes
+Lens ListProfileTimes ListProfileTimes (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimes_nextToken"><span class="hs-identifier hs-var">listProfileTimes_nextToken</span></a></span><span>
+</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListProfileTimes -&gt; Identity ListProfileTimes)
+-&gt; Maybe Text -&gt; ListProfileTimes -&gt; ListProfileTimes
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListProfileTimes
+ListProfileTimesResponse
+</span><a href="#local-6989586621679202854"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">ListProfileTimesResponse
+-&gt; Getting (First Text) ListProfileTimesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListProfileTimesResponse
+-&gt; Const (First Text) ListProfileTimesResponse
+Lens' ListProfileTimesResponse (Maybe Text)
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_nextToken"><span class="hs-identifier hs-var">listProfileTimesResponse_nextToken</span></a></span><span>
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListProfileTimesResponse
+ -&gt; Const (First Text) ListProfileTimesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListProfileTimesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-239"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-type">ListProfileTimesResponse</span></a></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679202844"><span class="annot"><span class="annottext">request :: ListProfileTimes -&gt; Request ListProfileTimes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListProfileTimes -&gt; Request ListProfileTimes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeGuruProfiler.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679202840"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListProfileTimes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListProfileTimes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListProfileTimes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListProfileTimes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListProfileTimes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202837"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202837"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202836"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202836"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202835"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202835"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [ProfileTime] -&gt; ListProfileTimesResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse%27"><span class="hs-identifier hs-var">ListProfileTimesResponse'</span></a></span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [ProfileTime] -&gt; ListProfileTimesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; [ProfileTime] -&gt; ListProfileTimesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [ProfileTime] -&gt; ListProfileTimesResponse)
+-&gt; Either String Int
+-&gt; Either String ([ProfileTime] -&gt; ListProfileTimesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202837"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Either String ([ProfileTime] -&gt; ListProfileTimesResponse)
+-&gt; Either String [ProfileTime]
+-&gt; Either String ListProfileTimesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ProfileTime])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;profileTimes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [ProfileTime])
+-&gt; [ProfileTime] -&gt; Either String [ProfileTime]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[ProfileTime]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202826"><span id="local-6989586621679202828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span></span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679202819"><span class="annot"><span class="annottext">toHeaders :: ListProfileTimes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListProfileTimes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-259"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-261"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-262"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679202813"><span class="annot"><span class="annottext">toPath :: ListProfileTimes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202805"><span id="local-6989586621679202806"><span id="local-6989586621679202807"><span id="local-6989586621679202808"><span id="local-6989586621679202809"><span id="local-6989586621679202810"><span id="local-6989586621679202811"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe OrderBy
+Text
+POSIX
+AggregationPeriod
+startTime :: POSIX
+profilingGroupName :: Text
+period :: AggregationPeriod
+endTime :: POSIX
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+orderBy :: Maybe OrderBy
+$sel:startTime:ListProfileTimes' :: ListProfileTimes -&gt; POSIX
+$sel:profilingGroupName:ListProfileTimes' :: ListProfileTimes -&gt; Text
+$sel:period:ListProfileTimes' :: ListProfileTimes -&gt; AggregationPeriod
+$sel:endTime:ListProfileTimes' :: ListProfileTimes -&gt; POSIX
+$sel:maxResults:ListProfileTimes' :: ListProfileTimes -&gt; Maybe Natural
+$sel:nextToken:ListProfileTimes' :: ListProfileTimes -&gt; Maybe Text
+$sel:orderBy:ListProfileTimes' :: ListProfileTimes -&gt; Maybe OrderBy
+</span><a href="#local-6989586621679202805"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/profilingGroups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202806"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/profileTimes&quot;</span></span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes"><span class="hs-identifier hs-type">ListProfileTimes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679202801"><span class="annot"><span class="annottext">toQuery :: ListProfileTimes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimes%27"><span class="hs-identifier hs-type">ListProfileTimes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202793"><span id="local-6989586621679202794"><span id="local-6989586621679202795"><span id="local-6989586621679202796"><span id="local-6989586621679202797"><span id="local-6989586621679202798"><span id="local-6989586621679202799"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe OrderBy
+Text
+POSIX
+AggregationPeriod
+startTime :: POSIX
+profilingGroupName :: Text
+period :: AggregationPeriod
+endTime :: POSIX
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+orderBy :: Maybe OrderBy
+$sel:startTime:ListProfileTimes' :: ListProfileTimes -&gt; POSIX
+$sel:profilingGroupName:ListProfileTimes' :: ListProfileTimes -&gt; Text
+$sel:period:ListProfileTimes' :: ListProfileTimes -&gt; AggregationPeriod
+$sel:endTime:ListProfileTimes' :: ListProfileTimes -&gt; POSIX
+$sel:maxResults:ListProfileTimes' :: ListProfileTimes -&gt; Maybe Natural
+$sel:nextToken:ListProfileTimes' :: ListProfileTimes -&gt; Maybe Text
+$sel:orderBy:ListProfileTimes' :: ListProfileTimes -&gt; Maybe OrderBy
+</span><a href="#local-6989586621679202793"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;orderBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe OrderBy -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679202799"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202798"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202797"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;endTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679202796"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;period&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AggregationPeriod -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">AggregationPeriod
+</span><a href="#local-6989586621679202795"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679202793"><span class="hs-identifier hs-var">startTime</span></a></span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The structure representing the listProfileTimesResponse.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- /See:/ 'newListProfileTimesResponse' smart constructor.</span><span>
+</span><span id="line-288"></span><span id="local-6989586621679202790"><span id="local-6989586621679202791"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProfileTimesResponse"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-var">ListProfileTimesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProfileTimesResponse%27"><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse%27"><span class="hs-identifier hs-var">ListProfileTimesResponse'</span></a></span></span><span>
+</span><span id="line-289"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ value to include in a future @ListProfileTimes@ request.</span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-comment">-- When the results of a @ListProfileTimes@ request exceed @maxResults@,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- this value can be used to retrieve the next page of results. This value</span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-comment">-- is @null@ when there are no more results to return.</span><span>
+</span><span id="line-293"></span><span>    </span><span id="%24sel%3AnextToken%3AListProfileTimesResponse%27"><span class="annot"><span class="annottext">ListProfileTimesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AnextToken%3AListProfileTimesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-295"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListProfileTimesResponse%27"><span class="annot"><span class="annottext">ListProfileTimesResponse -&gt; Int
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AhttpStatus%3AListProfileTimesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="hs-comment">-- | The list of start times of the available profiles for the aggregation</span><span>
+</span><span id="line-297"></span><span>    </span><span class="hs-comment">-- period in the specified time range.</span><span>
+</span><span id="line-298"></span><span>    </span><span id="%24sel%3AprofileTimes%3AListProfileTimesResponse%27"><span class="annot"><span class="annottext">ListProfileTimesResponse -&gt; [ProfileTime]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AprofileTimes%3AListProfileTimesResponse%27"><span class="hs-identifier hs-var hs-var">profileTimes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.ProfileTime.html#ProfileTime"><span class="hs-identifier hs-type">ProfileTime</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-299"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-300"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202783"><span id="local-6989586621679202785"><span class="annot"><span class="annottext">ListProfileTimesResponse -&gt; ListProfileTimesResponse -&gt; Bool
+(ListProfileTimesResponse -&gt; ListProfileTimesResponse -&gt; Bool)
+-&gt; (ListProfileTimesResponse -&gt; ListProfileTimesResponse -&gt; Bool)
+-&gt; Eq ListProfileTimesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProfileTimesResponse -&gt; ListProfileTimesResponse -&gt; Bool
+$c/= :: ListProfileTimesResponse -&gt; ListProfileTimesResponse -&gt; Bool
+== :: ListProfileTimesResponse -&gt; ListProfileTimesResponse -&gt; Bool
+$c== :: ListProfileTimesResponse -&gt; ListProfileTimesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202775"><span id="local-6989586621679202777"><span id="local-6989586621679202779"><span id="local-6989586621679202781"><span class="annot"><span class="annottext">ReadPrec [ListProfileTimesResponse]
+ReadPrec ListProfileTimesResponse
+Int -&gt; ReadS ListProfileTimesResponse
+ReadS [ListProfileTimesResponse]
+(Int -&gt; ReadS ListProfileTimesResponse)
+-&gt; ReadS [ListProfileTimesResponse]
+-&gt; ReadPrec ListProfileTimesResponse
+-&gt; ReadPrec [ListProfileTimesResponse]
+-&gt; Read ListProfileTimesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProfileTimesResponse]
+$creadListPrec :: ReadPrec [ListProfileTimesResponse]
+readPrec :: ReadPrec ListProfileTimesResponse
+$creadPrec :: ReadPrec ListProfileTimesResponse
+readList :: ReadS [ListProfileTimesResponse]
+$creadList :: ReadS [ListProfileTimesResponse]
+readsPrec :: Int -&gt; ReadS ListProfileTimesResponse
+$creadsPrec :: Int -&gt; ReadS ListProfileTimesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202769"><span id="local-6989586621679202771"><span id="local-6989586621679202773"><span class="annot"><span class="annottext">Int -&gt; ListProfileTimesResponse -&gt; ShowS
+[ListProfileTimesResponse] -&gt; ShowS
+ListProfileTimesResponse -&gt; String
+(Int -&gt; ListProfileTimesResponse -&gt; ShowS)
+-&gt; (ListProfileTimesResponse -&gt; String)
+-&gt; ([ListProfileTimesResponse] -&gt; ShowS)
+-&gt; Show ListProfileTimesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProfileTimesResponse] -&gt; ShowS
+$cshowList :: [ListProfileTimesResponse] -&gt; ShowS
+show :: ListProfileTimesResponse -&gt; String
+$cshow :: ListProfileTimesResponse -&gt; String
+showsPrec :: Int -&gt; ListProfileTimesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProfileTimesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListProfileTimesResponse -&gt; Rep ListProfileTimesResponse x)
+-&gt; (forall x.
+    Rep ListProfileTimesResponse x -&gt; ListProfileTimesResponse)
+-&gt; Generic ListProfileTimesResponse
+forall x.
+Rep ListProfileTimesResponse x -&gt; ListProfileTimesResponse
+forall x.
+ListProfileTimesResponse -&gt; Rep ListProfileTimesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListProfileTimesResponse x -&gt; ListProfileTimesResponse
+$cfrom :: forall x.
+ListProfileTimesResponse -&gt; Rep ListProfileTimesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- Create a value of 'ListProfileTimesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- 'nextToken', 'listProfileTimesResponse_nextToken' - The @nextToken@ value to include in a future @ListProfileTimes@ request.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- When the results of a @ListProfileTimes@ request exceed @maxResults@,</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- this value can be used to retrieve the next page of results. This value</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- is @null@ when there are no more results to return.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- 'httpStatus', 'listProfileTimesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- 'profileTimes', 'listProfileTimesResponse_profileTimes' - The list of start times of the available profiles for the aggregation</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- period in the specified time range.</span><span>
+</span><span id="line-319"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#newListProfileTimesResponse"><span class="hs-identifier hs-type">newListProfileTimesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-320"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-321"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-type">ListProfileTimesResponse</span></a></span><span>
+</span><span id="line-323"></span><span id="newListProfileTimesResponse"><span class="annot"><span class="annottext">newListProfileTimesResponse :: Int -&gt; ListProfileTimesResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#newListProfileTimesResponse"><span class="hs-identifier hs-var hs-var">newListProfileTimesResponse</span></a></span></span><span> </span><span id="local-6989586621679202766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202766"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><span class="annottext">ListProfileTimesResponse' :: Maybe Text -&gt; Int -&gt; [ProfileTime] -&gt; ListProfileTimesResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse%27"><span class="hs-identifier hs-type">ListProfileTimesResponse'</span></a></span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListProfileTimesResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AnextToken%3AListProfileTimesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListProfileTimesResponse' :: Int
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AhttpStatus%3AListProfileTimesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202766"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileTimes:ListProfileTimesResponse' :: [ProfileTime]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AprofileTimes%3AListProfileTimesResponse%27"><span class="hs-identifier hs-var">profileTimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ProfileTime]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- | The @nextToken@ value to include in a future @ListProfileTimes@ request.</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- When the results of a @ListProfileTimes@ request exceed @maxResults@,</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- this value can be used to retrieve the next page of results. This value</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- is @null@ when there are no more results to return.</span><span>
+</span><span id="line-335"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_nextToken"><span class="hs-identifier hs-type">listProfileTimesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-type">ListProfileTimesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span id="listProfileTimesResponse_nextToken"><span class="annot"><span class="annottext">listProfileTimesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProfileTimesResponse -&gt; f ListProfileTimesResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listProfileTimesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimesResponse -&gt; Maybe Text)
+-&gt; (ListProfileTimesResponse
+    -&gt; Maybe Text -&gt; ListProfileTimesResponse)
+-&gt; Lens' ListProfileTimesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse%27"><span class="hs-identifier hs-type">ListProfileTimesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202765"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProfileTimesResponse' :: ListProfileTimesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679202765"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202765"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202764"><span class="annot"><span class="annottext">s :: ListProfileTimesResponse
+</span><a href="#local-6989586621679202764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse%27"><span class="hs-identifier hs-type">ListProfileTimesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202763"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimesResponse
+</span><a href="#local-6989586621679202764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProfileTimesResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AnextToken%3AListProfileTimesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-type">ListProfileTimesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-339"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_httpStatus"><span class="hs-identifier hs-type">listProfileTimesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-type">ListProfileTimesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-340"></span><span id="listProfileTimesResponse_httpStatus"><span class="annot"><span class="annottext">listProfileTimesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListProfileTimesResponse -&gt; f ListProfileTimesResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listProfileTimesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimesResponse -&gt; Int)
+-&gt; (ListProfileTimesResponse -&gt; Int -&gt; ListProfileTimesResponse)
+-&gt; Lens ListProfileTimesResponse ListProfileTimesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse%27"><span class="hs-identifier hs-type">ListProfileTimesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202762"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListProfileTimesResponse' :: ListProfileTimesResponse -&gt; Int
+</span><a href="#local-6989586621679202762"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202762"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202761"><span class="annot"><span class="annottext">s :: ListProfileTimesResponse
+</span><a href="#local-6989586621679202761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse%27"><span class="hs-identifier hs-type">ListProfileTimesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimesResponse
+</span><a href="#local-6989586621679202761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProfileTimesResponse' :: Int
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AhttpStatus%3AListProfileTimesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-type">ListProfileTimesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- | The list of start times of the available profiles for the aggregation</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- period in the specified time range.</span><span>
+</span><span id="line-344"></span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_profileTimes"><span class="hs-identifier hs-type">listProfileTimesResponse_profileTimes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-type">ListProfileTimesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.Types.ProfileTime.html#ProfileTime"><span class="hs-identifier hs-type">ProfileTime</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-345"></span><span id="listProfileTimesResponse_profileTimes"><span class="annot"><span class="annottext">listProfileTimesResponse_profileTimes :: ([ProfileTime] -&gt; f [ProfileTime])
+-&gt; ListProfileTimesResponse -&gt; f ListProfileTimesResponse
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#listProfileTimesResponse_profileTimes"><span class="hs-identifier hs-var hs-var">listProfileTimesResponse_profileTimes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProfileTimesResponse -&gt; [ProfileTime])
+-&gt; (ListProfileTimesResponse
+    -&gt; [ProfileTime] -&gt; ListProfileTimesResponse)
+-&gt; Lens' ListProfileTimesResponse [ProfileTime]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse%27"><span class="hs-identifier hs-type">ListProfileTimesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202759"><span class="annot"><span class="annottext">[ProfileTime]
+profileTimes :: [ProfileTime]
+$sel:profileTimes:ListProfileTimesResponse' :: ListProfileTimesResponse -&gt; [ProfileTime]
+</span><a href="#local-6989586621679202759"><span class="hs-identifier hs-var hs-var">profileTimes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ProfileTime]
+</span><a href="#local-6989586621679202759"><span class="hs-identifier hs-var">profileTimes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202758"><span class="annot"><span class="annottext">s :: ListProfileTimesResponse
+</span><a href="#local-6989586621679202758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse%27"><span class="hs-identifier hs-type">ListProfileTimesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202757"><span class="annot"><span class="annottext">[ProfileTime]
+</span><a href="#local-6989586621679202757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProfileTimesResponse
+</span><a href="#local-6989586621679202758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileTimes:ListProfileTimesResponse' :: [ProfileTime]
+</span><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#%24sel%3AprofileTimes%3AListProfileTimesResponse%27"><span class="hs-identifier hs-var">profileTimes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ProfileTime]
+</span><a href="#local-6989586621679202757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-type">ListProfileTimesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ProfileTime] -&gt; f [ProfileTime])
+ -&gt; ListProfileTimesResponse -&gt; f ListProfileTimesResponse)
+-&gt; (([ProfileTime] -&gt; f [ProfileTime])
+    -&gt; [ProfileTime] -&gt; f [ProfileTime])
+-&gt; ([ProfileTime] -&gt; f [ProfileTime])
+-&gt; ListProfileTimesResponse
+-&gt; f ListProfileTimesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ProfileTime] -&gt; f [ProfileTime])
+-&gt; [ProfileTime] -&gt; f [ProfileTime]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruProfiler.ListProfileTimes.html#ListProfileTimesResponse"><span class="hs-identifier hs-type">ListProfileTimesResponse</span></a></span></span><span>
+</span><span id="line-348"></span></pre></body></html>

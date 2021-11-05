@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621680339390"><span id="local-6989586621680339391"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleEvaluationStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.RuleEvaluationStatus.html#RuleEvaluationStatus"><span class="hs-identifier hs-var">RuleEvaluationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleEvaluationStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RuleEvaluationStatus.html#RuleEvaluationStatus%27"><span class="hs-identifier hs-var">RuleEvaluationStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680339399"><span id="local-6989586621680339400"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleEvaluationStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.RuleEvaluationStatus.html#RuleEvaluationStatus"><span class="hs-identifier hs-var">RuleEvaluationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleEvaluationStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RuleEvaluationStatus.html#RuleEvaluationStatus%27"><span class="hs-identifier hs-var">RuleEvaluationStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRuleEvaluationStatus"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.RuleEvaluationStatus.html#fromRuleEvaluationStatus"><span class="hs-identifier hs-var hs-var">fromRuleEvaluationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680339382"><span id="local-6989586621680339384"><span id="local-6989586621680339386"><span class="annot"><span class="annottext">Int -&gt; RuleEvaluationStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680339391"><span id="local-6989586621680339393"><span id="local-6989586621680339395"><span class="annot"><span class="annottext">Int -&gt; RuleEvaluationStatus -&gt; ShowS
 [RuleEvaluationStatus] -&gt; ShowS
 RuleEvaluationStatus -&gt; String
 (Int -&gt; RuleEvaluationStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: RuleEvaluationStatus -&gt; String
 showsPrec :: Int -&gt; RuleEvaluationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; RuleEvaluationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680339373"><span id="local-6989586621680339375"><span id="local-6989586621680339377"><span id="local-6989586621680339379"><span class="annot"><span class="annottext">ReadPrec [RuleEvaluationStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680339382"><span id="local-6989586621680339384"><span id="local-6989586621680339386"><span id="local-6989586621680339388"><span class="annot"><span class="annottext">ReadPrec [RuleEvaluationStatus]
 ReadPrec RuleEvaluationStatus
 Int -&gt; ReadS RuleEvaluationStatus
 ReadS [RuleEvaluationStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [RuleEvaluationStatus]
 readsPrec :: Int -&gt; ReadS RuleEvaluationStatus
 $creadsPrec :: Int -&gt; ReadS RuleEvaluationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680339368"><span id="local-6989586621680339370"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; RuleEvaluationStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680339377"><span id="local-6989586621680339379"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; RuleEvaluationStatus -&gt; Bool
 (RuleEvaluationStatus -&gt; RuleEvaluationStatus -&gt; Bool)
 -&gt; (RuleEvaluationStatus -&gt; RuleEvaluationStatus -&gt; Bool)
 -&gt; Eq RuleEvaluationStatus
@@ -86,7 +86,7 @@ $c/= :: RuleEvaluationStatus -&gt; RuleEvaluationStatus -&gt; Bool
 == :: RuleEvaluationStatus -&gt; RuleEvaluationStatus -&gt; Bool
 $c== :: RuleEvaluationStatus -&gt; RuleEvaluationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680339352"><span id="local-6989586621680339354"><span id="local-6989586621680339356"><span id="local-6989586621680339358"><span id="local-6989586621680339360"><span id="local-6989586621680339362"><span id="local-6989586621680339364"><span class="annot"><span class="annottext">Eq RuleEvaluationStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680339361"><span id="local-6989586621680339363"><span id="local-6989586621680339365"><span id="local-6989586621680339367"><span id="local-6989586621680339369"><span id="local-6989586621680339371"><span id="local-6989586621680339373"><span class="annot"><span class="annottext">Eq RuleEvaluationStatus
 Eq RuleEvaluationStatus
 -&gt; (RuleEvaluationStatus -&gt; RuleEvaluationStatus -&gt; Ordering)
 -&gt; (RuleEvaluationStatus -&gt; RuleEvaluationStatus -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. RuleEvaluationStatus -&gt; Rep RuleEvaluationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680339344"><span id="local-6989586621680339346"><span class="annot"><span class="annottext">Int -&gt; RuleEvaluationStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680339353"><span id="local-6989586621680339355"><span class="annot"><span class="annottext">Int -&gt; RuleEvaluationStatus -&gt; Int
 RuleEvaluationStatus -&gt; Int
 (Int -&gt; RuleEvaluationStatus -&gt; Int)
 -&gt; (RuleEvaluationStatus -&gt; Int) -&gt; Hashable RuleEvaluationStatus
@@ -154,54 +154,54 @@ $chash :: RuleEvaluationStatus -&gt; Int
 hashWithSalt :: Int -&gt; RuleEvaluationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; RuleEvaluationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680339341"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680339350"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; ()
 (RuleEvaluationStatus -&gt; ()) -&gt; NFData RuleEvaluationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RuleEvaluationStatus -&gt; ()
 $crnf :: RuleEvaluationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680339338"><span class="annot"><span class="annottext">Text -&gt; Either String RuleEvaluationStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680339347"><span class="annot"><span class="annottext">Text -&gt; Either String RuleEvaluationStatus
 (Text -&gt; Either String RuleEvaluationStatus)
 -&gt; FromText RuleEvaluationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RuleEvaluationStatus
 $cfromText :: Text -&gt; Either String RuleEvaluationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680339335"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680339344"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; Text
 (RuleEvaluationStatus -&gt; Text) -&gt; ToText RuleEvaluationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RuleEvaluationStatus -&gt; Text
 $ctoText :: RuleEvaluationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680339332"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680339341"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; ByteString
 (RuleEvaluationStatus -&gt; ByteString)
 -&gt; ToByteString RuleEvaluationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RuleEvaluationStatus -&gt; ByteString
 $ctoBS :: RuleEvaluationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680339329"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680339338"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; ByteStringBuilder
 (RuleEvaluationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog RuleEvaluationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RuleEvaluationStatus -&gt; ByteStringBuilder
 $cbuild :: RuleEvaluationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680339326"><span class="annot"><span class="annottext">HeaderName -&gt; RuleEvaluationStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680339335"><span class="annot"><span class="annottext">HeaderName -&gt; RuleEvaluationStatus -&gt; [Header]
 (HeaderName -&gt; RuleEvaluationStatus -&gt; [Header])
 -&gt; ToHeader RuleEvaluationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RuleEvaluationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RuleEvaluationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680339323"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680339332"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; QueryString
 (RuleEvaluationStatus -&gt; QueryString)
 -&gt; ToQuery RuleEvaluationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RuleEvaluationStatus -&gt; QueryString
 $ctoQuery :: RuleEvaluationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680339318"><span id="local-6989586621680339320"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleEvaluationStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680339327"><span id="local-6989586621680339329"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleEvaluationStatus]
 Value -&gt; Parser RuleEvaluationStatus
 (Value -&gt; Parser RuleEvaluationStatus)
 -&gt; (Value -&gt; Parser [RuleEvaluationStatus])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [RuleEvaluationStatus]
 parseJSON :: Value -&gt; Parser RuleEvaluationStatus
 $cparseJSON :: Value -&gt; Parser RuleEvaluationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680339313"><span id="local-6989586621680339315"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleEvaluationStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680339322"><span id="local-6989586621680339324"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleEvaluationStatus]
 FromJSONKeyFunction RuleEvaluationStatus
 FromJSONKeyFunction RuleEvaluationStatus
 -&gt; FromJSONKeyFunction [RuleEvaluationStatus]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RuleEvaluationStatus]
 fromJSONKey :: FromJSONKeyFunction RuleEvaluationStatus
 $cfromJSONKey :: FromJSONKeyFunction RuleEvaluationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680339304"><span id="local-6989586621680339306"><span id="local-6989586621680339308"><span id="local-6989586621680339310"><span class="annot"><span class="annottext">[RuleEvaluationStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680339313"><span id="local-6989586621680339315"><span id="local-6989586621680339317"><span id="local-6989586621680339319"><span class="annot"><span class="annottext">[RuleEvaluationStatus] -&gt; Encoding
 [RuleEvaluationStatus] -&gt; Value
 RuleEvaluationStatus -&gt; Encoding
 RuleEvaluationStatus -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: RuleEvaluationStatus -&gt; Encoding
 toJSON :: RuleEvaluationStatus -&gt; Value
 $ctoJSON :: RuleEvaluationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680339299"><span id="local-6989586621680339301"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleEvaluationStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680339308"><span id="local-6989586621680339310"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleEvaluationStatus]
 ToJSONKeyFunction RuleEvaluationStatus
 ToJSONKeyFunction RuleEvaluationStatus
 -&gt; ToJSONKeyFunction [RuleEvaluationStatus]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RuleEvaluationStatus]
 toJSONKey :: ToJSONKeyFunction RuleEvaluationStatus
 $ctoJSONKey :: ToJSONKeyFunction RuleEvaluationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680339296"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleEvaluationStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680339305"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleEvaluationStatus
 ([Node] -&gt; Either String RuleEvaluationStatus)
 -&gt; FromXML RuleEvaluationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RuleEvaluationStatus
 $cparseXML :: [Node] -&gt; Either String RuleEvaluationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680339293"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680339302"><span class="annot"><span class="annottext">RuleEvaluationStatus -&gt; XML
 (RuleEvaluationStatus -&gt; XML) -&gt; ToXML RuleEvaluationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RuleEvaluationStatus -&gt; XML

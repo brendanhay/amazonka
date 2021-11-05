@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains&gt;.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newVPCDerivedInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679304371"><span id="local-6989586621679304372"></span></span><span class="hs-keyword">data</span><span> </span><span id="VPCDerivedInfo"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-var">VPCDerivedInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPCDerivedInfo%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-var">VPCDerivedInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679304380"><span id="local-6989586621679304381"></span></span><span class="hs-keyword">data</span><span> </span><span id="VPCDerivedInfo"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-var">VPCDerivedInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPCDerivedInfo%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-var">VPCDerivedInfo'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the security groups for VPC endpoint.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AVPCDerivedInfo%27"><span class="annot"><span class="annottext">VPCDerivedInfo -&gt; Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#%24sel%3AsecurityGroupIds%3AVPCDerivedInfo%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AavailabilityZones%3AVPCDerivedInfo%27"><span class="annot"><span class="annottext">VPCDerivedInfo -&gt; Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#%24sel%3AavailabilityZones%3AVPCDerivedInfo%27"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304362"><span id="local-6989586621679304364"><span class="annot"><span class="annottext">VPCDerivedInfo -&gt; VPCDerivedInfo -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304371"><span id="local-6989586621679304373"><span class="annot"><span class="annottext">VPCDerivedInfo -&gt; VPCDerivedInfo -&gt; Bool
 (VPCDerivedInfo -&gt; VPCDerivedInfo -&gt; Bool)
 -&gt; (VPCDerivedInfo -&gt; VPCDerivedInfo -&gt; Bool) -&gt; Eq VPCDerivedInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VPCDerivedInfo -&gt; VPCDerivedInfo -&gt; Bool
 == :: VPCDerivedInfo -&gt; VPCDerivedInfo -&gt; Bool
 $c== :: VPCDerivedInfo -&gt; VPCDerivedInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304353"><span id="local-6989586621679304355"><span id="local-6989586621679304357"><span id="local-6989586621679304359"><span class="annot"><span class="annottext">ReadPrec [VPCDerivedInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304362"><span id="local-6989586621679304364"><span id="local-6989586621679304366"><span id="local-6989586621679304368"><span class="annot"><span class="annottext">ReadPrec [VPCDerivedInfo]
 ReadPrec VPCDerivedInfo
 Int -&gt; ReadS VPCDerivedInfo
 ReadS [VPCDerivedInfo]
@@ -72,7 +72,7 @@ readList :: ReadS [VPCDerivedInfo]
 $creadList :: ReadS [VPCDerivedInfo]
 readsPrec :: Int -&gt; ReadS VPCDerivedInfo
 $creadsPrec :: Int -&gt; ReadS VPCDerivedInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304346"><span id="local-6989586621679304348"><span id="local-6989586621679304350"><span class="annot"><span class="annottext">Int -&gt; VPCDerivedInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304355"><span id="local-6989586621679304357"><span id="local-6989586621679304359"><span class="annot"><span class="annottext">Int -&gt; VPCDerivedInfo -&gt; ShowS
 [VPCDerivedInfo] -&gt; ShowS
 VPCDerivedInfo -&gt; String
 (Int -&gt; VPCDerivedInfo -&gt; ShowS)
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; (VPCDerivedInfo -&gt; Maybe [Text] -&gt; VPCDerivedInfo)
 -&gt; Lens VPCDerivedInfo VPCDerivedInfo (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304337"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304346"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroupIds :: Maybe [Text]
 $sel:securityGroupIds:VPCDerivedInfo' :: VPCDerivedInfo -&gt; Maybe [Text]
-</span><a href="#local-6989586621679304337"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304337"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304336"><span class="annot"><span class="annottext">s :: VPCDerivedInfo
-</span><a href="#local-6989586621679304336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304335"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
-</span><a href="#local-6989586621679304336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VPCDerivedInfo' :: Maybe [Text]
+</span><a href="#local-6989586621679304346"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304346"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304345"><span class="annot"><span class="annottext">s :: VPCDerivedInfo
+</span><a href="#local-6989586621679304345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304344"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
+</span><a href="#local-6989586621679304345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VPCDerivedInfo' :: Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#%24sel%3AsecurityGroupIds%3AVPCDerivedInfo%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679304344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VPCDerivedInfo -&gt; f VPCDerivedInfo)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -182,16 +182,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (VPCDerivedInfo -&gt; Maybe [Text] -&gt; VPCDerivedInfo)
 -&gt; Lens VPCDerivedInfo VPCDerivedInfo (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304330"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304339"><span class="annot"><span class="annottext">Maybe [Text]
 subnetIds :: Maybe [Text]
 $sel:subnetIds:VPCDerivedInfo' :: VPCDerivedInfo -&gt; Maybe [Text]
-</span><a href="#local-6989586621679304330"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304330"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304329"><span class="annot"><span class="annottext">s :: VPCDerivedInfo
-</span><a href="#local-6989586621679304329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304328"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
-</span><a href="#local-6989586621679304329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VPCDerivedInfo' :: Maybe [Text]
+</span><a href="#local-6989586621679304339"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304339"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304338"><span class="annot"><span class="annottext">s :: VPCDerivedInfo
+</span><a href="#local-6989586621679304338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304337"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
+</span><a href="#local-6989586621679304338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VPCDerivedInfo' :: Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#%24sel%3AsubnetIds%3AVPCDerivedInfo%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679304337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VPCDerivedInfo -&gt; f VPCDerivedInfo)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -217,16 +217,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (VPCDerivedInfo -&gt; Maybe Text -&gt; VPCDerivedInfo)
 -&gt; Lens VPCDerivedInfo VPCDerivedInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304326"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304335"><span class="annot"><span class="annottext">Maybe Text
 vPCId :: Maybe Text
 $sel:vPCId:VPCDerivedInfo' :: VPCDerivedInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679304326"><span class="hs-identifier hs-var hs-var">vPCId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304326"><span class="hs-identifier hs-var">vPCId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304325"><span class="annot"><span class="annottext">s :: VPCDerivedInfo
-</span><a href="#local-6989586621679304325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304324"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
-</span><a href="#local-6989586621679304325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCId:VPCDerivedInfo' :: Maybe Text
+</span><a href="#local-6989586621679304335"><span class="hs-identifier hs-var hs-var">vPCId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304335"><span class="hs-identifier hs-var">vPCId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304334"><span class="annot"><span class="annottext">s :: VPCDerivedInfo
+</span><a href="#local-6989586621679304334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
+</span><a href="#local-6989586621679304334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCId:VPCDerivedInfo' :: Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#%24sel%3AvPCId%3AVPCDerivedInfo%27"><span class="hs-identifier hs-var">vPCId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The availability zones for the Elasticsearch domain. Exists only if the</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- domain was created with VPCOptions.</span><span>
@@ -237,16 +237,16 @@ $sel:vPCId:VPCDerivedInfo' :: VPCDerivedInfo -&gt; Maybe Text
 -&gt; (VPCDerivedInfo -&gt; Maybe [Text] -&gt; VPCDerivedInfo)
 -&gt; Lens VPCDerivedInfo VPCDerivedInfo (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304322"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304331"><span class="annot"><span class="annottext">Maybe [Text]
 availabilityZones :: Maybe [Text]
 $sel:availabilityZones:VPCDerivedInfo' :: VPCDerivedInfo -&gt; Maybe [Text]
-</span><a href="#local-6989586621679304322"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304322"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304321"><span class="annot"><span class="annottext">s :: VPCDerivedInfo
-</span><a href="#local-6989586621679304321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304320"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
-</span><a href="#local-6989586621679304321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:VPCDerivedInfo' :: Maybe [Text]
+</span><a href="#local-6989586621679304331"><span class="hs-identifier hs-var hs-var">availabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304331"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304330"><span class="annot"><span class="annottext">s :: VPCDerivedInfo
+</span><a href="#local-6989586621679304330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-type">VPCDerivedInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304329"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
+</span><a href="#local-6989586621679304330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZones:VPCDerivedInfo' :: Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#%24sel%3AavailabilityZones%3AVPCDerivedInfo%27"><span class="hs-identifier hs-var">availabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679304329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VPCDerivedInfo -&gt; f VPCDerivedInfo)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -263,8 +263,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304317"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679304315"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VPCDerivedInfo
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304326"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679304324"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VPCDerivedInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VPCDerivedInfo)
@@ -274,8 +274,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VPCDerivedInfo&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304312"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304321"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304321"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Maybe [Text] -&gt; VPCDerivedInfo
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo%27"><span class="hs-identifier hs-var">VPCDerivedInfo'</span></a></span><span>
@@ -286,7 +286,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe [Text] -&gt; Maybe Text -&gt; Maybe [Text] -&gt; VPCDerivedInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679304321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityGroupIds&quot;</span></span><span>
@@ -303,7 +303,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; Maybe [Text] -&gt; VPCDerivedInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679304321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -316,7 +316,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Text] -&gt; VPCDerivedInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679304321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VPCId&quot;</span></span><span class="hs-special">)</span><span>
@@ -324,7 +324,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser VPCDerivedInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679304321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AvailabilityZones&quot;</span></span><span>
@@ -337,7 +337,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-103"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304305"><span id="local-6989586621679304307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304314"><span id="local-6989586621679304316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span></span><span>
 </span><span id="line-109"></span></pre></body></html>

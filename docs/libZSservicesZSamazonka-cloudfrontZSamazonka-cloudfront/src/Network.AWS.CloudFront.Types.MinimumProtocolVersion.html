@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679395501"><span id="local-6989586621679395502"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MinimumProtocolVersion"><span class="annot"><a href="Network.AWS.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-var">MinimumProtocolVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MinimumProtocolVersion%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-var">MinimumProtocolVersion'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679395510"><span id="local-6989586621679395511"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MinimumProtocolVersion"><span class="annot"><a href="Network.AWS.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion"><span class="hs-identifier hs-var">MinimumProtocolVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MinimumProtocolVersion%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.MinimumProtocolVersion.html#MinimumProtocolVersion%27"><span class="hs-identifier hs-var">MinimumProtocolVersion'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMinimumProtocolVersion"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.MinimumProtocolVersion.html#fromMinimumProtocolVersion"><span class="hs-identifier hs-var hs-var">fromMinimumProtocolVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395493"><span id="local-6989586621679395495"><span id="local-6989586621679395497"><span class="annot"><span class="annottext">Int -&gt; MinimumProtocolVersion -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395502"><span id="local-6989586621679395504"><span id="local-6989586621679395506"><span class="annot"><span class="annottext">Int -&gt; MinimumProtocolVersion -&gt; ShowS
 [MinimumProtocolVersion] -&gt; ShowS
 MinimumProtocolVersion -&gt; String
 (Int -&gt; MinimumProtocolVersion -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: MinimumProtocolVersion -&gt; String
 showsPrec :: Int -&gt; MinimumProtocolVersion -&gt; ShowS
 $cshowsPrec :: Int -&gt; MinimumProtocolVersion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679395484"><span id="local-6989586621679395486"><span id="local-6989586621679395488"><span id="local-6989586621679395490"><span class="annot"><span class="annottext">ReadPrec [MinimumProtocolVersion]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679395493"><span id="local-6989586621679395495"><span id="local-6989586621679395497"><span id="local-6989586621679395499"><span class="annot"><span class="annottext">ReadPrec [MinimumProtocolVersion]
 ReadPrec MinimumProtocolVersion
 Int -&gt; ReadS MinimumProtocolVersion
 ReadS [MinimumProtocolVersion]
@@ -77,7 +77,7 @@ $creadList :: ReadS [MinimumProtocolVersion]
 readsPrec :: Int -&gt; ReadS MinimumProtocolVersion
 $creadsPrec :: Int -&gt; ReadS MinimumProtocolVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679395479"><span id="local-6989586621679395481"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679395488"><span id="local-6989586621679395490"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
 (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool)
 -&gt; (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool)
 -&gt; Eq MinimumProtocolVersion
@@ -87,7 +87,7 @@ $c/= :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
 == :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
 $c== :: MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679395463"><span id="local-6989586621679395465"><span id="local-6989586621679395467"><span id="local-6989586621679395469"><span id="local-6989586621679395471"><span id="local-6989586621679395473"><span id="local-6989586621679395475"><span class="annot"><span class="annottext">Eq MinimumProtocolVersion
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679395472"><span id="local-6989586621679395474"><span id="local-6989586621679395476"><span id="local-6989586621679395478"><span id="local-6989586621679395480"><span id="local-6989586621679395482"><span id="local-6989586621679395484"><span class="annot"><span class="annottext">Eq MinimumProtocolVersion
 Eq MinimumProtocolVersion
 -&gt; (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Ordering)
 -&gt; (MinimumProtocolVersion -&gt; MinimumProtocolVersion -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. MinimumProtocolVersion -&gt; Rep MinimumProtocolVersion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395455"><span id="local-6989586621679395457"><span class="annot"><span class="annottext">Int -&gt; MinimumProtocolVersion -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395464"><span id="local-6989586621679395466"><span class="annot"><span class="annottext">Int -&gt; MinimumProtocolVersion -&gt; Int
 MinimumProtocolVersion -&gt; Int
 (Int -&gt; MinimumProtocolVersion -&gt; Int)
 -&gt; (MinimumProtocolVersion -&gt; Int)
@@ -157,54 +157,54 @@ $chash :: MinimumProtocolVersion -&gt; Int
 hashWithSalt :: Int -&gt; MinimumProtocolVersion -&gt; Int
 $chashWithSalt :: Int -&gt; MinimumProtocolVersion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679395452"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679395461"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; ()
 (MinimumProtocolVersion -&gt; ()) -&gt; NFData MinimumProtocolVersion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MinimumProtocolVersion -&gt; ()
 $crnf :: MinimumProtocolVersion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679395449"><span class="annot"><span class="annottext">Text -&gt; Either String MinimumProtocolVersion
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679395458"><span class="annot"><span class="annottext">Text -&gt; Either String MinimumProtocolVersion
 (Text -&gt; Either String MinimumProtocolVersion)
 -&gt; FromText MinimumProtocolVersion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MinimumProtocolVersion
 $cfromText :: Text -&gt; Either String MinimumProtocolVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395446"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395455"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; Text
 (MinimumProtocolVersion -&gt; Text) -&gt; ToText MinimumProtocolVersion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MinimumProtocolVersion -&gt; Text
 $ctoText :: MinimumProtocolVersion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679395443"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679395452"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; ByteString
 (MinimumProtocolVersion -&gt; ByteString)
 -&gt; ToByteString MinimumProtocolVersion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MinimumProtocolVersion -&gt; ByteString
 $ctoBS :: MinimumProtocolVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679395440"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679395449"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; ByteStringBuilder
 (MinimumProtocolVersion -&gt; ByteStringBuilder)
 -&gt; ToLog MinimumProtocolVersion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MinimumProtocolVersion -&gt; ByteStringBuilder
 $cbuild :: MinimumProtocolVersion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679395437"><span class="annot"><span class="annottext">HeaderName -&gt; MinimumProtocolVersion -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679395446"><span class="annot"><span class="annottext">HeaderName -&gt; MinimumProtocolVersion -&gt; [Header]
 (HeaderName -&gt; MinimumProtocolVersion -&gt; [Header])
 -&gt; ToHeader MinimumProtocolVersion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MinimumProtocolVersion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MinimumProtocolVersion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679395434"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679395443"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; QueryString
 (MinimumProtocolVersion -&gt; QueryString)
 -&gt; ToQuery MinimumProtocolVersion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MinimumProtocolVersion -&gt; QueryString
 $ctoQuery :: MinimumProtocolVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679395429"><span id="local-6989586621679395431"><span class="annot"><span class="annottext">Value -&gt; Parser [MinimumProtocolVersion]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679395438"><span id="local-6989586621679395440"><span class="annot"><span class="annottext">Value -&gt; Parser [MinimumProtocolVersion]
 Value -&gt; Parser MinimumProtocolVersion
 (Value -&gt; Parser MinimumProtocolVersion)
 -&gt; (Value -&gt; Parser [MinimumProtocolVersion])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [MinimumProtocolVersion]
 parseJSON :: Value -&gt; Parser MinimumProtocolVersion
 $cparseJSON :: Value -&gt; Parser MinimumProtocolVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679395424"><span id="local-6989586621679395426"><span class="annot"><span class="annottext">FromJSONKeyFunction [MinimumProtocolVersion]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679395433"><span id="local-6989586621679395435"><span class="annot"><span class="annottext">FromJSONKeyFunction [MinimumProtocolVersion]
 FromJSONKeyFunction MinimumProtocolVersion
 FromJSONKeyFunction MinimumProtocolVersion
 -&gt; FromJSONKeyFunction [MinimumProtocolVersion]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MinimumProtocolVersion]
 fromJSONKey :: FromJSONKeyFunction MinimumProtocolVersion
 $cfromJSONKey :: FromJSONKeyFunction MinimumProtocolVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679395415"><span id="local-6989586621679395417"><span id="local-6989586621679395419"><span id="local-6989586621679395421"><span class="annot"><span class="annottext">[MinimumProtocolVersion] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679395424"><span id="local-6989586621679395426"><span id="local-6989586621679395428"><span id="local-6989586621679395430"><span class="annot"><span class="annottext">[MinimumProtocolVersion] -&gt; Encoding
 [MinimumProtocolVersion] -&gt; Value
 MinimumProtocolVersion -&gt; Encoding
 MinimumProtocolVersion -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: MinimumProtocolVersion -&gt; Encoding
 toJSON :: MinimumProtocolVersion -&gt; Value
 $ctoJSON :: MinimumProtocolVersion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679395410"><span id="local-6989586621679395412"><span class="annot"><span class="annottext">ToJSONKeyFunction [MinimumProtocolVersion]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679395419"><span id="local-6989586621679395421"><span class="annot"><span class="annottext">ToJSONKeyFunction [MinimumProtocolVersion]
 ToJSONKeyFunction MinimumProtocolVersion
 ToJSONKeyFunction MinimumProtocolVersion
 -&gt; ToJSONKeyFunction [MinimumProtocolVersion]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MinimumProtocolVersion]
 toJSONKey :: ToJSONKeyFunction MinimumProtocolVersion
 $ctoJSONKey :: ToJSONKeyFunction MinimumProtocolVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679395407"><span class="annot"><span class="annottext">[Node] -&gt; Either String MinimumProtocolVersion
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679395416"><span class="annot"><span class="annottext">[Node] -&gt; Either String MinimumProtocolVersion
 ([Node] -&gt; Either String MinimumProtocolVersion)
 -&gt; FromXML MinimumProtocolVersion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MinimumProtocolVersion
 $cparseXML :: [Node] -&gt; Either String MinimumProtocolVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679395404"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679395413"><span class="annot"><span class="annottext">MinimumProtocolVersion -&gt; XML
 (MinimumProtocolVersion -&gt; XML) -&gt; ToXML MinimumProtocolVersion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MinimumProtocolVersion -&gt; XML

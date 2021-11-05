@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.PutLabel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates or updates label. A label classifies an event as fraudulent or</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- legitimate. Labels are associated with event types and used to train</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- supervised machine learning models in Amazon Fraud Detector.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.PutLabel</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier">PutLabel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#newPutLabel"><span class="hs-identifier">newPutLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#putLabel_description"><span class="hs-identifier">putLabel_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#putLabel_tags"><span class="hs-identifier">putLabel_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#putLabel_name"><span class="hs-identifier">putLabel_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse"><span class="hs-identifier">PutLabelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#newPutLabelResponse"><span class="hs-identifier">newPutLabelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#putLabelResponse_httpStatus"><span class="hs-identifier">putLabelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newPutLabel' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679310697"><span id="local-6989586621679310698"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLabel"><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-var">PutLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLabel%27"><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel%27"><span class="hs-identifier hs-var">PutLabel'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The label description.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Adescription%3APutLabel%27"><span class="annot"><span class="annottext">PutLabel -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3Adescription%3APutLabel%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atags%3APutLabel%27"><span class="annot"><span class="annottext">PutLabel -&gt; Maybe [Tag]
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3Atags%3APutLabel%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The label name.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3APutLabel%27"><span class="annot"><span class="annottext">PutLabel -&gt; Text
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3Aname%3APutLabel%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310689"><span id="local-6989586621679310691"><span class="annot"><span class="annottext">PutLabel -&gt; PutLabel -&gt; Bool
+(PutLabel -&gt; PutLabel -&gt; Bool)
+-&gt; (PutLabel -&gt; PutLabel -&gt; Bool) -&gt; Eq PutLabel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutLabel -&gt; PutLabel -&gt; Bool
+$c/= :: PutLabel -&gt; PutLabel -&gt; Bool
+== :: PutLabel -&gt; PutLabel -&gt; Bool
+$c== :: PutLabel -&gt; PutLabel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310680"><span id="local-6989586621679310682"><span id="local-6989586621679310684"><span id="local-6989586621679310686"><span class="annot"><span class="annottext">ReadPrec [PutLabel]
+ReadPrec PutLabel
+Int -&gt; ReadS PutLabel
+ReadS [PutLabel]
+(Int -&gt; ReadS PutLabel)
+-&gt; ReadS [PutLabel]
+-&gt; ReadPrec PutLabel
+-&gt; ReadPrec [PutLabel]
+-&gt; Read PutLabel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutLabel]
+$creadListPrec :: ReadPrec [PutLabel]
+readPrec :: ReadPrec PutLabel
+$creadPrec :: ReadPrec PutLabel
+readList :: ReadS [PutLabel]
+$creadList :: ReadS [PutLabel]
+readsPrec :: Int -&gt; ReadS PutLabel
+$creadsPrec :: Int -&gt; ReadS PutLabel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310673"><span id="local-6989586621679310675"><span id="local-6989586621679310677"><span class="annot"><span class="annottext">Int -&gt; PutLabel -&gt; ShowS
+[PutLabel] -&gt; ShowS
+PutLabel -&gt; String
+(Int -&gt; PutLabel -&gt; ShowS)
+-&gt; (PutLabel -&gt; String) -&gt; ([PutLabel] -&gt; ShowS) -&gt; Show PutLabel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutLabel] -&gt; ShowS
+$cshowList :: [PutLabel] -&gt; ShowS
+show :: PutLabel -&gt; String
+$cshow :: PutLabel -&gt; String
+showsPrec :: Int -&gt; PutLabel -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutLabel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutLabel -&gt; Rep PutLabel x)
+-&gt; (forall x. Rep PutLabel x -&gt; PutLabel) -&gt; Generic PutLabel
+forall x. Rep PutLabel x -&gt; PutLabel
+forall x. PutLabel -&gt; Rep PutLabel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutLabel x -&gt; PutLabel
+$cfrom :: forall x. PutLabel -&gt; Rep PutLabel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'PutLabel' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'description', 'putLabel_description' - The label description.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'tags', 'putLabel_tags' -</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'name', 'putLabel_name' - The label name.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#newPutLabel"><span class="hs-identifier hs-type">newPutLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span>
+</span><span id="line-79"></span><span id="newPutLabel"><span class="annot"><span class="annottext">newPutLabel :: Text -&gt; PutLabel
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#newPutLabel"><span class="hs-identifier hs-var hs-var">newPutLabel</span></a></span></span><span> </span><span id="local-6989586621679310668"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310668"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">PutLabel' :: Maybe Text -&gt; Maybe [Tag] -&gt; Text -&gt; PutLabel
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel%27"><span class="hs-identifier hs-type">PutLabel'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:PutLabel' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3Adescription%3APutLabel%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:PutLabel' :: Maybe [Tag]
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3Atags%3APutLabel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:PutLabel' :: Text
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3Aname%3APutLabel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310668"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The label description.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#putLabel_description"><span class="hs-identifier hs-type">putLabel_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="putLabel_description"><span class="annot"><span class="annottext">putLabel_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PutLabel -&gt; f PutLabel
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#putLabel_description"><span class="hs-identifier hs-var hs-var">putLabel_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLabel -&gt; Maybe Text)
+-&gt; (PutLabel -&gt; Maybe Text -&gt; PutLabel)
+-&gt; Lens PutLabel PutLabel (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel%27"><span class="hs-identifier hs-type">PutLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310665"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:PutLabel' :: PutLabel -&gt; Maybe Text
+</span><a href="#local-6989586621679310665"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310665"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310664"><span class="annot"><span class="annottext">s :: PutLabel
+</span><a href="#local-6989586621679310664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel%27"><span class="hs-identifier hs-type">PutLabel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310663"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLabel
+</span><a href="#local-6989586621679310664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:PutLabel' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3Adescription%3APutLabel%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#putLabel_tags"><span class="hs-identifier hs-type">putLabel_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="putLabel_tags"><span class="annot"><span class="annottext">putLabel_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; PutLabel -&gt; f PutLabel
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#putLabel_tags"><span class="hs-identifier hs-var hs-var">putLabel_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLabel -&gt; Maybe [Tag])
+-&gt; (PutLabel -&gt; Maybe [Tag] -&gt; PutLabel)
+-&gt; Lens PutLabel PutLabel (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel%27"><span class="hs-identifier hs-type">PutLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310662"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:PutLabel' :: PutLabel -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679310662"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679310662"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310661"><span class="annot"><span class="annottext">s :: PutLabel
+</span><a href="#local-6989586621679310661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel%27"><span class="hs-identifier hs-type">PutLabel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310660"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679310660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLabel
+</span><a href="#local-6989586621679310661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutLabel' :: Maybe [Tag]
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3Atags%3APutLabel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679310660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; PutLabel -&gt; f PutLabel)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; PutLabel
+-&gt; f PutLabel
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The label name.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#putLabel_name"><span class="hs-identifier hs-type">putLabel_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="putLabel_name"><span class="annot"><span class="annottext">putLabel_name :: (Text -&gt; f Text) -&gt; PutLabel -&gt; f PutLabel
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#putLabel_name"><span class="hs-identifier hs-var hs-var">putLabel_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLabel -&gt; Text)
+-&gt; (PutLabel -&gt; Text -&gt; PutLabel)
+-&gt; Lens PutLabel PutLabel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel%27"><span class="hs-identifier hs-type">PutLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310656"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:PutLabel' :: PutLabel -&gt; Text
+</span><a href="#local-6989586621679310656"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310656"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310655"><span class="annot"><span class="annottext">s :: PutLabel
+</span><a href="#local-6989586621679310655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel%27"><span class="hs-identifier hs-type">PutLabel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310654"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLabel
+</span><a href="#local-6989586621679310655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PutLabel' :: Text
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3Aname%3APutLabel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse"><span class="hs-identifier hs-type">PutLabelResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679310650"><span class="annot"><span class="annottext">request :: PutLabel -&gt; Request PutLabel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutLabel -&gt; Request PutLabel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679310646"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutLabel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutLabel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse PutLabel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutLabel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutLabel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310643"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310642"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679310642"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310641"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679310641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutLabelResponse
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse%27"><span class="hs-identifier hs-var">PutLabelResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutLabelResponse)
+-&gt; Either String Int -&gt; Either String PutLabelResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310643"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310634"><span id="local-6989586621679310636"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679310627"><span class="annot"><span class="annottext">toHeaders :: PutLabel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutLabel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.PutLabel&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-123"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310617"><span id="local-6989586621679310619"><span id="local-6989586621679310621"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679310615"><span class="annot"><span class="annottext">toJSON :: PutLabel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel%27"><span class="hs-identifier hs-type">PutLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310611"><span id="local-6989586621679310612"><span id="local-6989586621679310613"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Text
+name :: Text
+tags :: Maybe [Tag]
+description :: Maybe Text
+$sel:name:PutLabel' :: PutLabel -&gt; Text
+$sel:tags:PutLabel' :: PutLabel -&gt; Maybe [Tag]
+$sel:description:PutLabel' :: PutLabel -&gt; Maybe Text
+</span><a href="#local-6989586621679310611"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310613"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679310612"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310611"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679310605"><span class="annot"><span class="annottext">toPath :: PutLabel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutLabel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabel"><span class="hs-identifier hs-type">PutLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679310601"><span class="annot"><span class="annottext">toQuery :: PutLabel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutLabel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newPutLabelResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679310598"><span id="local-6989586621679310599"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLabelResponse"><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse"><span class="hs-identifier hs-var">PutLabelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLabelResponse%27"><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse%27"><span class="hs-identifier hs-var">PutLabelResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutLabelResponse%27"><span class="annot"><span class="annottext">PutLabelResponse -&gt; Int
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3AhttpStatus%3APutLabelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310593"><span id="local-6989586621679310595"><span class="annot"><span class="annottext">PutLabelResponse -&gt; PutLabelResponse -&gt; Bool
+(PutLabelResponse -&gt; PutLabelResponse -&gt; Bool)
+-&gt; (PutLabelResponse -&gt; PutLabelResponse -&gt; Bool)
+-&gt; Eq PutLabelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutLabelResponse -&gt; PutLabelResponse -&gt; Bool
+$c/= :: PutLabelResponse -&gt; PutLabelResponse -&gt; Bool
+== :: PutLabelResponse -&gt; PutLabelResponse -&gt; Bool
+$c== :: PutLabelResponse -&gt; PutLabelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310585"><span id="local-6989586621679310587"><span id="local-6989586621679310589"><span id="local-6989586621679310591"><span class="annot"><span class="annottext">ReadPrec [PutLabelResponse]
+ReadPrec PutLabelResponse
+Int -&gt; ReadS PutLabelResponse
+ReadS [PutLabelResponse]
+(Int -&gt; ReadS PutLabelResponse)
+-&gt; ReadS [PutLabelResponse]
+-&gt; ReadPrec PutLabelResponse
+-&gt; ReadPrec [PutLabelResponse]
+-&gt; Read PutLabelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutLabelResponse]
+$creadListPrec :: ReadPrec [PutLabelResponse]
+readPrec :: ReadPrec PutLabelResponse
+$creadPrec :: ReadPrec PutLabelResponse
+readList :: ReadS [PutLabelResponse]
+$creadList :: ReadS [PutLabelResponse]
+readsPrec :: Int -&gt; ReadS PutLabelResponse
+$creadsPrec :: Int -&gt; ReadS PutLabelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310579"><span id="local-6989586621679310581"><span id="local-6989586621679310583"><span class="annot"><span class="annottext">Int -&gt; PutLabelResponse -&gt; ShowS
+[PutLabelResponse] -&gt; ShowS
+PutLabelResponse -&gt; String
+(Int -&gt; PutLabelResponse -&gt; ShowS)
+-&gt; (PutLabelResponse -&gt; String)
+-&gt; ([PutLabelResponse] -&gt; ShowS)
+-&gt; Show PutLabelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutLabelResponse] -&gt; ShowS
+$cshowList :: [PutLabelResponse] -&gt; ShowS
+show :: PutLabelResponse -&gt; String
+$cshow :: PutLabelResponse -&gt; String
+showsPrec :: Int -&gt; PutLabelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutLabelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutLabelResponse -&gt; Rep PutLabelResponse x)
+-&gt; (forall x. Rep PutLabelResponse x -&gt; PutLabelResponse)
+-&gt; Generic PutLabelResponse
+forall x. Rep PutLabelResponse x -&gt; PutLabelResponse
+forall x. PutLabelResponse -&gt; Rep PutLabelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutLabelResponse x -&gt; PutLabelResponse
+$cfrom :: forall x. PutLabelResponse -&gt; Rep PutLabelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Create a value of 'PutLabelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'putLabelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#newPutLabelResponse"><span class="hs-identifier hs-type">newPutLabelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse"><span class="hs-identifier hs-type">PutLabelResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newPutLabelResponse"><span class="annot"><span class="annottext">newPutLabelResponse :: Int -&gt; PutLabelResponse
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#newPutLabelResponse"><span class="hs-identifier hs-var hs-var">newPutLabelResponse</span></a></span></span><span> </span><span id="local-6989586621679310576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310576"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">PutLabelResponse' :: Int -&gt; PutLabelResponse
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse%27"><span class="hs-identifier hs-type">PutLabelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLabelResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3AhttpStatus%3APutLabelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310576"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#putLabelResponse_httpStatus"><span class="hs-identifier hs-type">putLabelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse"><span class="hs-identifier hs-type">PutLabelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span id="putLabelResponse_httpStatus"><span class="annot"><span class="annottext">putLabelResponse_httpStatus :: (Int -&gt; f Int) -&gt; PutLabelResponse -&gt; f PutLabelResponse
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#putLabelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putLabelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutLabelResponse -&gt; Int)
+-&gt; (PutLabelResponse -&gt; Int -&gt; PutLabelResponse)
+-&gt; Lens PutLabelResponse PutLabelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse%27"><span class="hs-identifier hs-type">PutLabelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310575"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutLabelResponse' :: PutLabelResponse -&gt; Int
+</span><a href="#local-6989586621679310575"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310575"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310574"><span class="annot"><span class="annottext">s :: PutLabelResponse
+</span><a href="#local-6989586621679310574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse%27"><span class="hs-identifier hs-type">PutLabelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLabelResponse
+</span><a href="#local-6989586621679310574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLabelResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.PutLabel.html#%24sel%3AhttpStatus%3APutLabelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse"><span class="hs-identifier hs-type">PutLabelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.PutLabel.html#PutLabelResponse"><span class="hs-identifier hs-type">PutLabelResponse</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

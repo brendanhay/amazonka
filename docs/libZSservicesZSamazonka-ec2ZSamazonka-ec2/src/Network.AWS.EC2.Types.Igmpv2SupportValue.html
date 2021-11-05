@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681113255"><span id="local-6989586621681113256"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Igmpv2SupportValue"><span class="annot"><a href="Network.AWS.EC2.Types.Igmpv2SupportValue.html#Igmpv2SupportValue"><span class="hs-identifier hs-var">Igmpv2SupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Igmpv2SupportValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.Igmpv2SupportValue.html#Igmpv2SupportValue%27"><span class="hs-identifier hs-var">Igmpv2SupportValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681113264"><span id="local-6989586621681113265"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Igmpv2SupportValue"><span class="annot"><a href="Network.AWS.EC2.Types.Igmpv2SupportValue.html#Igmpv2SupportValue"><span class="hs-identifier hs-var">Igmpv2SupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Igmpv2SupportValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.Igmpv2SupportValue.html#Igmpv2SupportValue%27"><span class="hs-identifier hs-var">Igmpv2SupportValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIgmpv2SupportValue"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; Text
 </span><a href="Network.AWS.EC2.Types.Igmpv2SupportValue.html#fromIgmpv2SupportValue"><span class="hs-identifier hs-var hs-var">fromIgmpv2SupportValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681113247"><span id="local-6989586621681113249"><span id="local-6989586621681113251"><span class="annot"><span class="annottext">Int -&gt; Igmpv2SupportValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681113256"><span id="local-6989586621681113258"><span id="local-6989586621681113260"><span class="annot"><span class="annottext">Int -&gt; Igmpv2SupportValue -&gt; ShowS
 [Igmpv2SupportValue] -&gt; ShowS
 Igmpv2SupportValue -&gt; String
 (Int -&gt; Igmpv2SupportValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Igmpv2SupportValue -&gt; String
 showsPrec :: Int -&gt; Igmpv2SupportValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; Igmpv2SupportValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681113238"><span id="local-6989586621681113240"><span id="local-6989586621681113242"><span id="local-6989586621681113244"><span class="annot"><span class="annottext">ReadPrec [Igmpv2SupportValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681113247"><span id="local-6989586621681113249"><span id="local-6989586621681113251"><span id="local-6989586621681113253"><span class="annot"><span class="annottext">ReadPrec [Igmpv2SupportValue]
 ReadPrec Igmpv2SupportValue
 Int -&gt; ReadS Igmpv2SupportValue
 ReadS [Igmpv2SupportValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Igmpv2SupportValue]
 readsPrec :: Int -&gt; ReadS Igmpv2SupportValue
 $creadsPrec :: Int -&gt; ReadS Igmpv2SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681113233"><span id="local-6989586621681113235"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; Igmpv2SupportValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681113242"><span id="local-6989586621681113244"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; Igmpv2SupportValue -&gt; Bool
 (Igmpv2SupportValue -&gt; Igmpv2SupportValue -&gt; Bool)
 -&gt; (Igmpv2SupportValue -&gt; Igmpv2SupportValue -&gt; Bool)
 -&gt; Eq Igmpv2SupportValue
@@ -83,7 +83,7 @@ $c/= :: Igmpv2SupportValue -&gt; Igmpv2SupportValue -&gt; Bool
 == :: Igmpv2SupportValue -&gt; Igmpv2SupportValue -&gt; Bool
 $c== :: Igmpv2SupportValue -&gt; Igmpv2SupportValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681113217"><span id="local-6989586621681113219"><span id="local-6989586621681113221"><span id="local-6989586621681113223"><span id="local-6989586621681113225"><span id="local-6989586621681113227"><span id="local-6989586621681113229"><span class="annot"><span class="annottext">Eq Igmpv2SupportValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681113226"><span id="local-6989586621681113228"><span id="local-6989586621681113230"><span id="local-6989586621681113232"><span id="local-6989586621681113234"><span id="local-6989586621681113236"><span id="local-6989586621681113238"><span class="annot"><span class="annottext">Eq Igmpv2SupportValue
 Eq Igmpv2SupportValue
 -&gt; (Igmpv2SupportValue -&gt; Igmpv2SupportValue -&gt; Ordering)
 -&gt; (Igmpv2SupportValue -&gt; Igmpv2SupportValue -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Igmpv2SupportValue -&gt; Rep Igmpv2SupportValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681113209"><span id="local-6989586621681113211"><span class="annot"><span class="annottext">Int -&gt; Igmpv2SupportValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681113218"><span id="local-6989586621681113220"><span class="annot"><span class="annottext">Int -&gt; Igmpv2SupportValue -&gt; Int
 Igmpv2SupportValue -&gt; Int
 (Int -&gt; Igmpv2SupportValue -&gt; Int)
 -&gt; (Igmpv2SupportValue -&gt; Int) -&gt; Hashable Igmpv2SupportValue
@@ -144,53 +144,53 @@ $chash :: Igmpv2SupportValue -&gt; Int
 hashWithSalt :: Int -&gt; Igmpv2SupportValue -&gt; Int
 $chashWithSalt :: Int -&gt; Igmpv2SupportValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681113206"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681113215"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; ()
 (Igmpv2SupportValue -&gt; ()) -&gt; NFData Igmpv2SupportValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Igmpv2SupportValue -&gt; ()
 $crnf :: Igmpv2SupportValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681113203"><span class="annot"><span class="annottext">Text -&gt; Either String Igmpv2SupportValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681113212"><span class="annot"><span class="annottext">Text -&gt; Either String Igmpv2SupportValue
 (Text -&gt; Either String Igmpv2SupportValue)
 -&gt; FromText Igmpv2SupportValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Igmpv2SupportValue
 $cfromText :: Text -&gt; Either String Igmpv2SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681113200"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681113209"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; Text
 (Igmpv2SupportValue -&gt; Text) -&gt; ToText Igmpv2SupportValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Igmpv2SupportValue -&gt; Text
 $ctoText :: Igmpv2SupportValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681113197"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681113206"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; ByteString
 (Igmpv2SupportValue -&gt; ByteString)
 -&gt; ToByteString Igmpv2SupportValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Igmpv2SupportValue -&gt; ByteString
 $ctoBS :: Igmpv2SupportValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681113194"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681113203"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; ByteStringBuilder
 (Igmpv2SupportValue -&gt; ByteStringBuilder)
 -&gt; ToLog Igmpv2SupportValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Igmpv2SupportValue -&gt; ByteStringBuilder
 $cbuild :: Igmpv2SupportValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681113191"><span class="annot"><span class="annottext">HeaderName -&gt; Igmpv2SupportValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681113200"><span class="annot"><span class="annottext">HeaderName -&gt; Igmpv2SupportValue -&gt; [Header]
 (HeaderName -&gt; Igmpv2SupportValue -&gt; [Header])
 -&gt; ToHeader Igmpv2SupportValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Igmpv2SupportValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Igmpv2SupportValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681113188"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681113197"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; QueryString
 (Igmpv2SupportValue -&gt; QueryString) -&gt; ToQuery Igmpv2SupportValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Igmpv2SupportValue -&gt; QueryString
 $ctoQuery :: Igmpv2SupportValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681113183"><span id="local-6989586621681113185"><span class="annot"><span class="annottext">Value -&gt; Parser [Igmpv2SupportValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681113192"><span id="local-6989586621681113194"><span class="annot"><span class="annottext">Value -&gt; Parser [Igmpv2SupportValue]
 Value -&gt; Parser Igmpv2SupportValue
 (Value -&gt; Parser Igmpv2SupportValue)
 -&gt; (Value -&gt; Parser [Igmpv2SupportValue])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [Igmpv2SupportValue]
 parseJSON :: Value -&gt; Parser Igmpv2SupportValue
 $cparseJSON :: Value -&gt; Parser Igmpv2SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681113178"><span id="local-6989586621681113180"><span class="annot"><span class="annottext">FromJSONKeyFunction [Igmpv2SupportValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681113187"><span id="local-6989586621681113189"><span class="annot"><span class="annottext">FromJSONKeyFunction [Igmpv2SupportValue]
 FromJSONKeyFunction Igmpv2SupportValue
 FromJSONKeyFunction Igmpv2SupportValue
 -&gt; FromJSONKeyFunction [Igmpv2SupportValue]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Igmpv2SupportValue]
 fromJSONKey :: FromJSONKeyFunction Igmpv2SupportValue
 $cfromJSONKey :: FromJSONKeyFunction Igmpv2SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681113169"><span id="local-6989586621681113171"><span id="local-6989586621681113173"><span id="local-6989586621681113175"><span class="annot"><span class="annottext">[Igmpv2SupportValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681113178"><span id="local-6989586621681113180"><span id="local-6989586621681113182"><span id="local-6989586621681113184"><span class="annot"><span class="annottext">[Igmpv2SupportValue] -&gt; Encoding
 [Igmpv2SupportValue] -&gt; Value
 Igmpv2SupportValue -&gt; Encoding
 Igmpv2SupportValue -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: Igmpv2SupportValue -&gt; Encoding
 toJSON :: Igmpv2SupportValue -&gt; Value
 $ctoJSON :: Igmpv2SupportValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681113164"><span id="local-6989586621681113166"><span class="annot"><span class="annottext">ToJSONKeyFunction [Igmpv2SupportValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681113173"><span id="local-6989586621681113175"><span class="annot"><span class="annottext">ToJSONKeyFunction [Igmpv2SupportValue]
 ToJSONKeyFunction Igmpv2SupportValue
 ToJSONKeyFunction Igmpv2SupportValue
 -&gt; ToJSONKeyFunction [Igmpv2SupportValue]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Igmpv2SupportValue]
 toJSONKey :: ToJSONKeyFunction Igmpv2SupportValue
 $ctoJSONKey :: ToJSONKeyFunction Igmpv2SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681113161"><span class="annot"><span class="annottext">[Node] -&gt; Either String Igmpv2SupportValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681113170"><span class="annot"><span class="annottext">[Node] -&gt; Either String Igmpv2SupportValue
 ([Node] -&gt; Either String Igmpv2SupportValue)
 -&gt; FromXML Igmpv2SupportValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Igmpv2SupportValue
 $cparseXML :: [Node] -&gt; Either String Igmpv2SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681113158"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681113167"><span class="annot"><span class="annottext">Igmpv2SupportValue -&gt; XML
 (Igmpv2SupportValue -&gt; XML) -&gt; ToXML Igmpv2SupportValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Igmpv2SupportValue -&gt; XML

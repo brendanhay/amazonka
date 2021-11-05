@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- | Maximum CDI input resolution; SD is 480i and 576i up to 30</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- frames-per-second (fps), HD is 720p up to 60 fps \/ 1080i up to 30 fps,</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- FHD is 1080p up to 60 fps, UHD is 2160p up to 60 fps</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679869556"><span id="local-6989586621679869557"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CdiInputResolution"><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution"><span class="hs-identifier hs-var">CdiInputResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CdiInputResolution%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution%27"><span class="hs-identifier hs-var">CdiInputResolution'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679869565"><span id="local-6989586621679869566"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CdiInputResolution"><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution"><span class="hs-identifier hs-var">CdiInputResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CdiInputResolution%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#CdiInputResolution%27"><span class="hs-identifier hs-var">CdiInputResolution'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCdiInputResolution"><span class="annot"><span class="annottext">CdiInputResolution -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.CdiInputResolution.html#fromCdiInputResolution"><span class="hs-identifier hs-var hs-var">fromCdiInputResolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869548"><span id="local-6989586621679869550"><span id="local-6989586621679869552"><span class="annot"><span class="annottext">Int -&gt; CdiInputResolution -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869557"><span id="local-6989586621679869559"><span id="local-6989586621679869561"><span class="annot"><span class="annottext">Int -&gt; CdiInputResolution -&gt; ShowS
 [CdiInputResolution] -&gt; ShowS
 CdiInputResolution -&gt; String
 (Int -&gt; CdiInputResolution -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: CdiInputResolution -&gt; String
 showsPrec :: Int -&gt; CdiInputResolution -&gt; ShowS
 $cshowsPrec :: Int -&gt; CdiInputResolution -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679869539"><span id="local-6989586621679869541"><span id="local-6989586621679869543"><span id="local-6989586621679869545"><span class="annot"><span class="annottext">ReadPrec [CdiInputResolution]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679869548"><span id="local-6989586621679869550"><span id="local-6989586621679869552"><span id="local-6989586621679869554"><span class="annot"><span class="annottext">ReadPrec [CdiInputResolution]
 ReadPrec CdiInputResolution
 Int -&gt; ReadS CdiInputResolution
 ReadS [CdiInputResolution]
@@ -77,7 +77,7 @@ $creadList :: ReadS [CdiInputResolution]
 readsPrec :: Int -&gt; ReadS CdiInputResolution
 $creadsPrec :: Int -&gt; ReadS CdiInputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679869534"><span id="local-6989586621679869536"><span class="annot"><span class="annottext">CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679869543"><span id="local-6989586621679869545"><span class="annot"><span class="annottext">CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
 (CdiInputResolution -&gt; CdiInputResolution -&gt; Bool)
 -&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; Bool)
 -&gt; Eq CdiInputResolution
@@ -87,7 +87,7 @@ $c/= :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
 == :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
 $c== :: CdiInputResolution -&gt; CdiInputResolution -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679869518"><span id="local-6989586621679869520"><span id="local-6989586621679869522"><span id="local-6989586621679869524"><span id="local-6989586621679869526"><span id="local-6989586621679869528"><span id="local-6989586621679869530"><span class="annot"><span class="annottext">Eq CdiInputResolution
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679869527"><span id="local-6989586621679869529"><span id="local-6989586621679869531"><span id="local-6989586621679869533"><span id="local-6989586621679869535"><span id="local-6989586621679869537"><span id="local-6989586621679869539"><span class="annot"><span class="annottext">Eq CdiInputResolution
 Eq CdiInputResolution
 -&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; Ordering)
 -&gt; (CdiInputResolution -&gt; CdiInputResolution -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. CdiInputResolution -&gt; Rep CdiInputResolution x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869510"><span id="local-6989586621679869512"><span class="annot"><span class="annottext">Int -&gt; CdiInputResolution -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869519"><span id="local-6989586621679869521"><span class="annot"><span class="annottext">Int -&gt; CdiInputResolution -&gt; Int
 CdiInputResolution -&gt; Int
 (Int -&gt; CdiInputResolution -&gt; Int)
 -&gt; (CdiInputResolution -&gt; Int) -&gt; Hashable CdiInputResolution
@@ -148,53 +148,53 @@ $chash :: CdiInputResolution -&gt; Int
 hashWithSalt :: Int -&gt; CdiInputResolution -&gt; Int
 $chashWithSalt :: Int -&gt; CdiInputResolution -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679869507"><span class="annot"><span class="annottext">CdiInputResolution -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679869516"><span class="annot"><span class="annottext">CdiInputResolution -&gt; ()
 (CdiInputResolution -&gt; ()) -&gt; NFData CdiInputResolution
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CdiInputResolution -&gt; ()
 $crnf :: CdiInputResolution -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679869504"><span class="annot"><span class="annottext">Text -&gt; Either String CdiInputResolution
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679869513"><span class="annot"><span class="annottext">Text -&gt; Either String CdiInputResolution
 (Text -&gt; Either String CdiInputResolution)
 -&gt; FromText CdiInputResolution
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CdiInputResolution
 $cfromText :: Text -&gt; Either String CdiInputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679869501"><span class="annot"><span class="annottext">CdiInputResolution -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679869510"><span class="annot"><span class="annottext">CdiInputResolution -&gt; Text
 (CdiInputResolution -&gt; Text) -&gt; ToText CdiInputResolution
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CdiInputResolution -&gt; Text
 $ctoText :: CdiInputResolution -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679869498"><span class="annot"><span class="annottext">CdiInputResolution -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679869507"><span class="annot"><span class="annottext">CdiInputResolution -&gt; ByteString
 (CdiInputResolution -&gt; ByteString)
 -&gt; ToByteString CdiInputResolution
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CdiInputResolution -&gt; ByteString
 $ctoBS :: CdiInputResolution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679869495"><span class="annot"><span class="annottext">CdiInputResolution -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679869504"><span class="annot"><span class="annottext">CdiInputResolution -&gt; ByteStringBuilder
 (CdiInputResolution -&gt; ByteStringBuilder)
 -&gt; ToLog CdiInputResolution
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CdiInputResolution -&gt; ByteStringBuilder
 $cbuild :: CdiInputResolution -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679869492"><span class="annot"><span class="annottext">HeaderName -&gt; CdiInputResolution -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679869501"><span class="annot"><span class="annottext">HeaderName -&gt; CdiInputResolution -&gt; [Header]
 (HeaderName -&gt; CdiInputResolution -&gt; [Header])
 -&gt; ToHeader CdiInputResolution
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CdiInputResolution -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CdiInputResolution -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679869489"><span class="annot"><span class="annottext">CdiInputResolution -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679869498"><span class="annot"><span class="annottext">CdiInputResolution -&gt; QueryString
 (CdiInputResolution -&gt; QueryString) -&gt; ToQuery CdiInputResolution
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CdiInputResolution -&gt; QueryString
 $ctoQuery :: CdiInputResolution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679869484"><span id="local-6989586621679869486"><span class="annot"><span class="annottext">Value -&gt; Parser [CdiInputResolution]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679869493"><span id="local-6989586621679869495"><span class="annot"><span class="annottext">Value -&gt; Parser [CdiInputResolution]
 Value -&gt; Parser CdiInputResolution
 (Value -&gt; Parser CdiInputResolution)
 -&gt; (Value -&gt; Parser [CdiInputResolution])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [CdiInputResolution]
 parseJSON :: Value -&gt; Parser CdiInputResolution
 $cparseJSON :: Value -&gt; Parser CdiInputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679869479"><span id="local-6989586621679869481"><span class="annot"><span class="annottext">FromJSONKeyFunction [CdiInputResolution]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679869488"><span id="local-6989586621679869490"><span class="annot"><span class="annottext">FromJSONKeyFunction [CdiInputResolution]
 FromJSONKeyFunction CdiInputResolution
 FromJSONKeyFunction CdiInputResolution
 -&gt; FromJSONKeyFunction [CdiInputResolution]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CdiInputResolution]
 fromJSONKey :: FromJSONKeyFunction CdiInputResolution
 $cfromJSONKey :: FromJSONKeyFunction CdiInputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679869470"><span id="local-6989586621679869472"><span id="local-6989586621679869474"><span id="local-6989586621679869476"><span class="annot"><span class="annottext">[CdiInputResolution] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679869479"><span id="local-6989586621679869481"><span id="local-6989586621679869483"><span id="local-6989586621679869485"><span class="annot"><span class="annottext">[CdiInputResolution] -&gt; Encoding
 [CdiInputResolution] -&gt; Value
 CdiInputResolution -&gt; Encoding
 CdiInputResolution -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: CdiInputResolution -&gt; Encoding
 toJSON :: CdiInputResolution -&gt; Value
 $ctoJSON :: CdiInputResolution -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679869465"><span id="local-6989586621679869467"><span class="annot"><span class="annottext">ToJSONKeyFunction [CdiInputResolution]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679869474"><span id="local-6989586621679869476"><span class="annot"><span class="annottext">ToJSONKeyFunction [CdiInputResolution]
 ToJSONKeyFunction CdiInputResolution
 ToJSONKeyFunction CdiInputResolution
 -&gt; ToJSONKeyFunction [CdiInputResolution]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CdiInputResolution]
 toJSONKey :: ToJSONKeyFunction CdiInputResolution
 $ctoJSONKey :: ToJSONKeyFunction CdiInputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679869462"><span class="annot"><span class="annottext">[Node] -&gt; Either String CdiInputResolution
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679869471"><span class="annot"><span class="annottext">[Node] -&gt; Either String CdiInputResolution
 ([Node] -&gt; Either String CdiInputResolution)
 -&gt; FromXML CdiInputResolution
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CdiInputResolution
 $cparseXML :: [Node] -&gt; Either String CdiInputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679869459"><span class="annot"><span class="annottext">CdiInputResolution -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679869468"><span class="annot"><span class="annottext">CdiInputResolution -&gt; XML
 (CdiInputResolution -&gt; XML) -&gt; ToXML CdiInputResolution
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CdiInputResolution -&gt; XML

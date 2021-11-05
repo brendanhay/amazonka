@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- and its metadata.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSamplingRuleRecord' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679254563"><span id="local-6989586621679254564"></span></span><span class="hs-keyword">data</span><span> </span><span id="SamplingRuleRecord"><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-var">SamplingRuleRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SamplingRuleRecord%27"><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-var">SamplingRuleRecord'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679254572"><span id="local-6989586621679254573"></span></span><span class="hs-keyword">data</span><span> </span><span id="SamplingRuleRecord"><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-var">SamplingRuleRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SamplingRuleRecord%27"><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-var">SamplingRuleRecord'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the rule was last modified.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AmodifiedAt%3ASamplingRuleRecord%27"><span class="annot"><span class="annottext">SamplingRuleRecord -&gt; Maybe POSIX
 </span><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#%24sel%3AmodifiedAt%3ASamplingRuleRecord%27"><span class="hs-identifier hs-var hs-var">modifiedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreatedAt%3ASamplingRuleRecord%27"><span class="annot"><span class="annottext">SamplingRuleRecord -&gt; Maybe POSIX
 </span><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#%24sel%3AcreatedAt%3ASamplingRuleRecord%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254555"><span id="local-6989586621679254557"><span class="annot"><span class="annottext">SamplingRuleRecord -&gt; SamplingRuleRecord -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254564"><span id="local-6989586621679254566"><span class="annot"><span class="annottext">SamplingRuleRecord -&gt; SamplingRuleRecord -&gt; Bool
 (SamplingRuleRecord -&gt; SamplingRuleRecord -&gt; Bool)
 -&gt; (SamplingRuleRecord -&gt; SamplingRuleRecord -&gt; Bool)
 -&gt; Eq SamplingRuleRecord
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SamplingRuleRecord -&gt; SamplingRuleRecord -&gt; Bool
 == :: SamplingRuleRecord -&gt; SamplingRuleRecord -&gt; Bool
 $c== :: SamplingRuleRecord -&gt; SamplingRuleRecord -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254546"><span id="local-6989586621679254548"><span id="local-6989586621679254550"><span id="local-6989586621679254552"><span class="annot"><span class="annottext">ReadPrec [SamplingRuleRecord]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254555"><span id="local-6989586621679254557"><span id="local-6989586621679254559"><span id="local-6989586621679254561"><span class="annot"><span class="annottext">ReadPrec [SamplingRuleRecord]
 ReadPrec SamplingRuleRecord
 Int -&gt; ReadS SamplingRuleRecord
 ReadS [SamplingRuleRecord]
@@ -69,7 +69,7 @@ readList :: ReadS [SamplingRuleRecord]
 $creadList :: ReadS [SamplingRuleRecord]
 readsPrec :: Int -&gt; ReadS SamplingRuleRecord
 $creadsPrec :: Int -&gt; ReadS SamplingRuleRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254539"><span id="local-6989586621679254541"><span id="local-6989586621679254543"><span class="annot"><span class="annottext">Int -&gt; SamplingRuleRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254548"><span id="local-6989586621679254550"><span id="local-6989586621679254552"><span class="annot"><span class="annottext">Int -&gt; SamplingRuleRecord -&gt; ShowS
 [SamplingRuleRecord] -&gt; ShowS
 SamplingRuleRecord -&gt; String
 (Int -&gt; SamplingRuleRecord -&gt; ShowS)
@@ -138,16 +138,16 @@ forall a. Maybe a
 -&gt; Lens
      SamplingRuleRecord SamplingRuleRecord (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254530"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254539"><span class="annot"><span class="annottext">Maybe POSIX
 modifiedAt :: Maybe POSIX
 $sel:modifiedAt:SamplingRuleRecord' :: SamplingRuleRecord -&gt; Maybe POSIX
-</span><a href="#local-6989586621679254530"><span class="hs-identifier hs-var hs-var">modifiedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254530"><span class="hs-identifier hs-var">modifiedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254529"><span class="annot"><span class="annottext">s :: SamplingRuleRecord
-</span><a href="#local-6989586621679254529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254528"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleRecord
-</span><a href="#local-6989586621679254529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedAt:SamplingRuleRecord' :: Maybe POSIX
+</span><a href="#local-6989586621679254539"><span class="hs-identifier hs-var hs-var">modifiedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679254539"><span class="hs-identifier hs-var">modifiedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254538"><span class="annot"><span class="annottext">s :: SamplingRuleRecord
+</span><a href="#local-6989586621679254538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254537"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679254537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleRecord
+</span><a href="#local-6989586621679254538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedAt:SamplingRuleRecord' :: Maybe POSIX
 </span><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#%24sel%3AmodifiedAt%3ASamplingRuleRecord%27"><span class="hs-identifier hs-var">modifiedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679254537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; SamplingRuleRecord -&gt; f SamplingRuleRecord)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -176,16 +176,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe SamplingRule)
      (Maybe SamplingRule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254523"><span class="annot"><span class="annottext">Maybe SamplingRule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254532"><span class="annot"><span class="annottext">Maybe SamplingRule
 samplingRule :: Maybe SamplingRule
 $sel:samplingRule:SamplingRuleRecord' :: SamplingRuleRecord -&gt; Maybe SamplingRule
-</span><a href="#local-6989586621679254523"><span class="hs-identifier hs-var hs-var">samplingRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SamplingRule
-</span><a href="#local-6989586621679254523"><span class="hs-identifier hs-var">samplingRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254522"><span class="annot"><span class="annottext">s :: SamplingRuleRecord
-</span><a href="#local-6989586621679254522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254521"><span class="annot"><span class="annottext">Maybe SamplingRule
-</span><a href="#local-6989586621679254521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleRecord
-</span><a href="#local-6989586621679254522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samplingRule:SamplingRuleRecord' :: Maybe SamplingRule
+</span><a href="#local-6989586621679254532"><span class="hs-identifier hs-var hs-var">samplingRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SamplingRule
+</span><a href="#local-6989586621679254532"><span class="hs-identifier hs-var">samplingRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254531"><span class="annot"><span class="annottext">s :: SamplingRuleRecord
+</span><a href="#local-6989586621679254531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254530"><span class="annot"><span class="annottext">Maybe SamplingRule
+</span><a href="#local-6989586621679254530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleRecord
+</span><a href="#local-6989586621679254531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samplingRule:SamplingRuleRecord' :: Maybe SamplingRule
 </span><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#%24sel%3AsamplingRule%3ASamplingRuleRecord%27"><span class="hs-identifier hs-var">samplingRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SamplingRule
-</span><a href="#local-6989586621679254521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | When the rule was created.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#samplingRuleRecord_createdAt"><span class="hs-identifier hs-type">samplingRuleRecord_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -196,16 +196,16 @@ $sel:samplingRule:SamplingRuleRecord' :: SamplingRuleRecord -&gt; Maybe Sampling
 -&gt; Lens
      SamplingRuleRecord SamplingRuleRecord (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254519"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254528"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:SamplingRuleRecord' :: SamplingRuleRecord -&gt; Maybe POSIX
-</span><a href="#local-6989586621679254519"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254519"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254518"><span class="annot"><span class="annottext">s :: SamplingRuleRecord
-</span><a href="#local-6989586621679254518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254517"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleRecord
-</span><a href="#local-6989586621679254518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:SamplingRuleRecord' :: Maybe POSIX
+</span><a href="#local-6989586621679254528"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679254528"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254527"><span class="annot"><span class="annottext">s :: SamplingRuleRecord
+</span><a href="#local-6989586621679254527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-type">SamplingRuleRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254526"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679254526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingRuleRecord
+</span><a href="#local-6989586621679254527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:SamplingRuleRecord' :: Maybe POSIX
 </span><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#%24sel%3AcreatedAt%3ASamplingRuleRecord%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679254517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679254526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; SamplingRuleRecord -&gt; f SamplingRuleRecord)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -222,8 +222,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254514"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679254512"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SamplingRuleRecord
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254523"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679254521"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SamplingRuleRecord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SamplingRuleRecord)
@@ -233,8 +233,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SamplingRuleRecord&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254509"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254518"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679254518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe SamplingRule -&gt; Maybe POSIX -&gt; SamplingRuleRecord
 </span><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord%27"><span class="hs-identifier hs-var">SamplingRuleRecord'</span></a></span><span>
@@ -244,7 +244,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe SamplingRule -&gt; Maybe POSIX -&gt; SamplingRuleRecord)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679254518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifiedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -253,7 +253,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; SamplingRuleRecord)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SamplingRule)
+</span><a href="#local-6989586621679254518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SamplingRule)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SamplingRule&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,13 +261,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser SamplingRuleRecord
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679254518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254503"><span id="local-6989586621679254505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254512"><span id="local-6989586621679254514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.SamplingRuleRecord.html#SamplingRuleRecord"><span class="hs-identifier hs-type">SamplingRuleRecord</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

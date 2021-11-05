@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newReorderReceiptRuleSet' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679280932"><span id="local-6989586621679280933"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReorderReceiptRuleSet"><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-var">ReorderReceiptRuleSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReorderReceiptRuleSet%27"><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-var">ReorderReceiptRuleSet'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679280941"><span id="local-6989586621679280942"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReorderReceiptRuleSet"><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-var">ReorderReceiptRuleSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReorderReceiptRuleSet%27"><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-var">ReorderReceiptRuleSet'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the receipt rule set to reorder.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AruleSetName%3AReorderReceiptRuleSet%27"><span class="annot"><span class="annottext">ReorderReceiptRuleSet -&gt; Text
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#%24sel%3AruleSetName%3AReorderReceiptRuleSet%27"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AruleNames%3AReorderReceiptRuleSet%27"><span class="annot"><span class="annottext">ReorderReceiptRuleSet -&gt; [Text]
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#%24sel%3AruleNames%3AReorderReceiptRuleSet%27"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280925"><span id="local-6989586621679280927"><span class="annot"><span class="annottext">ReorderReceiptRuleSet -&gt; ReorderReceiptRuleSet -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280934"><span id="local-6989586621679280936"><span class="annot"><span class="annottext">ReorderReceiptRuleSet -&gt; ReorderReceiptRuleSet -&gt; Bool
 (ReorderReceiptRuleSet -&gt; ReorderReceiptRuleSet -&gt; Bool)
 -&gt; (ReorderReceiptRuleSet -&gt; ReorderReceiptRuleSet -&gt; Bool)
 -&gt; Eq ReorderReceiptRuleSet
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReorderReceiptRuleSet -&gt; ReorderReceiptRuleSet -&gt; Bool
 == :: ReorderReceiptRuleSet -&gt; ReorderReceiptRuleSet -&gt; Bool
 $c== :: ReorderReceiptRuleSet -&gt; ReorderReceiptRuleSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280916"><span id="local-6989586621679280918"><span id="local-6989586621679280920"><span id="local-6989586621679280922"><span class="annot"><span class="annottext">ReadPrec [ReorderReceiptRuleSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280925"><span id="local-6989586621679280927"><span id="local-6989586621679280929"><span id="local-6989586621679280931"><span class="annot"><span class="annottext">ReadPrec [ReorderReceiptRuleSet]
 ReadPrec ReorderReceiptRuleSet
 Int -&gt; ReadS ReorderReceiptRuleSet
 ReadS [ReorderReceiptRuleSet]
@@ -99,7 +99,7 @@ readList :: ReadS [ReorderReceiptRuleSet]
 $creadList :: ReadS [ReorderReceiptRuleSet]
 readsPrec :: Int -&gt; ReadS ReorderReceiptRuleSet
 $creadsPrec :: Int -&gt; ReadS ReorderReceiptRuleSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280909"><span id="local-6989586621679280911"><span id="local-6989586621679280913"><span class="annot"><span class="annottext">Int -&gt; ReorderReceiptRuleSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280918"><span id="local-6989586621679280920"><span id="local-6989586621679280922"><span class="annot"><span class="annottext">Int -&gt; ReorderReceiptRuleSet -&gt; ShowS
 [ReorderReceiptRuleSet] -&gt; ShowS
 ReorderReceiptRuleSet -&gt; String
 (Int -&gt; ReorderReceiptRuleSet -&gt; ShowS)
@@ -142,13 +142,13 @@ $cfrom :: forall x. ReorderReceiptRuleSet -&gt; Rep ReorderReceiptRuleSet x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span><span>
 </span><span id="line-89"></span><span id="newReorderReceiptRuleSet"><span class="annot"><span class="annottext">newReorderReceiptRuleSet :: Text -&gt; ReorderReceiptRuleSet
-</span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#newReorderReceiptRuleSet"><span class="hs-identifier hs-var hs-var">newReorderReceiptRuleSet</span></a></span></span><span> </span><span id="local-6989586621679280904"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280904"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#newReorderReceiptRuleSet"><span class="hs-identifier hs-var hs-var">newReorderReceiptRuleSet</span></a></span></span><span> </span><span id="local-6989586621679280913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280913"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ReorderReceiptRuleSet' :: Text -&gt; [Text] -&gt; ReorderReceiptRuleSet
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleSetName:ReorderReceiptRuleSet' :: Text
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#%24sel%3AruleSetName%3AReorderReceiptRuleSet%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280904"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280913"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleNames:ReorderReceiptRuleSet' :: [Text]
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#%24sel%3AruleNames%3AReorderReceiptRuleSet%27"><span class="hs-identifier hs-var">ruleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -163,16 +163,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ReorderReceiptRuleSet -&gt; Text -&gt; ReorderReceiptRuleSet)
 -&gt; Lens ReorderReceiptRuleSet ReorderReceiptRuleSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280901"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280910"><span class="annot"><span class="annottext">Text
 ruleSetName :: Text
 $sel:ruleSetName:ReorderReceiptRuleSet' :: ReorderReceiptRuleSet -&gt; Text
-</span><a href="#local-6989586621679280901"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280901"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280900"><span class="annot"><span class="annottext">s :: ReorderReceiptRuleSet
-</span><a href="#local-6989586621679280900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280899"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReorderReceiptRuleSet
-</span><a href="#local-6989586621679280900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:ReorderReceiptRuleSet' :: Text
+</span><a href="#local-6989586621679280910"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280910"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280909"><span class="annot"><span class="annottext">s :: ReorderReceiptRuleSet
+</span><a href="#local-6989586621679280909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280908"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReorderReceiptRuleSet
+</span><a href="#local-6989586621679280909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:ReorderReceiptRuleSet' :: Text
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#%24sel%3AruleSetName%3AReorderReceiptRuleSet%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | A list of the specified receipt rule set\'s receipt rules in the order</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- that you want to put them.</span><span>
@@ -183,16 +183,16 @@ $sel:ruleSetName:ReorderReceiptRuleSet' :: ReorderReceiptRuleSet -&gt; Text
 -&gt; (ReorderReceiptRuleSet -&gt; [Text] -&gt; ReorderReceiptRuleSet)
 -&gt; Lens ReorderReceiptRuleSet ReorderReceiptRuleSet [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280898"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280907"><span class="annot"><span class="annottext">[Text]
 ruleNames :: [Text]
 $sel:ruleNames:ReorderReceiptRuleSet' :: ReorderReceiptRuleSet -&gt; [Text]
-</span><a href="#local-6989586621679280898"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679280898"><span class="hs-identifier hs-var">ruleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280897"><span class="annot"><span class="annottext">s :: ReorderReceiptRuleSet
-</span><a href="#local-6989586621679280897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280896"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679280896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReorderReceiptRuleSet
-</span><a href="#local-6989586621679280897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNames:ReorderReceiptRuleSet' :: [Text]
+</span><a href="#local-6989586621679280907"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679280907"><span class="hs-identifier hs-var">ruleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280906"><span class="annot"><span class="annottext">s :: ReorderReceiptRuleSet
+</span><a href="#local-6989586621679280906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280905"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679280905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReorderReceiptRuleSet
+</span><a href="#local-6989586621679280906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNames:ReorderReceiptRuleSet' :: [Text]
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#%24sel%3AruleNames%3AReorderReceiptRuleSet%27"><span class="hs-identifier hs-var">ruleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679280896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679280905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ReorderReceiptRuleSet -&gt; f ReorderReceiptRuleSet)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -207,12 +207,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679280890"><span class="annot"><span class="annottext">request :: ReorderReceiptRuleSet -&gt; Request ReorderReceiptRuleSet
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679280899"><span class="annot"><span class="annottext">request :: ReorderReceiptRuleSet -&gt; Request ReorderReceiptRuleSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReorderReceiptRuleSet -&gt; Request ReorderReceiptRuleSet
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679280886"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679280895"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ReorderReceiptRuleSet
 -&gt; ClientResponse ClientBody
@@ -243,10 +243,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReorderReceiptRuleSetResult&quot;</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280883"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280883"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280882"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679280882"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280881"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679280881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280892"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280892"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280891"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679280891"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280890"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679280890"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ReorderReceiptRuleSetResponse
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">ReorderReceiptRuleSetResponse'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ReorderReceiptRuleSetResponse)
@@ -257,15 +257,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280883"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280892"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280874"><span id="local-6989586621679280876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280883"><span id="local-6989586621679280885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679280867"><span class="annot"><span class="annottext">toHeaders :: ReorderReceiptRuleSet -&gt; ResponseHeaders
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679280876"><span class="annot"><span class="annottext">toHeaders :: ReorderReceiptRuleSet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ReorderReceiptRuleSet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -273,21 +273,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679280862"><span class="annot"><span class="annottext">toPath :: ReorderReceiptRuleSet -&gt; ByteString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679280871"><span class="annot"><span class="annottext">toPath :: ReorderReceiptRuleSet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReorderReceiptRuleSet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet"><span class="hs-identifier hs-type">ReorderReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679280858"><span class="annot"><span class="annottext">toQuery :: ReorderReceiptRuleSet -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280855"><span id="local-6989586621679280856"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679280867"><span class="annot"><span class="annottext">toQuery :: ReorderReceiptRuleSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSet%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280864"><span id="local-6989586621679280865"><span class="annot"><span class="annottext">[Text]
 Text
 ruleNames :: [Text]
 ruleSetName :: Text
 $sel:ruleNames:ReorderReceiptRuleSet' :: ReorderReceiptRuleSet -&gt; [Text]
 $sel:ruleSetName:ReorderReceiptRuleSet' :: ReorderReceiptRuleSet -&gt; Text
-</span><a href="#local-6989586621679280855"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679280864"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -307,7 +307,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;RuleSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679280856"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679280865"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RuleNames&quot;</span></span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -318,18 +318,18 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679280855"><span class="hs-identifier hs-var">ruleNames</span></a></span><span>
+</span><a href="#local-6989586621679280864"><span class="hs-identifier hs-var">ruleNames</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | An empty element returned on a successful request.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- /See:/ 'newReorderReceiptRuleSetResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679280851"><span id="local-6989586621679280852"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReorderReceiptRuleSetResponse"><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse"><span class="hs-identifier hs-var">ReorderReceiptRuleSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReorderReceiptRuleSetResponse%27"><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">ReorderReceiptRuleSetResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679280860"><span id="local-6989586621679280861"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReorderReceiptRuleSetResponse"><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse"><span class="hs-identifier hs-var">ReorderReceiptRuleSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReorderReceiptRuleSetResponse%27"><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">ReorderReceiptRuleSetResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AReorderReceiptRuleSetResponse%27"><span class="annot"><span class="annottext">ReorderReceiptRuleSetResponse -&gt; Int
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#%24sel%3AhttpStatus%3AReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280846"><span id="local-6989586621679280848"><span class="annot"><span class="annottext">ReorderReceiptRuleSetResponse
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280855"><span id="local-6989586621679280857"><span class="annot"><span class="annottext">ReorderReceiptRuleSetResponse
 -&gt; ReorderReceiptRuleSetResponse -&gt; Bool
 (ReorderReceiptRuleSetResponse
  -&gt; ReorderReceiptRuleSetResponse -&gt; Bool)
@@ -345,7 +345,7 @@ $c/= :: ReorderReceiptRuleSetResponse
 -&gt; ReorderReceiptRuleSetResponse -&gt; Bool
 $c== :: ReorderReceiptRuleSetResponse
 -&gt; ReorderReceiptRuleSetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280838"><span id="local-6989586621679280840"><span id="local-6989586621679280842"><span id="local-6989586621679280844"><span class="annot"><span class="annottext">ReadPrec [ReorderReceiptRuleSetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280847"><span id="local-6989586621679280849"><span id="local-6989586621679280851"><span id="local-6989586621679280853"><span class="annot"><span class="annottext">ReadPrec [ReorderReceiptRuleSetResponse]
 ReadPrec ReorderReceiptRuleSetResponse
 Int -&gt; ReadS ReorderReceiptRuleSetResponse
 ReadS [ReorderReceiptRuleSetResponse]
@@ -365,7 +365,7 @@ readList :: ReadS [ReorderReceiptRuleSetResponse]
 $creadList :: ReadS [ReorderReceiptRuleSetResponse]
 readsPrec :: Int -&gt; ReadS ReorderReceiptRuleSetResponse
 $creadsPrec :: Int -&gt; ReadS ReorderReceiptRuleSetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280832"><span id="local-6989586621679280834"><span id="local-6989586621679280836"><span class="annot"><span class="annottext">Int -&gt; ReorderReceiptRuleSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280841"><span id="local-6989586621679280843"><span id="local-6989586621679280845"><span class="annot"><span class="annottext">Int -&gt; ReorderReceiptRuleSetResponse -&gt; ShowS
 [ReorderReceiptRuleSetResponse] -&gt; ShowS
 ReorderReceiptRuleSetResponse -&gt; String
 (Int -&gt; ReorderReceiptRuleSetResponse -&gt; ShowS)
@@ -417,14 +417,14 @@ ReorderReceiptRuleSetResponse
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newReorderReceiptRuleSetResponse"><span class="annot"><span class="annottext">newReorderReceiptRuleSetResponse :: Int -&gt; ReorderReceiptRuleSetResponse
-</span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#newReorderReceiptRuleSetResponse"><span class="hs-identifier hs-var hs-var">newReorderReceiptRuleSetResponse</span></a></span></span><span> </span><span id="local-6989586621679280829"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280829"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#newReorderReceiptRuleSetResponse"><span class="hs-identifier hs-var hs-var">newReorderReceiptRuleSetResponse</span></a></span></span><span> </span><span id="local-6989586621679280838"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280838"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">ReorderReceiptRuleSetResponse' :: Int -&gt; ReorderReceiptRuleSetResponse
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ReorderReceiptRuleSetResponse' :: Int
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#%24sel%3AhttpStatus%3AReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280829"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679280838"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -437,16 +437,16 @@ ReorderReceiptRuleSetResponse
 -&gt; Lens
      ReorderReceiptRuleSetResponse ReorderReceiptRuleSetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280828"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280837"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ReorderReceiptRuleSetResponse' :: ReorderReceiptRuleSetResponse -&gt; Int
-</span><a href="#local-6989586621679280828"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280828"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280827"><span class="annot"><span class="annottext">s :: ReorderReceiptRuleSetResponse
-</span><a href="#local-6989586621679280827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280826"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReorderReceiptRuleSetResponse
-</span><a href="#local-6989586621679280827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReorderReceiptRuleSetResponse' :: Int
+</span><a href="#local-6989586621679280837"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280837"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280836"><span class="annot"><span class="annottext">s :: ReorderReceiptRuleSetResponse
+</span><a href="#local-6989586621679280836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReorderReceiptRuleSetResponse
+</span><a href="#local-6989586621679280836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReorderReceiptRuleSetResponse' :: Int
 </span><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#%24sel%3AhttpStatus%3AReorderReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.ReorderReceiptRuleSet.html#ReorderReceiptRuleSetResponse"><span class="hs-identifier hs-type">ReorderReceiptRuleSetResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

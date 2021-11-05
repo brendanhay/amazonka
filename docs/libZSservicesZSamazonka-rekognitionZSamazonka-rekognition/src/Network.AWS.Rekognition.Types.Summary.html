@@ -32,11 +32,11 @@
 </span><span id="line-32"></span><span class="hs-comment">-- DescribeProjectVersions.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newSummary' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679331984"><span id="local-6989586621679331985"></span></span><span class="hs-keyword">data</span><span> </span><span id="Summary"><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-var">Summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Summary%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary%27"><span class="hs-identifier hs-var">Summary'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679331993"><span id="local-6989586621679331994"></span></span><span class="hs-keyword">data</span><span> </span><span id="Summary"><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-var">Summary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Summary%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary%27"><span class="hs-identifier hs-var">Summary'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3As3Object%3ASummary%27"><span class="annot"><span class="annottext">Summary -&gt; Maybe S3Object
 </span><a href="Network.AWS.Rekognition.Types.Summary.html#%24sel%3As3Object%3ASummary%27"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331978"><span id="local-6989586621679331980"><span class="annot"><span class="annottext">Summary -&gt; Summary -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331987"><span id="local-6989586621679331989"><span class="annot"><span class="annottext">Summary -&gt; Summary -&gt; Bool
 (Summary -&gt; Summary -&gt; Bool)
 -&gt; (Summary -&gt; Summary -&gt; Bool) -&gt; Eq Summary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Summary -&gt; Summary -&gt; Bool
 == :: Summary -&gt; Summary -&gt; Bool
 $c== :: Summary -&gt; Summary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331969"><span id="local-6989586621679331971"><span id="local-6989586621679331973"><span id="local-6989586621679331975"><span class="annot"><span class="annottext">ReadPrec [Summary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331978"><span id="local-6989586621679331980"><span id="local-6989586621679331982"><span id="local-6989586621679331984"><span class="annot"><span class="annottext">ReadPrec [Summary]
 ReadPrec Summary
 Int -&gt; ReadS Summary
 ReadS [Summary]
@@ -64,7 +64,7 @@ readList :: ReadS [Summary]
 $creadList :: ReadS [Summary]
 readsPrec :: Int -&gt; ReadS Summary
 $creadsPrec :: Int -&gt; ReadS Summary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331962"><span id="local-6989586621679331964"><span id="local-6989586621679331966"><span class="annot"><span class="annottext">Int -&gt; Summary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331971"><span id="local-6989586621679331973"><span id="local-6989586621679331975"><span class="annot"><span class="annottext">Int -&gt; Summary -&gt; ShowS
 [Summary] -&gt; ShowS
 Summary -&gt; String
 (Int -&gt; Summary -&gt; ShowS)
@@ -112,37 +112,37 @@ forall a. Maybe a
 -&gt; (Summary -&gt; Maybe S3Object -&gt; Summary)
 -&gt; Lens Summary Summary (Maybe S3Object) (Maybe S3Object)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331953"><span class="annot"><span class="annottext">Maybe S3Object
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331962"><span class="annot"><span class="annottext">Maybe S3Object
 s3Object :: Maybe S3Object
 $sel:s3Object:Summary' :: Summary -&gt; Maybe S3Object
-</span><a href="#local-6989586621679331953"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679331953"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331952"><span class="annot"><span class="annottext">s :: Summary
-</span><a href="#local-6989586621679331952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331951"><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679331951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Summary
-</span><a href="#local-6989586621679331952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Object:Summary' :: Maybe S3Object
+</span><a href="#local-6989586621679331962"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
+</span><a href="#local-6989586621679331962"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331961"><span class="annot"><span class="annottext">s :: Summary
+</span><a href="#local-6989586621679331961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary%27"><span class="hs-identifier hs-type">Summary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331960"><span class="annot"><span class="annottext">Maybe S3Object
+</span><a href="#local-6989586621679331960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Summary
+</span><a href="#local-6989586621679331961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Object:Summary' :: Maybe S3Object
 </span><a href="Network.AWS.Rekognition.Types.Summary.html#%24sel%3As3Object%3ASummary%27"><span class="hs-identifier hs-var">s3Object</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679331951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331948"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679331946"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Summary
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331957"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679331955"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Summary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Summary) -&gt; Value -&gt; Parser Summary
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Summary&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331943"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331943"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object -&gt; Summary
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331952"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331952"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object -&gt; Summary
 </span><a href="Network.AWS.Rekognition.Types.Summary.html#Summary%27"><span class="hs-identifier hs-var">Summary'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe S3Object -&gt; Summary)
 -&gt; Parser (Maybe S3Object) -&gt; Parser Summary
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331943"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Object)
+</span><a href="#local-6989586621679331952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Object)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Object&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331937"><span id="local-6989586621679331939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331946"><span id="local-6989586621679331948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Summary.html#Summary"><span class="hs-identifier hs-type">Summary</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

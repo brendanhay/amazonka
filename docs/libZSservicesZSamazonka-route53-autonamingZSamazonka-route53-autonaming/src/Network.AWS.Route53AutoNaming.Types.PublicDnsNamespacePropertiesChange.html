@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Updated properties for the public DNS namespace.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPublicDnsNamespacePropertiesChange' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679223979"><span id="local-6989586621679223980"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicDnsNamespacePropertiesChange"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-var">PublicDnsNamespacePropertiesChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicDnsNamespacePropertiesChange%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var">PublicDnsNamespacePropertiesChange'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679223988"><span id="local-6989586621679223989"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicDnsNamespacePropertiesChange"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-var">PublicDnsNamespacePropertiesChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicDnsNamespacePropertiesChange%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var">PublicDnsNamespacePropertiesChange'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updated DNS properties for the hosted zone for the public DNS namespace.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AdnsProperties%3APublicDnsNamespacePropertiesChange%27"><span class="annot"><span class="annottext">PublicDnsNamespacePropertiesChange
 -&gt; PublicDnsPropertiesMutableChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#%24sel%3AdnsProperties%3APublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange.html#PublicDnsPropertiesMutableChange"><span class="hs-identifier hs-type">PublicDnsPropertiesMutableChange</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223973"><span id="local-6989586621679223975"><span class="annot"><span class="annottext">PublicDnsNamespacePropertiesChange
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223982"><span id="local-6989586621679223984"><span class="annot"><span class="annottext">PublicDnsNamespacePropertiesChange
 -&gt; PublicDnsNamespacePropertiesChange -&gt; Bool
 (PublicDnsNamespacePropertiesChange
  -&gt; PublicDnsNamespacePropertiesChange -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: PublicDnsNamespacePropertiesChange
 -&gt; PublicDnsNamespacePropertiesChange -&gt; Bool
 $c== :: PublicDnsNamespacePropertiesChange
 -&gt; PublicDnsNamespacePropertiesChange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223964"><span id="local-6989586621679223966"><span id="local-6989586621679223968"><span id="local-6989586621679223970"><span class="annot"><span class="annottext">ReadPrec [PublicDnsNamespacePropertiesChange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223973"><span id="local-6989586621679223975"><span id="local-6989586621679223977"><span id="local-6989586621679223979"><span class="annot"><span class="annottext">ReadPrec [PublicDnsNamespacePropertiesChange]
 ReadPrec PublicDnsNamespacePropertiesChange
 Int -&gt; ReadS PublicDnsNamespacePropertiesChange
 ReadS [PublicDnsNamespacePropertiesChange]
@@ -69,7 +69,7 @@ readList :: ReadS [PublicDnsNamespacePropertiesChange]
 $creadList :: ReadS [PublicDnsNamespacePropertiesChange]
 readsPrec :: Int -&gt; ReadS PublicDnsNamespacePropertiesChange
 $creadsPrec :: Int -&gt; ReadS PublicDnsNamespacePropertiesChange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223957"><span id="local-6989586621679223959"><span id="local-6989586621679223961"><span class="annot"><span class="annottext">Int -&gt; PublicDnsNamespacePropertiesChange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223966"><span id="local-6989586621679223968"><span id="local-6989586621679223970"><span class="annot"><span class="annottext">Int -&gt; PublicDnsNamespacePropertiesChange -&gt; ShowS
 [PublicDnsNamespacePropertiesChange] -&gt; ShowS
 PublicDnsNamespacePropertiesChange -&gt; String
 (Int -&gt; PublicDnsNamespacePropertiesChange -&gt; ShowS)
@@ -122,15 +122,15 @@ PublicDnsNamespacePropertiesChange
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange</span></a></span><span>
 </span><span id="line-49"></span><span id="newPublicDnsNamespacePropertiesChange"><span class="annot"><span class="annottext">newPublicDnsNamespacePropertiesChange :: PublicDnsPropertiesMutableChange
 -&gt; PublicDnsNamespacePropertiesChange
-</span><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#newPublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-var hs-var">newPublicDnsNamespacePropertiesChange</span></a></span></span><span> </span><span id="local-6989586621679223951"><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
-</span><a href="#local-6989586621679223951"><span class="hs-identifier hs-var">pDnsProperties_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#newPublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-var hs-var">newPublicDnsNamespacePropertiesChange</span></a></span></span><span> </span><span id="local-6989586621679223960"><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
+</span><a href="#local-6989586621679223960"><span class="hs-identifier hs-var">pDnsProperties_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">PublicDnsNamespacePropertiesChange' :: PublicDnsPropertiesMutableChange
 -&gt; PublicDnsNamespacePropertiesChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange'</span></a></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dnsProperties:PublicDnsNamespacePropertiesChange' :: PublicDnsPropertiesMutableChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#%24sel%3AdnsProperties%3APublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
-</span><a href="#local-6989586621679223951"><span class="hs-identifier hs-var">pDnsProperties_</span></a></span><span>
+</span><a href="#local-6989586621679223960"><span class="hs-identifier hs-var">pDnsProperties_</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | Updated DNS properties for the hosted zone for the public DNS namespace.</span><span>
@@ -150,36 +150,36 @@ PublicDnsNamespacePropertiesChange
      PublicDnsPropertiesMutableChange
      PublicDnsPropertiesMutableChange
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223947"><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223956"><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
 dnsProperties :: PublicDnsPropertiesMutableChange
 $sel:dnsProperties:PublicDnsNamespacePropertiesChange' :: PublicDnsNamespacePropertiesChange
 -&gt; PublicDnsPropertiesMutableChange
-</span><a href="#local-6989586621679223947"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
-</span><a href="#local-6989586621679223947"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223946"><span class="annot"><span class="annottext">s :: PublicDnsNamespacePropertiesChange
-</span><a href="#local-6989586621679223946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223945"><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
-</span><a href="#local-6989586621679223945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicDnsNamespacePropertiesChange
-</span><a href="#local-6989586621679223946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsProperties:PublicDnsNamespacePropertiesChange' :: PublicDnsPropertiesMutableChange
+</span><a href="#local-6989586621679223956"><span class="hs-identifier hs-var hs-var">dnsProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
+</span><a href="#local-6989586621679223956"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223955"><span class="annot"><span class="annottext">s :: PublicDnsNamespacePropertiesChange
+</span><a href="#local-6989586621679223955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223954"><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
+</span><a href="#local-6989586621679223954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicDnsNamespacePropertiesChange
+</span><a href="#local-6989586621679223955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsProperties:PublicDnsNamespacePropertiesChange' :: PublicDnsPropertiesMutableChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#%24sel%3AdnsProperties%3APublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
-</span><a href="#local-6989586621679223945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679223941"><span id="local-6989586621679223943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679223950"><span id="local-6989586621679223952"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679223938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679223947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange</span></a></span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679223930"><span id="local-6989586621679223932"><span id="local-6989586621679223934"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679223939"><span id="local-6989586621679223941"><span id="local-6989586621679223943"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange</span></a></span></span></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679223928"><span class="annot"><span class="annottext">toJSON :: PublicDnsNamespacePropertiesChange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223926"><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679223937"><span class="annot"><span class="annottext">toJSON :: PublicDnsNamespacePropertiesChange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange.html#PublicDnsNamespacePropertiesChange%27"><span class="hs-identifier hs-type">PublicDnsNamespacePropertiesChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223935"><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
 dnsProperties :: PublicDnsPropertiesMutableChange
 $sel:dnsProperties:PublicDnsNamespacePropertiesChange' :: PublicDnsNamespacePropertiesChange
 -&gt; PublicDnsPropertiesMutableChange
-</span><a href="#local-6989586621679223926"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679223935"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -192,7 +192,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DnsProperties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PublicDnsPropertiesMutableChange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PublicDnsPropertiesMutableChange
-</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223935"><span class="hs-identifier hs-var">dnsProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

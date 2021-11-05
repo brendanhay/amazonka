@@ -68,12 +68,12 @@
 </span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newGetEventSourceMapping' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679308592"><span id="local-6989586621679308593"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEventSourceMapping"><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-var">GetEventSourceMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEventSourceMapping%27"><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-var">GetEventSourceMapping'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621679308601"><span id="local-6989586621679308602"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEventSourceMapping"><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-var">GetEventSourceMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEventSourceMapping%27"><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-var">GetEventSourceMapping'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the event source mapping.</span><span>
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3Auuid%3AGetEventSourceMapping%27"><span class="annot"><span class="annottext">GetEventSourceMapping -&gt; Text
 </span><a href="Network.AWS.Lambda.GetEventSourceMapping.html#%24sel%3Auuid%3AGetEventSourceMapping%27"><span class="hs-identifier hs-var hs-var">uuid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308586"><span id="local-6989586621679308588"><span class="annot"><span class="annottext">GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308595"><span id="local-6989586621679308597"><span class="annot"><span class="annottext">GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
 (GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool)
 -&gt; (GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool)
 -&gt; Eq GetEventSourceMapping
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
 == :: GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
 $c== :: GetEventSourceMapping -&gt; GetEventSourceMapping -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308577"><span id="local-6989586621679308579"><span id="local-6989586621679308581"><span id="local-6989586621679308583"><span class="annot"><span class="annottext">ReadPrec [GetEventSourceMapping]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308586"><span id="local-6989586621679308588"><span id="local-6989586621679308590"><span id="local-6989586621679308592"><span class="annot"><span class="annottext">ReadPrec [GetEventSourceMapping]
 ReadPrec GetEventSourceMapping
 Int -&gt; ReadS GetEventSourceMapping
 ReadS [GetEventSourceMapping]
@@ -102,7 +102,7 @@ readList :: ReadS [GetEventSourceMapping]
 $creadList :: ReadS [GetEventSourceMapping]
 readsPrec :: Int -&gt; ReadS GetEventSourceMapping
 $creadsPrec :: Int -&gt; ReadS GetEventSourceMapping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308570"><span id="local-6989586621679308572"><span id="local-6989586621679308574"><span class="annot"><span class="annottext">Int -&gt; GetEventSourceMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308579"><span id="local-6989586621679308581"><span id="local-6989586621679308583"><span class="annot"><span class="annottext">Int -&gt; GetEventSourceMapping -&gt; ShowS
 [GetEventSourceMapping] -&gt; ShowS
 GetEventSourceMapping -&gt; String
 (Int -&gt; GetEventSourceMapping -&gt; ShowS)
@@ -142,12 +142,12 @@ $cfrom :: forall x. GetEventSourceMapping -&gt; Rep GetEventSourceMapping x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span>
 </span><span id="line-90"></span><span id="newGetEventSourceMapping"><span class="annot"><span class="annottext">newGetEventSourceMapping :: Text -&gt; GetEventSourceMapping
-</span><a href="Network.AWS.Lambda.GetEventSourceMapping.html#newGetEventSourceMapping"><span class="hs-identifier hs-var hs-var">newGetEventSourceMapping</span></a></span></span><span> </span><span id="local-6989586621679308565"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308565"><span class="hs-identifier hs-var">pUUID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lambda.GetEventSourceMapping.html#newGetEventSourceMapping"><span class="hs-identifier hs-var hs-var">newGetEventSourceMapping</span></a></span></span><span> </span><span id="local-6989586621679308574"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308574"><span class="hs-identifier hs-var">pUUID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">GetEventSourceMapping' :: Text -&gt; GetEventSourceMapping
 </span><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uuid:GetEventSourceMapping' :: Text
 </span><a href="Network.AWS.Lambda.GetEventSourceMapping.html#%24sel%3Auuid%3AGetEventSourceMapping%27"><span class="hs-identifier hs-var">uuid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308565"><span class="hs-identifier hs-var">pUUID_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679308574"><span class="hs-identifier hs-var">pUUID_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The identifier of the event source mapping.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#getEventSourceMapping_uuid"><span class="hs-identifier hs-type">getEventSourceMapping_uuid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -157,27 +157,27 @@ $cfrom :: forall x. GetEventSourceMapping -&gt; Rep GetEventSourceMapping x
 -&gt; (GetEventSourceMapping -&gt; Text -&gt; GetEventSourceMapping)
 -&gt; Lens GetEventSourceMapping GetEventSourceMapping Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308562"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308571"><span class="annot"><span class="annottext">Text
 uuid :: Text
 $sel:uuid:GetEventSourceMapping' :: GetEventSourceMapping -&gt; Text
-</span><a href="#local-6989586621679308562"><span class="hs-identifier hs-var hs-var">uuid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308562"><span class="hs-identifier hs-var">uuid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308561"><span class="annot"><span class="annottext">s :: GetEventSourceMapping
-</span><a href="#local-6989586621679308561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308560"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEventSourceMapping
-</span><a href="#local-6989586621679308561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uuid:GetEventSourceMapping' :: Text
+</span><a href="#local-6989586621679308571"><span class="hs-identifier hs-var hs-var">uuid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308571"><span class="hs-identifier hs-var">uuid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308570"><span class="annot"><span class="annottext">s :: GetEventSourceMapping
+</span><a href="#local-6989586621679308570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308569"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEventSourceMapping
+</span><a href="#local-6989586621679308570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uuid:GetEventSourceMapping' :: Text
 </span><a href="Network.AWS.Lambda.GetEventSourceMapping.html#%24sel%3Auuid%3AGetEventSourceMapping%27"><span class="hs-identifier hs-var">uuid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Lambda.Types.EventSourceMappingConfiguration.html#EventSourceMappingConfiguration"><span class="hs-identifier hs-type">EventSourceMappingConfiguration</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679308556"><span class="annot"><span class="annottext">request :: GetEventSourceMapping -&gt; Request GetEventSourceMapping
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679308565"><span class="annot"><span class="annottext">request :: GetEventSourceMapping -&gt; Request GetEventSourceMapping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEventSourceMapping -&gt; Request GetEventSourceMapping
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679308552"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679308561"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetEventSourceMapping
 -&gt; ClientResponse ClientBody
@@ -203,20 +203,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308549"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308549"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308548"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679308548"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308547"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308547"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String EventSourceMappingConfiguration
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308558"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308558"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308557"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679308557"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308556"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308556"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String EventSourceMappingConfiguration
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308547"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308556"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308542"><span id="local-6989586621679308544"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308551"><span id="local-6989586621679308553"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308548"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679308535"><span class="annot"><span class="annottext">toHeaders :: GetEventSourceMapping -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679308544"><span class="annot"><span class="annottext">toHeaders :: GetEventSourceMapping -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEventSourceMapping -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -224,11 +224,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679308530"><span class="annot"><span class="annottext">toPath :: GetEventSourceMapping -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308528"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679308539"><span class="annot"><span class="annottext">toPath :: GetEventSourceMapping -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping%27"><span class="hs-identifier hs-type">GetEventSourceMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308537"><span class="annot"><span class="annottext">Text
 uuid :: Text
 $sel:uuid:GetEventSourceMapping' :: GetEventSourceMapping -&gt; Text
-</span><a href="#local-6989586621679308528"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679308537"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -237,11 +237,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308528"><span class="hs-identifier hs-var">uuid</span></a></span><span>
+</span><a href="#local-6989586621679308537"><span class="hs-identifier hs-var">uuid</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetEventSourceMapping.html#GetEventSourceMapping"><span class="hs-identifier hs-type">GetEventSourceMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679308524"><span class="annot"><span class="annottext">toQuery :: GetEventSourceMapping -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679308533"><span class="annot"><span class="annottext">toQuery :: GetEventSourceMapping -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetEventSourceMapping -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | The policies for a load balancer.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPolicies' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679196923"><span id="local-6989586621679196924"></span></span><span class="hs-keyword">data</span><span> </span><span id="Policies"><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-var">Policies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Policies%27"><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-var">Policies'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679196932"><span id="local-6989586621679196933"></span></span><span class="hs-keyword">data</span><span> </span><span id="Policies"><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-var">Policies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Policies%27"><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-var">Policies'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policies other than the stickiness policies.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AotherPolicies%3APolicies%27"><span class="annot"><span class="annottext">Policies -&gt; Maybe [Text]
 </span><a href="Network.AWS.ELB.Types.Policies.html#%24sel%3AotherPolicies%3APolicies%27"><span class="hs-identifier hs-var hs-var">otherPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AappCookieStickinessPolicies%3APolicies%27"><span class="annot"><span class="annottext">Policies -&gt; Maybe [AppCookieStickinessPolicy]
 </span><a href="Network.AWS.ELB.Types.Policies.html#%24sel%3AappCookieStickinessPolicies%3APolicies%27"><span class="hs-identifier hs-var hs-var">appCookieStickinessPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.AppCookieStickinessPolicy.html#AppCookieStickinessPolicy"><span class="hs-identifier hs-type">AppCookieStickinessPolicy</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196915"><span id="local-6989586621679196917"><span class="annot"><span class="annottext">Policies -&gt; Policies -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196924"><span id="local-6989586621679196926"><span class="annot"><span class="annottext">Policies -&gt; Policies -&gt; Bool
 (Policies -&gt; Policies -&gt; Bool)
 -&gt; (Policies -&gt; Policies -&gt; Bool) -&gt; Eq Policies
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Policies -&gt; Policies -&gt; Bool
 == :: Policies -&gt; Policies -&gt; Bool
 $c== :: Policies -&gt; Policies -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196906"><span id="local-6989586621679196908"><span id="local-6989586621679196910"><span id="local-6989586621679196912"><span class="annot"><span class="annottext">ReadPrec [Policies]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196915"><span id="local-6989586621679196917"><span id="local-6989586621679196919"><span id="local-6989586621679196921"><span class="annot"><span class="annottext">ReadPrec [Policies]
 ReadPrec Policies
 Int -&gt; ReadS Policies
 ReadS [Policies]
@@ -68,7 +68,7 @@ readList :: ReadS [Policies]
 $creadList :: ReadS [Policies]
 readsPrec :: Int -&gt; ReadS Policies
 $creadsPrec :: Int -&gt; ReadS Policies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196899"><span id="local-6989586621679196901"><span id="local-6989586621679196903"><span class="annot"><span class="annottext">Int -&gt; Policies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196908"><span id="local-6989586621679196910"><span id="local-6989586621679196912"><span class="annot"><span class="annottext">Int -&gt; Policies -&gt; ShowS
 [Policies] -&gt; ShowS
 Policies -&gt; String
 (Int -&gt; Policies -&gt; ShowS)
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; (Policies -&gt; Maybe [Text] -&gt; Policies)
 -&gt; Lens Policies Policies (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196890"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196899"><span class="annot"><span class="annottext">Maybe [Text]
 otherPolicies :: Maybe [Text]
 $sel:otherPolicies:Policies' :: Policies -&gt; Maybe [Text]
-</span><a href="#local-6989586621679196890"><span class="hs-identifier hs-var hs-var">otherPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679196890"><span class="hs-identifier hs-var">otherPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196889"><span class="annot"><span class="annottext">s :: Policies
-</span><a href="#local-6989586621679196889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196888"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679196888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policies
-</span><a href="#local-6989586621679196889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otherPolicies:Policies' :: Maybe [Text]
+</span><a href="#local-6989586621679196899"><span class="hs-identifier hs-var hs-var">otherPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679196899"><span class="hs-identifier hs-var">otherPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196898"><span class="annot"><span class="annottext">s :: Policies
+</span><a href="#local-6989586621679196898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196897"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679196897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policies
+</span><a href="#local-6989586621679196898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otherPolicies:Policies' :: Maybe [Text]
 </span><a href="Network.AWS.ELB.Types.Policies.html#%24sel%3AotherPolicies%3APolicies%27"><span class="hs-identifier hs-var">otherPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679196888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Policies -&gt; f Policies)
+</span><a href="#local-6989586621679196897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Policies -&gt; f Policies)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -172,16 +172,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [LBCookieStickinessPolicy])
      (Maybe [LBCookieStickinessPolicy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196883"><span class="annot"><span class="annottext">Maybe [LBCookieStickinessPolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196892"><span class="annot"><span class="annottext">Maybe [LBCookieStickinessPolicy]
 lBCookieStickinessPolicies :: Maybe [LBCookieStickinessPolicy]
 $sel:lBCookieStickinessPolicies:Policies' :: Policies -&gt; Maybe [LBCookieStickinessPolicy]
-</span><a href="#local-6989586621679196883"><span class="hs-identifier hs-var hs-var">lBCookieStickinessPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LBCookieStickinessPolicy]
-</span><a href="#local-6989586621679196883"><span class="hs-identifier hs-var">lBCookieStickinessPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196882"><span class="annot"><span class="annottext">s :: Policies
-</span><a href="#local-6989586621679196882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196881"><span class="annot"><span class="annottext">Maybe [LBCookieStickinessPolicy]
-</span><a href="#local-6989586621679196881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policies
-</span><a href="#local-6989586621679196882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lBCookieStickinessPolicies:Policies' :: Maybe [LBCookieStickinessPolicy]
+</span><a href="#local-6989586621679196892"><span class="hs-identifier hs-var hs-var">lBCookieStickinessPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LBCookieStickinessPolicy]
+</span><a href="#local-6989586621679196892"><span class="hs-identifier hs-var">lBCookieStickinessPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196891"><span class="annot"><span class="annottext">s :: Policies
+</span><a href="#local-6989586621679196891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196890"><span class="annot"><span class="annottext">Maybe [LBCookieStickinessPolicy]
+</span><a href="#local-6989586621679196890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policies
+</span><a href="#local-6989586621679196891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lBCookieStickinessPolicies:Policies' :: Maybe [LBCookieStickinessPolicy]
 </span><a href="Network.AWS.ELB.Types.Policies.html#%24sel%3AlBCookieStickinessPolicies%3APolicies%27"><span class="hs-identifier hs-var">lBCookieStickinessPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LBCookieStickinessPolicy]
-</span><a href="#local-6989586621679196881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LBCookieStickinessPolicy]
+</span><a href="#local-6989586621679196890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LBCookieStickinessPolicy]
   -&gt; f (Maybe [LBCookieStickinessPolicy]))
  -&gt; Policies -&gt; f Policies)
 -&gt; ((Maybe [LBCookieStickinessPolicy]
@@ -227,16 +227,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [AppCookieStickinessPolicy])
      (Maybe [AppCookieStickinessPolicy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196879"><span class="annot"><span class="annottext">Maybe [AppCookieStickinessPolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196888"><span class="annot"><span class="annottext">Maybe [AppCookieStickinessPolicy]
 appCookieStickinessPolicies :: Maybe [AppCookieStickinessPolicy]
 $sel:appCookieStickinessPolicies:Policies' :: Policies -&gt; Maybe [AppCookieStickinessPolicy]
-</span><a href="#local-6989586621679196879"><span class="hs-identifier hs-var hs-var">appCookieStickinessPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AppCookieStickinessPolicy]
-</span><a href="#local-6989586621679196879"><span class="hs-identifier hs-var">appCookieStickinessPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196878"><span class="annot"><span class="annottext">s :: Policies
-</span><a href="#local-6989586621679196878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196877"><span class="annot"><span class="annottext">Maybe [AppCookieStickinessPolicy]
-</span><a href="#local-6989586621679196877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policies
-</span><a href="#local-6989586621679196878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appCookieStickinessPolicies:Policies' :: Maybe [AppCookieStickinessPolicy]
+</span><a href="#local-6989586621679196888"><span class="hs-identifier hs-var hs-var">appCookieStickinessPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AppCookieStickinessPolicy]
+</span><a href="#local-6989586621679196888"><span class="hs-identifier hs-var">appCookieStickinessPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196887"><span class="annot"><span class="annottext">s :: Policies
+</span><a href="#local-6989586621679196887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies%27"><span class="hs-identifier hs-type">Policies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196886"><span class="annot"><span class="annottext">Maybe [AppCookieStickinessPolicy]
+</span><a href="#local-6989586621679196886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policies
+</span><a href="#local-6989586621679196887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appCookieStickinessPolicies:Policies' :: Maybe [AppCookieStickinessPolicy]
 </span><a href="Network.AWS.ELB.Types.Policies.html#%24sel%3AappCookieStickinessPolicies%3APolicies%27"><span class="hs-identifier hs-var">appCookieStickinessPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AppCookieStickinessPolicy]
-</span><a href="#local-6989586621679196877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AppCookieStickinessPolicy]
+</span><a href="#local-6989586621679196886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AppCookieStickinessPolicy]
   -&gt; f (Maybe [AppCookieStickinessPolicy]))
  -&gt; Policies -&gt; f Policies)
 -&gt; ((Maybe [AppCookieStickinessPolicy]
@@ -270,9 +270,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679196874"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Policies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679196872"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679196872"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679196883"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Policies
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679196881"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679196881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe [LBCookieStickinessPolicy]
 -&gt; Maybe [AppCookieStickinessPolicy]
@@ -289,7 +289,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
       -&gt; Maybe [AppCookieStickinessPolicy] -&gt; Policies)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679196872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679196881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OtherPolicies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -319,7 +319,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe [AppCookieStickinessPolicy] -&gt; Policies)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679196872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679196881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LBCookieStickinessPolicies&quot;</span></span><span>
@@ -347,7 +347,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Policies
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679196872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679196881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppCookieStickinessPolicies&quot;</span></span><span>
@@ -371,7 +371,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196863"><span id="local-6989586621679196865"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196872"><span id="local-6989586621679196874"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.Policies.html#Policies"><span class="hs-identifier hs-type">Policies</span></a></span></span><span>
 </span><span id="line-94"></span></pre></body></html>

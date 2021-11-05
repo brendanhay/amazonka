@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- Description (Receiver Mix)\&quot; setting receives a stereo description plus</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- control track and emits a mono AAC encode of the description track, with</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- control data emitted in the PES header as per ETSI TS 101 154 Annex E.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679937030"><span id="local-6989586621679937031"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacCodingMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AacCodingMode.html#AacCodingMode"><span class="hs-identifier hs-var">AacCodingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacCodingMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AacCodingMode.html#AacCodingMode%27"><span class="hs-identifier hs-var">AacCodingMode'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679937039"><span id="local-6989586621679937040"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacCodingMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AacCodingMode.html#AacCodingMode"><span class="hs-identifier hs-var">AacCodingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacCodingMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AacCodingMode.html#AacCodingMode%27"><span class="hs-identifier hs-var">AacCodingMode'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAacCodingMode"><span class="annot"><span class="annottext">AacCodingMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AacCodingMode.html#fromAacCodingMode"><span class="hs-identifier hs-var hs-var">fromAacCodingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679937022"><span id="local-6989586621679937024"><span id="local-6989586621679937026"><span class="annot"><span class="annottext">Int -&gt; AacCodingMode -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679937031"><span id="local-6989586621679937033"><span id="local-6989586621679937035"><span class="annot"><span class="annottext">Int -&gt; AacCodingMode -&gt; ShowS
 [AacCodingMode] -&gt; ShowS
 AacCodingMode -&gt; String
 (Int -&gt; AacCodingMode -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: AacCodingMode -&gt; String
 showsPrec :: Int -&gt; AacCodingMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; AacCodingMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679937013"><span id="local-6989586621679937015"><span id="local-6989586621679937017"><span id="local-6989586621679937019"><span class="annot"><span class="annottext">ReadPrec [AacCodingMode]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679937022"><span id="local-6989586621679937024"><span id="local-6989586621679937026"><span id="local-6989586621679937028"><span class="annot"><span class="annottext">ReadPrec [AacCodingMode]
 ReadPrec AacCodingMode
 Int -&gt; ReadS AacCodingMode
 ReadS [AacCodingMode]
@@ -80,7 +80,7 @@ $creadList :: ReadS [AacCodingMode]
 readsPrec :: Int -&gt; ReadS AacCodingMode
 $creadsPrec :: Int -&gt; ReadS AacCodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679937008"><span id="local-6989586621679937010"><span class="annot"><span class="annottext">AacCodingMode -&gt; AacCodingMode -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679937017"><span id="local-6989586621679937019"><span class="annot"><span class="annottext">AacCodingMode -&gt; AacCodingMode -&gt; Bool
 (AacCodingMode -&gt; AacCodingMode -&gt; Bool)
 -&gt; (AacCodingMode -&gt; AacCodingMode -&gt; Bool) -&gt; Eq AacCodingMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: AacCodingMode -&gt; AacCodingMode -&gt; Bool
 == :: AacCodingMode -&gt; AacCodingMode -&gt; Bool
 $c== :: AacCodingMode -&gt; AacCodingMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679936992"><span id="local-6989586621679936994"><span id="local-6989586621679936996"><span id="local-6989586621679936998"><span id="local-6989586621679937000"><span id="local-6989586621679937002"><span id="local-6989586621679937004"><span class="annot"><span class="annottext">Eq AacCodingMode
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679937001"><span id="local-6989586621679937003"><span id="local-6989586621679937005"><span id="local-6989586621679937007"><span id="local-6989586621679937009"><span id="local-6989586621679937011"><span id="local-6989586621679937013"><span class="annot"><span class="annottext">Eq AacCodingMode
 Eq AacCodingMode
 -&gt; (AacCodingMode -&gt; AacCodingMode -&gt; Ordering)
 -&gt; (AacCodingMode -&gt; AacCodingMode -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. AacCodingMode -&gt; Rep AacCodingMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936984"><span id="local-6989586621679936986"><span class="annot"><span class="annottext">Int -&gt; AacCodingMode -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936993"><span id="local-6989586621679936995"><span class="annot"><span class="annottext">Int -&gt; AacCodingMode -&gt; Int
 AacCodingMode -&gt; Int
 (Int -&gt; AacCodingMode -&gt; Int)
 -&gt; (AacCodingMode -&gt; Int) -&gt; Hashable AacCodingMode
@@ -150,49 +150,49 @@ $chash :: AacCodingMode -&gt; Int
 hashWithSalt :: Int -&gt; AacCodingMode -&gt; Int
 $chashWithSalt :: Int -&gt; AacCodingMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679936981"><span class="annot"><span class="annottext">AacCodingMode -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679936990"><span class="annot"><span class="annottext">AacCodingMode -&gt; ()
 (AacCodingMode -&gt; ()) -&gt; NFData AacCodingMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AacCodingMode -&gt; ()
 $crnf :: AacCodingMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679936978"><span class="annot"><span class="annottext">Text -&gt; Either String AacCodingMode
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679936987"><span class="annot"><span class="annottext">Text -&gt; Either String AacCodingMode
 (Text -&gt; Either String AacCodingMode) -&gt; FromText AacCodingMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AacCodingMode
 $cfromText :: Text -&gt; Either String AacCodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679936975"><span class="annot"><span class="annottext">AacCodingMode -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679936984"><span class="annot"><span class="annottext">AacCodingMode -&gt; Text
 (AacCodingMode -&gt; Text) -&gt; ToText AacCodingMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AacCodingMode -&gt; Text
 $ctoText :: AacCodingMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679936972"><span class="annot"><span class="annottext">AacCodingMode -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679936981"><span class="annot"><span class="annottext">AacCodingMode -&gt; ByteString
 (AacCodingMode -&gt; ByteString) -&gt; ToByteString AacCodingMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AacCodingMode -&gt; ByteString
 $ctoBS :: AacCodingMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679936969"><span class="annot"><span class="annottext">AacCodingMode -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679936978"><span class="annot"><span class="annottext">AacCodingMode -&gt; ByteStringBuilder
 (AacCodingMode -&gt; ByteStringBuilder) -&gt; ToLog AacCodingMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AacCodingMode -&gt; ByteStringBuilder
 $cbuild :: AacCodingMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679936966"><span class="annot"><span class="annottext">HeaderName -&gt; AacCodingMode -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679936975"><span class="annot"><span class="annottext">HeaderName -&gt; AacCodingMode -&gt; [Header]
 (HeaderName -&gt; AacCodingMode -&gt; [Header]) -&gt; ToHeader AacCodingMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AacCodingMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AacCodingMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679936963"><span class="annot"><span class="annottext">AacCodingMode -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679936972"><span class="annot"><span class="annottext">AacCodingMode -&gt; QueryString
 (AacCodingMode -&gt; QueryString) -&gt; ToQuery AacCodingMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AacCodingMode -&gt; QueryString
 $ctoQuery :: AacCodingMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679936958"><span id="local-6989586621679936960"><span class="annot"><span class="annottext">Value -&gt; Parser [AacCodingMode]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679936967"><span id="local-6989586621679936969"><span class="annot"><span class="annottext">Value -&gt; Parser [AacCodingMode]
 Value -&gt; Parser AacCodingMode
 (Value -&gt; Parser AacCodingMode)
 -&gt; (Value -&gt; Parser [AacCodingMode]) -&gt; FromJSON AacCodingMode
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [AacCodingMode]
 parseJSON :: Value -&gt; Parser AacCodingMode
 $cparseJSON :: Value -&gt; Parser AacCodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679936953"><span id="local-6989586621679936955"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacCodingMode]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679936962"><span id="local-6989586621679936964"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacCodingMode]
 FromJSONKeyFunction AacCodingMode
 FromJSONKeyFunction AacCodingMode
 -&gt; FromJSONKeyFunction [AacCodingMode] -&gt; FromJSONKey AacCodingMode
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AacCodingMode]
 fromJSONKey :: FromJSONKeyFunction AacCodingMode
 $cfromJSONKey :: FromJSONKeyFunction AacCodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679936944"><span id="local-6989586621679936946"><span id="local-6989586621679936948"><span id="local-6989586621679936950"><span class="annot"><span class="annottext">[AacCodingMode] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679936953"><span id="local-6989586621679936955"><span id="local-6989586621679936957"><span id="local-6989586621679936959"><span class="annot"><span class="annottext">[AacCodingMode] -&gt; Encoding
 [AacCodingMode] -&gt; Value
 AacCodingMode -&gt; Encoding
 AacCodingMode -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: AacCodingMode -&gt; Encoding
 toJSON :: AacCodingMode -&gt; Value
 $ctoJSON :: AacCodingMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679936939"><span id="local-6989586621679936941"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacCodingMode]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679936948"><span id="local-6989586621679936950"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacCodingMode]
 ToJSONKeyFunction AacCodingMode
 ToJSONKeyFunction AacCodingMode
 -&gt; ToJSONKeyFunction [AacCodingMode] -&gt; ToJSONKey AacCodingMode
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AacCodingMode]
 toJSONKey :: ToJSONKeyFunction AacCodingMode
 $ctoJSONKey :: ToJSONKeyFunction AacCodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679936936"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacCodingMode
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679936945"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacCodingMode
 ([Node] -&gt; Either String AacCodingMode) -&gt; FromXML AacCodingMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AacCodingMode
 $cparseXML :: [Node] -&gt; Either String AacCodingMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679936933"><span class="annot"><span class="annottext">AacCodingMode -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679936942"><span class="annot"><span class="annottext">AacCodingMode -&gt; XML
 (AacCodingMode -&gt; XML) -&gt; ToXML AacCodingMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AacCodingMode -&gt; XML

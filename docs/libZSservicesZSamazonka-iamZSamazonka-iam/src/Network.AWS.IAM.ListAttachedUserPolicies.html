@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newListAttachedUserPolicies' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679446203"><span id="local-6989586621679446204"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttachedUserPolicies"><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-var">ListAttachedUserPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttachedUserPolicies%27"><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-var">ListAttachedUserPolicies'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679446212"><span id="local-6989586621679446213"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttachedUserPolicies"><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-var">ListAttachedUserPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttachedUserPolicies%27"><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-var">ListAttachedUserPolicies'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path prefix for filtering the results. This parameter is optional.</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- If it is not included, it defaults to a slash (\/), listing all</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- policies.</span><span>
@@ -107,7 +107,7 @@
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AuserName%3AListAttachedUserPolicies%27"><span class="annot"><span class="annottext">ListAttachedUserPolicies -&gt; Text
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AuserName%3AListAttachedUserPolicies%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446194"><span id="local-6989586621679446196"><span class="annot"><span class="annottext">ListAttachedUserPolicies -&gt; ListAttachedUserPolicies -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446203"><span id="local-6989586621679446205"><span class="annot"><span class="annottext">ListAttachedUserPolicies -&gt; ListAttachedUserPolicies -&gt; Bool
 (ListAttachedUserPolicies -&gt; ListAttachedUserPolicies -&gt; Bool)
 -&gt; (ListAttachedUserPolicies -&gt; ListAttachedUserPolicies -&gt; Bool)
 -&gt; Eq ListAttachedUserPolicies
@@ -116,7 +116,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAttachedUserPolicies -&gt; ListAttachedUserPolicies -&gt; Bool
 == :: ListAttachedUserPolicies -&gt; ListAttachedUserPolicies -&gt; Bool
 $c== :: ListAttachedUserPolicies -&gt; ListAttachedUserPolicies -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446185"><span id="local-6989586621679446187"><span id="local-6989586621679446189"><span id="local-6989586621679446191"><span class="annot"><span class="annottext">ReadPrec [ListAttachedUserPolicies]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446194"><span id="local-6989586621679446196"><span id="local-6989586621679446198"><span id="local-6989586621679446200"><span class="annot"><span class="annottext">ReadPrec [ListAttachedUserPolicies]
 ReadPrec ListAttachedUserPolicies
 Int -&gt; ReadS ListAttachedUserPolicies
 ReadS [ListAttachedUserPolicies]
@@ -136,7 +136,7 @@ readList :: ReadS [ListAttachedUserPolicies]
 $creadList :: ReadS [ListAttachedUserPolicies]
 readsPrec :: Int -&gt; ReadS ListAttachedUserPolicies
 $creadsPrec :: Int -&gt; ReadS ListAttachedUserPolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446178"><span id="local-6989586621679446180"><span id="local-6989586621679446182"><span class="annot"><span class="annottext">Int -&gt; ListAttachedUserPolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446187"><span id="local-6989586621679446189"><span id="local-6989586621679446191"><span class="annot"><span class="annottext">Int -&gt; ListAttachedUserPolicies -&gt; ShowS
 [ListAttachedUserPolicies] -&gt; ShowS
 ListAttachedUserPolicies -&gt; String
 (Int -&gt; ListAttachedUserPolicies -&gt; ShowS)
@@ -215,8 +215,8 @@ ListAttachedUserPolicies -&gt; Rep ListAttachedUserPolicies x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span>
 </span><span id="line-154"></span><span id="newListAttachedUserPolicies"><span class="annot"><span class="annottext">newListAttachedUserPolicies :: Text -&gt; ListAttachedUserPolicies
-</span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#newListAttachedUserPolicies"><span class="hs-identifier hs-var hs-var">newListAttachedUserPolicies</span></a></span></span><span> </span><span id="local-6989586621679446173"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446173"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#newListAttachedUserPolicies"><span class="hs-identifier hs-var hs-var">newListAttachedUserPolicies</span></a></span></span><span> </span><span id="local-6989586621679446182"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446182"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">ListAttachedUserPolicies' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListAttachedUserPolicies
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span>
@@ -235,7 +235,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:ListAttachedUserPolicies' :: Text
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AuserName%3AListAttachedUserPolicies%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446173"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
+</span><a href="#local-6989586621679446182"><span class="hs-identifier hs-var">pUserName_</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The path prefix for filtering the results. This parameter is optional.</span><span>
@@ -261,16 +261,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446171"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446180"><span class="annot"><span class="annottext">Maybe Text
 pathPrefix :: Maybe Text
 $sel:pathPrefix:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679446171"><span class="hs-identifier hs-var hs-var">pathPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446171"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446170"><span class="annot"><span class="annottext">s :: ListAttachedUserPolicies
-</span><a href="#local-6989586621679446170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446169"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
-</span><a href="#local-6989586621679446170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPrefix:ListAttachedUserPolicies' :: Maybe Text
+</span><a href="#local-6989586621679446180"><span class="hs-identifier hs-var hs-var">pathPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446180"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446179"><span class="annot"><span class="annottext">s :: ListAttachedUserPolicies
+</span><a href="#local-6989586621679446179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
+</span><a href="#local-6989586621679446179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPrefix:ListAttachedUserPolicies' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3ApathPrefix%3AListAttachedUserPolicies%27"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
@@ -288,16 +288,16 @@ $sel:pathPrefix:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446168"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446177"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679446168"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446168"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446167"><span class="annot"><span class="annottext">s :: ListAttachedUserPolicies
-</span><a href="#local-6989586621679446167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446166"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
-</span><a href="#local-6989586621679446167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAttachedUserPolicies' :: Maybe Text
+</span><a href="#local-6989586621679446177"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446177"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446176"><span class="annot"><span class="annottext">s :: ListAttachedUserPolicies
+</span><a href="#local-6989586621679446176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446175"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
+</span><a href="#local-6989586621679446176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAttachedUserPolicies' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3Amarker%3AListAttachedUserPolicies%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
@@ -320,16 +320,16 @@ $sel:marker:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Maybe Te
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446165"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446174"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Maybe Natural
-</span><a href="#local-6989586621679446165"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679446165"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446164"><span class="annot"><span class="annottext">s :: ListAttachedUserPolicies
-</span><a href="#local-6989586621679446164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446163"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679446163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
-</span><a href="#local-6989586621679446164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListAttachedUserPolicies' :: Maybe Natural
+</span><a href="#local-6989586621679446174"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679446174"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446173"><span class="annot"><span class="annottext">s :: ListAttachedUserPolicies
+</span><a href="#local-6989586621679446173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446172"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679446172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
+</span><a href="#local-6989586621679446173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListAttachedUserPolicies' :: Maybe Natural
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AmaxItems%3AListAttachedUserPolicies%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679446163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The name (friendly name, not ARN) of the user to list attached policies</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- for.</span><span>
@@ -345,30 +345,30 @@ $sel:maxItems:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Maybe 
 -&gt; (ListAttachedUserPolicies -&gt; Text -&gt; ListAttachedUserPolicies)
 -&gt; Lens ListAttachedUserPolicies ListAttachedUserPolicies Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446162"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446171"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Text
-</span><a href="#local-6989586621679446162"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446162"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446161"><span class="annot"><span class="annottext">s :: ListAttachedUserPolicies
-</span><a href="#local-6989586621679446161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446160"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
-</span><a href="#local-6989586621679446161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:ListAttachedUserPolicies' :: Text
+</span><a href="#local-6989586621679446171"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446171"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446170"><span class="annot"><span class="annottext">s :: ListAttachedUserPolicies
+</span><a href="#local-6989586621679446170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446169"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679446169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
+</span><a href="#local-6989586621679446170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:ListAttachedUserPolicies' :: Text
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AuserName%3AListAttachedUserPolicies%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679446156"><span class="annot"><span class="annottext">page :: ListAttachedUserPolicies
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679446165"><span class="annot"><span class="annottext">page :: ListAttachedUserPolicies
 -&gt; AWSResponse ListAttachedUserPolicies
 -&gt; Maybe ListAttachedUserPolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679446154"><span class="annot"><span class="annottext">ListAttachedUserPolicies
-</span><a href="#local-6989586621679446154"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679446153"><span class="annot"><span class="annottext">AWSResponse ListAttachedUserPolicies
-</span><a href="#local-6989586621679446153"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679446163"><span class="annot"><span class="annottext">ListAttachedUserPolicies
+</span><a href="#local-6989586621679446163"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679446162"><span class="annot"><span class="annottext">AWSResponse ListAttachedUserPolicies
+</span><a href="#local-6989586621679446162"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-209"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAttachedUserPolicies
 ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446153"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679446162"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
 -&gt; Getting (First Bool) ListAttachedUserPoliciesResponse Bool
 -&gt; Maybe Bool
@@ -398,7 +398,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-215"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAttachedUserPolicies
 ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446153"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679446162"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
 -&gt; Getting (First Text) ListAttachedUserPoliciesResponse Text
 -&gt; Maybe Text
@@ -432,7 +432,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
-</span><a href="#local-6989586621679446154"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679446163"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">ListAttachedUserPolicies
 -&gt; (ListAttachedUserPolicies -&gt; ListAttachedUserPolicies)
 -&gt; ListAttachedUserPolicies
@@ -453,7 +453,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAttachedUserPolicies
 ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446153"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679446162"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
 -&gt; Getting (First Text) ListAttachedUserPoliciesResponse Text
 -&gt; Maybe Text
@@ -479,13 +479,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-229"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-230"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679446142"><span class="annot"><span class="annottext">request :: ListAttachedUserPolicies -&gt; Request ListAttachedUserPolicies
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679446151"><span class="annot"><span class="annottext">request :: ListAttachedUserPolicies -&gt; Request ListAttachedUserPolicies
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListAttachedUserPolicies -&gt; Request ListAttachedUserPolicies
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679446138"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679446147"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAttachedUserPolicies
 -&gt; ClientResponse ClientBody
@@ -516,10 +516,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListAttachedUserPoliciesResult&quot;</span></span><span>
-</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446135"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446135"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446134"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679446134"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446133"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679446133"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446144"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446144"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446143"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679446143"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446142"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679446142"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
 -&gt; Maybe Text
 -&gt; Maybe Bool
@@ -538,7 +538,7 @@ Text
       -&gt; Maybe Bool -&gt; Int -&gt; ListAttachedUserPoliciesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679446133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679446142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttachedPolicies&quot;</span></span><span>
@@ -570,7 +570,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
      String (Maybe Bool -&gt; Int -&gt; ListAttachedUserPoliciesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679446133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679446142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -580,7 +580,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListAttachedUserPoliciesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679446133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679446142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -593,15 +593,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446135"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446144"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446122"><span id="local-6989586621679446124"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span></span></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446131"><span id="local-6989586621679446133"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span></span></span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446128"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span></span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679446115"><span class="annot"><span class="annottext">toHeaders :: ListAttachedUserPolicies -&gt; ResponseHeaders
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679446124"><span class="annot"><span class="annottext">toHeaders :: ListAttachedUserPolicies -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAttachedUserPolicies -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -609,15 +609,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679446110"><span class="annot"><span class="annottext">toPath :: ListAttachedUserPolicies -&gt; ByteString
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679446119"><span class="annot"><span class="annottext">toPath :: ListAttachedUserPolicies -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAttachedUserPolicies -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies"><span class="hs-identifier hs-type">ListAttachedUserPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679446106"><span class="annot"><span class="annottext">toQuery :: ListAttachedUserPolicies -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446101"><span id="local-6989586621679446102"><span id="local-6989586621679446103"><span id="local-6989586621679446104"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679446115"><span class="annot"><span class="annottext">toQuery :: ListAttachedUserPolicies -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPolicies%27"><span class="hs-identifier hs-type">ListAttachedUserPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446110"><span id="local-6989586621679446111"><span id="local-6989586621679446112"><span id="local-6989586621679446113"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 userName :: Text
@@ -628,7 +628,7 @@ $sel:userName:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Text
 $sel:maxItems:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Maybe Natural
 $sel:marker:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Maybe Text
 $sel:pathPrefix:ListAttachedUserPolicies' :: ListAttachedUserPolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679446101"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679446110"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -648,28 +648,28 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;PathPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446104"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446113"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446103"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446112"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679446102"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679446111"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679446101"><span class="hs-identifier hs-var">userName</span></a></span><span>
+</span><a href="#local-6989586621679446110"><span class="hs-identifier hs-var">userName</span></a></span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | Contains the response to a successful ListAttachedUserPolicies request.</span><span>
 </span><span id="line-271"></span><span class="hs-comment">--</span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- /See:/ 'newListAttachedUserPoliciesResponse' smart constructor.</span><span>
-</span><span id="line-273"></span><span id="local-6989586621679446098"><span id="local-6989586621679446099"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttachedUserPoliciesResponse"><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-var">ListAttachedUserPoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttachedUserPoliciesResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-var">ListAttachedUserPoliciesResponse'</span></a></span></span><span>
+</span><span id="line-273"></span><span id="local-6989586621679446107"><span id="local-6989586621679446108"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAttachedUserPoliciesResponse"><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-var">ListAttachedUserPoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAttachedUserPoliciesResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-var">ListAttachedUserPoliciesResponse'</span></a></span></span><span>
 </span><span id="line-274"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the attached policies.</span><span>
 </span><span id="line-275"></span><span>    </span><span id="%24sel%3AattachedPolicies%3AListAttachedUserPoliciesResponse%27"><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse -&gt; Maybe [AttachedPolicy]
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AattachedPolicies%3AListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">attachedPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.AttachedPolicy.html#AttachedPolicy"><span class="hs-identifier hs-type">AttachedPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -691,7 +691,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-289"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAttachedUserPoliciesResponse%27"><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse -&gt; Int
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AhttpStatus%3AListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-290"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-291"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446090"><span id="local-6989586621679446092"><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
+</span><span id="line-291"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446099"><span id="local-6989586621679446101"><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
 -&gt; ListAttachedUserPoliciesResponse -&gt; Bool
 (ListAttachedUserPoliciesResponse
  -&gt; ListAttachedUserPoliciesResponse -&gt; Bool)
@@ -707,7 +707,7 @@ $c/= :: ListAttachedUserPoliciesResponse
 -&gt; ListAttachedUserPoliciesResponse -&gt; Bool
 $c== :: ListAttachedUserPoliciesResponse
 -&gt; ListAttachedUserPoliciesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446082"><span id="local-6989586621679446084"><span id="local-6989586621679446086"><span id="local-6989586621679446088"><span class="annot"><span class="annottext">ReadPrec [ListAttachedUserPoliciesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446091"><span id="local-6989586621679446093"><span id="local-6989586621679446095"><span id="local-6989586621679446097"><span class="annot"><span class="annottext">ReadPrec [ListAttachedUserPoliciesResponse]
 ReadPrec ListAttachedUserPoliciesResponse
 Int -&gt; ReadS ListAttachedUserPoliciesResponse
 ReadS [ListAttachedUserPoliciesResponse]
@@ -727,7 +727,7 @@ readList :: ReadS [ListAttachedUserPoliciesResponse]
 $creadList :: ReadS [ListAttachedUserPoliciesResponse]
 readsPrec :: Int -&gt; ReadS ListAttachedUserPoliciesResponse
 $creadsPrec :: Int -&gt; ReadS ListAttachedUserPoliciesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446076"><span id="local-6989586621679446078"><span id="local-6989586621679446080"><span class="annot"><span class="annottext">Int -&gt; ListAttachedUserPoliciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446085"><span id="local-6989586621679446087"><span id="local-6989586621679446089"><span class="annot"><span class="annottext">Int -&gt; ListAttachedUserPoliciesResponse -&gt; ShowS
 [ListAttachedUserPoliciesResponse] -&gt; ShowS
 ListAttachedUserPoliciesResponse -&gt; String
 (Int -&gt; ListAttachedUserPoliciesResponse -&gt; ShowS)
@@ -793,8 +793,8 @@ ListAttachedUserPoliciesResponse
 </span><span id="line-318"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-319"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span>
 </span><span id="line-320"></span><span id="newListAttachedUserPoliciesResponse"><span class="annot"><span class="annottext">newListAttachedUserPoliciesResponse :: Int -&gt; ListAttachedUserPoliciesResponse
-</span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#newListAttachedUserPoliciesResponse"><span class="hs-identifier hs-var hs-var">newListAttachedUserPoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679446073"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446073"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#newListAttachedUserPoliciesResponse"><span class="hs-identifier hs-var hs-var">newListAttachedUserPoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679446082"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>  </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse' :: Maybe [AttachedPolicy]
 -&gt; Maybe Text
 -&gt; Maybe Bool
@@ -816,7 +816,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAttachedUserPoliciesResponse' :: Int
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AhttpStatus%3AListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446073"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679446082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-327"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- | A list of the attached policies.</span><span>
@@ -833,16 +833,16 @@ forall a. Maybe a
      (Maybe [AttachedPolicy])
      (Maybe [AttachedPolicy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446072"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446081"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
 attachedPolicies :: Maybe [AttachedPolicy]
 $sel:attachedPolicies:ListAttachedUserPoliciesResponse' :: ListAttachedUserPoliciesResponse -&gt; Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679446072"><span class="hs-identifier hs-var hs-var">attachedPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679446072"><span class="hs-identifier hs-var">attachedPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446071"><span class="annot"><span class="annottext">s :: ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446070"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679446070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachedPolicies:ListAttachedUserPoliciesResponse' :: Maybe [AttachedPolicy]
+</span><a href="#local-6989586621679446081"><span class="hs-identifier hs-var hs-var">attachedPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><a href="#local-6989586621679446081"><span class="hs-identifier hs-var">attachedPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446080"><span class="annot"><span class="annottext">s :: ListAttachedUserPoliciesResponse
+</span><a href="#local-6989586621679446080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446079"><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
+</span><a href="#local-6989586621679446079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
+</span><a href="#local-6989586621679446080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachedPolicies:ListAttachedUserPoliciesResponse' :: Maybe [AttachedPolicy]
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AattachedPolicies%3AListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-var">attachedPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedPolicy]
-</span><a href="#local-6989586621679446070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
+</span><a href="#local-6989586621679446079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
  -&gt; ListAttachedUserPoliciesResponse
  -&gt; f ListAttachedUserPoliciesResponse)
 -&gt; ((Maybe [AttachedPolicy] -&gt; f (Maybe [AttachedPolicy]))
@@ -878,16 +878,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListAttachedUserPoliciesResponse)
 -&gt; Lens' ListAttachedUserPoliciesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446067"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446076"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListAttachedUserPoliciesResponse' :: ListAttachedUserPoliciesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679446067"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446067"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446066"><span class="annot"><span class="annottext">s :: ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446065"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAttachedUserPoliciesResponse' :: Maybe Text
+</span><a href="#local-6989586621679446076"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446076"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446075"><span class="annot"><span class="annottext">s :: ListAttachedUserPoliciesResponse
+</span><a href="#local-6989586621679446075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446074"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
+</span><a href="#local-6989586621679446075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAttachedUserPoliciesResponse' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3Amarker%3AListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679446065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-338"></span><span>
 </span><span id="line-339"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
 </span><span id="line-340"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
@@ -905,16 +905,16 @@ $sel:marker:ListAttachedUserPoliciesResponse' :: ListAttachedUserPoliciesRespons
     -&gt; Maybe Bool -&gt; ListAttachedUserPoliciesResponse)
 -&gt; Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446064"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446073"><span class="annot"><span class="annottext">Maybe Bool
 isTruncated :: Maybe Bool
 $sel:isTruncated:ListAttachedUserPoliciesResponse' :: ListAttachedUserPoliciesResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679446064"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679446064"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446063"><span class="annot"><span class="annottext">s :: ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446062"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679446062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListAttachedUserPoliciesResponse' :: Maybe Bool
+</span><a href="#local-6989586621679446073"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679446073"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446072"><span class="annot"><span class="annottext">s :: ListAttachedUserPoliciesResponse
+</span><a href="#local-6989586621679446072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446071"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679446071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
+</span><a href="#local-6989586621679446072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListAttachedUserPoliciesResponse' :: Maybe Bool
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AisTruncated%3AListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679446062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-348"></span><span>
 </span><span id="line-349"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-350"></span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#listAttachedUserPoliciesResponse_httpStatus"><span class="hs-identifier hs-type">listAttachedUserPoliciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -930,18 +930,18 @@ $sel:isTruncated:ListAttachedUserPoliciesResponse' :: ListAttachedUserPoliciesRe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446061"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446070"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAttachedUserPoliciesResponse' :: ListAttachedUserPoliciesResponse -&gt; Int
-</span><a href="#local-6989586621679446061"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446061"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446060"><span class="annot"><span class="annottext">s :: ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446059"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
-</span><a href="#local-6989586621679446060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAttachedUserPoliciesResponse' :: Int
+</span><a href="#local-6989586621679446070"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446070"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446069"><span class="annot"><span class="annottext">s :: ListAttachedUserPoliciesResponse
+</span><a href="#local-6989586621679446069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446068"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAttachedUserPoliciesResponse
+</span><a href="#local-6989586621679446069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAttachedUserPoliciesResponse' :: Int
 </span><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#%24sel%3AhttpStatus%3AListAttachedUserPoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679446059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679446068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-352"></span><span>
 </span><span id="line-353"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-354"></span><span>  </span><span id="local-6989586621679446057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-354"></span><span>  </span><span id="local-6989586621679446066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-355"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListAttachedUserPolicies.html#ListAttachedUserPoliciesResponse"><span class="hs-identifier hs-type">ListAttachedUserPoliciesResponse</span></a></span></span><span>
 </span><span id="line-356"></span></pre></body></html>

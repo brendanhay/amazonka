@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.IcmpTypeCode.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.IcmpTypeCode</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.PortRangeFromTo.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.PortRangeFromTo</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A rule for the network ACL. Each rule allows or denies access based on</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- the IP address, traffic direction, port, and protocol.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAwsEc2NetworkAclEntry' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679983405"><span id="local-6989586621679983406"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEc2NetworkAclEntry"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-var">AwsEc2NetworkAclEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEc2NetworkAclEntry%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">AwsEc2NetworkAclEntry'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPV6 network range for which to deny or allow access.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aipv6CidrBlock%3AAwsEc2NetworkAclEntry%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3Aipv6CidrBlock%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Internet Control Message Protocol (ICMP) type and code for which to</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- deny or allow access.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AicmpTypeCode%3AAwsEc2NetworkAclEntry%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry -&gt; Maybe IcmpTypeCode
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AicmpTypeCode%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">icmpTypeCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The rule number. The rules are processed in order by their number.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AruleNumber%3AAwsEc2NetworkAclEntry%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AruleNumber%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Whether the rule is used to allow access or deny access.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AruleAction%3AAwsEc2NetworkAclEntry%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AruleAction%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The protocol that the rule applies to. To deny or allow access to all</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- protocols, use the value -1.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aprotocol%3AAwsEc2NetworkAclEntry%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3Aprotocol%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | For TCP or UDP protocols, the range of ports that the rule applies to.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AportRange%3AAwsEc2NetworkAclEntry%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry -&gt; Maybe PortRangeFromTo
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AportRange%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.PortRangeFromTo.html#PortRangeFromTo"><span class="hs-identifier hs-type">PortRangeFromTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The IPV4 network range for which to deny or allow access.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcidrBlock%3AAwsEc2NetworkAclEntry%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AcidrBlock%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Whether the rule is an egress rule. An egress rule is a rule that</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- applies to traffic that leaves the subnet.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aegress%3AAwsEc2NetworkAclEntry%27"><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry -&gt; Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3Aegress%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">egress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679983392"><span id="local-6989586621679983394"><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry -&gt; AwsEc2NetworkAclEntry -&gt; Bool
+(AwsEc2NetworkAclEntry -&gt; AwsEc2NetworkAclEntry -&gt; Bool)
+-&gt; (AwsEc2NetworkAclEntry -&gt; AwsEc2NetworkAclEntry -&gt; Bool)
+-&gt; Eq AwsEc2NetworkAclEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEc2NetworkAclEntry -&gt; AwsEc2NetworkAclEntry -&gt; Bool
+$c/= :: AwsEc2NetworkAclEntry -&gt; AwsEc2NetworkAclEntry -&gt; Bool
+== :: AwsEc2NetworkAclEntry -&gt; AwsEc2NetworkAclEntry -&gt; Bool
+$c== :: AwsEc2NetworkAclEntry -&gt; AwsEc2NetworkAclEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679983383"><span id="local-6989586621679983385"><span id="local-6989586621679983387"><span id="local-6989586621679983389"><span class="annot"><span class="annottext">ReadPrec [AwsEc2NetworkAclEntry]
+ReadPrec AwsEc2NetworkAclEntry
+Int -&gt; ReadS AwsEc2NetworkAclEntry
+ReadS [AwsEc2NetworkAclEntry]
+(Int -&gt; ReadS AwsEc2NetworkAclEntry)
+-&gt; ReadS [AwsEc2NetworkAclEntry]
+-&gt; ReadPrec AwsEc2NetworkAclEntry
+-&gt; ReadPrec [AwsEc2NetworkAclEntry]
+-&gt; Read AwsEc2NetworkAclEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsEc2NetworkAclEntry]
+$creadListPrec :: ReadPrec [AwsEc2NetworkAclEntry]
+readPrec :: ReadPrec AwsEc2NetworkAclEntry
+$creadPrec :: ReadPrec AwsEc2NetworkAclEntry
+readList :: ReadS [AwsEc2NetworkAclEntry]
+$creadList :: ReadS [AwsEc2NetworkAclEntry]
+readsPrec :: Int -&gt; ReadS AwsEc2NetworkAclEntry
+$creadsPrec :: Int -&gt; ReadS AwsEc2NetworkAclEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679983376"><span id="local-6989586621679983378"><span id="local-6989586621679983380"><span class="annot"><span class="annottext">Int -&gt; AwsEc2NetworkAclEntry -&gt; ShowS
+[AwsEc2NetworkAclEntry] -&gt; ShowS
+AwsEc2NetworkAclEntry -&gt; String
+(Int -&gt; AwsEc2NetworkAclEntry -&gt; ShowS)
+-&gt; (AwsEc2NetworkAclEntry -&gt; String)
+-&gt; ([AwsEc2NetworkAclEntry] -&gt; ShowS)
+-&gt; Show AwsEc2NetworkAclEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEc2NetworkAclEntry] -&gt; ShowS
+$cshowList :: [AwsEc2NetworkAclEntry] -&gt; ShowS
+show :: AwsEc2NetworkAclEntry -&gt; String
+$cshow :: AwsEc2NetworkAclEntry -&gt; String
+showsPrec :: Int -&gt; AwsEc2NetworkAclEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsEc2NetworkAclEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AwsEc2NetworkAclEntry -&gt; Rep AwsEc2NetworkAclEntry x)
+-&gt; (forall x. Rep AwsEc2NetworkAclEntry x -&gt; AwsEc2NetworkAclEntry)
+-&gt; Generic AwsEc2NetworkAclEntry
+forall x. Rep AwsEc2NetworkAclEntry x -&gt; AwsEc2NetworkAclEntry
+forall x. AwsEc2NetworkAclEntry -&gt; Rep AwsEc2NetworkAclEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AwsEc2NetworkAclEntry x -&gt; AwsEc2NetworkAclEntry
+$cfrom :: forall x. AwsEc2NetworkAclEntry -&gt; Rep AwsEc2NetworkAclEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'AwsEc2NetworkAclEntry' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'ipv6CidrBlock', 'awsEc2NetworkAclEntry_ipv6CidrBlock' - The IPV6 network range for which to deny or allow access.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'icmpTypeCode', 'awsEc2NetworkAclEntry_icmpTypeCode' - The Internet Control Message Protocol (ICMP) type and code for which to</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- deny or allow access.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'ruleNumber', 'awsEc2NetworkAclEntry_ruleNumber' - The rule number. The rules are processed in order by their number.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'ruleAction', 'awsEc2NetworkAclEntry_ruleAction' - Whether the rule is used to allow access or deny access.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'protocol', 'awsEc2NetworkAclEntry_protocol' - The protocol that the rule applies to. To deny or allow access to all</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- protocols, use the value -1.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'portRange', 'awsEc2NetworkAclEntry_portRange' - For TCP or UDP protocols, the range of ports that the rule applies to.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'cidrBlock', 'awsEc2NetworkAclEntry_cidrBlock' - The IPV4 network range for which to deny or allow access.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'egress', 'awsEc2NetworkAclEntry_egress' - Whether the rule is an egress rule. An egress rule is a rule that</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- applies to traffic that leaves the subnet.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#newAwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">newAwsEc2NetworkAclEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span>
+</span><span id="line-83"></span><span id="newAwsEc2NetworkAclEntry"><span class="annot"><span class="annottext">newAwsEc2NetworkAclEntry :: AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#newAwsEc2NetworkAclEntry"><span class="hs-identifier hs-var hs-var">newAwsEc2NetworkAclEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry' :: Maybe Text
+-&gt; Maybe IcmpTypeCode
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PortRangeFromTo
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:AwsEc2NetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3Aipv6CidrBlock%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:icmpTypeCode:AwsEc2NetworkAclEntry' :: Maybe IcmpTypeCode
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AicmpTypeCode%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleNumber:AwsEc2NetworkAclEntry' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AruleNumber%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleAction:AwsEc2NetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AruleAction%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:AwsEc2NetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3Aprotocol%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:portRange:AwsEc2NetworkAclEntry' :: Maybe PortRangeFromTo
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AportRange%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">portRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortRangeFromTo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrBlock:AwsEc2NetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AcidrBlock%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:egress:AwsEc2NetworkAclEntry' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3Aegress%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">egress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The IPV6 network range for which to deny or allow access.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_ipv6CidrBlock"><span class="hs-identifier hs-type">awsEc2NetworkAclEntry_ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="awsEc2NetworkAclEntry_ipv6CidrBlock"><span class="annot"><span class="annottext">awsEc2NetworkAclEntry_ipv6CidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2NetworkAclEntry -&gt; f AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_ipv6CidrBlock"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclEntry_ipv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclEntry -&gt; Maybe Text)
+-&gt; (AwsEc2NetworkAclEntry -&gt; Maybe Text -&gt; AwsEc2NetworkAclEntry)
+-&gt; Lens
+     AwsEc2NetworkAclEntry
+     AwsEc2NetworkAclEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983367"><span class="annot"><span class="annottext">Maybe Text
+ipv6CidrBlock :: Maybe Text
+$sel:ipv6CidrBlock:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679983367"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983367"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983366"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983365"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:AwsEc2NetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3Aipv6CidrBlock%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The Internet Control Message Protocol (ICMP) type and code for which to</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- deny or allow access.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_icmpTypeCode"><span class="hs-identifier hs-type">awsEc2NetworkAclEntry_icmpTypeCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="awsEc2NetworkAclEntry_icmpTypeCode"><span class="annot"><span class="annottext">awsEc2NetworkAclEntry_icmpTypeCode :: (Maybe IcmpTypeCode -&gt; f (Maybe IcmpTypeCode))
+-&gt; AwsEc2NetworkAclEntry -&gt; f AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_icmpTypeCode"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclEntry_icmpTypeCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclEntry -&gt; Maybe IcmpTypeCode)
+-&gt; (AwsEc2NetworkAclEntry
+    -&gt; Maybe IcmpTypeCode -&gt; AwsEc2NetworkAclEntry)
+-&gt; Lens
+     AwsEc2NetworkAclEntry
+     AwsEc2NetworkAclEntry
+     (Maybe IcmpTypeCode)
+     (Maybe IcmpTypeCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983363"><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+icmpTypeCode :: Maybe IcmpTypeCode
+$sel:icmpTypeCode:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe IcmpTypeCode
+</span><a href="#local-6989586621679983363"><span class="hs-identifier hs-var hs-var">icmpTypeCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621679983363"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983362"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983361"><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621679983361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:icmpTypeCode:AwsEc2NetworkAclEntry' :: Maybe IcmpTypeCode
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AicmpTypeCode%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621679983361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The rule number. The rules are processed in order by their number.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_ruleNumber"><span class="hs-identifier hs-type">awsEc2NetworkAclEntry_ruleNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="awsEc2NetworkAclEntry_ruleNumber"><span class="annot"><span class="annottext">awsEc2NetworkAclEntry_ruleNumber :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsEc2NetworkAclEntry -&gt; f AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_ruleNumber"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclEntry_ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclEntry -&gt; Maybe Int)
+-&gt; (AwsEc2NetworkAclEntry -&gt; Maybe Int -&gt; AwsEc2NetworkAclEntry)
+-&gt; Lens
+     AwsEc2NetworkAclEntry AwsEc2NetworkAclEntry (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983359"><span class="annot"><span class="annottext">Maybe Int
+ruleNumber :: Maybe Int
+$sel:ruleNumber:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Int
+</span><a href="#local-6989586621679983359"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679983359"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983358"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983357"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679983357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNumber:AwsEc2NetworkAclEntry' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AruleNumber%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679983357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Whether the rule is used to allow access or deny access.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_ruleAction"><span class="hs-identifier hs-type">awsEc2NetworkAclEntry_ruleAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="awsEc2NetworkAclEntry_ruleAction"><span class="annot"><span class="annottext">awsEc2NetworkAclEntry_ruleAction :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2NetworkAclEntry -&gt; f AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_ruleAction"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclEntry_ruleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclEntry -&gt; Maybe Text)
+-&gt; (AwsEc2NetworkAclEntry -&gt; Maybe Text -&gt; AwsEc2NetworkAclEntry)
+-&gt; Lens
+     AwsEc2NetworkAclEntry
+     AwsEc2NetworkAclEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983355"><span class="annot"><span class="annottext">Maybe Text
+ruleAction :: Maybe Text
+$sel:ruleAction:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679983355"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983355"><span class="hs-identifier hs-var">ruleAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983354"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983353"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleAction:AwsEc2NetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AruleAction%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The protocol that the rule applies to. To deny or allow access to all</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- protocols, use the value -1.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_protocol"><span class="hs-identifier hs-type">awsEc2NetworkAclEntry_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="awsEc2NetworkAclEntry_protocol"><span class="annot"><span class="annottext">awsEc2NetworkAclEntry_protocol :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2NetworkAclEntry -&gt; f AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_protocol"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclEntry_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclEntry -&gt; Maybe Text)
+-&gt; (AwsEc2NetworkAclEntry -&gt; Maybe Text -&gt; AwsEc2NetworkAclEntry)
+-&gt; Lens
+     AwsEc2NetworkAclEntry
+     AwsEc2NetworkAclEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983351"><span class="annot"><span class="annottext">Maybe Text
+protocol :: Maybe Text
+$sel:protocol:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679983351"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983351"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983350"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983349"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:AwsEc2NetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3Aprotocol%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | For TCP or UDP protocols, the range of ports that the rule applies to.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_portRange"><span class="hs-identifier hs-type">awsEc2NetworkAclEntry_portRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.PortRangeFromTo.html#PortRangeFromTo"><span class="hs-identifier hs-type">PortRangeFromTo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="awsEc2NetworkAclEntry_portRange"><span class="annot"><span class="annottext">awsEc2NetworkAclEntry_portRange :: (Maybe PortRangeFromTo -&gt; f (Maybe PortRangeFromTo))
+-&gt; AwsEc2NetworkAclEntry -&gt; f AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_portRange"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclEntry_portRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclEntry -&gt; Maybe PortRangeFromTo)
+-&gt; (AwsEc2NetworkAclEntry
+    -&gt; Maybe PortRangeFromTo -&gt; AwsEc2NetworkAclEntry)
+-&gt; Lens
+     AwsEc2NetworkAclEntry
+     AwsEc2NetworkAclEntry
+     (Maybe PortRangeFromTo)
+     (Maybe PortRangeFromTo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983347"><span class="annot"><span class="annottext">Maybe PortRangeFromTo
+portRange :: Maybe PortRangeFromTo
+$sel:portRange:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe PortRangeFromTo
+</span><a href="#local-6989586621679983347"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PortRangeFromTo
+</span><a href="#local-6989586621679983347"><span class="hs-identifier hs-var">portRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983346"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983345"><span class="annot"><span class="annottext">Maybe PortRangeFromTo
+</span><a href="#local-6989586621679983345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portRange:AwsEc2NetworkAclEntry' :: Maybe PortRangeFromTo
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AportRange%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">portRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortRangeFromTo
+</span><a href="#local-6989586621679983345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The IPV4 network range for which to deny or allow access.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_cidrBlock"><span class="hs-identifier hs-type">awsEc2NetworkAclEntry_cidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="awsEc2NetworkAclEntry_cidrBlock"><span class="annot"><span class="annottext">awsEc2NetworkAclEntry_cidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEc2NetworkAclEntry -&gt; f AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_cidrBlock"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclEntry_cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclEntry -&gt; Maybe Text)
+-&gt; (AwsEc2NetworkAclEntry -&gt; Maybe Text -&gt; AwsEc2NetworkAclEntry)
+-&gt; Lens
+     AwsEc2NetworkAclEntry
+     AwsEc2NetworkAclEntry
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983343"><span class="annot"><span class="annottext">Maybe Text
+cidrBlock :: Maybe Text
+$sel:cidrBlock:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679983343"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983343"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983342"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983341"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:AwsEc2NetworkAclEntry' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3AcidrBlock%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Whether the rule is an egress rule. An egress rule is a rule that</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- applies to traffic that leaves the subnet.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_egress"><span class="hs-identifier hs-type">awsEc2NetworkAclEntry_egress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="awsEc2NetworkAclEntry_egress"><span class="annot"><span class="annottext">awsEc2NetworkAclEntry_egress :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AwsEc2NetworkAclEntry -&gt; f AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#awsEc2NetworkAclEntry_egress"><span class="hs-identifier hs-var hs-var">awsEc2NetworkAclEntry_egress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEc2NetworkAclEntry -&gt; Maybe Bool)
+-&gt; (AwsEc2NetworkAclEntry -&gt; Maybe Bool -&gt; AwsEc2NetworkAclEntry)
+-&gt; Lens
+     AwsEc2NetworkAclEntry
+     AwsEc2NetworkAclEntry
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983339"><span class="annot"><span class="annottext">Maybe Bool
+egress :: Maybe Bool
+$sel:egress:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Bool
+</span><a href="#local-6989586621679983339"><span class="hs-identifier hs-var hs-var">egress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679983339"><span class="hs-identifier hs-var">egress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679983338"><span class="annot"><span class="annottext">s :: AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679983337"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679983337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEc2NetworkAclEntry
+</span><a href="#local-6989586621679983338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:egress:AwsEc2NetworkAclEntry' :: Maybe Bool
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#%24sel%3Aegress%3AAwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">egress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679983337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983334"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679983332"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsEc2NetworkAclEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsEc2NetworkAclEntry)
+-&gt; Value
+-&gt; Parser AwsEc2NetworkAclEntry
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEc2NetworkAclEntry&quot;</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679983329"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe IcmpTypeCode
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PortRangeFromTo
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; AwsEc2NetworkAclEntry
+</span><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-var">AwsEc2NetworkAclEntry'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe IcmpTypeCode
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe PortRangeFromTo
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; AwsEc2NetworkAclEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe IcmpTypeCode
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PortRangeFromTo
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; AwsEc2NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ipv6CidrBlock&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IcmpTypeCode
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PortRangeFromTo
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; AwsEc2NetworkAclEntry)
+-&gt; Parser (Maybe IcmpTypeCode)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PortRangeFromTo
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; AwsEc2NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IcmpTypeCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IcmpTypeCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PortRangeFromTo
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; AwsEc2NetworkAclEntry)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PortRangeFromTo
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; AwsEc2NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PortRangeFromTo
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; AwsEc2NetworkAclEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe PortRangeFromTo
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; AwsEc2NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe PortRangeFromTo
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; AwsEc2NetworkAclEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PortRangeFromTo
+      -&gt; Maybe Text -&gt; Maybe Bool -&gt; AwsEc2NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PortRangeFromTo
+   -&gt; Maybe Text -&gt; Maybe Bool -&gt; AwsEc2NetworkAclEntry)
+-&gt; Parser (Maybe PortRangeFromTo)
+-&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; AwsEc2NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PortRangeFromTo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PortRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; AwsEc2NetworkAclEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool -&gt; AwsEc2NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CidrBlock&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; AwsEc2NetworkAclEntry)
+-&gt; Parser (Maybe Bool) -&gt; Parser AwsEc2NetworkAclEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679983329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Egress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983323"><span id="local-6989586621679983325"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679983312"><span id="local-6989586621679983314"><span id="local-6989586621679983316"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679983310"><span class="annot"><span class="annottext">toJSON :: AwsEc2NetworkAclEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsEc2NetworkAclEntry.html#AwsEc2NetworkAclEntry%27"><span class="hs-identifier hs-type">AwsEc2NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679983301"><span id="local-6989586621679983302"><span id="local-6989586621679983303"><span id="local-6989586621679983304"><span id="local-6989586621679983305"><span id="local-6989586621679983306"><span id="local-6989586621679983307"><span id="local-6989586621679983308"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe Text
+Maybe IcmpTypeCode
+Maybe PortRangeFromTo
+egress :: Maybe Bool
+cidrBlock :: Maybe Text
+portRange :: Maybe PortRangeFromTo
+protocol :: Maybe Text
+ruleAction :: Maybe Text
+ruleNumber :: Maybe Int
+icmpTypeCode :: Maybe IcmpTypeCode
+ipv6CidrBlock :: Maybe Text
+$sel:egress:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Bool
+$sel:cidrBlock:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Text
+$sel:portRange:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe PortRangeFromTo
+$sel:protocol:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Text
+$sel:ruleAction:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Text
+$sel:ruleNumber:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Int
+$sel:icmpTypeCode:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe IcmpTypeCode
+$sel:ipv6CidrBlock:AwsEc2NetworkAclEntry' :: AwsEc2NetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679983301"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ipv6CidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983308"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IcmpTypeCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IcmpTypeCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IcmpTypeCode -&gt; Pair) -&gt; Maybe IcmpTypeCode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621679983307"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679983306"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983305"><span class="hs-identifier hs-var">ruleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983304"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PortRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PortRangeFromTo -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PortRangeFromTo -&gt; Pair) -&gt; Maybe PortRangeFromTo -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PortRangeFromTo
+</span><a href="#local-6989586621679983303"><span class="hs-identifier hs-var">portRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679983302"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Egress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679983301"><span class="hs-identifier hs-var">egress</span></a></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span></pre></body></html>

@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newReceiptRule' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679277110"><span id="local-6989586621679277111"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiptRule"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-var">ReceiptRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiptRule%27"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-var">ReceiptRule'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679277119"><span id="local-6989586621679277120"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiptRule"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-var">ReceiptRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiptRule%27"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-var">ReceiptRule'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @true@, then messages that this receipt rule applies to are scanned</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- for spam and viruses. The default value is @false@.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AscanEnabled%3AReceiptRule%27"><span class="annot"><span class="annottext">ReceiptRule -&gt; Maybe Bool
@@ -73,7 +73,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3Aname%3AReceiptRule%27"><span class="annot"><span class="annottext">ReceiptRule -&gt; Text
 </span><a href="Network.AWS.SES.Types.ReceiptRule.html#%24sel%3Aname%3AReceiptRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277099"><span id="local-6989586621679277101"><span class="annot"><span class="annottext">ReceiptRule -&gt; ReceiptRule -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277108"><span id="local-6989586621679277110"><span class="annot"><span class="annottext">ReceiptRule -&gt; ReceiptRule -&gt; Bool
 (ReceiptRule -&gt; ReceiptRule -&gt; Bool)
 -&gt; (ReceiptRule -&gt; ReceiptRule -&gt; Bool) -&gt; Eq ReceiptRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReceiptRule -&gt; ReceiptRule -&gt; Bool
 == :: ReceiptRule -&gt; ReceiptRule -&gt; Bool
 $c== :: ReceiptRule -&gt; ReceiptRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277090"><span id="local-6989586621679277092"><span id="local-6989586621679277094"><span id="local-6989586621679277096"><span class="annot"><span class="annottext">ReadPrec [ReceiptRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277099"><span id="local-6989586621679277101"><span id="local-6989586621679277103"><span id="local-6989586621679277105"><span class="annot"><span class="annottext">ReadPrec [ReceiptRule]
 ReadPrec ReceiptRule
 Int -&gt; ReadS ReceiptRule
 ReadS [ReceiptRule]
@@ -101,7 +101,7 @@ readList :: ReadS [ReceiptRule]
 $creadList :: ReadS [ReceiptRule]
 readsPrec :: Int -&gt; ReadS ReceiptRule
 $creadsPrec :: Int -&gt; ReadS ReceiptRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277083"><span id="local-6989586621679277085"><span id="local-6989586621679277087"><span class="annot"><span class="annottext">Int -&gt; ReceiptRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277092"><span id="local-6989586621679277094"><span id="local-6989586621679277096"><span class="annot"><span class="annottext">Int -&gt; ReceiptRule -&gt; ShowS
 [ReceiptRule] -&gt; ShowS
 ReceiptRule -&gt; String
 (Int -&gt; ReceiptRule -&gt; ShowS)
@@ -166,8 +166,8 @@ $cfrom :: forall x. ReceiptRule -&gt; Rep ReceiptRule x
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span>
 </span><span id="line-110"></span><span id="newReceiptRule"><span class="annot"><span class="annottext">newReceiptRule :: Text -&gt; ReceiptRule
-</span><a href="Network.AWS.SES.Types.ReceiptRule.html#newReceiptRule"><span class="hs-identifier hs-var hs-var">newReceiptRule</span></a></span></span><span> </span><span id="local-6989586621679277077"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277077"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.ReceiptRule.html#newReceiptRule"><span class="hs-identifier hs-var hs-var">newReceiptRule</span></a></span></span><span> </span><span id="local-6989586621679277086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277086"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">ReceiptRule' :: Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe [ReceiptAction]
@@ -198,7 +198,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ReceiptRule' :: Text
 </span><a href="Network.AWS.SES.Types.ReceiptRule.html#%24sel%3Aname%3AReceiptRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277077"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679277086"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | If @true@, then messages that this receipt rule applies to are scanned</span><span>
@@ -209,16 +209,16 @@ forall a. Maybe a
 -&gt; (ReceiptRule -&gt; Maybe Bool -&gt; ReceiptRule)
 -&gt; Lens ReceiptRule ReceiptRule (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277073"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277082"><span class="annot"><span class="annottext">Maybe Bool
 scanEnabled :: Maybe Bool
 $sel:scanEnabled:ReceiptRule' :: ReceiptRule -&gt; Maybe Bool
-</span><a href="#local-6989586621679277073"><span class="hs-identifier hs-var hs-var">scanEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277073"><span class="hs-identifier hs-var">scanEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277072"><span class="annot"><span class="annottext">s :: ReceiptRule
-</span><a href="#local-6989586621679277072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277071"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
-</span><a href="#local-6989586621679277072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanEnabled:ReceiptRule' :: Maybe Bool
+</span><a href="#local-6989586621679277082"><span class="hs-identifier hs-var hs-var">scanEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277082"><span class="hs-identifier hs-var">scanEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277081"><span class="annot"><span class="annottext">s :: ReceiptRule
+</span><a href="#local-6989586621679277081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277080"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679277081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanEnabled:ReceiptRule' :: Maybe Bool
 </span><a href="Network.AWS.SES.Types.ReceiptRule.html#%24sel%3AscanEnabled%3AReceiptRule%27"><span class="hs-identifier hs-var">scanEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | If @true@, the receipt rule is active. The default value is @false@.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#receiptRule_enabled"><span class="hs-identifier hs-type">receiptRule_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -227,16 +227,16 @@ $sel:scanEnabled:ReceiptRule' :: ReceiptRule -&gt; Maybe Bool
 -&gt; (ReceiptRule -&gt; Maybe Bool -&gt; ReceiptRule)
 -&gt; Lens ReceiptRule ReceiptRule (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277069"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277078"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:ReceiptRule' :: ReceiptRule -&gt; Maybe Bool
-</span><a href="#local-6989586621679277069"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277069"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277068"><span class="annot"><span class="annottext">s :: ReceiptRule
-</span><a href="#local-6989586621679277068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277067"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
-</span><a href="#local-6989586621679277068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ReceiptRule' :: Maybe Bool
+</span><a href="#local-6989586621679277078"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277078"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277077"><span class="annot"><span class="annottext">s :: ReceiptRule
+</span><a href="#local-6989586621679277077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277076"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679277076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679277077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ReceiptRule' :: Maybe Bool
 </span><a href="Network.AWS.SES.Types.ReceiptRule.html#%24sel%3Aenabled%3AReceiptRule%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | An ordered list of actions to perform on messages that match at least</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- one of the recipient email addresses or domains specified in the receipt</span><span>
@@ -252,16 +252,16 @@ $sel:enabled:ReceiptRule' :: ReceiptRule -&gt; Maybe Bool
      (Maybe [ReceiptAction])
      (Maybe [ReceiptAction])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277065"><span class="annot"><span class="annottext">Maybe [ReceiptAction]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277074"><span class="annot"><span class="annottext">Maybe [ReceiptAction]
 actions :: Maybe [ReceiptAction]
 $sel:actions:ReceiptRule' :: ReceiptRule -&gt; Maybe [ReceiptAction]
-</span><a href="#local-6989586621679277065"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReceiptAction]
-</span><a href="#local-6989586621679277065"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277064"><span class="annot"><span class="annottext">s :: ReceiptRule
-</span><a href="#local-6989586621679277064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277063"><span class="annot"><span class="annottext">Maybe [ReceiptAction]
-</span><a href="#local-6989586621679277063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
-</span><a href="#local-6989586621679277064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:ReceiptRule' :: Maybe [ReceiptAction]
+</span><a href="#local-6989586621679277074"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReceiptAction]
+</span><a href="#local-6989586621679277074"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277073"><span class="annot"><span class="annottext">s :: ReceiptRule
+</span><a href="#local-6989586621679277073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277072"><span class="annot"><span class="annottext">Maybe [ReceiptAction]
+</span><a href="#local-6989586621679277072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679277073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:ReceiptRule' :: Maybe [ReceiptAction]
 </span><a href="Network.AWS.SES.Types.ReceiptRule.html#%24sel%3Aactions%3AReceiptRule%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReceiptAction]
-</span><a href="#local-6989586621679277063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReceiptAction] -&gt; f (Maybe [ReceiptAction]))
+</span><a href="#local-6989586621679277072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReceiptAction] -&gt; f (Maybe [ReceiptAction]))
  -&gt; ReceiptRule -&gt; f ReceiptRule)
 -&gt; ((Maybe [ReceiptAction] -&gt; f (Maybe [ReceiptAction]))
     -&gt; Maybe [ReceiptAction] -&gt; f (Maybe [ReceiptAction]))
@@ -293,16 +293,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReceiptRule -&gt; Maybe [Text] -&gt; ReceiptRule)
 -&gt; Lens ReceiptRule ReceiptRule (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277058"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277067"><span class="annot"><span class="annottext">Maybe [Text]
 recipients :: Maybe [Text]
 $sel:recipients:ReceiptRule' :: ReceiptRule -&gt; Maybe [Text]
-</span><a href="#local-6989586621679277058"><span class="hs-identifier hs-var hs-var">recipients</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679277058"><span class="hs-identifier hs-var">recipients</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277057"><span class="annot"><span class="annottext">s :: ReceiptRule
-</span><a href="#local-6989586621679277057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277056"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679277056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
-</span><a href="#local-6989586621679277057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recipients:ReceiptRule' :: Maybe [Text]
+</span><a href="#local-6989586621679277067"><span class="hs-identifier hs-var hs-var">recipients</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679277067"><span class="hs-identifier hs-var">recipients</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277066"><span class="annot"><span class="annottext">s :: ReceiptRule
+</span><a href="#local-6989586621679277066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277065"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679277065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679277066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recipients:ReceiptRule' :: Maybe [Text]
 </span><a href="Network.AWS.SES.Types.ReceiptRule.html#%24sel%3Arecipients%3AReceiptRule%27"><span class="hs-identifier hs-var">recipients</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679277056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679277065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ReceiptRule -&gt; f ReceiptRule)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -330,16 +330,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ReceiptRule -&gt; Maybe TlsPolicy -&gt; ReceiptRule)
 -&gt; Lens ReceiptRule ReceiptRule (Maybe TlsPolicy) (Maybe TlsPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277054"><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277063"><span class="annot"><span class="annottext">Maybe TlsPolicy
 tlsPolicy :: Maybe TlsPolicy
 $sel:tlsPolicy:ReceiptRule' :: ReceiptRule -&gt; Maybe TlsPolicy
-</span><a href="#local-6989586621679277054"><span class="hs-identifier hs-var hs-var">tlsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
-</span><a href="#local-6989586621679277054"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277053"><span class="annot"><span class="annottext">s :: ReceiptRule
-</span><a href="#local-6989586621679277053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277052"><span class="annot"><span class="annottext">Maybe TlsPolicy
-</span><a href="#local-6989586621679277052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
-</span><a href="#local-6989586621679277053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tlsPolicy:ReceiptRule' :: Maybe TlsPolicy
+</span><a href="#local-6989586621679277063"><span class="hs-identifier hs-var hs-var">tlsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679277063"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277062"><span class="annot"><span class="annottext">s :: ReceiptRule
+</span><a href="#local-6989586621679277062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277061"><span class="annot"><span class="annottext">Maybe TlsPolicy
+</span><a href="#local-6989586621679277061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679277062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tlsPolicy:ReceiptRule' :: Maybe TlsPolicy
 </span><a href="Network.AWS.SES.Types.ReceiptRule.html#%24sel%3AtlsPolicy%3AReceiptRule%27"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
-</span><a href="#local-6989586621679277052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The name of the receipt rule. The name must:</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
@@ -355,21 +355,21 @@ $sel:tlsPolicy:ReceiptRule' :: ReceiptRule -&gt; Maybe TlsPolicy
 -&gt; (ReceiptRule -&gt; Text -&gt; ReceiptRule)
 -&gt; Lens ReceiptRule ReceiptRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277050"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277059"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ReceiptRule' :: ReceiptRule -&gt; Text
-</span><a href="#local-6989586621679277050"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277050"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277049"><span class="annot"><span class="annottext">s :: ReceiptRule
-</span><a href="#local-6989586621679277049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277048"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
-</span><a href="#local-6989586621679277049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ReceiptRule' :: Text
+</span><a href="#local-6989586621679277059"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277059"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277058"><span class="annot"><span class="annottext">s :: ReceiptRule
+</span><a href="#local-6989586621679277058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277057"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptRule
+</span><a href="#local-6989586621679277058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ReceiptRule' :: Text
 </span><a href="Network.AWS.SES.Types.ReceiptRule.html#%24sel%3Aname%3AReceiptRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679277045"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReceiptRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679277043"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679277043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679277054"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReceiptRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679277052"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679277052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe [ReceiptAction]
@@ -396,7 +396,7 @@ $sel:name:ReceiptRule' :: ReceiptRule -&gt; Text
       -&gt; ReceiptRule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679277043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679277052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScanEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -415,7 +415,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe [Text] -&gt; Maybe TlsPolicy -&gt; Text -&gt; ReceiptRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679277043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679277052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -428,7 +428,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe [Text] -&gt; Maybe TlsPolicy -&gt; Text -&gt; ReceiptRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679277043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679277052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -456,7 +456,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe TlsPolicy -&gt; Text -&gt; ReceiptRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679277043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679277052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Recipients&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -483,7 +483,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Text -&gt; ReceiptRule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679277043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TlsPolicy)
+</span><a href="#local-6989586621679277052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TlsPolicy)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TlsPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -491,18 +491,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String ReceiptRule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679277043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679277052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277033"><span id="local-6989586621679277035"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277042"><span id="local-6989586621679277044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span></span></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule"><span class="hs-identifier hs-type">ReceiptRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679277026"><span class="annot"><span class="annottext">toQuery :: ReceiptRule -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277019"><span id="local-6989586621679277020"><span id="local-6989586621679277021"><span id="local-6989586621679277022"><span id="local-6989586621679277023"><span id="local-6989586621679277024"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679277035"><span class="annot"><span class="annottext">toQuery :: ReceiptRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptRule.html#ReceiptRule%27"><span class="hs-identifier hs-type">ReceiptRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277028"><span id="local-6989586621679277029"><span id="local-6989586621679277030"><span id="local-6989586621679277031"><span id="local-6989586621679277032"><span id="local-6989586621679277033"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [ReceiptAction]
 Maybe TlsPolicy
@@ -519,7 +519,7 @@ $sel:recipients:ReceiptRule' :: ReceiptRule -&gt; Maybe [Text]
 $sel:actions:ReceiptRule' :: ReceiptRule -&gt; Maybe [ReceiptAction]
 $sel:enabled:ReceiptRule' :: ReceiptRule -&gt; Maybe Bool
 $sel:scanEnabled:ReceiptRule' :: ReceiptRule -&gt; Maybe Bool
-</span><a href="#local-6989586621679277019"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679277028"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -527,12 +527,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ScanEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277024"><span class="hs-identifier hs-var">scanEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277033"><span class="hs-identifier hs-var">scanEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679277023"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277032"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Actions&quot;</span></span><span>
 </span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -549,7 +549,7 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [ReceiptAction] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReceiptAction]
-</span><a href="#local-6989586621679277022"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277031"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Recipients&quot;</span></span><span>
 </span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -565,16 +565,16 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679277021"><span class="hs-identifier hs-var">recipients</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277030"><span class="hs-identifier hs-var">recipients</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TlsPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TlsPolicy -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TlsPolicy
-</span><a href="#local-6989586621679277020"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277029"><span class="hs-identifier hs-var">tlsPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277019"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><a href="#local-6989586621679277028"><span class="hs-identifier hs-var">name</span></a></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span></pre></body></html>

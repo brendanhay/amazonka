@@ -1,0 +1,1499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CustomerProfiles.Types.Profile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.Profile</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.Address</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Gender.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.Gender</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.PartyType.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types.PartyType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The standard profile of a customer.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newProfile' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679268712"><span id="local-6989586621679268713"></span></span><span class="hs-keyword">data</span><span> </span><span id="Profile"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-var">Profile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Profile%27"><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-var">Profile'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The customer&#8217;s shipping address.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AshippingAddress%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AshippingAddress%3AProfile%27"><span class="hs-identifier hs-var hs-var">shippingAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s mobile phone number.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmobilePhoneNumber%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AmobilePhoneNumber%3AProfile%27"><span class="hs-identifier hs-var hs-var">mobilePhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s mailing address.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmailingAddress%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AmailingAddress%3AProfile%27"><span class="hs-identifier hs-var hs-var">mailingAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s middle name.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmiddleName%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AmiddleName%3AProfile%27"><span class="hs-identifier hs-var hs-var">middleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s personal email address.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ApersonalEmailAddress%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3ApersonalEmailAddress%3AProfile%27"><span class="hs-identifier hs-var hs-var">personalEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s last name.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlastName%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AlastName%3AProfile%27"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Any additional information relevant to the customer&#8217;s profile.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AadditionalInformation%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AadditionalInformation%3AProfile%27"><span class="hs-identifier hs-var hs-var">additionalInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s home phone number.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AhomePhoneNumber%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AhomePhoneNumber%3AProfile%27"><span class="hs-identifier hs-var hs-var">homePhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A generic address associated with the customer that is not mailing,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- shipping, or billing.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aaddress%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3Aaddress%3AProfile%27"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The type of profile used to describe the customer.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ApartyType%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe PartyType
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3ApartyType%3AProfile%27"><span class="hs-identifier hs-var hs-var">partyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.PartyType.html#PartyType"><span class="hs-identifier hs-type">PartyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The unique identifier of a customer profile.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AprofileId%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AprofileId%3AProfile%27"><span class="hs-identifier hs-var hs-var">profileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s business email address.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AbusinessEmailAddress%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbusinessEmailAddress%3AProfile%27"><span class="hs-identifier hs-var hs-var">businessEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A key value pair of attributes of a customer profile.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aattributes%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3Aattributes%3AProfile%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The gender with which the customer identifies.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Agender%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Gender
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3Agender%3AProfile%27"><span class="hs-identifier hs-var hs-var">gender</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Gender.html#Gender"><span class="hs-identifier hs-type">Gender</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The customer\'s phone number, which has not been specified as a mobile,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- home, or business number.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AphoneNumber%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AphoneNumber%3AProfile%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A unique account number that you have given to the customer.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AaccountNumber%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AaccountNumber%3AProfile%27"><span class="hs-identifier hs-var hs-var">accountNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s email address, which has not been specified as a personal</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- or business address.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AemailAddress%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AemailAddress%3AProfile%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s first name.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AfirstName%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AfirstName%3AProfile%27"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s billing address.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AbillingAddress%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbillingAddress%3AProfile%27"><span class="hs-identifier hs-var hs-var">billingAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s home phone number.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AbusinessPhoneNumber%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbusinessPhoneNumber%3AProfile%27"><span class="hs-identifier hs-var hs-var">businessPhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The customer&#8217;s birth date.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AbirthDate%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbirthDate%3AProfile%27"><span class="hs-identifier hs-var hs-var">birthDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The name of the customer&#8217;s business.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AbusinessName%3AProfile%27"><span class="annot"><span class="annottext">Profile -&gt; Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbusinessName%3AProfile%27"><span class="hs-identifier hs-var hs-var">businessName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268685"><span id="local-6989586621679268687"><span class="annot"><span class="annottext">Profile -&gt; Profile -&gt; Bool
+(Profile -&gt; Profile -&gt; Bool)
+-&gt; (Profile -&gt; Profile -&gt; Bool) -&gt; Eq Profile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Profile -&gt; Profile -&gt; Bool
+$c/= :: Profile -&gt; Profile -&gt; Bool
+== :: Profile -&gt; Profile -&gt; Bool
+$c== :: Profile -&gt; Profile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268676"><span id="local-6989586621679268678"><span id="local-6989586621679268680"><span id="local-6989586621679268682"><span class="annot"><span class="annottext">ReadPrec [Profile]
+ReadPrec Profile
+Int -&gt; ReadS Profile
+ReadS [Profile]
+(Int -&gt; ReadS Profile)
+-&gt; ReadS [Profile]
+-&gt; ReadPrec Profile
+-&gt; ReadPrec [Profile]
+-&gt; Read Profile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Profile]
+$creadListPrec :: ReadPrec [Profile]
+readPrec :: ReadPrec Profile
+$creadPrec :: ReadPrec Profile
+readList :: ReadS [Profile]
+$creadList :: ReadS [Profile]
+readsPrec :: Int -&gt; ReadS Profile
+$creadsPrec :: Int -&gt; ReadS Profile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268669"><span id="local-6989586621679268671"><span id="local-6989586621679268673"><span class="annot"><span class="annottext">Int -&gt; Profile -&gt; ShowS
+[Profile] -&gt; ShowS
+Profile -&gt; String
+(Int -&gt; Profile -&gt; ShowS)
+-&gt; (Profile -&gt; String) -&gt; ([Profile] -&gt; ShowS) -&gt; Show Profile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Profile] -&gt; ShowS
+$cshowList :: [Profile] -&gt; ShowS
+show :: Profile -&gt; String
+$cshow :: Profile -&gt; String
+showsPrec :: Int -&gt; Profile -&gt; ShowS
+$cshowsPrec :: Int -&gt; Profile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Profile -&gt; Rep Profile x)
+-&gt; (forall x. Rep Profile x -&gt; Profile) -&gt; Generic Profile
+forall x. Rep Profile x -&gt; Profile
+forall x. Profile -&gt; Rep Profile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Profile x -&gt; Profile
+$cfrom :: forall x. Profile -&gt; Rep Profile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'Profile' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'shippingAddress', 'profile_shippingAddress' - The customer&#8217;s shipping address.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'mobilePhoneNumber', 'profile_mobilePhoneNumber' - The customer&#8217;s mobile phone number.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'mailingAddress', 'profile_mailingAddress' - The customer&#8217;s mailing address.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'middleName', 'profile_middleName' - The customer&#8217;s middle name.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'personalEmailAddress', 'profile_personalEmailAddress' - The customer&#8217;s personal email address.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'lastName', 'profile_lastName' - The customer&#8217;s last name.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'additionalInformation', 'profile_additionalInformation' - Any additional information relevant to the customer&#8217;s profile.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'homePhoneNumber', 'profile_homePhoneNumber' - The customer&#8217;s home phone number.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'address', 'profile_address' - A generic address associated with the customer that is not mailing,</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- shipping, or billing.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'partyType', 'profile_partyType' - The type of profile used to describe the customer.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'profileId', 'profile_profileId' - The unique identifier of a customer profile.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'businessEmailAddress', 'profile_businessEmailAddress' - The customer&#8217;s business email address.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'attributes', 'profile_attributes' - A key value pair of attributes of a customer profile.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'gender', 'profile_gender' - The gender with which the customer identifies.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'phoneNumber', 'profile_phoneNumber' - The customer\'s phone number, which has not been specified as a mobile,</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- home, or business number.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'accountNumber', 'profile_accountNumber' - A unique account number that you have given to the customer.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'emailAddress', 'profile_emailAddress' - The customer&#8217;s email address, which has not been specified as a personal</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- or business address.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'firstName', 'profile_firstName' - The customer&#8217;s first name.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'billingAddress', 'profile_billingAddress' - The customer&#8217;s billing address.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'businessPhoneNumber', 'profile_businessPhoneNumber' - The customer&#8217;s home phone number.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'birthDate', 'profile_birthDate' - The customer&#8217;s birth date.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'businessName', 'profile_businessName' - The name of the customer&#8217;s business.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#newProfile"><span class="hs-identifier hs-type">newProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span>
+</span><span id="line-139"></span><span id="newProfile"><span class="annot"><span class="annottext">newProfile :: Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#newProfile"><span class="hs-identifier hs-var hs-var">newProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">Profile' :: Maybe Address
+-&gt; Maybe Text
+-&gt; Maybe Address
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Address
+-&gt; Maybe PartyType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Gender
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Address
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shippingAddress:Profile' :: Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AshippingAddress%3AProfile%27"><span class="hs-identifier hs-var">shippingAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:mobilePhoneNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AmobilePhoneNumber%3AProfile%27"><span class="hs-identifier hs-var">mobilePhoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:mailingAddress:Profile' :: Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AmailingAddress%3AProfile%27"><span class="hs-identifier hs-var">mailingAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:middleName:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AmiddleName%3AProfile%27"><span class="hs-identifier hs-var">middleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:personalEmailAddress:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3ApersonalEmailAddress%3AProfile%27"><span class="hs-identifier hs-var">personalEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastName:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AlastName%3AProfile%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalInformation:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AadditionalInformation%3AProfile%27"><span class="hs-identifier hs-var">additionalInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:homePhoneNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AhomePhoneNumber%3AProfile%27"><span class="hs-identifier hs-var">homePhoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:address:Profile' :: Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3Aaddress%3AProfile%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:partyType:Profile' :: Maybe PartyType
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3ApartyType%3AProfile%27"><span class="hs-identifier hs-var">partyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PartyType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileId:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AprofileId%3AProfile%27"><span class="hs-identifier hs-var">profileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:businessEmailAddress:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbusinessEmailAddress%3AProfile%27"><span class="hs-identifier hs-var">businessEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:Profile' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3Aattributes%3AProfile%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:gender:Profile' :: Maybe Gender
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3Agender%3AProfile%27"><span class="hs-identifier hs-var">gender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Gender
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AphoneNumber%3AProfile%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AaccountNumber%3AProfile%27"><span class="hs-identifier hs-var">accountNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailAddress:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AemailAddress%3AProfile%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:firstName:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AfirstName%3AProfile%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingAddress:Profile' :: Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbillingAddress%3AProfile%27"><span class="hs-identifier hs-var">billingAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:businessPhoneNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbusinessPhoneNumber%3AProfile%27"><span class="hs-identifier hs-var">businessPhoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:birthDate:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbirthDate%3AProfile%27"><span class="hs-identifier hs-var">birthDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:businessName:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbusinessName%3AProfile%27"><span class="hs-identifier hs-var">businessName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The customer&#8217;s shipping address.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_shippingAddress"><span class="hs-identifier hs-type">profile_shippingAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="profile_shippingAddress"><span class="annot"><span class="annottext">profile_shippingAddress :: (Maybe Address -&gt; f (Maybe Address)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_shippingAddress"><span class="hs-identifier hs-var hs-var">profile_shippingAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Address)
+-&gt; (Profile -&gt; Maybe Address -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Address) (Maybe Address)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268660"><span class="annot"><span class="annottext">Maybe Address
+shippingAddress :: Maybe Address
+$sel:shippingAddress:Profile' :: Profile -&gt; Maybe Address
+</span><a href="#local-6989586621679268660"><span class="hs-identifier hs-var hs-var">shippingAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268660"><span class="hs-identifier hs-var">shippingAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268659"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268658"><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shippingAddress:Profile' :: Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AshippingAddress%3AProfile%27"><span class="hs-identifier hs-var">shippingAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The customer&#8217;s mobile phone number.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_mobilePhoneNumber"><span class="hs-identifier hs-type">profile_mobilePhoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="profile_mobilePhoneNumber"><span class="annot"><span class="annottext">profile_mobilePhoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_mobilePhoneNumber"><span class="hs-identifier hs-var hs-var">profile_mobilePhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268656"><span class="annot"><span class="annottext">Maybe Text
+mobilePhoneNumber :: Maybe Text
+$sel:mobilePhoneNumber:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268656"><span class="hs-identifier hs-var hs-var">mobilePhoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268656"><span class="hs-identifier hs-var">mobilePhoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268655"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mobilePhoneNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AmobilePhoneNumber%3AProfile%27"><span class="hs-identifier hs-var">mobilePhoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The customer&#8217;s mailing address.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_mailingAddress"><span class="hs-identifier hs-type">profile_mailingAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="profile_mailingAddress"><span class="annot"><span class="annottext">profile_mailingAddress :: (Maybe Address -&gt; f (Maybe Address)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_mailingAddress"><span class="hs-identifier hs-var hs-var">profile_mailingAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Address)
+-&gt; (Profile -&gt; Maybe Address -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Address) (Maybe Address)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268652"><span class="annot"><span class="annottext">Maybe Address
+mailingAddress :: Maybe Address
+$sel:mailingAddress:Profile' :: Profile -&gt; Maybe Address
+</span><a href="#local-6989586621679268652"><span class="hs-identifier hs-var hs-var">mailingAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268652"><span class="hs-identifier hs-var">mailingAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268651"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268650"><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailingAddress:Profile' :: Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AmailingAddress%3AProfile%27"><span class="hs-identifier hs-var">mailingAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The customer&#8217;s middle name.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_middleName"><span class="hs-identifier hs-type">profile_middleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="profile_middleName"><span class="annot"><span class="annottext">profile_middleName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_middleName"><span class="hs-identifier hs-var hs-var">profile_middleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268648"><span class="annot"><span class="annottext">Maybe Text
+middleName :: Maybe Text
+$sel:middleName:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268648"><span class="hs-identifier hs-var hs-var">middleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268648"><span class="hs-identifier hs-var">middleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268647"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268646"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:middleName:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AmiddleName%3AProfile%27"><span class="hs-identifier hs-var">middleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The customer&#8217;s personal email address.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_personalEmailAddress"><span class="hs-identifier hs-type">profile_personalEmailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="profile_personalEmailAddress"><span class="annot"><span class="annottext">profile_personalEmailAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_personalEmailAddress"><span class="hs-identifier hs-var hs-var">profile_personalEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268644"><span class="annot"><span class="annottext">Maybe Text
+personalEmailAddress :: Maybe Text
+$sel:personalEmailAddress:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268644"><span class="hs-identifier hs-var hs-var">personalEmailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268644"><span class="hs-identifier hs-var">personalEmailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268643"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268642"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:personalEmailAddress:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3ApersonalEmailAddress%3AProfile%27"><span class="hs-identifier hs-var">personalEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The customer&#8217;s last name.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_lastName"><span class="hs-identifier hs-type">profile_lastName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="profile_lastName"><span class="annot"><span class="annottext">profile_lastName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_lastName"><span class="hs-identifier hs-var hs-var">profile_lastName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268640"><span class="annot"><span class="annottext">Maybe Text
+lastName :: Maybe Text
+$sel:lastName:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268640"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268640"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268639"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268638"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastName:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AlastName%3AProfile%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Any additional information relevant to the customer&#8217;s profile.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_additionalInformation"><span class="hs-identifier hs-type">profile_additionalInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="profile_additionalInformation"><span class="annot"><span class="annottext">profile_additionalInformation :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_additionalInformation"><span class="hs-identifier hs-var hs-var">profile_additionalInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268636"><span class="annot"><span class="annottext">Maybe Text
+additionalInformation :: Maybe Text
+$sel:additionalInformation:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268636"><span class="hs-identifier hs-var hs-var">additionalInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268636"><span class="hs-identifier hs-var">additionalInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268635"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268634"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalInformation:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AadditionalInformation%3AProfile%27"><span class="hs-identifier hs-var">additionalInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The customer&#8217;s home phone number.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_homePhoneNumber"><span class="hs-identifier hs-type">profile_homePhoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="profile_homePhoneNumber"><span class="annot"><span class="annottext">profile_homePhoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_homePhoneNumber"><span class="hs-identifier hs-var hs-var">profile_homePhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268632"><span class="annot"><span class="annottext">Maybe Text
+homePhoneNumber :: Maybe Text
+$sel:homePhoneNumber:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268632"><span class="hs-identifier hs-var hs-var">homePhoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268632"><span class="hs-identifier hs-var">homePhoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268631"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268630"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homePhoneNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AhomePhoneNumber%3AProfile%27"><span class="hs-identifier hs-var">homePhoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | A generic address associated with the customer that is not mailing,</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- shipping, or billing.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_address"><span class="hs-identifier hs-type">profile_address</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="profile_address"><span class="annot"><span class="annottext">profile_address :: (Maybe Address -&gt; f (Maybe Address)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_address"><span class="hs-identifier hs-var hs-var">profile_address</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Address)
+-&gt; (Profile -&gt; Maybe Address -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Address) (Maybe Address)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268628"><span class="annot"><span class="annottext">Maybe Address
+address :: Maybe Address
+$sel:address:Profile' :: Profile -&gt; Maybe Address
+</span><a href="#local-6989586621679268628"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268628"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268627"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268626"><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:Profile' :: Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3Aaddress%3AProfile%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The type of profile used to describe the customer.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_partyType"><span class="hs-identifier hs-type">profile_partyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.PartyType.html#PartyType"><span class="hs-identifier hs-type">PartyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="profile_partyType"><span class="annot"><span class="annottext">profile_partyType :: (Maybe PartyType -&gt; f (Maybe PartyType)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_partyType"><span class="hs-identifier hs-var hs-var">profile_partyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe PartyType)
+-&gt; (Profile -&gt; Maybe PartyType -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe PartyType) (Maybe PartyType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268624"><span class="annot"><span class="annottext">Maybe PartyType
+partyType :: Maybe PartyType
+$sel:partyType:Profile' :: Profile -&gt; Maybe PartyType
+</span><a href="#local-6989586621679268624"><span class="hs-identifier hs-var hs-var">partyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PartyType
+</span><a href="#local-6989586621679268624"><span class="hs-identifier hs-var">partyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268623"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268622"><span class="annot"><span class="annottext">Maybe PartyType
+</span><a href="#local-6989586621679268622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partyType:Profile' :: Maybe PartyType
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3ApartyType%3AProfile%27"><span class="hs-identifier hs-var">partyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PartyType
+</span><a href="#local-6989586621679268622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The unique identifier of a customer profile.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_profileId"><span class="hs-identifier hs-type">profile_profileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="profile_profileId"><span class="annot"><span class="annottext">profile_profileId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_profileId"><span class="hs-identifier hs-var hs-var">profile_profileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268620"><span class="annot"><span class="annottext">Maybe Text
+profileId :: Maybe Text
+$sel:profileId:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268620"><span class="hs-identifier hs-var hs-var">profileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268620"><span class="hs-identifier hs-var">profileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268619"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268618"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileId:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AprofileId%3AProfile%27"><span class="hs-identifier hs-var">profileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The customer&#8217;s business email address.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_businessEmailAddress"><span class="hs-identifier hs-type">profile_businessEmailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="profile_businessEmailAddress"><span class="annot"><span class="annottext">profile_businessEmailAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_businessEmailAddress"><span class="hs-identifier hs-var hs-var">profile_businessEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268616"><span class="annot"><span class="annottext">Maybe Text
+businessEmailAddress :: Maybe Text
+$sel:businessEmailAddress:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268616"><span class="hs-identifier hs-var hs-var">businessEmailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268616"><span class="hs-identifier hs-var">businessEmailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268615"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268614"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:businessEmailAddress:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbusinessEmailAddress%3AProfile%27"><span class="hs-identifier hs-var">businessEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | A key value pair of attributes of a customer profile.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_attributes"><span class="hs-identifier hs-type">profile_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="profile_attributes"><span class="annot"><span class="annottext">profile_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_attributes"><span class="hs-identifier hs-var hs-var">profile_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe (HashMap Text Text))
+-&gt; (Profile -&gt; Maybe (HashMap Text Text) -&gt; Profile)
+-&gt; Lens
+     Profile
+     Profile
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268612"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributes :: Maybe (HashMap Text Text)
+$sel:attributes:Profile' :: Profile -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679268612"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679268612"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268611"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268610"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679268610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Profile' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3Aattributes%3AProfile%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679268610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Profile -&gt; f Profile)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Profile
+-&gt; f Profile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The gender with which the customer identifies.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_gender"><span class="hs-identifier hs-type">profile_gender</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Gender.html#Gender"><span class="hs-identifier hs-type">Gender</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="profile_gender"><span class="annot"><span class="annottext">profile_gender :: (Maybe Gender -&gt; f (Maybe Gender)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_gender"><span class="hs-identifier hs-var hs-var">profile_gender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Gender)
+-&gt; (Profile -&gt; Maybe Gender -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Gender) (Maybe Gender)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268605"><span class="annot"><span class="annottext">Maybe Gender
+gender :: Maybe Gender
+$sel:gender:Profile' :: Profile -&gt; Maybe Gender
+</span><a href="#local-6989586621679268605"><span class="hs-identifier hs-var hs-var">gender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Gender
+</span><a href="#local-6989586621679268605"><span class="hs-identifier hs-var">gender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268604"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268603"><span class="annot"><span class="annottext">Maybe Gender
+</span><a href="#local-6989586621679268603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gender:Profile' :: Maybe Gender
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3Agender%3AProfile%27"><span class="hs-identifier hs-var">gender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Gender
+</span><a href="#local-6989586621679268603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The customer\'s phone number, which has not been specified as a mobile,</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- home, or business number.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_phoneNumber"><span class="hs-identifier hs-type">profile_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="profile_phoneNumber"><span class="annot"><span class="annottext">profile_phoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_phoneNumber"><span class="hs-identifier hs-var hs-var">profile_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268601"><span class="annot"><span class="annottext">Maybe Text
+phoneNumber :: Maybe Text
+$sel:phoneNumber:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268601"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268601"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268600"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268599"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AphoneNumber%3AProfile%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | A unique account number that you have given to the customer.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_accountNumber"><span class="hs-identifier hs-type">profile_accountNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="profile_accountNumber"><span class="annot"><span class="annottext">profile_accountNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_accountNumber"><span class="hs-identifier hs-var hs-var">profile_accountNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268597"><span class="annot"><span class="annottext">Maybe Text
+accountNumber :: Maybe Text
+$sel:accountNumber:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268597"><span class="hs-identifier hs-var hs-var">accountNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268597"><span class="hs-identifier hs-var">accountNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268596"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268595"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AaccountNumber%3AProfile%27"><span class="hs-identifier hs-var">accountNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The customer&#8217;s email address, which has not been specified as a personal</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- or business address.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_emailAddress"><span class="hs-identifier hs-type">profile_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="profile_emailAddress"><span class="annot"><span class="annottext">profile_emailAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_emailAddress"><span class="hs-identifier hs-var hs-var">profile_emailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268593"><span class="annot"><span class="annottext">Maybe Text
+emailAddress :: Maybe Text
+$sel:emailAddress:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268593"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268593"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268592"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268591"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AemailAddress%3AProfile%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The customer&#8217;s first name.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_firstName"><span class="hs-identifier hs-type">profile_firstName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="profile_firstName"><span class="annot"><span class="annottext">profile_firstName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_firstName"><span class="hs-identifier hs-var hs-var">profile_firstName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268589"><span class="annot"><span class="annottext">Maybe Text
+firstName :: Maybe Text
+$sel:firstName:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268589"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268589"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268588"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstName:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AfirstName%3AProfile%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The customer&#8217;s billing address.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_billingAddress"><span class="hs-identifier hs-type">profile_billingAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="profile_billingAddress"><span class="annot"><span class="annottext">profile_billingAddress :: (Maybe Address -&gt; f (Maybe Address)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_billingAddress"><span class="hs-identifier hs-var hs-var">profile_billingAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Address)
+-&gt; (Profile -&gt; Maybe Address -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Address) (Maybe Address)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268585"><span class="annot"><span class="annottext">Maybe Address
+billingAddress :: Maybe Address
+$sel:billingAddress:Profile' :: Profile -&gt; Maybe Address
+</span><a href="#local-6989586621679268585"><span class="hs-identifier hs-var hs-var">billingAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268585"><span class="hs-identifier hs-var">billingAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268584"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268583"><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingAddress:Profile' :: Maybe Address
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbillingAddress%3AProfile%27"><span class="hs-identifier hs-var">billingAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Address
+</span><a href="#local-6989586621679268583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The customer&#8217;s home phone number.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_businessPhoneNumber"><span class="hs-identifier hs-type">profile_businessPhoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="profile_businessPhoneNumber"><span class="annot"><span class="annottext">profile_businessPhoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_businessPhoneNumber"><span class="hs-identifier hs-var hs-var">profile_businessPhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268581"><span class="annot"><span class="annottext">Maybe Text
+businessPhoneNumber :: Maybe Text
+$sel:businessPhoneNumber:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268581"><span class="hs-identifier hs-var hs-var">businessPhoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268581"><span class="hs-identifier hs-var">businessPhoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268580"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268579"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:businessPhoneNumber:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbusinessPhoneNumber%3AProfile%27"><span class="hs-identifier hs-var">businessPhoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The customer&#8217;s birth date.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_birthDate"><span class="hs-identifier hs-type">profile_birthDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="profile_birthDate"><span class="annot"><span class="annottext">profile_birthDate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_birthDate"><span class="hs-identifier hs-var hs-var">profile_birthDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268577"><span class="annot"><span class="annottext">Maybe Text
+birthDate :: Maybe Text
+$sel:birthDate:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268577"><span class="hs-identifier hs-var hs-var">birthDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268577"><span class="hs-identifier hs-var">birthDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268576"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268575"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:birthDate:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbirthDate%3AProfile%27"><span class="hs-identifier hs-var">birthDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The name of the customer&#8217;s business.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_businessName"><span class="hs-identifier hs-type">profile_businessName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="profile_businessName"><span class="annot"><span class="annottext">profile_businessName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Profile -&gt; f Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#profile_businessName"><span class="hs-identifier hs-var hs-var">profile_businessName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Profile -&gt; Maybe Text)
+-&gt; (Profile -&gt; Maybe Text -&gt; Profile)
+-&gt; Lens Profile Profile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268573"><span class="annot"><span class="annottext">Maybe Text
+businessName :: Maybe Text
+$sel:businessName:Profile' :: Profile -&gt; Maybe Text
+</span><a href="#local-6989586621679268573"><span class="hs-identifier hs-var hs-var">businessName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268573"><span class="hs-identifier hs-var">businessName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268572"><span class="annot"><span class="annottext">s :: Profile
+</span><a href="#local-6989586621679268572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-type">Profile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Profile
+</span><a href="#local-6989586621679268572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:businessName:Profile' :: Maybe Text
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#%24sel%3AbusinessName%3AProfile%27"><span class="hs-identifier hs-var">businessName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268568"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679268566"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Profile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Profile) -&gt; Value -&gt; Parser Profile
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Profile&quot;</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268563"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-261"></span><span>          </span><span class="annot"><span class="annottext">Maybe Address
+-&gt; Maybe Text
+-&gt; Maybe Address
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Address
+-&gt; Maybe PartyType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Gender
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Address
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Profile
+</span><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile%27"><span class="hs-identifier hs-var">Profile'</span></a></span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Address
+ -&gt; Maybe Text
+ -&gt; Maybe Address
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Address
+ -&gt; Maybe PartyType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Gender
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Address
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Profile)
+-&gt; Parser (Maybe Address)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe PartyType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Address)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShippingAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe PartyType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe PartyType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MobilePhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe PartyType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Address)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe PartyType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Address)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MailingAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe PartyType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe PartyType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MiddleName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe PartyType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe PartyType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PersonalEmailAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe PartyType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe PartyType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe PartyType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe PartyType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdditionalInformation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe PartyType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Address
+      -&gt; Maybe PartyType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomePhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Address
+   -&gt; Maybe PartyType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Address)
+-&gt; Parser
+     (Maybe PartyType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Address)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Address&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PartyType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe PartyType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PartyType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PartyType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProfileId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BusinessEmailAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Gender
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Gender
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Gender)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Gender)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Gender&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Address
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Address
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Address
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirstName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Address
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Profile)
+-&gt; Parser (Maybe Address)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Address)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BillingAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Profile)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BusinessPhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Profile)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Profile)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BirthDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Profile)
+-&gt; Parser (Maybe Text) -&gt; Parser Profile
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BusinessName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268556"><span id="local-6989586621679268558"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span></span></span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.Profile.html#Profile"><span class="hs-identifier hs-type">Profile</span></a></span></span><span>
+</span><span id="line-289"></span></pre></body></html>

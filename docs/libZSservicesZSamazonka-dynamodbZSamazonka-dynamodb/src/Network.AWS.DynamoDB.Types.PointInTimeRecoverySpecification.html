@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents the settings used to enable point in time recovery.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPointInTimeRecoverySpecification' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679374704"><span id="local-6989586621679374705"></span></span><span class="hs-keyword">data</span><span> </span><span id="PointInTimeRecoverySpecification"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification"><span class="hs-identifier hs-var">PointInTimeRecoverySpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PointInTimeRecoverySpecification%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification%27"><span class="hs-identifier hs-var">PointInTimeRecoverySpecification'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679374713"><span id="local-6989586621679374714"></span></span><span class="hs-keyword">data</span><span> </span><span id="PointInTimeRecoverySpecification"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification"><span class="hs-identifier hs-var">PointInTimeRecoverySpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PointInTimeRecoverySpecification%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification%27"><span class="hs-identifier hs-var">PointInTimeRecoverySpecification'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether point in time recovery is enabled (true) or disabled</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- (false) on the table.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApointInTimeRecoveryEnabled%3APointInTimeRecoverySpecification%27"><span class="annot"><span class="annottext">PointInTimeRecoverySpecification -&gt; Bool
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#%24sel%3ApointInTimeRecoveryEnabled%3APointInTimeRecoverySpecification%27"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374698"><span id="local-6989586621679374700"><span class="annot"><span class="annottext">PointInTimeRecoverySpecification
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374707"><span id="local-6989586621679374709"><span class="annot"><span class="annottext">PointInTimeRecoverySpecification
 -&gt; PointInTimeRecoverySpecification -&gt; Bool
 (PointInTimeRecoverySpecification
  -&gt; PointInTimeRecoverySpecification -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: PointInTimeRecoverySpecification
 -&gt; PointInTimeRecoverySpecification -&gt; Bool
 $c== :: PointInTimeRecoverySpecification
 -&gt; PointInTimeRecoverySpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374689"><span id="local-6989586621679374691"><span id="local-6989586621679374693"><span id="local-6989586621679374695"><span class="annot"><span class="annottext">ReadPrec [PointInTimeRecoverySpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374698"><span id="local-6989586621679374700"><span id="local-6989586621679374702"><span id="local-6989586621679374704"><span class="annot"><span class="annottext">ReadPrec [PointInTimeRecoverySpecification]
 ReadPrec PointInTimeRecoverySpecification
 Int -&gt; ReadS PointInTimeRecoverySpecification
 ReadS [PointInTimeRecoverySpecification]
@@ -68,7 +68,7 @@ readList :: ReadS [PointInTimeRecoverySpecification]
 $creadList :: ReadS [PointInTimeRecoverySpecification]
 readsPrec :: Int -&gt; ReadS PointInTimeRecoverySpecification
 $creadsPrec :: Int -&gt; ReadS PointInTimeRecoverySpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374682"><span id="local-6989586621679374684"><span id="local-6989586621679374686"><span class="annot"><span class="annottext">Int -&gt; PointInTimeRecoverySpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374691"><span id="local-6989586621679374693"><span id="local-6989586621679374695"><span class="annot"><span class="annottext">Int -&gt; PointInTimeRecoverySpecification -&gt; ShowS
 [PointInTimeRecoverySpecification] -&gt; ShowS
 PointInTimeRecoverySpecification -&gt; String
 (Int -&gt; PointInTimeRecoverySpecification -&gt; ShowS)
@@ -122,14 +122,14 @@ PointInTimeRecoverySpecification
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification</span></a></span><span>
 </span><span id="line-50"></span><span id="newPointInTimeRecoverySpecification"><span class="annot"><span class="annottext">newPointInTimeRecoverySpecification :: Bool -&gt; PointInTimeRecoverySpecification
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#newPointInTimeRecoverySpecification"><span class="hs-identifier hs-var hs-var">newPointInTimeRecoverySpecification</span></a></span></span><span>
-</span><span id="line-51"></span><span>  </span><span id="local-6989586621679374676"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679374676"><span class="hs-identifier hs-var">pPointInTimeRecoveryEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span id="local-6989586621679374685"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679374685"><span class="hs-identifier hs-var">pPointInTimeRecoveryEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><span class="annottext">PointInTimeRecoverySpecification' :: Bool -&gt; PointInTimeRecoverySpecification
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification%27"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification'</span></a></span><span>
 </span><span id="line-53"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pointInTimeRecoveryEnabled:PointInTimeRecoverySpecification' :: Bool
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#%24sel%3ApointInTimeRecoveryEnabled%3APointInTimeRecoverySpecification%27"><span class="hs-identifier hs-var">pointInTimeRecoveryEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>          </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679374676"><span class="hs-identifier hs-var">pPointInTimeRecoveryEnabled_</span></a></span><span>
+</span><a href="#local-6989586621679374685"><span class="hs-identifier hs-var">pPointInTimeRecoveryEnabled_</span></a></span><span>
 </span><span id="line-55"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | Indicates whether point in time recovery is enabled (true) or disabled</span><span>
@@ -147,31 +147,31 @@ PointInTimeRecoverySpecification
      Bool
      Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification%27"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374672"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification%27"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374681"><span class="annot"><span class="annottext">Bool
 pointInTimeRecoveryEnabled :: Bool
 $sel:pointInTimeRecoveryEnabled:PointInTimeRecoverySpecification' :: PointInTimeRecoverySpecification -&gt; Bool
-</span><a href="#local-6989586621679374672"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679374672"><span class="hs-identifier hs-var">pointInTimeRecoveryEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374671"><span class="annot"><span class="annottext">s :: PointInTimeRecoverySpecification
-</span><a href="#local-6989586621679374671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification%27"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374670"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679374670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoverySpecification
-</span><a href="#local-6989586621679374671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pointInTimeRecoveryEnabled:PointInTimeRecoverySpecification' :: Bool
+</span><a href="#local-6989586621679374681"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679374681"><span class="hs-identifier hs-var">pointInTimeRecoveryEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374680"><span class="annot"><span class="annottext">s :: PointInTimeRecoverySpecification
+</span><a href="#local-6989586621679374680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification%27"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374679"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679374679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoverySpecification
+</span><a href="#local-6989586621679374680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pointInTimeRecoveryEnabled:PointInTimeRecoverySpecification' :: Bool
 </span><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#%24sel%3ApointInTimeRecoveryEnabled%3APointInTimeRecoverySpecification%27"><span class="hs-identifier hs-var">pointInTimeRecoveryEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679374670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679374666"><span id="local-6989586621679374668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679374675"><span id="local-6989586621679374677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679374663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679374672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374655"><span id="local-6989586621679374657"><span id="local-6989586621679374659"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679374653"><span class="annot"><span class="annottext">toJSON :: PointInTimeRecoverySpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification%27"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374651"><span class="annot"><span class="annottext">Bool
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374664"><span id="local-6989586621679374666"><span id="local-6989586621679374668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679374662"><span class="annot"><span class="annottext">toJSON :: PointInTimeRecoverySpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification.html#PointInTimeRecoverySpecification%27"><span class="hs-identifier hs-type">PointInTimeRecoverySpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374660"><span class="annot"><span class="annottext">Bool
 pointInTimeRecoveryEnabled :: Bool
 $sel:pointInTimeRecoveryEnabled:PointInTimeRecoverySpecification' :: PointInTimeRecoverySpecification -&gt; Bool
-</span><a href="#local-6989586621679374651"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374660"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -185,7 +185,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-76"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679374651"><span class="hs-identifier hs-var">pointInTimeRecoveryEnabled</span></a></span><span>
+</span><a href="#local-6989586621679374660"><span class="hs-identifier hs-var">pointInTimeRecoveryEnabled</span></a></span><span>
 </span><span id="line-77"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>

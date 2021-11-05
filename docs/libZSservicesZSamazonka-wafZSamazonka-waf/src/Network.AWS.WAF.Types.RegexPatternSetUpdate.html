@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- settings for the @RegexPatternString@.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newRegexPatternSetUpdate' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679303671"><span id="local-6989586621679303672"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegexPatternSetUpdate"><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-var">RegexPatternSetUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegexPatternSetUpdate%27"><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-var">RegexPatternSetUpdate'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679303680"><span id="local-6989586621679303681"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegexPatternSetUpdate"><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-var">RegexPatternSetUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegexPatternSetUpdate%27"><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-var">RegexPatternSetUpdate'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to insert or delete a @RegexPatternString@.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Aaction%3ARegexPatternSetUpdate%27"><span class="annot"><span class="annottext">RegexPatternSetUpdate -&gt; ChangeAction
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#%24sel%3Aaction%3ARegexPatternSetUpdate%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.ChangeAction.html#ChangeAction"><span class="hs-identifier hs-type">ChangeAction</span></a></span><span class="hs-special">,</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AregexPatternString%3ARegexPatternSetUpdate%27"><span class="annot"><span class="annottext">RegexPatternSetUpdate -&gt; Text
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#%24sel%3AregexPatternString%3ARegexPatternSetUpdate%27"><span class="hs-identifier hs-var hs-var">regexPatternString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303664"><span id="local-6989586621679303666"><span class="annot"><span class="annottext">RegexPatternSetUpdate -&gt; RegexPatternSetUpdate -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303673"><span id="local-6989586621679303675"><span class="annot"><span class="annottext">RegexPatternSetUpdate -&gt; RegexPatternSetUpdate -&gt; Bool
 (RegexPatternSetUpdate -&gt; RegexPatternSetUpdate -&gt; Bool)
 -&gt; (RegexPatternSetUpdate -&gt; RegexPatternSetUpdate -&gt; Bool)
 -&gt; Eq RegexPatternSetUpdate
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegexPatternSetUpdate -&gt; RegexPatternSetUpdate -&gt; Bool
 == :: RegexPatternSetUpdate -&gt; RegexPatternSetUpdate -&gt; Bool
 $c== :: RegexPatternSetUpdate -&gt; RegexPatternSetUpdate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303655"><span id="local-6989586621679303657"><span id="local-6989586621679303659"><span id="local-6989586621679303661"><span class="annot"><span class="annottext">ReadPrec [RegexPatternSetUpdate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303664"><span id="local-6989586621679303666"><span id="local-6989586621679303668"><span id="local-6989586621679303670"><span class="annot"><span class="annottext">ReadPrec [RegexPatternSetUpdate]
 ReadPrec RegexPatternSetUpdate
 Int -&gt; ReadS RegexPatternSetUpdate
 ReadS [RegexPatternSetUpdate]
@@ -76,7 +76,7 @@ readList :: ReadS [RegexPatternSetUpdate]
 $creadList :: ReadS [RegexPatternSetUpdate]
 readsPrec :: Int -&gt; ReadS RegexPatternSetUpdate
 $creadsPrec :: Int -&gt; ReadS RegexPatternSetUpdate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303648"><span id="local-6989586621679303650"><span id="local-6989586621679303652"><span class="annot"><span class="annottext">Int -&gt; RegexPatternSetUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303657"><span id="local-6989586621679303659"><span id="local-6989586621679303661"><span class="annot"><span class="annottext">Int -&gt; RegexPatternSetUpdate -&gt; ShowS
 [RegexPatternSetUpdate] -&gt; ShowS
 RegexPatternSetUpdate -&gt; String
 (Int -&gt; RegexPatternSetUpdate -&gt; ShowS)
@@ -122,18 +122,18 @@ $cfrom :: forall x. RegexPatternSetUpdate -&gt; Rep RegexPatternSetUpdate x
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span><span>
 </span><span id="line-68"></span><span id="newRegexPatternSetUpdate"><span class="annot"><span class="annottext">newRegexPatternSetUpdate :: ChangeAction -&gt; Text -&gt; RegexPatternSetUpdate
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#newRegexPatternSetUpdate"><span class="hs-identifier hs-var hs-var">newRegexPatternSetUpdate</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679303642"><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679303642"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679303641"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303641"><span class="hs-identifier hs-var">pRegexPatternString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679303651"><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679303651"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679303650"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303650"><span class="hs-identifier hs-var">pRegexPatternString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">RegexPatternSetUpdate' :: ChangeAction -&gt; Text -&gt; RegexPatternSetUpdate
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:action:RegexPatternSetUpdate' :: ChangeAction
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#%24sel%3Aaction%3ARegexPatternSetUpdate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679303642"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303651"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">$sel:regexPatternString:RegexPatternSetUpdate' :: Text
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#%24sel%3AregexPatternString%3ARegexPatternSetUpdate%27"><span class="hs-identifier hs-var">regexPatternString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303641"><span class="hs-identifier hs-var">pRegexPatternString_</span></a></span><span>
+</span><a href="#local-6989586621679303650"><span class="hs-identifier hs-var">pRegexPatternString_</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Specifies whether to insert or delete a @RegexPatternString@.</span><span>
@@ -148,16 +148,16 @@ $cfrom :: forall x. RegexPatternSetUpdate -&gt; Rep RegexPatternSetUpdate x
      ChangeAction
      ChangeAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303637"><span class="annot"><span class="annottext">ChangeAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303646"><span class="annot"><span class="annottext">ChangeAction
 action :: ChangeAction
 $sel:action:RegexPatternSetUpdate' :: RegexPatternSetUpdate -&gt; ChangeAction
-</span><a href="#local-6989586621679303637"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679303637"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303636"><span class="annot"><span class="annottext">s :: RegexPatternSetUpdate
-</span><a href="#local-6989586621679303636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303635"><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679303635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegexPatternSetUpdate
-</span><a href="#local-6989586621679303636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:RegexPatternSetUpdate' :: ChangeAction
+</span><a href="#local-6989586621679303646"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679303646"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303645"><span class="annot"><span class="annottext">s :: RegexPatternSetUpdate
+</span><a href="#local-6989586621679303645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303644"><span class="annot"><span class="annottext">ChangeAction
+</span><a href="#local-6989586621679303644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegexPatternSetUpdate
+</span><a href="#local-6989586621679303645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:RegexPatternSetUpdate' :: ChangeAction
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#%24sel%3Aaction%3ARegexPatternSetUpdate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679303635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Specifies the regular expression (regex) pattern that you want AWS WAF</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- to search for, such as @B[a\@]dB[o0]t@.</span><span>
@@ -168,30 +168,30 @@ $sel:action:RegexPatternSetUpdate' :: RegexPatternSetUpdate -&gt; ChangeAction
 -&gt; (RegexPatternSetUpdate -&gt; Text -&gt; RegexPatternSetUpdate)
 -&gt; Lens RegexPatternSetUpdate RegexPatternSetUpdate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303633"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303642"><span class="annot"><span class="annottext">Text
 regexPatternString :: Text
 $sel:regexPatternString:RegexPatternSetUpdate' :: RegexPatternSetUpdate -&gt; Text
-</span><a href="#local-6989586621679303633"><span class="hs-identifier hs-var hs-var">regexPatternString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303633"><span class="hs-identifier hs-var">regexPatternString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303632"><span class="annot"><span class="annottext">s :: RegexPatternSetUpdate
-</span><a href="#local-6989586621679303632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303631"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegexPatternSetUpdate
-</span><a href="#local-6989586621679303632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regexPatternString:RegexPatternSetUpdate' :: Text
+</span><a href="#local-6989586621679303642"><span class="hs-identifier hs-var hs-var">regexPatternString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303642"><span class="hs-identifier hs-var">regexPatternString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303641"><span class="annot"><span class="annottext">s :: RegexPatternSetUpdate
+</span><a href="#local-6989586621679303641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303640"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegexPatternSetUpdate
+</span><a href="#local-6989586621679303641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regexPatternString:RegexPatternSetUpdate' :: Text
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#%24sel%3AregexPatternString%3ARegexPatternSetUpdate%27"><span class="hs-identifier hs-var">regexPatternString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303627"><span id="local-6989586621679303629"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303636"><span id="local-6989586621679303638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303616"><span id="local-6989586621679303618"><span id="local-6989586621679303620"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679303614"><span class="annot"><span class="annottext">toJSON :: RegexPatternSetUpdate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303611"><span id="local-6989586621679303612"><span class="annot"><span class="annottext">Text
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303625"><span id="local-6989586621679303627"><span id="local-6989586621679303629"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate"><span class="hs-identifier hs-type">RegexPatternSetUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679303623"><span class="annot"><span class="annottext">toJSON :: RegexPatternSetUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetUpdate.html#RegexPatternSetUpdate%27"><span class="hs-identifier hs-type">RegexPatternSetUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303620"><span id="local-6989586621679303621"><span class="annot"><span class="annottext">Text
 ChangeAction
 regexPatternString :: Text
 action :: ChangeAction
 $sel:regexPatternString:RegexPatternSetUpdate' :: RegexPatternSetUpdate -&gt; Text
 $sel:action:RegexPatternSetUpdate' :: RegexPatternSetUpdate -&gt; ChangeAction
-</span><a href="#local-6989586621679303611"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303620"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -203,7 +203,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ChangeAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ChangeAction
-</span><a href="#local-6989586621679303612"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303621"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -211,7 +211,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RegexPatternString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303611"><span class="hs-identifier hs-var">regexPatternString</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303620"><span class="hs-identifier hs-var">regexPatternString</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

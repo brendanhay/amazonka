@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDeleteDocument' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679852003"><span id="local-6989586621679852004"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocument"><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-var">DeleteDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocument%27"><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-var">DeleteDocument'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679852012"><span id="local-6989586621679852013"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocument"><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-var">DeleteDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocument%27"><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-var">DeleteDocument'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version name of the document that you want to delete. If not</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- provided, all versions of the document are deleted.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AversionName%3ADeleteDocument%27"><span class="annot"><span class="annottext">DeleteDocument -&gt; Maybe Text
@@ -74,7 +74,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Aname%3ADeleteDocument%27"><span class="annot"><span class="annottext">DeleteDocument -&gt; Text
 </span><a href="Network.AWS.SSM.DeleteDocument.html#%24sel%3Aname%3ADeleteDocument%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851994"><span id="local-6989586621679851996"><span class="annot"><span class="annottext">DeleteDocument -&gt; DeleteDocument -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679852003"><span id="local-6989586621679852005"><span class="annot"><span class="annottext">DeleteDocument -&gt; DeleteDocument -&gt; Bool
 (DeleteDocument -&gt; DeleteDocument -&gt; Bool)
 -&gt; (DeleteDocument -&gt; DeleteDocument -&gt; Bool) -&gt; Eq DeleteDocument
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDocument -&gt; DeleteDocument -&gt; Bool
 == :: DeleteDocument -&gt; DeleteDocument -&gt; Bool
 $c== :: DeleteDocument -&gt; DeleteDocument -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851985"><span id="local-6989586621679851987"><span id="local-6989586621679851989"><span id="local-6989586621679851991"><span class="annot"><span class="annottext">ReadPrec [DeleteDocument]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851994"><span id="local-6989586621679851996"><span id="local-6989586621679851998"><span id="local-6989586621679852000"><span class="annot"><span class="annottext">ReadPrec [DeleteDocument]
 ReadPrec DeleteDocument
 Int -&gt; ReadS DeleteDocument
 ReadS [DeleteDocument]
@@ -102,7 +102,7 @@ readList :: ReadS [DeleteDocument]
 $creadList :: ReadS [DeleteDocument]
 readsPrec :: Int -&gt; ReadS DeleteDocument
 $creadsPrec :: Int -&gt; ReadS DeleteDocument
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851978"><span id="local-6989586621679851980"><span id="local-6989586621679851982"><span class="annot"><span class="annottext">Int -&gt; DeleteDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851987"><span id="local-6989586621679851989"><span id="local-6989586621679851991"><span class="annot"><span class="annottext">Int -&gt; DeleteDocument -&gt; ShowS
 [DeleteDocument] -&gt; ShowS
 DeleteDocument -&gt; String
 (Int -&gt; DeleteDocument -&gt; ShowS)
@@ -154,8 +154,8 @@ $cfrom :: forall x. DeleteDocument -&gt; Rep DeleteDocument x
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span>
 </span><span id="line-100"></span><span id="newDeleteDocument"><span class="annot"><span class="annottext">newDeleteDocument :: Text -&gt; DeleteDocument
-</span><a href="Network.AWS.SSM.DeleteDocument.html#newDeleteDocument"><span class="hs-identifier hs-var hs-var">newDeleteDocument</span></a></span></span><span> </span><span id="local-6989586621679851973"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851973"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeleteDocument.html#newDeleteDocument"><span class="hs-identifier hs-var hs-var">newDeleteDocument</span></a></span></span><span> </span><span id="local-6989586621679851982"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679851982"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">DeleteDocument' :: Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; DeleteDocument
 </span><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionName:DeleteDocument' :: Maybe Text
@@ -172,7 +172,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DeleteDocument' :: Text
 </span><a href="Network.AWS.SSM.DeleteDocument.html#%24sel%3Aname%3ADeleteDocument%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851973"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679851982"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The version name of the document that you want to delete. If not</span><span>
@@ -184,16 +184,16 @@ forall a. Maybe a
 -&gt; (DeleteDocument -&gt; Maybe Text -&gt; DeleteDocument)
 -&gt; Lens DeleteDocument DeleteDocument (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851970"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851979"><span class="annot"><span class="annottext">Maybe Text
 versionName :: Maybe Text
 $sel:versionName:DeleteDocument' :: DeleteDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679851970"><span class="hs-identifier hs-var hs-var">versionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851970"><span class="hs-identifier hs-var">versionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851969"><span class="annot"><span class="annottext">s :: DeleteDocument
-</span><a href="#local-6989586621679851969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851968"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocument
-</span><a href="#local-6989586621679851969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionName:DeleteDocument' :: Maybe Text
+</span><a href="#local-6989586621679851979"><span class="hs-identifier hs-var hs-var">versionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679851979"><span class="hs-identifier hs-var">versionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851978"><span class="annot"><span class="annottext">s :: DeleteDocument
+</span><a href="#local-6989586621679851978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851977"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679851977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocument
+</span><a href="#local-6989586621679851978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionName:DeleteDocument' :: Maybe Text
 </span><a href="Network.AWS.SSM.DeleteDocument.html#%24sel%3AversionName%3ADeleteDocument%27"><span class="hs-identifier hs-var">versionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Some SSM document types require that you specify a @Force@ flag before</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- you can delete the document. For example, you must specify a @Force@</span><span>
@@ -207,16 +207,16 @@ $sel:versionName:DeleteDocument' :: DeleteDocument -&gt; Maybe Text
 -&gt; (DeleteDocument -&gt; Maybe Bool -&gt; DeleteDocument)
 -&gt; Lens DeleteDocument DeleteDocument (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851967"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851976"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:DeleteDocument' :: DeleteDocument -&gt; Maybe Bool
-</span><a href="#local-6989586621679851967"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679851967"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851966"><span class="annot"><span class="annottext">s :: DeleteDocument
-</span><a href="#local-6989586621679851966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851965"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679851965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocument
-</span><a href="#local-6989586621679851966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DeleteDocument' :: Maybe Bool
+</span><a href="#local-6989586621679851976"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679851976"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851975"><span class="annot"><span class="annottext">s :: DeleteDocument
+</span><a href="#local-6989586621679851975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851974"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679851974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocument
+</span><a href="#local-6989586621679851975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DeleteDocument' :: Maybe Bool
 </span><a href="Network.AWS.SSM.DeleteDocument.html#%24sel%3Aforce%3ADeleteDocument%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679851965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The version of the document that you want to delete. If not provided,</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- all versions of the document are deleted.</span><span>
@@ -227,16 +227,16 @@ $sel:force:DeleteDocument' :: DeleteDocument -&gt; Maybe Bool
 -&gt; (DeleteDocument -&gt; Maybe Text -&gt; DeleteDocument)
 -&gt; Lens DeleteDocument DeleteDocument (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851964"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851973"><span class="annot"><span class="annottext">Maybe Text
 documentVersion :: Maybe Text
 $sel:documentVersion:DeleteDocument' :: DeleteDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679851964"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851964"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851963"><span class="annot"><span class="annottext">s :: DeleteDocument
-</span><a href="#local-6989586621679851963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851962"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocument
-</span><a href="#local-6989586621679851963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentVersion:DeleteDocument' :: Maybe Text
+</span><a href="#local-6989586621679851973"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679851973"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851972"><span class="annot"><span class="annottext">s :: DeleteDocument
+</span><a href="#local-6989586621679851972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679851971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocument
+</span><a href="#local-6989586621679851972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentVersion:DeleteDocument' :: Maybe Text
 </span><a href="Network.AWS.SSM.DeleteDocument.html#%24sel%3AdocumentVersion%3ADeleteDocument%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The name of the document.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#deleteDocument_name"><span class="hs-identifier hs-type">deleteDocument_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -245,27 +245,27 @@ $sel:documentVersion:DeleteDocument' :: DeleteDocument -&gt; Maybe Text
 -&gt; (DeleteDocument -&gt; Text -&gt; DeleteDocument)
 -&gt; Lens DeleteDocument DeleteDocument Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851961"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851970"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteDocument' :: DeleteDocument -&gt; Text
-</span><a href="#local-6989586621679851961"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851961"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851960"><span class="annot"><span class="annottext">s :: DeleteDocument
-</span><a href="#local-6989586621679851960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851959"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocument
-</span><a href="#local-6989586621679851960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteDocument' :: Text
+</span><a href="#local-6989586621679851970"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679851970"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851969"><span class="annot"><span class="annottext">s :: DeleteDocument
+</span><a href="#local-6989586621679851969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679851968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocument
+</span><a href="#local-6989586621679851969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteDocument' :: Text
 </span><a href="Network.AWS.SSM.DeleteDocument.html#%24sel%3Aname%3ADeleteDocument%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-132"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse"><span class="hs-identifier hs-type">DeleteDocumentResponse</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679851955"><span class="annot"><span class="annottext">request :: DeleteDocument -&gt; Request DeleteDocument
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679851964"><span class="annot"><span class="annottext">request :: DeleteDocument -&gt; Request DeleteDocument
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDocument -&gt; Request DeleteDocument
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679851951"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679851960"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDocument
 -&gt; ClientResponse ClientBody
@@ -289,10 +289,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679851948"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851948"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679851947"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679851947"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679851946"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679851946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679851957"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851957"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679851956"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679851956"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679851955"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679851955"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentResponse
 </span><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse%27"><span class="hs-identifier hs-var">DeleteDocumentResponse'</span></a></span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteDocumentResponse)
@@ -303,15 +303,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851948"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851957"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851939"><span id="local-6989586621679851941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851948"><span id="local-6989586621679851950"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679851932"><span class="annot"><span class="annottext">toHeaders :: DeleteDocument -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679851941"><span class="annot"><span class="annottext">toHeaders :: DeleteDocument -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDocument -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -336,9 +336,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851922"><span id="local-6989586621679851924"><span id="local-6989586621679851926"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679851920"><span class="annot"><span class="annottext">toJSON :: DeleteDocument -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851915"><span id="local-6989586621679851916"><span id="local-6989586621679851917"><span id="local-6989586621679851918"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851931"><span id="local-6989586621679851933"><span id="local-6989586621679851935"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679851929"><span class="annot"><span class="annottext">toJSON :: DeleteDocument -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument%27"><span class="hs-identifier hs-type">DeleteDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851924"><span id="local-6989586621679851925"><span id="local-6989586621679851926"><span id="local-6989586621679851927"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 name :: Text
@@ -349,7 +349,7 @@ $sel:name:DeleteDocument' :: DeleteDocument -&gt; Text
 $sel:documentVersion:DeleteDocument' :: DeleteDocument -&gt; Maybe Text
 $sel:force:DeleteDocument' :: DeleteDocument -&gt; Maybe Bool
 $sel:versionName:DeleteDocument' :: DeleteDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679851915"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679851924"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -361,14 +361,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851918"><span class="hs-identifier hs-var">versionName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679851927"><span class="hs-identifier hs-var">versionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Force&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679851917"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679851926"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocumentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -376,26 +376,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679851916"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679851925"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851915"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851924"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679851909"><span class="annot"><span class="annottext">toPath :: DeleteDocument -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679851918"><span class="annot"><span class="annottext">toPath :: DeleteDocument -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDocument -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocument"><span class="hs-identifier hs-type">DeleteDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679851905"><span class="annot"><span class="annottext">toQuery :: DeleteDocument -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679851914"><span class="annot"><span class="annottext">toQuery :: DeleteDocument -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDocument -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -403,12 +403,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newDeleteDocumentResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679851902"><span id="local-6989586621679851903"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocumentResponse"><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse"><span class="hs-identifier hs-var">DeleteDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocumentResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse%27"><span class="hs-identifier hs-var">DeleteDocumentResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679851911"><span id="local-6989586621679851912"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocumentResponse"><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse"><span class="hs-identifier hs-var">DeleteDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocumentResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse%27"><span class="hs-identifier hs-var">DeleteDocumentResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDocumentResponse%27"><span class="annot"><span class="annottext">DeleteDocumentResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DeleteDocument.html#%24sel%3AhttpStatus%3ADeleteDocumentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851897"><span id="local-6989586621679851899"><span class="annot"><span class="annottext">DeleteDocumentResponse -&gt; DeleteDocumentResponse -&gt; Bool
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851906"><span id="local-6989586621679851908"><span class="annot"><span class="annottext">DeleteDocumentResponse -&gt; DeleteDocumentResponse -&gt; Bool
 (DeleteDocumentResponse -&gt; DeleteDocumentResponse -&gt; Bool)
 -&gt; (DeleteDocumentResponse -&gt; DeleteDocumentResponse -&gt; Bool)
 -&gt; Eq DeleteDocumentResponse
@@ -417,7 +417,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDocumentResponse -&gt; DeleteDocumentResponse -&gt; Bool
 == :: DeleteDocumentResponse -&gt; DeleteDocumentResponse -&gt; Bool
 $c== :: DeleteDocumentResponse -&gt; DeleteDocumentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851889"><span id="local-6989586621679851891"><span id="local-6989586621679851893"><span id="local-6989586621679851895"><span class="annot"><span class="annottext">ReadPrec [DeleteDocumentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851898"><span id="local-6989586621679851900"><span id="local-6989586621679851902"><span id="local-6989586621679851904"><span class="annot"><span class="annottext">ReadPrec [DeleteDocumentResponse]
 ReadPrec DeleteDocumentResponse
 Int -&gt; ReadS DeleteDocumentResponse
 ReadS [DeleteDocumentResponse]
@@ -437,7 +437,7 @@ readList :: ReadS [DeleteDocumentResponse]
 $creadList :: ReadS [DeleteDocumentResponse]
 readsPrec :: Int -&gt; ReadS DeleteDocumentResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDocumentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851883"><span id="local-6989586621679851885"><span id="local-6989586621679851887"><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851892"><span id="local-6989586621679851894"><span id="local-6989586621679851896"><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentResponse -&gt; ShowS
 [DeleteDocumentResponse] -&gt; ShowS
 DeleteDocumentResponse -&gt; String
 (Int -&gt; DeleteDocumentResponse -&gt; ShowS)
@@ -478,12 +478,12 @@ $cfrom :: forall x. DeleteDocumentResponse -&gt; Rep DeleteDocumentResponse x
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-196"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse"><span class="hs-identifier hs-type">DeleteDocumentResponse</span></a></span><span>
 </span><span id="line-197"></span><span id="newDeleteDocumentResponse"><span class="annot"><span class="annottext">newDeleteDocumentResponse :: Int -&gt; DeleteDocumentResponse
-</span><a href="Network.AWS.SSM.DeleteDocument.html#newDeleteDocumentResponse"><span class="hs-identifier hs-var hs-var">newDeleteDocumentResponse</span></a></span></span><span> </span><span id="local-6989586621679851880"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851880"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeleteDocument.html#newDeleteDocumentResponse"><span class="hs-identifier hs-var hs-var">newDeleteDocumentResponse</span></a></span></span><span> </span><span id="local-6989586621679851889"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851889"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="annottext">DeleteDocumentResponse' :: Int -&gt; DeleteDocumentResponse
 </span><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse%27"><span class="hs-identifier hs-type">DeleteDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDocumentResponse' :: Int
 </span><a href="Network.AWS.SSM.DeleteDocument.html#%24sel%3AhttpStatus%3ADeleteDocumentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851880"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679851889"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-201"></span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#deleteDocumentResponse_httpStatus"><span class="hs-identifier hs-type">deleteDocumentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse"><span class="hs-identifier hs-type">DeleteDocumentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -493,16 +493,16 @@ $cfrom :: forall x. DeleteDocumentResponse -&gt; Rep DeleteDocumentResponse x
 -&gt; (DeleteDocumentResponse -&gt; Int -&gt; DeleteDocumentResponse)
 -&gt; Lens DeleteDocumentResponse DeleteDocumentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse%27"><span class="hs-identifier hs-type">DeleteDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851879"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse%27"><span class="hs-identifier hs-type">DeleteDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851888"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDocumentResponse' :: DeleteDocumentResponse -&gt; Int
-</span><a href="#local-6989586621679851879"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851879"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851878"><span class="annot"><span class="annottext">s :: DeleteDocumentResponse
-</span><a href="#local-6989586621679851878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse%27"><span class="hs-identifier hs-type">DeleteDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851877"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocumentResponse
-</span><a href="#local-6989586621679851878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDocumentResponse' :: Int
+</span><a href="#local-6989586621679851888"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851888"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851887"><span class="annot"><span class="annottext">s :: DeleteDocumentResponse
+</span><a href="#local-6989586621679851887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse%27"><span class="hs-identifier hs-type">DeleteDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851886"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocumentResponse
+</span><a href="#local-6989586621679851887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDocumentResponse' :: Int
 </span><a href="Network.AWS.SSM.DeleteDocument.html#%24sel%3AhttpStatus%3ADeleteDocumentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse"><span class="hs-identifier hs-type">DeleteDocumentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse"><span class="hs-identifier hs-type">DeleteDocumentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse"><span class="hs-identifier hs-type">DeleteDocumentResponse</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851884"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteDocument.html#DeleteDocumentResponse"><span class="hs-identifier hs-type">DeleteDocumentResponse</span></a></span></span><span>
 </span><span id="line-205"></span></pre></body></html>

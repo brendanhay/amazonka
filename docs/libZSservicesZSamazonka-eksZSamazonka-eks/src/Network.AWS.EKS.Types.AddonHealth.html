@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The health of the add-on.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAddonHealth' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679263360"><span id="local-6989586621679263361"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddonHealth"><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-var">AddonHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddonHealth%27"><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth%27"><span class="hs-identifier hs-var">AddonHealth'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679263369"><span id="local-6989586621679263370"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddonHealth"><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-var">AddonHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddonHealth%27"><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth%27"><span class="hs-identifier hs-var">AddonHealth'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that represents the add-on\'s health issues.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aissues%3AAddonHealth%27"><span class="annot"><span class="annottext">AddonHealth -&gt; Maybe [AddonIssue]
 </span><a href="Network.AWS.EKS.Types.AddonHealth.html#%24sel%3Aissues%3AAddonHealth%27"><span class="hs-identifier hs-var hs-var">issues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonIssue.html#AddonIssue"><span class="hs-identifier hs-type">AddonIssue</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263354"><span id="local-6989586621679263356"><span class="annot"><span class="annottext">AddonHealth -&gt; AddonHealth -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263363"><span id="local-6989586621679263365"><span class="annot"><span class="annottext">AddonHealth -&gt; AddonHealth -&gt; Bool
 (AddonHealth -&gt; AddonHealth -&gt; Bool)
 -&gt; (AddonHealth -&gt; AddonHealth -&gt; Bool) -&gt; Eq AddonHealth
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddonHealth -&gt; AddonHealth -&gt; Bool
 == :: AddonHealth -&gt; AddonHealth -&gt; Bool
 $c== :: AddonHealth -&gt; AddonHealth -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263345"><span id="local-6989586621679263347"><span id="local-6989586621679263349"><span id="local-6989586621679263351"><span class="annot"><span class="annottext">ReadPrec [AddonHealth]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263354"><span id="local-6989586621679263356"><span id="local-6989586621679263358"><span id="local-6989586621679263360"><span class="annot"><span class="annottext">ReadPrec [AddonHealth]
 ReadPrec AddonHealth
 Int -&gt; ReadS AddonHealth
 ReadS [AddonHealth]
@@ -60,7 +60,7 @@ readList :: ReadS [AddonHealth]
 $creadList :: ReadS [AddonHealth]
 readsPrec :: Int -&gt; ReadS AddonHealth
 $creadsPrec :: Int -&gt; ReadS AddonHealth
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263338"><span id="local-6989586621679263340"><span id="local-6989586621679263342"><span class="annot"><span class="annottext">Int -&gt; AddonHealth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263347"><span id="local-6989586621679263349"><span id="local-6989586621679263351"><span class="annot"><span class="annottext">Int -&gt; AddonHealth -&gt; ShowS
 [AddonHealth] -&gt; ShowS
 AddonHealth -&gt; String
 (Int -&gt; AddonHealth -&gt; ShowS)
@@ -114,16 +114,16 @@ forall a. Maybe a
 -&gt; Lens
      AddonHealth AddonHealth (Maybe [AddonIssue]) (Maybe [AddonIssue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth%27"><span class="hs-identifier hs-type">AddonHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263329"><span class="annot"><span class="annottext">Maybe [AddonIssue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth%27"><span class="hs-identifier hs-type">AddonHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263338"><span class="annot"><span class="annottext">Maybe [AddonIssue]
 issues :: Maybe [AddonIssue]
 $sel:issues:AddonHealth' :: AddonHealth -&gt; Maybe [AddonIssue]
-</span><a href="#local-6989586621679263329"><span class="hs-identifier hs-var hs-var">issues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AddonIssue]
-</span><a href="#local-6989586621679263329"><span class="hs-identifier hs-var">issues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263328"><span class="annot"><span class="annottext">s :: AddonHealth
-</span><a href="#local-6989586621679263328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth%27"><span class="hs-identifier hs-type">AddonHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263327"><span class="annot"><span class="annottext">Maybe [AddonIssue]
-</span><a href="#local-6989586621679263327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddonHealth
-</span><a href="#local-6989586621679263328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issues:AddonHealth' :: Maybe [AddonIssue]
+</span><a href="#local-6989586621679263338"><span class="hs-identifier hs-var hs-var">issues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AddonIssue]
+</span><a href="#local-6989586621679263338"><span class="hs-identifier hs-var">issues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263337"><span class="annot"><span class="annottext">s :: AddonHealth
+</span><a href="#local-6989586621679263337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth%27"><span class="hs-identifier hs-type">AddonHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263336"><span class="annot"><span class="annottext">Maybe [AddonIssue]
+</span><a href="#local-6989586621679263336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddonHealth
+</span><a href="#local-6989586621679263337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issues:AddonHealth' :: Maybe [AddonIssue]
 </span><a href="Network.AWS.EKS.Types.AddonHealth.html#%24sel%3Aissues%3AAddonHealth%27"><span class="hs-identifier hs-var">issues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AddonIssue]
-</span><a href="#local-6989586621679263327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-type">AddonHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AddonIssue] -&gt; f (Maybe [AddonIssue]))
+</span><a href="#local-6989586621679263336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-type">AddonHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AddonIssue] -&gt; f (Maybe [AddonIssue]))
  -&gt; AddonHealth -&gt; f AddonHealth)
 -&gt; ((Maybe [AddonIssue] -&gt; f (Maybe [AddonIssue]))
     -&gt; Maybe [AddonIssue] -&gt; f (Maybe [AddonIssue]))
@@ -144,8 +144,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263321"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-type">AddonHealth</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679263319"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AddonHealth
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263330"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-type">AddonHealth</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679263328"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AddonHealth
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AddonHealth) -&gt; Value -&gt; Parser AddonHealth
@@ -153,15 +153,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AddonHealth&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263316"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263325"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263325"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AddonIssue] -&gt; AddonHealth
 </span><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth%27"><span class="hs-identifier hs-var">AddonHealth'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AddonIssue] -&gt; AddonHealth)
 -&gt; Parser (Maybe [AddonIssue]) -&gt; Parser AddonHealth
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AddonIssue]))
+</span><a href="#local-6989586621679263325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AddonIssue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;issues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AddonIssue]))
@@ -172,7 +172,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263309"><span id="local-6989586621679263311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-type">AddonHealth</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263318"><span id="local-6989586621679263320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-type">AddonHealth</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-type">AddonHealth</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.AddonHealth.html#AddonHealth"><span class="hs-identifier hs-type">AddonHealth</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

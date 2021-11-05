@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Proton.DeleteServiceTemplateVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- If no other minor versions of a service template exist, delete a major</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- version of the service template if it\'s not the @Recommended@ version.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Delete the @Recommended@ version of the service template if no other</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- major versions or minor versions of the service template exist. A major</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- version of a service template is a version that /isn\'t/ backwards</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- compatible.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Delete a minor version of a service template if it\'s not the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @Recommended@ version. Delete a @Recommended@ minor version of the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- service template if no other minor versions of the service template</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- exist. A minor version of a service template is a version that\'s</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- backwards compatible.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Proton.DeleteServiceTemplateVersion</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier">DeleteServiceTemplateVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#newDeleteServiceTemplateVersion"><span class="hs-identifier">newDeleteServiceTemplateVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersion_majorVersion"><span class="hs-identifier">deleteServiceTemplateVersion_majorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersion_minorVersion"><span class="hs-identifier">deleteServiceTemplateVersion_minorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersion_templateName"><span class="hs-identifier">deleteServiceTemplateVersion_templateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse"><span class="hs-identifier">DeleteServiceTemplateVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#newDeleteServiceTemplateVersionResponse"><span class="hs-identifier">newDeleteServiceTemplateVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersionResponse_serviceTemplateVersion"><span class="hs-identifier">deleteServiceTemplateVersionResponse_serviceTemplateVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersionResponse_httpStatus"><span class="hs-identifier">deleteServiceTemplateVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.html"><span class="hs-identifier">Network.AWS.Proton.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDeleteServiceTemplateVersion' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679271096"><span id="local-6989586621679271097"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServiceTemplateVersion"><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-var">DeleteServiceTemplateVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServiceTemplateVersion%27"><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var">DeleteServiceTemplateVersion'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The service template major version to delete.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmajorVersion%3ADeleteServiceTemplateVersion%27"><span class="annot"><span class="annottext">DeleteServiceTemplateVersion -&gt; Text
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AmajorVersion%3ADeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var hs-var">majorVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The service template minor version to delete.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AminorVersion%3ADeleteServiceTemplateVersion%27"><span class="annot"><span class="annottext">DeleteServiceTemplateVersion -&gt; Text
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AminorVersion%3ADeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var hs-var">minorVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the service template.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtemplateName%3ADeleteServiceTemplateVersion%27"><span class="annot"><span class="annottext">DeleteServiceTemplateVersion -&gt; Text
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AtemplateName%3ADeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271088"><span id="local-6989586621679271090"><span class="annot"><span class="annottext">DeleteServiceTemplateVersion
+-&gt; DeleteServiceTemplateVersion -&gt; Bool
+(DeleteServiceTemplateVersion
+ -&gt; DeleteServiceTemplateVersion -&gt; Bool)
+-&gt; (DeleteServiceTemplateVersion
+    -&gt; DeleteServiceTemplateVersion -&gt; Bool)
+-&gt; Eq DeleteServiceTemplateVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteServiceTemplateVersion
+-&gt; DeleteServiceTemplateVersion -&gt; Bool
+$c/= :: DeleteServiceTemplateVersion
+-&gt; DeleteServiceTemplateVersion -&gt; Bool
+== :: DeleteServiceTemplateVersion
+-&gt; DeleteServiceTemplateVersion -&gt; Bool
+$c== :: DeleteServiceTemplateVersion
+-&gt; DeleteServiceTemplateVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271079"><span id="local-6989586621679271081"><span id="local-6989586621679271083"><span id="local-6989586621679271085"><span class="annot"><span class="annottext">ReadPrec [DeleteServiceTemplateVersion]
+ReadPrec DeleteServiceTemplateVersion
+Int -&gt; ReadS DeleteServiceTemplateVersion
+ReadS [DeleteServiceTemplateVersion]
+(Int -&gt; ReadS DeleteServiceTemplateVersion)
+-&gt; ReadS [DeleteServiceTemplateVersion]
+-&gt; ReadPrec DeleteServiceTemplateVersion
+-&gt; ReadPrec [DeleteServiceTemplateVersion]
+-&gt; Read DeleteServiceTemplateVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteServiceTemplateVersion]
+$creadListPrec :: ReadPrec [DeleteServiceTemplateVersion]
+readPrec :: ReadPrec DeleteServiceTemplateVersion
+$creadPrec :: ReadPrec DeleteServiceTemplateVersion
+readList :: ReadS [DeleteServiceTemplateVersion]
+$creadList :: ReadS [DeleteServiceTemplateVersion]
+readsPrec :: Int -&gt; ReadS DeleteServiceTemplateVersion
+$creadsPrec :: Int -&gt; ReadS DeleteServiceTemplateVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271072"><span id="local-6989586621679271074"><span id="local-6989586621679271076"><span class="annot"><span class="annottext">Int -&gt; DeleteServiceTemplateVersion -&gt; ShowS
+[DeleteServiceTemplateVersion] -&gt; ShowS
+DeleteServiceTemplateVersion -&gt; String
+(Int -&gt; DeleteServiceTemplateVersion -&gt; ShowS)
+-&gt; (DeleteServiceTemplateVersion -&gt; String)
+-&gt; ([DeleteServiceTemplateVersion] -&gt; ShowS)
+-&gt; Show DeleteServiceTemplateVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteServiceTemplateVersion] -&gt; ShowS
+$cshowList :: [DeleteServiceTemplateVersion] -&gt; ShowS
+show :: DeleteServiceTemplateVersion -&gt; String
+$cshow :: DeleteServiceTemplateVersion -&gt; String
+showsPrec :: Int -&gt; DeleteServiceTemplateVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteServiceTemplateVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteServiceTemplateVersion -&gt; Rep DeleteServiceTemplateVersion x)
+-&gt; (forall x.
+    Rep DeleteServiceTemplateVersion x -&gt; DeleteServiceTemplateVersion)
+-&gt; Generic DeleteServiceTemplateVersion
+forall x.
+Rep DeleteServiceTemplateVersion x -&gt; DeleteServiceTemplateVersion
+forall x.
+DeleteServiceTemplateVersion -&gt; Rep DeleteServiceTemplateVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteServiceTemplateVersion x -&gt; DeleteServiceTemplateVersion
+$cfrom :: forall x.
+DeleteServiceTemplateVersion -&gt; Rep DeleteServiceTemplateVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'DeleteServiceTemplateVersion' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'majorVersion', 'deleteServiceTemplateVersion_majorVersion' - The service template major version to delete.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'minorVersion', 'deleteServiceTemplateVersion_minorVersion' - The service template minor version to delete.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'templateName', 'deleteServiceTemplateVersion_templateName' - The name of the service template.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#newDeleteServiceTemplateVersion"><span class="hs-identifier hs-type">newDeleteServiceTemplateVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'majorVersion'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'minorVersion'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'templateName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span>
+</span><span id="line-94"></span><span id="newDeleteServiceTemplateVersion"><span class="annot"><span class="annottext">newDeleteServiceTemplateVersion :: Text -&gt; Text -&gt; Text -&gt; DeleteServiceTemplateVersion
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#newDeleteServiceTemplateVersion"><span class="hs-identifier hs-var hs-var">newDeleteServiceTemplateVersion</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679271067"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271067"><span class="hs-identifier hs-var">pMajorVersion_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679271066"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271066"><span class="hs-identifier hs-var">pMinorVersion_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679271065"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271065"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">DeleteServiceTemplateVersion' :: Text -&gt; Text -&gt; Text -&gt; DeleteServiceTemplateVersion
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:majorVersion:DeleteServiceTemplateVersion' :: Text
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AmajorVersion%3ADeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var">majorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271067"><span class="hs-identifier hs-var">pMajorVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:minorVersion:DeleteServiceTemplateVersion' :: Text
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AminorVersion%3ADeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var">minorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271066"><span class="hs-identifier hs-var">pMinorVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateName:DeleteServiceTemplateVersion' :: Text
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AtemplateName%3ADeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271065"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The service template major version to delete.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersion_majorVersion"><span class="hs-identifier hs-type">deleteServiceTemplateVersion_majorVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="deleteServiceTemplateVersion_majorVersion"><span class="annot"><span class="annottext">deleteServiceTemplateVersion_majorVersion :: (Text -&gt; f Text)
+-&gt; DeleteServiceTemplateVersion -&gt; f DeleteServiceTemplateVersion
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersion_majorVersion"><span class="hs-identifier hs-var hs-var">deleteServiceTemplateVersion_majorVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteServiceTemplateVersion -&gt; Text)
+-&gt; (DeleteServiceTemplateVersion
+    -&gt; Text -&gt; DeleteServiceTemplateVersion)
+-&gt; Lens
+     DeleteServiceTemplateVersion DeleteServiceTemplateVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271062"><span class="annot"><span class="annottext">Text
+majorVersion :: Text
+$sel:majorVersion:DeleteServiceTemplateVersion' :: DeleteServiceTemplateVersion -&gt; Text
+</span><a href="#local-6989586621679271062"><span class="hs-identifier hs-var hs-var">majorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271062"><span class="hs-identifier hs-var">majorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271061"><span class="annot"><span class="annottext">s :: DeleteServiceTemplateVersion
+</span><a href="#local-6989586621679271061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271060"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServiceTemplateVersion
+</span><a href="#local-6989586621679271061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:majorVersion:DeleteServiceTemplateVersion' :: Text
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AmajorVersion%3ADeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var">majorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The service template minor version to delete.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersion_minorVersion"><span class="hs-identifier hs-type">deleteServiceTemplateVersion_minorVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="deleteServiceTemplateVersion_minorVersion"><span class="annot"><span class="annottext">deleteServiceTemplateVersion_minorVersion :: (Text -&gt; f Text)
+-&gt; DeleteServiceTemplateVersion -&gt; f DeleteServiceTemplateVersion
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersion_minorVersion"><span class="hs-identifier hs-var hs-var">deleteServiceTemplateVersion_minorVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteServiceTemplateVersion -&gt; Text)
+-&gt; (DeleteServiceTemplateVersion
+    -&gt; Text -&gt; DeleteServiceTemplateVersion)
+-&gt; Lens
+     DeleteServiceTemplateVersion DeleteServiceTemplateVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271059"><span class="annot"><span class="annottext">Text
+minorVersion :: Text
+$sel:minorVersion:DeleteServiceTemplateVersion' :: DeleteServiceTemplateVersion -&gt; Text
+</span><a href="#local-6989586621679271059"><span class="hs-identifier hs-var hs-var">minorVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271059"><span class="hs-identifier hs-var">minorVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271058"><span class="annot"><span class="annottext">s :: DeleteServiceTemplateVersion
+</span><a href="#local-6989586621679271058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271057"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServiceTemplateVersion
+</span><a href="#local-6989586621679271058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minorVersion:DeleteServiceTemplateVersion' :: Text
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AminorVersion%3ADeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var">minorVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The name of the service template.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersion_templateName"><span class="hs-identifier hs-type">deleteServiceTemplateVersion_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="deleteServiceTemplateVersion_templateName"><span class="annot"><span class="annottext">deleteServiceTemplateVersion_templateName :: (Text -&gt; f Text)
+-&gt; DeleteServiceTemplateVersion -&gt; f DeleteServiceTemplateVersion
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersion_templateName"><span class="hs-identifier hs-var hs-var">deleteServiceTemplateVersion_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteServiceTemplateVersion -&gt; Text)
+-&gt; (DeleteServiceTemplateVersion
+    -&gt; Text -&gt; DeleteServiceTemplateVersion)
+-&gt; Lens
+     DeleteServiceTemplateVersion DeleteServiceTemplateVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271056"><span class="annot"><span class="annottext">Text
+templateName :: Text
+$sel:templateName:DeleteServiceTemplateVersion' :: DeleteServiceTemplateVersion -&gt; Text
+</span><a href="#local-6989586621679271056"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271056"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271055"><span class="annot"><span class="annottext">s :: DeleteServiceTemplateVersion
+</span><a href="#local-6989586621679271055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271054"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServiceTemplateVersion
+</span><a href="#local-6989586621679271055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DeleteServiceTemplateVersion' :: Text
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AtemplateName%3ADeleteServiceTemplateVersion%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679271050"><span class="annot"><span class="annottext">request :: DeleteServiceTemplateVersion
+-&gt; Request DeleteServiceTemplateVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteServiceTemplateVersion
+-&gt; Request DeleteServiceTemplateVersion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Proton.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679271046"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteServiceTemplateVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteServiceTemplateVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteServiceTemplateVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteServiceTemplateVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteServiceTemplateVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271043"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271043"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679271042"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679271042"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679271041"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271041"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceTemplateVersion
+-&gt; Int -&gt; DeleteServiceTemplateVersionResponse
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-var">DeleteServiceTemplateVersionResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceTemplateVersion
+ -&gt; Int -&gt; DeleteServiceTemplateVersionResponse)
+-&gt; Either String (Maybe ServiceTemplateVersion)
+-&gt; Either String (Int -&gt; DeleteServiceTemplateVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ServiceTemplateVersion)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceTemplateVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteServiceTemplateVersionResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteServiceTemplateVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679271043"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679271033"><span id="local-6989586621679271035"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679271026"><span class="annot"><span class="annottext">toHeaders :: DeleteServiceTemplateVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteServiceTemplateVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AwsProton20200720.DeleteServiceTemplateVersion&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271016"><span id="local-6989586621679271018"><span id="local-6989586621679271020"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679271014"><span class="annot"><span class="annottext">toJSON :: DeleteServiceTemplateVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271010"><span id="local-6989586621679271011"><span id="local-6989586621679271012"><span class="annot"><span class="annottext">Text
+templateName :: Text
+minorVersion :: Text
+majorVersion :: Text
+$sel:templateName:DeleteServiceTemplateVersion' :: DeleteServiceTemplateVersion -&gt; Text
+$sel:minorVersion:DeleteServiceTemplateVersion' :: DeleteServiceTemplateVersion -&gt; Text
+$sel:majorVersion:DeleteServiceTemplateVersion' :: DeleteServiceTemplateVersion -&gt; Text
+</span><a href="#local-6989586621679271010"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;majorVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271012"><span class="hs-identifier hs-var">majorVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minorVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271011"><span class="hs-identifier hs-var">minorVersion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271010"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679271004"><span class="annot"><span class="annottext">toPath :: DeleteServiceTemplateVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteServiceTemplateVersion -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersion"><span class="hs-identifier hs-type">DeleteServiceTemplateVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679271000"><span class="annot"><span class="annottext">toQuery :: DeleteServiceTemplateVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteServiceTemplateVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newDeleteServiceTemplateVersionResponse' smart constructor.</span><span>
+</span><span id="line-168"></span><span id="local-6989586621679270997"><span id="local-6989586621679270998"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServiceTemplateVersionResponse"><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-var">DeleteServiceTemplateVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServiceTemplateVersionResponse%27"><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-var">DeleteServiceTemplateVersionResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The service template version detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AserviceTemplateVersion%3ADeleteServiceTemplateVersionResponse%27"><span class="annot"><span class="annottext">DeleteServiceTemplateVersionResponse
+-&gt; Maybe ServiceTemplateVersion
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AserviceTemplateVersion%3ADeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-var hs-var">serviceTemplateVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceTemplateVersion.html#ServiceTemplateVersion"><span class="hs-identifier hs-type">ServiceTemplateVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteServiceTemplateVersionResponse%27"><span class="annot"><span class="annottext">DeleteServiceTemplateVersionResponse -&gt; Int
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AhttpStatus%3ADeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270991"><span id="local-6989586621679270993"><span class="annot"><span class="annottext">DeleteServiceTemplateVersionResponse
+-&gt; DeleteServiceTemplateVersionResponse -&gt; Bool
+(DeleteServiceTemplateVersionResponse
+ -&gt; DeleteServiceTemplateVersionResponse -&gt; Bool)
+-&gt; (DeleteServiceTemplateVersionResponse
+    -&gt; DeleteServiceTemplateVersionResponse -&gt; Bool)
+-&gt; Eq DeleteServiceTemplateVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteServiceTemplateVersionResponse
+-&gt; DeleteServiceTemplateVersionResponse -&gt; Bool
+$c/= :: DeleteServiceTemplateVersionResponse
+-&gt; DeleteServiceTemplateVersionResponse -&gt; Bool
+== :: DeleteServiceTemplateVersionResponse
+-&gt; DeleteServiceTemplateVersionResponse -&gt; Bool
+$c== :: DeleteServiceTemplateVersionResponse
+-&gt; DeleteServiceTemplateVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270985"><span id="local-6989586621679270987"><span id="local-6989586621679270989"><span class="annot"><span class="annottext">Int -&gt; DeleteServiceTemplateVersionResponse -&gt; ShowS
+[DeleteServiceTemplateVersionResponse] -&gt; ShowS
+DeleteServiceTemplateVersionResponse -&gt; String
+(Int -&gt; DeleteServiceTemplateVersionResponse -&gt; ShowS)
+-&gt; (DeleteServiceTemplateVersionResponse -&gt; String)
+-&gt; ([DeleteServiceTemplateVersionResponse] -&gt; ShowS)
+-&gt; Show DeleteServiceTemplateVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteServiceTemplateVersionResponse] -&gt; ShowS
+$cshowList :: [DeleteServiceTemplateVersionResponse] -&gt; ShowS
+show :: DeleteServiceTemplateVersionResponse -&gt; String
+$cshow :: DeleteServiceTemplateVersionResponse -&gt; String
+showsPrec :: Int -&gt; DeleteServiceTemplateVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteServiceTemplateVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteServiceTemplateVersionResponse
+ -&gt; Rep DeleteServiceTemplateVersionResponse x)
+-&gt; (forall x.
+    Rep DeleteServiceTemplateVersionResponse x
+    -&gt; DeleteServiceTemplateVersionResponse)
+-&gt; Generic DeleteServiceTemplateVersionResponse
+forall x.
+Rep DeleteServiceTemplateVersionResponse x
+-&gt; DeleteServiceTemplateVersionResponse
+forall x.
+DeleteServiceTemplateVersionResponse
+-&gt; Rep DeleteServiceTemplateVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteServiceTemplateVersionResponse x
+-&gt; DeleteServiceTemplateVersionResponse
+$cfrom :: forall x.
+DeleteServiceTemplateVersionResponse
+-&gt; Rep DeleteServiceTemplateVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'DeleteServiceTemplateVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'serviceTemplateVersion', 'deleteServiceTemplateVersionResponse_serviceTemplateVersion' - The service template version detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'httpStatus', 'deleteServiceTemplateVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#newDeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-type">newDeleteServiceTemplateVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse</span></a></span><span>
+</span><span id="line-191"></span><span id="newDeleteServiceTemplateVersionResponse"><span class="annot"><span class="annottext">newDeleteServiceTemplateVersionResponse :: Int -&gt; DeleteServiceTemplateVersionResponse
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#newDeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-var hs-var">newDeleteServiceTemplateVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679270982"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">DeleteServiceTemplateVersionResponse' :: Maybe ServiceTemplateVersion
+-&gt; Int -&gt; DeleteServiceTemplateVersionResponse
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceTemplateVersion:DeleteServiceTemplateVersionResponse' :: Maybe ServiceTemplateVersion
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AserviceTemplateVersion%3ADeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-var">serviceTemplateVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServiceTemplateVersion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServiceTemplateVersionResponse' :: Int
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AhttpStatus%3ADeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The service template version detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersionResponse_serviceTemplateVersion"><span class="hs-identifier hs-type">deleteServiceTemplateVersionResponse_serviceTemplateVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceTemplateVersion.html#ServiceTemplateVersion"><span class="hs-identifier hs-type">ServiceTemplateVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="deleteServiceTemplateVersionResponse_serviceTemplateVersion"><span class="annot"><span class="annottext">deleteServiceTemplateVersionResponse_serviceTemplateVersion :: (Maybe ServiceTemplateVersion -&gt; f (Maybe ServiceTemplateVersion))
+-&gt; DeleteServiceTemplateVersionResponse
+-&gt; f DeleteServiceTemplateVersionResponse
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersionResponse_serviceTemplateVersion"><span class="hs-identifier hs-var hs-var">deleteServiceTemplateVersionResponse_serviceTemplateVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteServiceTemplateVersionResponse
+ -&gt; Maybe ServiceTemplateVersion)
+-&gt; (DeleteServiceTemplateVersionResponse
+    -&gt; Maybe ServiceTemplateVersion
+    -&gt; DeleteServiceTemplateVersionResponse)
+-&gt; Lens
+     DeleteServiceTemplateVersionResponse
+     DeleteServiceTemplateVersionResponse
+     (Maybe ServiceTemplateVersion)
+     (Maybe ServiceTemplateVersion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270981"><span class="annot"><span class="annottext">Maybe ServiceTemplateVersion
+serviceTemplateVersion :: Maybe ServiceTemplateVersion
+$sel:serviceTemplateVersion:DeleteServiceTemplateVersionResponse' :: DeleteServiceTemplateVersionResponse
+-&gt; Maybe ServiceTemplateVersion
+</span><a href="#local-6989586621679270981"><span class="hs-identifier hs-var hs-var">serviceTemplateVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceTemplateVersion
+</span><a href="#local-6989586621679270981"><span class="hs-identifier hs-var">serviceTemplateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270980"><span class="annot"><span class="annottext">s :: DeleteServiceTemplateVersionResponse
+</span><a href="#local-6989586621679270980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270979"><span class="annot"><span class="annottext">Maybe ServiceTemplateVersion
+</span><a href="#local-6989586621679270979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServiceTemplateVersionResponse
+</span><a href="#local-6989586621679270980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceTemplateVersion:DeleteServiceTemplateVersionResponse' :: Maybe ServiceTemplateVersion
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AserviceTemplateVersion%3ADeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-var">serviceTemplateVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceTemplateVersion
+</span><a href="#local-6989586621679270979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersionResponse_httpStatus"><span class="hs-identifier hs-type">deleteServiceTemplateVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="deleteServiceTemplateVersionResponse_httpStatus"><span class="annot"><span class="annottext">deleteServiceTemplateVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteServiceTemplateVersionResponse
+-&gt; f DeleteServiceTemplateVersionResponse
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#deleteServiceTemplateVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteServiceTemplateVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteServiceTemplateVersionResponse -&gt; Int)
+-&gt; (DeleteServiceTemplateVersionResponse
+    -&gt; Int -&gt; DeleteServiceTemplateVersionResponse)
+-&gt; Lens
+     DeleteServiceTemplateVersionResponse
+     DeleteServiceTemplateVersionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270978"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteServiceTemplateVersionResponse' :: DeleteServiceTemplateVersionResponse -&gt; Int
+</span><a href="#local-6989586621679270978"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270978"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270977"><span class="annot"><span class="annottext">s :: DeleteServiceTemplateVersionResponse
+</span><a href="#local-6989586621679270977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServiceTemplateVersionResponse
+</span><a href="#local-6989586621679270977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServiceTemplateVersionResponse' :: Int
+</span><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#%24sel%3AhttpStatus%3ADeleteServiceTemplateVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679270976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679270974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.DeleteServiceTemplateVersion.html#DeleteServiceTemplateVersionResponse"><span class="hs-identifier hs-type">DeleteServiceTemplateVersionResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

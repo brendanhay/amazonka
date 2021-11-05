@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about the location where the run of a report is exported.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReportExportConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679377196"><span id="local-6989586621679377197"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportExportConfig"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-var">ReportExportConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportExportConfig%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-var">ReportExportConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679377205"><span id="local-6989586621679377206"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportExportConfig"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-var">ReportExportConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportExportConfig%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-var">ReportExportConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The export configuration type. Valid values are:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @S3@: The report results are exported to an S3 bucket.</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3As3Destination%3AReportExportConfig%27"><span class="annot"><span class="annottext">ReportExportConfig -&gt; Maybe S3ReportExportConfig
 </span><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#%24sel%3As3Destination%3AReportExportConfig%27"><span class="hs-identifier hs-var hs-var">s3Destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.S3ReportExportConfig.html#S3ReportExportConfig"><span class="hs-identifier hs-type">S3ReportExportConfig</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377189"><span id="local-6989586621679377191"><span class="annot"><span class="annottext">ReportExportConfig -&gt; ReportExportConfig -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377198"><span id="local-6989586621679377200"><span class="annot"><span class="annottext">ReportExportConfig -&gt; ReportExportConfig -&gt; Bool
 (ReportExportConfig -&gt; ReportExportConfig -&gt; Bool)
 -&gt; (ReportExportConfig -&gt; ReportExportConfig -&gt; Bool)
 -&gt; Eq ReportExportConfig
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReportExportConfig -&gt; ReportExportConfig -&gt; Bool
 == :: ReportExportConfig -&gt; ReportExportConfig -&gt; Bool
 $c== :: ReportExportConfig -&gt; ReportExportConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377180"><span id="local-6989586621679377182"><span id="local-6989586621679377184"><span id="local-6989586621679377186"><span class="annot"><span class="annottext">ReadPrec [ReportExportConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377189"><span id="local-6989586621679377191"><span id="local-6989586621679377193"><span id="local-6989586621679377195"><span class="annot"><span class="annottext">ReadPrec [ReportExportConfig]
 ReadPrec ReportExportConfig
 Int -&gt; ReadS ReportExportConfig
 ReadS [ReportExportConfig]
@@ -70,7 +70,7 @@ readList :: ReadS [ReportExportConfig]
 $creadList :: ReadS [ReportExportConfig]
 readsPrec :: Int -&gt; ReadS ReportExportConfig
 $creadsPrec :: Int -&gt; ReadS ReportExportConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377173"><span id="local-6989586621679377175"><span id="local-6989586621679377177"><span class="annot"><span class="annottext">Int -&gt; ReportExportConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377182"><span id="local-6989586621679377184"><span id="local-6989586621679377186"><span class="annot"><span class="annottext">Int -&gt; ReportExportConfig -&gt; ShowS
 [ReportExportConfig] -&gt; ShowS
 ReportExportConfig -&gt; String
 (Int -&gt; ReportExportConfig -&gt; ShowS)
@@ -147,16 +147,16 @@ forall a. Maybe a
      (Maybe ReportExportConfigType)
      (Maybe ReportExportConfigType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377164"><span class="annot"><span class="annottext">Maybe ReportExportConfigType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377173"><span class="annot"><span class="annottext">Maybe ReportExportConfigType
 exportConfigType :: Maybe ReportExportConfigType
 $sel:exportConfigType:ReportExportConfig' :: ReportExportConfig -&gt; Maybe ReportExportConfigType
-</span><a href="#local-6989586621679377164"><span class="hs-identifier hs-var hs-var">exportConfigType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportExportConfigType
-</span><a href="#local-6989586621679377164"><span class="hs-identifier hs-var">exportConfigType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377163"><span class="annot"><span class="annottext">s :: ReportExportConfig
-</span><a href="#local-6989586621679377163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377162"><span class="annot"><span class="annottext">Maybe ReportExportConfigType
-</span><a href="#local-6989586621679377162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportExportConfig
-</span><a href="#local-6989586621679377163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportConfigType:ReportExportConfig' :: Maybe ReportExportConfigType
+</span><a href="#local-6989586621679377173"><span class="hs-identifier hs-var hs-var">exportConfigType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportExportConfigType
+</span><a href="#local-6989586621679377173"><span class="hs-identifier hs-var">exportConfigType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377172"><span class="annot"><span class="annottext">s :: ReportExportConfig
+</span><a href="#local-6989586621679377172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377171"><span class="annot"><span class="annottext">Maybe ReportExportConfigType
+</span><a href="#local-6989586621679377171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportExportConfig
+</span><a href="#local-6989586621679377172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportConfigType:ReportExportConfig' :: Maybe ReportExportConfigType
 </span><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#%24sel%3AexportConfigType%3AReportExportConfig%27"><span class="hs-identifier hs-var">exportConfigType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportExportConfigType
-</span><a href="#local-6989586621679377162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | A @S3ReportExportConfig@ object that contains information about the S3</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- bucket where the run of a report is exported.</span><span>
@@ -172,19 +172,19 @@ $sel:exportConfigType:ReportExportConfig' :: ReportExportConfig -&gt; Maybe Repo
      (Maybe S3ReportExportConfig)
      (Maybe S3ReportExportConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377160"><span class="annot"><span class="annottext">Maybe S3ReportExportConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377169"><span class="annot"><span class="annottext">Maybe S3ReportExportConfig
 s3Destination :: Maybe S3ReportExportConfig
 $sel:s3Destination:ReportExportConfig' :: ReportExportConfig -&gt; Maybe S3ReportExportConfig
-</span><a href="#local-6989586621679377160"><span class="hs-identifier hs-var hs-var">s3Destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3ReportExportConfig
-</span><a href="#local-6989586621679377160"><span class="hs-identifier hs-var">s3Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377159"><span class="annot"><span class="annottext">s :: ReportExportConfig
-</span><a href="#local-6989586621679377159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377158"><span class="annot"><span class="annottext">Maybe S3ReportExportConfig
-</span><a href="#local-6989586621679377158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportExportConfig
-</span><a href="#local-6989586621679377159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Destination:ReportExportConfig' :: Maybe S3ReportExportConfig
+</span><a href="#local-6989586621679377169"><span class="hs-identifier hs-var hs-var">s3Destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3ReportExportConfig
+</span><a href="#local-6989586621679377169"><span class="hs-identifier hs-var">s3Destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377168"><span class="annot"><span class="annottext">s :: ReportExportConfig
+</span><a href="#local-6989586621679377168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377167"><span class="annot"><span class="annottext">Maybe S3ReportExportConfig
+</span><a href="#local-6989586621679377167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportExportConfig
+</span><a href="#local-6989586621679377168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Destination:ReportExportConfig' :: Maybe S3ReportExportConfig
 </span><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#%24sel%3As3Destination%3AReportExportConfig%27"><span class="hs-identifier hs-var">s3Destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3ReportExportConfig
-</span><a href="#local-6989586621679377158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377155"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679377153"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReportExportConfig
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377164"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679377162"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReportExportConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReportExportConfig)
@@ -194,8 +194,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReportExportConfig&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377150"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377150"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377159"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReportExportConfigType
 -&gt; Maybe S3ReportExportConfig -&gt; ReportExportConfig
 </span><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-var">ReportExportConfig'</span></a></span><span>
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe S3ReportExportConfig -&gt; ReportExportConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReportExportConfigType)
+</span><a href="#local-6989586621679377159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReportExportConfigType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exportConfigType&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,25 +213,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe S3ReportExportConfig) -&gt; Parser ReportExportConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377150"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3ReportExportConfig)
+</span><a href="#local-6989586621679377159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3ReportExportConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Destination&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377144"><span id="local-6989586621679377146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377153"><span id="local-6989586621679377155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377133"><span id="local-6989586621679377135"><span id="local-6989586621679377137"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679377131"><span class="annot"><span class="annottext">toJSON :: ReportExportConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377128"><span id="local-6989586621679377129"><span class="annot"><span class="annottext">Maybe ReportExportConfigType
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377142"><span id="local-6989586621679377144"><span id="local-6989586621679377146"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig"><span class="hs-identifier hs-type">ReportExportConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679377140"><span class="annot"><span class="annottext">toJSON :: ReportExportConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportExportConfig.html#ReportExportConfig%27"><span class="hs-identifier hs-type">ReportExportConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377137"><span id="local-6989586621679377138"><span class="annot"><span class="annottext">Maybe ReportExportConfigType
 Maybe S3ReportExportConfig
 s3Destination :: Maybe S3ReportExportConfig
 exportConfigType :: Maybe ReportExportConfigType
 $sel:s3Destination:ReportExportConfig' :: ReportExportConfig -&gt; Maybe S3ReportExportConfig
 $sel:exportConfigType:ReportExportConfig' :: ReportExportConfig -&gt; Maybe ReportExportConfigType
-</span><a href="#local-6989586621679377128"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679377137"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,7 +245,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReportExportConfigType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReportExportConfigType
-</span><a href="#local-6989586621679377129"><span class="hs-identifier hs-var">exportConfigType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377138"><span class="hs-identifier hs-var">exportConfigType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3ReportExportConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -253,7 +253,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe S3ReportExportConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3ReportExportConfig
-</span><a href="#local-6989586621679377128"><span class="hs-identifier hs-var">s3Destination</span></a></span><span>
+</span><a href="#local-6989586621679377137"><span class="hs-identifier hs-var">s3Destination</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IVS.ListPlaybackKeyPairs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets summary information about playback key pairs. For more information,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html Setting Up Private Channels&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /Amazon IVS User Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IVS.ListPlaybackKeyPairs</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier">ListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#newListPlaybackKeyPairs"><span class="hs-identifier">newListPlaybackKeyPairs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairs_nextToken"><span class="hs-identifier">listPlaybackKeyPairs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairs_maxResults"><span class="hs-identifier">listPlaybackKeyPairs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier">ListPlaybackKeyPairsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#newListPlaybackKeyPairsResponse"><span class="hs-identifier">newListPlaybackKeyPairsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_nextToken"><span class="hs-identifier">listPlaybackKeyPairsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_httpStatus"><span class="hs-identifier">listPlaybackKeyPairsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_keyPairs"><span class="hs-identifier">listPlaybackKeyPairsResponse_keyPairs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IVS.Types.html"><span class="hs-identifier">Network.AWS.IVS.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListPlaybackKeyPairs' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679189369"><span id="local-6989586621679189370"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPlaybackKeyPairs"><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-var">ListPlaybackKeyPairs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPlaybackKeyPairs%27"><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs%27"><span class="hs-identifier hs-var">ListPlaybackKeyPairs'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Maximum number of key pairs to return.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListPlaybackKeyPairs%27"><span class="annot"><span class="annottext">ListPlaybackKeyPairs -&gt; Maybe Text
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AnextToken%3AListPlaybackKeyPairs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The first key pair to retrieve. This is used for pagination; see the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @nextToken@ response field. Default: 50.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPlaybackKeyPairs%27"><span class="annot"><span class="annottext">ListPlaybackKeyPairs -&gt; Maybe Natural
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AmaxResults%3AListPlaybackKeyPairs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189362"><span id="local-6989586621679189364"><span class="annot"><span class="annottext">ListPlaybackKeyPairs -&gt; ListPlaybackKeyPairs -&gt; Bool
+(ListPlaybackKeyPairs -&gt; ListPlaybackKeyPairs -&gt; Bool)
+-&gt; (ListPlaybackKeyPairs -&gt; ListPlaybackKeyPairs -&gt; Bool)
+-&gt; Eq ListPlaybackKeyPairs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPlaybackKeyPairs -&gt; ListPlaybackKeyPairs -&gt; Bool
+$c/= :: ListPlaybackKeyPairs -&gt; ListPlaybackKeyPairs -&gt; Bool
+== :: ListPlaybackKeyPairs -&gt; ListPlaybackKeyPairs -&gt; Bool
+$c== :: ListPlaybackKeyPairs -&gt; ListPlaybackKeyPairs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189353"><span id="local-6989586621679189355"><span id="local-6989586621679189357"><span id="local-6989586621679189359"><span class="annot"><span class="annottext">ReadPrec [ListPlaybackKeyPairs]
+ReadPrec ListPlaybackKeyPairs
+Int -&gt; ReadS ListPlaybackKeyPairs
+ReadS [ListPlaybackKeyPairs]
+(Int -&gt; ReadS ListPlaybackKeyPairs)
+-&gt; ReadS [ListPlaybackKeyPairs]
+-&gt; ReadPrec ListPlaybackKeyPairs
+-&gt; ReadPrec [ListPlaybackKeyPairs]
+-&gt; Read ListPlaybackKeyPairs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPlaybackKeyPairs]
+$creadListPrec :: ReadPrec [ListPlaybackKeyPairs]
+readPrec :: ReadPrec ListPlaybackKeyPairs
+$creadPrec :: ReadPrec ListPlaybackKeyPairs
+readList :: ReadS [ListPlaybackKeyPairs]
+$creadList :: ReadS [ListPlaybackKeyPairs]
+readsPrec :: Int -&gt; ReadS ListPlaybackKeyPairs
+$creadsPrec :: Int -&gt; ReadS ListPlaybackKeyPairs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189346"><span id="local-6989586621679189348"><span id="local-6989586621679189350"><span class="annot"><span class="annottext">Int -&gt; ListPlaybackKeyPairs -&gt; ShowS
+[ListPlaybackKeyPairs] -&gt; ShowS
+ListPlaybackKeyPairs -&gt; String
+(Int -&gt; ListPlaybackKeyPairs -&gt; ShowS)
+-&gt; (ListPlaybackKeyPairs -&gt; String)
+-&gt; ([ListPlaybackKeyPairs] -&gt; ShowS)
+-&gt; Show ListPlaybackKeyPairs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPlaybackKeyPairs] -&gt; ShowS
+$cshowList :: [ListPlaybackKeyPairs] -&gt; ShowS
+show :: ListPlaybackKeyPairs -&gt; String
+$cshow :: ListPlaybackKeyPairs -&gt; String
+showsPrec :: Int -&gt; ListPlaybackKeyPairs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPlaybackKeyPairs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListPlaybackKeyPairs -&gt; Rep ListPlaybackKeyPairs x)
+-&gt; (forall x. Rep ListPlaybackKeyPairs x -&gt; ListPlaybackKeyPairs)
+-&gt; Generic ListPlaybackKeyPairs
+forall x. Rep ListPlaybackKeyPairs x -&gt; ListPlaybackKeyPairs
+forall x. ListPlaybackKeyPairs -&gt; Rep ListPlaybackKeyPairs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPlaybackKeyPairs x -&gt; ListPlaybackKeyPairs
+$cfrom :: forall x. ListPlaybackKeyPairs -&gt; Rep ListPlaybackKeyPairs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'ListPlaybackKeyPairs' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'listPlaybackKeyPairs_nextToken' - Maximum number of key pairs to return.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listPlaybackKeyPairs_maxResults' - The first key pair to retrieve. This is used for pagination; see the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- @nextToken@ response field. Default: 50.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#newListPlaybackKeyPairs"><span class="hs-identifier hs-type">newListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span>
+</span><span id="line-80"></span><span id="newListPlaybackKeyPairs"><span class="annot"><span class="annottext">newListPlaybackKeyPairs :: ListPlaybackKeyPairs
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#newListPlaybackKeyPairs"><span class="hs-identifier hs-var hs-var">newListPlaybackKeyPairs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ListPlaybackKeyPairs' :: Maybe Text -&gt; Maybe Natural -&gt; ListPlaybackKeyPairs
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairs'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPlaybackKeyPairs' :: Maybe Text
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AnextToken%3AListPlaybackKeyPairs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPlaybackKeyPairs' :: Maybe Natural
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AmaxResults%3AListPlaybackKeyPairs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Maximum number of key pairs to return.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairs_nextToken"><span class="hs-identifier hs-type">listPlaybackKeyPairs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="listPlaybackKeyPairs_nextToken"><span class="annot"><span class="annottext">listPlaybackKeyPairs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPlaybackKeyPairs -&gt; f ListPlaybackKeyPairs
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairs_nextToken"><span class="hs-identifier hs-var hs-var">listPlaybackKeyPairs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackKeyPairs -&gt; Maybe Text)
+-&gt; (ListPlaybackKeyPairs -&gt; Maybe Text -&gt; ListPlaybackKeyPairs)
+-&gt; Lens
+     ListPlaybackKeyPairs ListPlaybackKeyPairs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189340"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPlaybackKeyPairs' :: ListPlaybackKeyPairs -&gt; Maybe Text
+</span><a href="#local-6989586621679189340"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189340"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189339"><span class="annot"><span class="annottext">s :: ListPlaybackKeyPairs
+</span><a href="#local-6989586621679189339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189338"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackKeyPairs
+</span><a href="#local-6989586621679189339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPlaybackKeyPairs' :: Maybe Text
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AnextToken%3AListPlaybackKeyPairs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The first key pair to retrieve. This is used for pagination; see the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- @nextToken@ response field. Default: 50.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairs_maxResults"><span class="hs-identifier hs-type">listPlaybackKeyPairs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listPlaybackKeyPairs_maxResults"><span class="annot"><span class="annottext">listPlaybackKeyPairs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPlaybackKeyPairs -&gt; f ListPlaybackKeyPairs
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairs_maxResults"><span class="hs-identifier hs-var hs-var">listPlaybackKeyPairs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackKeyPairs -&gt; Maybe Natural)
+-&gt; (ListPlaybackKeyPairs -&gt; Maybe Natural -&gt; ListPlaybackKeyPairs)
+-&gt; Lens
+     ListPlaybackKeyPairs
+     ListPlaybackKeyPairs
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189337"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPlaybackKeyPairs' :: ListPlaybackKeyPairs -&gt; Maybe Natural
+</span><a href="#local-6989586621679189337"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679189337"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189336"><span class="annot"><span class="annottext">s :: ListPlaybackKeyPairs
+</span><a href="#local-6989586621679189336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189335"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679189335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackKeyPairs
+</span><a href="#local-6989586621679189336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPlaybackKeyPairs' :: Maybe Natural
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AmaxResults%3AListPlaybackKeyPairs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679189335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679189331"><span class="annot"><span class="annottext">page :: ListPlaybackKeyPairs
+-&gt; AWSResponse ListPlaybackKeyPairs -&gt; Maybe ListPlaybackKeyPairs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679189329"><span class="annot"><span class="annottext">ListPlaybackKeyPairs
+</span><a href="#local-6989586621679189329"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679189328"><span class="annot"><span class="annottext">AWSResponse ListPlaybackKeyPairs
+</span><a href="#local-6989586621679189328"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPlaybackKeyPairs
+ListPlaybackKeyPairsResponse
+</span><a href="#local-6989586621679189328"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse
+-&gt; Getting (First Text) ListPlaybackKeyPairsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPlaybackKeyPairsResponse
+-&gt; Const (First Text) ListPlaybackKeyPairsResponse
+Lens' ListPlaybackKeyPairsResponse (Maybe Text)
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_nextToken"><span class="hs-identifier hs-var">listPlaybackKeyPairsResponse_nextToken</span></a></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPlaybackKeyPairsResponse
+ -&gt; Const (First Text) ListPlaybackKeyPairsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPlaybackKeyPairsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-101"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPlaybackKeyPairs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[PlaybackKeyPairSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListPlaybackKeyPairs
+ListPlaybackKeyPairsResponse
+</span><a href="#local-6989586621679189328"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse
+-&gt; Getting
+     [PlaybackKeyPairSummary]
+     ListPlaybackKeyPairsResponse
+     [PlaybackKeyPairSummary]
+-&gt; [PlaybackKeyPairSummary]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting
+  [PlaybackKeyPairSummary]
+  ListPlaybackKeyPairsResponse
+  [PlaybackKeyPairSummary]
+Lens' ListPlaybackKeyPairsResponse [PlaybackKeyPairSummary]
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_keyPairs"><span class="hs-identifier hs-var">listPlaybackKeyPairsResponse_keyPairs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPlaybackKeyPairs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">ListPlaybackKeyPairs -&gt; Maybe ListPlaybackKeyPairs
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListPlaybackKeyPairs -&gt; Maybe ListPlaybackKeyPairs)
+-&gt; ListPlaybackKeyPairs -&gt; Maybe ListPlaybackKeyPairs
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">ListPlaybackKeyPairs
+</span><a href="#local-6989586621679189329"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">ListPlaybackKeyPairs
+-&gt; (ListPlaybackKeyPairs -&gt; ListPlaybackKeyPairs)
+-&gt; ListPlaybackKeyPairs
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListPlaybackKeyPairs -&gt; Identity ListPlaybackKeyPairs
+Lens
+  ListPlaybackKeyPairs ListPlaybackKeyPairs (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairs_nextToken"><span class="hs-identifier hs-var">listPlaybackKeyPairs_nextToken</span></a></span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListPlaybackKeyPairs -&gt; Identity ListPlaybackKeyPairs)
+-&gt; Maybe Text -&gt; ListPlaybackKeyPairs -&gt; ListPlaybackKeyPairs
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPlaybackKeyPairs
+ListPlaybackKeyPairsResponse
+</span><a href="#local-6989586621679189328"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse
+-&gt; Getting (First Text) ListPlaybackKeyPairsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPlaybackKeyPairsResponse
+-&gt; Const (First Text) ListPlaybackKeyPairsResponse
+Lens' ListPlaybackKeyPairsResponse (Maybe Text)
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_nextToken"><span class="hs-identifier hs-var">listPlaybackKeyPairsResponse_nextToken</span></a></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPlaybackKeyPairsResponse
+ -&gt; Const (First Text) ListPlaybackKeyPairsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPlaybackKeyPairsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679189317"><span class="annot"><span class="annottext">request :: ListPlaybackKeyPairs -&gt; Request ListPlaybackKeyPairs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPlaybackKeyPairs -&gt; Request ListPlaybackKeyPairs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IVS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679189313"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPlaybackKeyPairs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPlaybackKeyPairs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPlaybackKeyPairs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPlaybackKeyPairs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPlaybackKeyPairs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189310"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189309"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679189309"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189308"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189308"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int -&gt; [PlaybackKeyPairSummary] -&gt; ListPlaybackKeyPairsResponse
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var">ListPlaybackKeyPairsResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int -&gt; [PlaybackKeyPairSummary] -&gt; ListPlaybackKeyPairsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Int -&gt; [PlaybackKeyPairSummary] -&gt; ListPlaybackKeyPairsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; [PlaybackKeyPairSummary] -&gt; ListPlaybackKeyPairsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String ([PlaybackKeyPairSummary] -&gt; ListPlaybackKeyPairsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189310"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String ([PlaybackKeyPairSummary] -&gt; ListPlaybackKeyPairsResponse)
+-&gt; Either String [PlaybackKeyPairSummary]
+-&gt; Either String ListPlaybackKeyPairsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [PlaybackKeyPairSummary])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyPairs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [PlaybackKeyPairSummary])
+-&gt; [PlaybackKeyPairSummary]
+-&gt; Either String [PlaybackKeyPairSummary]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[PlaybackKeyPairSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189299"><span id="local-6989586621679189301"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679189292"><span class="annot"><span class="annottext">toHeaders :: ListPlaybackKeyPairs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPlaybackKeyPairs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189282"><span id="local-6989586621679189284"><span id="local-6989586621679189286"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679189280"><span class="annot"><span class="annottext">toJSON :: ListPlaybackKeyPairs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189277"><span id="local-6989586621679189278"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListPlaybackKeyPairs' :: ListPlaybackKeyPairs -&gt; Maybe Natural
+$sel:nextToken:ListPlaybackKeyPairs' :: ListPlaybackKeyPairs -&gt; Maybe Text
+</span><a href="#local-6989586621679189277"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189278"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679189277"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679189271"><span class="annot"><span class="annottext">toPath :: ListPlaybackKeyPairs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPlaybackKeyPairs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/ListPlaybackKeyPairs&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairs"><span class="hs-identifier hs-type">ListPlaybackKeyPairs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679189267"><span class="annot"><span class="annottext">toQuery :: ListPlaybackKeyPairs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPlaybackKeyPairs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newListPlaybackKeyPairsResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679189264"><span id="local-6989586621679189265"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPlaybackKeyPairsResponse"><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-var">ListPlaybackKeyPairsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPlaybackKeyPairsResponse%27"><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var">ListPlaybackKeyPairsResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are more key pairs than @maxResults@, use @nextToken@ in the</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- request to get the next set.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AnextToken%3AListPlaybackKeyPairsResponse%27"><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AnextToken%3AListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPlaybackKeyPairsResponse%27"><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse -&gt; Int
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AhttpStatus%3AListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | List of key pairs.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AkeyPairs%3AListPlaybackKeyPairsResponse%27"><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse -&gt; [PlaybackKeyPairSummary]
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AkeyPairs%3AListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var hs-var">keyPairs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IVS.Types.PlaybackKeyPairSummary.html#PlaybackKeyPairSummary"><span class="hs-identifier hs-type">PlaybackKeyPairSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189257"><span id="local-6989586621679189259"><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse
+-&gt; ListPlaybackKeyPairsResponse -&gt; Bool
+(ListPlaybackKeyPairsResponse
+ -&gt; ListPlaybackKeyPairsResponse -&gt; Bool)
+-&gt; (ListPlaybackKeyPairsResponse
+    -&gt; ListPlaybackKeyPairsResponse -&gt; Bool)
+-&gt; Eq ListPlaybackKeyPairsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPlaybackKeyPairsResponse
+-&gt; ListPlaybackKeyPairsResponse -&gt; Bool
+$c/= :: ListPlaybackKeyPairsResponse
+-&gt; ListPlaybackKeyPairsResponse -&gt; Bool
+== :: ListPlaybackKeyPairsResponse
+-&gt; ListPlaybackKeyPairsResponse -&gt; Bool
+$c== :: ListPlaybackKeyPairsResponse
+-&gt; ListPlaybackKeyPairsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189249"><span id="local-6989586621679189251"><span id="local-6989586621679189253"><span id="local-6989586621679189255"><span class="annot"><span class="annottext">ReadPrec [ListPlaybackKeyPairsResponse]
+ReadPrec ListPlaybackKeyPairsResponse
+Int -&gt; ReadS ListPlaybackKeyPairsResponse
+ReadS [ListPlaybackKeyPairsResponse]
+(Int -&gt; ReadS ListPlaybackKeyPairsResponse)
+-&gt; ReadS [ListPlaybackKeyPairsResponse]
+-&gt; ReadPrec ListPlaybackKeyPairsResponse
+-&gt; ReadPrec [ListPlaybackKeyPairsResponse]
+-&gt; Read ListPlaybackKeyPairsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPlaybackKeyPairsResponse]
+$creadListPrec :: ReadPrec [ListPlaybackKeyPairsResponse]
+readPrec :: ReadPrec ListPlaybackKeyPairsResponse
+$creadPrec :: ReadPrec ListPlaybackKeyPairsResponse
+readList :: ReadS [ListPlaybackKeyPairsResponse]
+$creadList :: ReadS [ListPlaybackKeyPairsResponse]
+readsPrec :: Int -&gt; ReadS ListPlaybackKeyPairsResponse
+$creadsPrec :: Int -&gt; ReadS ListPlaybackKeyPairsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189243"><span id="local-6989586621679189245"><span id="local-6989586621679189247"><span class="annot"><span class="annottext">Int -&gt; ListPlaybackKeyPairsResponse -&gt; ShowS
+[ListPlaybackKeyPairsResponse] -&gt; ShowS
+ListPlaybackKeyPairsResponse -&gt; String
+(Int -&gt; ListPlaybackKeyPairsResponse -&gt; ShowS)
+-&gt; (ListPlaybackKeyPairsResponse -&gt; String)
+-&gt; ([ListPlaybackKeyPairsResponse] -&gt; ShowS)
+-&gt; Show ListPlaybackKeyPairsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPlaybackKeyPairsResponse] -&gt; ShowS
+$cshowList :: [ListPlaybackKeyPairsResponse] -&gt; ShowS
+show :: ListPlaybackKeyPairsResponse -&gt; String
+$cshow :: ListPlaybackKeyPairsResponse -&gt; String
+showsPrec :: Int -&gt; ListPlaybackKeyPairsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPlaybackKeyPairsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPlaybackKeyPairsResponse -&gt; Rep ListPlaybackKeyPairsResponse x)
+-&gt; (forall x.
+    Rep ListPlaybackKeyPairsResponse x -&gt; ListPlaybackKeyPairsResponse)
+-&gt; Generic ListPlaybackKeyPairsResponse
+forall x.
+Rep ListPlaybackKeyPairsResponse x -&gt; ListPlaybackKeyPairsResponse
+forall x.
+ListPlaybackKeyPairsResponse -&gt; Rep ListPlaybackKeyPairsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPlaybackKeyPairsResponse x -&gt; ListPlaybackKeyPairsResponse
+$cfrom :: forall x.
+ListPlaybackKeyPairsResponse -&gt; Rep ListPlaybackKeyPairsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'ListPlaybackKeyPairsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'nextToken', 'listPlaybackKeyPairsResponse_nextToken' - If there are more key pairs than @maxResults@, use @nextToken@ in the</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- request to get the next set.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'httpStatus', 'listPlaybackKeyPairsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'keyPairs', 'listPlaybackKeyPairsResponse_keyPairs' - List of key pairs.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#newListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">newListPlaybackKeyPairsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse</span></a></span><span>
+</span><span id="line-188"></span><span id="newListPlaybackKeyPairsResponse"><span class="annot"><span class="annottext">newListPlaybackKeyPairsResponse :: Int -&gt; ListPlaybackKeyPairsResponse
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#newListPlaybackKeyPairsResponse"><span class="hs-identifier hs-var hs-var">newListPlaybackKeyPairsResponse</span></a></span></span><span> </span><span id="local-6989586621679189240"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189240"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse' :: Maybe Text
+-&gt; Int -&gt; [PlaybackKeyPairSummary] -&gt; ListPlaybackKeyPairsResponse
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPlaybackKeyPairsResponse' :: Maybe Text
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AnextToken%3AListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPlaybackKeyPairsResponse' :: Int
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AhttpStatus%3AListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189240"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyPairs:ListPlaybackKeyPairsResponse' :: [PlaybackKeyPairSummary]
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AkeyPairs%3AListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var">keyPairs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PlaybackKeyPairSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | If there are more key pairs than @maxResults@, use @nextToken@ in the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- request to get the next set.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_nextToken"><span class="hs-identifier hs-type">listPlaybackKeyPairsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="listPlaybackKeyPairsResponse_nextToken"><span class="annot"><span class="annottext">listPlaybackKeyPairsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPlaybackKeyPairsResponse -&gt; f ListPlaybackKeyPairsResponse
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPlaybackKeyPairsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackKeyPairsResponse -&gt; Maybe Text)
+-&gt; (ListPlaybackKeyPairsResponse
+    -&gt; Maybe Text -&gt; ListPlaybackKeyPairsResponse)
+-&gt; Lens' ListPlaybackKeyPairsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189239"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPlaybackKeyPairsResponse' :: ListPlaybackKeyPairsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679189239"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189239"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189238"><span class="annot"><span class="annottext">s :: ListPlaybackKeyPairsResponse
+</span><a href="#local-6989586621679189238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189237"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse
+</span><a href="#local-6989586621679189238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPlaybackKeyPairsResponse' :: Maybe Text
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AnextToken%3AListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679189237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_httpStatus"><span class="hs-identifier hs-type">listPlaybackKeyPairsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-203"></span><span id="listPlaybackKeyPairsResponse_httpStatus"><span class="annot"><span class="annottext">listPlaybackKeyPairsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPlaybackKeyPairsResponse -&gt; f ListPlaybackKeyPairsResponse
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPlaybackKeyPairsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackKeyPairsResponse -&gt; Int)
+-&gt; (ListPlaybackKeyPairsResponse
+    -&gt; Int -&gt; ListPlaybackKeyPairsResponse)
+-&gt; Lens
+     ListPlaybackKeyPairsResponse ListPlaybackKeyPairsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189236"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPlaybackKeyPairsResponse' :: ListPlaybackKeyPairsResponse -&gt; Int
+</span><a href="#local-6989586621679189236"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189236"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189235"><span class="annot"><span class="annottext">s :: ListPlaybackKeyPairsResponse
+</span><a href="#local-6989586621679189235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189234"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse
+</span><a href="#local-6989586621679189235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPlaybackKeyPairsResponse' :: Int
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AhttpStatus%3AListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | List of key pairs.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_keyPairs"><span class="hs-identifier hs-type">listPlaybackKeyPairsResponse_keyPairs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IVS.Types.PlaybackKeyPairSummary.html#PlaybackKeyPairSummary"><span class="hs-identifier hs-type">PlaybackKeyPairSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-207"></span><span id="listPlaybackKeyPairsResponse_keyPairs"><span class="annot"><span class="annottext">listPlaybackKeyPairsResponse_keyPairs :: ([PlaybackKeyPairSummary] -&gt; f [PlaybackKeyPairSummary])
+-&gt; ListPlaybackKeyPairsResponse -&gt; f ListPlaybackKeyPairsResponse
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#listPlaybackKeyPairsResponse_keyPairs"><span class="hs-identifier hs-var hs-var">listPlaybackKeyPairsResponse_keyPairs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPlaybackKeyPairsResponse -&gt; [PlaybackKeyPairSummary])
+-&gt; (ListPlaybackKeyPairsResponse
+    -&gt; [PlaybackKeyPairSummary] -&gt; ListPlaybackKeyPairsResponse)
+-&gt; Lens' ListPlaybackKeyPairsResponse [PlaybackKeyPairSummary]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189233"><span class="annot"><span class="annottext">[PlaybackKeyPairSummary]
+keyPairs :: [PlaybackKeyPairSummary]
+$sel:keyPairs:ListPlaybackKeyPairsResponse' :: ListPlaybackKeyPairsResponse -&gt; [PlaybackKeyPairSummary]
+</span><a href="#local-6989586621679189233"><span class="hs-identifier hs-var hs-var">keyPairs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PlaybackKeyPairSummary]
+</span><a href="#local-6989586621679189233"><span class="hs-identifier hs-var">keyPairs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189232"><span class="annot"><span class="annottext">s :: ListPlaybackKeyPairsResponse
+</span><a href="#local-6989586621679189232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189231"><span class="annot"><span class="annottext">[PlaybackKeyPairSummary]
+</span><a href="#local-6989586621679189231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPlaybackKeyPairsResponse
+</span><a href="#local-6989586621679189232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairs:ListPlaybackKeyPairsResponse' :: [PlaybackKeyPairSummary]
+</span><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#%24sel%3AkeyPairs%3AListPlaybackKeyPairsResponse%27"><span class="hs-identifier hs-var">keyPairs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PlaybackKeyPairSummary]
+</span><a href="#local-6989586621679189231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PlaybackKeyPairSummary] -&gt; f [PlaybackKeyPairSummary])
+ -&gt; ListPlaybackKeyPairsResponse -&gt; f ListPlaybackKeyPairsResponse)
+-&gt; (([PlaybackKeyPairSummary] -&gt; f [PlaybackKeyPairSummary])
+    -&gt; [PlaybackKeyPairSummary] -&gt; f [PlaybackKeyPairSummary])
+-&gt; ([PlaybackKeyPairSummary] -&gt; f [PlaybackKeyPairSummary])
+-&gt; ListPlaybackKeyPairsResponse
+-&gt; f ListPlaybackKeyPairsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PlaybackKeyPairSummary] -&gt; f [PlaybackKeyPairSummary])
+-&gt; [PlaybackKeyPairSummary] -&gt; f [PlaybackKeyPairSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IVS.ListPlaybackKeyPairs.html#ListPlaybackKeyPairsResponse"><span class="hs-identifier hs-type">ListPlaybackKeyPairsResponse</span></a></span></span><span>
+</span><span id="line-210"></span></pre></body></html>

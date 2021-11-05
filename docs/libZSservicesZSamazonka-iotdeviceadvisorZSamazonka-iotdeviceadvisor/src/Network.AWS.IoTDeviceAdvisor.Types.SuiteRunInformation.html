@@ -1,0 +1,678 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.html"><span class="hs-identifier">Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about the suite run.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSuiteRunInformation' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679169382"><span id="local-6989586621679169383"></span></span><span class="hs-keyword">data</span><span> </span><span id="SuiteRunInformation"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-var">SuiteRunInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuiteRunInformation%27"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-var">SuiteRunInformation'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status of the suite run.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe SuiteRunStatus
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3Astatus%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.html#SuiteRunStatus"><span class="hs-identifier hs-type">SuiteRunStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Date (in Unix epoch time) when the suite run was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreatedAt%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AcreatedAt%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Number of test cases that passed in the suite run.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apassed%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe Natural
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3Apassed%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">passed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Suite definition Id of the suite run.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsuiteDefinitionId%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteDefinitionId%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Suite definition version of the suite run.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsuiteDefinitionVersion%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteDefinitionVersion%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Date (in Unix epoch time) when the suite run was started.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AstartedAt%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AstartedAt%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Suite definition name of the suite run.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsuiteDefinitionName%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteDefinitionName%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Date (in Unix epoch time) when the suite run ended.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AendAt%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AendAt%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">endAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Suite run Id of the suite run.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AsuiteRunId%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteRunId%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">suiteRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Number of test cases that failed in the suite run.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Afailed%3ASuiteRunInformation%27"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; Maybe Natural
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3Afailed%3ASuiteRunInformation%27"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679169367"><span id="local-6989586621679169369"><span class="annot"><span class="annottext">SuiteRunInformation -&gt; SuiteRunInformation -&gt; Bool
+(SuiteRunInformation -&gt; SuiteRunInformation -&gt; Bool)
+-&gt; (SuiteRunInformation -&gt; SuiteRunInformation -&gt; Bool)
+-&gt; Eq SuiteRunInformation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SuiteRunInformation -&gt; SuiteRunInformation -&gt; Bool
+$c/= :: SuiteRunInformation -&gt; SuiteRunInformation -&gt; Bool
+== :: SuiteRunInformation -&gt; SuiteRunInformation -&gt; Bool
+$c== :: SuiteRunInformation -&gt; SuiteRunInformation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169358"><span id="local-6989586621679169360"><span id="local-6989586621679169362"><span id="local-6989586621679169364"><span class="annot"><span class="annottext">ReadPrec [SuiteRunInformation]
+ReadPrec SuiteRunInformation
+Int -&gt; ReadS SuiteRunInformation
+ReadS [SuiteRunInformation]
+(Int -&gt; ReadS SuiteRunInformation)
+-&gt; ReadS [SuiteRunInformation]
+-&gt; ReadPrec SuiteRunInformation
+-&gt; ReadPrec [SuiteRunInformation]
+-&gt; Read SuiteRunInformation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SuiteRunInformation]
+$creadListPrec :: ReadPrec [SuiteRunInformation]
+readPrec :: ReadPrec SuiteRunInformation
+$creadPrec :: ReadPrec SuiteRunInformation
+readList :: ReadS [SuiteRunInformation]
+$creadList :: ReadS [SuiteRunInformation]
+readsPrec :: Int -&gt; ReadS SuiteRunInformation
+$creadsPrec :: Int -&gt; ReadS SuiteRunInformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169351"><span id="local-6989586621679169353"><span id="local-6989586621679169355"><span class="annot"><span class="annottext">Int -&gt; SuiteRunInformation -&gt; ShowS
+[SuiteRunInformation] -&gt; ShowS
+SuiteRunInformation -&gt; String
+(Int -&gt; SuiteRunInformation -&gt; ShowS)
+-&gt; (SuiteRunInformation -&gt; String)
+-&gt; ([SuiteRunInformation] -&gt; ShowS)
+-&gt; Show SuiteRunInformation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SuiteRunInformation] -&gt; ShowS
+$cshowList :: [SuiteRunInformation] -&gt; ShowS
+show :: SuiteRunInformation -&gt; String
+$cshow :: SuiteRunInformation -&gt; String
+showsPrec :: Int -&gt; SuiteRunInformation -&gt; ShowS
+$cshowsPrec :: Int -&gt; SuiteRunInformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SuiteRunInformation -&gt; Rep SuiteRunInformation x)
+-&gt; (forall x. Rep SuiteRunInformation x -&gt; SuiteRunInformation)
+-&gt; Generic SuiteRunInformation
+forall x. Rep SuiteRunInformation x -&gt; SuiteRunInformation
+forall x. SuiteRunInformation -&gt; Rep SuiteRunInformation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SuiteRunInformation x -&gt; SuiteRunInformation
+$cfrom :: forall x. SuiteRunInformation -&gt; Rep SuiteRunInformation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'SuiteRunInformation' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'status', 'suiteRunInformation_status' - Status of the suite run.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'createdAt', 'suiteRunInformation_createdAt' - Date (in Unix epoch time) when the suite run was created.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'passed', 'suiteRunInformation_passed' - Number of test cases that passed in the suite run.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'suiteDefinitionId', 'suiteRunInformation_suiteDefinitionId' - Suite definition Id of the suite run.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'suiteDefinitionVersion', 'suiteRunInformation_suiteDefinitionVersion' - Suite definition version of the suite run.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'startedAt', 'suiteRunInformation_startedAt' - Date (in Unix epoch time) when the suite run was started.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'suiteDefinitionName', 'suiteRunInformation_suiteDefinitionName' - Suite definition name of the suite run.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'endAt', 'suiteRunInformation_endAt' - Date (in Unix epoch time) when the suite run ended.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'suiteRunId', 'suiteRunInformation_suiteRunId' - Suite run Id of the suite run.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'failed', 'suiteRunInformation_failed' - Number of test cases that failed in the suite run.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#newSuiteRunInformation"><span class="hs-identifier hs-type">newSuiteRunInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span>
+</span><span id="line-83"></span><span id="newSuiteRunInformation"><span class="annot"><span class="annottext">newSuiteRunInformation :: SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#newSuiteRunInformation"><span class="hs-identifier hs-var hs-var">newSuiteRunInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">SuiteRunInformation' :: Maybe SuiteRunStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:SuiteRunInformation' :: Maybe SuiteRunStatus
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3Astatus%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SuiteRunStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:SuiteRunInformation' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AcreatedAt%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:passed:SuiteRunInformation' :: Maybe Natural
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3Apassed%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">passed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteDefinitionId:SuiteRunInformation' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteDefinitionId%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteDefinitionVersion:SuiteRunInformation' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteDefinitionVersion%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">suiteDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:startedAt:SuiteRunInformation' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AstartedAt%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteDefinitionName:SuiteRunInformation' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteDefinitionName%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">suiteDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:endAt:SuiteRunInformation' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AendAt%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">endAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteRunId:SuiteRunInformation' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteRunId%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">suiteRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:failed:SuiteRunInformation' :: Maybe Natural
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3Afailed%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">failed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Status of the suite run.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_status"><span class="hs-identifier hs-type">suiteRunInformation_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunStatus.html#SuiteRunStatus"><span class="hs-identifier hs-type">SuiteRunStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="suiteRunInformation_status"><span class="annot"><span class="annottext">suiteRunInformation_status :: (Maybe SuiteRunStatus -&gt; f (Maybe SuiteRunStatus))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_status"><span class="hs-identifier hs-var hs-var">suiteRunInformation_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe SuiteRunStatus)
+-&gt; (SuiteRunInformation
+    -&gt; Maybe SuiteRunStatus -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation
+     SuiteRunInformation
+     (Maybe SuiteRunStatus)
+     (Maybe SuiteRunStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169342"><span class="annot"><span class="annottext">Maybe SuiteRunStatus
+status :: Maybe SuiteRunStatus
+$sel:status:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe SuiteRunStatus
+</span><a href="#local-6989586621679169342"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SuiteRunStatus
+</span><a href="#local-6989586621679169342"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169341"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169340"><span class="annot"><span class="annottext">Maybe SuiteRunStatus
+</span><a href="#local-6989586621679169340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SuiteRunInformation' :: Maybe SuiteRunStatus
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3Astatus%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SuiteRunStatus
+</span><a href="#local-6989586621679169340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Date (in Unix epoch time) when the suite run was created.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_createdAt"><span class="hs-identifier hs-type">suiteRunInformation_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="suiteRunInformation_createdAt"><span class="annot"><span class="annottext">suiteRunInformation_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_createdAt"><span class="hs-identifier hs-var hs-var">suiteRunInformation_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe POSIX)
+-&gt; (SuiteRunInformation -&gt; Maybe POSIX -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation SuiteRunInformation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169338"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679169338"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679169338"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169337"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169336"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679169336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:SuiteRunInformation' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AcreatedAt%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679169336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; SuiteRunInformation -&gt; f SuiteRunInformation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SuiteRunInformation
+-&gt; f SuiteRunInformation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Number of test cases that passed in the suite run.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_passed"><span class="hs-identifier hs-type">suiteRunInformation_passed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="suiteRunInformation_passed"><span class="annot"><span class="annottext">suiteRunInformation_passed :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_passed"><span class="hs-identifier hs-var hs-var">suiteRunInformation_passed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe Natural)
+-&gt; (SuiteRunInformation -&gt; Maybe Natural -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation
+     SuiteRunInformation
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169331"><span class="annot"><span class="annottext">Maybe Natural
+passed :: Maybe Natural
+$sel:passed:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe Natural
+</span><a href="#local-6989586621679169331"><span class="hs-identifier hs-var hs-var">passed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169331"><span class="hs-identifier hs-var">passed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169330"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169329"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passed:SuiteRunInformation' :: Maybe Natural
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3Apassed%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">passed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Suite definition Id of the suite run.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_suiteDefinitionId"><span class="hs-identifier hs-type">suiteRunInformation_suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="suiteRunInformation_suiteDefinitionId"><span class="annot"><span class="annottext">suiteRunInformation_suiteDefinitionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_suiteDefinitionId"><span class="hs-identifier hs-var hs-var">suiteRunInformation_suiteDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe Text)
+-&gt; (SuiteRunInformation -&gt; Maybe Text -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation SuiteRunInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169327"><span class="annot"><span class="annottext">Maybe Text
+suiteDefinitionId :: Maybe Text
+$sel:suiteDefinitionId:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679169327"><span class="hs-identifier hs-var hs-var">suiteDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169327"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169326"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169325"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionId:SuiteRunInformation' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteDefinitionId%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Suite definition version of the suite run.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_suiteDefinitionVersion"><span class="hs-identifier hs-type">suiteRunInformation_suiteDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="suiteRunInformation_suiteDefinitionVersion"><span class="annot"><span class="annottext">suiteRunInformation_suiteDefinitionVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_suiteDefinitionVersion"><span class="hs-identifier hs-var hs-var">suiteRunInformation_suiteDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe Text)
+-&gt; (SuiteRunInformation -&gt; Maybe Text -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation SuiteRunInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169323"><span class="annot"><span class="annottext">Maybe Text
+suiteDefinitionVersion :: Maybe Text
+$sel:suiteDefinitionVersion:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679169323"><span class="hs-identifier hs-var hs-var">suiteDefinitionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169323"><span class="hs-identifier hs-var">suiteDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169322"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169321"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionVersion:SuiteRunInformation' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteDefinitionVersion%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">suiteDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Date (in Unix epoch time) when the suite run was started.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_startedAt"><span class="hs-identifier hs-type">suiteRunInformation_startedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="suiteRunInformation_startedAt"><span class="annot"><span class="annottext">suiteRunInformation_startedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_startedAt"><span class="hs-identifier hs-var hs-var">suiteRunInformation_startedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe POSIX)
+-&gt; (SuiteRunInformation -&gt; Maybe POSIX -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation SuiteRunInformation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169319"><span class="annot"><span class="annottext">Maybe POSIX
+startedAt :: Maybe POSIX
+$sel:startedAt:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679169319"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679169319"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169318"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169317"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679169317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:SuiteRunInformation' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AstartedAt%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679169317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; SuiteRunInformation -&gt; f SuiteRunInformation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SuiteRunInformation
+-&gt; f SuiteRunInformation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Suite definition name of the suite run.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_suiteDefinitionName"><span class="hs-identifier hs-type">suiteRunInformation_suiteDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="suiteRunInformation_suiteDefinitionName"><span class="annot"><span class="annottext">suiteRunInformation_suiteDefinitionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_suiteDefinitionName"><span class="hs-identifier hs-var hs-var">suiteRunInformation_suiteDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe Text)
+-&gt; (SuiteRunInformation -&gt; Maybe Text -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation SuiteRunInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169315"><span class="annot"><span class="annottext">Maybe Text
+suiteDefinitionName :: Maybe Text
+$sel:suiteDefinitionName:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679169315"><span class="hs-identifier hs-var hs-var">suiteDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169315"><span class="hs-identifier hs-var">suiteDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169314"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionName:SuiteRunInformation' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteDefinitionName%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">suiteDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Date (in Unix epoch time) when the suite run ended.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_endAt"><span class="hs-identifier hs-type">suiteRunInformation_endAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="suiteRunInformation_endAt"><span class="annot"><span class="annottext">suiteRunInformation_endAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_endAt"><span class="hs-identifier hs-var hs-var">suiteRunInformation_endAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe POSIX)
+-&gt; (SuiteRunInformation -&gt; Maybe POSIX -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation SuiteRunInformation (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169311"><span class="annot"><span class="annottext">Maybe POSIX
+endAt :: Maybe POSIX
+$sel:endAt:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe POSIX
+</span><a href="#local-6989586621679169311"><span class="hs-identifier hs-var hs-var">endAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679169311"><span class="hs-identifier hs-var">endAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169310"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169309"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679169309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endAt:SuiteRunInformation' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AendAt%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">endAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679169309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; SuiteRunInformation -&gt; f SuiteRunInformation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SuiteRunInformation
+-&gt; f SuiteRunInformation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Suite run Id of the suite run.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_suiteRunId"><span class="hs-identifier hs-type">suiteRunInformation_suiteRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="suiteRunInformation_suiteRunId"><span class="annot"><span class="annottext">suiteRunInformation_suiteRunId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_suiteRunId"><span class="hs-identifier hs-var hs-var">suiteRunInformation_suiteRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe Text)
+-&gt; (SuiteRunInformation -&gt; Maybe Text -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation SuiteRunInformation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169307"><span class="annot"><span class="annottext">Maybe Text
+suiteRunId :: Maybe Text
+$sel:suiteRunId:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe Text
+</span><a href="#local-6989586621679169307"><span class="hs-identifier hs-var hs-var">suiteRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169307"><span class="hs-identifier hs-var">suiteRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169306"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteRunId:SuiteRunInformation' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3AsuiteRunId%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">suiteRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Number of test cases that failed in the suite run.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_failed"><span class="hs-identifier hs-type">suiteRunInformation_failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="suiteRunInformation_failed"><span class="annot"><span class="annottext">suiteRunInformation_failed :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SuiteRunInformation -&gt; f SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#suiteRunInformation_failed"><span class="hs-identifier hs-var hs-var">suiteRunInformation_failed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuiteRunInformation -&gt; Maybe Natural)
+-&gt; (SuiteRunInformation -&gt; Maybe Natural -&gt; SuiteRunInformation)
+-&gt; Lens
+     SuiteRunInformation
+     SuiteRunInformation
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169303"><span class="annot"><span class="annottext">Maybe Natural
+failed :: Maybe Natural
+$sel:failed:SuiteRunInformation' :: SuiteRunInformation -&gt; Maybe Natural
+</span><a href="#local-6989586621679169303"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169303"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169302"><span class="annot"><span class="annottext">s :: SuiteRunInformation
+</span><a href="#local-6989586621679169302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-type">SuiteRunInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169301"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuiteRunInformation
+</span><a href="#local-6989586621679169302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:SuiteRunInformation' :: Maybe Natural
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#%24sel%3Afailed%3ASuiteRunInformation%27"><span class="hs-identifier hs-var">failed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679169301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169298"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679169296"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SuiteRunInformation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SuiteRunInformation)
+-&gt; Value
+-&gt; Parser SuiteRunInformation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SuiteRunInformation&quot;</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679169293"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe SuiteRunStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; SuiteRunInformation
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation%27"><span class="hs-identifier hs-var">SuiteRunInformation'</span></a></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SuiteRunStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe SuiteRunStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; SuiteRunInformation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SuiteRunStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; SuiteRunInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; SuiteRunInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;passed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; SuiteRunInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suiteDefinitionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; SuiteRunInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suiteDefinitionVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; SuiteRunInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Natural -&gt; SuiteRunInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suiteDefinitionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Natural -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Natural -&gt; SuiteRunInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural -&gt; SuiteRunInformation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suiteRunId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; SuiteRunInformation)
+-&gt; Parser (Maybe Natural) -&gt; Parser SuiteRunInformation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169287"><span id="local-6989586621679169289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteRunInformation.html#SuiteRunInformation"><span class="hs-identifier hs-type">SuiteRunInformation</span></a></span></span><span>
+</span><span id="line-158"></span></pre></body></html>

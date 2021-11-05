@@ -1,0 +1,1392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Panorama.DescribeApplicationInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about an application instance on a device.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Panorama.DescribeApplicationInstance</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier">DescribeApplicationInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#newDescribeApplicationInstance"><span class="hs-identifier">newDescribeApplicationInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstance_applicationInstanceId"><span class="hs-identifier">describeApplicationInstance_applicationInstanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#newDescribeApplicationInstanceResponse"><span class="hs-identifier">newDescribeApplicationInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_status"><span class="hs-identifier">describeApplicationInstanceResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_statusDescription"><span class="hs-identifier">describeApplicationInstanceResponse_statusDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_lastUpdatedTime"><span class="hs-identifier">describeApplicationInstanceResponse_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_arn"><span class="hs-identifier">describeApplicationInstanceResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_createdTime"><span class="hs-identifier">describeApplicationInstanceResponse_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_defaultRuntimeContextDevice"><span class="hs-identifier">describeApplicationInstanceResponse_defaultRuntimeContextDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_defaultRuntimeContextDeviceName"><span class="hs-identifier">describeApplicationInstanceResponse_defaultRuntimeContextDeviceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_name"><span class="hs-identifier">describeApplicationInstanceResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_runtimeRoleArn"><span class="hs-identifier">describeApplicationInstanceResponse_runtimeRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_healthStatus"><span class="hs-identifier">describeApplicationInstanceResponse_healthStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_applicationInstanceId"><span class="hs-identifier">describeApplicationInstanceResponse_applicationInstanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_description"><span class="hs-identifier">describeApplicationInstanceResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_tags"><span class="hs-identifier">describeApplicationInstanceResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_applicationInstanceIdToReplace"><span class="hs-identifier">describeApplicationInstanceResponse_applicationInstanceIdToReplace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_httpStatus"><span class="hs-identifier">describeApplicationInstanceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.html"><span class="hs-identifier">Network.AWS.Panorama.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDescribeApplicationInstance' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679266654"><span id="local-6989586621679266655"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplicationInstance"><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-var">DescribeApplicationInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplicationInstance%27"><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance%27"><span class="hs-identifier hs-var">DescribeApplicationInstance'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The application instance\'s ID.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AapplicationInstanceId%3ADescribeApplicationInstance%27"><span class="annot"><span class="annottext">DescribeApplicationInstance -&gt; Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AapplicationInstanceId%3ADescribeApplicationInstance%27"><span class="hs-identifier hs-var hs-var">applicationInstanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266648"><span id="local-6989586621679266650"><span class="annot"><span class="annottext">DescribeApplicationInstance -&gt; DescribeApplicationInstance -&gt; Bool
+(DescribeApplicationInstance
+ -&gt; DescribeApplicationInstance -&gt; Bool)
+-&gt; (DescribeApplicationInstance
+    -&gt; DescribeApplicationInstance -&gt; Bool)
+-&gt; Eq DescribeApplicationInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeApplicationInstance -&gt; DescribeApplicationInstance -&gt; Bool
+$c/= :: DescribeApplicationInstance -&gt; DescribeApplicationInstance -&gt; Bool
+== :: DescribeApplicationInstance -&gt; DescribeApplicationInstance -&gt; Bool
+$c== :: DescribeApplicationInstance -&gt; DescribeApplicationInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266639"><span id="local-6989586621679266641"><span id="local-6989586621679266643"><span id="local-6989586621679266645"><span class="annot"><span class="annottext">ReadPrec [DescribeApplicationInstance]
+ReadPrec DescribeApplicationInstance
+Int -&gt; ReadS DescribeApplicationInstance
+ReadS [DescribeApplicationInstance]
+(Int -&gt; ReadS DescribeApplicationInstance)
+-&gt; ReadS [DescribeApplicationInstance]
+-&gt; ReadPrec DescribeApplicationInstance
+-&gt; ReadPrec [DescribeApplicationInstance]
+-&gt; Read DescribeApplicationInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeApplicationInstance]
+$creadListPrec :: ReadPrec [DescribeApplicationInstance]
+readPrec :: ReadPrec DescribeApplicationInstance
+$creadPrec :: ReadPrec DescribeApplicationInstance
+readList :: ReadS [DescribeApplicationInstance]
+$creadList :: ReadS [DescribeApplicationInstance]
+readsPrec :: Int -&gt; ReadS DescribeApplicationInstance
+$creadsPrec :: Int -&gt; ReadS DescribeApplicationInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266632"><span id="local-6989586621679266634"><span id="local-6989586621679266636"><span class="annot"><span class="annottext">Int -&gt; DescribeApplicationInstance -&gt; ShowS
+[DescribeApplicationInstance] -&gt; ShowS
+DescribeApplicationInstance -&gt; String
+(Int -&gt; DescribeApplicationInstance -&gt; ShowS)
+-&gt; (DescribeApplicationInstance -&gt; String)
+-&gt; ([DescribeApplicationInstance] -&gt; ShowS)
+-&gt; Show DescribeApplicationInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeApplicationInstance] -&gt; ShowS
+$cshowList :: [DescribeApplicationInstance] -&gt; ShowS
+show :: DescribeApplicationInstance -&gt; String
+$cshow :: DescribeApplicationInstance -&gt; String
+showsPrec :: Int -&gt; DescribeApplicationInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeApplicationInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeApplicationInstance -&gt; Rep DescribeApplicationInstance x)
+-&gt; (forall x.
+    Rep DescribeApplicationInstance x -&gt; DescribeApplicationInstance)
+-&gt; Generic DescribeApplicationInstance
+forall x.
+Rep DescribeApplicationInstance x -&gt; DescribeApplicationInstance
+forall x.
+DescribeApplicationInstance -&gt; Rep DescribeApplicationInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeApplicationInstance x -&gt; DescribeApplicationInstance
+$cfrom :: forall x.
+DescribeApplicationInstance -&gt; Rep DescribeApplicationInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DescribeApplicationInstance' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'applicationInstanceId', 'describeApplicationInstance_applicationInstanceId' - The application instance\'s ID.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#newDescribeApplicationInstance"><span class="hs-identifier hs-type">newDescribeApplicationInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'applicationInstanceId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span><span>
+</span><span id="line-82"></span><span id="newDescribeApplicationInstance"><span class="annot"><span class="annottext">newDescribeApplicationInstance :: Text -&gt; DescribeApplicationInstance
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#newDescribeApplicationInstance"><span class="hs-identifier hs-var hs-var">newDescribeApplicationInstance</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679266627"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266627"><span class="hs-identifier hs-var">pApplicationInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">DescribeApplicationInstance' :: Text -&gt; DescribeApplicationInstance
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance%27"><span class="hs-identifier hs-type">DescribeApplicationInstance'</span></a></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationInstanceId:DescribeApplicationInstance' :: Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AapplicationInstanceId%3ADescribeApplicationInstance%27"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266627"><span class="hs-identifier hs-var">pApplicationInstanceId_</span></a></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The application instance\'s ID.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstance_applicationInstanceId"><span class="hs-identifier hs-type">describeApplicationInstance_applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="describeApplicationInstance_applicationInstanceId"><span class="annot"><span class="annottext">describeApplicationInstance_applicationInstanceId :: (Text -&gt; f Text)
+-&gt; DescribeApplicationInstance -&gt; f DescribeApplicationInstance
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstance_applicationInstanceId"><span class="hs-identifier hs-var hs-var">describeApplicationInstance_applicationInstanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstance -&gt; Text)
+-&gt; (DescribeApplicationInstance
+    -&gt; Text -&gt; DescribeApplicationInstance)
+-&gt; Lens
+     DescribeApplicationInstance DescribeApplicationInstance Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance%27"><span class="hs-identifier hs-type">DescribeApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266624"><span class="annot"><span class="annottext">Text
+applicationInstanceId :: Text
+$sel:applicationInstanceId:DescribeApplicationInstance' :: DescribeApplicationInstance -&gt; Text
+</span><a href="#local-6989586621679266624"><span class="hs-identifier hs-var hs-var">applicationInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266624"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266623"><span class="annot"><span class="annottext">s :: DescribeApplicationInstance
+</span><a href="#local-6989586621679266623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance%27"><span class="hs-identifier hs-type">DescribeApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266622"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstance
+</span><a href="#local-6989586621679266623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationInstanceId:DescribeApplicationInstance' :: Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AapplicationInstanceId%3ADescribeApplicationInstance%27"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679266618"><span class="annot"><span class="annottext">request :: DescribeApplicationInstance -&gt; Request DescribeApplicationInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeApplicationInstance
+-&gt; Request DescribeApplicationInstance
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Panorama.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679266614"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeApplicationInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeApplicationInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeApplicationInstance))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeApplicationInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeApplicationInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266611"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266611"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679266610"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679266610"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679266609"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ApplicationInstanceHealthStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">DescribeApplicationInstanceResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ApplicationInstanceStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ApplicationInstanceHealthStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe ApplicationInstanceStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ApplicationInstanceStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultRuntimeContextDevice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultRuntimeContextDeviceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ApplicationInstanceHealthStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuntimeRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ApplicationInstanceHealthStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe ApplicationInstanceHealthStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe ApplicationInstanceHealthStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationInstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text -&gt; Int -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text -&gt; Int -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeApplicationInstanceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationInstanceIdToReplace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeApplicationInstanceResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeApplicationInstanceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266611"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266600"><span id="local-6989586621679266602"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679266593"><span class="annot"><span class="annottext">toHeaders :: DescribeApplicationInstance -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeApplicationInstance -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679266587"><span class="annot"><span class="annottext">toPath :: DescribeApplicationInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance%27"><span class="hs-identifier hs-type">DescribeApplicationInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266585"><span class="annot"><span class="annottext">Text
+applicationInstanceId :: Text
+$sel:applicationInstanceId:DescribeApplicationInstance' :: DescribeApplicationInstance -&gt; Text
+</span><a href="#local-6989586621679266585"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/application-instances/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266585"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstance"><span class="hs-identifier hs-type">DescribeApplicationInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679266581"><span class="annot"><span class="annottext">toQuery :: DescribeApplicationInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeApplicationInstance -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newDescribeApplicationInstanceResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679266578"><span id="local-6989586621679266579"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApplicationInstanceResponse"><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-var">DescribeApplicationInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApplicationInstanceResponse%27"><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">DescribeApplicationInstanceResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The application instance\'s status.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+-&gt; Maybe ApplicationInstanceStatus
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Astatus%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceStatus.html#ApplicationInstanceStatus"><span class="hs-identifier hs-type">ApplicationInstanceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The application instance\'s status description.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AstatusDescription%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AstatusDescription%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">statusDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The application instance was updated.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AlastUpdatedTime%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The application instance\'s ARN.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3Aarn%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Aarn%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | When the application instance was created.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AcreatedTime%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AcreatedTime%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The device\'s ID.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AdefaultRuntimeContextDevice%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AdefaultRuntimeContextDevice%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">defaultRuntimeContextDevice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The device\'s bane.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AdefaultRuntimeContextDeviceName%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AdefaultRuntimeContextDeviceName%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">defaultRuntimeContextDeviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The application instance\'s name.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3Aname%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Aname%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The application instance\'s runtime role ARN.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AruntimeRoleArn%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AruntimeRoleArn%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">runtimeRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The application instance\'s health status.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AhealthStatus%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+-&gt; Maybe ApplicationInstanceHealthStatus
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AhealthStatus%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The application instance\'s ID.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AapplicationInstanceId%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AapplicationInstanceId%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">applicationInstanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The application instance\'s description.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3Adescription%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Adescription%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The application instance\'s tags.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Atags%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Atags%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The ID of the application instance that this instance replaced.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AapplicationInstanceIdToReplace%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AapplicationInstanceIdToReplace%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">applicationInstanceIdToReplace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeApplicationInstanceResponse%27"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse -&gt; Int
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AhttpStatus%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266559"><span id="local-6989586621679266561"><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+-&gt; DescribeApplicationInstanceResponse -&gt; Bool
+(DescribeApplicationInstanceResponse
+ -&gt; DescribeApplicationInstanceResponse -&gt; Bool)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; DescribeApplicationInstanceResponse -&gt; Bool)
+-&gt; Eq DescribeApplicationInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeApplicationInstanceResponse
+-&gt; DescribeApplicationInstanceResponse -&gt; Bool
+$c/= :: DescribeApplicationInstanceResponse
+-&gt; DescribeApplicationInstanceResponse -&gt; Bool
+== :: DescribeApplicationInstanceResponse
+-&gt; DescribeApplicationInstanceResponse -&gt; Bool
+$c== :: DescribeApplicationInstanceResponse
+-&gt; DescribeApplicationInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266551"><span id="local-6989586621679266553"><span id="local-6989586621679266555"><span id="local-6989586621679266557"><span class="annot"><span class="annottext">ReadPrec [DescribeApplicationInstanceResponse]
+ReadPrec DescribeApplicationInstanceResponse
+Int -&gt; ReadS DescribeApplicationInstanceResponse
+ReadS [DescribeApplicationInstanceResponse]
+(Int -&gt; ReadS DescribeApplicationInstanceResponse)
+-&gt; ReadS [DescribeApplicationInstanceResponse]
+-&gt; ReadPrec DescribeApplicationInstanceResponse
+-&gt; ReadPrec [DescribeApplicationInstanceResponse]
+-&gt; Read DescribeApplicationInstanceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeApplicationInstanceResponse]
+$creadListPrec :: ReadPrec [DescribeApplicationInstanceResponse]
+readPrec :: ReadPrec DescribeApplicationInstanceResponse
+$creadPrec :: ReadPrec DescribeApplicationInstanceResponse
+readList :: ReadS [DescribeApplicationInstanceResponse]
+$creadList :: ReadS [DescribeApplicationInstanceResponse]
+readsPrec :: Int -&gt; ReadS DescribeApplicationInstanceResponse
+$creadsPrec :: Int -&gt; ReadS DescribeApplicationInstanceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266545"><span id="local-6989586621679266547"><span id="local-6989586621679266549"><span class="annot"><span class="annottext">Int -&gt; DescribeApplicationInstanceResponse -&gt; ShowS
+[DescribeApplicationInstanceResponse] -&gt; ShowS
+DescribeApplicationInstanceResponse -&gt; String
+(Int -&gt; DescribeApplicationInstanceResponse -&gt; ShowS)
+-&gt; (DescribeApplicationInstanceResponse -&gt; String)
+-&gt; ([DescribeApplicationInstanceResponse] -&gt; ShowS)
+-&gt; Show DescribeApplicationInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeApplicationInstanceResponse] -&gt; ShowS
+$cshowList :: [DescribeApplicationInstanceResponse] -&gt; ShowS
+show :: DescribeApplicationInstanceResponse -&gt; String
+$cshow :: DescribeApplicationInstanceResponse -&gt; String
+showsPrec :: Int -&gt; DescribeApplicationInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeApplicationInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeApplicationInstanceResponse
+ -&gt; Rep DescribeApplicationInstanceResponse x)
+-&gt; (forall x.
+    Rep DescribeApplicationInstanceResponse x
+    -&gt; DescribeApplicationInstanceResponse)
+-&gt; Generic DescribeApplicationInstanceResponse
+forall x.
+Rep DescribeApplicationInstanceResponse x
+-&gt; DescribeApplicationInstanceResponse
+forall x.
+DescribeApplicationInstanceResponse
+-&gt; Rep DescribeApplicationInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeApplicationInstanceResponse x
+-&gt; DescribeApplicationInstanceResponse
+$cfrom :: forall x.
+DescribeApplicationInstanceResponse
+-&gt; Rep DescribeApplicationInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Create a value of 'DescribeApplicationInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'status', 'describeApplicationInstanceResponse_status' - The application instance\'s status.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'statusDescription', 'describeApplicationInstanceResponse_statusDescription' - The application instance\'s status description.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'lastUpdatedTime', 'describeApplicationInstanceResponse_lastUpdatedTime' - The application instance was updated.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'arn', 'describeApplicationInstanceResponse_arn' - The application instance\'s ARN.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'createdTime', 'describeApplicationInstanceResponse_createdTime' - When the application instance was created.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'defaultRuntimeContextDevice', 'describeApplicationInstanceResponse_defaultRuntimeContextDevice' - The device\'s ID.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'defaultRuntimeContextDeviceName', 'describeApplicationInstanceResponse_defaultRuntimeContextDeviceName' - The device\'s bane.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'name', 'describeApplicationInstanceResponse_name' - The application instance\'s name.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'runtimeRoleArn', 'describeApplicationInstanceResponse_runtimeRoleArn' - The application instance\'s runtime role ARN.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'healthStatus', 'describeApplicationInstanceResponse_healthStatus' - The application instance\'s health status.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'applicationInstanceId', 'describeApplicationInstanceResponse_applicationInstanceId' - The application instance\'s ID.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'description', 'describeApplicationInstanceResponse_description' - The application instance\'s description.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'tags', 'describeApplicationInstanceResponse_tags' - The application instance\'s tags.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'applicationInstanceIdToReplace', 'describeApplicationInstanceResponse_applicationInstanceIdToReplace' - The ID of the application instance that this instance replaced.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'httpStatus', 'describeApplicationInstanceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#newDescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">newDescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span>
+</span><span id="line-220"></span><span id="newDescribeApplicationInstanceResponse"><span class="annot"><span class="annottext">newDescribeApplicationInstanceResponse :: Int -&gt; DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#newDescribeApplicationInstanceResponse"><span class="hs-identifier hs-var hs-var">newDescribeApplicationInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679266542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse' :: Maybe ApplicationInstanceStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ApplicationInstanceHealthStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:DescribeApplicationInstanceResponse' :: Maybe ApplicationInstanceStatus
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Astatus%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusDescription:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AstatusDescription%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">statusDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribeApplicationInstanceResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AlastUpdatedTime%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Aarn%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:DescribeApplicationInstanceResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AcreatedTime%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultRuntimeContextDevice:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AdefaultRuntimeContextDevice%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">defaultRuntimeContextDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultRuntimeContextDeviceName:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AdefaultRuntimeContextDeviceName%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">defaultRuntimeContextDeviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Aname%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:runtimeRoleArn:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AruntimeRoleArn%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">runtimeRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthStatus:DescribeApplicationInstanceResponse' :: Maybe ApplicationInstanceHealthStatus
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AhealthStatus%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationInstanceId:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AapplicationInstanceId%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Adescription%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:DescribeApplicationInstanceResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Atags%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationInstanceIdToReplace:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AapplicationInstanceIdToReplace%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">applicationInstanceIdToReplace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeApplicationInstanceResponse' :: Int
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AhttpStatus%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The application instance\'s status.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_status"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceStatus.html#ApplicationInstanceStatus"><span class="hs-identifier hs-type">ApplicationInstanceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="describeApplicationInstanceResponse_status"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_status :: (Maybe ApplicationInstanceStatus
+ -&gt; f (Maybe ApplicationInstanceStatus))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_status"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse
+ -&gt; Maybe ApplicationInstanceStatus)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe ApplicationInstanceStatus
+    -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe ApplicationInstanceStatus)
+     (Maybe ApplicationInstanceStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266541"><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+status :: Maybe ApplicationInstanceStatus
+$sel:status:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse
+-&gt; Maybe ApplicationInstanceStatus
+</span><a href="#local-6989586621679266541"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+</span><a href="#local-6989586621679266541"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266540"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266539"><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+</span><a href="#local-6989586621679266539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeApplicationInstanceResponse' :: Maybe ApplicationInstanceStatus
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Astatus%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceStatus
+</span><a href="#local-6989586621679266539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The application instance\'s status description.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_statusDescription"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_statusDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="describeApplicationInstanceResponse_statusDescription"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_statusDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_statusDescription"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_statusDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe Text)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe Text -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266538"><span class="annot"><span class="annottext">Maybe Text
+statusDescription :: Maybe Text
+$sel:statusDescription:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266538"><span class="hs-identifier hs-var hs-var">statusDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266538"><span class="hs-identifier hs-var">statusDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266537"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266536"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusDescription:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AstatusDescription%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">statusDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The application instance was updated.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_lastUpdatedTime"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="describeApplicationInstanceResponse_lastUpdatedTime"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_lastUpdatedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe POSIX)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe POSIX -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266535"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTime :: Maybe POSIX
+$sel:lastUpdatedTime:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679266535"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679266535"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266534"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266533"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679266533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:DescribeApplicationInstanceResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AlastUpdatedTime%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679266533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeApplicationInstanceResponse
+ -&gt; f DescribeApplicationInstanceResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The application instance\'s ARN.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_arn"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="describeApplicationInstanceResponse_arn"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_arn"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe Text)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe Text -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266529"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266529"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266529"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266528"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266527"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Aarn%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | When the application instance was created.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_createdTime"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="describeApplicationInstanceResponse_createdTime"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_createdTime"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe POSIX)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe POSIX -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266526"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679266526"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679266526"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266525"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266524"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679266524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:DescribeApplicationInstanceResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AcreatedTime%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679266524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeApplicationInstanceResponse
+ -&gt; f DescribeApplicationInstanceResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | The device\'s ID.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_defaultRuntimeContextDevice"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_defaultRuntimeContextDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="describeApplicationInstanceResponse_defaultRuntimeContextDevice"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_defaultRuntimeContextDevice :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_defaultRuntimeContextDevice"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_defaultRuntimeContextDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe Text)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe Text -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266523"><span class="annot"><span class="annottext">Maybe Text
+defaultRuntimeContextDevice :: Maybe Text
+$sel:defaultRuntimeContextDevice:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266523"><span class="hs-identifier hs-var hs-var">defaultRuntimeContextDevice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266523"><span class="hs-identifier hs-var">defaultRuntimeContextDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266522"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266521"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultRuntimeContextDevice:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AdefaultRuntimeContextDevice%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">defaultRuntimeContextDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The device\'s bane.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_defaultRuntimeContextDeviceName"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_defaultRuntimeContextDeviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="describeApplicationInstanceResponse_defaultRuntimeContextDeviceName"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_defaultRuntimeContextDeviceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_defaultRuntimeContextDeviceName"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_defaultRuntimeContextDeviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe Text)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe Text -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266520"><span class="annot"><span class="annottext">Maybe Text
+defaultRuntimeContextDeviceName :: Maybe Text
+$sel:defaultRuntimeContextDeviceName:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266520"><span class="hs-identifier hs-var hs-var">defaultRuntimeContextDeviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266520"><span class="hs-identifier hs-var">defaultRuntimeContextDeviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266519"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266518"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultRuntimeContextDeviceName:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AdefaultRuntimeContextDeviceName%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">defaultRuntimeContextDeviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The application instance\'s name.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_name"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="describeApplicationInstanceResponse_name"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_name"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe Text)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe Text -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266517"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266517"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266517"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266516"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Aname%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The application instance\'s runtime role ARN.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_runtimeRoleArn"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_runtimeRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="describeApplicationInstanceResponse_runtimeRoleArn"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_runtimeRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_runtimeRoleArn"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_runtimeRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe Text)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe Text -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266514"><span class="annot"><span class="annottext">Maybe Text
+runtimeRoleArn :: Maybe Text
+$sel:runtimeRoleArn:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266514"><span class="hs-identifier hs-var hs-var">runtimeRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266514"><span class="hs-identifier hs-var">runtimeRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266513"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runtimeRoleArn:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AruntimeRoleArn%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">runtimeRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The application instance\'s health status.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_healthStatus"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_healthStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="describeApplicationInstanceResponse_healthStatus"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_healthStatus :: (Maybe ApplicationInstanceHealthStatus
+ -&gt; f (Maybe ApplicationInstanceHealthStatus))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_healthStatus"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_healthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse
+ -&gt; Maybe ApplicationInstanceHealthStatus)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe ApplicationInstanceHealthStatus
+    -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe ApplicationInstanceHealthStatus)
+     (Maybe ApplicationInstanceHealthStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266511"><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+healthStatus :: Maybe ApplicationInstanceHealthStatus
+$sel:healthStatus:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse
+-&gt; Maybe ApplicationInstanceHealthStatus
+</span><a href="#local-6989586621679266511"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+</span><a href="#local-6989586621679266511"><span class="hs-identifier hs-var">healthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266510"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266509"><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+</span><a href="#local-6989586621679266509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthStatus:DescribeApplicationInstanceResponse' :: Maybe ApplicationInstanceHealthStatus
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AhealthStatus%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationInstanceHealthStatus
+</span><a href="#local-6989586621679266509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The application instance\'s ID.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_applicationInstanceId"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="describeApplicationInstanceResponse_applicationInstanceId"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_applicationInstanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_applicationInstanceId"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_applicationInstanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe Text)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe Text -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266508"><span class="annot"><span class="annottext">Maybe Text
+applicationInstanceId :: Maybe Text
+$sel:applicationInstanceId:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266508"><span class="hs-identifier hs-var hs-var">applicationInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266508"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266507"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266506"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationInstanceId:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AapplicationInstanceId%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">applicationInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The application instance\'s description.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_description"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="describeApplicationInstanceResponse_description"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_description"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe Text)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe Text -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266505"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266505"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266505"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266504"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266503"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Adescription%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | The application instance\'s tags.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_tags"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="describeApplicationInstanceResponse_tags"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_tags"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe (HashMap Text Text)
+    -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266502"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266502"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266502"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266501"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266500"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DescribeApplicationInstanceResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3Atags%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679266500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; DescribeApplicationInstanceResponse
+ -&gt; f DescribeApplicationInstanceResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | The ID of the application instance that this instance replaced.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_applicationInstanceIdToReplace"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_applicationInstanceIdToReplace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="describeApplicationInstanceResponse_applicationInstanceIdToReplace"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_applicationInstanceIdToReplace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_applicationInstanceIdToReplace"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_applicationInstanceIdToReplace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Maybe Text)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Maybe Text -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266498"><span class="annot"><span class="annottext">Maybe Text
+applicationInstanceIdToReplace :: Maybe Text
+$sel:applicationInstanceIdToReplace:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679266498"><span class="hs-identifier hs-var hs-var">applicationInstanceIdToReplace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266498"><span class="hs-identifier hs-var">applicationInstanceIdToReplace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266497"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266496"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationInstanceIdToReplace:DescribeApplicationInstanceResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AapplicationInstanceIdToReplace%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">applicationInstanceIdToReplace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_httpStatus"><span class="hs-identifier hs-type">describeApplicationInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-302"></span><span id="describeApplicationInstanceResponse_httpStatus"><span class="annot"><span class="annottext">describeApplicationInstanceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeApplicationInstanceResponse
+-&gt; f DescribeApplicationInstanceResponse
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#describeApplicationInstanceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeApplicationInstanceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeApplicationInstanceResponse -&gt; Int)
+-&gt; (DescribeApplicationInstanceResponse
+    -&gt; Int -&gt; DescribeApplicationInstanceResponse)
+-&gt; Lens
+     DescribeApplicationInstanceResponse
+     DescribeApplicationInstanceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266495"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeApplicationInstanceResponse' :: DescribeApplicationInstanceResponse -&gt; Int
+</span><a href="#local-6989586621679266495"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266495"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266494"><span class="annot"><span class="annottext">s :: DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266493"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApplicationInstanceResponse
+</span><a href="#local-6989586621679266494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeApplicationInstanceResponse' :: Int
+</span><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#%24sel%3AhttpStatus%3ADescribeApplicationInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-305"></span><span>  </span><span id="local-6989586621679266491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.DescribeApplicationInstance.html#DescribeApplicationInstanceResponse"><span class="hs-identifier hs-type">DescribeApplicationInstanceResponse</span></a></span></span><span>
+</span><span id="line-307"></span></pre></body></html>

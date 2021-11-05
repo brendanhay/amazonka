@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Configuration information of an Amazon Lex bot.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLexBot' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679399746"><span id="local-6989586621679399747"></span></span><span class="hs-keyword">data</span><span> </span><span id="LexBot"><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-var">LexBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LexBot%27"><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-var">LexBot'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679399755"><span id="local-6989586621679399756"></span></span><span class="hs-keyword">data</span><span> </span><span id="LexBot"><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-var">LexBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LexBot%27"><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-var">LexBot'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Region that the Amazon Lex bot was created in.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AlexRegion%3ALexBot%27"><span class="annot"><span class="annottext">LexBot -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.Types.LexBot.html#%24sel%3AlexRegion%3ALexBot%27"><span class="hs-identifier hs-var hs-var">lexRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3ALexBot%27"><span class="annot"><span class="annottext">LexBot -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.Types.LexBot.html#%24sel%3Aname%3ALexBot%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399739"><span id="local-6989586621679399741"><span class="annot"><span class="annottext">LexBot -&gt; LexBot -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399748"><span id="local-6989586621679399750"><span class="annot"><span class="annottext">LexBot -&gt; LexBot -&gt; Bool
 (LexBot -&gt; LexBot -&gt; Bool)
 -&gt; (LexBot -&gt; LexBot -&gt; Bool) -&gt; Eq LexBot
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LexBot -&gt; LexBot -&gt; Bool
 == :: LexBot -&gt; LexBot -&gt; Bool
 $c== :: LexBot -&gt; LexBot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399730"><span id="local-6989586621679399732"><span id="local-6989586621679399734"><span id="local-6989586621679399736"><span class="annot"><span class="annottext">ReadPrec [LexBot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399739"><span id="local-6989586621679399741"><span id="local-6989586621679399743"><span id="local-6989586621679399745"><span class="annot"><span class="annottext">ReadPrec [LexBot]
 ReadPrec LexBot
 Int -&gt; ReadS LexBot
 ReadS [LexBot]
@@ -62,7 +62,7 @@ readList :: ReadS [LexBot]
 $creadList :: ReadS [LexBot]
 readsPrec :: Int -&gt; ReadS LexBot
 $creadsPrec :: Int -&gt; ReadS LexBot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399723"><span id="local-6989586621679399725"><span id="local-6989586621679399727"><span class="annot"><span class="annottext">Int -&gt; LexBot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399732"><span id="local-6989586621679399734"><span id="local-6989586621679399736"><span class="annot"><span class="annottext">Int -&gt; LexBot -&gt; ShowS
 [LexBot] -&gt; ShowS
 LexBot -&gt; String
 (Int -&gt; LexBot -&gt; ShowS)
@@ -119,16 +119,16 @@ forall a. Maybe a
 -&gt; (LexBot -&gt; Maybe Text -&gt; LexBot)
 -&gt; Lens LexBot LexBot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399714"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399723"><span class="annot"><span class="annottext">Maybe Text
 lexRegion :: Maybe Text
 $sel:lexRegion:LexBot' :: LexBot -&gt; Maybe Text
-</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var hs-var">lexRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">lexRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399713"><span class="annot"><span class="annottext">s :: LexBot
-</span><a href="#local-6989586621679399713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399712"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexBot
-</span><a href="#local-6989586621679399713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexRegion:LexBot' :: Maybe Text
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var hs-var">lexRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">lexRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399722"><span class="annot"><span class="annottext">s :: LexBot
+</span><a href="#local-6989586621679399722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399721"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexBot
+</span><a href="#local-6989586621679399722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexRegion:LexBot' :: Maybe Text
 </span><a href="Network.AWS.Connect.Types.LexBot.html#%24sel%3AlexRegion%3ALexBot%27"><span class="hs-identifier hs-var">lexRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The name of the Amazon Lex bot.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#lexBot_name"><span class="hs-identifier hs-type">lexBot_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -137,34 +137,34 @@ $sel:lexRegion:LexBot' :: LexBot -&gt; Maybe Text
 -&gt; (LexBot -&gt; Maybe Text -&gt; LexBot)
 -&gt; Lens LexBot LexBot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399710"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399719"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:LexBot' :: LexBot -&gt; Maybe Text
-</span><a href="#local-6989586621679399710"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399710"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399709"><span class="annot"><span class="annottext">s :: LexBot
-</span><a href="#local-6989586621679399709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399708"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexBot
-</span><a href="#local-6989586621679399709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LexBot' :: Maybe Text
+</span><a href="#local-6989586621679399719"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399719"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399718"><span class="annot"><span class="annottext">s :: LexBot
+</span><a href="#local-6989586621679399718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399717"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexBot
+</span><a href="#local-6989586621679399718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LexBot' :: Maybe Text
 </span><a href="Network.AWS.Connect.Types.LexBot.html#%24sel%3Aname%3ALexBot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399705"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679399703"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LexBot
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399714"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679399712"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LexBot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser LexBot) -&gt; Value -&gt; Parser LexBot
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LexBot&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399700"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399700"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399709"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; LexBot
 </span><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-var">LexBot'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; LexBot)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; LexBot)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679399709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LexRegion&quot;</span></span><span class="hs-special">)</span><span>
@@ -172,24 +172,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser LexBot
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679399709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399694"><span id="local-6989586621679399696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399703"><span id="local-6989586621679399705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399683"><span id="local-6989586621679399685"><span id="local-6989586621679399687"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679399681"><span class="annot"><span class="annottext">toJSON :: LexBot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399678"><span id="local-6989586621679399679"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399692"><span id="local-6989586621679399694"><span id="local-6989586621679399696"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679399690"><span class="annot"><span class="annottext">toJSON :: LexBot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot%27"><span class="hs-identifier hs-type">LexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399687"><span id="local-6989586621679399688"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 lexRegion :: Maybe Text
 $sel:name:LexBot' :: LexBot -&gt; Maybe Text
 $sel:lexRegion:LexBot' :: LexBot -&gt; Maybe Text
-</span><a href="#local-6989586621679399678"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679399687"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -201,14 +201,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399679"><span class="hs-identifier hs-var">lexRegion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399688"><span class="hs-identifier hs-var">lexRegion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399678"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><a href="#local-6989586621679399687"><span class="hs-identifier hs-var">name</span></a></span><span>
 </span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

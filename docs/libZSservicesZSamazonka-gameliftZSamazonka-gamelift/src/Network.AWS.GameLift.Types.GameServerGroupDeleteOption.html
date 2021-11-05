@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679431855"><span id="local-6989586621679431856"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerGroupDeleteOption"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupDeleteOption.html#GameServerGroupDeleteOption"><span class="hs-identifier hs-var">GameServerGroupDeleteOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerGroupDeleteOption%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupDeleteOption.html#GameServerGroupDeleteOption%27"><span class="hs-identifier hs-var">GameServerGroupDeleteOption'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679431864"><span id="local-6989586621679431865"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerGroupDeleteOption"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupDeleteOption.html#GameServerGroupDeleteOption"><span class="hs-identifier hs-var">GameServerGroupDeleteOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerGroupDeleteOption%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerGroupDeleteOption.html#GameServerGroupDeleteOption%27"><span class="hs-identifier hs-var">GameServerGroupDeleteOption'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameServerGroupDeleteOption"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.GameServerGroupDeleteOption.html#fromGameServerGroupDeleteOption"><span class="hs-identifier hs-var hs-var">fromGameServerGroupDeleteOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431847"><span id="local-6989586621679431849"><span id="local-6989586621679431851"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupDeleteOption -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431856"><span id="local-6989586621679431858"><span id="local-6989586621679431860"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupDeleteOption -&gt; ShowS
 [GameServerGroupDeleteOption] -&gt; ShowS
 GameServerGroupDeleteOption -&gt; String
 (Int -&gt; GameServerGroupDeleteOption -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: GameServerGroupDeleteOption -&gt; String
 showsPrec :: Int -&gt; GameServerGroupDeleteOption -&gt; ShowS
 $cshowsPrec :: Int -&gt; GameServerGroupDeleteOption -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679431838"><span id="local-6989586621679431840"><span id="local-6989586621679431842"><span id="local-6989586621679431844"><span class="annot"><span class="annottext">ReadPrec [GameServerGroupDeleteOption]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679431847"><span id="local-6989586621679431849"><span id="local-6989586621679431851"><span id="local-6989586621679431853"><span class="annot"><span class="annottext">ReadPrec [GameServerGroupDeleteOption]
 ReadPrec GameServerGroupDeleteOption
 Int -&gt; ReadS GameServerGroupDeleteOption
 ReadS [GameServerGroupDeleteOption]
@@ -73,7 +73,7 @@ $creadList :: ReadS [GameServerGroupDeleteOption]
 readsPrec :: Int -&gt; ReadS GameServerGroupDeleteOption
 $creadsPrec :: Int -&gt; ReadS GameServerGroupDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679431833"><span id="local-6989586621679431835"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; GameServerGroupDeleteOption -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679431842"><span id="local-6989586621679431844"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; GameServerGroupDeleteOption -&gt; Bool
 (GameServerGroupDeleteOption
  -&gt; GameServerGroupDeleteOption -&gt; Bool)
 -&gt; (GameServerGroupDeleteOption
@@ -85,7 +85,7 @@ $c/= :: GameServerGroupDeleteOption -&gt; GameServerGroupDeleteOption -&gt; Bool
 == :: GameServerGroupDeleteOption -&gt; GameServerGroupDeleteOption -&gt; Bool
 $c== :: GameServerGroupDeleteOption -&gt; GameServerGroupDeleteOption -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679431817"><span id="local-6989586621679431819"><span id="local-6989586621679431821"><span id="local-6989586621679431823"><span id="local-6989586621679431825"><span id="local-6989586621679431827"><span id="local-6989586621679431829"><span class="annot"><span class="annottext">Eq GameServerGroupDeleteOption
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679431826"><span id="local-6989586621679431828"><span id="local-6989586621679431830"><span id="local-6989586621679431832"><span id="local-6989586621679431834"><span id="local-6989586621679431836"><span id="local-6989586621679431838"><span class="annot"><span class="annottext">Eq GameServerGroupDeleteOption
 Eq GameServerGroupDeleteOption
 -&gt; (GameServerGroupDeleteOption
     -&gt; GameServerGroupDeleteOption -&gt; Ordering)
@@ -157,7 +157,7 @@ GameServerGroupDeleteOption -&gt; Rep GameServerGroupDeleteOption x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431809"><span id="local-6989586621679431811"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupDeleteOption -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431818"><span id="local-6989586621679431820"><span class="annot"><span class="annottext">Int -&gt; GameServerGroupDeleteOption -&gt; Int
 GameServerGroupDeleteOption -&gt; Int
 (Int -&gt; GameServerGroupDeleteOption -&gt; Int)
 -&gt; (GameServerGroupDeleteOption -&gt; Int)
@@ -168,56 +168,56 @@ $chash :: GameServerGroupDeleteOption -&gt; Int
 hashWithSalt :: Int -&gt; GameServerGroupDeleteOption -&gt; Int
 $chashWithSalt :: Int -&gt; GameServerGroupDeleteOption -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679431806"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679431815"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; ()
 (GameServerGroupDeleteOption -&gt; ())
 -&gt; NFData GameServerGroupDeleteOption
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GameServerGroupDeleteOption -&gt; ()
 $crnf :: GameServerGroupDeleteOption -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679431803"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerGroupDeleteOption
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679431812"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerGroupDeleteOption
 (Text -&gt; Either String GameServerGroupDeleteOption)
 -&gt; FromText GameServerGroupDeleteOption
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GameServerGroupDeleteOption
 $cfromText :: Text -&gt; Either String GameServerGroupDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679431800"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679431809"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; Text
 (GameServerGroupDeleteOption -&gt; Text)
 -&gt; ToText GameServerGroupDeleteOption
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GameServerGroupDeleteOption -&gt; Text
 $ctoText :: GameServerGroupDeleteOption -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679431797"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679431806"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; ByteString
 (GameServerGroupDeleteOption -&gt; ByteString)
 -&gt; ToByteString GameServerGroupDeleteOption
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GameServerGroupDeleteOption -&gt; ByteString
 $ctoBS :: GameServerGroupDeleteOption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679431794"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679431803"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; ByteStringBuilder
 (GameServerGroupDeleteOption -&gt; ByteStringBuilder)
 -&gt; ToLog GameServerGroupDeleteOption
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GameServerGroupDeleteOption -&gt; ByteStringBuilder
 $cbuild :: GameServerGroupDeleteOption -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679431791"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerGroupDeleteOption -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679431800"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerGroupDeleteOption -&gt; [Header]
 (HeaderName -&gt; GameServerGroupDeleteOption -&gt; [Header])
 -&gt; ToHeader GameServerGroupDeleteOption
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GameServerGroupDeleteOption -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GameServerGroupDeleteOption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679431788"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679431797"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; QueryString
 (GameServerGroupDeleteOption -&gt; QueryString)
 -&gt; ToQuery GameServerGroupDeleteOption
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GameServerGroupDeleteOption -&gt; QueryString
 $ctoQuery :: GameServerGroupDeleteOption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679431783"><span id="local-6989586621679431785"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerGroupDeleteOption]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679431792"><span id="local-6989586621679431794"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerGroupDeleteOption]
 Value -&gt; Parser GameServerGroupDeleteOption
 (Value -&gt; Parser GameServerGroupDeleteOption)
 -&gt; (Value -&gt; Parser [GameServerGroupDeleteOption])
@@ -229,7 +229,7 @@ $cparseJSONList :: Value -&gt; Parser [GameServerGroupDeleteOption]
 parseJSON :: Value -&gt; Parser GameServerGroupDeleteOption
 $cparseJSON :: Value -&gt; Parser GameServerGroupDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679431778"><span id="local-6989586621679431780"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerGroupDeleteOption]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679431787"><span id="local-6989586621679431789"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerGroupDeleteOption]
 FromJSONKeyFunction GameServerGroupDeleteOption
 FromJSONKeyFunction GameServerGroupDeleteOption
 -&gt; FromJSONKeyFunction [GameServerGroupDeleteOption]
@@ -241,7 +241,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GameServerGroupDeleteOption]
 fromJSONKey :: FromJSONKeyFunction GameServerGroupDeleteOption
 $cfromJSONKey :: FromJSONKeyFunction GameServerGroupDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679431769"><span id="local-6989586621679431771"><span id="local-6989586621679431773"><span id="local-6989586621679431775"><span class="annot"><span class="annottext">[GameServerGroupDeleteOption] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679431778"><span id="local-6989586621679431780"><span id="local-6989586621679431782"><span id="local-6989586621679431784"><span class="annot"><span class="annottext">[GameServerGroupDeleteOption] -&gt; Encoding
 [GameServerGroupDeleteOption] -&gt; Value
 GameServerGroupDeleteOption -&gt; Encoding
 GameServerGroupDeleteOption -&gt; Value
@@ -265,7 +265,7 @@ $ctoEncoding :: GameServerGroupDeleteOption -&gt; Encoding
 toJSON :: GameServerGroupDeleteOption -&gt; Value
 $ctoJSON :: GameServerGroupDeleteOption -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679431764"><span id="local-6989586621679431766"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerGroupDeleteOption]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679431773"><span id="local-6989586621679431775"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerGroupDeleteOption]
 ToJSONKeyFunction GameServerGroupDeleteOption
 ToJSONKeyFunction GameServerGroupDeleteOption
 -&gt; ToJSONKeyFunction [GameServerGroupDeleteOption]
@@ -277,14 +277,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GameServerGroupDeleteOption]
 toJSONKey :: ToJSONKeyFunction GameServerGroupDeleteOption
 $ctoJSONKey :: ToJSONKeyFunction GameServerGroupDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679431761"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerGroupDeleteOption
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679431770"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerGroupDeleteOption
 ([Node] -&gt; Either String GameServerGroupDeleteOption)
 -&gt; FromXML GameServerGroupDeleteOption
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GameServerGroupDeleteOption
 $cparseXML :: [Node] -&gt; Either String GameServerGroupDeleteOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679431758"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679431767"><span class="annot"><span class="annottext">GameServerGroupDeleteOption -&gt; XML
 (GameServerGroupDeleteOption -&gt; XML)
 -&gt; ToXML GameServerGroupDeleteOption
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The Liquid template for the worker user interface.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUiTemplate' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680355871"><span id="local-6989586621680355872"></span></span><span class="hs-keyword">data</span><span> </span><span id="UiTemplate"><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-var">UiTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UiTemplate%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate%27"><span class="hs-identifier hs-var">UiTemplate'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680355880"><span id="local-6989586621680355881"></span></span><span class="hs-keyword">data</span><span> </span><span id="UiTemplate"><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-var">UiTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UiTemplate%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate%27"><span class="hs-identifier hs-var">UiTemplate'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The content of the Liquid template for the worker user interface.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Acontent%3AUiTemplate%27"><span class="annot"><span class="annottext">UiTemplate -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.UiTemplate.html#%24sel%3Acontent%3AUiTemplate%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680355865"><span id="local-6989586621680355867"><span class="annot"><span class="annottext">UiTemplate -&gt; UiTemplate -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680355874"><span id="local-6989586621680355876"><span class="annot"><span class="annottext">UiTemplate -&gt; UiTemplate -&gt; Bool
 (UiTemplate -&gt; UiTemplate -&gt; Bool)
 -&gt; (UiTemplate -&gt; UiTemplate -&gt; Bool) -&gt; Eq UiTemplate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UiTemplate -&gt; UiTemplate -&gt; Bool
 == :: UiTemplate -&gt; UiTemplate -&gt; Bool
 $c== :: UiTemplate -&gt; UiTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355856"><span id="local-6989586621680355858"><span id="local-6989586621680355860"><span id="local-6989586621680355862"><span class="annot"><span class="annottext">ReadPrec [UiTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355865"><span id="local-6989586621680355867"><span id="local-6989586621680355869"><span id="local-6989586621680355871"><span class="annot"><span class="annottext">ReadPrec [UiTemplate]
 ReadPrec UiTemplate
 Int -&gt; ReadS UiTemplate
 ReadS [UiTemplate]
@@ -59,7 +59,7 @@ readList :: ReadS [UiTemplate]
 $creadList :: ReadS [UiTemplate]
 readsPrec :: Int -&gt; ReadS UiTemplate
 $creadsPrec :: Int -&gt; ReadS UiTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355849"><span id="local-6989586621680355851"><span id="local-6989586621680355853"><span class="annot"><span class="annottext">Int -&gt; UiTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355858"><span id="local-6989586621680355860"><span id="local-6989586621680355862"><span class="annot"><span class="annottext">Int -&gt; UiTemplate -&gt; ShowS
 [UiTemplate] -&gt; ShowS
 UiTemplate -&gt; String
 (Int -&gt; UiTemplate -&gt; ShowS)
@@ -98,12 +98,12 @@ $cfrom :: forall x. UiTemplate -&gt; Rep UiTemplate x
 </span><span id="line-46"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span><span>
 </span><span id="line-48"></span><span id="newUiTemplate"><span class="annot"><span class="annottext">newUiTemplate :: Text -&gt; UiTemplate
-</span><a href="Network.AWS.SageMaker.Types.UiTemplate.html#newUiTemplate"><span class="hs-identifier hs-var hs-var">newUiTemplate</span></a></span></span><span> </span><span id="local-6989586621680355843"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355843"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.UiTemplate.html#newUiTemplate"><span class="hs-identifier hs-var hs-var">newUiTemplate</span></a></span></span><span> </span><span id="local-6989586621680355852"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355852"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">UiTemplate' :: Text -&gt; UiTemplate
 </span><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate%27"><span class="hs-identifier hs-type">UiTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:UiTemplate' :: Text
 </span><a href="Network.AWS.SageMaker.Types.UiTemplate.html#%24sel%3Acontent%3AUiTemplate%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355843"><span class="hs-identifier hs-var">pContent_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680355852"><span class="hs-identifier hs-var">pContent_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | The content of the Liquid template for the worker user interface.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#uiTemplate_content"><span class="hs-identifier hs-type">uiTemplate_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -112,27 +112,27 @@ $cfrom :: forall x. UiTemplate -&gt; Rep UiTemplate x
 -&gt; (UiTemplate -&gt; Text -&gt; UiTemplate)
 -&gt; Lens UiTemplate UiTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate%27"><span class="hs-identifier hs-type">UiTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355839"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate%27"><span class="hs-identifier hs-type">UiTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355848"><span class="annot"><span class="annottext">Text
 content :: Text
 $sel:content:UiTemplate' :: UiTemplate -&gt; Text
-</span><a href="#local-6989586621680355839"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355839"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355838"><span class="annot"><span class="annottext">s :: UiTemplate
-</span><a href="#local-6989586621680355838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate%27"><span class="hs-identifier hs-type">UiTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355837"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UiTemplate
-</span><a href="#local-6989586621680355838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:UiTemplate' :: Text
+</span><a href="#local-6989586621680355848"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355848"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355847"><span class="annot"><span class="annottext">s :: UiTemplate
+</span><a href="#local-6989586621680355847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate%27"><span class="hs-identifier hs-type">UiTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UiTemplate
+</span><a href="#local-6989586621680355847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:UiTemplate' :: Text
 </span><a href="Network.AWS.SageMaker.Types.UiTemplate.html#%24sel%3Acontent%3AUiTemplate%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355833"><span id="local-6989586621680355835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355842"><span id="local-6989586621680355844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355822"><span id="local-6989586621680355824"><span id="local-6989586621680355826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621680355820"><span class="annot"><span class="annottext">toJSON :: UiTemplate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate%27"><span class="hs-identifier hs-type">UiTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355818"><span class="annot"><span class="annottext">Text
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355831"><span id="local-6989586621680355833"><span id="local-6989586621680355835"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate"><span class="hs-identifier hs-type">UiTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621680355829"><span class="annot"><span class="annottext">toJSON :: UiTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UiTemplate.html#UiTemplate%27"><span class="hs-identifier hs-type">UiTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355827"><span class="annot"><span class="annottext">Text
 content :: Text
 $sel:content:UiTemplate' :: UiTemplate -&gt; Text
-</span><a href="#local-6989586621680355818"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680355827"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -144,6 +144,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355818"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680355827"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span></pre></body></html>

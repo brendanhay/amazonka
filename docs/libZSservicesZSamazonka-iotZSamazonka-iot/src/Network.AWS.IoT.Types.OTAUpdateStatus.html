@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679791380"><span id="local-6989586621679791381"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OTAUpdateStatus"><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateStatus.html#OTAUpdateStatus"><span class="hs-identifier hs-var">OTAUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OTAUpdateStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateStatus.html#OTAUpdateStatus%27"><span class="hs-identifier hs-var">OTAUpdateStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679791389"><span id="local-6989586621679791390"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OTAUpdateStatus"><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateStatus.html#OTAUpdateStatus"><span class="hs-identifier hs-var">OTAUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OTAUpdateStatus%27"><span class="annot"><a href="Network.AWS.IoT.Types.OTAUpdateStatus.html#OTAUpdateStatus%27"><span class="hs-identifier hs-var">OTAUpdateStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOTAUpdateStatus"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; Text
 </span><a href="Network.AWS.IoT.Types.OTAUpdateStatus.html#fromOTAUpdateStatus"><span class="hs-identifier hs-var hs-var">fromOTAUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791372"><span id="local-6989586621679791374"><span id="local-6989586621679791376"><span class="annot"><span class="annottext">Int -&gt; OTAUpdateStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791381"><span id="local-6989586621679791383"><span id="local-6989586621679791385"><span class="annot"><span class="annottext">Int -&gt; OTAUpdateStatus -&gt; ShowS
 [OTAUpdateStatus] -&gt; ShowS
 OTAUpdateStatus -&gt; String
 (Int -&gt; OTAUpdateStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: OTAUpdateStatus -&gt; String
 showsPrec :: Int -&gt; OTAUpdateStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; OTAUpdateStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679791363"><span id="local-6989586621679791365"><span id="local-6989586621679791367"><span id="local-6989586621679791369"><span class="annot"><span class="annottext">ReadPrec [OTAUpdateStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679791372"><span id="local-6989586621679791374"><span id="local-6989586621679791376"><span id="local-6989586621679791378"><span class="annot"><span class="annottext">ReadPrec [OTAUpdateStatus]
 ReadPrec OTAUpdateStatus
 Int -&gt; ReadS OTAUpdateStatus
 ReadS [OTAUpdateStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [OTAUpdateStatus]
 readsPrec :: Int -&gt; ReadS OTAUpdateStatus
 $creadsPrec :: Int -&gt; ReadS OTAUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679791358"><span id="local-6989586621679791360"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; OTAUpdateStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679791367"><span id="local-6989586621679791369"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; OTAUpdateStatus -&gt; Bool
 (OTAUpdateStatus -&gt; OTAUpdateStatus -&gt; Bool)
 -&gt; (OTAUpdateStatus -&gt; OTAUpdateStatus -&gt; Bool)
 -&gt; Eq OTAUpdateStatus
@@ -84,7 +84,7 @@ $c/= :: OTAUpdateStatus -&gt; OTAUpdateStatus -&gt; Bool
 == :: OTAUpdateStatus -&gt; OTAUpdateStatus -&gt; Bool
 $c== :: OTAUpdateStatus -&gt; OTAUpdateStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679791342"><span id="local-6989586621679791344"><span id="local-6989586621679791346"><span id="local-6989586621679791348"><span id="local-6989586621679791350"><span id="local-6989586621679791352"><span id="local-6989586621679791354"><span class="annot"><span class="annottext">Eq OTAUpdateStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679791351"><span id="local-6989586621679791353"><span id="local-6989586621679791355"><span id="local-6989586621679791357"><span id="local-6989586621679791359"><span id="local-6989586621679791361"><span id="local-6989586621679791363"><span class="annot"><span class="annottext">Eq OTAUpdateStatus
 Eq OTAUpdateStatus
 -&gt; (OTAUpdateStatus -&gt; OTAUpdateStatus -&gt; Ordering)
 -&gt; (OTAUpdateStatus -&gt; OTAUpdateStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. OTAUpdateStatus -&gt; Rep OTAUpdateStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791334"><span id="local-6989586621679791336"><span class="annot"><span class="annottext">Int -&gt; OTAUpdateStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791343"><span id="local-6989586621679791345"><span class="annot"><span class="annottext">Int -&gt; OTAUpdateStatus -&gt; Int
 OTAUpdateStatus -&gt; Int
 (Int -&gt; OTAUpdateStatus -&gt; Int)
 -&gt; (OTAUpdateStatus -&gt; Int) -&gt; Hashable OTAUpdateStatus
@@ -145,50 +145,50 @@ $chash :: OTAUpdateStatus -&gt; Int
 hashWithSalt :: Int -&gt; OTAUpdateStatus -&gt; Int
 $chashWithSalt :: Int -&gt; OTAUpdateStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679791331"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679791340"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; ()
 (OTAUpdateStatus -&gt; ()) -&gt; NFData OTAUpdateStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OTAUpdateStatus -&gt; ()
 $crnf :: OTAUpdateStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679791328"><span class="annot"><span class="annottext">Text -&gt; Either String OTAUpdateStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679791337"><span class="annot"><span class="annottext">Text -&gt; Either String OTAUpdateStatus
 (Text -&gt; Either String OTAUpdateStatus) -&gt; FromText OTAUpdateStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OTAUpdateStatus
 $cfromText :: Text -&gt; Either String OTAUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679791325"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679791334"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; Text
 (OTAUpdateStatus -&gt; Text) -&gt; ToText OTAUpdateStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OTAUpdateStatus -&gt; Text
 $ctoText :: OTAUpdateStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679791322"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679791331"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; ByteString
 (OTAUpdateStatus -&gt; ByteString) -&gt; ToByteString OTAUpdateStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OTAUpdateStatus -&gt; ByteString
 $ctoBS :: OTAUpdateStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679791319"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679791328"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; ByteStringBuilder
 (OTAUpdateStatus -&gt; ByteStringBuilder) -&gt; ToLog OTAUpdateStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OTAUpdateStatus -&gt; ByteStringBuilder
 $cbuild :: OTAUpdateStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679791316"><span class="annot"><span class="annottext">HeaderName -&gt; OTAUpdateStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679791325"><span class="annot"><span class="annottext">HeaderName -&gt; OTAUpdateStatus -&gt; [Header]
 (HeaderName -&gt; OTAUpdateStatus -&gt; [Header])
 -&gt; ToHeader OTAUpdateStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OTAUpdateStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OTAUpdateStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679791313"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679791322"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; QueryString
 (OTAUpdateStatus -&gt; QueryString) -&gt; ToQuery OTAUpdateStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OTAUpdateStatus -&gt; QueryString
 $ctoQuery :: OTAUpdateStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679791308"><span id="local-6989586621679791310"><span class="annot"><span class="annottext">Value -&gt; Parser [OTAUpdateStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679791317"><span id="local-6989586621679791319"><span class="annot"><span class="annottext">Value -&gt; Parser [OTAUpdateStatus]
 Value -&gt; Parser OTAUpdateStatus
 (Value -&gt; Parser OTAUpdateStatus)
 -&gt; (Value -&gt; Parser [OTAUpdateStatus]) -&gt; FromJSON OTAUpdateStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [OTAUpdateStatus]
 parseJSON :: Value -&gt; Parser OTAUpdateStatus
 $cparseJSON :: Value -&gt; Parser OTAUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679791303"><span id="local-6989586621679791305"><span class="annot"><span class="annottext">FromJSONKeyFunction [OTAUpdateStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679791312"><span id="local-6989586621679791314"><span class="annot"><span class="annottext">FromJSONKeyFunction [OTAUpdateStatus]
 FromJSONKeyFunction OTAUpdateStatus
 FromJSONKeyFunction OTAUpdateStatus
 -&gt; FromJSONKeyFunction [OTAUpdateStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OTAUpdateStatus]
 fromJSONKey :: FromJSONKeyFunction OTAUpdateStatus
 $cfromJSONKey :: FromJSONKeyFunction OTAUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679791294"><span id="local-6989586621679791296"><span id="local-6989586621679791298"><span id="local-6989586621679791300"><span class="annot"><span class="annottext">[OTAUpdateStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679791303"><span id="local-6989586621679791305"><span id="local-6989586621679791307"><span id="local-6989586621679791309"><span class="annot"><span class="annottext">[OTAUpdateStatus] -&gt; Encoding
 [OTAUpdateStatus] -&gt; Value
 OTAUpdateStatus -&gt; Encoding
 OTAUpdateStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: OTAUpdateStatus -&gt; Encoding
 toJSON :: OTAUpdateStatus -&gt; Value
 $ctoJSON :: OTAUpdateStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679791289"><span id="local-6989586621679791291"><span class="annot"><span class="annottext">ToJSONKeyFunction [OTAUpdateStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679791298"><span id="local-6989586621679791300"><span class="annot"><span class="annottext">ToJSONKeyFunction [OTAUpdateStatus]
 ToJSONKeyFunction OTAUpdateStatus
 ToJSONKeyFunction OTAUpdateStatus
 -&gt; ToJSONKeyFunction [OTAUpdateStatus] -&gt; ToJSONKey OTAUpdateStatus
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OTAUpdateStatus]
 toJSONKey :: ToJSONKeyFunction OTAUpdateStatus
 $ctoJSONKey :: ToJSONKeyFunction OTAUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679791286"><span class="annot"><span class="annottext">[Node] -&gt; Either String OTAUpdateStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679791295"><span class="annot"><span class="annottext">[Node] -&gt; Either String OTAUpdateStatus
 ([Node] -&gt; Either String OTAUpdateStatus)
 -&gt; FromXML OTAUpdateStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OTAUpdateStatus
 $cparseXML :: [Node] -&gt; Either String OTAUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679791283"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679791292"><span class="annot"><span class="annottext">OTAUpdateStatus -&gt; XML
 (OTAUpdateStatus -&gt; XML) -&gt; ToXML OTAUpdateStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OTAUpdateStatus -&gt; XML

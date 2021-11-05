@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679792610"><span id="local-6989586621679792611"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentFilterKey.html#DocumentFilterKey"><span class="hs-identifier hs-var">DocumentFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentFilterKey.html#DocumentFilterKey%27"><span class="hs-identifier hs-var">DocumentFilterKey'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679792619"><span id="local-6989586621679792620"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentFilterKey"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentFilterKey.html#DocumentFilterKey"><span class="hs-identifier hs-var">DocumentFilterKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentFilterKey%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentFilterKey.html#DocumentFilterKey%27"><span class="hs-identifier hs-var">DocumentFilterKey'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentFilterKey"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; Text
 </span><a href="Network.AWS.SSM.Types.DocumentFilterKey.html#fromDocumentFilterKey"><span class="hs-identifier hs-var hs-var">fromDocumentFilterKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679792602"><span id="local-6989586621679792604"><span id="local-6989586621679792606"><span class="annot"><span class="annottext">Int -&gt; DocumentFilterKey -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679792611"><span id="local-6989586621679792613"><span id="local-6989586621679792615"><span class="annot"><span class="annottext">Int -&gt; DocumentFilterKey -&gt; ShowS
 [DocumentFilterKey] -&gt; ShowS
 DocumentFilterKey -&gt; String
 (Int -&gt; DocumentFilterKey -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DocumentFilterKey -&gt; String
 showsPrec :: Int -&gt; DocumentFilterKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentFilterKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679792593"><span id="local-6989586621679792595"><span id="local-6989586621679792597"><span id="local-6989586621679792599"><span class="annot"><span class="annottext">ReadPrec [DocumentFilterKey]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679792602"><span id="local-6989586621679792604"><span id="local-6989586621679792606"><span id="local-6989586621679792608"><span class="annot"><span class="annottext">ReadPrec [DocumentFilterKey]
 ReadPrec DocumentFilterKey
 Int -&gt; ReadS DocumentFilterKey
 ReadS [DocumentFilterKey]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DocumentFilterKey]
 readsPrec :: Int -&gt; ReadS DocumentFilterKey
 $creadsPrec :: Int -&gt; ReadS DocumentFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679792588"><span id="local-6989586621679792590"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; DocumentFilterKey -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679792597"><span id="local-6989586621679792599"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; DocumentFilterKey -&gt; Bool
 (DocumentFilterKey -&gt; DocumentFilterKey -&gt; Bool)
 -&gt; (DocumentFilterKey -&gt; DocumentFilterKey -&gt; Bool)
 -&gt; Eq DocumentFilterKey
@@ -84,7 +84,7 @@ $c/= :: DocumentFilterKey -&gt; DocumentFilterKey -&gt; Bool
 == :: DocumentFilterKey -&gt; DocumentFilterKey -&gt; Bool
 $c== :: DocumentFilterKey -&gt; DocumentFilterKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679792572"><span id="local-6989586621679792574"><span id="local-6989586621679792576"><span id="local-6989586621679792578"><span id="local-6989586621679792580"><span id="local-6989586621679792582"><span id="local-6989586621679792584"><span class="annot"><span class="annottext">Eq DocumentFilterKey
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679792581"><span id="local-6989586621679792583"><span id="local-6989586621679792585"><span id="local-6989586621679792587"><span id="local-6989586621679792589"><span id="local-6989586621679792591"><span id="local-6989586621679792593"><span class="annot"><span class="annottext">Eq DocumentFilterKey
 Eq DocumentFilterKey
 -&gt; (DocumentFilterKey -&gt; DocumentFilterKey -&gt; Ordering)
 -&gt; (DocumentFilterKey -&gt; DocumentFilterKey -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. DocumentFilterKey -&gt; Rep DocumentFilterKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679792564"><span id="local-6989586621679792566"><span class="annot"><span class="annottext">Int -&gt; DocumentFilterKey -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679792573"><span id="local-6989586621679792575"><span class="annot"><span class="annottext">Int -&gt; DocumentFilterKey -&gt; Int
 DocumentFilterKey -&gt; Int
 (Int -&gt; DocumentFilterKey -&gt; Int)
 -&gt; (DocumentFilterKey -&gt; Int) -&gt; Hashable DocumentFilterKey
@@ -145,51 +145,51 @@ $chash :: DocumentFilterKey -&gt; Int
 hashWithSalt :: Int -&gt; DocumentFilterKey -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentFilterKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679792561"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679792570"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; ()
 (DocumentFilterKey -&gt; ()) -&gt; NFData DocumentFilterKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentFilterKey -&gt; ()
 $crnf :: DocumentFilterKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679792558"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentFilterKey
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679792567"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentFilterKey
 (Text -&gt; Either String DocumentFilterKey)
 -&gt; FromText DocumentFilterKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentFilterKey
 $cfromText :: Text -&gt; Either String DocumentFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679792555"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679792564"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; Text
 (DocumentFilterKey -&gt; Text) -&gt; ToText DocumentFilterKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentFilterKey -&gt; Text
 $ctoText :: DocumentFilterKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679792552"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679792561"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; ByteString
 (DocumentFilterKey -&gt; ByteString) -&gt; ToByteString DocumentFilterKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentFilterKey -&gt; ByteString
 $ctoBS :: DocumentFilterKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679792549"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679792558"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; ByteStringBuilder
 (DocumentFilterKey -&gt; ByteStringBuilder) -&gt; ToLog DocumentFilterKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentFilterKey -&gt; ByteStringBuilder
 $cbuild :: DocumentFilterKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679792546"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentFilterKey -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679792555"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentFilterKey -&gt; [Header]
 (HeaderName -&gt; DocumentFilterKey -&gt; [Header])
 -&gt; ToHeader DocumentFilterKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentFilterKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentFilterKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679792543"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679792552"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; QueryString
 (DocumentFilterKey -&gt; QueryString) -&gt; ToQuery DocumentFilterKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentFilterKey -&gt; QueryString
 $ctoQuery :: DocumentFilterKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679792538"><span id="local-6989586621679792540"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentFilterKey]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679792547"><span id="local-6989586621679792549"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentFilterKey]
 Value -&gt; Parser DocumentFilterKey
 (Value -&gt; Parser DocumentFilterKey)
 -&gt; (Value -&gt; Parser [DocumentFilterKey])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentFilterKey]
 parseJSON :: Value -&gt; Parser DocumentFilterKey
 $cparseJSON :: Value -&gt; Parser DocumentFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679792533"><span id="local-6989586621679792535"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentFilterKey]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679792542"><span id="local-6989586621679792544"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentFilterKey]
 FromJSONKeyFunction DocumentFilterKey
 FromJSONKeyFunction DocumentFilterKey
 -&gt; FromJSONKeyFunction [DocumentFilterKey]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentFilterKey]
 fromJSONKey :: FromJSONKeyFunction DocumentFilterKey
 $cfromJSONKey :: FromJSONKeyFunction DocumentFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679792524"><span id="local-6989586621679792526"><span id="local-6989586621679792528"><span id="local-6989586621679792530"><span class="annot"><span class="annottext">[DocumentFilterKey] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679792533"><span id="local-6989586621679792535"><span id="local-6989586621679792537"><span id="local-6989586621679792539"><span class="annot"><span class="annottext">[DocumentFilterKey] -&gt; Encoding
 [DocumentFilterKey] -&gt; Value
 DocumentFilterKey -&gt; Encoding
 DocumentFilterKey -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: DocumentFilterKey -&gt; Encoding
 toJSON :: DocumentFilterKey -&gt; Value
 $ctoJSON :: DocumentFilterKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679792519"><span id="local-6989586621679792521"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentFilterKey]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679792528"><span id="local-6989586621679792530"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentFilterKey]
 ToJSONKeyFunction DocumentFilterKey
 ToJSONKeyFunction DocumentFilterKey
 -&gt; ToJSONKeyFunction [DocumentFilterKey]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentFilterKey]
 toJSONKey :: ToJSONKeyFunction DocumentFilterKey
 $ctoJSONKey :: ToJSONKeyFunction DocumentFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679792516"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentFilterKey
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679792525"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentFilterKey
 ([Node] -&gt; Either String DocumentFilterKey)
 -&gt; FromXML DocumentFilterKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentFilterKey
 $cparseXML :: [Node] -&gt; Either String DocumentFilterKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679792513"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679792522"><span class="annot"><span class="annottext">DocumentFilterKey -&gt; XML
 (DocumentFilterKey -&gt; XML) -&gt; ToXML DocumentFilterKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DocumentFilterKey -&gt; XML

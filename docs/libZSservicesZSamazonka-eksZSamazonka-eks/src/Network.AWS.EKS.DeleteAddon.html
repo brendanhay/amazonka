@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteAddon' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679276850"><span id="local-6989586621679276851"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAddon"><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-var">DeleteAddon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAddon%27"><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-var">DeleteAddon'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679276859"><span id="local-6989586621679276860"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAddon"><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-var">DeleteAddon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAddon%27"><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-var">DeleteAddon'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifying this option preserves the add-on software on your cluster but</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Amazon EKS stops managing any settings for the add-on. If an IAM account</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- is associated with the add-on, it is not removed.</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AaddonName%3ADeleteAddon%27"><span class="annot"><span class="annottext">DeleteAddon -&gt; Text
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3AaddonName%3ADeleteAddon%27"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276842"><span id="local-6989586621679276844"><span class="annot"><span class="annottext">DeleteAddon -&gt; DeleteAddon -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276851"><span id="local-6989586621679276853"><span class="annot"><span class="annottext">DeleteAddon -&gt; DeleteAddon -&gt; Bool
 (DeleteAddon -&gt; DeleteAddon -&gt; Bool)
 -&gt; (DeleteAddon -&gt; DeleteAddon -&gt; Bool) -&gt; Eq DeleteAddon
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAddon -&gt; DeleteAddon -&gt; Bool
 == :: DeleteAddon -&gt; DeleteAddon -&gt; Bool
 $c== :: DeleteAddon -&gt; DeleteAddon -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276833"><span id="local-6989586621679276835"><span id="local-6989586621679276837"><span id="local-6989586621679276839"><span class="annot"><span class="annottext">ReadPrec [DeleteAddon]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276842"><span id="local-6989586621679276844"><span id="local-6989586621679276846"><span id="local-6989586621679276848"><span class="annot"><span class="annottext">ReadPrec [DeleteAddon]
 ReadPrec DeleteAddon
 Int -&gt; ReadS DeleteAddon
 ReadS [DeleteAddon]
@@ -96,7 +96,7 @@ readList :: ReadS [DeleteAddon]
 $creadList :: ReadS [DeleteAddon]
 readsPrec :: Int -&gt; ReadS DeleteAddon
 $creadsPrec :: Int -&gt; ReadS DeleteAddon
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276826"><span id="local-6989586621679276828"><span id="local-6989586621679276830"><span class="annot"><span class="annottext">Int -&gt; DeleteAddon -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276835"><span id="local-6989586621679276837"><span id="local-6989586621679276839"><span class="annot"><span class="annottext">Int -&gt; DeleteAddon -&gt; ShowS
 [DeleteAddon] -&gt; ShowS
 DeleteAddon -&gt; String
 (Int -&gt; DeleteAddon -&gt; ShowS)
@@ -146,9 +146,9 @@ $cfrom :: forall x. DeleteAddon -&gt; Rep DeleteAddon x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span>
 </span><span id="line-93"></span><span id="newDeleteAddon"><span class="annot"><span class="annottext">newDeleteAddon :: Text -&gt; Text -&gt; DeleteAddon
-</span><a href="Network.AWS.EKS.DeleteAddon.html#newDeleteAddon"><span class="hs-identifier hs-var hs-var">newDeleteAddon</span></a></span></span><span> </span><span id="local-6989586621679276821"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276821"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span id="local-6989586621679276820"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276820"><span class="hs-identifier hs-var">pAddonName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DeleteAddon.html#newDeleteAddon"><span class="hs-identifier hs-var hs-var">newDeleteAddon</span></a></span></span><span> </span><span id="local-6989586621679276830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276830"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span id="local-6989586621679276829"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276829"><span class="hs-identifier hs-var">pAddonName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">DeleteAddon' :: Maybe Bool -&gt; Text -&gt; Text -&gt; DeleteAddon
 </span><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:preserve:DeleteAddon' :: Maybe Bool
@@ -157,10 +157,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:DeleteAddon' :: Text
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3AclusterName%3ADeleteAddon%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276821"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276830"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:addonName:DeleteAddon' :: Text
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3AaddonName%3ADeleteAddon%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276820"><span class="hs-identifier hs-var">pAddonName_</span></a></span><span>
+</span><a href="#local-6989586621679276829"><span class="hs-identifier hs-var">pAddonName_</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | Specifying this option preserves the add-on software on your cluster but</span><span>
@@ -172,16 +172,16 @@ forall a. Maybe a
 -&gt; (DeleteAddon -&gt; Maybe Bool -&gt; DeleteAddon)
 -&gt; Lens DeleteAddon DeleteAddon (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276817"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276826"><span class="annot"><span class="annottext">Maybe Bool
 preserve :: Maybe Bool
 $sel:preserve:DeleteAddon' :: DeleteAddon -&gt; Maybe Bool
-</span><a href="#local-6989586621679276817"><span class="hs-identifier hs-var hs-var">preserve</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276817"><span class="hs-identifier hs-var">preserve</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276816"><span class="annot"><span class="annottext">s :: DeleteAddon
-</span><a href="#local-6989586621679276816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276815"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddon
-</span><a href="#local-6989586621679276816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preserve:DeleteAddon' :: Maybe Bool
+</span><a href="#local-6989586621679276826"><span class="hs-identifier hs-var hs-var">preserve</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276826"><span class="hs-identifier hs-var">preserve</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276825"><span class="annot"><span class="annottext">s :: DeleteAddon
+</span><a href="#local-6989586621679276825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276824"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679276824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddon
+</span><a href="#local-6989586621679276825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preserve:DeleteAddon' :: Maybe Bool
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3Apreserve%3ADeleteAddon%27"><span class="hs-identifier hs-var">preserve</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The name of the cluster to delete the add-on from.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#deleteAddon_clusterName"><span class="hs-identifier hs-type">deleteAddon_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -190,16 +190,16 @@ $sel:preserve:DeleteAddon' :: DeleteAddon -&gt; Maybe Bool
 -&gt; (DeleteAddon -&gt; Text -&gt; DeleteAddon)
 -&gt; Lens DeleteAddon DeleteAddon Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276814"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276823"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:DeleteAddon' :: DeleteAddon -&gt; Text
-</span><a href="#local-6989586621679276814"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276814"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276813"><span class="annot"><span class="annottext">s :: DeleteAddon
-</span><a href="#local-6989586621679276813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276812"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddon
-</span><a href="#local-6989586621679276813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DeleteAddon' :: Text
+</span><a href="#local-6989586621679276823"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276823"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276822"><span class="annot"><span class="annottext">s :: DeleteAddon
+</span><a href="#local-6989586621679276822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276821"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddon
+</span><a href="#local-6989586621679276822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DeleteAddon' :: Text
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3AclusterName%3ADeleteAddon%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The name of the add-on. The name must match one of the names returned by</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons&gt;</span><span>
@@ -210,25 +210,25 @@ $sel:clusterName:DeleteAddon' :: DeleteAddon -&gt; Text
 -&gt; (DeleteAddon -&gt; Text -&gt; DeleteAddon)
 -&gt; Lens DeleteAddon DeleteAddon Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276811"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276820"><span class="annot"><span class="annottext">Text
 addonName :: Text
 $sel:addonName:DeleteAddon' :: DeleteAddon -&gt; Text
-</span><a href="#local-6989586621679276811"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276811"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276810"><span class="annot"><span class="annottext">s :: DeleteAddon
-</span><a href="#local-6989586621679276810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276809"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddon
-</span><a href="#local-6989586621679276810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonName:DeleteAddon' :: Text
+</span><a href="#local-6989586621679276820"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276820"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276819"><span class="annot"><span class="annottext">s :: DeleteAddon
+</span><a href="#local-6989586621679276819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276818"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddon
+</span><a href="#local-6989586621679276819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonName:DeleteAddon' :: Text
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3AaddonName%3ADeleteAddon%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-type">DeleteAddonResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679276805"><span class="annot"><span class="annottext">request :: DeleteAddon -&gt; Request DeleteAddon
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679276814"><span class="annot"><span class="annottext">request :: DeleteAddon -&gt; Request DeleteAddon
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAddon -&gt; Request DeleteAddon
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679276801"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679276810"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAddon
 -&gt; ClientResponse ClientBody
@@ -252,10 +252,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276798"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276798"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679276797"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679276797"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679276796"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276796"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276807"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276807"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679276806"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679276806"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679276805"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276805"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Addon -&gt; Int -&gt; DeleteAddonResponse
 </span><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-var">DeleteAddonResponse'</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Addon -&gt; Int -&gt; DeleteAddonResponse)
@@ -263,7 +263,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteAddonResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679276796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Addon)
+</span><a href="#local-6989586621679276805"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Addon)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;addon&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,15 +275,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276798"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276807"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276788"><span id="local-6989586621679276790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276797"><span id="local-6989586621679276799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679276781"><span class="annot"><span class="annottext">toHeaders :: DeleteAddon -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679276790"><span class="annot"><span class="annottext">toHeaders :: DeleteAddon -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAddon -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -303,8 +303,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679276775"><span class="annot"><span class="annottext">toPath :: DeleteAddon -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276771"><span id="local-6989586621679276772"><span id="local-6989586621679276773"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679276784"><span class="annot"><span class="annottext">toPath :: DeleteAddon -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276780"><span id="local-6989586621679276781"><span id="local-6989586621679276782"><span class="annot"><span class="annottext">Maybe Bool
 Text
 addonName :: Text
 clusterName :: Text
@@ -312,7 +312,7 @@ preserve :: Maybe Bool
 $sel:addonName:DeleteAddon' :: DeleteAddon -&gt; Text
 $sel:clusterName:DeleteAddon' :: DeleteAddon -&gt; Text
 $sel:preserve:DeleteAddon' :: DeleteAddon -&gt; Maybe Bool
-</span><a href="#local-6989586621679276771"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679276780"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -321,18 +321,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276772"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276781"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/addons/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276771"><span class="hs-identifier hs-var">addonName</span></a></span><span>
+</span><a href="#local-6989586621679276780"><span class="hs-identifier hs-var">addonName</span></a></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon"><span class="hs-identifier hs-type">DeleteAddon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679276767"><span class="annot"><span class="annottext">toQuery :: DeleteAddon -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276763"><span id="local-6989586621679276764"><span id="local-6989586621679276765"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679276776"><span class="annot"><span class="annottext">toQuery :: DeleteAddon -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddon%27"><span class="hs-identifier hs-type">DeleteAddon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276772"><span id="local-6989586621679276773"><span id="local-6989586621679276774"><span class="annot"><span class="annottext">Maybe Bool
 Text
 addonName :: Text
 clusterName :: Text
@@ -340,24 +340,24 @@ preserve :: Maybe Bool
 $sel:addonName:DeleteAddon' :: DeleteAddon -&gt; Text
 $sel:clusterName:DeleteAddon' :: DeleteAddon -&gt; Text
 $sel:preserve:DeleteAddon' :: DeleteAddon -&gt; Maybe Bool
-</span><a href="#local-6989586621679276763"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679276772"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;preserve&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679276765"><span class="hs-identifier hs-var">preserve</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679276774"><span class="hs-identifier hs-var">preserve</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newDeleteAddonResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679276760"><span id="local-6989586621679276761"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAddonResponse"><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-var">DeleteAddonResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAddonResponse%27"><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-var">DeleteAddonResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679276769"><span id="local-6989586621679276770"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAddonResponse"><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-var">DeleteAddonResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAddonResponse%27"><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-var">DeleteAddonResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aaddon%3ADeleteAddonResponse%27"><span class="annot"><span class="annottext">DeleteAddonResponse -&gt; Maybe Addon
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3Aaddon%3ADeleteAddonResponse%27"><span class="hs-identifier hs-var hs-var">addon</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Addon.html#Addon"><span class="hs-identifier hs-type">Addon</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAddonResponse%27"><span class="annot"><span class="annottext">DeleteAddonResponse -&gt; Int
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3AhttpStatus%3ADeleteAddonResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276754"><span id="local-6989586621679276756"><span class="annot"><span class="annottext">DeleteAddonResponse -&gt; DeleteAddonResponse -&gt; Bool
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276763"><span id="local-6989586621679276765"><span class="annot"><span class="annottext">DeleteAddonResponse -&gt; DeleteAddonResponse -&gt; Bool
 (DeleteAddonResponse -&gt; DeleteAddonResponse -&gt; Bool)
 -&gt; (DeleteAddonResponse -&gt; DeleteAddonResponse -&gt; Bool)
 -&gt; Eq DeleteAddonResponse
@@ -366,7 +366,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAddonResponse -&gt; DeleteAddonResponse -&gt; Bool
 == :: DeleteAddonResponse -&gt; DeleteAddonResponse -&gt; Bool
 $c== :: DeleteAddonResponse -&gt; DeleteAddonResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276746"><span id="local-6989586621679276748"><span id="local-6989586621679276750"><span id="local-6989586621679276752"><span class="annot"><span class="annottext">ReadPrec [DeleteAddonResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276755"><span id="local-6989586621679276757"><span id="local-6989586621679276759"><span id="local-6989586621679276761"><span class="annot"><span class="annottext">ReadPrec [DeleteAddonResponse]
 ReadPrec DeleteAddonResponse
 Int -&gt; ReadS DeleteAddonResponse
 ReadS [DeleteAddonResponse]
@@ -386,7 +386,7 @@ readList :: ReadS [DeleteAddonResponse]
 $creadList :: ReadS [DeleteAddonResponse]
 readsPrec :: Int -&gt; ReadS DeleteAddonResponse
 $creadsPrec :: Int -&gt; ReadS DeleteAddonResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276740"><span id="local-6989586621679276742"><span id="local-6989586621679276744"><span class="annot"><span class="annottext">Int -&gt; DeleteAddonResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276749"><span id="local-6989586621679276751"><span id="local-6989586621679276753"><span class="annot"><span class="annottext">Int -&gt; DeleteAddonResponse -&gt; ShowS
 [DeleteAddonResponse] -&gt; ShowS
 DeleteAddonResponse -&gt; String
 (Int -&gt; DeleteAddonResponse -&gt; ShowS)
@@ -428,8 +428,8 @@ $cfrom :: forall x. DeleteAddonResponse -&gt; Rep DeleteAddonResponse x
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-type">DeleteAddonResponse</span></a></span><span>
 </span><span id="line-178"></span><span id="newDeleteAddonResponse"><span class="annot"><span class="annottext">newDeleteAddonResponse :: Int -&gt; DeleteAddonResponse
-</span><a href="Network.AWS.EKS.DeleteAddon.html#newDeleteAddonResponse"><span class="hs-identifier hs-var hs-var">newDeleteAddonResponse</span></a></span></span><span> </span><span id="local-6989586621679276737"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DeleteAddon.html#newDeleteAddonResponse"><span class="hs-identifier hs-var hs-var">newDeleteAddonResponse</span></a></span></span><span> </span><span id="local-6989586621679276746"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276746"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">DeleteAddonResponse' :: Maybe Addon -&gt; Int -&gt; DeleteAddonResponse
 </span><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-type">DeleteAddonResponse'</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addon:DeleteAddonResponse' :: Maybe Addon
@@ -438,7 +438,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAddonResponse' :: Int
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3AhttpStatus%3ADeleteAddonResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679276746"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -450,16 +450,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteAddonResponse DeleteAddonResponse (Maybe Addon) (Maybe Addon)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-type">DeleteAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276736"><span class="annot"><span class="annottext">Maybe Addon
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-type">DeleteAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276745"><span class="annot"><span class="annottext">Maybe Addon
 addon :: Maybe Addon
 $sel:addon:DeleteAddonResponse' :: DeleteAddonResponse -&gt; Maybe Addon
-</span><a href="#local-6989586621679276736"><span class="hs-identifier hs-var hs-var">addon</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Addon
-</span><a href="#local-6989586621679276736"><span class="hs-identifier hs-var">addon</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276735"><span class="annot"><span class="annottext">s :: DeleteAddonResponse
-</span><a href="#local-6989586621679276735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-type">DeleteAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276734"><span class="annot"><span class="annottext">Maybe Addon
-</span><a href="#local-6989586621679276734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddonResponse
-</span><a href="#local-6989586621679276735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addon:DeleteAddonResponse' :: Maybe Addon
+</span><a href="#local-6989586621679276745"><span class="hs-identifier hs-var hs-var">addon</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Addon
+</span><a href="#local-6989586621679276745"><span class="hs-identifier hs-var">addon</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276744"><span class="annot"><span class="annottext">s :: DeleteAddonResponse
+</span><a href="#local-6989586621679276744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-type">DeleteAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276743"><span class="annot"><span class="annottext">Maybe Addon
+</span><a href="#local-6989586621679276743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddonResponse
+</span><a href="#local-6989586621679276744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addon:DeleteAddonResponse' :: Maybe Addon
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3Aaddon%3ADeleteAddonResponse%27"><span class="hs-identifier hs-var">addon</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Addon
-</span><a href="#local-6989586621679276734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-type">DeleteAddonResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-type">DeleteAddonResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#deleteAddonResponse_httpStatus"><span class="hs-identifier hs-type">deleteAddonResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-type">DeleteAddonResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -468,16 +468,16 @@ $sel:addon:DeleteAddonResponse' :: DeleteAddonResponse -&gt; Maybe Addon
 -&gt; (DeleteAddonResponse -&gt; Int -&gt; DeleteAddonResponse)
 -&gt; Lens DeleteAddonResponse DeleteAddonResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-type">DeleteAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276733"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-type">DeleteAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276742"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteAddonResponse' :: DeleteAddonResponse -&gt; Int
-</span><a href="#local-6989586621679276733"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276733"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276732"><span class="annot"><span class="annottext">s :: DeleteAddonResponse
-</span><a href="#local-6989586621679276732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-type">DeleteAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276731"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddonResponse
-</span><a href="#local-6989586621679276732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAddonResponse' :: Int
+</span><a href="#local-6989586621679276742"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276742"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276741"><span class="annot"><span class="annottext">s :: DeleteAddonResponse
+</span><a href="#local-6989586621679276741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse%27"><span class="hs-identifier hs-type">DeleteAddonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAddonResponse
+</span><a href="#local-6989586621679276741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAddonResponse' :: Int
 </span><a href="Network.AWS.EKS.DeleteAddon.html#%24sel%3AhttpStatus%3ADeleteAddonResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679276731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-type">DeleteAddonResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-type">DeleteAddonResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-type">DeleteAddonResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeleteAddon.html#DeleteAddonResponse"><span class="hs-identifier hs-type">DeleteAddonResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

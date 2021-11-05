@@ -1,0 +1,794 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayEndpointConfiguration.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsApiGatewayEndpointConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a REST API in version 1 of Amazon API</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Gateway.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAwsApiGatewayRestApiDetails' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679934403"><span id="local-6989586621679934404"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsApiGatewayRestApiDetails"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-var">AwsApiGatewayRestApiDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsApiGatewayRestApiDetails%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">AwsApiGatewayRestApiDetails'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum size in bytes of a payload before compression is enabled.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- If @null@, then compression is disabled.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- If 0, then all payloads are compressed.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AminimumCompressionSize%3AAwsApiGatewayRestApiDetails%27"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails -&gt; Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AminimumCompressionSize%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var hs-var">minimumCompressionSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The list of binary media types supported by the REST API.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbinaryMediaTypes%3AAwsApiGatewayRestApiDetails%27"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails -&gt; Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AbinaryMediaTypes%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var hs-var">binaryMediaTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Indicates when the API was created.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcreatedDate%3AAwsApiGatewayRestApiDetails%27"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AcreatedDate%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the REST API.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aname%3AAwsApiGatewayRestApiDetails%27"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Aname%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The source of the API key for metering requests according to a usage</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @HEADER@ indicates whether to read the API key from the X-API-Key header</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- of a request.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @AUTHORIZER@ indicates whether to read the API key from the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- @UsageIdentifierKey@ from a custom authorizer.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AapiKeySource%3AAwsApiGatewayRestApiDetails%27"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AapiKeySource%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var hs-var">apiKeySource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The version identifier for the REST API.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aversion%3AAwsApiGatewayRestApiDetails%27"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Aversion%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The identifier of the REST API.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aid%3AAwsApiGatewayRestApiDetails%27"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Aid%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The endpoint configuration of the REST API.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AendpointConfiguration%3AAwsApiGatewayRestApiDetails%27"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+-&gt; Maybe AwsApiGatewayEndpointConfiguration
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AendpointConfiguration%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var hs-var">endpointConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayEndpointConfiguration.html#AwsApiGatewayEndpointConfiguration"><span class="hs-identifier hs-type">AwsApiGatewayEndpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A description of the REST API.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Adescription%3AAwsApiGatewayRestApiDetails%27"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Adescription%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679934389"><span id="local-6989586621679934391"><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails -&gt; AwsApiGatewayRestApiDetails -&gt; Bool
+(AwsApiGatewayRestApiDetails
+ -&gt; AwsApiGatewayRestApiDetails -&gt; Bool)
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; AwsApiGatewayRestApiDetails -&gt; Bool)
+-&gt; Eq AwsApiGatewayRestApiDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsApiGatewayRestApiDetails -&gt; AwsApiGatewayRestApiDetails -&gt; Bool
+$c/= :: AwsApiGatewayRestApiDetails -&gt; AwsApiGatewayRestApiDetails -&gt; Bool
+== :: AwsApiGatewayRestApiDetails -&gt; AwsApiGatewayRestApiDetails -&gt; Bool
+$c== :: AwsApiGatewayRestApiDetails -&gt; AwsApiGatewayRestApiDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679934380"><span id="local-6989586621679934382"><span id="local-6989586621679934384"><span id="local-6989586621679934386"><span class="annot"><span class="annottext">ReadPrec [AwsApiGatewayRestApiDetails]
+ReadPrec AwsApiGatewayRestApiDetails
+Int -&gt; ReadS AwsApiGatewayRestApiDetails
+ReadS [AwsApiGatewayRestApiDetails]
+(Int -&gt; ReadS AwsApiGatewayRestApiDetails)
+-&gt; ReadS [AwsApiGatewayRestApiDetails]
+-&gt; ReadPrec AwsApiGatewayRestApiDetails
+-&gt; ReadPrec [AwsApiGatewayRestApiDetails]
+-&gt; Read AwsApiGatewayRestApiDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsApiGatewayRestApiDetails]
+$creadListPrec :: ReadPrec [AwsApiGatewayRestApiDetails]
+readPrec :: ReadPrec AwsApiGatewayRestApiDetails
+$creadPrec :: ReadPrec AwsApiGatewayRestApiDetails
+readList :: ReadS [AwsApiGatewayRestApiDetails]
+$creadList :: ReadS [AwsApiGatewayRestApiDetails]
+readsPrec :: Int -&gt; ReadS AwsApiGatewayRestApiDetails
+$creadsPrec :: Int -&gt; ReadS AwsApiGatewayRestApiDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679934373"><span id="local-6989586621679934375"><span id="local-6989586621679934377"><span class="annot"><span class="annottext">Int -&gt; AwsApiGatewayRestApiDetails -&gt; ShowS
+[AwsApiGatewayRestApiDetails] -&gt; ShowS
+AwsApiGatewayRestApiDetails -&gt; String
+(Int -&gt; AwsApiGatewayRestApiDetails -&gt; ShowS)
+-&gt; (AwsApiGatewayRestApiDetails -&gt; String)
+-&gt; ([AwsApiGatewayRestApiDetails] -&gt; ShowS)
+-&gt; Show AwsApiGatewayRestApiDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsApiGatewayRestApiDetails] -&gt; ShowS
+$cshowList :: [AwsApiGatewayRestApiDetails] -&gt; ShowS
+show :: AwsApiGatewayRestApiDetails -&gt; String
+$cshow :: AwsApiGatewayRestApiDetails -&gt; String
+showsPrec :: Int -&gt; AwsApiGatewayRestApiDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsApiGatewayRestApiDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsApiGatewayRestApiDetails -&gt; Rep AwsApiGatewayRestApiDetails x)
+-&gt; (forall x.
+    Rep AwsApiGatewayRestApiDetails x -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Generic AwsApiGatewayRestApiDetails
+forall x.
+Rep AwsApiGatewayRestApiDetails x -&gt; AwsApiGatewayRestApiDetails
+forall x.
+AwsApiGatewayRestApiDetails -&gt; Rep AwsApiGatewayRestApiDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsApiGatewayRestApiDetails x -&gt; AwsApiGatewayRestApiDetails
+$cfrom :: forall x.
+AwsApiGatewayRestApiDetails -&gt; Rep AwsApiGatewayRestApiDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'AwsApiGatewayRestApiDetails' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'minimumCompressionSize', 'awsApiGatewayRestApiDetails_minimumCompressionSize' - The minimum size in bytes of a payload before compression is enabled.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- If @null@, then compression is disabled.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- If 0, then all payloads are compressed.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'binaryMediaTypes', 'awsApiGatewayRestApiDetails_binaryMediaTypes' - The list of binary media types supported by the REST API.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'createdDate', 'awsApiGatewayRestApiDetails_createdDate' - Indicates when the API was created.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'name', 'awsApiGatewayRestApiDetails_name' - The name of the REST API.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'apiKeySource', 'awsApiGatewayRestApiDetails_apiKeySource' - The source of the API key for metering requests according to a usage</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- @HEADER@ indicates whether to read the API key from the X-API-Key header</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- of a request.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @AUTHORIZER@ indicates whether to read the API key from the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @UsageIdentifierKey@ from a custom authorizer.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'version', 'awsApiGatewayRestApiDetails_version' - The version identifier for the REST API.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'id', 'awsApiGatewayRestApiDetails_id' - The identifier of the REST API.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'endpointConfiguration', 'awsApiGatewayRestApiDetails_endpointConfiguration' - The endpoint configuration of the REST API.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'description', 'awsApiGatewayRestApiDetails_description' - A description of the REST API.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#newAwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">newAwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span>
+</span><span id="line-112"></span><span id="newAwsApiGatewayRestApiDetails"><span class="annot"><span class="annottext">newAwsApiGatewayRestApiDetails :: AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#newAwsApiGatewayRestApiDetails"><span class="hs-identifier hs-var hs-var">newAwsApiGatewayRestApiDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails' :: Maybe Int
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsApiGatewayEndpointConfiguration
+-&gt; Maybe Text
+-&gt; AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minimumCompressionSize:AwsApiGatewayRestApiDetails' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AminimumCompressionSize%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:binaryMediaTypes:AwsApiGatewayRestApiDetails' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AbinaryMediaTypes%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AcreatedDate%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Aname%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiKeySource:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AapiKeySource%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Aversion%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Aid%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointConfiguration:AwsApiGatewayRestApiDetails' :: Maybe AwsApiGatewayEndpointConfiguration
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AendpointConfiguration%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsApiGatewayEndpointConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Adescription%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The minimum size in bytes of a payload before compression is enabled.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- If @null@, then compression is disabled.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- If 0, then all payloads are compressed.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_minimumCompressionSize"><span class="hs-identifier hs-type">awsApiGatewayRestApiDetails_minimumCompressionSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="awsApiGatewayRestApiDetails_minimumCompressionSize"><span class="annot"><span class="annottext">awsApiGatewayRestApiDetails_minimumCompressionSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_minimumCompressionSize"><span class="hs-identifier hs-var hs-var">awsApiGatewayRestApiDetails_minimumCompressionSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiGatewayRestApiDetails -&gt; Maybe Int)
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; Maybe Int -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Lens
+     AwsApiGatewayRestApiDetails
+     AwsApiGatewayRestApiDetails
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934364"><span class="annot"><span class="annottext">Maybe Int
+minimumCompressionSize :: Maybe Int
+$sel:minimumCompressionSize:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Int
+</span><a href="#local-6989586621679934364"><span class="hs-identifier hs-var hs-var">minimumCompressionSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679934364"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934363"><span class="annot"><span class="annottext">s :: AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934362"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679934362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumCompressionSize:AwsApiGatewayRestApiDetails' :: Maybe Int
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AminimumCompressionSize%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679934362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The list of binary media types supported by the REST API.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_binaryMediaTypes"><span class="hs-identifier hs-type">awsApiGatewayRestApiDetails_binaryMediaTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="awsApiGatewayRestApiDetails_binaryMediaTypes"><span class="annot"><span class="annottext">awsApiGatewayRestApiDetails_binaryMediaTypes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_binaryMediaTypes"><span class="hs-identifier hs-var hs-var">awsApiGatewayRestApiDetails_binaryMediaTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiGatewayRestApiDetails -&gt; Maybe [Text])
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; Maybe [Text] -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Lens
+     AwsApiGatewayRestApiDetails
+     AwsApiGatewayRestApiDetails
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934360"><span class="annot"><span class="annottext">Maybe [Text]
+binaryMediaTypes :: Maybe [Text]
+$sel:binaryMediaTypes:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe [Text]
+</span><a href="#local-6989586621679934360"><span class="hs-identifier hs-var hs-var">binaryMediaTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679934360"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934359"><span class="annot"><span class="annottext">s :: AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934358"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679934358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:binaryMediaTypes:AwsApiGatewayRestApiDetails' :: Maybe [Text]
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AbinaryMediaTypes%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679934358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AwsApiGatewayRestApiDetails
+-&gt; f AwsApiGatewayRestApiDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Indicates when the API was created.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_createdDate"><span class="hs-identifier hs-type">awsApiGatewayRestApiDetails_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="awsApiGatewayRestApiDetails_createdDate"><span class="annot"><span class="annottext">awsApiGatewayRestApiDetails_createdDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_createdDate"><span class="hs-identifier hs-var hs-var">awsApiGatewayRestApiDetails_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiGatewayRestApiDetails -&gt; Maybe Text)
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Lens
+     AwsApiGatewayRestApiDetails
+     AwsApiGatewayRestApiDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934353"><span class="annot"><span class="annottext">Maybe Text
+createdDate :: Maybe Text
+$sel:createdDate:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679934353"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934353"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934352"><span class="annot"><span class="annottext">s :: AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934351"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AcreatedDate%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The name of the REST API.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_name"><span class="hs-identifier hs-type">awsApiGatewayRestApiDetails_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="awsApiGatewayRestApiDetails_name"><span class="annot"><span class="annottext">awsApiGatewayRestApiDetails_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_name"><span class="hs-identifier hs-var hs-var">awsApiGatewayRestApiDetails_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiGatewayRestApiDetails -&gt; Maybe Text)
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Lens
+     AwsApiGatewayRestApiDetails
+     AwsApiGatewayRestApiDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934349"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679934349"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934349"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934348"><span class="annot"><span class="annottext">s :: AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934347"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Aname%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The source of the API key for metering requests according to a usage</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- plan.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- @HEADER@ indicates whether to read the API key from the X-API-Key header</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- of a request.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- @AUTHORIZER@ indicates whether to read the API key from the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- @UsageIdentifierKey@ from a custom authorizer.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_apiKeySource"><span class="hs-identifier hs-type">awsApiGatewayRestApiDetails_apiKeySource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="awsApiGatewayRestApiDetails_apiKeySource"><span class="annot"><span class="annottext">awsApiGatewayRestApiDetails_apiKeySource :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_apiKeySource"><span class="hs-identifier hs-var hs-var">awsApiGatewayRestApiDetails_apiKeySource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiGatewayRestApiDetails -&gt; Maybe Text)
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Lens
+     AwsApiGatewayRestApiDetails
+     AwsApiGatewayRestApiDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934345"><span class="annot"><span class="annottext">Maybe Text
+apiKeySource :: Maybe Text
+$sel:apiKeySource:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679934345"><span class="hs-identifier hs-var hs-var">apiKeySource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934345"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934344"><span class="annot"><span class="annottext">s :: AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeySource:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AapiKeySource%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The version identifier for the REST API.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_version"><span class="hs-identifier hs-type">awsApiGatewayRestApiDetails_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="awsApiGatewayRestApiDetails_version"><span class="annot"><span class="annottext">awsApiGatewayRestApiDetails_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_version"><span class="hs-identifier hs-var hs-var">awsApiGatewayRestApiDetails_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiGatewayRestApiDetails -&gt; Maybe Text)
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Lens
+     AwsApiGatewayRestApiDetails
+     AwsApiGatewayRestApiDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934341"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679934341"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934341"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934340"><span class="annot"><span class="annottext">s :: AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Aversion%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The identifier of the REST API.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_id"><span class="hs-identifier hs-type">awsApiGatewayRestApiDetails_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="awsApiGatewayRestApiDetails_id"><span class="annot"><span class="annottext">awsApiGatewayRestApiDetails_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_id"><span class="hs-identifier hs-var hs-var">awsApiGatewayRestApiDetails_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiGatewayRestApiDetails -&gt; Maybe Text)
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Lens
+     AwsApiGatewayRestApiDetails
+     AwsApiGatewayRestApiDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934337"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679934337"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934337"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934336"><span class="annot"><span class="annottext">s :: AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Aid%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The endpoint configuration of the REST API.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_endpointConfiguration"><span class="hs-identifier hs-type">awsApiGatewayRestApiDetails_endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayEndpointConfiguration.html#AwsApiGatewayEndpointConfiguration"><span class="hs-identifier hs-type">AwsApiGatewayEndpointConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="awsApiGatewayRestApiDetails_endpointConfiguration"><span class="annot"><span class="annottext">awsApiGatewayRestApiDetails_endpointConfiguration :: (Maybe AwsApiGatewayEndpointConfiguration
+ -&gt; f (Maybe AwsApiGatewayEndpointConfiguration))
+-&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_endpointConfiguration"><span class="hs-identifier hs-var hs-var">awsApiGatewayRestApiDetails_endpointConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiGatewayRestApiDetails
+ -&gt; Maybe AwsApiGatewayEndpointConfiguration)
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; Maybe AwsApiGatewayEndpointConfiguration
+    -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Lens
+     AwsApiGatewayRestApiDetails
+     AwsApiGatewayRestApiDetails
+     (Maybe AwsApiGatewayEndpointConfiguration)
+     (Maybe AwsApiGatewayEndpointConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934333"><span class="annot"><span class="annottext">Maybe AwsApiGatewayEndpointConfiguration
+endpointConfiguration :: Maybe AwsApiGatewayEndpointConfiguration
+$sel:endpointConfiguration:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails
+-&gt; Maybe AwsApiGatewayEndpointConfiguration
+</span><a href="#local-6989586621679934333"><span class="hs-identifier hs-var hs-var">endpointConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsApiGatewayEndpointConfiguration
+</span><a href="#local-6989586621679934333"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934332"><span class="annot"><span class="annottext">s :: AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934331"><span class="annot"><span class="annottext">Maybe AwsApiGatewayEndpointConfiguration
+</span><a href="#local-6989586621679934331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfiguration:AwsApiGatewayRestApiDetails' :: Maybe AwsApiGatewayEndpointConfiguration
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3AendpointConfiguration%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsApiGatewayEndpointConfiguration
+</span><a href="#local-6989586621679934331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | A description of the REST API.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_description"><span class="hs-identifier hs-type">awsApiGatewayRestApiDetails_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="awsApiGatewayRestApiDetails_description"><span class="annot"><span class="annottext">awsApiGatewayRestApiDetails_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsApiGatewayRestApiDetails -&gt; f AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#awsApiGatewayRestApiDetails_description"><span class="hs-identifier hs-var hs-var">awsApiGatewayRestApiDetails_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsApiGatewayRestApiDetails -&gt; Maybe Text)
+-&gt; (AwsApiGatewayRestApiDetails
+    -&gt; Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Lens
+     AwsApiGatewayRestApiDetails
+     AwsApiGatewayRestApiDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934329"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679934329"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934329"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934328"><span class="annot"><span class="annottext">s :: AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934327"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsApiGatewayRestApiDetails
+</span><a href="#local-6989586621679934328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AwsApiGatewayRestApiDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#%24sel%3Adescription%3AAwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679934324"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679934322"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsApiGatewayRestApiDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsApiGatewayRestApiDetails)
+-&gt; Value
+-&gt; Parser AwsApiGatewayRestApiDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsApiGatewayRestApiDetails&quot;</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679934319"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AwsApiGatewayEndpointConfiguration
+-&gt; Maybe Text
+-&gt; AwsApiGatewayRestApiDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-var">AwsApiGatewayRestApiDetails'</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AwsApiGatewayEndpointConfiguration
+ -&gt; Maybe Text
+ -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsApiGatewayEndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; AwsApiGatewayRestApiDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinimumCompressionSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsApiGatewayEndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsApiGatewayEndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; AwsApiGatewayRestApiDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BinaryMediaTypes&quot;</span></span><span>
+</span><span id="line-186"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-187"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsApiGatewayEndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsApiGatewayEndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; AwsApiGatewayRestApiDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsApiGatewayEndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsApiGatewayEndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; AwsApiGatewayRestApiDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsApiGatewayEndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AwsApiGatewayEndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; AwsApiGatewayRestApiDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApiKeySource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AwsApiGatewayEndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AwsApiGatewayEndpointConfiguration
+      -&gt; Maybe Text
+      -&gt; AwsApiGatewayRestApiDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AwsApiGatewayEndpointConfiguration
+   -&gt; Maybe Text
+   -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AwsApiGatewayEndpointConfiguration
+      -&gt; Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsApiGatewayEndpointConfiguration
+   -&gt; Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Parser (Maybe AwsApiGatewayEndpointConfiguration)
+-&gt; Parser (Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsApiGatewayEndpointConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AwsApiGatewayRestApiDetails)
+-&gt; Parser (Maybe Text) -&gt; Parser AwsApiGatewayRestApiDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679934319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679934312"><span id="local-6989586621679934314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679934309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679934301"><span id="local-6989586621679934303"><span id="local-6989586621679934305"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679934299"><span class="annot"><span class="annottext">toJSON :: AwsApiGatewayRestApiDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsApiGatewayRestApiDetails.html#AwsApiGatewayRestApiDetails%27"><span class="hs-identifier hs-type">AwsApiGatewayRestApiDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934289"><span id="local-6989586621679934290"><span id="local-6989586621679934291"><span id="local-6989586621679934292"><span id="local-6989586621679934293"><span id="local-6989586621679934294"><span id="local-6989586621679934295"><span id="local-6989586621679934296"><span id="local-6989586621679934297"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Text]
+Maybe Text
+Maybe AwsApiGatewayEndpointConfiguration
+description :: Maybe Text
+endpointConfiguration :: Maybe AwsApiGatewayEndpointConfiguration
+id :: Maybe Text
+version :: Maybe Text
+apiKeySource :: Maybe Text
+name :: Maybe Text
+createdDate :: Maybe Text
+binaryMediaTypes :: Maybe [Text]
+minimumCompressionSize :: Maybe Int
+$sel:description:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+$sel:endpointConfiguration:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails
+-&gt; Maybe AwsApiGatewayEndpointConfiguration
+$sel:id:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+$sel:version:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+$sel:apiKeySource:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+$sel:name:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+$sel:createdDate:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Text
+$sel:binaryMediaTypes:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe [Text]
+$sel:minimumCompressionSize:AwsApiGatewayRestApiDetails' :: AwsApiGatewayRestApiDetails -&gt; Maybe Int
+</span><a href="#local-6989586621679934289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-205"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinimumCompressionSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679934297"><span class="hs-identifier hs-var">minimumCompressionSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BinaryMediaTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679934296"><span class="hs-identifier hs-var">binaryMediaTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934295"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934294"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApiKeySource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934293"><span class="hs-identifier hs-var">apiKeySource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934292"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934291"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsApiGatewayEndpointConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">(AwsApiGatewayEndpointConfiguration -&gt; Pair)
+-&gt; Maybe AwsApiGatewayEndpointConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsApiGatewayEndpointConfiguration
+</span><a href="#local-6989586621679934290"><span class="hs-identifier hs-var">endpointConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679934289"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-217"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span></pre></body></html>

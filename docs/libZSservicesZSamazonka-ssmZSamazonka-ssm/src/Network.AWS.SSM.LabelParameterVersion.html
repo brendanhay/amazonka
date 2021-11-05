@@ -80,7 +80,7 @@
 </span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | /See:/ 'newLabelParameterVersion' smart constructor.</span><span>
-</span><span id="line-83"></span><span id="local-6989586621679833696"><span id="local-6989586621679833697"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelParameterVersion"><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-var">LabelParameterVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelParameterVersion%27"><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-var">LabelParameterVersion'</span></a></span></span><span>
+</span><span id="line-83"></span><span id="local-6989586621679833705"><span id="local-6989586621679833706"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelParameterVersion"><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-var">LabelParameterVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelParameterVersion%27"><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-var">LabelParameterVersion'</span></a></span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specific version of the parameter on which you want to attach one or</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- more labels. If no version is specified, the system attaches the label</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- to the latest version.</span><span>
@@ -93,7 +93,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3Alabels%3ALabelParameterVersion%27"><span class="annot"><span class="annottext">LabelParameterVersion -&gt; NonEmpty Text
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3Alabels%3ALabelParameterVersion%27"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833688"><span id="local-6989586621679833690"><span class="annot"><span class="annottext">LabelParameterVersion -&gt; LabelParameterVersion -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833697"><span id="local-6989586621679833699"><span class="annot"><span class="annottext">LabelParameterVersion -&gt; LabelParameterVersion -&gt; Bool
 (LabelParameterVersion -&gt; LabelParameterVersion -&gt; Bool)
 -&gt; (LabelParameterVersion -&gt; LabelParameterVersion -&gt; Bool)
 -&gt; Eq LabelParameterVersion
@@ -102,7 +102,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LabelParameterVersion -&gt; LabelParameterVersion -&gt; Bool
 == :: LabelParameterVersion -&gt; LabelParameterVersion -&gt; Bool
 $c== :: LabelParameterVersion -&gt; LabelParameterVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833679"><span id="local-6989586621679833681"><span id="local-6989586621679833683"><span id="local-6989586621679833685"><span class="annot"><span class="annottext">ReadPrec [LabelParameterVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833688"><span id="local-6989586621679833690"><span id="local-6989586621679833692"><span id="local-6989586621679833694"><span class="annot"><span class="annottext">ReadPrec [LabelParameterVersion]
 ReadPrec LabelParameterVersion
 Int -&gt; ReadS LabelParameterVersion
 ReadS [LabelParameterVersion]
@@ -122,7 +122,7 @@ readList :: ReadS [LabelParameterVersion]
 $creadList :: ReadS [LabelParameterVersion]
 readsPrec :: Int -&gt; ReadS LabelParameterVersion
 $creadsPrec :: Int -&gt; ReadS LabelParameterVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833672"><span id="local-6989586621679833674"><span id="local-6989586621679833676"><span class="annot"><span class="annottext">Int -&gt; LabelParameterVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833681"><span id="local-6989586621679833683"><span id="local-6989586621679833685"><span class="annot"><span class="annottext">Int -&gt; LabelParameterVersion -&gt; ShowS
 [LabelParameterVersion] -&gt; ShowS
 LabelParameterVersion -&gt; String
 (Int -&gt; LabelParameterVersion -&gt; ShowS)
@@ -170,9 +170,9 @@ $cfrom :: forall x. LabelParameterVersion -&gt; Rep LabelParameterVersion x
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span>
 </span><span id="line-116"></span><span id="newLabelParameterVersion"><span class="annot"><span class="annottext">newLabelParameterVersion :: Text -&gt; NonEmpty Text -&gt; LabelParameterVersion
-</span><a href="Network.AWS.SSM.LabelParameterVersion.html#newLabelParameterVersion"><span class="hs-identifier hs-var hs-var">newLabelParameterVersion</span></a></span></span><span> </span><span id="local-6989586621679833667"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833667"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679833666"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679833666"><span class="hs-identifier hs-var">pLabels_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.LabelParameterVersion.html#newLabelParameterVersion"><span class="hs-identifier hs-var hs-var">newLabelParameterVersion</span></a></span></span><span> </span><span id="local-6989586621679833676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679833676"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679833675"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679833675"><span class="hs-identifier hs-var">pLabels_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">LabelParameterVersion' :: Maybe Integer -&gt; Text -&gt; NonEmpty Text -&gt; LabelParameterVersion
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameterVersion:LabelParameterVersion' :: Maybe Integer
@@ -182,7 +182,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:LabelParameterVersion' :: Text
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3Aname%3ALabelParameterVersion%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833667"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679833676"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:labels:LabelParameterVersion' :: NonEmpty Text
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3Alabels%3ALabelParameterVersion%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -192,7 +192,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679833666"><span class="hs-identifier hs-var">pLabels_</span></a></span><span>
+</span><a href="#local-6989586621679833675"><span class="hs-identifier hs-var">pLabels_</span></a></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The specific version of the parameter on which you want to attach one or</span><span>
@@ -210,16 +210,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833661"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833670"><span class="annot"><span class="annottext">Maybe Integer
 parameterVersion :: Maybe Integer
 $sel:parameterVersion:LabelParameterVersion' :: LabelParameterVersion -&gt; Maybe Integer
-</span><a href="#local-6989586621679833661"><span class="hs-identifier hs-var hs-var">parameterVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679833661"><span class="hs-identifier hs-var">parameterVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833660"><span class="annot"><span class="annottext">s :: LabelParameterVersion
-</span><a href="#local-6989586621679833660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833659"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679833659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersion
-</span><a href="#local-6989586621679833660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterVersion:LabelParameterVersion' :: Maybe Integer
+</span><a href="#local-6989586621679833670"><span class="hs-identifier hs-var hs-var">parameterVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679833670"><span class="hs-identifier hs-var">parameterVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833669"><span class="annot"><span class="annottext">s :: LabelParameterVersion
+</span><a href="#local-6989586621679833669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833668"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679833668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersion
+</span><a href="#local-6989586621679833669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterVersion:LabelParameterVersion' :: Maybe Integer
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3AparameterVersion%3ALabelParameterVersion%27"><span class="hs-identifier hs-var">parameterVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679833659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The parameter name on which you want to attach one or more labels.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#labelParameterVersion_name"><span class="hs-identifier hs-type">labelParameterVersion_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -229,16 +229,16 @@ $sel:parameterVersion:LabelParameterVersion' :: LabelParameterVersion -&gt; Mayb
 -&gt; (LabelParameterVersion -&gt; Text -&gt; LabelParameterVersion)
 -&gt; Lens LabelParameterVersion LabelParameterVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833658"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833667"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:LabelParameterVersion' :: LabelParameterVersion -&gt; Text
-</span><a href="#local-6989586621679833658"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833658"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833657"><span class="annot"><span class="annottext">s :: LabelParameterVersion
-</span><a href="#local-6989586621679833657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833656"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersion
-</span><a href="#local-6989586621679833657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LabelParameterVersion' :: Text
+</span><a href="#local-6989586621679833667"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679833667"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833666"><span class="annot"><span class="annottext">s :: LabelParameterVersion
+</span><a href="#local-6989586621679833666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679833665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersion
+</span><a href="#local-6989586621679833666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LabelParameterVersion' :: Text
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3Aname%3ALabelParameterVersion%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | One or more labels to attach to the specified parameter version.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#labelParameterVersion_labels"><span class="hs-identifier hs-type">labelParameterVersion_labels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -253,16 +253,16 @@ $sel:name:LabelParameterVersion' :: LabelParameterVersion -&gt; Text
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833655"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833664"><span class="annot"><span class="annottext">NonEmpty Text
 labels :: NonEmpty Text
 $sel:labels:LabelParameterVersion' :: LabelParameterVersion -&gt; NonEmpty Text
-</span><a href="#local-6989586621679833655"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679833655"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833654"><span class="annot"><span class="annottext">s :: LabelParameterVersion
-</span><a href="#local-6989586621679833654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833653"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679833653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersion
-</span><a href="#local-6989586621679833654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:LabelParameterVersion' :: NonEmpty Text
+</span><a href="#local-6989586621679833664"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679833664"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833663"><span class="annot"><span class="annottext">s :: LabelParameterVersion
+</span><a href="#local-6989586621679833663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833662"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679833662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersion
+</span><a href="#local-6989586621679833663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:LabelParameterVersion' :: NonEmpty Text
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3Alabels%3ALabelParameterVersion%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679833653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679833662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; LabelParameterVersion -&gt; f LabelParameterVersion)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -279,12 +279,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679833648"><span class="annot"><span class="annottext">request :: LabelParameterVersion -&gt; Request LabelParameterVersion
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679833657"><span class="annot"><span class="annottext">request :: LabelParameterVersion -&gt; Request LabelParameterVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; LabelParameterVersion -&gt; Request LabelParameterVersion
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679833644"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679833653"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy LabelParameterVersion
 -&gt; ClientResponse ClientBody
@@ -310,10 +310,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679833641"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833641"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679833640"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679833640"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679833639"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679833639"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679833650"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833650"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679833649"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679833649"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679833648"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679833648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 -&gt; Maybe Integer -&gt; Int -&gt; LabelParameterVersionResponse
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-var">LabelParameterVersionResponse'</span></a></span><span>
@@ -324,7 +324,7 @@ MonadResource m =&gt;
      String (Maybe Integer -&gt; Int -&gt; LabelParameterVersionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679833639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679833648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InvalidLabels&quot;</span></span><span class="hs-special">)</span><span>
@@ -334,7 +334,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; LabelParameterVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679833639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679833648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -346,15 +346,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833641"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833650"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833631"><span id="local-6989586621679833633"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833640"><span id="local-6989586621679833642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679833624"><span class="annot"><span class="annottext">toHeaders :: LabelParameterVersion -&gt; ResponseHeaders
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679833633"><span class="annot"><span class="annottext">toHeaders :: LabelParameterVersion -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; LabelParameterVersion -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -381,9 +381,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833614"><span id="local-6989586621679833616"><span id="local-6989586621679833618"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679833612"><span class="annot"><span class="annottext">toJSON :: LabelParameterVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833608"><span id="local-6989586621679833609"><span id="local-6989586621679833610"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833623"><span id="local-6989586621679833625"><span id="local-6989586621679833627"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679833621"><span class="annot"><span class="annottext">toJSON :: LabelParameterVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion%27"><span class="hs-identifier hs-type">LabelParameterVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833617"><span id="local-6989586621679833618"><span id="local-6989586621679833619"><span class="annot"><span class="annottext">Maybe Integer
 NonEmpty Text
 Text
 labels :: NonEmpty Text
@@ -392,7 +392,7 @@ parameterVersion :: Maybe Integer
 $sel:labels:LabelParameterVersion' :: LabelParameterVersion -&gt; NonEmpty Text
 $sel:name:LabelParameterVersion' :: LabelParameterVersion -&gt; Text
 $sel:parameterVersion:LabelParameterVersion' :: LabelParameterVersion -&gt; Maybe Integer
-</span><a href="#local-6989586621679833608"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679833617"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -405,33 +405,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679833610"><span class="hs-identifier hs-var">parameterVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679833619"><span class="hs-identifier hs-var">parameterVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679833609"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679833618"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Labels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679833608"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833617"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679833602"><span class="annot"><span class="annottext">toPath :: LabelParameterVersion -&gt; ByteString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679833611"><span class="annot"><span class="annottext">toPath :: LabelParameterVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; LabelParameterVersion -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersion"><span class="hs-identifier hs-type">LabelParameterVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679833598"><span class="annot"><span class="annottext">toQuery :: LabelParameterVersion -&gt; QueryString
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679833607"><span class="annot"><span class="annottext">toQuery :: LabelParameterVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; LabelParameterVersion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -439,7 +439,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newLabelParameterVersionResponse' smart constructor.</span><span>
-</span><span id="line-189"></span><span id="local-6989586621679833595"><span id="local-6989586621679833596"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelParameterVersionResponse"><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-var">LabelParameterVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelParameterVersionResponse%27"><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-var">LabelParameterVersionResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span id="local-6989586621679833604"><span id="local-6989586621679833605"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelParameterVersionResponse"><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-var">LabelParameterVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelParameterVersionResponse%27"><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-var">LabelParameterVersionResponse'</span></a></span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The label doesn\'t meet the requirements. For information about</span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-comment">-- parameter label requirements, see</span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html Labeling parameters&gt;</span><span>
@@ -453,7 +453,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3ALabelParameterVersionResponse%27"><span class="annot"><span class="annottext">LabelParameterVersionResponse -&gt; Int
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3AhttpStatus%3ALabelParameterVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833588"><span id="local-6989586621679833590"><span class="annot"><span class="annottext">LabelParameterVersionResponse
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833597"><span id="local-6989586621679833599"><span class="annot"><span class="annottext">LabelParameterVersionResponse
 -&gt; LabelParameterVersionResponse -&gt; Bool
 (LabelParameterVersionResponse
  -&gt; LabelParameterVersionResponse -&gt; Bool)
@@ -469,7 +469,7 @@ $c/= :: LabelParameterVersionResponse
 -&gt; LabelParameterVersionResponse -&gt; Bool
 $c== :: LabelParameterVersionResponse
 -&gt; LabelParameterVersionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833580"><span id="local-6989586621679833582"><span id="local-6989586621679833584"><span id="local-6989586621679833586"><span class="annot"><span class="annottext">ReadPrec [LabelParameterVersionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833589"><span id="local-6989586621679833591"><span id="local-6989586621679833593"><span id="local-6989586621679833595"><span class="annot"><span class="annottext">ReadPrec [LabelParameterVersionResponse]
 ReadPrec LabelParameterVersionResponse
 Int -&gt; ReadS LabelParameterVersionResponse
 ReadS [LabelParameterVersionResponse]
@@ -489,7 +489,7 @@ readList :: ReadS [LabelParameterVersionResponse]
 $creadList :: ReadS [LabelParameterVersionResponse]
 readsPrec :: Int -&gt; ReadS LabelParameterVersionResponse
 $creadsPrec :: Int -&gt; ReadS LabelParameterVersionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833574"><span id="local-6989586621679833576"><span id="local-6989586621679833578"><span class="annot"><span class="annottext">Int -&gt; LabelParameterVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833583"><span id="local-6989586621679833585"><span id="local-6989586621679833587"><span class="annot"><span class="annottext">Int -&gt; LabelParameterVersionResponse -&gt; ShowS
 [LabelParameterVersionResponse] -&gt; ShowS
 LabelParameterVersionResponse -&gt; String
 (Int -&gt; LabelParameterVersionResponse -&gt; ShowS)
@@ -548,8 +548,8 @@ LabelParameterVersionResponse
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-221"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span><span>
 </span><span id="line-222"></span><span id="newLabelParameterVersionResponse"><span class="annot"><span class="annottext">newLabelParameterVersionResponse :: Int -&gt; LabelParameterVersionResponse
-</span><a href="Network.AWS.SSM.LabelParameterVersion.html#newLabelParameterVersionResponse"><span class="hs-identifier hs-var hs-var">newLabelParameterVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679833571"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833571"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.LabelParameterVersion.html#newLabelParameterVersionResponse"><span class="hs-identifier hs-var hs-var">newLabelParameterVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679833580"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833580"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-223"></span><span>  </span><span class="annot"><span class="annottext">LabelParameterVersionResponse' :: Maybe (NonEmpty Text)
 -&gt; Maybe Integer -&gt; Int -&gt; LabelParameterVersionResponse
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span>
@@ -564,7 +564,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:LabelParameterVersionResponse' :: Int
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3AhttpStatus%3ALabelParameterVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833571"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679833580"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-228"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The label doesn\'t meet the requirements. For information about</span><span>
@@ -583,16 +583,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833570"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833579"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 invalidLabels :: Maybe (NonEmpty Text)
 $sel:invalidLabels:LabelParameterVersionResponse' :: LabelParameterVersionResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679833570"><span class="hs-identifier hs-var hs-var">invalidLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679833570"><span class="hs-identifier hs-var">invalidLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833569"><span class="annot"><span class="annottext">s :: LabelParameterVersionResponse
-</span><a href="#local-6989586621679833569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833568"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679833568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersionResponse
-</span><a href="#local-6989586621679833569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invalidLabels:LabelParameterVersionResponse' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679833579"><span class="hs-identifier hs-var hs-var">invalidLabels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679833579"><span class="hs-identifier hs-var">invalidLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833578"><span class="annot"><span class="annottext">s :: LabelParameterVersionResponse
+</span><a href="#local-6989586621679833578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833577"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679833577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersionResponse
+</span><a href="#local-6989586621679833578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invalidLabels:LabelParameterVersionResponse' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3AinvalidLabels%3ALabelParameterVersionResponse%27"><span class="hs-identifier hs-var">invalidLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679833568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679833577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; LabelParameterVersionResponse
  -&gt; f LabelParameterVersionResponse)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -629,16 +629,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833566"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833575"><span class="annot"><span class="annottext">Maybe Integer
 parameterVersion :: Maybe Integer
 $sel:parameterVersion:LabelParameterVersionResponse' :: LabelParameterVersionResponse -&gt; Maybe Integer
-</span><a href="#local-6989586621679833566"><span class="hs-identifier hs-var hs-var">parameterVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679833566"><span class="hs-identifier hs-var">parameterVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833565"><span class="annot"><span class="annottext">s :: LabelParameterVersionResponse
-</span><a href="#local-6989586621679833565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833564"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679833564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersionResponse
-</span><a href="#local-6989586621679833565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterVersion:LabelParameterVersionResponse' :: Maybe Integer
+</span><a href="#local-6989586621679833575"><span class="hs-identifier hs-var hs-var">parameterVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679833575"><span class="hs-identifier hs-var">parameterVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833574"><span class="annot"><span class="annottext">s :: LabelParameterVersionResponse
+</span><a href="#local-6989586621679833574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833573"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679833573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersionResponse
+</span><a href="#local-6989586621679833574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterVersion:LabelParameterVersionResponse' :: Maybe Integer
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3AparameterVersion%3ALabelParameterVersionResponse%27"><span class="hs-identifier hs-var">parameterVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679833564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#labelParameterVersionResponse_httpStatus"><span class="hs-identifier hs-type">labelParameterVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -650,16 +650,16 @@ $sel:parameterVersion:LabelParameterVersionResponse' :: LabelParameterVersionRes
 -&gt; Lens
      LabelParameterVersionResponse LabelParameterVersionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833563"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833572"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:LabelParameterVersionResponse' :: LabelParameterVersionResponse -&gt; Int
-</span><a href="#local-6989586621679833563"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833563"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833562"><span class="annot"><span class="annottext">s :: LabelParameterVersionResponse
-</span><a href="#local-6989586621679833562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833561"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersionResponse
-</span><a href="#local-6989586621679833562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:LabelParameterVersionResponse' :: Int
+</span><a href="#local-6989586621679833572"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833572"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833571"><span class="annot"><span class="annottext">s :: LabelParameterVersionResponse
+</span><a href="#local-6989586621679833571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse%27"><span class="hs-identifier hs-type">LabelParameterVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679833570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelParameterVersionResponse
+</span><a href="#local-6989586621679833571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:LabelParameterVersionResponse' :: Int
 </span><a href="Network.AWS.SSM.LabelParameterVersion.html#%24sel%3AhttpStatus%3ALabelParameterVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679833570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.LabelParameterVersion.html#LabelParameterVersionResponse"><span class="hs-identifier hs-type">LabelParameterVersionResponse</span></a></span></span><span>
 </span><span id="line-246"></span></pre></body></html>

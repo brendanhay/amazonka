@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.DeleteSipRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a SIP rule. You must disable a SIP rule before you can delete</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- it.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.DeleteSipRule</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier">DeleteSipRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#newDeleteSipRule"><span class="hs-identifier">newDeleteSipRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#deleteSipRule_sipRuleId"><span class="hs-identifier">deleteSipRule_sipRuleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRuleResponse"><span class="hs-identifier">DeleteSipRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#newDeleteSipRuleResponse"><span class="hs-identifier">newDeleteSipRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newDeleteSipRule' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679547466"><span id="local-6989586621679547467"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSipRule"><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-var">DeleteSipRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSipRule%27"><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule%27"><span class="hs-identifier hs-var">DeleteSipRule'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SIP rule ID.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AsipRuleId%3ADeleteSipRule%27"><span class="annot"><span class="annottext">DeleteSipRule -&gt; Text
+</span><a href="Network.AWS.Chime.DeleteSipRule.html#%24sel%3AsipRuleId%3ADeleteSipRule%27"><span class="hs-identifier hs-var hs-var">sipRuleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547460"><span id="local-6989586621679547462"><span class="annot"><span class="annottext">DeleteSipRule -&gt; DeleteSipRule -&gt; Bool
+(DeleteSipRule -&gt; DeleteSipRule -&gt; Bool)
+-&gt; (DeleteSipRule -&gt; DeleteSipRule -&gt; Bool) -&gt; Eq DeleteSipRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSipRule -&gt; DeleteSipRule -&gt; Bool
+$c/= :: DeleteSipRule -&gt; DeleteSipRule -&gt; Bool
+== :: DeleteSipRule -&gt; DeleteSipRule -&gt; Bool
+$c== :: DeleteSipRule -&gt; DeleteSipRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547451"><span id="local-6989586621679547453"><span id="local-6989586621679547455"><span id="local-6989586621679547457"><span class="annot"><span class="annottext">ReadPrec [DeleteSipRule]
+ReadPrec DeleteSipRule
+Int -&gt; ReadS DeleteSipRule
+ReadS [DeleteSipRule]
+(Int -&gt; ReadS DeleteSipRule)
+-&gt; ReadS [DeleteSipRule]
+-&gt; ReadPrec DeleteSipRule
+-&gt; ReadPrec [DeleteSipRule]
+-&gt; Read DeleteSipRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSipRule]
+$creadListPrec :: ReadPrec [DeleteSipRule]
+readPrec :: ReadPrec DeleteSipRule
+$creadPrec :: ReadPrec DeleteSipRule
+readList :: ReadS [DeleteSipRule]
+$creadList :: ReadS [DeleteSipRule]
+readsPrec :: Int -&gt; ReadS DeleteSipRule
+$creadsPrec :: Int -&gt; ReadS DeleteSipRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547444"><span id="local-6989586621679547446"><span id="local-6989586621679547448"><span class="annot"><span class="annottext">Int -&gt; DeleteSipRule -&gt; ShowS
+[DeleteSipRule] -&gt; ShowS
+DeleteSipRule -&gt; String
+(Int -&gt; DeleteSipRule -&gt; ShowS)
+-&gt; (DeleteSipRule -&gt; String)
+-&gt; ([DeleteSipRule] -&gt; ShowS)
+-&gt; Show DeleteSipRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSipRule] -&gt; ShowS
+$cshowList :: [DeleteSipRule] -&gt; ShowS
+show :: DeleteSipRule -&gt; String
+$cshow :: DeleteSipRule -&gt; String
+showsPrec :: Int -&gt; DeleteSipRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSipRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteSipRule -&gt; Rep DeleteSipRule x)
+-&gt; (forall x. Rep DeleteSipRule x -&gt; DeleteSipRule)
+-&gt; Generic DeleteSipRule
+forall x. Rep DeleteSipRule x -&gt; DeleteSipRule
+forall x. DeleteSipRule -&gt; Rep DeleteSipRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteSipRule x -&gt; DeleteSipRule
+$cfrom :: forall x. DeleteSipRule -&gt; Rep DeleteSipRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'DeleteSipRule' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'sipRuleId', 'deleteSipRule_sipRuleId' - The SIP rule ID.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#newDeleteSipRule"><span class="hs-identifier hs-type">newDeleteSipRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'sipRuleId'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span><span>
+</span><span id="line-66"></span><span id="newDeleteSipRule"><span class="annot"><span class="annottext">newDeleteSipRule :: Text -&gt; DeleteSipRule
+</span><a href="Network.AWS.Chime.DeleteSipRule.html#newDeleteSipRule"><span class="hs-identifier hs-var hs-var">newDeleteSipRule</span></a></span></span><span> </span><span id="local-6989586621679547439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679547439"><span class="hs-identifier hs-var">pSipRuleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">DeleteSipRule' :: Text -&gt; DeleteSipRule
+</span><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule%27"><span class="hs-identifier hs-type">DeleteSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sipRuleId:DeleteSipRule' :: Text
+</span><a href="Network.AWS.Chime.DeleteSipRule.html#%24sel%3AsipRuleId%3ADeleteSipRule%27"><span class="hs-identifier hs-var">sipRuleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679547439"><span class="hs-identifier hs-var">pSipRuleId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The SIP rule ID.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#deleteSipRule_sipRuleId"><span class="hs-identifier hs-type">deleteSipRule_sipRuleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-71"></span><span id="deleteSipRule_sipRuleId"><span class="annot"><span class="annottext">deleteSipRule_sipRuleId :: (Text -&gt; f Text) -&gt; DeleteSipRule -&gt; f DeleteSipRule
+</span><a href="Network.AWS.Chime.DeleteSipRule.html#deleteSipRule_sipRuleId"><span class="hs-identifier hs-var hs-var">deleteSipRule_sipRuleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteSipRule -&gt; Text)
+-&gt; (DeleteSipRule -&gt; Text -&gt; DeleteSipRule)
+-&gt; Lens DeleteSipRule DeleteSipRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule%27"><span class="hs-identifier hs-type">DeleteSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547436"><span class="annot"><span class="annottext">Text
+sipRuleId :: Text
+$sel:sipRuleId:DeleteSipRule' :: DeleteSipRule -&gt; Text
+</span><a href="#local-6989586621679547436"><span class="hs-identifier hs-var hs-var">sipRuleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679547436"><span class="hs-identifier hs-var">sipRuleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679547435"><span class="annot"><span class="annottext">s :: DeleteSipRule
+</span><a href="#local-6989586621679547435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule%27"><span class="hs-identifier hs-type">DeleteSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679547434"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679547434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSipRule
+</span><a href="#local-6989586621679547435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sipRuleId:DeleteSipRule' :: Text
+</span><a href="Network.AWS.Chime.DeleteSipRule.html#%24sel%3AsipRuleId%3ADeleteSipRule%27"><span class="hs-identifier hs-var">sipRuleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679547434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-75"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRuleResponse"><span class="hs-identifier hs-type">DeleteSipRuleResponse</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679547430"><span class="annot"><span class="annottext">request :: DeleteSipRule -&gt; Request DeleteSipRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSipRule -&gt; Request DeleteSipRule
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679547426"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteSipRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteSipRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteSipRule
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteSipRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteSipRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteSipRule
+DeleteSipRuleResponse
+</span><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRuleResponse%27"><span class="hs-identifier hs-var">DeleteSipRuleResponse'</span></a></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547419"><span id="local-6989586621679547421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679547412"><span class="annot"><span class="annottext">toHeaders :: DeleteSipRule -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteSipRule -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679547407"><span class="annot"><span class="annottext">toPath :: DeleteSipRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule%27"><span class="hs-identifier hs-type">DeleteSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679547405"><span class="annot"><span class="annottext">Text
+sipRuleId :: Text
+$sel:sipRuleId:DeleteSipRule' :: DeleteSipRule -&gt; Text
+</span><a href="#local-6989586621679547405"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/sip-rules/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679547405"><span class="hs-identifier hs-var">sipRuleId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRule"><span class="hs-identifier hs-type">DeleteSipRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679547401"><span class="annot"><span class="annottext">toQuery :: DeleteSipRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSipRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | /See:/ 'newDeleteSipRuleResponse' smart constructor.</span><span>
+</span><span id="line-97"></span><span id="local-6989586621679547398"><span id="local-6989586621679547399"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSipRuleResponse"><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRuleResponse"><span class="hs-identifier hs-var">DeleteSipRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSipRuleResponse%27"><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRuleResponse%27"><span class="hs-identifier hs-var">DeleteSipRuleResponse'</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679547394"><span id="local-6989586621679547396"><span class="annot"><span class="annottext">DeleteSipRuleResponse -&gt; DeleteSipRuleResponse -&gt; Bool
+(DeleteSipRuleResponse -&gt; DeleteSipRuleResponse -&gt; Bool)
+-&gt; (DeleteSipRuleResponse -&gt; DeleteSipRuleResponse -&gt; Bool)
+-&gt; Eq DeleteSipRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteSipRuleResponse -&gt; DeleteSipRuleResponse -&gt; Bool
+$c/= :: DeleteSipRuleResponse -&gt; DeleteSipRuleResponse -&gt; Bool
+== :: DeleteSipRuleResponse -&gt; DeleteSipRuleResponse -&gt; Bool
+$c== :: DeleteSipRuleResponse -&gt; DeleteSipRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547386"><span id="local-6989586621679547388"><span id="local-6989586621679547390"><span id="local-6989586621679547392"><span class="annot"><span class="annottext">ReadPrec [DeleteSipRuleResponse]
+ReadPrec DeleteSipRuleResponse
+Int -&gt; ReadS DeleteSipRuleResponse
+ReadS [DeleteSipRuleResponse]
+(Int -&gt; ReadS DeleteSipRuleResponse)
+-&gt; ReadS [DeleteSipRuleResponse]
+-&gt; ReadPrec DeleteSipRuleResponse
+-&gt; ReadPrec [DeleteSipRuleResponse]
+-&gt; Read DeleteSipRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteSipRuleResponse]
+$creadListPrec :: ReadPrec [DeleteSipRuleResponse]
+readPrec :: ReadPrec DeleteSipRuleResponse
+$creadPrec :: ReadPrec DeleteSipRuleResponse
+readList :: ReadS [DeleteSipRuleResponse]
+$creadList :: ReadS [DeleteSipRuleResponse]
+readsPrec :: Int -&gt; ReadS DeleteSipRuleResponse
+$creadsPrec :: Int -&gt; ReadS DeleteSipRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679547380"><span id="local-6989586621679547382"><span id="local-6989586621679547384"><span class="annot"><span class="annottext">Int -&gt; DeleteSipRuleResponse -&gt; ShowS
+[DeleteSipRuleResponse] -&gt; ShowS
+DeleteSipRuleResponse -&gt; String
+(Int -&gt; DeleteSipRuleResponse -&gt; ShowS)
+-&gt; (DeleteSipRuleResponse -&gt; String)
+-&gt; ([DeleteSipRuleResponse] -&gt; ShowS)
+-&gt; Show DeleteSipRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteSipRuleResponse] -&gt; ShowS
+$cshowList :: [DeleteSipRuleResponse] -&gt; ShowS
+show :: DeleteSipRuleResponse -&gt; String
+$cshow :: DeleteSipRuleResponse -&gt; String
+showsPrec :: Int -&gt; DeleteSipRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteSipRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteSipRuleResponse -&gt; Rep DeleteSipRuleResponse x)
+-&gt; (forall x. Rep DeleteSipRuleResponse x -&gt; DeleteSipRuleResponse)
+-&gt; Generic DeleteSipRuleResponse
+forall x. Rep DeleteSipRuleResponse x -&gt; DeleteSipRuleResponse
+forall x. DeleteSipRuleResponse -&gt; Rep DeleteSipRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteSipRuleResponse x -&gt; DeleteSipRuleResponse
+$cfrom :: forall x. DeleteSipRuleResponse -&gt; Rep DeleteSipRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'DeleteSipRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#newDeleteSipRuleResponse"><span class="hs-identifier hs-type">newDeleteSipRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRuleResponse"><span class="hs-identifier hs-type">DeleteSipRuleResponse</span></a></span><span>
+</span><span id="line-108"></span><span id="newDeleteSipRuleResponse"><span class="annot"><span class="annottext">newDeleteSipRuleResponse :: DeleteSipRuleResponse
+</span><a href="Network.AWS.Chime.DeleteSipRule.html#newDeleteSipRuleResponse"><span class="hs-identifier hs-var hs-var">newDeleteSipRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteSipRuleResponse
+</span><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRuleResponse%27"><span class="hs-identifier hs-var">DeleteSipRuleResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679547376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteSipRule.html#DeleteSipRuleResponse"><span class="hs-identifier hs-type">DeleteSipRuleResponse</span></a></span></span><span>
+</span><span id="line-111"></span></pre></body></html>

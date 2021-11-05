@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataSync.Types.PreserveDevices</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataSync.Types.PreserveDevices</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices"><span class="hs-identifier">PreserveDevices</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices_NONE"><span class="hs-identifier">PreserveDevices_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices_PRESERVE"><span class="hs-identifier">PreserveDevices_PRESERVE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679250430"><span id="local-6989586621679250431"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PreserveDevices"><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices"><span class="hs-identifier hs-var">PreserveDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PreserveDevices%27"><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices%27"><span class="hs-identifier hs-var">PreserveDevices'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPreserveDevices"><span class="annot"><span class="annottext">PreserveDevices -&gt; Text
+</span><a href="Network.AWS.DataSync.Types.PreserveDevices.html#fromPreserveDevices"><span class="hs-identifier hs-var hs-var">fromPreserveDevices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250422"><span id="local-6989586621679250424"><span id="local-6989586621679250426"><span class="annot"><span class="annottext">Int -&gt; PreserveDevices -&gt; ShowS
+[PreserveDevices] -&gt; ShowS
+PreserveDevices -&gt; String
+(Int -&gt; PreserveDevices -&gt; ShowS)
+-&gt; (PreserveDevices -&gt; String)
+-&gt; ([PreserveDevices] -&gt; ShowS)
+-&gt; Show PreserveDevices
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PreserveDevices] -&gt; ShowS
+$cshowList :: [PreserveDevices] -&gt; ShowS
+show :: PreserveDevices -&gt; String
+$cshow :: PreserveDevices -&gt; String
+showsPrec :: Int -&gt; PreserveDevices -&gt; ShowS
+$cshowsPrec :: Int -&gt; PreserveDevices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679250413"><span id="local-6989586621679250415"><span id="local-6989586621679250417"><span id="local-6989586621679250419"><span class="annot"><span class="annottext">ReadPrec [PreserveDevices]
+ReadPrec PreserveDevices
+Int -&gt; ReadS PreserveDevices
+ReadS [PreserveDevices]
+(Int -&gt; ReadS PreserveDevices)
+-&gt; ReadS [PreserveDevices]
+-&gt; ReadPrec PreserveDevices
+-&gt; ReadPrec [PreserveDevices]
+-&gt; Read PreserveDevices
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PreserveDevices]
+$creadListPrec :: ReadPrec [PreserveDevices]
+readPrec :: ReadPrec PreserveDevices
+$creadPrec :: ReadPrec PreserveDevices
+readList :: ReadS [PreserveDevices]
+$creadList :: ReadS [PreserveDevices]
+readsPrec :: Int -&gt; ReadS PreserveDevices
+$creadsPrec :: Int -&gt; ReadS PreserveDevices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679250408"><span id="local-6989586621679250410"><span class="annot"><span class="annottext">PreserveDevices -&gt; PreserveDevices -&gt; Bool
+(PreserveDevices -&gt; PreserveDevices -&gt; Bool)
+-&gt; (PreserveDevices -&gt; PreserveDevices -&gt; Bool)
+-&gt; Eq PreserveDevices
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+$c/= :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+== :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+$c== :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679250392"><span id="local-6989586621679250394"><span id="local-6989586621679250396"><span id="local-6989586621679250398"><span id="local-6989586621679250400"><span id="local-6989586621679250402"><span id="local-6989586621679250404"><span class="annot"><span class="annottext">Eq PreserveDevices
+Eq PreserveDevices
+-&gt; (PreserveDevices -&gt; PreserveDevices -&gt; Ordering)
+-&gt; (PreserveDevices -&gt; PreserveDevices -&gt; Bool)
+-&gt; (PreserveDevices -&gt; PreserveDevices -&gt; Bool)
+-&gt; (PreserveDevices -&gt; PreserveDevices -&gt; Bool)
+-&gt; (PreserveDevices -&gt; PreserveDevices -&gt; Bool)
+-&gt; (PreserveDevices -&gt; PreserveDevices -&gt; PreserveDevices)
+-&gt; (PreserveDevices -&gt; PreserveDevices -&gt; PreserveDevices)
+-&gt; Ord PreserveDevices
+PreserveDevices -&gt; PreserveDevices -&gt; Bool
+PreserveDevices -&gt; PreserveDevices -&gt; Ordering
+PreserveDevices -&gt; PreserveDevices -&gt; PreserveDevices
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PreserveDevices -&gt; PreserveDevices -&gt; PreserveDevices
+$cmin :: PreserveDevices -&gt; PreserveDevices -&gt; PreserveDevices
+max :: PreserveDevices -&gt; PreserveDevices -&gt; PreserveDevices
+$cmax :: PreserveDevices -&gt; PreserveDevices -&gt; PreserveDevices
+&gt;= :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+$c&gt;= :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+&gt; :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+$c&gt; :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+&lt;= :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+$c&lt;= :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+&lt; :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+$c&lt; :: PreserveDevices -&gt; PreserveDevices -&gt; Bool
+compare :: PreserveDevices -&gt; PreserveDevices -&gt; Ordering
+$ccompare :: PreserveDevices -&gt; PreserveDevices -&gt; Ordering
+$cp1Ord :: Eq PreserveDevices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PreserveDevices -&gt; Rep PreserveDevices x)
+-&gt; (forall x. Rep PreserveDevices x -&gt; PreserveDevices)
+-&gt; Generic PreserveDevices
+forall x. Rep PreserveDevices x -&gt; PreserveDevices
+forall x. PreserveDevices -&gt; Rep PreserveDevices x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PreserveDevices x -&gt; PreserveDevices
+$cfrom :: forall x. PreserveDevices -&gt; Rep PreserveDevices x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250384"><span id="local-6989586621679250386"><span class="annot"><span class="annottext">Int -&gt; PreserveDevices -&gt; Int
+PreserveDevices -&gt; Int
+(Int -&gt; PreserveDevices -&gt; Int)
+-&gt; (PreserveDevices -&gt; Int) -&gt; Hashable PreserveDevices
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PreserveDevices -&gt; Int
+$chash :: PreserveDevices -&gt; Int
+hashWithSalt :: Int -&gt; PreserveDevices -&gt; Int
+$chashWithSalt :: Int -&gt; PreserveDevices -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679250381"><span class="annot"><span class="annottext">PreserveDevices -&gt; ()
+(PreserveDevices -&gt; ()) -&gt; NFData PreserveDevices
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PreserveDevices -&gt; ()
+$crnf :: PreserveDevices -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250378"><span class="annot"><span class="annottext">Text -&gt; Either String PreserveDevices
+(Text -&gt; Either String PreserveDevices) -&gt; FromText PreserveDevices
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PreserveDevices
+$cfromText :: Text -&gt; Either String PreserveDevices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250375"><span class="annot"><span class="annottext">PreserveDevices -&gt; Text
+(PreserveDevices -&gt; Text) -&gt; ToText PreserveDevices
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PreserveDevices -&gt; Text
+$ctoText :: PreserveDevices -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250372"><span class="annot"><span class="annottext">PreserveDevices -&gt; ByteString
+(PreserveDevices -&gt; ByteString) -&gt; ToByteString PreserveDevices
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PreserveDevices -&gt; ByteString
+$ctoBS :: PreserveDevices -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250369"><span class="annot"><span class="annottext">PreserveDevices -&gt; ByteStringBuilder
+(PreserveDevices -&gt; ByteStringBuilder) -&gt; ToLog PreserveDevices
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PreserveDevices -&gt; ByteStringBuilder
+$cbuild :: PreserveDevices -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250366"><span class="annot"><span class="annottext">HeaderName -&gt; PreserveDevices -&gt; [Header]
+(HeaderName -&gt; PreserveDevices -&gt; [Header])
+-&gt; ToHeader PreserveDevices
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PreserveDevices -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PreserveDevices -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250363"><span class="annot"><span class="annottext">PreserveDevices -&gt; QueryString
+(PreserveDevices -&gt; QueryString) -&gt; ToQuery PreserveDevices
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PreserveDevices -&gt; QueryString
+$ctoQuery :: PreserveDevices -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250358"><span id="local-6989586621679250360"><span class="annot"><span class="annottext">Value -&gt; Parser [PreserveDevices]
+Value -&gt; Parser PreserveDevices
+(Value -&gt; Parser PreserveDevices)
+-&gt; (Value -&gt; Parser [PreserveDevices]) -&gt; FromJSON PreserveDevices
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PreserveDevices]
+$cparseJSONList :: Value -&gt; Parser [PreserveDevices]
+parseJSON :: Value -&gt; Parser PreserveDevices
+$cparseJSON :: Value -&gt; Parser PreserveDevices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250353"><span id="local-6989586621679250355"><span class="annot"><span class="annottext">FromJSONKeyFunction [PreserveDevices]
+FromJSONKeyFunction PreserveDevices
+FromJSONKeyFunction PreserveDevices
+-&gt; FromJSONKeyFunction [PreserveDevices]
+-&gt; FromJSONKey PreserveDevices
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PreserveDevices]
+$cfromJSONKeyList :: FromJSONKeyFunction [PreserveDevices]
+fromJSONKey :: FromJSONKeyFunction PreserveDevices
+$cfromJSONKey :: FromJSONKeyFunction PreserveDevices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250344"><span id="local-6989586621679250346"><span id="local-6989586621679250348"><span id="local-6989586621679250350"><span class="annot"><span class="annottext">[PreserveDevices] -&gt; Encoding
+[PreserveDevices] -&gt; Value
+PreserveDevices -&gt; Encoding
+PreserveDevices -&gt; Value
+(PreserveDevices -&gt; Value)
+-&gt; (PreserveDevices -&gt; Encoding)
+-&gt; ([PreserveDevices] -&gt; Value)
+-&gt; ([PreserveDevices] -&gt; Encoding)
+-&gt; ToJSON PreserveDevices
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PreserveDevices] -&gt; Encoding
+$ctoEncodingList :: [PreserveDevices] -&gt; Encoding
+toJSONList :: [PreserveDevices] -&gt; Value
+$ctoJSONList :: [PreserveDevices] -&gt; Value
+toEncoding :: PreserveDevices -&gt; Encoding
+$ctoEncoding :: PreserveDevices -&gt; Encoding
+toJSON :: PreserveDevices -&gt; Value
+$ctoJSON :: PreserveDevices -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250339"><span id="local-6989586621679250341"><span class="annot"><span class="annottext">ToJSONKeyFunction [PreserveDevices]
+ToJSONKeyFunction PreserveDevices
+ToJSONKeyFunction PreserveDevices
+-&gt; ToJSONKeyFunction [PreserveDevices] -&gt; ToJSONKey PreserveDevices
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PreserveDevices]
+$ctoJSONKeyList :: ToJSONKeyFunction [PreserveDevices]
+toJSONKey :: ToJSONKeyFunction PreserveDevices
+$ctoJSONKey :: ToJSONKeyFunction PreserveDevices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250336"><span class="annot"><span class="annottext">[Node] -&gt; Either String PreserveDevices
+([Node] -&gt; Either String PreserveDevices)
+-&gt; FromXML PreserveDevices
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PreserveDevices
+$cparseXML :: [Node] -&gt; Either String PreserveDevices
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250333"><span class="annot"><span class="annottext">PreserveDevices -&gt; XML
+(PreserveDevices -&gt; XML) -&gt; ToXML PreserveDevices
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PreserveDevices -&gt; XML
+$ctoXML :: PreserveDevices -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices_NONE"><span class="hs-identifier hs-type">PreserveDevices_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices"><span class="hs-identifier hs-type">PreserveDevices</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPreserveDevices_NONE"><span id="%24mPreserveDevices_NONE"><span id="PreserveDevices_NONE"><span class="annot"><span class="annottext">$bPreserveDevices_NONE :: PreserveDevices
+$mPreserveDevices_NONE :: forall r. PreserveDevices -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.PreserveDevices.html#%24bPreserveDevices_NONE"><span class="hs-identifier hs-var hs-var hs-var">PreserveDevices_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices%27"><span class="hs-identifier hs-type">PreserveDevices'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices_PRESERVE"><span class="hs-identifier hs-type">PreserveDevices_PRESERVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices"><span class="hs-identifier hs-type">PreserveDevices</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPreserveDevices_PRESERVE"><span id="%24mPreserveDevices_PRESERVE"><span id="PreserveDevices_PRESERVE"><span class="annot"><span class="annottext">$bPreserveDevices_PRESERVE :: PreserveDevices
+$mPreserveDevices_PRESERVE :: forall r. PreserveDevices -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.PreserveDevices.html#%24bPreserveDevices_PRESERVE"><span class="hs-identifier hs-var hs-var hs-var">PreserveDevices_PRESERVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices%27"><span class="hs-identifier hs-type">PreserveDevices'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRESERVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices_NONE"><span class="hs-pragma hs-type">PreserveDevices_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices_PRESERVE"><span class="hs-pragma hs-type">PreserveDevices_PRESERVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.PreserveDevices.html#PreserveDevices%27"><span class="hs-pragma hs-type">PreserveDevices'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

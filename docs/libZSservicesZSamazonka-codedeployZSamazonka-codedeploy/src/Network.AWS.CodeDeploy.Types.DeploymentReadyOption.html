@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- environment in a blue\/green deployment.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDeploymentReadyOption' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679306881"><span id="local-6989586621679306882"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentReadyOption"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-var">DeploymentReadyOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentReadyOption%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-var">DeploymentReadyOption'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679306890"><span id="local-6989586621679306891"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentReadyOption"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-var">DeploymentReadyOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentReadyOption%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-var">DeploymentReadyOption'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about when to reroute traffic from an original environment</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to a replacement environment in a blue\/green deployment.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AwaitTimeInMinutes%3ADeploymentReadyOption%27"><span class="annot"><span class="annottext">DeploymentReadyOption -&gt; Maybe Int
 </span><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#%24sel%3AwaitTimeInMinutes%3ADeploymentReadyOption%27"><span class="hs-identifier hs-var hs-var">waitTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306874"><span id="local-6989586621679306876"><span class="annot"><span class="annottext">DeploymentReadyOption -&gt; DeploymentReadyOption -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306883"><span id="local-6989586621679306885"><span class="annot"><span class="annottext">DeploymentReadyOption -&gt; DeploymentReadyOption -&gt; Bool
 (DeploymentReadyOption -&gt; DeploymentReadyOption -&gt; Bool)
 -&gt; (DeploymentReadyOption -&gt; DeploymentReadyOption -&gt; Bool)
 -&gt; Eq DeploymentReadyOption
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeploymentReadyOption -&gt; DeploymentReadyOption -&gt; Bool
 == :: DeploymentReadyOption -&gt; DeploymentReadyOption -&gt; Bool
 $c== :: DeploymentReadyOption -&gt; DeploymentReadyOption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306865"><span id="local-6989586621679306867"><span id="local-6989586621679306869"><span id="local-6989586621679306871"><span class="annot"><span class="annottext">ReadPrec [DeploymentReadyOption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306874"><span id="local-6989586621679306876"><span id="local-6989586621679306878"><span id="local-6989586621679306880"><span class="annot"><span class="annottext">ReadPrec [DeploymentReadyOption]
 ReadPrec DeploymentReadyOption
 Int -&gt; ReadS DeploymentReadyOption
 ReadS [DeploymentReadyOption]
@@ -77,7 +77,7 @@ readList :: ReadS [DeploymentReadyOption]
 $creadList :: ReadS [DeploymentReadyOption]
 readsPrec :: Int -&gt; ReadS DeploymentReadyOption
 $creadsPrec :: Int -&gt; ReadS DeploymentReadyOption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306858"><span id="local-6989586621679306860"><span id="local-6989586621679306862"><span class="annot"><span class="annottext">Int -&gt; DeploymentReadyOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306867"><span id="local-6989586621679306869"><span id="local-6989586621679306871"><span class="annot"><span class="annottext">Int -&gt; DeploymentReadyOption -&gt; ShowS
 [DeploymentReadyOption] -&gt; ShowS
 DeploymentReadyOption -&gt; String
 (Int -&gt; DeploymentReadyOption -&gt; ShowS)
@@ -166,16 +166,16 @@ forall a. Maybe a
      (Maybe DeploymentReadyAction)
      (Maybe DeploymentReadyAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306849"><span class="annot"><span class="annottext">Maybe DeploymentReadyAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306858"><span class="annot"><span class="annottext">Maybe DeploymentReadyAction
 actionOnTimeout :: Maybe DeploymentReadyAction
 $sel:actionOnTimeout:DeploymentReadyOption' :: DeploymentReadyOption -&gt; Maybe DeploymentReadyAction
-</span><a href="#local-6989586621679306849"><span class="hs-identifier hs-var hs-var">actionOnTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyAction
-</span><a href="#local-6989586621679306849"><span class="hs-identifier hs-var">actionOnTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306848"><span class="annot"><span class="annottext">s :: DeploymentReadyOption
-</span><a href="#local-6989586621679306848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306847"><span class="annot"><span class="annottext">Maybe DeploymentReadyAction
-</span><a href="#local-6989586621679306847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentReadyOption
-</span><a href="#local-6989586621679306848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionOnTimeout:DeploymentReadyOption' :: Maybe DeploymentReadyAction
+</span><a href="#local-6989586621679306858"><span class="hs-identifier hs-var hs-var">actionOnTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyAction
+</span><a href="#local-6989586621679306858"><span class="hs-identifier hs-var">actionOnTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306857"><span class="annot"><span class="annottext">s :: DeploymentReadyOption
+</span><a href="#local-6989586621679306857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306856"><span class="annot"><span class="annottext">Maybe DeploymentReadyAction
+</span><a href="#local-6989586621679306856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentReadyOption
+</span><a href="#local-6989586621679306857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionOnTimeout:DeploymentReadyOption' :: Maybe DeploymentReadyAction
 </span><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#%24sel%3AactionOnTimeout%3ADeploymentReadyOption%27"><span class="hs-identifier hs-var">actionOnTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyAction
-</span><a href="#local-6989586621679306847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The number of minutes to wait before the status of a blue\/green</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- deployment is changed to Stopped if rerouting is not started manually.</span><span>
@@ -188,19 +188,19 @@ $sel:actionOnTimeout:DeploymentReadyOption' :: DeploymentReadyOption -&gt; Maybe
 -&gt; Lens
      DeploymentReadyOption DeploymentReadyOption (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306845"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306854"><span class="annot"><span class="annottext">Maybe Int
 waitTimeInMinutes :: Maybe Int
 $sel:waitTimeInMinutes:DeploymentReadyOption' :: DeploymentReadyOption -&gt; Maybe Int
-</span><a href="#local-6989586621679306845"><span class="hs-identifier hs-var hs-var">waitTimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679306845"><span class="hs-identifier hs-var">waitTimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306844"><span class="annot"><span class="annottext">s :: DeploymentReadyOption
-</span><a href="#local-6989586621679306844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306843"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679306843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentReadyOption
-</span><a href="#local-6989586621679306844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:waitTimeInMinutes:DeploymentReadyOption' :: Maybe Int
+</span><a href="#local-6989586621679306854"><span class="hs-identifier hs-var hs-var">waitTimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679306854"><span class="hs-identifier hs-var">waitTimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306853"><span class="annot"><span class="annottext">s :: DeploymentReadyOption
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306852"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679306852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentReadyOption
+</span><a href="#local-6989586621679306853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:waitTimeInMinutes:DeploymentReadyOption' :: Maybe Int
 </span><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#%24sel%3AwaitTimeInMinutes%3ADeploymentReadyOption%27"><span class="hs-identifier hs-var">waitTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679306843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306840"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679306838"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentReadyOption
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306849"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679306847"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentReadyOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeploymentReadyOption)
@@ -210,8 +210,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeploymentReadyOption&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306835"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306835"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306844"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306844"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeploymentReadyAction -&gt; Maybe Int -&gt; DeploymentReadyOption
 </span><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-var">DeploymentReadyOption'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeploymentReadyAction -&gt; Maybe Int -&gt; DeploymentReadyOption)
@@ -219,7 +219,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Int -&gt; DeploymentReadyOption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentReadyAction)
+</span><a href="#local-6989586621679306844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentReadyAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionOnTimeout&quot;</span></span><span class="hs-special">)</span><span>
@@ -227,25 +227,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser DeploymentReadyOption
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679306844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;waitTimeInMinutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306829"><span id="local-6989586621679306831"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306838"><span id="local-6989586621679306840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306826"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306818"><span id="local-6989586621679306820"><span id="local-6989586621679306822"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679306816"><span class="annot"><span class="annottext">toJSON :: DeploymentReadyOption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306813"><span id="local-6989586621679306814"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306827"><span id="local-6989586621679306829"><span id="local-6989586621679306831"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679306825"><span class="annot"><span class="annottext">toJSON :: DeploymentReadyOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption%27"><span class="hs-identifier hs-type">DeploymentReadyOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306822"><span id="local-6989586621679306823"><span class="annot"><span class="annottext">Maybe Int
 Maybe DeploymentReadyAction
 waitTimeInMinutes :: Maybe Int
 actionOnTimeout :: Maybe DeploymentReadyAction
 $sel:waitTimeInMinutes:DeploymentReadyOption' :: DeploymentReadyOption -&gt; Maybe Int
 $sel:actionOnTimeout:DeploymentReadyOption' :: DeploymentReadyOption -&gt; Maybe DeploymentReadyAction
-</span><a href="#local-6989586621679306813"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679306822"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -259,7 +259,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DeploymentReadyAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyAction
-</span><a href="#local-6989586621679306814"><span class="hs-identifier hs-var">actionOnTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306823"><span class="hs-identifier hs-var">actionOnTimeout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;waitTimeInMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -267,7 +267,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679306813"><span class="hs-identifier hs-var">waitTimeInMinutes</span></a></span><span>
+</span><a href="#local-6989586621679306822"><span class="hs-identifier hs-var">waitTimeInMinutes</span></a></span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span></pre></body></html>

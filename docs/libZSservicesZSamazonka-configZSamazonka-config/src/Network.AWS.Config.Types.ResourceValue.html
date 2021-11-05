@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The dynamic value of the resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceValue' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679408560"><span id="local-6989586621679408561"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceValue"><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-var">ResourceValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceValue%27"><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-var">ResourceValue'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679408569"><span id="local-6989586621679408570"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceValue"><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-var">ResourceValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceValue%27"><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-var">ResourceValue'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value is a resource ID.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AResourceValue%27"><span class="annot"><span class="annottext">ResourceValue -&gt; ResourceValueType
 </span><a href="Network.AWS.Config.Types.ResourceValue.html#%24sel%3Avalue%3AResourceValue%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValueType.html#ResourceValueType"><span class="hs-identifier hs-type">ResourceValueType</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408554"><span id="local-6989586621679408556"><span class="annot"><span class="annottext">ResourceValue -&gt; ResourceValue -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408563"><span id="local-6989586621679408565"><span class="annot"><span class="annottext">ResourceValue -&gt; ResourceValue -&gt; Bool
 (ResourceValue -&gt; ResourceValue -&gt; Bool)
 -&gt; (ResourceValue -&gt; ResourceValue -&gt; Bool) -&gt; Eq ResourceValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceValue -&gt; ResourceValue -&gt; Bool
 == :: ResourceValue -&gt; ResourceValue -&gt; Bool
 $c== :: ResourceValue -&gt; ResourceValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408545"><span id="local-6989586621679408547"><span id="local-6989586621679408549"><span id="local-6989586621679408551"><span class="annot"><span class="annottext">ReadPrec [ResourceValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408554"><span id="local-6989586621679408556"><span id="local-6989586621679408558"><span id="local-6989586621679408560"><span class="annot"><span class="annottext">ReadPrec [ResourceValue]
 ReadPrec ResourceValue
 Int -&gt; ReadS ResourceValue
 ReadS [ResourceValue]
@@ -60,7 +60,7 @@ readList :: ReadS [ResourceValue]
 $creadList :: ReadS [ResourceValue]
 readsPrec :: Int -&gt; ReadS ResourceValue
 $creadsPrec :: Int -&gt; ReadS ResourceValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408538"><span id="local-6989586621679408540"><span id="local-6989586621679408542"><span class="annot"><span class="annottext">Int -&gt; ResourceValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408547"><span id="local-6989586621679408549"><span id="local-6989586621679408551"><span class="annot"><span class="annottext">Int -&gt; ResourceValue -&gt; ShowS
 [ResourceValue] -&gt; ShowS
 ResourceValue -&gt; String
 (Int -&gt; ResourceValue -&gt; ShowS)
@@ -100,12 +100,12 @@ $cfrom :: forall x. ResourceValue -&gt; Rep ResourceValue x
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValueType.html#ResourceValueType"><span class="hs-identifier hs-type">ResourceValueType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span><span>
 </span><span id="line-49"></span><span id="newResourceValue"><span class="annot"><span class="annottext">newResourceValue :: ResourceValueType -&gt; ResourceValue
-</span><a href="Network.AWS.Config.Types.ResourceValue.html#newResourceValue"><span class="hs-identifier hs-var hs-var">newResourceValue</span></a></span></span><span> </span><span id="local-6989586621679408532"><span class="annot"><span class="annottext">ResourceValueType
-</span><a href="#local-6989586621679408532"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.Types.ResourceValue.html#newResourceValue"><span class="hs-identifier hs-var hs-var">newResourceValue</span></a></span></span><span> </span><span id="local-6989586621679408541"><span class="annot"><span class="annottext">ResourceValueType
+</span><a href="#local-6989586621679408541"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">ResourceValue' :: ResourceValueType -&gt; ResourceValue
 </span><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-type">ResourceValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceValue' :: ResourceValueType
 </span><a href="Network.AWS.Config.Types.ResourceValue.html#%24sel%3Avalue%3AResourceValue%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceValueType
-</span><a href="#local-6989586621679408532"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679408541"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | The value is a resource ID.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#resourceValue_value"><span class="hs-identifier hs-type">resourceValue_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValueType.html#ResourceValueType"><span class="hs-identifier hs-type">ResourceValueType</span></a></span><span>
@@ -116,19 +116,19 @@ $cfrom :: forall x. ResourceValue -&gt; Rep ResourceValue x
 -&gt; Lens
      ResourceValue ResourceValue ResourceValueType ResourceValueType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-type">ResourceValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408528"><span class="annot"><span class="annottext">ResourceValueType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-type">ResourceValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408537"><span class="annot"><span class="annottext">ResourceValueType
 value :: ResourceValueType
 $sel:value:ResourceValue' :: ResourceValue -&gt; ResourceValueType
-</span><a href="#local-6989586621679408528"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceValueType
-</span><a href="#local-6989586621679408528"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408527"><span class="annot"><span class="annottext">s :: ResourceValue
-</span><a href="#local-6989586621679408527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-type">ResourceValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408526"><span class="annot"><span class="annottext">ResourceValueType
-</span><a href="#local-6989586621679408526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceValue
-</span><a href="#local-6989586621679408527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceValue' :: ResourceValueType
+</span><a href="#local-6989586621679408537"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceValueType
+</span><a href="#local-6989586621679408537"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408536"><span class="annot"><span class="annottext">s :: ResourceValue
+</span><a href="#local-6989586621679408536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-type">ResourceValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408535"><span class="annot"><span class="annottext">ResourceValueType
+</span><a href="#local-6989586621679408535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceValue
+</span><a href="#local-6989586621679408536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceValue' :: ResourceValueType
 </span><a href="Network.AWS.Config.Types.ResourceValue.html#%24sel%3Avalue%3AResourceValue%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceValueType
-</span><a href="#local-6989586621679408526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408523"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679408521"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceValue
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408532"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679408530"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceValue)
@@ -138,29 +138,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceValue&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408518"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408527"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408527"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">ResourceValueType -&gt; ResourceValue
 </span><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-var">ResourceValue'</span></a></span><span> </span><span class="annot"><span class="annottext">(ResourceValueType -&gt; ResourceValue)
 -&gt; Parser ResourceValueType -&gt; Parser ResourceValue
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679408518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceValueType
+</span><a href="#local-6989586621679408527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceValueType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408512"><span id="local-6989586621679408514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408521"><span id="local-6989586621679408523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408501"><span id="local-6989586621679408503"><span id="local-6989586621679408505"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679408499"><span class="annot"><span class="annottext">toJSON :: ResourceValue -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-type">ResourceValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408497"><span class="annot"><span class="annottext">ResourceValueType
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408510"><span id="local-6989586621679408512"><span id="local-6989586621679408514"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue"><span class="hs-identifier hs-type">ResourceValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679408508"><span class="annot"><span class="annottext">toJSON :: ResourceValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceValue.html#ResourceValue%27"><span class="hs-identifier hs-type">ResourceValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408506"><span class="annot"><span class="annottext">ResourceValueType
 value :: ResourceValueType
 $sel:value:ResourceValue' :: ResourceValue -&gt; ResourceValueType
-</span><a href="#local-6989586621679408497"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679408506"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -172,6 +172,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceValueType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceValueType
-</span><a href="#local-6989586621679408497"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679408506"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span></pre></body></html>

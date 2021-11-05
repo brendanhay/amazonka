@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDeleteAutoScalingGroup' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679346086"><span id="local-6989586621679346087"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAutoScalingGroup"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-var">DeleteAutoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAutoScalingGroup%27"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-var">DeleteAutoScalingGroup'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679346095"><span id="local-6989586621679346096"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAutoScalingGroup"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-var">DeleteAutoScalingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAutoScalingGroup%27"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-var">DeleteAutoScalingGroup'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies that the group is to be deleted along with all instances</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- associated with the group, without waiting for all instances to be</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- terminated. This parameter also deletes any outstanding lifecycle</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3ADeleteAutoScalingGroup%27"><span class="annot"><span class="annottext">DeleteAutoScalingGroup -&gt; Text
 </span><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#%24sel%3AautoScalingGroupName%3ADeleteAutoScalingGroup%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346079"><span id="local-6989586621679346081"><span class="annot"><span class="annottext">DeleteAutoScalingGroup -&gt; DeleteAutoScalingGroup -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346088"><span id="local-6989586621679346090"><span class="annot"><span class="annottext">DeleteAutoScalingGroup -&gt; DeleteAutoScalingGroup -&gt; Bool
 (DeleteAutoScalingGroup -&gt; DeleteAutoScalingGroup -&gt; Bool)
 -&gt; (DeleteAutoScalingGroup -&gt; DeleteAutoScalingGroup -&gt; Bool)
 -&gt; Eq DeleteAutoScalingGroup
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAutoScalingGroup -&gt; DeleteAutoScalingGroup -&gt; Bool
 == :: DeleteAutoScalingGroup -&gt; DeleteAutoScalingGroup -&gt; Bool
 $c== :: DeleteAutoScalingGroup -&gt; DeleteAutoScalingGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346070"><span id="local-6989586621679346072"><span id="local-6989586621679346074"><span id="local-6989586621679346076"><span class="annot"><span class="annottext">ReadPrec [DeleteAutoScalingGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346079"><span id="local-6989586621679346081"><span id="local-6989586621679346083"><span id="local-6989586621679346085"><span class="annot"><span class="annottext">ReadPrec [DeleteAutoScalingGroup]
 ReadPrec DeleteAutoScalingGroup
 Int -&gt; ReadS DeleteAutoScalingGroup
 ReadS [DeleteAutoScalingGroup]
@@ -100,7 +100,7 @@ readList :: ReadS [DeleteAutoScalingGroup]
 $creadList :: ReadS [DeleteAutoScalingGroup]
 readsPrec :: Int -&gt; ReadS DeleteAutoScalingGroup
 $creadsPrec :: Int -&gt; ReadS DeleteAutoScalingGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346063"><span id="local-6989586621679346065"><span id="local-6989586621679346067"><span class="annot"><span class="annottext">Int -&gt; DeleteAutoScalingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346072"><span id="local-6989586621679346074"><span id="local-6989586621679346076"><span class="annot"><span class="annottext">Int -&gt; DeleteAutoScalingGroup -&gt; ShowS
 [DeleteAutoScalingGroup] -&gt; ShowS
 DeleteAutoScalingGroup -&gt; String
 (Int -&gt; DeleteAutoScalingGroup -&gt; ShowS)
@@ -146,8 +146,8 @@ $cfrom :: forall x. DeleteAutoScalingGroup -&gt; Rep DeleteAutoScalingGroup x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span>
 </span><span id="line-92"></span><span id="newDeleteAutoScalingGroup"><span class="annot"><span class="annottext">newDeleteAutoScalingGroup :: Text -&gt; DeleteAutoScalingGroup
-</span><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#newDeleteAutoScalingGroup"><span class="hs-identifier hs-var hs-var">newDeleteAutoScalingGroup</span></a></span></span><span> </span><span id="local-6989586621679346058"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346058"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#newDeleteAutoScalingGroup"><span class="hs-identifier hs-var hs-var">newDeleteAutoScalingGroup</span></a></span></span><span> </span><span id="local-6989586621679346067"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346067"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">DeleteAutoScalingGroup' :: Maybe Bool -&gt; Text -&gt; DeleteAutoScalingGroup
 </span><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:forceDelete:DeleteAutoScalingGroup' :: Maybe Bool
@@ -157,7 +157,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:DeleteAutoScalingGroup' :: Text
 </span><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#%24sel%3AautoScalingGroupName%3ADeleteAutoScalingGroup%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346058"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679346067"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Specifies that the group is to be deleted along with all instances</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346055"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346064"><span class="annot"><span class="annottext">Maybe Bool
 forceDelete :: Maybe Bool
 $sel:forceDelete:DeleteAutoScalingGroup' :: DeleteAutoScalingGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679346055"><span class="hs-identifier hs-var hs-var">forceDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679346055"><span class="hs-identifier hs-var">forceDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346054"><span class="annot"><span class="annottext">s :: DeleteAutoScalingGroup
-</span><a href="#local-6989586621679346054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346053"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679346053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAutoScalingGroup
-</span><a href="#local-6989586621679346054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDelete:DeleteAutoScalingGroup' :: Maybe Bool
+</span><a href="#local-6989586621679346064"><span class="hs-identifier hs-var hs-var">forceDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679346064"><span class="hs-identifier hs-var">forceDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346063"><span class="annot"><span class="annottext">s :: DeleteAutoScalingGroup
+</span><a href="#local-6989586621679346063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346062"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679346062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAutoScalingGroup
+</span><a href="#local-6989586621679346063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDelete:DeleteAutoScalingGroup' :: Maybe Bool
 </span><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#%24sel%3AforceDelete%3ADeleteAutoScalingGroup%27"><span class="hs-identifier hs-var">forceDelete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679346053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#deleteAutoScalingGroup_autoScalingGroupName"><span class="hs-identifier hs-type">deleteAutoScalingGroup_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -194,27 +194,27 @@ $sel:forceDelete:DeleteAutoScalingGroup' :: DeleteAutoScalingGroup -&gt; Maybe B
 -&gt; (DeleteAutoScalingGroup -&gt; Text -&gt; DeleteAutoScalingGroup)
 -&gt; Lens DeleteAutoScalingGroup DeleteAutoScalingGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346052"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346061"><span class="annot"><span class="annottext">Text
 autoScalingGroupName :: Text
 $sel:autoScalingGroupName:DeleteAutoScalingGroup' :: DeleteAutoScalingGroup -&gt; Text
-</span><a href="#local-6989586621679346052"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346052"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346051"><span class="annot"><span class="annottext">s :: DeleteAutoScalingGroup
-</span><a href="#local-6989586621679346051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346050"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAutoScalingGroup
-</span><a href="#local-6989586621679346051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:DeleteAutoScalingGroup' :: Text
+</span><a href="#local-6989586621679346061"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346061"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346060"><span class="annot"><span class="annottext">s :: DeleteAutoScalingGroup
+</span><a href="#local-6989586621679346060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346059"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAutoScalingGroup
+</span><a href="#local-6989586621679346060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:DeleteAutoScalingGroup' :: Text
 </span><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#%24sel%3AautoScalingGroupName%3ADeleteAutoScalingGroup%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroupResponse"><span class="hs-identifier hs-type">DeleteAutoScalingGroupResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679346046"><span class="annot"><span class="annottext">request :: DeleteAutoScalingGroup -&gt; Request DeleteAutoScalingGroup
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679346055"><span class="annot"><span class="annottext">request :: DeleteAutoScalingGroup -&gt; Request DeleteAutoScalingGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAutoScalingGroup -&gt; Request DeleteAutoScalingGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679346042"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679346051"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAutoScalingGroup
 -&gt; ClientResponse ClientBody
@@ -241,12 +241,12 @@ AWSResponse a
 DeleteAutoScalingGroupResponse
 </span><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">DeleteAutoScalingGroupResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346035"><span id="local-6989586621679346037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346044"><span id="local-6989586621679346046"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679346028"><span class="annot"><span class="annottext">toHeaders :: DeleteAutoScalingGroup -&gt; [Header]
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679346037"><span class="annot"><span class="annottext">toHeaders :: DeleteAutoScalingGroup -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAutoScalingGroup -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -254,21 +254,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679346023"><span class="annot"><span class="annottext">toPath :: DeleteAutoScalingGroup -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679346032"><span class="annot"><span class="annottext">toPath :: DeleteAutoScalingGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAutoScalingGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup"><span class="hs-identifier hs-type">DeleteAutoScalingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679346019"><span class="annot"><span class="annottext">toQuery :: DeleteAutoScalingGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346016"><span id="local-6989586621679346017"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679346028"><span class="annot"><span class="annottext">toQuery :: DeleteAutoScalingGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroup%27"><span class="hs-identifier hs-type">DeleteAutoScalingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346025"><span id="local-6989586621679346026"><span class="annot"><span class="annottext">Maybe Bool
 Text
 autoScalingGroupName :: Text
 forceDelete :: Maybe Bool
 $sel:autoScalingGroupName:DeleteAutoScalingGroup' :: DeleteAutoScalingGroup -&gt; Text
 $sel:forceDelete:DeleteAutoScalingGroup' :: DeleteAutoScalingGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679346016"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679346025"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -288,19 +288,19 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ForceDelete&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679346017"><span class="hs-identifier hs-var">forceDelete</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346026"><span class="hs-identifier hs-var">forceDelete</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346016"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span>
+</span><a href="#local-6989586621679346025"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newDeleteAutoScalingGroupResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679346013"><span id="local-6989586621679346014"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAutoScalingGroupResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroupResponse"><span class="hs-identifier hs-var">DeleteAutoScalingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAutoScalingGroupResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">DeleteAutoScalingGroupResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679346022"><span id="local-6989586621679346023"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAutoScalingGroupResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroupResponse"><span class="hs-identifier hs-var">DeleteAutoScalingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAutoScalingGroupResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">DeleteAutoScalingGroupResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346009"><span id="local-6989586621679346011"><span class="annot"><span class="annottext">DeleteAutoScalingGroupResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346018"><span id="local-6989586621679346020"><span class="annot"><span class="annottext">DeleteAutoScalingGroupResponse
 -&gt; DeleteAutoScalingGroupResponse -&gt; Bool
 (DeleteAutoScalingGroupResponse
  -&gt; DeleteAutoScalingGroupResponse -&gt; Bool)
@@ -316,7 +316,7 @@ $c/= :: DeleteAutoScalingGroupResponse
 -&gt; DeleteAutoScalingGroupResponse -&gt; Bool
 $c== :: DeleteAutoScalingGroupResponse
 -&gt; DeleteAutoScalingGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346001"><span id="local-6989586621679346003"><span id="local-6989586621679346005"><span id="local-6989586621679346007"><span class="annot"><span class="annottext">ReadPrec [DeleteAutoScalingGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346010"><span id="local-6989586621679346012"><span id="local-6989586621679346014"><span id="local-6989586621679346016"><span class="annot"><span class="annottext">ReadPrec [DeleteAutoScalingGroupResponse]
 ReadPrec DeleteAutoScalingGroupResponse
 Int -&gt; ReadS DeleteAutoScalingGroupResponse
 ReadS [DeleteAutoScalingGroupResponse]
@@ -336,7 +336,7 @@ readList :: ReadS [DeleteAutoScalingGroupResponse]
 $creadList :: ReadS [DeleteAutoScalingGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteAutoScalingGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteAutoScalingGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345995"><span id="local-6989586621679345997"><span id="local-6989586621679345999"><span class="annot"><span class="annottext">Int -&gt; DeleteAutoScalingGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346004"><span id="local-6989586621679346006"><span id="local-6989586621679346008"><span class="annot"><span class="annottext">Int -&gt; DeleteAutoScalingGroupResponse -&gt; ShowS
 [DeleteAutoScalingGroupResponse] -&gt; ShowS
 DeleteAutoScalingGroupResponse -&gt; String
 (Int -&gt; DeleteAutoScalingGroupResponse -&gt; ShowS)
@@ -386,6 +386,6 @@ DeleteAutoScalingGroupResponse
 </span><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroupResponse%27"><span class="hs-identifier hs-var">DeleteAutoScalingGroupResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679345991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679346000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DeleteAutoScalingGroup.html#DeleteAutoScalingGroupResponse"><span class="hs-identifier hs-type">DeleteAutoScalingGroupResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

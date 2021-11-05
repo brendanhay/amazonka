@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.NetworkFirewall.Types.RuleGroupType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.RuleGroupType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType"><span class="hs-identifier">RuleGroupType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType_STATEFUL"><span class="hs-identifier">RuleGroupType_STATEFUL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType_STATELESS"><span class="hs-identifier">RuleGroupType_STATELESS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679239210"><span id="local-6989586621679239211"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleGroupType"><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType"><span class="hs-identifier hs-var">RuleGroupType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleGroupType%27"><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType%27"><span class="hs-identifier hs-var">RuleGroupType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRuleGroupType"><span class="annot"><span class="annottext">RuleGroupType -&gt; Text
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#fromRuleGroupType"><span class="hs-identifier hs-var hs-var">fromRuleGroupType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239202"><span id="local-6989586621679239204"><span id="local-6989586621679239206"><span class="annot"><span class="annottext">Int -&gt; RuleGroupType -&gt; ShowS
+[RuleGroupType] -&gt; ShowS
+RuleGroupType -&gt; String
+(Int -&gt; RuleGroupType -&gt; ShowS)
+-&gt; (RuleGroupType -&gt; String)
+-&gt; ([RuleGroupType] -&gt; ShowS)
+-&gt; Show RuleGroupType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RuleGroupType] -&gt; ShowS
+$cshowList :: [RuleGroupType] -&gt; ShowS
+show :: RuleGroupType -&gt; String
+$cshow :: RuleGroupType -&gt; String
+showsPrec :: Int -&gt; RuleGroupType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RuleGroupType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679239193"><span id="local-6989586621679239195"><span id="local-6989586621679239197"><span id="local-6989586621679239199"><span class="annot"><span class="annottext">ReadPrec [RuleGroupType]
+ReadPrec RuleGroupType
+Int -&gt; ReadS RuleGroupType
+ReadS [RuleGroupType]
+(Int -&gt; ReadS RuleGroupType)
+-&gt; ReadS [RuleGroupType]
+-&gt; ReadPrec RuleGroupType
+-&gt; ReadPrec [RuleGroupType]
+-&gt; Read RuleGroupType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RuleGroupType]
+$creadListPrec :: ReadPrec [RuleGroupType]
+readPrec :: ReadPrec RuleGroupType
+$creadPrec :: ReadPrec RuleGroupType
+readList :: ReadS [RuleGroupType]
+$creadList :: ReadS [RuleGroupType]
+readsPrec :: Int -&gt; ReadS RuleGroupType
+$creadsPrec :: Int -&gt; ReadS RuleGroupType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679239188"><span id="local-6989586621679239190"><span class="annot"><span class="annottext">RuleGroupType -&gt; RuleGroupType -&gt; Bool
+(RuleGroupType -&gt; RuleGroupType -&gt; Bool)
+-&gt; (RuleGroupType -&gt; RuleGroupType -&gt; Bool) -&gt; Eq RuleGroupType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+$c/= :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+== :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+$c== :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679239172"><span id="local-6989586621679239174"><span id="local-6989586621679239176"><span id="local-6989586621679239178"><span id="local-6989586621679239180"><span id="local-6989586621679239182"><span id="local-6989586621679239184"><span class="annot"><span class="annottext">Eq RuleGroupType
+Eq RuleGroupType
+-&gt; (RuleGroupType -&gt; RuleGroupType -&gt; Ordering)
+-&gt; (RuleGroupType -&gt; RuleGroupType -&gt; Bool)
+-&gt; (RuleGroupType -&gt; RuleGroupType -&gt; Bool)
+-&gt; (RuleGroupType -&gt; RuleGroupType -&gt; Bool)
+-&gt; (RuleGroupType -&gt; RuleGroupType -&gt; Bool)
+-&gt; (RuleGroupType -&gt; RuleGroupType -&gt; RuleGroupType)
+-&gt; (RuleGroupType -&gt; RuleGroupType -&gt; RuleGroupType)
+-&gt; Ord RuleGroupType
+RuleGroupType -&gt; RuleGroupType -&gt; Bool
+RuleGroupType -&gt; RuleGroupType -&gt; Ordering
+RuleGroupType -&gt; RuleGroupType -&gt; RuleGroupType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RuleGroupType -&gt; RuleGroupType -&gt; RuleGroupType
+$cmin :: RuleGroupType -&gt; RuleGroupType -&gt; RuleGroupType
+max :: RuleGroupType -&gt; RuleGroupType -&gt; RuleGroupType
+$cmax :: RuleGroupType -&gt; RuleGroupType -&gt; RuleGroupType
+&gt;= :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+$c&gt;= :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+&gt; :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+$c&gt; :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+&lt;= :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+$c&lt;= :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+&lt; :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+$c&lt; :: RuleGroupType -&gt; RuleGroupType -&gt; Bool
+compare :: RuleGroupType -&gt; RuleGroupType -&gt; Ordering
+$ccompare :: RuleGroupType -&gt; RuleGroupType -&gt; Ordering
+$cp1Ord :: Eq RuleGroupType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RuleGroupType -&gt; Rep RuleGroupType x)
+-&gt; (forall x. Rep RuleGroupType x -&gt; RuleGroupType)
+-&gt; Generic RuleGroupType
+forall x. Rep RuleGroupType x -&gt; RuleGroupType
+forall x. RuleGroupType -&gt; Rep RuleGroupType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RuleGroupType x -&gt; RuleGroupType
+$cfrom :: forall x. RuleGroupType -&gt; Rep RuleGroupType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239164"><span id="local-6989586621679239166"><span class="annot"><span class="annottext">Int -&gt; RuleGroupType -&gt; Int
+RuleGroupType -&gt; Int
+(Int -&gt; RuleGroupType -&gt; Int)
+-&gt; (RuleGroupType -&gt; Int) -&gt; Hashable RuleGroupType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RuleGroupType -&gt; Int
+$chash :: RuleGroupType -&gt; Int
+hashWithSalt :: Int -&gt; RuleGroupType -&gt; Int
+$chashWithSalt :: Int -&gt; RuleGroupType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679239161"><span class="annot"><span class="annottext">RuleGroupType -&gt; ()
+(RuleGroupType -&gt; ()) -&gt; NFData RuleGroupType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RuleGroupType -&gt; ()
+$crnf :: RuleGroupType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679239158"><span class="annot"><span class="annottext">Text -&gt; Either String RuleGroupType
+(Text -&gt; Either String RuleGroupType) -&gt; FromText RuleGroupType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RuleGroupType
+$cfromText :: Text -&gt; Either String RuleGroupType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679239155"><span class="annot"><span class="annottext">RuleGroupType -&gt; Text
+(RuleGroupType -&gt; Text) -&gt; ToText RuleGroupType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RuleGroupType -&gt; Text
+$ctoText :: RuleGroupType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679239152"><span class="annot"><span class="annottext">RuleGroupType -&gt; ByteString
+(RuleGroupType -&gt; ByteString) -&gt; ToByteString RuleGroupType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RuleGroupType -&gt; ByteString
+$ctoBS :: RuleGroupType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679239149"><span class="annot"><span class="annottext">RuleGroupType -&gt; ByteStringBuilder
+(RuleGroupType -&gt; ByteStringBuilder) -&gt; ToLog RuleGroupType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RuleGroupType -&gt; ByteStringBuilder
+$cbuild :: RuleGroupType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679239146"><span class="annot"><span class="annottext">HeaderName -&gt; RuleGroupType -&gt; [Header]
+(HeaderName -&gt; RuleGroupType -&gt; [Header]) -&gt; ToHeader RuleGroupType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RuleGroupType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RuleGroupType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679239143"><span class="annot"><span class="annottext">RuleGroupType -&gt; QueryString
+(RuleGroupType -&gt; QueryString) -&gt; ToQuery RuleGroupType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RuleGroupType -&gt; QueryString
+$ctoQuery :: RuleGroupType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679239138"><span id="local-6989586621679239140"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleGroupType]
+Value -&gt; Parser RuleGroupType
+(Value -&gt; Parser RuleGroupType)
+-&gt; (Value -&gt; Parser [RuleGroupType]) -&gt; FromJSON RuleGroupType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RuleGroupType]
+$cparseJSONList :: Value -&gt; Parser [RuleGroupType]
+parseJSON :: Value -&gt; Parser RuleGroupType
+$cparseJSON :: Value -&gt; Parser RuleGroupType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679239133"><span id="local-6989586621679239135"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleGroupType]
+FromJSONKeyFunction RuleGroupType
+FromJSONKeyFunction RuleGroupType
+-&gt; FromJSONKeyFunction [RuleGroupType] -&gt; FromJSONKey RuleGroupType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RuleGroupType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RuleGroupType]
+fromJSONKey :: FromJSONKeyFunction RuleGroupType
+$cfromJSONKey :: FromJSONKeyFunction RuleGroupType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679239124"><span id="local-6989586621679239126"><span id="local-6989586621679239128"><span id="local-6989586621679239130"><span class="annot"><span class="annottext">[RuleGroupType] -&gt; Encoding
+[RuleGroupType] -&gt; Value
+RuleGroupType -&gt; Encoding
+RuleGroupType -&gt; Value
+(RuleGroupType -&gt; Value)
+-&gt; (RuleGroupType -&gt; Encoding)
+-&gt; ([RuleGroupType] -&gt; Value)
+-&gt; ([RuleGroupType] -&gt; Encoding)
+-&gt; ToJSON RuleGroupType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RuleGroupType] -&gt; Encoding
+$ctoEncodingList :: [RuleGroupType] -&gt; Encoding
+toJSONList :: [RuleGroupType] -&gt; Value
+$ctoJSONList :: [RuleGroupType] -&gt; Value
+toEncoding :: RuleGroupType -&gt; Encoding
+$ctoEncoding :: RuleGroupType -&gt; Encoding
+toJSON :: RuleGroupType -&gt; Value
+$ctoJSON :: RuleGroupType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679239119"><span id="local-6989586621679239121"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleGroupType]
+ToJSONKeyFunction RuleGroupType
+ToJSONKeyFunction RuleGroupType
+-&gt; ToJSONKeyFunction [RuleGroupType] -&gt; ToJSONKey RuleGroupType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RuleGroupType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RuleGroupType]
+toJSONKey :: ToJSONKeyFunction RuleGroupType
+$ctoJSONKey :: ToJSONKeyFunction RuleGroupType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679239116"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleGroupType
+([Node] -&gt; Either String RuleGroupType) -&gt; FromXML RuleGroupType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RuleGroupType
+$cparseXML :: [Node] -&gt; Either String RuleGroupType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679239113"><span class="annot"><span class="annottext">RuleGroupType -&gt; XML
+(RuleGroupType -&gt; XML) -&gt; ToXML RuleGroupType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RuleGroupType -&gt; XML
+$ctoXML :: RuleGroupType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType_STATEFUL"><span class="hs-identifier hs-type">RuleGroupType_STATEFUL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType"><span class="hs-identifier hs-type">RuleGroupType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleGroupType_STATEFUL"><span id="%24mRuleGroupType_STATEFUL"><span id="RuleGroupType_STATEFUL"><span class="annot"><span class="annottext">$bRuleGroupType_STATEFUL :: RuleGroupType
+$mRuleGroupType_STATEFUL :: forall r. RuleGroupType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#%24bRuleGroupType_STATEFUL"><span class="hs-identifier hs-var hs-var hs-var">RuleGroupType_STATEFUL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType%27"><span class="hs-identifier hs-type">RuleGroupType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STATEFUL&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType_STATELESS"><span class="hs-identifier hs-type">RuleGroupType_STATELESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType"><span class="hs-identifier hs-type">RuleGroupType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRuleGroupType_STATELESS"><span id="%24mRuleGroupType_STATELESS"><span id="RuleGroupType_STATELESS"><span class="annot"><span class="annottext">$bRuleGroupType_STATELESS :: RuleGroupType
+$mRuleGroupType_STATELESS :: forall r. RuleGroupType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#%24bRuleGroupType_STATELESS"><span class="hs-identifier hs-var hs-var hs-var">RuleGroupType_STATELESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType%27"><span class="hs-identifier hs-type">RuleGroupType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STATELESS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType_STATEFUL"><span class="hs-pragma hs-type">RuleGroupType_STATEFUL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType_STATELESS"><span class="hs-pragma hs-type">RuleGroupType_STATELESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.RuleGroupType.html#RuleGroupType%27"><span class="hs-pragma hs-type">RuleGroupType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

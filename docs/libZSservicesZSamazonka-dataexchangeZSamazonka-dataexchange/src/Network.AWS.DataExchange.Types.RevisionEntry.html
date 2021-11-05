@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataExchange.Types.RevisionEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataExchange.Types.RevisionEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A revision is a container for one or more assets.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRevisionEntry' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679237369"><span id="local-6989586621679237370"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevisionEntry"><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-var">RevisionEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevisionEntry%27"><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-var">RevisionEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The revision ID of the owned revision corresponding to the entitled</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- revision being viewed. This parameter is returned when a revision owner</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- is viewing the entitled copy of its owned revision.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsourceId%3ARevisionEntry%27"><span class="annot"><span class="annottext">RevisionEntry -&gt; Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AsourceId%3ARevisionEntry%27"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | To publish a revision to a data set in a product, the revision must</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- first be finalized. Finalizing a revision tells AWS Data Exchange that</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- your changes to the assets in the revision are complete. After it\'s in</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- this read-only state, you can publish the revision to your products.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Finalized revisions can be published through the AWS Data Exchange</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Marketplace Catalog API action. When using the API, revisions are</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- uniquely identified by their ARN.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Afinalized%3ARevisionEntry%27"><span class="annot"><span class="annottext">RevisionEntry -&gt; Maybe Bool
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Afinalized%3ARevisionEntry%27"><span class="hs-identifier hs-var hs-var">finalized</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | An optional comment about the revision.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Acomment%3ARevisionEntry%27"><span class="annot"><span class="annottext">RevisionEntry -&gt; Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Acomment%3ARevisionEntry%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The date and time that the revision was created, in ISO 8601 format.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcreatedAt%3ARevisionEntry%27"><span class="annot"><span class="annottext">RevisionEntry -&gt; POSIX
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AcreatedAt%3ARevisionEntry%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the data set associated with this revision.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdataSetId%3ARevisionEntry%27"><span class="annot"><span class="annottext">RevisionEntry -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AdataSetId%3ARevisionEntry%27"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the revision.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aid%3ARevisionEntry%27"><span class="annot"><span class="annottext">RevisionEntry -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Aid%3ARevisionEntry%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The ARN for the revision.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aarn%3ARevisionEntry%27"><span class="annot"><span class="annottext">RevisionEntry -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Aarn%3ARevisionEntry%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The date and time that the revision was last updated, in ISO 8601</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AupdatedAt%3ARevisionEntry%27"><span class="annot"><span class="annottext">RevisionEntry -&gt; POSIX
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AupdatedAt%3ARevisionEntry%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237356"><span id="local-6989586621679237358"><span class="annot"><span class="annottext">RevisionEntry -&gt; RevisionEntry -&gt; Bool
+(RevisionEntry -&gt; RevisionEntry -&gt; Bool)
+-&gt; (RevisionEntry -&gt; RevisionEntry -&gt; Bool) -&gt; Eq RevisionEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RevisionEntry -&gt; RevisionEntry -&gt; Bool
+$c/= :: RevisionEntry -&gt; RevisionEntry -&gt; Bool
+== :: RevisionEntry -&gt; RevisionEntry -&gt; Bool
+$c== :: RevisionEntry -&gt; RevisionEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237347"><span id="local-6989586621679237349"><span id="local-6989586621679237351"><span id="local-6989586621679237353"><span class="annot"><span class="annottext">ReadPrec [RevisionEntry]
+ReadPrec RevisionEntry
+Int -&gt; ReadS RevisionEntry
+ReadS [RevisionEntry]
+(Int -&gt; ReadS RevisionEntry)
+-&gt; ReadS [RevisionEntry]
+-&gt; ReadPrec RevisionEntry
+-&gt; ReadPrec [RevisionEntry]
+-&gt; Read RevisionEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RevisionEntry]
+$creadListPrec :: ReadPrec [RevisionEntry]
+readPrec :: ReadPrec RevisionEntry
+$creadPrec :: ReadPrec RevisionEntry
+readList :: ReadS [RevisionEntry]
+$creadList :: ReadS [RevisionEntry]
+readsPrec :: Int -&gt; ReadS RevisionEntry
+$creadsPrec :: Int -&gt; ReadS RevisionEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237340"><span id="local-6989586621679237342"><span id="local-6989586621679237344"><span class="annot"><span class="annottext">Int -&gt; RevisionEntry -&gt; ShowS
+[RevisionEntry] -&gt; ShowS
+RevisionEntry -&gt; String
+(Int -&gt; RevisionEntry -&gt; ShowS)
+-&gt; (RevisionEntry -&gt; String)
+-&gt; ([RevisionEntry] -&gt; ShowS)
+-&gt; Show RevisionEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RevisionEntry] -&gt; ShowS
+$cshowList :: [RevisionEntry] -&gt; ShowS
+show :: RevisionEntry -&gt; String
+$cshow :: RevisionEntry -&gt; String
+showsPrec :: Int -&gt; RevisionEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; RevisionEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RevisionEntry -&gt; Rep RevisionEntry x)
+-&gt; (forall x. Rep RevisionEntry x -&gt; RevisionEntry)
+-&gt; Generic RevisionEntry
+forall x. Rep RevisionEntry x -&gt; RevisionEntry
+forall x. RevisionEntry -&gt; Rep RevisionEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RevisionEntry x -&gt; RevisionEntry
+$cfrom :: forall x. RevisionEntry -&gt; Rep RevisionEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'RevisionEntry' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'sourceId', 'revisionEntry_sourceId' - The revision ID of the owned revision corresponding to the entitled</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- revision being viewed. This parameter is returned when a revision owner</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- is viewing the entitled copy of its owned revision.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'finalized', 'revisionEntry_finalized' - To publish a revision to a data set in a product, the revision must</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- first be finalized. Finalizing a revision tells AWS Data Exchange that</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- your changes to the assets in the revision are complete. After it\'s in</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- this read-only state, you can publish the revision to your products.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Finalized revisions can be published through the AWS Data Exchange</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Marketplace Catalog API action. When using the API, revisions are</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- uniquely identified by their ARN.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'comment', 'revisionEntry_comment' - An optional comment about the revision.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'createdAt', 'revisionEntry_createdAt' - The date and time that the revision was created, in ISO 8601 format.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'dataSetId', 'revisionEntry_dataSetId' - The unique identifier for the data set associated with this revision.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'id', 'revisionEntry_id' - The unique identifier for the revision.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'arn', 'revisionEntry_arn' - The ARN for the revision.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'updatedAt', 'revisionEntry_updatedAt' - The date and time that the revision was last updated, in ISO 8601</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#newRevisionEntry"><span class="hs-identifier hs-type">newRevisionEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'dataSetId'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'updatedAt'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span>
+</span><span id="line-106"></span><span id="newRevisionEntry"><span class="annot"><span class="annottext">newRevisionEntry :: UTCTime -&gt; Text -&gt; Text -&gt; Text -&gt; UTCTime -&gt; RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#newRevisionEntry"><span class="hs-identifier hs-var hs-var">newRevisionEntry</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679237334"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679237334"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679237333"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237333"><span class="hs-identifier hs-var">pDataSetId_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679237332"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237332"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679237331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237331"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679237330"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679237330"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">RevisionEntry' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceId:RevisionEntry' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AsourceId%3ARevisionEntry%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:finalized:RevisionEntry' :: Maybe Bool
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Afinalized%3ARevisionEntry%27"><span class="hs-identifier hs-var">finalized</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:comment:RevisionEntry' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Acomment%3ARevisionEntry%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:RevisionEntry' :: POSIX
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AcreatedAt%3ARevisionEntry%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679237334"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSetId:RevisionEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AdataSetId%3ARevisionEntry%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237333"><span class="hs-identifier hs-var">pDataSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:RevisionEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Aid%3ARevisionEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237332"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:RevisionEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Aarn%3ARevisionEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237331"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:updatedAt:RevisionEntry' :: POSIX
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AupdatedAt%3ARevisionEntry%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679237330"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The revision ID of the owned revision corresponding to the entitled</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- revision being viewed. This parameter is returned when a revision owner</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- is viewing the entitled copy of its owned revision.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_sourceId"><span class="hs-identifier hs-type">revisionEntry_sourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="revisionEntry_sourceId"><span class="annot"><span class="annottext">revisionEntry_sourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RevisionEntry -&gt; f RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_sourceId"><span class="hs-identifier hs-var hs-var">revisionEntry_sourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionEntry -&gt; Maybe Text)
+-&gt; (RevisionEntry -&gt; Maybe Text -&gt; RevisionEntry)
+-&gt; Lens RevisionEntry RevisionEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237324"><span class="annot"><span class="annottext">Maybe Text
+sourceId :: Maybe Text
+$sel:sourceId:RevisionEntry' :: RevisionEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679237324"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237324"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237323"><span class="annot"><span class="annottext">s :: RevisionEntry
+</span><a href="#local-6989586621679237323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237322"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionEntry
+</span><a href="#local-6989586621679237323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceId:RevisionEntry' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AsourceId%3ARevisionEntry%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | To publish a revision to a data set in a product, the revision must</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- first be finalized. Finalizing a revision tells AWS Data Exchange that</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- your changes to the assets in the revision are complete. After it\'s in</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- this read-only state, you can publish the revision to your products.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Finalized revisions can be published through the AWS Data Exchange</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Marketplace Catalog API action. When using the API, revisions are</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- uniquely identified by their ARN.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_finalized"><span class="hs-identifier hs-type">revisionEntry_finalized</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="revisionEntry_finalized"><span class="annot"><span class="annottext">revisionEntry_finalized :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; RevisionEntry -&gt; f RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_finalized"><span class="hs-identifier hs-var hs-var">revisionEntry_finalized</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionEntry -&gt; Maybe Bool)
+-&gt; (RevisionEntry -&gt; Maybe Bool -&gt; RevisionEntry)
+-&gt; Lens RevisionEntry RevisionEntry (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237320"><span class="annot"><span class="annottext">Maybe Bool
+finalized :: Maybe Bool
+$sel:finalized:RevisionEntry' :: RevisionEntry -&gt; Maybe Bool
+</span><a href="#local-6989586621679237320"><span class="hs-identifier hs-var hs-var">finalized</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679237320"><span class="hs-identifier hs-var">finalized</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237319"><span class="annot"><span class="annottext">s :: RevisionEntry
+</span><a href="#local-6989586621679237319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237318"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679237318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionEntry
+</span><a href="#local-6989586621679237319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalized:RevisionEntry' :: Maybe Bool
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Afinalized%3ARevisionEntry%27"><span class="hs-identifier hs-var">finalized</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679237318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | An optional comment about the revision.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_comment"><span class="hs-identifier hs-type">revisionEntry_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="revisionEntry_comment"><span class="annot"><span class="annottext">revisionEntry_comment :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RevisionEntry -&gt; f RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_comment"><span class="hs-identifier hs-var hs-var">revisionEntry_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionEntry -&gt; Maybe Text)
+-&gt; (RevisionEntry -&gt; Maybe Text -&gt; RevisionEntry)
+-&gt; Lens RevisionEntry RevisionEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237316"><span class="annot"><span class="annottext">Maybe Text
+comment :: Maybe Text
+$sel:comment:RevisionEntry' :: RevisionEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679237316"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237316"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237315"><span class="annot"><span class="annottext">s :: RevisionEntry
+</span><a href="#local-6989586621679237315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237314"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionEntry
+</span><a href="#local-6989586621679237315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:RevisionEntry' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Acomment%3ARevisionEntry%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The date and time that the revision was created, in ISO 8601 format.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_createdAt"><span class="hs-identifier hs-type">revisionEntry_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-147"></span><span id="revisionEntry_createdAt"><span class="annot"><span class="annottext">revisionEntry_createdAt :: (UTCTime -&gt; f UTCTime) -&gt; RevisionEntry -&gt; f RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_createdAt"><span class="hs-identifier hs-var hs-var">revisionEntry_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionEntry -&gt; POSIX)
+-&gt; (RevisionEntry -&gt; POSIX -&gt; RevisionEntry)
+-&gt; Lens RevisionEntry RevisionEntry POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237312"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:RevisionEntry' :: RevisionEntry -&gt; POSIX
+</span><a href="#local-6989586621679237312"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679237312"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237311"><span class="annot"><span class="annottext">s :: RevisionEntry
+</span><a href="#local-6989586621679237311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237310"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679237310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionEntry
+</span><a href="#local-6989586621679237311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:RevisionEntry' :: POSIX
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AcreatedAt%3ARevisionEntry%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679237310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; RevisionEntry -&gt; f RevisionEntry)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; RevisionEntry
+-&gt; f RevisionEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The unique identifier for the data set associated with this revision.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_dataSetId"><span class="hs-identifier hs-type">revisionEntry_dataSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span id="revisionEntry_dataSetId"><span class="annot"><span class="annottext">revisionEntry_dataSetId :: (Text -&gt; f Text) -&gt; RevisionEntry -&gt; f RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_dataSetId"><span class="hs-identifier hs-var hs-var">revisionEntry_dataSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionEntry -&gt; Text)
+-&gt; (RevisionEntry -&gt; Text -&gt; RevisionEntry)
+-&gt; Lens RevisionEntry RevisionEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237307"><span class="annot"><span class="annottext">Text
+dataSetId :: Text
+$sel:dataSetId:RevisionEntry' :: RevisionEntry -&gt; Text
+</span><a href="#local-6989586621679237307"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237307"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237306"><span class="annot"><span class="annottext">s :: RevisionEntry
+</span><a href="#local-6989586621679237306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237305"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionEntry
+</span><a href="#local-6989586621679237306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetId:RevisionEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AdataSetId%3ARevisionEntry%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The unique identifier for the revision.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_id"><span class="hs-identifier hs-type">revisionEntry_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-155"></span><span id="revisionEntry_id"><span class="annot"><span class="annottext">revisionEntry_id :: (Text -&gt; f Text) -&gt; RevisionEntry -&gt; f RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_id"><span class="hs-identifier hs-var hs-var">revisionEntry_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionEntry -&gt; Text)
+-&gt; (RevisionEntry -&gt; Text -&gt; RevisionEntry)
+-&gt; Lens RevisionEntry RevisionEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237303"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:RevisionEntry' :: RevisionEntry -&gt; Text
+</span><a href="#local-6989586621679237303"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237303"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237302"><span class="annot"><span class="annottext">s :: RevisionEntry
+</span><a href="#local-6989586621679237302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionEntry
+</span><a href="#local-6989586621679237302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:RevisionEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Aid%3ARevisionEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The ARN for the revision.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_arn"><span class="hs-identifier hs-type">revisionEntry_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-159"></span><span id="revisionEntry_arn"><span class="annot"><span class="annottext">revisionEntry_arn :: (Text -&gt; f Text) -&gt; RevisionEntry -&gt; f RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_arn"><span class="hs-identifier hs-var hs-var">revisionEntry_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionEntry -&gt; Text)
+-&gt; (RevisionEntry -&gt; Text -&gt; RevisionEntry)
+-&gt; Lens RevisionEntry RevisionEntry Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237299"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:RevisionEntry' :: RevisionEntry -&gt; Text
+</span><a href="#local-6989586621679237299"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237299"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237298"><span class="annot"><span class="annottext">s :: RevisionEntry
+</span><a href="#local-6989586621679237298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237297"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionEntry
+</span><a href="#local-6989586621679237298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:RevisionEntry' :: Text
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3Aarn%3ARevisionEntry%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The date and time that the revision was last updated, in ISO 8601</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_updatedAt"><span class="hs-identifier hs-type">revisionEntry_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-164"></span><span id="revisionEntry_updatedAt"><span class="annot"><span class="annottext">revisionEntry_updatedAt :: (UTCTime -&gt; f UTCTime) -&gt; RevisionEntry -&gt; f RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#revisionEntry_updatedAt"><span class="hs-identifier hs-var hs-var">revisionEntry_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionEntry -&gt; POSIX)
+-&gt; (RevisionEntry -&gt; POSIX -&gt; RevisionEntry)
+-&gt; Lens RevisionEntry RevisionEntry POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237295"><span class="annot"><span class="annottext">POSIX
+updatedAt :: POSIX
+$sel:updatedAt:RevisionEntry' :: RevisionEntry -&gt; POSIX
+</span><a href="#local-6989586621679237295"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679237295"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237294"><span class="annot"><span class="annottext">s :: RevisionEntry
+</span><a href="#local-6989586621679237294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-type">RevisionEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237293"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679237293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionEntry
+</span><a href="#local-6989586621679237294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:RevisionEntry' :: POSIX
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#%24sel%3AupdatedAt%3ARevisionEntry%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679237293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; RevisionEntry -&gt; f RevisionEntry)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; RevisionEntry
+-&gt; f RevisionEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237290"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679237288"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RevisionEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RevisionEntry)
+-&gt; Value
+-&gt; Parser RevisionEntry
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RevisionEntry&quot;</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237285"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; POSIX
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; RevisionEntry
+</span><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry%27"><span class="hs-identifier hs-var">RevisionEntry'</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; RevisionEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; RevisionEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; RevisionEntry)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; RevisionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Finalized&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; RevisionEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; RevisionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; RevisionEntry)
+-&gt; Parser POSIX
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; RevisionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; POSIX -&gt; RevisionEntry)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; POSIX -&gt; RevisionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; POSIX -&gt; RevisionEntry)
+-&gt; Parser Text -&gt; Parser (Text -&gt; POSIX -&gt; RevisionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; RevisionEntry)
+-&gt; Parser Text -&gt; Parser (POSIX -&gt; RevisionEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; RevisionEntry)
+-&gt; Parser POSIX -&gt; Parser RevisionEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237278"><span id="local-6989586621679237280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span></span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier hs-type">RevisionEntry</span></a></span></span><span>
+</span><span id="line-185"></span></pre></body></html>

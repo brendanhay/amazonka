@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679360451"><span id="local-6989586621679360452"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactCategory"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactCategory.html#ArtifactCategory"><span class="hs-identifier hs-var">ArtifactCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactCategory%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactCategory.html#ArtifactCategory%27"><span class="hs-identifier hs-var">ArtifactCategory'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679360460"><span id="local-6989586621679360461"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactCategory"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactCategory.html#ArtifactCategory"><span class="hs-identifier hs-var">ArtifactCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactCategory%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ArtifactCategory.html#ArtifactCategory%27"><span class="hs-identifier hs-var">ArtifactCategory'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromArtifactCategory"><span class="annot"><span class="annottext">ArtifactCategory -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.ArtifactCategory.html#fromArtifactCategory"><span class="hs-identifier hs-var hs-var">fromArtifactCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360443"><span id="local-6989586621679360445"><span id="local-6989586621679360447"><span class="annot"><span class="annottext">Int -&gt; ArtifactCategory -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360452"><span id="local-6989586621679360454"><span id="local-6989586621679360456"><span class="annot"><span class="annottext">Int -&gt; ArtifactCategory -&gt; ShowS
 [ArtifactCategory] -&gt; ShowS
 ArtifactCategory -&gt; String
 (Int -&gt; ArtifactCategory -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ArtifactCategory -&gt; String
 showsPrec :: Int -&gt; ArtifactCategory -&gt; ShowS
 $cshowsPrec :: Int -&gt; ArtifactCategory -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679360434"><span id="local-6989586621679360436"><span id="local-6989586621679360438"><span id="local-6989586621679360440"><span class="annot"><span class="annottext">ReadPrec [ArtifactCategory]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679360443"><span id="local-6989586621679360445"><span id="local-6989586621679360447"><span id="local-6989586621679360449"><span class="annot"><span class="annottext">ReadPrec [ArtifactCategory]
 ReadPrec ArtifactCategory
 Int -&gt; ReadS ArtifactCategory
 ReadS [ArtifactCategory]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ArtifactCategory]
 readsPrec :: Int -&gt; ReadS ArtifactCategory
 $creadsPrec :: Int -&gt; ReadS ArtifactCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679360429"><span id="local-6989586621679360431"><span class="annot"><span class="annottext">ArtifactCategory -&gt; ArtifactCategory -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679360438"><span id="local-6989586621679360440"><span class="annot"><span class="annottext">ArtifactCategory -&gt; ArtifactCategory -&gt; Bool
 (ArtifactCategory -&gt; ArtifactCategory -&gt; Bool)
 -&gt; (ArtifactCategory -&gt; ArtifactCategory -&gt; Bool)
 -&gt; Eq ArtifactCategory
@@ -83,7 +83,7 @@ $c/= :: ArtifactCategory -&gt; ArtifactCategory -&gt; Bool
 == :: ArtifactCategory -&gt; ArtifactCategory -&gt; Bool
 $c== :: ArtifactCategory -&gt; ArtifactCategory -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679360413"><span id="local-6989586621679360415"><span id="local-6989586621679360417"><span id="local-6989586621679360419"><span id="local-6989586621679360421"><span id="local-6989586621679360423"><span id="local-6989586621679360425"><span class="annot"><span class="annottext">Eq ArtifactCategory
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679360422"><span id="local-6989586621679360424"><span id="local-6989586621679360426"><span id="local-6989586621679360428"><span id="local-6989586621679360430"><span id="local-6989586621679360432"><span id="local-6989586621679360434"><span class="annot"><span class="annottext">Eq ArtifactCategory
 Eq ArtifactCategory
 -&gt; (ArtifactCategory -&gt; ArtifactCategory -&gt; Ordering)
 -&gt; (ArtifactCategory -&gt; ArtifactCategory -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ArtifactCategory -&gt; Rep ArtifactCategory x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360405"><span id="local-6989586621679360407"><span class="annot"><span class="annottext">Int -&gt; ArtifactCategory -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679360414"><span id="local-6989586621679360416"><span class="annot"><span class="annottext">Int -&gt; ArtifactCategory -&gt; Int
 ArtifactCategory -&gt; Int
 (Int -&gt; ArtifactCategory -&gt; Int)
 -&gt; (ArtifactCategory -&gt; Int) -&gt; Hashable ArtifactCategory
@@ -144,51 +144,51 @@ $chash :: ArtifactCategory -&gt; Int
 hashWithSalt :: Int -&gt; ArtifactCategory -&gt; Int
 $chashWithSalt :: Int -&gt; ArtifactCategory -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679360402"><span class="annot"><span class="annottext">ArtifactCategory -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679360411"><span class="annot"><span class="annottext">ArtifactCategory -&gt; ()
 (ArtifactCategory -&gt; ()) -&gt; NFData ArtifactCategory
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ArtifactCategory -&gt; ()
 $crnf :: ArtifactCategory -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679360399"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactCategory
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679360408"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactCategory
 (Text -&gt; Either String ArtifactCategory)
 -&gt; FromText ArtifactCategory
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ArtifactCategory
 $cfromText :: Text -&gt; Either String ArtifactCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679360396"><span class="annot"><span class="annottext">ArtifactCategory -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679360405"><span class="annot"><span class="annottext">ArtifactCategory -&gt; Text
 (ArtifactCategory -&gt; Text) -&gt; ToText ArtifactCategory
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ArtifactCategory -&gt; Text
 $ctoText :: ArtifactCategory -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679360393"><span class="annot"><span class="annottext">ArtifactCategory -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679360402"><span class="annot"><span class="annottext">ArtifactCategory -&gt; ByteString
 (ArtifactCategory -&gt; ByteString) -&gt; ToByteString ArtifactCategory
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ArtifactCategory -&gt; ByteString
 $ctoBS :: ArtifactCategory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679360390"><span class="annot"><span class="annottext">ArtifactCategory -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679360399"><span class="annot"><span class="annottext">ArtifactCategory -&gt; ByteStringBuilder
 (ArtifactCategory -&gt; ByteStringBuilder) -&gt; ToLog ArtifactCategory
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ArtifactCategory -&gt; ByteStringBuilder
 $cbuild :: ArtifactCategory -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679360387"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactCategory -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679360396"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactCategory -&gt; [Header]
 (HeaderName -&gt; ArtifactCategory -&gt; [Header])
 -&gt; ToHeader ArtifactCategory
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ArtifactCategory -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ArtifactCategory -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679360384"><span class="annot"><span class="annottext">ArtifactCategory -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679360393"><span class="annot"><span class="annottext">ArtifactCategory -&gt; QueryString
 (ArtifactCategory -&gt; QueryString) -&gt; ToQuery ArtifactCategory
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ArtifactCategory -&gt; QueryString
 $ctoQuery :: ArtifactCategory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679360379"><span id="local-6989586621679360381"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactCategory]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679360388"><span id="local-6989586621679360390"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactCategory]
 Value -&gt; Parser ArtifactCategory
 (Value -&gt; Parser ArtifactCategory)
 -&gt; (Value -&gt; Parser [ArtifactCategory])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ArtifactCategory]
 parseJSON :: Value -&gt; Parser ArtifactCategory
 $cparseJSON :: Value -&gt; Parser ArtifactCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679360374"><span id="local-6989586621679360376"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactCategory]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679360383"><span id="local-6989586621679360385"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactCategory]
 FromJSONKeyFunction ArtifactCategory
 FromJSONKeyFunction ArtifactCategory
 -&gt; FromJSONKeyFunction [ArtifactCategory]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ArtifactCategory]
 fromJSONKey :: FromJSONKeyFunction ArtifactCategory
 $cfromJSONKey :: FromJSONKeyFunction ArtifactCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679360365"><span id="local-6989586621679360367"><span id="local-6989586621679360369"><span id="local-6989586621679360371"><span class="annot"><span class="annottext">[ArtifactCategory] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679360374"><span id="local-6989586621679360376"><span id="local-6989586621679360378"><span id="local-6989586621679360380"><span class="annot"><span class="annottext">[ArtifactCategory] -&gt; Encoding
 [ArtifactCategory] -&gt; Value
 ArtifactCategory -&gt; Encoding
 ArtifactCategory -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ArtifactCategory -&gt; Encoding
 toJSON :: ArtifactCategory -&gt; Value
 $ctoJSON :: ArtifactCategory -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679360360"><span id="local-6989586621679360362"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactCategory]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679360369"><span id="local-6989586621679360371"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactCategory]
 ToJSONKeyFunction ArtifactCategory
 ToJSONKeyFunction ArtifactCategory
 -&gt; ToJSONKeyFunction [ArtifactCategory]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ArtifactCategory]
 toJSONKey :: ToJSONKeyFunction ArtifactCategory
 $ctoJSONKey :: ToJSONKeyFunction ArtifactCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679360357"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactCategory
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679360366"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactCategory
 ([Node] -&gt; Either String ArtifactCategory)
 -&gt; FromXML ArtifactCategory
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ArtifactCategory
 $cparseXML :: [Node] -&gt; Either String ArtifactCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679360354"><span class="annot"><span class="annottext">ArtifactCategory -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679360363"><span class="annot"><span class="annottext">ArtifactCategory -&gt; XML
 (ArtifactCategory -&gt; XML) -&gt; ToXML ArtifactCategory
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ArtifactCategory -&gt; XML

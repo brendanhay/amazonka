@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Network.AWS.PersonalizeEvents</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2018-03-22@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Amazon Personalize can consume real-time user event data, such as</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- /stream/ or /click/ data, and use it for model training either alone or</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- combined with historical data. For more information see</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html Recording Events&gt;.</span><span>
+</span><span id="line-18"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.PersonalizeEvents</span><span>
+</span><span id="line-19"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidInputException</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.html#_InvalidInputException"><span class="hs-identifier">_InvalidInputException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceNotFoundException</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceInUseException</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.html#_ResourceInUseException"><span class="hs-identifier">_ResourceInUseException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutUsers</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutUsers.html#PutUsers"><span class="hs-identifier">PutUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutUsers.html#PutUsers%27"><span class="hs-identifier">PutUsers'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutUsers.html#newPutUsers"><span class="hs-identifier">newPutUsers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutUsers.html#PutUsersResponse"><span class="hs-identifier">PutUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutUsers.html#PutUsersResponse%27"><span class="hs-identifier">PutUsersResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutUsers.html#newPutUsersResponse"><span class="hs-identifier">newPutUsersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutItems</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier">PutItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutItems.html#PutItems%27"><span class="hs-identifier">PutItems'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutItems.html#newPutItems"><span class="hs-identifier">newPutItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutItems.html#PutItemsResponse"><span class="hs-identifier">PutItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutItems.html#PutItemsResponse%27"><span class="hs-identifier">PutItemsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutItems.html#newPutItemsResponse"><span class="hs-identifier">newPutItemsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutEvents</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutEvents.html#PutEvents"><span class="hs-identifier">PutEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutEvents.html#PutEvents%27"><span class="hs-identifier">PutEvents'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutEvents.html#newPutEvents"><span class="hs-identifier">newPutEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutEvents.html#PutEventsResponse"><span class="hs-identifier">PutEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutEvents.html#PutEventsResponse%27"><span class="hs-identifier">PutEventsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutEvents.html#newPutEventsResponse"><span class="hs-identifier">newPutEventsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Event</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.Event.html#Event"><span class="hs-identifier">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.Event.html#Event%27"><span class="hs-identifier">Event'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.Event.html#newEvent"><span class="hs-identifier">newEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Item</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.Item.html#Item"><span class="hs-identifier">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.Item.html#Item%27"><span class="hs-identifier">Item'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.Item.html#newItem"><span class="hs-identifier">newItem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** User</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.User.html#User"><span class="hs-identifier">User</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.User.html#User%27"><span class="hs-identifier">User'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.User.html#newUser"><span class="hs-identifier">newUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Lens.html"><span class="hs-identifier">Network.AWS.PersonalizeEvents.Lens</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutEvents.html"><span class="hs-identifier">Network.AWS.PersonalizeEvents.PutEvents</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutItems.html"><span class="hs-identifier">Network.AWS.PersonalizeEvents.PutItems</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.PutUsers.html"><span class="hs-identifier">Network.AWS.PersonalizeEvents.PutUsers</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Types.html"><span class="hs-identifier">Network.AWS.PersonalizeEvents.Types</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PersonalizeEvents.Waiters.html"><span class="hs-identifier">Network.AWS.PersonalizeEvents.Waiters</span></a></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- by 'PersonalizeEvents'.</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-107"></span></pre></body></html>

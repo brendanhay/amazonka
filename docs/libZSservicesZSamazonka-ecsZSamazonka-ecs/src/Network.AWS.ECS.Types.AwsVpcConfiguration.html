@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing the networking details for a task or service.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAwsVpcConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679448188"><span id="local-6989586621679448189"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsVpcConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-var">AwsVpcConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsVpcConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-var">AwsVpcConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679448197"><span id="local-6989586621679448198"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsVpcConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-var">AwsVpcConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsVpcConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-var">AwsVpcConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the security groups associated with the task or service. If</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- you do not specify a security group, the default security group for the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- VPC is used. There is a limit of 5 security groups that can be specified</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Asubnets%3AAwsVpcConfiguration%27"><span class="annot"><span class="annottext">AwsVpcConfiguration -&gt; [Text]
 </span><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#%24sel%3Asubnets%3AAwsVpcConfiguration%27"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448180"><span id="local-6989586621679448182"><span class="annot"><span class="annottext">AwsVpcConfiguration -&gt; AwsVpcConfiguration -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448189"><span id="local-6989586621679448191"><span class="annot"><span class="annottext">AwsVpcConfiguration -&gt; AwsVpcConfiguration -&gt; Bool
 (AwsVpcConfiguration -&gt; AwsVpcConfiguration -&gt; Bool)
 -&gt; (AwsVpcConfiguration -&gt; AwsVpcConfiguration -&gt; Bool)
 -&gt; Eq AwsVpcConfiguration
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AwsVpcConfiguration -&gt; AwsVpcConfiguration -&gt; Bool
 == :: AwsVpcConfiguration -&gt; AwsVpcConfiguration -&gt; Bool
 $c== :: AwsVpcConfiguration -&gt; AwsVpcConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448171"><span id="local-6989586621679448173"><span id="local-6989586621679448175"><span id="local-6989586621679448177"><span class="annot"><span class="annottext">ReadPrec [AwsVpcConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448180"><span id="local-6989586621679448182"><span id="local-6989586621679448184"><span id="local-6989586621679448186"><span class="annot"><span class="annottext">ReadPrec [AwsVpcConfiguration]
 ReadPrec AwsVpcConfiguration
 Int -&gt; ReadS AwsVpcConfiguration
 ReadS [AwsVpcConfiguration]
@@ -76,7 +76,7 @@ readList :: ReadS [AwsVpcConfiguration]
 $creadList :: ReadS [AwsVpcConfiguration]
 readsPrec :: Int -&gt; ReadS AwsVpcConfiguration
 $creadsPrec :: Int -&gt; ReadS AwsVpcConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448164"><span id="local-6989586621679448166"><span id="local-6989586621679448168"><span class="annot"><span class="annottext">Int -&gt; AwsVpcConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448173"><span id="local-6989586621679448175"><span id="local-6989586621679448177"><span class="annot"><span class="annottext">Int -&gt; AwsVpcConfiguration -&gt; ShowS
 [AwsVpcConfiguration] -&gt; ShowS
 AwsVpcConfiguration -&gt; String
 (Int -&gt; AwsVpcConfiguration -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Monoid a =&gt; a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448155"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448164"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroups :: Maybe [Text]
 $sel:securityGroups:AwsVpcConfiguration' :: AwsVpcConfiguration -&gt; Maybe [Text]
-</span><a href="#local-6989586621679448155"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679448155"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448154"><span class="annot"><span class="annottext">s :: AwsVpcConfiguration
-</span><a href="#local-6989586621679448154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448153"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679448153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsVpcConfiguration
-</span><a href="#local-6989586621679448154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:AwsVpcConfiguration' :: Maybe [Text]
+</span><a href="#local-6989586621679448164"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679448164"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448163"><span class="annot"><span class="annottext">s :: AwsVpcConfiguration
+</span><a href="#local-6989586621679448163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448162"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679448162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsVpcConfiguration
+</span><a href="#local-6989586621679448163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:AwsVpcConfiguration' :: Maybe [Text]
 </span><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#%24sel%3AsecurityGroups%3AAwsVpcConfiguration%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679448153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679448162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AwsVpcConfiguration -&gt; f AwsVpcConfiguration)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -203,16 +203,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe AssignPublicIp)
      (Maybe AssignPublicIp)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448148"><span class="annot"><span class="annottext">Maybe AssignPublicIp
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448157"><span class="annot"><span class="annottext">Maybe AssignPublicIp
 assignPublicIp :: Maybe AssignPublicIp
 $sel:assignPublicIp:AwsVpcConfiguration' :: AwsVpcConfiguration -&gt; Maybe AssignPublicIp
-</span><a href="#local-6989586621679448148"><span class="hs-identifier hs-var hs-var">assignPublicIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssignPublicIp
-</span><a href="#local-6989586621679448148"><span class="hs-identifier hs-var">assignPublicIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448147"><span class="annot"><span class="annottext">s :: AwsVpcConfiguration
-</span><a href="#local-6989586621679448147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448146"><span class="annot"><span class="annottext">Maybe AssignPublicIp
-</span><a href="#local-6989586621679448146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsVpcConfiguration
-</span><a href="#local-6989586621679448147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignPublicIp:AwsVpcConfiguration' :: Maybe AssignPublicIp
+</span><a href="#local-6989586621679448157"><span class="hs-identifier hs-var hs-var">assignPublicIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssignPublicIp
+</span><a href="#local-6989586621679448157"><span class="hs-identifier hs-var">assignPublicIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448156"><span class="annot"><span class="annottext">s :: AwsVpcConfiguration
+</span><a href="#local-6989586621679448156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448155"><span class="annot"><span class="annottext">Maybe AssignPublicIp
+</span><a href="#local-6989586621679448155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsVpcConfiguration
+</span><a href="#local-6989586621679448156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignPublicIp:AwsVpcConfiguration' :: Maybe AssignPublicIp
 </span><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#%24sel%3AassignPublicIp%3AAwsVpcConfiguration%27"><span class="hs-identifier hs-var">assignPublicIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssignPublicIp
-</span><a href="#local-6989586621679448146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The IDs of the subnets associated with the task or service. There is a</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- limit of 16 subnets that can be specified per @AwsVpcConfiguration@.</span><span>
@@ -225,16 +225,16 @@ $sel:assignPublicIp:AwsVpcConfiguration' :: AwsVpcConfiguration -&gt; Maybe Assi
 -&gt; (AwsVpcConfiguration -&gt; [Text] -&gt; AwsVpcConfiguration)
 -&gt; Lens AwsVpcConfiguration AwsVpcConfiguration [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448144"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448153"><span class="annot"><span class="annottext">[Text]
 subnets :: [Text]
 $sel:subnets:AwsVpcConfiguration' :: AwsVpcConfiguration -&gt; [Text]
-</span><a href="#local-6989586621679448144"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679448144"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448143"><span class="annot"><span class="annottext">s :: AwsVpcConfiguration
-</span><a href="#local-6989586621679448143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448142"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679448142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsVpcConfiguration
-</span><a href="#local-6989586621679448143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:AwsVpcConfiguration' :: [Text]
+</span><a href="#local-6989586621679448153"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679448153"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448152"><span class="annot"><span class="annottext">s :: AwsVpcConfiguration
+</span><a href="#local-6989586621679448152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448151"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679448151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsVpcConfiguration
+</span><a href="#local-6989586621679448152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:AwsVpcConfiguration' :: [Text]
 </span><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#%24sel%3Asubnets%3AAwsVpcConfiguration%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679448142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679448151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; AwsVpcConfiguration -&gt; f AwsVpcConfiguration)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -245,8 +245,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448139"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679448137"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsVpcConfiguration
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448148"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679448146"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsVpcConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AwsVpcConfiguration)
@@ -256,8 +256,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AwsVpcConfiguration&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679448134"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679448134"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679448143"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679448143"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe AssignPublicIp -&gt; [Text] -&gt; AwsVpcConfiguration
 </span><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-var">AwsVpcConfiguration'</span></a></span><span>
@@ -267,7 +267,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe AssignPublicIp -&gt; [Text] -&gt; AwsVpcConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679448134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679448143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;securityGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser ([Text] -&gt; AwsVpcConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679448134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssignPublicIp)
+</span><a href="#local-6989586621679448143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssignPublicIp)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;assignPublicIp&quot;</span></span><span class="hs-special">)</span><span>
@@ -289,7 +289,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser [Text] -&gt; Parser AwsVpcConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679448134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679448143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -299,13 +299,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448127"><span id="local-6989586621679448129"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448136"><span id="local-6989586621679448138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448124"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448116"><span id="local-6989586621679448118"><span id="local-6989586621679448120"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679448114"><span class="annot"><span class="annottext">toJSON :: AwsVpcConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448110"><span id="local-6989586621679448111"><span id="local-6989586621679448112"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448125"><span id="local-6989586621679448127"><span id="local-6989586621679448129"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration"><span class="hs-identifier hs-type">AwsVpcConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679448123"><span class="annot"><span class="annottext">toJSON :: AwsVpcConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AwsVpcConfiguration.html#AwsVpcConfiguration%27"><span class="hs-identifier hs-type">AwsVpcConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448119"><span id="local-6989586621679448120"><span id="local-6989586621679448121"><span class="annot"><span class="annottext">[Text]
 Maybe [Text]
 Maybe AssignPublicIp
 subnets :: [Text]
@@ -314,7 +314,7 @@ securityGroups :: Maybe [Text]
 $sel:subnets:AwsVpcConfiguration' :: AwsVpcConfiguration -&gt; [Text]
 $sel:assignPublicIp:AwsVpcConfiguration' :: AwsVpcConfiguration -&gt; Maybe AssignPublicIp
 $sel:securityGroups:AwsVpcConfiguration' :: AwsVpcConfiguration -&gt; Maybe [Text]
-</span><a href="#local-6989586621679448110"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679448119"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -327,7 +327,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679448112"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679448121"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;assignPublicIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AssignPublicIp -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -335,14 +335,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">(AssignPublicIp -&gt; Pair) -&gt; Maybe AssignPublicIp -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AssignPublicIp
-</span><a href="#local-6989586621679448111"><span class="hs-identifier hs-var">assignPublicIp</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679448120"><span class="hs-identifier hs-var">assignPublicIp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679448110"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448119"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span></pre></body></html>

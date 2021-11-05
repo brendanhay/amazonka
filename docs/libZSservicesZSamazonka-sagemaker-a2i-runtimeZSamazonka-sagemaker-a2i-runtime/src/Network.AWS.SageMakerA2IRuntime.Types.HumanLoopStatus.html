@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus"><span class="hs-identifier">HumanLoopStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Completed"><span class="hs-identifier">HumanLoopStatus_Completed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Failed"><span class="hs-identifier">HumanLoopStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_InProgress"><span class="hs-identifier">HumanLoopStatus_InProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Stopped"><span class="hs-identifier">HumanLoopStatus_Stopped</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Stopping"><span class="hs-identifier">HumanLoopStatus_Stopping</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679148468"><span id="local-6989586621679148469"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HumanLoopStatus"><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus"><span class="hs-identifier hs-var">HumanLoopStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanLoopStatus%27"><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus%27"><span class="hs-identifier hs-var">HumanLoopStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHumanLoopStatus"><span class="annot"><span class="annottext">HumanLoopStatus -&gt; Text
+</span><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#fromHumanLoopStatus"><span class="hs-identifier hs-var hs-var">fromHumanLoopStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679148460"><span id="local-6989586621679148462"><span id="local-6989586621679148464"><span class="annot"><span class="annottext">Int -&gt; HumanLoopStatus -&gt; ShowS
+[HumanLoopStatus] -&gt; ShowS
+HumanLoopStatus -&gt; String
+(Int -&gt; HumanLoopStatus -&gt; ShowS)
+-&gt; (HumanLoopStatus -&gt; String)
+-&gt; ([HumanLoopStatus] -&gt; ShowS)
+-&gt; Show HumanLoopStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HumanLoopStatus] -&gt; ShowS
+$cshowList :: [HumanLoopStatus] -&gt; ShowS
+show :: HumanLoopStatus -&gt; String
+$cshow :: HumanLoopStatus -&gt; String
+showsPrec :: Int -&gt; HumanLoopStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; HumanLoopStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679148451"><span id="local-6989586621679148453"><span id="local-6989586621679148455"><span id="local-6989586621679148457"><span class="annot"><span class="annottext">ReadPrec [HumanLoopStatus]
+ReadPrec HumanLoopStatus
+Int -&gt; ReadS HumanLoopStatus
+ReadS [HumanLoopStatus]
+(Int -&gt; ReadS HumanLoopStatus)
+-&gt; ReadS [HumanLoopStatus]
+-&gt; ReadPrec HumanLoopStatus
+-&gt; ReadPrec [HumanLoopStatus]
+-&gt; Read HumanLoopStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HumanLoopStatus]
+$creadListPrec :: ReadPrec [HumanLoopStatus]
+readPrec :: ReadPrec HumanLoopStatus
+$creadPrec :: ReadPrec HumanLoopStatus
+readList :: ReadS [HumanLoopStatus]
+$creadList :: ReadS [HumanLoopStatus]
+readsPrec :: Int -&gt; ReadS HumanLoopStatus
+$creadsPrec :: Int -&gt; ReadS HumanLoopStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679148446"><span id="local-6989586621679148448"><span class="annot"><span class="annottext">HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+(HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool)
+-&gt; (HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool)
+-&gt; Eq HumanLoopStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+$c/= :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+== :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+$c== :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679148430"><span id="local-6989586621679148432"><span id="local-6989586621679148434"><span id="local-6989586621679148436"><span id="local-6989586621679148438"><span id="local-6989586621679148440"><span id="local-6989586621679148442"><span class="annot"><span class="annottext">Eq HumanLoopStatus
+Eq HumanLoopStatus
+-&gt; (HumanLoopStatus -&gt; HumanLoopStatus -&gt; Ordering)
+-&gt; (HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool)
+-&gt; (HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool)
+-&gt; (HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool)
+-&gt; (HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool)
+-&gt; (HumanLoopStatus -&gt; HumanLoopStatus -&gt; HumanLoopStatus)
+-&gt; (HumanLoopStatus -&gt; HumanLoopStatus -&gt; HumanLoopStatus)
+-&gt; Ord HumanLoopStatus
+HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+HumanLoopStatus -&gt; HumanLoopStatus -&gt; Ordering
+HumanLoopStatus -&gt; HumanLoopStatus -&gt; HumanLoopStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; HumanLoopStatus
+$cmin :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; HumanLoopStatus
+max :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; HumanLoopStatus
+$cmax :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; HumanLoopStatus
+&gt;= :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+$c&gt;= :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+&gt; :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+$c&gt; :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+&lt;= :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+$c&lt;= :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+&lt; :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+$c&lt; :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Bool
+compare :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Ordering
+$ccompare :: HumanLoopStatus -&gt; HumanLoopStatus -&gt; Ordering
+$cp1Ord :: Eq HumanLoopStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HumanLoopStatus -&gt; Rep HumanLoopStatus x)
+-&gt; (forall x. Rep HumanLoopStatus x -&gt; HumanLoopStatus)
+-&gt; Generic HumanLoopStatus
+forall x. Rep HumanLoopStatus x -&gt; HumanLoopStatus
+forall x. HumanLoopStatus -&gt; Rep HumanLoopStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HumanLoopStatus x -&gt; HumanLoopStatus
+$cfrom :: forall x. HumanLoopStatus -&gt; Rep HumanLoopStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679148422"><span id="local-6989586621679148424"><span class="annot"><span class="annottext">Int -&gt; HumanLoopStatus -&gt; Int
+HumanLoopStatus -&gt; Int
+(Int -&gt; HumanLoopStatus -&gt; Int)
+-&gt; (HumanLoopStatus -&gt; Int) -&gt; Hashable HumanLoopStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HumanLoopStatus -&gt; Int
+$chash :: HumanLoopStatus -&gt; Int
+hashWithSalt :: Int -&gt; HumanLoopStatus -&gt; Int
+$chashWithSalt :: Int -&gt; HumanLoopStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679148419"><span class="annot"><span class="annottext">HumanLoopStatus -&gt; ()
+(HumanLoopStatus -&gt; ()) -&gt; NFData HumanLoopStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HumanLoopStatus -&gt; ()
+$crnf :: HumanLoopStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679148416"><span class="annot"><span class="annottext">Text -&gt; Either String HumanLoopStatus
+(Text -&gt; Either String HumanLoopStatus) -&gt; FromText HumanLoopStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HumanLoopStatus
+$cfromText :: Text -&gt; Either String HumanLoopStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679148413"><span class="annot"><span class="annottext">HumanLoopStatus -&gt; Text
+(HumanLoopStatus -&gt; Text) -&gt; ToText HumanLoopStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HumanLoopStatus -&gt; Text
+$ctoText :: HumanLoopStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679148410"><span class="annot"><span class="annottext">HumanLoopStatus -&gt; ByteString
+(HumanLoopStatus -&gt; ByteString) -&gt; ToByteString HumanLoopStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HumanLoopStatus -&gt; ByteString
+$ctoBS :: HumanLoopStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679148407"><span class="annot"><span class="annottext">HumanLoopStatus -&gt; ByteStringBuilder
+(HumanLoopStatus -&gt; ByteStringBuilder) -&gt; ToLog HumanLoopStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HumanLoopStatus -&gt; ByteStringBuilder
+$cbuild :: HumanLoopStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679148404"><span class="annot"><span class="annottext">HeaderName -&gt; HumanLoopStatus -&gt; [Header]
+(HeaderName -&gt; HumanLoopStatus -&gt; [Header])
+-&gt; ToHeader HumanLoopStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HumanLoopStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HumanLoopStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679148401"><span class="annot"><span class="annottext">HumanLoopStatus -&gt; QueryString
+(HumanLoopStatus -&gt; QueryString) -&gt; ToQuery HumanLoopStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HumanLoopStatus -&gt; QueryString
+$ctoQuery :: HumanLoopStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679148396"><span id="local-6989586621679148398"><span class="annot"><span class="annottext">Value -&gt; Parser [HumanLoopStatus]
+Value -&gt; Parser HumanLoopStatus
+(Value -&gt; Parser HumanLoopStatus)
+-&gt; (Value -&gt; Parser [HumanLoopStatus]) -&gt; FromJSON HumanLoopStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HumanLoopStatus]
+$cparseJSONList :: Value -&gt; Parser [HumanLoopStatus]
+parseJSON :: Value -&gt; Parser HumanLoopStatus
+$cparseJSON :: Value -&gt; Parser HumanLoopStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679148391"><span id="local-6989586621679148393"><span class="annot"><span class="annottext">FromJSONKeyFunction [HumanLoopStatus]
+FromJSONKeyFunction HumanLoopStatus
+FromJSONKeyFunction HumanLoopStatus
+-&gt; FromJSONKeyFunction [HumanLoopStatus]
+-&gt; FromJSONKey HumanLoopStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HumanLoopStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [HumanLoopStatus]
+fromJSONKey :: FromJSONKeyFunction HumanLoopStatus
+$cfromJSONKey :: FromJSONKeyFunction HumanLoopStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679148382"><span id="local-6989586621679148384"><span id="local-6989586621679148386"><span id="local-6989586621679148388"><span class="annot"><span class="annottext">[HumanLoopStatus] -&gt; Encoding
+[HumanLoopStatus] -&gt; Value
+HumanLoopStatus -&gt; Encoding
+HumanLoopStatus -&gt; Value
+(HumanLoopStatus -&gt; Value)
+-&gt; (HumanLoopStatus -&gt; Encoding)
+-&gt; ([HumanLoopStatus] -&gt; Value)
+-&gt; ([HumanLoopStatus] -&gt; Encoding)
+-&gt; ToJSON HumanLoopStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HumanLoopStatus] -&gt; Encoding
+$ctoEncodingList :: [HumanLoopStatus] -&gt; Encoding
+toJSONList :: [HumanLoopStatus] -&gt; Value
+$ctoJSONList :: [HumanLoopStatus] -&gt; Value
+toEncoding :: HumanLoopStatus -&gt; Encoding
+$ctoEncoding :: HumanLoopStatus -&gt; Encoding
+toJSON :: HumanLoopStatus -&gt; Value
+$ctoJSON :: HumanLoopStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679148377"><span id="local-6989586621679148379"><span class="annot"><span class="annottext">ToJSONKeyFunction [HumanLoopStatus]
+ToJSONKeyFunction HumanLoopStatus
+ToJSONKeyFunction HumanLoopStatus
+-&gt; ToJSONKeyFunction [HumanLoopStatus] -&gt; ToJSONKey HumanLoopStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HumanLoopStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [HumanLoopStatus]
+toJSONKey :: ToJSONKeyFunction HumanLoopStatus
+$ctoJSONKey :: ToJSONKeyFunction HumanLoopStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679148374"><span class="annot"><span class="annottext">[Node] -&gt; Either String HumanLoopStatus
+([Node] -&gt; Either String HumanLoopStatus)
+-&gt; FromXML HumanLoopStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HumanLoopStatus
+$cparseXML :: [Node] -&gt; Either String HumanLoopStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679148371"><span class="annot"><span class="annottext">HumanLoopStatus -&gt; XML
+(HumanLoopStatus -&gt; XML) -&gt; ToXML HumanLoopStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HumanLoopStatus -&gt; XML
+$ctoXML :: HumanLoopStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Completed"><span class="hs-identifier hs-type">HumanLoopStatus_Completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus"><span class="hs-identifier hs-type">HumanLoopStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHumanLoopStatus_Completed"><span id="%24mHumanLoopStatus_Completed"><span id="HumanLoopStatus_Completed"><span class="annot"><span class="annottext">$bHumanLoopStatus_Completed :: HumanLoopStatus
+$mHumanLoopStatus_Completed :: forall r. HumanLoopStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#%24bHumanLoopStatus_Completed"><span class="hs-identifier hs-var hs-var hs-var">HumanLoopStatus_Completed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus%27"><span class="hs-identifier hs-type">HumanLoopStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Completed&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Failed"><span class="hs-identifier hs-type">HumanLoopStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus"><span class="hs-identifier hs-type">HumanLoopStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHumanLoopStatus_Failed"><span id="%24mHumanLoopStatus_Failed"><span id="HumanLoopStatus_Failed"><span class="annot"><span class="annottext">$bHumanLoopStatus_Failed :: HumanLoopStatus
+$mHumanLoopStatus_Failed :: forall r. HumanLoopStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#%24bHumanLoopStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">HumanLoopStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus%27"><span class="hs-identifier hs-type">HumanLoopStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_InProgress"><span class="hs-identifier hs-type">HumanLoopStatus_InProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus"><span class="hs-identifier hs-type">HumanLoopStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHumanLoopStatus_InProgress"><span id="%24mHumanLoopStatus_InProgress"><span id="HumanLoopStatus_InProgress"><span class="annot"><span class="annottext">$bHumanLoopStatus_InProgress :: HumanLoopStatus
+$mHumanLoopStatus_InProgress :: forall r. HumanLoopStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#%24bHumanLoopStatus_InProgress"><span class="hs-identifier hs-var hs-var hs-var">HumanLoopStatus_InProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus%27"><span class="hs-identifier hs-type">HumanLoopStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InProgress&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Stopped"><span class="hs-identifier hs-type">HumanLoopStatus_Stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus"><span class="hs-identifier hs-type">HumanLoopStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHumanLoopStatus_Stopped"><span id="%24mHumanLoopStatus_Stopped"><span id="HumanLoopStatus_Stopped"><span class="annot"><span class="annottext">$bHumanLoopStatus_Stopped :: HumanLoopStatus
+$mHumanLoopStatus_Stopped :: forall r. HumanLoopStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#%24bHumanLoopStatus_Stopped"><span class="hs-identifier hs-var hs-var hs-var">HumanLoopStatus_Stopped</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus%27"><span class="hs-identifier hs-type">HumanLoopStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopped&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Stopping"><span class="hs-identifier hs-type">HumanLoopStatus_Stopping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus"><span class="hs-identifier hs-type">HumanLoopStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHumanLoopStatus_Stopping"><span id="%24mHumanLoopStatus_Stopping"><span id="HumanLoopStatus_Stopping"><span class="annot"><span class="annottext">$bHumanLoopStatus_Stopping :: HumanLoopStatus
+$mHumanLoopStatus_Stopping :: forall r. HumanLoopStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#%24bHumanLoopStatus_Stopping"><span class="hs-identifier hs-var hs-var hs-var">HumanLoopStatus_Stopping</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus%27"><span class="hs-identifier hs-type">HumanLoopStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopping&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Completed"><span class="hs-pragma hs-type">HumanLoopStatus_Completed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Failed"><span class="hs-pragma hs-type">HumanLoopStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_InProgress"><span class="hs-pragma hs-type">HumanLoopStatus_InProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Stopped"><span class="hs-pragma hs-type">HumanLoopStatus_Stopped</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus_Stopping"><span class="hs-pragma hs-type">HumanLoopStatus_Stopping</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.html#HumanLoopStatus%27"><span class="hs-pragma hs-type">HumanLoopStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

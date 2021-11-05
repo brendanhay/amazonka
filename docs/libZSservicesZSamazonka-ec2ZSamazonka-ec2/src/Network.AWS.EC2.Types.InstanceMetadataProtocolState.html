@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681117283"><span id="local-6989586621681117284"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceMetadataProtocolState"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceMetadataProtocolState.html#InstanceMetadataProtocolState"><span class="hs-identifier hs-var">InstanceMetadataProtocolState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMetadataProtocolState%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceMetadataProtocolState.html#InstanceMetadataProtocolState%27"><span class="hs-identifier hs-var">InstanceMetadataProtocolState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681117292"><span id="local-6989586621681117293"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceMetadataProtocolState"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceMetadataProtocolState.html#InstanceMetadataProtocolState"><span class="hs-identifier hs-var">InstanceMetadataProtocolState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMetadataProtocolState%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceMetadataProtocolState.html#InstanceMetadataProtocolState%27"><span class="hs-identifier hs-var">InstanceMetadataProtocolState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceMetadataProtocolState"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.InstanceMetadataProtocolState.html#fromInstanceMetadataProtocolState"><span class="hs-identifier hs-var hs-var">fromInstanceMetadataProtocolState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681117275"><span id="local-6989586621681117277"><span id="local-6989586621681117279"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataProtocolState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681117284"><span id="local-6989586621681117286"><span id="local-6989586621681117288"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataProtocolState -&gt; ShowS
 [InstanceMetadataProtocolState] -&gt; ShowS
 InstanceMetadataProtocolState -&gt; String
 (Int -&gt; InstanceMetadataProtocolState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: InstanceMetadataProtocolState -&gt; String
 showsPrec :: Int -&gt; InstanceMetadataProtocolState -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceMetadataProtocolState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681117266"><span id="local-6989586621681117268"><span id="local-6989586621681117270"><span id="local-6989586621681117272"><span class="annot"><span class="annottext">ReadPrec [InstanceMetadataProtocolState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681117275"><span id="local-6989586621681117277"><span id="local-6989586621681117279"><span id="local-6989586621681117281"><span class="annot"><span class="annottext">ReadPrec [InstanceMetadataProtocolState]
 ReadPrec InstanceMetadataProtocolState
 Int -&gt; ReadS InstanceMetadataProtocolState
 ReadS [InstanceMetadataProtocolState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [InstanceMetadataProtocolState]
 readsPrec :: Int -&gt; ReadS InstanceMetadataProtocolState
 $creadsPrec :: Int -&gt; ReadS InstanceMetadataProtocolState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681117261"><span id="local-6989586621681117263"><span class="annot"><span class="annottext">InstanceMetadataProtocolState
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681117270"><span id="local-6989586621681117272"><span class="annot"><span class="annottext">InstanceMetadataProtocolState
 -&gt; InstanceMetadataProtocolState -&gt; Bool
 (InstanceMetadataProtocolState
  -&gt; InstanceMetadataProtocolState -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: InstanceMetadataProtocolState
 $c== :: InstanceMetadataProtocolState
 -&gt; InstanceMetadataProtocolState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681117245"><span id="local-6989586621681117247"><span id="local-6989586621681117249"><span id="local-6989586621681117251"><span id="local-6989586621681117253"><span id="local-6989586621681117255"><span id="local-6989586621681117257"><span class="annot"><span class="annottext">Eq InstanceMetadataProtocolState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681117254"><span id="local-6989586621681117256"><span id="local-6989586621681117258"><span id="local-6989586621681117260"><span id="local-6989586621681117262"><span id="local-6989586621681117264"><span id="local-6989586621681117266"><span class="annot"><span class="annottext">Eq InstanceMetadataProtocolState
 Eq InstanceMetadataProtocolState
 -&gt; (InstanceMetadataProtocolState
     -&gt; InstanceMetadataProtocolState -&gt; Ordering)
@@ -177,7 +177,7 @@ InstanceMetadataProtocolState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681117237"><span id="local-6989586621681117239"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataProtocolState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681117246"><span id="local-6989586621681117248"><span class="annot"><span class="annottext">Int -&gt; InstanceMetadataProtocolState -&gt; Int
 InstanceMetadataProtocolState -&gt; Int
 (Int -&gt; InstanceMetadataProtocolState -&gt; Int)
 -&gt; (InstanceMetadataProtocolState -&gt; Int)
@@ -188,56 +188,56 @@ $chash :: InstanceMetadataProtocolState -&gt; Int
 hashWithSalt :: Int -&gt; InstanceMetadataProtocolState -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceMetadataProtocolState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681117234"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681117243"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; ()
 (InstanceMetadataProtocolState -&gt; ())
 -&gt; NFData InstanceMetadataProtocolState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceMetadataProtocolState -&gt; ()
 $crnf :: InstanceMetadataProtocolState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681117231"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceMetadataProtocolState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681117240"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceMetadataProtocolState
 (Text -&gt; Either String InstanceMetadataProtocolState)
 -&gt; FromText InstanceMetadataProtocolState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceMetadataProtocolState
 $cfromText :: Text -&gt; Either String InstanceMetadataProtocolState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681117228"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681117237"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; Text
 (InstanceMetadataProtocolState -&gt; Text)
 -&gt; ToText InstanceMetadataProtocolState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceMetadataProtocolState -&gt; Text
 $ctoText :: InstanceMetadataProtocolState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681117225"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681117234"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; ByteString
 (InstanceMetadataProtocolState -&gt; ByteString)
 -&gt; ToByteString InstanceMetadataProtocolState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceMetadataProtocolState -&gt; ByteString
 $ctoBS :: InstanceMetadataProtocolState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681117222"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681117231"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; ByteStringBuilder
 (InstanceMetadataProtocolState -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceMetadataProtocolState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceMetadataProtocolState -&gt; ByteStringBuilder
 $cbuild :: InstanceMetadataProtocolState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681117219"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceMetadataProtocolState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681117228"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceMetadataProtocolState -&gt; [Header]
 (HeaderName -&gt; InstanceMetadataProtocolState -&gt; [Header])
 -&gt; ToHeader InstanceMetadataProtocolState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceMetadataProtocolState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceMetadataProtocolState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681117216"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681117225"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; QueryString
 (InstanceMetadataProtocolState -&gt; QueryString)
 -&gt; ToQuery InstanceMetadataProtocolState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceMetadataProtocolState -&gt; QueryString
 $ctoQuery :: InstanceMetadataProtocolState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681117211"><span id="local-6989586621681117213"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceMetadataProtocolState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681117220"><span id="local-6989586621681117222"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceMetadataProtocolState]
 Value -&gt; Parser InstanceMetadataProtocolState
 (Value -&gt; Parser InstanceMetadataProtocolState)
 -&gt; (Value -&gt; Parser [InstanceMetadataProtocolState])
@@ -249,7 +249,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceMetadataProtocolState]
 parseJSON :: Value -&gt; Parser InstanceMetadataProtocolState
 $cparseJSON :: Value -&gt; Parser InstanceMetadataProtocolState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681117206"><span id="local-6989586621681117208"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceMetadataProtocolState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681117215"><span id="local-6989586621681117217"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceMetadataProtocolState]
 FromJSONKeyFunction InstanceMetadataProtocolState
 FromJSONKeyFunction InstanceMetadataProtocolState
 -&gt; FromJSONKeyFunction [InstanceMetadataProtocolState]
@@ -261,7 +261,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceMetadataProtocolState]
 fromJSONKey :: FromJSONKeyFunction InstanceMetadataProtocolState
 $cfromJSONKey :: FromJSONKeyFunction InstanceMetadataProtocolState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681117197"><span id="local-6989586621681117199"><span id="local-6989586621681117201"><span id="local-6989586621681117203"><span class="annot"><span class="annottext">[InstanceMetadataProtocolState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681117206"><span id="local-6989586621681117208"><span id="local-6989586621681117210"><span id="local-6989586621681117212"><span class="annot"><span class="annottext">[InstanceMetadataProtocolState] -&gt; Encoding
 [InstanceMetadataProtocolState] -&gt; Value
 InstanceMetadataProtocolState -&gt; Encoding
 InstanceMetadataProtocolState -&gt; Value
@@ -285,7 +285,7 @@ $ctoEncoding :: InstanceMetadataProtocolState -&gt; Encoding
 toJSON :: InstanceMetadataProtocolState -&gt; Value
 $ctoJSON :: InstanceMetadataProtocolState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681117192"><span id="local-6989586621681117194"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceMetadataProtocolState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681117201"><span id="local-6989586621681117203"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceMetadataProtocolState]
 ToJSONKeyFunction InstanceMetadataProtocolState
 ToJSONKeyFunction InstanceMetadataProtocolState
 -&gt; ToJSONKeyFunction [InstanceMetadataProtocolState]
@@ -297,14 +297,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceMetadataProtocolState]
 toJSONKey :: ToJSONKeyFunction InstanceMetadataProtocolState
 $ctoJSONKey :: ToJSONKeyFunction InstanceMetadataProtocolState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681117189"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceMetadataProtocolState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681117198"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceMetadataProtocolState
 ([Node] -&gt; Either String InstanceMetadataProtocolState)
 -&gt; FromXML InstanceMetadataProtocolState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceMetadataProtocolState
 $cparseXML :: [Node] -&gt; Either String InstanceMetadataProtocolState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681117186"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681117195"><span class="annot"><span class="annottext">InstanceMetadataProtocolState -&gt; XML
 (InstanceMetadataProtocolState -&gt; XML)
 -&gt; ToXML InstanceMetadataProtocolState
 forall a. (a -&gt; XML) -&gt; ToXML a

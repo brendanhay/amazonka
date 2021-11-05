@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | /See:/ 'newUpdateWorkforce' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621680430268"><span id="local-6989586621680430269"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkforce"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-var">UpdateWorkforce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkforce%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-var">UpdateWorkforce'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621680430277"><span id="local-6989586621680430278"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkforce"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-var">UpdateWorkforce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkforce%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-var">UpdateWorkforce'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of one to ten worker IP address ranges</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs&gt;)</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- that can be used to access tasks assigned to this workforce.</span><span>
@@ -91,7 +91,7 @@
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3AworkforceName%3AUpdateWorkforce%27"><span class="annot"><span class="annottext">UpdateWorkforce -&gt; Text
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3AworkforceName%3AUpdateWorkforce%27"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680430260"><span id="local-6989586621680430262"><span class="annot"><span class="annottext">UpdateWorkforce -&gt; UpdateWorkforce -&gt; Bool
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680430269"><span id="local-6989586621680430271"><span class="annot"><span class="annottext">UpdateWorkforce -&gt; UpdateWorkforce -&gt; Bool
 (UpdateWorkforce -&gt; UpdateWorkforce -&gt; Bool)
 -&gt; (UpdateWorkforce -&gt; UpdateWorkforce -&gt; Bool)
 -&gt; Eq UpdateWorkforce
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateWorkforce -&gt; UpdateWorkforce -&gt; Bool
 == :: UpdateWorkforce -&gt; UpdateWorkforce -&gt; Bool
 $c== :: UpdateWorkforce -&gt; UpdateWorkforce -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430253"><span id="local-6989586621680430255"><span id="local-6989586621680430257"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkforce -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430262"><span id="local-6989586621680430264"><span id="local-6989586621680430266"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkforce -&gt; ShowS
 [UpdateWorkforce] -&gt; ShowS
 UpdateWorkforce -&gt; String
 (Int -&gt; UpdateWorkforce -&gt; ShowS)
@@ -150,8 +150,8 @@ $cfrom :: forall x. UpdateWorkforce -&gt; Rep UpdateWorkforce x
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span>
 </span><span id="line-116"></span><span id="newUpdateWorkforce"><span class="annot"><span class="annottext">newUpdateWorkforce :: Text -&gt; UpdateWorkforce
-</span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#newUpdateWorkforce"><span class="hs-identifier hs-var hs-var">newUpdateWorkforce</span></a></span></span><span> </span><span id="local-6989586621680430248"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680430248"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#newUpdateWorkforce"><span class="hs-identifier hs-var hs-var">newUpdateWorkforce</span></a></span></span><span> </span><span id="local-6989586621680430257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680430257"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorkforce' :: Maybe SourceIpConfig -&gt; Maybe OidcConfig -&gt; Text -&gt; UpdateWorkforce
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceIpConfig:UpdateWorkforce' :: Maybe SourceIpConfig
@@ -164,7 +164,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:workforceName:UpdateWorkforce' :: Text
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3AworkforceName%3AUpdateWorkforce%27"><span class="hs-identifier hs-var">workforceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680430248"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span><span>
+</span><a href="#local-6989586621680430257"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | A list of one to ten worker IP address ranges</span><span>
@@ -183,16 +183,16 @@ forall a. Maybe a
      (Maybe SourceIpConfig)
      (Maybe SourceIpConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430245"><span class="annot"><span class="annottext">Maybe SourceIpConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430254"><span class="annot"><span class="annottext">Maybe SourceIpConfig
 sourceIpConfig :: Maybe SourceIpConfig
 $sel:sourceIpConfig:UpdateWorkforce' :: UpdateWorkforce -&gt; Maybe SourceIpConfig
-</span><a href="#local-6989586621680430245"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
-</span><a href="#local-6989586621680430245"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430244"><span class="annot"><span class="annottext">s :: UpdateWorkforce
-</span><a href="#local-6989586621680430244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430243"><span class="annot"><span class="annottext">Maybe SourceIpConfig
-</span><a href="#local-6989586621680430243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforce
-</span><a href="#local-6989586621680430244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIpConfig:UpdateWorkforce' :: Maybe SourceIpConfig
+</span><a href="#local-6989586621680430254"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
+</span><a href="#local-6989586621680430254"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430253"><span class="annot"><span class="annottext">s :: UpdateWorkforce
+</span><a href="#local-6989586621680430253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430252"><span class="annot"><span class="annottext">Maybe SourceIpConfig
+</span><a href="#local-6989586621680430252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforce
+</span><a href="#local-6989586621680430253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIpConfig:UpdateWorkforce' :: Maybe SourceIpConfig
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3AsourceIpConfig%3AUpdateWorkforce%27"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
-</span><a href="#local-6989586621680430243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | Use this parameter to update your OIDC Identity Provider (IdP)</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- configuration for a workforce made using your own IdP.</span><span>
@@ -207,16 +207,16 @@ $sel:sourceIpConfig:UpdateWorkforce' :: UpdateWorkforce -&gt; Maybe SourceIpConf
      (Maybe OidcConfig)
      (Maybe OidcConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430242"><span class="annot"><span class="annottext">Maybe OidcConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430251"><span class="annot"><span class="annottext">Maybe OidcConfig
 oidcConfig :: Maybe OidcConfig
 $sel:oidcConfig:UpdateWorkforce' :: UpdateWorkforce -&gt; Maybe OidcConfig
-</span><a href="#local-6989586621680430242"><span class="hs-identifier hs-var hs-var">oidcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfig
-</span><a href="#local-6989586621680430242"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430241"><span class="annot"><span class="annottext">s :: UpdateWorkforce
-</span><a href="#local-6989586621680430241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430240"><span class="annot"><span class="annottext">Maybe OidcConfig
-</span><a href="#local-6989586621680430240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforce
-</span><a href="#local-6989586621680430241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidcConfig:UpdateWorkforce' :: Maybe OidcConfig
+</span><a href="#local-6989586621680430251"><span class="hs-identifier hs-var hs-var">oidcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfig
+</span><a href="#local-6989586621680430251"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430250"><span class="annot"><span class="annottext">s :: UpdateWorkforce
+</span><a href="#local-6989586621680430250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430249"><span class="annot"><span class="annottext">Maybe OidcConfig
+</span><a href="#local-6989586621680430249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforce
+</span><a href="#local-6989586621680430250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidcConfig:UpdateWorkforce' :: Maybe OidcConfig
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3AoidcConfig%3AUpdateWorkforce%27"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfig
-</span><a href="#local-6989586621680430240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The name of the private workforce that you want to update. You can find</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- your workforce name by using the operation.</span><span>
@@ -226,27 +226,27 @@ $sel:oidcConfig:UpdateWorkforce' :: UpdateWorkforce -&gt; Maybe OidcConfig
 -&gt; (UpdateWorkforce -&gt; Text -&gt; UpdateWorkforce)
 -&gt; Lens UpdateWorkforce UpdateWorkforce Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430239"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430248"><span class="annot"><span class="annottext">Text
 workforceName :: Text
 $sel:workforceName:UpdateWorkforce' :: UpdateWorkforce -&gt; Text
-</span><a href="#local-6989586621680430239"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680430239"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430238"><span class="annot"><span class="annottext">s :: UpdateWorkforce
-</span><a href="#local-6989586621680430238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430237"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680430237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforce
-</span><a href="#local-6989586621680430238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceName:UpdateWorkforce' :: Text
+</span><a href="#local-6989586621680430248"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680430248"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430247"><span class="annot"><span class="annottext">s :: UpdateWorkforce
+</span><a href="#local-6989586621680430247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430246"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680430246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforce
+</span><a href="#local-6989586621680430247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceName:UpdateWorkforce' :: Text
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3AworkforceName%3AUpdateWorkforce%27"><span class="hs-identifier hs-var">workforceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680430237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-type">UpdateWorkforceResponse</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621680430233"><span class="annot"><span class="annottext">request :: UpdateWorkforce -&gt; Request UpdateWorkforce
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621680430242"><span class="annot"><span class="annottext">request :: UpdateWorkforce -&gt; Request UpdateWorkforce
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateWorkforce -&gt; Request UpdateWorkforce
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621680430229"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621680430238"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateWorkforce
 -&gt; ClientResponse ClientBody
@@ -270,10 +270,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680430226"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680430226"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680430225"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680430225"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680430224"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680430224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680430235"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680430235"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680430234"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680430234"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680430233"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680430233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Workforce -&gt; UpdateWorkforceResponse
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-var">UpdateWorkforceResponse'</span></a></span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Workforce -&gt; UpdateWorkforceResponse)
@@ -285,23 +285,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680430226"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430235"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either String (Workforce -&gt; UpdateWorkforceResponse)
 -&gt; Either String Workforce -&gt; Either String UpdateWorkforceResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680430224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Workforce
+</span><a href="#local-6989586621680430233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Workforce
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Workforce&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430216"><span id="local-6989586621680430218"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430225"><span id="local-6989586621680430227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621680430209"><span class="annot"><span class="annottext">toHeaders :: UpdateWorkforce -&gt; ResponseHeaders
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621680430218"><span class="annot"><span class="annottext">toHeaders :: UpdateWorkforce -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateWorkforce -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -326,9 +326,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430199"><span id="local-6989586621680430201"><span id="local-6989586621680430203"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621680430197"><span class="annot"><span class="annottext">toJSON :: UpdateWorkforce -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430193"><span id="local-6989586621680430194"><span id="local-6989586621680430195"><span class="annot"><span class="annottext">Maybe OidcConfig
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430208"><span id="local-6989586621680430210"><span id="local-6989586621680430212"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621680430206"><span class="annot"><span class="annottext">toJSON :: UpdateWorkforce -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce%27"><span class="hs-identifier hs-type">UpdateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430202"><span id="local-6989586621680430203"><span id="local-6989586621680430204"><span class="annot"><span class="annottext">Maybe OidcConfig
 Maybe SourceIpConfig
 Text
 workforceName :: Text
@@ -337,7 +337,7 @@ sourceIpConfig :: Maybe SourceIpConfig
 $sel:workforceName:UpdateWorkforce' :: UpdateWorkforce -&gt; Text
 $sel:oidcConfig:UpdateWorkforce' :: UpdateWorkforce -&gt; Maybe OidcConfig
 $sel:sourceIpConfig:UpdateWorkforce' :: UpdateWorkforce -&gt; Maybe SourceIpConfig
-</span><a href="#local-6989586621680430193"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680430202"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -350,14 +350,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(SourceIpConfig -&gt; Pair) -&gt; Maybe SourceIpConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
-</span><a href="#local-6989586621680430195"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680430204"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OidcConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OidcConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OidcConfig -&gt; Pair) -&gt; Maybe OidcConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfig
-</span><a href="#local-6989586621680430194"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680430203"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -365,19 +365,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;WorkforceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680430193"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430202"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621680430187"><span class="annot"><span class="annottext">toPath :: UpdateWorkforce -&gt; ByteString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621680430196"><span class="annot"><span class="annottext">toPath :: UpdateWorkforce -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateWorkforce -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforce"><span class="hs-identifier hs-type">UpdateWorkforce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621680430183"><span class="annot"><span class="annottext">toQuery :: UpdateWorkforce -&gt; QueryString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621680430192"><span class="annot"><span class="annottext">toQuery :: UpdateWorkforce -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateWorkforce -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -385,7 +385,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | /See:/ 'newUpdateWorkforceResponse' smart constructor.</span><span>
-</span><span id="line-190"></span><span id="local-6989586621680430180"><span id="local-6989586621680430181"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkforceResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-var">UpdateWorkforceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkforceResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-var">UpdateWorkforceResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span id="local-6989586621680430189"><span id="local-6989586621680430190"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorkforceResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-var">UpdateWorkforceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorkforceResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-var">UpdateWorkforceResponse'</span></a></span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateWorkforceResponse%27"><span class="annot"><span class="annottext">UpdateWorkforceResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3AhttpStatus%3AUpdateWorkforceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -397,7 +397,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3Aworkforce%3AUpdateWorkforceResponse%27"><span class="annot"><span class="annottext">UpdateWorkforceResponse -&gt; Workforce
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3Aworkforce%3AUpdateWorkforceResponse%27"><span class="hs-identifier hs-var hs-var">workforce</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680430174"><span id="local-6989586621680430176"><span class="annot"><span class="annottext">UpdateWorkforceResponse -&gt; UpdateWorkforceResponse -&gt; Bool
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680430183"><span id="local-6989586621680430185"><span class="annot"><span class="annottext">UpdateWorkforceResponse -&gt; UpdateWorkforceResponse -&gt; Bool
 (UpdateWorkforceResponse -&gt; UpdateWorkforceResponse -&gt; Bool)
 -&gt; (UpdateWorkforceResponse -&gt; UpdateWorkforceResponse -&gt; Bool)
 -&gt; Eq UpdateWorkforceResponse
@@ -406,7 +406,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateWorkforceResponse -&gt; UpdateWorkforceResponse -&gt; Bool
 == :: UpdateWorkforceResponse -&gt; UpdateWorkforceResponse -&gt; Bool
 $c== :: UpdateWorkforceResponse -&gt; UpdateWorkforceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430166"><span id="local-6989586621680430168"><span id="local-6989586621680430170"><span id="local-6989586621680430172"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkforceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430175"><span id="local-6989586621680430177"><span id="local-6989586621680430179"><span id="local-6989586621680430181"><span class="annot"><span class="annottext">ReadPrec [UpdateWorkforceResponse]
 ReadPrec UpdateWorkforceResponse
 Int -&gt; ReadS UpdateWorkforceResponse
 ReadS [UpdateWorkforceResponse]
@@ -426,7 +426,7 @@ readList :: ReadS [UpdateWorkforceResponse]
 $creadList :: ReadS [UpdateWorkforceResponse]
 readsPrec :: Int -&gt; ReadS UpdateWorkforceResponse
 $creadsPrec :: Int -&gt; ReadS UpdateWorkforceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430159"><span id="local-6989586621680430161"><span id="local-6989586621680430163"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkforceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680430168"><span id="local-6989586621680430170"><span id="local-6989586621680430172"><span class="annot"><span class="annottext">Int -&gt; UpdateWorkforceResponse -&gt; ShowS
 [UpdateWorkforceResponse] -&gt; ShowS
 UpdateWorkforceResponse -&gt; String
 (Int -&gt; UpdateWorkforceResponse -&gt; ShowS)
@@ -476,17 +476,17 @@ $cfrom :: forall x. UpdateWorkforceResponse -&gt; Rep UpdateWorkforceResponse x
 </span><span id="line-221"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-type">UpdateWorkforceResponse</span></a></span><span>
 </span><span id="line-223"></span><span id="newUpdateWorkforceResponse"><span class="annot"><span class="annottext">newUpdateWorkforceResponse :: Int -&gt; Workforce -&gt; UpdateWorkforceResponse
-</span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#newUpdateWorkforceResponse"><span class="hs-identifier hs-var hs-var">newUpdateWorkforceResponse</span></a></span></span><span> </span><span id="local-6989586621680430156"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680430156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621680430155"><span class="annot"><span class="annottext">Workforce
-</span><a href="#local-6989586621680430155"><span class="hs-identifier hs-var">pWorkforce_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#newUpdateWorkforceResponse"><span class="hs-identifier hs-var hs-var">newUpdateWorkforceResponse</span></a></span></span><span> </span><span id="local-6989586621680430165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680430165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621680430164"><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680430164"><span class="hs-identifier hs-var">pWorkforce_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorkforceResponse' :: Int -&gt; Workforce -&gt; UpdateWorkforceResponse
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-type">UpdateWorkforceResponse'</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorkforceResponse' :: Int
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3AhttpStatus%3AUpdateWorkforceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680430156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680430165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:workforce:UpdateWorkforceResponse' :: Workforce
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3Aworkforce%3AUpdateWorkforceResponse%27"><span class="hs-identifier hs-var">workforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Workforce
-</span><a href="#local-6989586621680430155"><span class="hs-identifier hs-var">pWorkforce_</span></a></span><span>
+</span><a href="#local-6989586621680430164"><span class="hs-identifier hs-var">pWorkforce_</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -497,16 +497,16 @@ $cfrom :: forall x. UpdateWorkforceResponse -&gt; Rep UpdateWorkforceResponse x
 -&gt; (UpdateWorkforceResponse -&gt; Int -&gt; UpdateWorkforceResponse)
 -&gt; Lens UpdateWorkforceResponse UpdateWorkforceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-type">UpdateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430154"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-type">UpdateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430163"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateWorkforceResponse' :: UpdateWorkforceResponse -&gt; Int
-</span><a href="#local-6989586621680430154"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680430154"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430153"><span class="annot"><span class="annottext">s :: UpdateWorkforceResponse
-</span><a href="#local-6989586621680430153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-type">UpdateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430152"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680430152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforceResponse
-</span><a href="#local-6989586621680430153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorkforceResponse' :: Int
+</span><a href="#local-6989586621680430163"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680430163"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430162"><span class="annot"><span class="annottext">s :: UpdateWorkforceResponse
+</span><a href="#local-6989586621680430162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-type">UpdateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680430161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforceResponse
+</span><a href="#local-6989586621680430162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorkforceResponse' :: Int
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3AhttpStatus%3AUpdateWorkforceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680430152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-type">UpdateWorkforceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-type">UpdateWorkforceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | A single private workforce. You can create one private work force in</span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- each Amazon Web Services Region. By default, any workforce-related API</span><span>
@@ -522,16 +522,16 @@ $sel:httpStatus:UpdateWorkforceResponse' :: UpdateWorkforceResponse -&gt; Int
 -&gt; Lens
      UpdateWorkforceResponse UpdateWorkforceResponse Workforce Workforce
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-type">UpdateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430151"><span class="annot"><span class="annottext">Workforce
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-type">UpdateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680430160"><span class="annot"><span class="annottext">Workforce
 workforce :: Workforce
 $sel:workforce:UpdateWorkforceResponse' :: UpdateWorkforceResponse -&gt; Workforce
-</span><a href="#local-6989586621680430151"><span class="hs-identifier hs-var hs-var">workforce</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
-</span><a href="#local-6989586621680430151"><span class="hs-identifier hs-var">workforce</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430150"><span class="annot"><span class="annottext">s :: UpdateWorkforceResponse
-</span><a href="#local-6989586621680430150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-type">UpdateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430149"><span class="annot"><span class="annottext">Workforce
-</span><a href="#local-6989586621680430149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforceResponse
-</span><a href="#local-6989586621680430150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforce:UpdateWorkforceResponse' :: Workforce
+</span><a href="#local-6989586621680430160"><span class="hs-identifier hs-var hs-var">workforce</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680430160"><span class="hs-identifier hs-var">workforce</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680430159"><span class="annot"><span class="annottext">s :: UpdateWorkforceResponse
+</span><a href="#local-6989586621680430159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse%27"><span class="hs-identifier hs-type">UpdateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680430158"><span class="annot"><span class="annottext">Workforce
+</span><a href="#local-6989586621680430158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorkforceResponse
+</span><a href="#local-6989586621680430159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforce:UpdateWorkforceResponse' :: Workforce
 </span><a href="Network.AWS.SageMaker.UpdateWorkforce.html#%24sel%3Aworkforce%3AUpdateWorkforceResponse%27"><span class="hs-identifier hs-var">workforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Workforce
-</span><a href="#local-6989586621680430149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-type">UpdateWorkforceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680430158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-type">UpdateWorkforceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-type">UpdateWorkforceResponse</span></a></span></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680430156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateWorkforce.html#UpdateWorkforceResponse"><span class="hs-identifier hs-type">UpdateWorkforceResponse</span></a></span></span><span>
 </span><span id="line-242"></span></pre></body></html>

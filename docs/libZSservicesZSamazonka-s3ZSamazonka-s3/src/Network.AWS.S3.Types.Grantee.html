@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Container for the person being granted permissions.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGrantee' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679558926"><span id="local-6989586621679558927"></span></span><span class="hs-keyword">data</span><span> </span><span id="Grantee"><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-var">Grantee</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Grantee%27"><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-var">Grantee'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679558935"><span id="local-6989586621679558936"></span></span><span class="hs-keyword">data</span><span> </span><span id="Grantee"><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-var">Grantee</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Grantee%27"><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-var">Grantee'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | URI of the grantee group.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Auri%3AGrantee%27"><span class="annot"><span class="annottext">Grantee -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.Grantee.html#%24sel%3Auri%3AGrantee%27"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Atype%27%3AGrantee%27"><span class="annot"><span class="annottext">Grantee -&gt; Type
 </span><a href="Network.AWS.S3.Types.Grantee.html#%24sel%3Atype%27%3AGrantee%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558916"><span id="local-6989586621679558918"><span class="annot"><span class="annottext">Grantee -&gt; Grantee -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558925"><span id="local-6989586621679558927"><span class="annot"><span class="annottext">Grantee -&gt; Grantee -&gt; Bool
 (Grantee -&gt; Grantee -&gt; Bool)
 -&gt; (Grantee -&gt; Grantee -&gt; Bool) -&gt; Eq Grantee
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Grantee -&gt; Grantee -&gt; Bool
 == :: Grantee -&gt; Grantee -&gt; Bool
 $c== :: Grantee -&gt; Grantee -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558907"><span id="local-6989586621679558909"><span id="local-6989586621679558911"><span id="local-6989586621679558913"><span class="annot"><span class="annottext">ReadPrec [Grantee]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558916"><span id="local-6989586621679558918"><span id="local-6989586621679558920"><span id="local-6989586621679558922"><span class="annot"><span class="annottext">ReadPrec [Grantee]
 ReadPrec Grantee
 Int -&gt; ReadS Grantee
 ReadS [Grantee]
@@ -96,7 +96,7 @@ readList :: ReadS [Grantee]
 $creadList :: ReadS [Grantee]
 readsPrec :: Int -&gt; ReadS Grantee
 $creadsPrec :: Int -&gt; ReadS Grantee
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558900"><span id="local-6989586621679558902"><span id="local-6989586621679558904"><span class="annot"><span class="annottext">Int -&gt; Grantee -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558909"><span id="local-6989586621679558911"><span id="local-6989586621679558913"><span class="annot"><span class="annottext">Int -&gt; Grantee -&gt; ShowS
 [Grantee] -&gt; ShowS
 Grantee -&gt; String
 (Int -&gt; Grantee -&gt; ShowS)
@@ -164,8 +164,8 @@ $cfrom :: forall x. Grantee -&gt; Rep Grantee x
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span>
 </span><span id="line-112"></span><span id="newGrantee"><span class="annot"><span class="annottext">newGrantee :: Type -&gt; Grantee
-</span><a href="Network.AWS.S3.Types.Grantee.html#newGrantee"><span class="hs-identifier hs-var hs-var">newGrantee</span></a></span></span><span> </span><span id="local-6989586621679558894"><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679558894"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.Grantee.html#newGrantee"><span class="hs-identifier hs-var hs-var">newGrantee</span></a></span></span><span> </span><span id="local-6989586621679558903"><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679558903"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">Grantee' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Type -&gt; Grantee
 </span><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span>
@@ -187,7 +187,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Grantee' :: Type
 </span><a href="Network.AWS.S3.Types.Grantee.html#%24sel%3Atype%27%3AGrantee%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679558894"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679558903"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | URI of the grantee group.</span><span>
@@ -197,16 +197,16 @@ forall a. Maybe a
 -&gt; (Grantee -&gt; Maybe Text -&gt; Grantee)
 -&gt; Lens Grantee Grantee (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558890"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558899"><span class="annot"><span class="annottext">Maybe Text
 uri :: Maybe Text
 $sel:uri:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679558890"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558890"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558889"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679558889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558888"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679558889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:Grantee' :: Maybe Text
+</span><a href="#local-6989586621679558899"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558899"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558898"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679558898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558897"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679558898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:Grantee' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Grantee.html#%24sel%3Auri%3AGrantee%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679558897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | Email address of the grantee.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
@@ -238,16 +238,16 @@ $sel:uri:Grantee' :: Grantee -&gt; Maybe Text
 -&gt; (Grantee -&gt; Maybe Text -&gt; Grantee)
 -&gt; Lens Grantee Grantee (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558886"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558895"><span class="annot"><span class="annottext">Maybe Text
 emailAddress :: Maybe Text
 $sel:emailAddress:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679558886"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558886"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558885"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679558885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558884"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679558885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:Grantee' :: Maybe Text
+</span><a href="#local-6989586621679558895"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558895"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558894"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679558894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558893"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679558894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:Grantee' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Grantee.html#%24sel%3AemailAddress%3AGrantee%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679558893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | Screen name of the grantee.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#grantee_displayName"><span class="hs-identifier hs-type">grantee_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -256,16 +256,16 @@ $sel:emailAddress:Grantee' :: Grantee -&gt; Maybe Text
 -&gt; (Grantee -&gt; Maybe Text -&gt; Grantee)
 -&gt; Lens Grantee Grantee (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558882"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558891"><span class="annot"><span class="annottext">Maybe Text
 displayName :: Maybe Text
 $sel:displayName:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679558882"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558882"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558881"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679558881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558880"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679558881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Grantee' :: Maybe Text
+</span><a href="#local-6989586621679558891"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558891"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558890"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679558890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679558890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Grantee' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Grantee.html#%24sel%3AdisplayName%3AGrantee%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679558889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The canonical user ID of the grantee.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#grantee_id"><span class="hs-identifier hs-type">grantee_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -274,16 +274,16 @@ $sel:displayName:Grantee' :: Grantee -&gt; Maybe Text
 -&gt; (Grantee -&gt; Maybe Text -&gt; Grantee)
 -&gt; Lens Grantee Grantee (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558878"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558887"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679558878"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558878"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558877"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679558877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558876"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679558877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Grantee' :: Maybe Text
+</span><a href="#local-6989586621679558887"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558887"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558886"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679558886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558885"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679558885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679558886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Grantee' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Grantee.html#%24sel%3Aid%3AGrantee%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679558885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | Type of grantee</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#grantee_type"><span class="hs-identifier hs-type">grantee_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span>
@@ -291,21 +291,21 @@ $sel:id:Grantee' :: Grantee -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.Grantee.html#grantee_type"><span class="hs-identifier hs-var hs-var">grantee_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Grantee -&gt; Type)
 -&gt; (Grantee -&gt; Type -&gt; Grantee) -&gt; Lens Grantee Grantee Type Type
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558874"><span class="annot"><span class="annottext">Type
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558883"><span class="annot"><span class="annottext">Type
 type' :: Type
 $sel:type':Grantee' :: Grantee -&gt; Type
-</span><a href="#local-6989586621679558874"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679558874"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558873"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679558873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558872"><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679558872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679558873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Grantee' :: Type
+</span><a href="#local-6989586621679558883"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679558883"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558882"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679558882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558881"><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679558881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679558882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Grantee' :: Type
 </span><a href="Network.AWS.S3.Types.Grantee.html#%24sel%3Atype%27%3AGrantee%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679558872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679558881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679558869"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Grantee
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558867"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679558878"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Grantee
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558876"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Type -&gt; Grantee
 </span><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-var">Grantee'</span></a></span><span>
@@ -316,7 +316,7 @@ $sel:type':Grantee' :: Grantee -&gt; Type
      String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Type -&gt; Grantee)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679558876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;URI&quot;</span></span><span class="hs-special">)</span><span>
@@ -326,7 +326,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; Type -&gt; Grantee)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679558876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Type -&gt; Grantee)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679558876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
@@ -343,7 +343,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String (Type -&gt; Grantee)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679558876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ID&quot;</span></span><span class="hs-special">)</span><span>
@@ -351,18 +351,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Type -&gt; Either String Grantee
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679558867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Type
+</span><a href="#local-6989586621679558876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Type
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;xsi:type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558860"><span id="local-6989586621679558862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558869"><span id="local-6989586621679558871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679558853"><span class="annot"><span class="annottext">toXML :: Grantee -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558847"><span id="local-6989586621679558848"><span id="local-6989586621679558849"><span id="local-6989586621679558850"><span id="local-6989586621679558851"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679558862"><span class="annot"><span class="annottext">toXML :: Grantee -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558856"><span id="local-6989586621679558857"><span id="local-6989586621679558858"><span id="local-6989586621679558859"><span id="local-6989586621679558860"><span class="annot"><span class="annottext">Maybe Text
 Type
 type' :: Type
 id :: Maybe Text
@@ -374,7 +374,7 @@ $sel:id:Grantee' :: Grantee -&gt; Maybe Text
 $sel:displayName:Grantee' :: Grantee -&gt; Maybe Text
 $sel:emailAddress:Grantee' :: Grantee -&gt; Maybe Text
 $sel:uri:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679558847"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679558856"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -382,26 +382,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;URI&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558851"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679558860"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558850"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679558859"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558849"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679558858"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558848"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679558857"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;xsi:type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Type -&gt; XML
 forall a. ToText a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@@=</span></span><span> </span><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679558847"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679558856"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span></pre></body></html>

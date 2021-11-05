@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679449772"><span id="local-6989586621679449773"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerCondition"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerCondition.html#ContainerCondition"><span class="hs-identifier hs-var">ContainerCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerCondition%27"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerCondition.html#ContainerCondition%27"><span class="hs-identifier hs-var">ContainerCondition'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679449781"><span id="local-6989586621679449782"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerCondition"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerCondition.html#ContainerCondition"><span class="hs-identifier hs-var">ContainerCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerCondition%27"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerCondition.html#ContainerCondition%27"><span class="hs-identifier hs-var">ContainerCondition'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerCondition"><span class="annot"><span class="annottext">ContainerCondition -&gt; Text
 </span><a href="Network.AWS.ECS.Types.ContainerCondition.html#fromContainerCondition"><span class="hs-identifier hs-var hs-var">fromContainerCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679449764"><span id="local-6989586621679449766"><span id="local-6989586621679449768"><span class="annot"><span class="annottext">Int -&gt; ContainerCondition -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679449773"><span id="local-6989586621679449775"><span id="local-6989586621679449777"><span class="annot"><span class="annottext">Int -&gt; ContainerCondition -&gt; ShowS
 [ContainerCondition] -&gt; ShowS
 ContainerCondition -&gt; String
 (Int -&gt; ContainerCondition -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ContainerCondition -&gt; String
 showsPrec :: Int -&gt; ContainerCondition -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContainerCondition -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679449755"><span id="local-6989586621679449757"><span id="local-6989586621679449759"><span id="local-6989586621679449761"><span class="annot"><span class="annottext">ReadPrec [ContainerCondition]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679449764"><span id="local-6989586621679449766"><span id="local-6989586621679449768"><span id="local-6989586621679449770"><span class="annot"><span class="annottext">ReadPrec [ContainerCondition]
 ReadPrec ContainerCondition
 Int -&gt; ReadS ContainerCondition
 ReadS [ContainerCondition]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ContainerCondition]
 readsPrec :: Int -&gt; ReadS ContainerCondition
 $creadsPrec :: Int -&gt; ReadS ContainerCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679449750"><span id="local-6989586621679449752"><span class="annot"><span class="annottext">ContainerCondition -&gt; ContainerCondition -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679449759"><span id="local-6989586621679449761"><span class="annot"><span class="annottext">ContainerCondition -&gt; ContainerCondition -&gt; Bool
 (ContainerCondition -&gt; ContainerCondition -&gt; Bool)
 -&gt; (ContainerCondition -&gt; ContainerCondition -&gt; Bool)
 -&gt; Eq ContainerCondition
@@ -84,7 +84,7 @@ $c/= :: ContainerCondition -&gt; ContainerCondition -&gt; Bool
 == :: ContainerCondition -&gt; ContainerCondition -&gt; Bool
 $c== :: ContainerCondition -&gt; ContainerCondition -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679449734"><span id="local-6989586621679449736"><span id="local-6989586621679449738"><span id="local-6989586621679449740"><span id="local-6989586621679449742"><span id="local-6989586621679449744"><span id="local-6989586621679449746"><span class="annot"><span class="annottext">Eq ContainerCondition
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679449743"><span id="local-6989586621679449745"><span id="local-6989586621679449747"><span id="local-6989586621679449749"><span id="local-6989586621679449751"><span id="local-6989586621679449753"><span id="local-6989586621679449755"><span class="annot"><span class="annottext">Eq ContainerCondition
 Eq ContainerCondition
 -&gt; (ContainerCondition -&gt; ContainerCondition -&gt; Ordering)
 -&gt; (ContainerCondition -&gt; ContainerCondition -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ContainerCondition -&gt; Rep ContainerCondition x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679449726"><span id="local-6989586621679449728"><span class="annot"><span class="annottext">Int -&gt; ContainerCondition -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679449735"><span id="local-6989586621679449737"><span class="annot"><span class="annottext">Int -&gt; ContainerCondition -&gt; Int
 ContainerCondition -&gt; Int
 (Int -&gt; ContainerCondition -&gt; Int)
 -&gt; (ContainerCondition -&gt; Int) -&gt; Hashable ContainerCondition
@@ -145,53 +145,53 @@ $chash :: ContainerCondition -&gt; Int
 hashWithSalt :: Int -&gt; ContainerCondition -&gt; Int
 $chashWithSalt :: Int -&gt; ContainerCondition -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679449723"><span class="annot"><span class="annottext">ContainerCondition -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679449732"><span class="annot"><span class="annottext">ContainerCondition -&gt; ()
 (ContainerCondition -&gt; ()) -&gt; NFData ContainerCondition
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContainerCondition -&gt; ()
 $crnf :: ContainerCondition -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679449720"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerCondition
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679449729"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerCondition
 (Text -&gt; Either String ContainerCondition)
 -&gt; FromText ContainerCondition
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContainerCondition
 $cfromText :: Text -&gt; Either String ContainerCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679449717"><span class="annot"><span class="annottext">ContainerCondition -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679449726"><span class="annot"><span class="annottext">ContainerCondition -&gt; Text
 (ContainerCondition -&gt; Text) -&gt; ToText ContainerCondition
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContainerCondition -&gt; Text
 $ctoText :: ContainerCondition -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679449714"><span class="annot"><span class="annottext">ContainerCondition -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679449723"><span class="annot"><span class="annottext">ContainerCondition -&gt; ByteString
 (ContainerCondition -&gt; ByteString)
 -&gt; ToByteString ContainerCondition
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContainerCondition -&gt; ByteString
 $ctoBS :: ContainerCondition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679449711"><span class="annot"><span class="annottext">ContainerCondition -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679449720"><span class="annot"><span class="annottext">ContainerCondition -&gt; ByteStringBuilder
 (ContainerCondition -&gt; ByteStringBuilder)
 -&gt; ToLog ContainerCondition
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContainerCondition -&gt; ByteStringBuilder
 $cbuild :: ContainerCondition -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679449708"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerCondition -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679449717"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerCondition -&gt; [Header]
 (HeaderName -&gt; ContainerCondition -&gt; [Header])
 -&gt; ToHeader ContainerCondition
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContainerCondition -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContainerCondition -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679449705"><span class="annot"><span class="annottext">ContainerCondition -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679449714"><span class="annot"><span class="annottext">ContainerCondition -&gt; QueryString
 (ContainerCondition -&gt; QueryString) -&gt; ToQuery ContainerCondition
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContainerCondition -&gt; QueryString
 $ctoQuery :: ContainerCondition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679449700"><span id="local-6989586621679449702"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerCondition]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679449709"><span id="local-6989586621679449711"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerCondition]
 Value -&gt; Parser ContainerCondition
 (Value -&gt; Parser ContainerCondition)
 -&gt; (Value -&gt; Parser [ContainerCondition])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ContainerCondition]
 parseJSON :: Value -&gt; Parser ContainerCondition
 $cparseJSON :: Value -&gt; Parser ContainerCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679449695"><span id="local-6989586621679449697"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerCondition]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679449704"><span id="local-6989586621679449706"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerCondition]
 FromJSONKeyFunction ContainerCondition
 FromJSONKeyFunction ContainerCondition
 -&gt; FromJSONKeyFunction [ContainerCondition]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContainerCondition]
 fromJSONKey :: FromJSONKeyFunction ContainerCondition
 $cfromJSONKey :: FromJSONKeyFunction ContainerCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679449686"><span id="local-6989586621679449688"><span id="local-6989586621679449690"><span id="local-6989586621679449692"><span class="annot"><span class="annottext">[ContainerCondition] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679449695"><span id="local-6989586621679449697"><span id="local-6989586621679449699"><span id="local-6989586621679449701"><span class="annot"><span class="annottext">[ContainerCondition] -&gt; Encoding
 [ContainerCondition] -&gt; Value
 ContainerCondition -&gt; Encoding
 ContainerCondition -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ContainerCondition -&gt; Encoding
 toJSON :: ContainerCondition -&gt; Value
 $ctoJSON :: ContainerCondition -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679449681"><span id="local-6989586621679449683"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerCondition]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679449690"><span id="local-6989586621679449692"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerCondition]
 ToJSONKeyFunction ContainerCondition
 ToJSONKeyFunction ContainerCondition
 -&gt; ToJSONKeyFunction [ContainerCondition]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContainerCondition]
 toJSONKey :: ToJSONKeyFunction ContainerCondition
 $ctoJSONKey :: ToJSONKeyFunction ContainerCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679449678"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerCondition
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679449687"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerCondition
 ([Node] -&gt; Either String ContainerCondition)
 -&gt; FromXML ContainerCondition
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContainerCondition
 $cparseXML :: [Node] -&gt; Either String ContainerCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679449675"><span class="annot"><span class="annottext">ContainerCondition -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679449684"><span class="annot"><span class="annottext">ContainerCondition -&gt; XML
 (ContainerCondition -&gt; XML) -&gt; ToXML ContainerCondition
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContainerCondition -&gt; XML

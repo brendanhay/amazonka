@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Specifies the tags to remove from a trail.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newRemoveTags' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679197874"><span id="local-6989586621679197875"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTags"><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-var">RemoveTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTags%27"><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-var">RemoveTags'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679197883"><span id="local-6989586621679197884"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTags"><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-var">RemoveTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTags%27"><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-var">RemoveTags'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies a list of tags to be removed.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AtagsList%3ARemoveTags%27"><span class="annot"><span class="annottext">RemoveTags -&gt; Maybe [Tag]
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#%24sel%3AtagsList%3ARemoveTags%27"><span class="hs-identifier hs-var hs-var">tagsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AresourceId%3ARemoveTags%27"><span class="annot"><span class="annottext">RemoveTags -&gt; Text
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#%24sel%3AresourceId%3ARemoveTags%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197867"><span id="local-6989586621679197869"><span class="annot"><span class="annottext">RemoveTags -&gt; RemoveTags -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197876"><span id="local-6989586621679197878"><span class="annot"><span class="annottext">RemoveTags -&gt; RemoveTags -&gt; Bool
 (RemoveTags -&gt; RemoveTags -&gt; Bool)
 -&gt; (RemoveTags -&gt; RemoveTags -&gt; Bool) -&gt; Eq RemoveTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveTags -&gt; RemoveTags -&gt; Bool
 == :: RemoveTags -&gt; RemoveTags -&gt; Bool
 $c== :: RemoveTags -&gt; RemoveTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197858"><span id="local-6989586621679197860"><span id="local-6989586621679197862"><span id="local-6989586621679197864"><span class="annot"><span class="annottext">ReadPrec [RemoveTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197867"><span id="local-6989586621679197869"><span id="local-6989586621679197871"><span id="local-6989586621679197873"><span class="annot"><span class="annottext">ReadPrec [RemoveTags]
 ReadPrec RemoveTags
 Int -&gt; ReadS RemoveTags
 ReadS [RemoveTags]
@@ -88,7 +88,7 @@ readList :: ReadS [RemoveTags]
 $creadList :: ReadS [RemoveTags]
 readsPrec :: Int -&gt; ReadS RemoveTags
 $creadsPrec :: Int -&gt; ReadS RemoveTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197851"><span id="local-6989586621679197853"><span id="local-6989586621679197855"><span class="annot"><span class="annottext">Int -&gt; RemoveTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197860"><span id="local-6989586621679197862"><span id="local-6989586621679197864"><span class="annot"><span class="annottext">Int -&gt; RemoveTags -&gt; ShowS
 [RemoveTags] -&gt; ShowS
 RemoveTags -&gt; String
 (Int -&gt; RemoveTags -&gt; ShowS)
@@ -132,8 +132,8 @@ $cfrom :: forall x. RemoveTags -&gt; Rep RemoveTags x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span>
 </span><span id="line-81"></span><span id="newRemoveTags"><span class="annot"><span class="annottext">newRemoveTags :: Text -&gt; RemoveTags
-</span><a href="Network.AWS.CloudTrail.RemoveTags.html#newRemoveTags"><span class="hs-identifier hs-var hs-var">newRemoveTags</span></a></span></span><span> </span><span id="local-6989586621679197846"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197846"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.RemoveTags.html#newRemoveTags"><span class="hs-identifier hs-var hs-var">newRemoveTags</span></a></span></span><span> </span><span id="local-6989586621679197855"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197855"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">RemoveTags' :: Maybe [Tag] -&gt; Text -&gt; RemoveTags
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagsList:RemoveTags' :: Maybe [Tag]
@@ -142,7 +142,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:RemoveTags' :: Text
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#%24sel%3AresourceId%3ARemoveTags%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197846"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
+</span><a href="#local-6989586621679197855"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | Specifies a list of tags to be removed.</span><span>
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (RemoveTags -&gt; Maybe [Tag] -&gt; RemoveTags)
 -&gt; Lens RemoveTags RemoveTags (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197843"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197852"><span class="annot"><span class="annottext">Maybe [Tag]
 tagsList :: Maybe [Tag]
 $sel:tagsList:RemoveTags' :: RemoveTags -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679197843"><span class="hs-identifier hs-var hs-var">tagsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679197843"><span class="hs-identifier hs-var">tagsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197842"><span class="annot"><span class="annottext">s :: RemoveTags
-</span><a href="#local-6989586621679197842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197841"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679197841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTags
-</span><a href="#local-6989586621679197842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagsList:RemoveTags' :: Maybe [Tag]
+</span><a href="#local-6989586621679197852"><span class="hs-identifier hs-var hs-var">tagsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679197852"><span class="hs-identifier hs-var">tagsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197851"><span class="annot"><span class="annottext">s :: RemoveTags
+</span><a href="#local-6989586621679197851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197850"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679197850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTags
+</span><a href="#local-6989586621679197851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagsList:RemoveTags' :: Maybe [Tag]
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#%24sel%3AtagsList%3ARemoveTags%27"><span class="hs-identifier hs-var">tagsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679197841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; RemoveTags -&gt; f RemoveTags)
+</span><a href="#local-6989586621679197850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; RemoveTags -&gt; f RemoveTags)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -187,25 +187,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (RemoveTags -&gt; Text -&gt; RemoveTags)
 -&gt; Lens RemoveTags RemoveTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197837"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197846"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:RemoveTags' :: RemoveTags -&gt; Text
-</span><a href="#local-6989586621679197837"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197837"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197836"><span class="annot"><span class="annottext">s :: RemoveTags
-</span><a href="#local-6989586621679197836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197835"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTags
-</span><a href="#local-6989586621679197836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:RemoveTags' :: Text
+</span><a href="#local-6989586621679197846"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197846"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197845"><span class="annot"><span class="annottext">s :: RemoveTags
+</span><a href="#local-6989586621679197845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197844"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTags
+</span><a href="#local-6989586621679197845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:RemoveTags' :: Text
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#%24sel%3AresourceId%3ARemoveTags%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679197831"><span class="annot"><span class="annottext">request :: RemoveTags -&gt; Request RemoveTags
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679197840"><span class="annot"><span class="annottext">request :: RemoveTags -&gt; Request RemoveTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemoveTags -&gt; Request RemoveTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudTrail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679197827"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679197836"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveTags
 -&gt; ClientResponse ClientBody
@@ -227,10 +227,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197824"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197824"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197823"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679197823"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197822"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679197822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197833"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197833"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197832"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679197832"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197831"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679197831"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RemoveTagsResponse
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-var">RemoveTagsResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RemoveTagsResponse)
@@ -241,15 +241,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197824"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197833"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197815"><span id="local-6989586621679197817"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197824"><span id="local-6989586621679197826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679197808"><span class="annot"><span class="annottext">toHeaders :: RemoveTags -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679197817"><span class="annot"><span class="annottext">toHeaders :: RemoveTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -276,15 +276,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197798"><span id="local-6989586621679197800"><span id="local-6989586621679197802"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679197796"><span class="annot"><span class="annottext">toJSON :: RemoveTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197793"><span id="local-6989586621679197794"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197807"><span id="local-6989586621679197809"><span id="local-6989586621679197811"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679197805"><span class="annot"><span class="annottext">toJSON :: RemoveTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags%27"><span class="hs-identifier hs-type">RemoveTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197802"><span id="local-6989586621679197803"><span class="annot"><span class="annottext">Maybe [Tag]
 Text
 resourceId :: Text
 tagsList :: Maybe [Tag]
 $sel:resourceId:RemoveTags' :: RemoveTags -&gt; Text
 $sel:tagsList:RemoveTags' :: RemoveTags -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679197793"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679197802"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -296,26 +296,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679197794"><span class="hs-identifier hs-var">tagsList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679197803"><span class="hs-identifier hs-var">tagsList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197793"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197802"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679197787"><span class="annot"><span class="annottext">toPath :: RemoveTags -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679197796"><span class="annot"><span class="annottext">toPath :: RemoveTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTags"><span class="hs-identifier hs-type">RemoveTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679197783"><span class="annot"><span class="annottext">toQuery :: RemoveTags -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679197792"><span class="annot"><span class="annottext">toQuery :: RemoveTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -326,12 +326,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span class="hs-comment">-- returns an error.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- /See:/ 'newRemoveTagsResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679197780"><span id="local-6989586621679197781"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsResponse"><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-var">RemoveTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-var">RemoveTagsResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679197789"><span id="local-6989586621679197790"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsResponse"><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-var">RemoveTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-var">RemoveTagsResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveTagsResponse%27"><span class="annot"><span class="annottext">RemoveTagsResponse -&gt; Int
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#%24sel%3AhttpStatus%3ARemoveTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197775"><span id="local-6989586621679197777"><span class="annot"><span class="annottext">RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197784"><span id="local-6989586621679197786"><span class="annot"><span class="annottext">RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
 (RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool)
 -&gt; (RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool)
 -&gt; Eq RemoveTagsResponse
@@ -340,7 +340,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
 == :: RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
 $c== :: RemoveTagsResponse -&gt; RemoveTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197767"><span id="local-6989586621679197769"><span id="local-6989586621679197771"><span id="local-6989586621679197773"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197776"><span id="local-6989586621679197778"><span id="local-6989586621679197780"><span id="local-6989586621679197782"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsResponse]
 ReadPrec RemoveTagsResponse
 Int -&gt; ReadS RemoveTagsResponse
 ReadS [RemoveTagsResponse]
@@ -360,7 +360,7 @@ readList :: ReadS [RemoveTagsResponse]
 $creadList :: ReadS [RemoveTagsResponse]
 readsPrec :: Int -&gt; ReadS RemoveTagsResponse
 $creadsPrec :: Int -&gt; ReadS RemoveTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197761"><span id="local-6989586621679197763"><span id="local-6989586621679197765"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197770"><span id="local-6989586621679197772"><span id="local-6989586621679197774"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsResponse -&gt; ShowS
 [RemoveTagsResponse] -&gt; ShowS
 RemoveTagsResponse -&gt; String
 (Int -&gt; RemoveTagsResponse -&gt; ShowS)
@@ -400,12 +400,12 @@ $cfrom :: forall x. RemoveTagsResponse -&gt; Rep RemoveTagsResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newRemoveTagsResponse"><span class="annot"><span class="annottext">newRemoveTagsResponse :: Int -&gt; RemoveTagsResponse
-</span><a href="Network.AWS.CloudTrail.RemoveTags.html#newRemoveTagsResponse"><span class="hs-identifier hs-var hs-var">newRemoveTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679197758"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.RemoveTags.html#newRemoveTagsResponse"><span class="hs-identifier hs-var hs-var">newRemoveTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679197767"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197767"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">RemoveTagsResponse' :: Int -&gt; RemoveTagsResponse
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTagsResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#%24sel%3AhttpStatus%3ARemoveTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679197767"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#removeTagsResponse_httpStatus"><span class="hs-identifier hs-type">removeTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -414,16 +414,16 @@ $cfrom :: forall x. RemoveTagsResponse -&gt; Rep RemoveTagsResponse x
 -&gt; (RemoveTagsResponse -&gt; Int -&gt; RemoveTagsResponse)
 -&gt; Lens RemoveTagsResponse RemoveTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197757"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197766"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveTagsResponse' :: RemoveTagsResponse -&gt; Int
-</span><a href="#local-6989586621679197757"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197757"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197756"><span class="annot"><span class="annottext">s :: RemoveTagsResponse
-</span><a href="#local-6989586621679197756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197755"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsResponse
-</span><a href="#local-6989586621679197756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTagsResponse' :: Int
+</span><a href="#local-6989586621679197766"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197766"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197765"><span class="annot"><span class="annottext">s :: RemoveTagsResponse
+</span><a href="#local-6989586621679197765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse%27"><span class="hs-identifier hs-type">RemoveTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197764"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsResponse
+</span><a href="#local-6989586621679197765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTagsResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.RemoveTags.html#%24sel%3AhttpStatus%3ARemoveTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.RemoveTags.html#RemoveTagsResponse"><span class="hs-identifier hs-type">RemoveTagsResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

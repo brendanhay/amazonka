@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause"><span class="hs-identifier">PrivateConnectionProvisioningFailureCause</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_ACCESS_DENIED"><span class="hs-identifier">PrivateConnectionProvisioningFailureCause_ACCESS_DENIED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION"><span class="hs-identifier">PrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER"><span class="hs-identifier">PrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_INTERNAL_SERVER"><span class="hs-identifier">PrivateConnectionProvisioningFailureCause_INTERNAL_SERVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_VALIDATION"><span class="hs-identifier">PrivateConnectionProvisioningFailureCause_VALIDATION</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679319884"><span id="local-6989586621679319885"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PrivateConnectionProvisioningFailureCause"><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause"><span class="hs-identifier hs-var">PrivateConnectionProvisioningFailureCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrivateConnectionProvisioningFailureCause%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause%27"><span class="hs-identifier hs-var">PrivateConnectionProvisioningFailureCause'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPrivateConnectionProvisioningFailureCause"><span class="annot"><span class="annottext">PrivateConnectionProvisioningFailureCause -&gt; Text
+</span><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#fromPrivateConnectionProvisioningFailureCause"><span class="hs-identifier hs-var hs-var">fromPrivateConnectionProvisioningFailureCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679319876"><span id="local-6989586621679319878"><span id="local-6989586621679319880"><span class="annot"><span class="annottext">Int -&gt; PrivateConnectionProvisioningFailureCause -&gt; ShowS
+[PrivateConnectionProvisioningFailureCause] -&gt; ShowS
+PrivateConnectionProvisioningFailureCause -&gt; String
+(Int -&gt; PrivateConnectionProvisioningFailureCause -&gt; ShowS)
+-&gt; (PrivateConnectionProvisioningFailureCause -&gt; String)
+-&gt; ([PrivateConnectionProvisioningFailureCause] -&gt; ShowS)
+-&gt; Show PrivateConnectionProvisioningFailureCause
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PrivateConnectionProvisioningFailureCause] -&gt; ShowS
+$cshowList :: [PrivateConnectionProvisioningFailureCause] -&gt; ShowS
+show :: PrivateConnectionProvisioningFailureCause -&gt; String
+$cshow :: PrivateConnectionProvisioningFailureCause -&gt; String
+showsPrec :: Int -&gt; PrivateConnectionProvisioningFailureCause -&gt; ShowS
+$cshowsPrec :: Int -&gt; PrivateConnectionProvisioningFailureCause -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679319867"><span id="local-6989586621679319869"><span id="local-6989586621679319871"><span id="local-6989586621679319873"><span class="annot"><span class="annottext">ReadPrec [PrivateConnectionProvisioningFailureCause]
+ReadPrec PrivateConnectionProvisioningFailureCause
+Int -&gt; ReadS PrivateConnectionProvisioningFailureCause
+ReadS [PrivateConnectionProvisioningFailureCause]
+(Int -&gt; ReadS PrivateConnectionProvisioningFailureCause)
+-&gt; ReadS [PrivateConnectionProvisioningFailureCause]
+-&gt; ReadPrec PrivateConnectionProvisioningFailureCause
+-&gt; ReadPrec [PrivateConnectionProvisioningFailureCause]
+-&gt; Read PrivateConnectionProvisioningFailureCause
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PrivateConnectionProvisioningFailureCause]
+$creadListPrec :: ReadPrec [PrivateConnectionProvisioningFailureCause]
+readPrec :: ReadPrec PrivateConnectionProvisioningFailureCause
+$creadPrec :: ReadPrec PrivateConnectionProvisioningFailureCause
+readList :: ReadS [PrivateConnectionProvisioningFailureCause]
+$creadList :: ReadS [PrivateConnectionProvisioningFailureCause]
+readsPrec :: Int -&gt; ReadS PrivateConnectionProvisioningFailureCause
+$creadsPrec :: Int -&gt; ReadS PrivateConnectionProvisioningFailureCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679319862"><span id="local-6989586621679319864"><span class="annot"><span class="annottext">PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+(PrivateConnectionProvisioningFailureCause
+ -&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool)
+-&gt; Eq PrivateConnectionProvisioningFailureCause
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+$c/= :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+== :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+$c== :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679319846"><span id="local-6989586621679319848"><span id="local-6989586621679319850"><span id="local-6989586621679319852"><span id="local-6989586621679319854"><span id="local-6989586621679319856"><span id="local-6989586621679319858"><span class="annot"><span class="annottext">Eq PrivateConnectionProvisioningFailureCause
+Eq PrivateConnectionProvisioningFailureCause
+-&gt; (PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause -&gt; Ordering)
+-&gt; (PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool)
+-&gt; (PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause)
+-&gt; (PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause
+    -&gt; PrivateConnectionProvisioningFailureCause)
+-&gt; Ord PrivateConnectionProvisioningFailureCause
+PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Ordering
+PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+$cmin :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+max :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+$cmax :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause
+&gt;= :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+$c&gt;= :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+&gt; :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+$c&gt; :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+&lt;= :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+$c&lt;= :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+&lt; :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+$c&lt; :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Bool
+compare :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Ordering
+$ccompare :: PrivateConnectionProvisioningFailureCause
+-&gt; PrivateConnectionProvisioningFailureCause -&gt; Ordering
+$cp1Ord :: Eq PrivateConnectionProvisioningFailureCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ PrivateConnectionProvisioningFailureCause
+ -&gt; Rep PrivateConnectionProvisioningFailureCause x)
+-&gt; (forall x.
+    Rep PrivateConnectionProvisioningFailureCause x
+    -&gt; PrivateConnectionProvisioningFailureCause)
+-&gt; Generic PrivateConnectionProvisioningFailureCause
+forall x.
+Rep PrivateConnectionProvisioningFailureCause x
+-&gt; PrivateConnectionProvisioningFailureCause
+forall x.
+PrivateConnectionProvisioningFailureCause
+-&gt; Rep PrivateConnectionProvisioningFailureCause x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PrivateConnectionProvisioningFailureCause x
+-&gt; PrivateConnectionProvisioningFailureCause
+$cfrom :: forall x.
+PrivateConnectionProvisioningFailureCause
+-&gt; Rep PrivateConnectionProvisioningFailureCause x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679319838"><span id="local-6989586621679319840"><span class="annot"><span class="annottext">Int -&gt; PrivateConnectionProvisioningFailureCause -&gt; Int
+PrivateConnectionProvisioningFailureCause -&gt; Int
+(Int -&gt; PrivateConnectionProvisioningFailureCause -&gt; Int)
+-&gt; (PrivateConnectionProvisioningFailureCause -&gt; Int)
+-&gt; Hashable PrivateConnectionProvisioningFailureCause
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PrivateConnectionProvisioningFailureCause -&gt; Int
+$chash :: PrivateConnectionProvisioningFailureCause -&gt; Int
+hashWithSalt :: Int -&gt; PrivateConnectionProvisioningFailureCause -&gt; Int
+$chashWithSalt :: Int -&gt; PrivateConnectionProvisioningFailureCause -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679319835"><span class="annot"><span class="annottext">PrivateConnectionProvisioningFailureCause -&gt; ()
+(PrivateConnectionProvisioningFailureCause -&gt; ())
+-&gt; NFData PrivateConnectionProvisioningFailureCause
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PrivateConnectionProvisioningFailureCause -&gt; ()
+$crnf :: PrivateConnectionProvisioningFailureCause -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679319832"><span class="annot"><span class="annottext">Text -&gt; Either String PrivateConnectionProvisioningFailureCause
+(Text -&gt; Either String PrivateConnectionProvisioningFailureCause)
+-&gt; FromText PrivateConnectionProvisioningFailureCause
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PrivateConnectionProvisioningFailureCause
+$cfromText :: Text -&gt; Either String PrivateConnectionProvisioningFailureCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679319829"><span class="annot"><span class="annottext">PrivateConnectionProvisioningFailureCause -&gt; Text
+(PrivateConnectionProvisioningFailureCause -&gt; Text)
+-&gt; ToText PrivateConnectionProvisioningFailureCause
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PrivateConnectionProvisioningFailureCause -&gt; Text
+$ctoText :: PrivateConnectionProvisioningFailureCause -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679319826"><span class="annot"><span class="annottext">PrivateConnectionProvisioningFailureCause -&gt; ByteString
+(PrivateConnectionProvisioningFailureCause -&gt; ByteString)
+-&gt; ToByteString PrivateConnectionProvisioningFailureCause
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PrivateConnectionProvisioningFailureCause -&gt; ByteString
+$ctoBS :: PrivateConnectionProvisioningFailureCause -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679319823"><span class="annot"><span class="annottext">PrivateConnectionProvisioningFailureCause -&gt; ByteStringBuilder
+(PrivateConnectionProvisioningFailureCause -&gt; ByteStringBuilder)
+-&gt; ToLog PrivateConnectionProvisioningFailureCause
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PrivateConnectionProvisioningFailureCause -&gt; ByteStringBuilder
+$cbuild :: PrivateConnectionProvisioningFailureCause -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679319820"><span class="annot"><span class="annottext">HeaderName -&gt; PrivateConnectionProvisioningFailureCause -&gt; [Header]
+(HeaderName
+ -&gt; PrivateConnectionProvisioningFailureCause -&gt; [Header])
+-&gt; ToHeader PrivateConnectionProvisioningFailureCause
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PrivateConnectionProvisioningFailureCause -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PrivateConnectionProvisioningFailureCause -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679319817"><span class="annot"><span class="annottext">PrivateConnectionProvisioningFailureCause -&gt; QueryString
+(PrivateConnectionProvisioningFailureCause -&gt; QueryString)
+-&gt; ToQuery PrivateConnectionProvisioningFailureCause
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PrivateConnectionProvisioningFailureCause -&gt; QueryString
+$ctoQuery :: PrivateConnectionProvisioningFailureCause -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679319812"><span id="local-6989586621679319814"><span class="annot"><span class="annottext">Value -&gt; Parser [PrivateConnectionProvisioningFailureCause]
+Value -&gt; Parser PrivateConnectionProvisioningFailureCause
+(Value -&gt; Parser PrivateConnectionProvisioningFailureCause)
+-&gt; (Value -&gt; Parser [PrivateConnectionProvisioningFailureCause])
+-&gt; FromJSON PrivateConnectionProvisioningFailureCause
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PrivateConnectionProvisioningFailureCause]
+$cparseJSONList :: Value -&gt; Parser [PrivateConnectionProvisioningFailureCause]
+parseJSON :: Value -&gt; Parser PrivateConnectionProvisioningFailureCause
+$cparseJSON :: Value -&gt; Parser PrivateConnectionProvisioningFailureCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679319807"><span id="local-6989586621679319809"><span class="annot"><span class="annottext">FromJSONKeyFunction [PrivateConnectionProvisioningFailureCause]
+FromJSONKeyFunction PrivateConnectionProvisioningFailureCause
+FromJSONKeyFunction PrivateConnectionProvisioningFailureCause
+-&gt; FromJSONKeyFunction [PrivateConnectionProvisioningFailureCause]
+-&gt; FromJSONKey PrivateConnectionProvisioningFailureCause
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PrivateConnectionProvisioningFailureCause]
+$cfromJSONKeyList :: FromJSONKeyFunction [PrivateConnectionProvisioningFailureCause]
+fromJSONKey :: FromJSONKeyFunction PrivateConnectionProvisioningFailureCause
+$cfromJSONKey :: FromJSONKeyFunction PrivateConnectionProvisioningFailureCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679319798"><span id="local-6989586621679319800"><span id="local-6989586621679319802"><span id="local-6989586621679319804"><span class="annot"><span class="annottext">[PrivateConnectionProvisioningFailureCause] -&gt; Encoding
+[PrivateConnectionProvisioningFailureCause] -&gt; Value
+PrivateConnectionProvisioningFailureCause -&gt; Encoding
+PrivateConnectionProvisioningFailureCause -&gt; Value
+(PrivateConnectionProvisioningFailureCause -&gt; Value)
+-&gt; (PrivateConnectionProvisioningFailureCause -&gt; Encoding)
+-&gt; ([PrivateConnectionProvisioningFailureCause] -&gt; Value)
+-&gt; ([PrivateConnectionProvisioningFailureCause] -&gt; Encoding)
+-&gt; ToJSON PrivateConnectionProvisioningFailureCause
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PrivateConnectionProvisioningFailureCause] -&gt; Encoding
+$ctoEncodingList :: [PrivateConnectionProvisioningFailureCause] -&gt; Encoding
+toJSONList :: [PrivateConnectionProvisioningFailureCause] -&gt; Value
+$ctoJSONList :: [PrivateConnectionProvisioningFailureCause] -&gt; Value
+toEncoding :: PrivateConnectionProvisioningFailureCause -&gt; Encoding
+$ctoEncoding :: PrivateConnectionProvisioningFailureCause -&gt; Encoding
+toJSON :: PrivateConnectionProvisioningFailureCause -&gt; Value
+$ctoJSON :: PrivateConnectionProvisioningFailureCause -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679319793"><span id="local-6989586621679319795"><span class="annot"><span class="annottext">ToJSONKeyFunction [PrivateConnectionProvisioningFailureCause]
+ToJSONKeyFunction PrivateConnectionProvisioningFailureCause
+ToJSONKeyFunction PrivateConnectionProvisioningFailureCause
+-&gt; ToJSONKeyFunction [PrivateConnectionProvisioningFailureCause]
+-&gt; ToJSONKey PrivateConnectionProvisioningFailureCause
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PrivateConnectionProvisioningFailureCause]
+$ctoJSONKeyList :: ToJSONKeyFunction [PrivateConnectionProvisioningFailureCause]
+toJSONKey :: ToJSONKeyFunction PrivateConnectionProvisioningFailureCause
+$ctoJSONKey :: ToJSONKeyFunction PrivateConnectionProvisioningFailureCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679319790"><span class="annot"><span class="annottext">[Node] -&gt; Either String PrivateConnectionProvisioningFailureCause
+([Node] -&gt; Either String PrivateConnectionProvisioningFailureCause)
+-&gt; FromXML PrivateConnectionProvisioningFailureCause
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PrivateConnectionProvisioningFailureCause
+$cparseXML :: [Node] -&gt; Either String PrivateConnectionProvisioningFailureCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679319787"><span class="annot"><span class="annottext">PrivateConnectionProvisioningFailureCause -&gt; XML
+(PrivateConnectionProvisioningFailureCause -&gt; XML)
+-&gt; ToXML PrivateConnectionProvisioningFailureCause
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PrivateConnectionProvisioningFailureCause -&gt; XML
+$ctoXML :: PrivateConnectionProvisioningFailureCause -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_ACCESS_DENIED"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause_ACCESS_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrivateConnectionProvisioningFailureCause_ACCESS_DENIED"><span id="%24mPrivateConnectionProvisioningFailureCause_ACCESS_DENIED"><span id="PrivateConnectionProvisioningFailureCause_ACCESS_DENIED"><span class="annot"><span class="annottext">$bPrivateConnectionProvisioningFailureCause_ACCESS_DENIED :: PrivateConnectionProvisioningFailureCause
+$mPrivateConnectionProvisioningFailureCause_ACCESS_DENIED :: forall r.
+PrivateConnectionProvisioningFailureCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#%24bPrivateConnectionProvisioningFailureCause_ACCESS_DENIED"><span class="hs-identifier hs-var hs-var hs-var">PrivateConnectionProvisioningFailureCause_ACCESS_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause%27"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCESS_DENIED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION"><span id="%24mPrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION"><span id="PrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION"><span class="annot"><span class="annottext">$bPrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION :: PrivateConnectionProvisioningFailureCause
+$mPrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION :: forall r.
+PrivateConnectionProvisioningFailureCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#%24bPrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION"><span class="hs-identifier hs-var hs-var hs-var">PrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause%27"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONNECTOR_AUTHENTICATION&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER"><span id="%24mPrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER"><span id="PrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER"><span class="annot"><span class="annottext">$bPrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER :: PrivateConnectionProvisioningFailureCause
+$mPrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER :: forall r.
+PrivateConnectionProvisioningFailureCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#%24bPrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER"><span class="hs-identifier hs-var hs-var hs-var">PrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause%27"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONNECTOR_SERVER&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_INTERNAL_SERVER"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause_INTERNAL_SERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrivateConnectionProvisioningFailureCause_INTERNAL_SERVER"><span id="%24mPrivateConnectionProvisioningFailureCause_INTERNAL_SERVER"><span id="PrivateConnectionProvisioningFailureCause_INTERNAL_SERVER"><span class="annot"><span class="annottext">$bPrivateConnectionProvisioningFailureCause_INTERNAL_SERVER :: PrivateConnectionProvisioningFailureCause
+$mPrivateConnectionProvisioningFailureCause_INTERNAL_SERVER :: forall r.
+PrivateConnectionProvisioningFailureCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#%24bPrivateConnectionProvisioningFailureCause_INTERNAL_SERVER"><span class="hs-identifier hs-var hs-var hs-var">PrivateConnectionProvisioningFailureCause_INTERNAL_SERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause%27"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_SERVER&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_VALIDATION"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause_VALIDATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPrivateConnectionProvisioningFailureCause_VALIDATION"><span id="%24mPrivateConnectionProvisioningFailureCause_VALIDATION"><span id="PrivateConnectionProvisioningFailureCause_VALIDATION"><span class="annot"><span class="annottext">$bPrivateConnectionProvisioningFailureCause_VALIDATION :: PrivateConnectionProvisioningFailureCause
+$mPrivateConnectionProvisioningFailureCause_VALIDATION :: forall r.
+PrivateConnectionProvisioningFailureCause
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#%24bPrivateConnectionProvisioningFailureCause_VALIDATION"><span class="hs-identifier hs-var hs-var hs-var">PrivateConnectionProvisioningFailureCause_VALIDATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause%27"><span class="hs-identifier hs-type">PrivateConnectionProvisioningFailureCause'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATION&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_ACCESS_DENIED"><span class="hs-pragma hs-type">PrivateConnectionProvisioningFailureCause_ACCESS_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION"><span class="hs-pragma hs-type">PrivateConnectionProvisioningFailureCause_CONNECTOR_AUTHENTICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER"><span class="hs-pragma hs-type">PrivateConnectionProvisioningFailureCause_CONNECTOR_SERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_INTERNAL_SERVER"><span class="hs-pragma hs-type">PrivateConnectionProvisioningFailureCause_INTERNAL_SERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause_VALIDATION"><span class="hs-pragma hs-type">PrivateConnectionProvisioningFailureCause_VALIDATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.PrivateConnectionProvisioningFailureCause.html#PrivateConnectionProvisioningFailureCause%27"><span class="hs-pragma hs-type">PrivateConnectionProvisioningFailureCause'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IdentityStore.Types.Group</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IdentityStore.Types.Group</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A group object, which contains a specified group&#8217;s metadata and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGroup' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679141239"><span id="local-6989586621679141240"></span></span><span class="hs-keyword">data</span><span> </span><span id="Group"><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group"><span class="hs-identifier hs-var">Group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Group%27"><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group%27"><span class="hs-identifier hs-var">Group'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for a group in the identity store.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AgroupId%3AGroup%27"><span class="annot"><span class="annottext">Group -&gt; Text
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#%24sel%3AgroupId%3AGroup%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Contains the group&#8217;s display name value. The length limit is 1,024</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- characters. This value can consist of letters, accented characters,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- symbols, numbers, punctuation, tab, new line, carriage return, space,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- and nonbreaking space in this attribute. The characters @\&lt;&gt;;:%@ are</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- excluded. This value is specified at the time the group is created and</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- stored as an attribute of the group object in the identity store.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdisplayName%3AGroup%27"><span class="annot"><span class="annottext">Group -&gt; Text
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#%24sel%3AdisplayName%3AGroup%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679141232"><span id="local-6989586621679141234"><span class="annot"><span class="annottext">Group -&gt; Group -&gt; Bool
+(Group -&gt; Group -&gt; Bool) -&gt; (Group -&gt; Group -&gt; Bool) -&gt; Eq Group
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Group -&gt; Group -&gt; Bool
+$c/= :: Group -&gt; Group -&gt; Bool
+== :: Group -&gt; Group -&gt; Bool
+$c== :: Group -&gt; Group -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141223"><span id="local-6989586621679141225"><span id="local-6989586621679141227"><span id="local-6989586621679141229"><span class="annot"><span class="annottext">ReadPrec [Group]
+ReadPrec Group
+Int -&gt; ReadS Group
+ReadS [Group]
+(Int -&gt; ReadS Group)
+-&gt; ReadS [Group]
+-&gt; ReadPrec Group
+-&gt; ReadPrec [Group]
+-&gt; Read Group
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Group]
+$creadListPrec :: ReadPrec [Group]
+readPrec :: ReadPrec Group
+$creadPrec :: ReadPrec Group
+readList :: ReadS [Group]
+$creadList :: ReadS [Group]
+readsPrec :: Int -&gt; ReadS Group
+$creadsPrec :: Int -&gt; ReadS Group
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141216"><span id="local-6989586621679141218"><span id="local-6989586621679141220"><span class="annot"><span class="annottext">Int -&gt; Group -&gt; ShowS
+[Group] -&gt; ShowS
+Group -&gt; String
+(Int -&gt; Group -&gt; ShowS)
+-&gt; (Group -&gt; String) -&gt; ([Group] -&gt; ShowS) -&gt; Show Group
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Group] -&gt; ShowS
+$cshowList :: [Group] -&gt; ShowS
+show :: Group -&gt; String
+$cshow :: Group -&gt; String
+showsPrec :: Int -&gt; Group -&gt; ShowS
+$cshowsPrec :: Int -&gt; Group -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Group -&gt; Rep Group x)
+-&gt; (forall x. Rep Group x -&gt; Group) -&gt; Generic Group
+forall x. Rep Group x -&gt; Group
+forall x. Group -&gt; Rep Group x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Group x -&gt; Group
+$cfrom :: forall x. Group -&gt; Rep Group x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'Group' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'groupId', 'group_groupId' - The identifier for a group in the identity store.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'displayName', 'group_displayName' - Contains the group&#8217;s display name value. The length limit is 1,024</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- characters. This value can consist of letters, accented characters,</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- symbols, numbers, punctuation, tab, new line, carriage return, space,</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- and nonbreaking space in this attribute. The characters @\&lt;&gt;;:%@ are</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- excluded. This value is specified at the time the group is created and</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- stored as an attribute of the group object in the identity store.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#newGroup"><span class="hs-identifier hs-type">newGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'groupId'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'displayName'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span>
+</span><span id="line-65"></span><span id="newGroup"><span class="annot"><span class="annottext">newGroup :: Text -&gt; Text -&gt; Group
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#newGroup"><span class="hs-identifier hs-var hs-var">newGroup</span></a></span></span><span> </span><span id="local-6989586621679141210"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141210"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span id="local-6989586621679141209"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141209"><span class="hs-identifier hs-var">pDisplayName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">Group' :: Text -&gt; Text -&gt; Group
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupId:Group' :: Text
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#%24sel%3AgroupId%3AGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141210"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:Group' :: Text
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#%24sel%3AdisplayName%3AGroup%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141209"><span class="hs-identifier hs-var">pDisplayName_</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The identifier for a group in the identity store.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#group_groupId"><span class="hs-identifier hs-type">group_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="group_groupId"><span class="annot"><span class="annottext">group_groupId :: (Text -&gt; f Text) -&gt; Group -&gt; f Group
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#group_groupId"><span class="hs-identifier hs-var hs-var">group_groupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Group -&gt; Text)
+-&gt; (Group -&gt; Text -&gt; Group) -&gt; Lens Group Group Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141205"><span class="annot"><span class="annottext">Text
+groupId :: Text
+$sel:groupId:Group' :: Group -&gt; Text
+</span><a href="#local-6989586621679141205"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141205"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141204"><span class="annot"><span class="annottext">s :: Group
+</span><a href="#local-6989586621679141204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141203"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679141204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:Group' :: Text
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#%24sel%3AgroupId%3AGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Contains the group&#8217;s display name value. The length limit is 1,024</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- characters. This value can consist of letters, accented characters,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- symbols, numbers, punctuation, tab, new line, carriage return, space,</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- and nonbreaking space in this attribute. The characters @\&lt;&gt;;:%@ are</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- excluded. This value is specified at the time the group is created and</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- stored as an attribute of the group object in the identity store.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#group_displayName"><span class="hs-identifier hs-type">group_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="group_displayName"><span class="annot"><span class="annottext">group_displayName :: (Text -&gt; f Text) -&gt; Group -&gt; f Group
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#group_displayName"><span class="hs-identifier hs-var hs-var">group_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Group -&gt; Text)
+-&gt; (Group -&gt; Text -&gt; Group) -&gt; Lens Group Group Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141201"><span class="annot"><span class="annottext">Text
+displayName :: Text
+$sel:displayName:Group' :: Group -&gt; Text
+</span><a href="#local-6989586621679141201"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141201"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141200"><span class="annot"><span class="annottext">s :: Group
+</span><a href="#local-6989586621679141200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group%27"><span class="hs-identifier hs-type">Group'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Group
+</span><a href="#local-6989586621679141200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Group' :: Text
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#%24sel%3AdisplayName%3AGroup%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141196"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679141194"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Group
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Group) -&gt; Value -&gt; Parser Group
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Group&quot;</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679141191"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141191"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Group
+</span><a href="Network.AWS.IdentityStore.Types.Group.html#Group%27"><span class="hs-identifier hs-var">Group'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Group) -&gt; Parser Text -&gt; Parser (Text -&gt; Group)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Group) -&gt; Parser Text -&gt; Parser Group
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141191"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141185"><span id="local-6989586621679141187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IdentityStore.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span></span><span>
+</span><span id="line-97"></span></pre></body></html>

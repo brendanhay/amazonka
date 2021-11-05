@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a logging configuration for the specified Amazon Chime Voice</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Connector. The logging configuration specifies whether SIP message logs</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- are enabled for sending to Amazon CloudWatch Logs.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier">PutVoiceConnectorLoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#newPutVoiceConnectorLoggingConfiguration"><span class="hs-identifier">newPutVoiceConnectorLoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfiguration_voiceConnectorId"><span class="hs-identifier">putVoiceConnectorLoggingConfiguration_voiceConnectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfiguration_loggingConfiguration"><span class="hs-identifier">putVoiceConnectorLoggingConfiguration_loggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier">PutVoiceConnectorLoggingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#newPutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier">newPutVoiceConnectorLoggingConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration"><span class="hs-identifier">putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfigurationResponse_httpStatus"><span class="hs-identifier">putVoiceConnectorLoggingConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newPutVoiceConnectorLoggingConfiguration' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679529017"><span id="local-6989586621679529018"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutVoiceConnectorLoggingConfiguration"><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-var">PutVoiceConnectorLoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutVoiceConnectorLoggingConfiguration%27"><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var">PutVoiceConnectorLoggingConfiguration'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime Voice Connector ID.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AvoiceConnectorId%3APutVoiceConnectorLoggingConfiguration%27"><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfiguration -&gt; Text
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AvoiceConnectorId%3APutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">voiceConnectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The logging configuration details to add.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AloggingConfiguration%3APutVoiceConnectorLoggingConfiguration%27"><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfiguration -&gt; LoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679529010"><span id="local-6989586621679529012"><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfiguration
+-&gt; PutVoiceConnectorLoggingConfiguration -&gt; Bool
+(PutVoiceConnectorLoggingConfiguration
+ -&gt; PutVoiceConnectorLoggingConfiguration -&gt; Bool)
+-&gt; (PutVoiceConnectorLoggingConfiguration
+    -&gt; PutVoiceConnectorLoggingConfiguration -&gt; Bool)
+-&gt; Eq PutVoiceConnectorLoggingConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutVoiceConnectorLoggingConfiguration
+-&gt; PutVoiceConnectorLoggingConfiguration -&gt; Bool
+$c/= :: PutVoiceConnectorLoggingConfiguration
+-&gt; PutVoiceConnectorLoggingConfiguration -&gt; Bool
+== :: PutVoiceConnectorLoggingConfiguration
+-&gt; PutVoiceConnectorLoggingConfiguration -&gt; Bool
+$c== :: PutVoiceConnectorLoggingConfiguration
+-&gt; PutVoiceConnectorLoggingConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679529001"><span id="local-6989586621679529003"><span id="local-6989586621679529005"><span id="local-6989586621679529007"><span class="annot"><span class="annottext">ReadPrec [PutVoiceConnectorLoggingConfiguration]
+ReadPrec PutVoiceConnectorLoggingConfiguration
+Int -&gt; ReadS PutVoiceConnectorLoggingConfiguration
+ReadS [PutVoiceConnectorLoggingConfiguration]
+(Int -&gt; ReadS PutVoiceConnectorLoggingConfiguration)
+-&gt; ReadS [PutVoiceConnectorLoggingConfiguration]
+-&gt; ReadPrec PutVoiceConnectorLoggingConfiguration
+-&gt; ReadPrec [PutVoiceConnectorLoggingConfiguration]
+-&gt; Read PutVoiceConnectorLoggingConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutVoiceConnectorLoggingConfiguration]
+$creadListPrec :: ReadPrec [PutVoiceConnectorLoggingConfiguration]
+readPrec :: ReadPrec PutVoiceConnectorLoggingConfiguration
+$creadPrec :: ReadPrec PutVoiceConnectorLoggingConfiguration
+readList :: ReadS [PutVoiceConnectorLoggingConfiguration]
+$creadList :: ReadS [PutVoiceConnectorLoggingConfiguration]
+readsPrec :: Int -&gt; ReadS PutVoiceConnectorLoggingConfiguration
+$creadsPrec :: Int -&gt; ReadS PutVoiceConnectorLoggingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528994"><span id="local-6989586621679528996"><span id="local-6989586621679528998"><span class="annot"><span class="annottext">Int -&gt; PutVoiceConnectorLoggingConfiguration -&gt; ShowS
+[PutVoiceConnectorLoggingConfiguration] -&gt; ShowS
+PutVoiceConnectorLoggingConfiguration -&gt; String
+(Int -&gt; PutVoiceConnectorLoggingConfiguration -&gt; ShowS)
+-&gt; (PutVoiceConnectorLoggingConfiguration -&gt; String)
+-&gt; ([PutVoiceConnectorLoggingConfiguration] -&gt; ShowS)
+-&gt; Show PutVoiceConnectorLoggingConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutVoiceConnectorLoggingConfiguration] -&gt; ShowS
+$cshowList :: [PutVoiceConnectorLoggingConfiguration] -&gt; ShowS
+show :: PutVoiceConnectorLoggingConfiguration -&gt; String
+$cshow :: PutVoiceConnectorLoggingConfiguration -&gt; String
+showsPrec :: Int -&gt; PutVoiceConnectorLoggingConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutVoiceConnectorLoggingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutVoiceConnectorLoggingConfiguration
+ -&gt; Rep PutVoiceConnectorLoggingConfiguration x)
+-&gt; (forall x.
+    Rep PutVoiceConnectorLoggingConfiguration x
+    -&gt; PutVoiceConnectorLoggingConfiguration)
+-&gt; Generic PutVoiceConnectorLoggingConfiguration
+forall x.
+Rep PutVoiceConnectorLoggingConfiguration x
+-&gt; PutVoiceConnectorLoggingConfiguration
+forall x.
+PutVoiceConnectorLoggingConfiguration
+-&gt; Rep PutVoiceConnectorLoggingConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutVoiceConnectorLoggingConfiguration x
+-&gt; PutVoiceConnectorLoggingConfiguration
+$cfrom :: forall x.
+PutVoiceConnectorLoggingConfiguration
+-&gt; Rep PutVoiceConnectorLoggingConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'PutVoiceConnectorLoggingConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'voiceConnectorId', 'putVoiceConnectorLoggingConfiguration_voiceConnectorId' - The Amazon Chime Voice Connector ID.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'loggingConfiguration', 'putVoiceConnectorLoggingConfiguration_loggingConfiguration' - The logging configuration details to add.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#newPutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">newPutVoiceConnectorLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'voiceConnectorId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'loggingConfiguration'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-78"></span><span id="newPutVoiceConnectorLoggingConfiguration"><span class="annot"><span class="annottext">newPutVoiceConnectorLoggingConfiguration :: Text
+-&gt; LoggingConfiguration -&gt; PutVoiceConnectorLoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#newPutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-var hs-var">newPutVoiceConnectorLoggingConfiguration</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679528989"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528989"><span class="hs-identifier hs-var">pVoiceConnectorId_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679528988"><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679528988"><span class="hs-identifier hs-var">pLoggingConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfiguration' :: Text
+-&gt; LoggingConfiguration -&gt; PutVoiceConnectorLoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration'</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:voiceConnectorId:PutVoiceConnectorLoggingConfiguration' :: Text
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AvoiceConnectorId%3APutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528989"><span class="hs-identifier hs-var">pVoiceConnectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:loggingConfiguration:PutVoiceConnectorLoggingConfiguration' :: LoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679528988"><span class="hs-identifier hs-var">pLoggingConfiguration_</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The Amazon Chime Voice Connector ID.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfiguration_voiceConnectorId"><span class="hs-identifier hs-type">putVoiceConnectorLoggingConfiguration_voiceConnectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="putVoiceConnectorLoggingConfiguration_voiceConnectorId"><span class="annot"><span class="annottext">putVoiceConnectorLoggingConfiguration_voiceConnectorId :: (Text -&gt; f Text)
+-&gt; PutVoiceConnectorLoggingConfiguration
+-&gt; f PutVoiceConnectorLoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfiguration_voiceConnectorId"><span class="hs-identifier hs-var hs-var">putVoiceConnectorLoggingConfiguration_voiceConnectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutVoiceConnectorLoggingConfiguration -&gt; Text)
+-&gt; (PutVoiceConnectorLoggingConfiguration
+    -&gt; Text -&gt; PutVoiceConnectorLoggingConfiguration)
+-&gt; Lens
+     PutVoiceConnectorLoggingConfiguration
+     PutVoiceConnectorLoggingConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528985"><span class="annot"><span class="annottext">Text
+voiceConnectorId :: Text
+$sel:voiceConnectorId:PutVoiceConnectorLoggingConfiguration' :: PutVoiceConnectorLoggingConfiguration -&gt; Text
+</span><a href="#local-6989586621679528985"><span class="hs-identifier hs-var hs-var">voiceConnectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528985"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528984"><span class="annot"><span class="annottext">s :: PutVoiceConnectorLoggingConfiguration
+</span><a href="#local-6989586621679528984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528983"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfiguration
+</span><a href="#local-6989586621679528984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceConnectorId:PutVoiceConnectorLoggingConfiguration' :: Text
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AvoiceConnectorId%3APutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The logging configuration details to add.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfiguration_loggingConfiguration"><span class="hs-identifier hs-type">putVoiceConnectorLoggingConfiguration_loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span>
+</span><span id="line-94"></span><span id="putVoiceConnectorLoggingConfiguration_loggingConfiguration"><span class="annot"><span class="annottext">putVoiceConnectorLoggingConfiguration_loggingConfiguration :: (LoggingConfiguration -&gt; f LoggingConfiguration)
+-&gt; PutVoiceConnectorLoggingConfiguration
+-&gt; f PutVoiceConnectorLoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfiguration_loggingConfiguration"><span class="hs-identifier hs-var hs-var">putVoiceConnectorLoggingConfiguration_loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutVoiceConnectorLoggingConfiguration -&gt; LoggingConfiguration)
+-&gt; (PutVoiceConnectorLoggingConfiguration
+    -&gt; LoggingConfiguration -&gt; PutVoiceConnectorLoggingConfiguration)
+-&gt; Lens
+     PutVoiceConnectorLoggingConfiguration
+     PutVoiceConnectorLoggingConfiguration
+     LoggingConfiguration
+     LoggingConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528982"><span class="annot"><span class="annottext">LoggingConfiguration
+loggingConfiguration :: LoggingConfiguration
+$sel:loggingConfiguration:PutVoiceConnectorLoggingConfiguration' :: PutVoiceConnectorLoggingConfiguration -&gt; LoggingConfiguration
+</span><a href="#local-6989586621679528982"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679528982"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528981"><span class="annot"><span class="annottext">s :: PutVoiceConnectorLoggingConfiguration
+</span><a href="#local-6989586621679528981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528980"><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679528980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfiguration
+</span><a href="#local-6989586621679528981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:PutVoiceConnectorLoggingConfiguration' :: LoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679528980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679528976"><span class="annot"><span class="annottext">request :: PutVoiceConnectorLoggingConfiguration
+-&gt; Request PutVoiceConnectorLoggingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; PutVoiceConnectorLoggingConfiguration
+-&gt; Request PutVoiceConnectorLoggingConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679528972"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutVoiceConnectorLoggingConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse PutVoiceConnectorLoggingConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse PutVoiceConnectorLoggingConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutVoiceConnectorLoggingConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse PutVoiceConnectorLoggingConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679528969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528969"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679528968"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679528968"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679528967"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679528967"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+-&gt; Int -&gt; PutVoiceConnectorLoggingConfigurationResponse
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">PutVoiceConnectorLoggingConfigurationResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LoggingConfiguration
+ -&gt; Int -&gt; PutVoiceConnectorLoggingConfigurationResponse)
+-&gt; Either String (Maybe LoggingConfiguration)
+-&gt; Either
+     String (Int -&gt; PutVoiceConnectorLoggingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679528967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoggingConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoggingConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; PutVoiceConnectorLoggingConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String PutVoiceConnectorLoggingConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528969"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679528959"><span id="local-6989586621679528961"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679528956"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679528952"><span class="annot"><span class="annottext">toHeaders :: PutVoiceConnectorLoggingConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; PutVoiceConnectorLoggingConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679528943"><span id="local-6989586621679528945"><span id="local-6989586621679528947"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679528941"><span class="annot"><span class="annottext">toJSON :: PutVoiceConnectorLoggingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528938"><span id="local-6989586621679528939"><span class="annot"><span class="annottext">Text
+LoggingConfiguration
+loggingConfiguration :: LoggingConfiguration
+voiceConnectorId :: Text
+$sel:loggingConfiguration:PutVoiceConnectorLoggingConfiguration' :: PutVoiceConnectorLoggingConfiguration -&gt; LoggingConfiguration
+$sel:voiceConnectorId:PutVoiceConnectorLoggingConfiguration' :: PutVoiceConnectorLoggingConfiguration -&gt; Text
+</span><a href="#local-6989586621679528938"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-135"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoggingConfiguration&quot;</span></span><span>
+</span><span id="line-136"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; LoggingConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679528938"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span>
+</span><span id="line-137"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679528932"><span class="annot"><span class="annottext">toPath :: PutVoiceConnectorLoggingConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528929"><span id="local-6989586621679528930"><span class="annot"><span class="annottext">Text
+LoggingConfiguration
+loggingConfiguration :: LoggingConfiguration
+voiceConnectorId :: Text
+$sel:loggingConfiguration:PutVoiceConnectorLoggingConfiguration' :: PutVoiceConnectorLoggingConfiguration -&gt; LoggingConfiguration
+$sel:voiceConnectorId:PutVoiceConnectorLoggingConfiguration' :: PutVoiceConnectorLoggingConfiguration -&gt; Text
+</span><a href="#local-6989586621679528929"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/voice-connectors/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679528930"><span class="hs-identifier hs-var">voiceConnectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/logging-configuration&quot;</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfiguration"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfiguration</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679528925"><span class="annot"><span class="annottext">toQuery :: PutVoiceConnectorLoggingConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutVoiceConnectorLoggingConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newPutVoiceConnectorLoggingConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679528922"><span id="local-6989586621679528923"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutVoiceConnectorLoggingConfigurationResponse"><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-var">PutVoiceConnectorLoggingConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutVoiceConnectorLoggingConfigurationResponse%27"><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">PutVoiceConnectorLoggingConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated logging configuration details.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AloggingConfiguration%3APutVoiceConnectorLoggingConfigurationResponse%27"><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfigurationResponse
+-&gt; Maybe LoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutVoiceConnectorLoggingConfigurationResponse%27"><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AhttpStatus%3APutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528916"><span id="local-6989586621679528918"><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfigurationResponse
+-&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+(PutVoiceConnectorLoggingConfigurationResponse
+ -&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; Bool)
+-&gt; (PutVoiceConnectorLoggingConfigurationResponse
+    -&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; Bool)
+-&gt; Eq PutVoiceConnectorLoggingConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutVoiceConnectorLoggingConfigurationResponse
+-&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+$c/= :: PutVoiceConnectorLoggingConfigurationResponse
+-&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+== :: PutVoiceConnectorLoggingConfigurationResponse
+-&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+$c== :: PutVoiceConnectorLoggingConfigurationResponse
+-&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528908"><span id="local-6989586621679528910"><span id="local-6989586621679528912"><span id="local-6989586621679528914"><span class="annot"><span class="annottext">ReadPrec [PutVoiceConnectorLoggingConfigurationResponse]
+ReadPrec PutVoiceConnectorLoggingConfigurationResponse
+Int -&gt; ReadS PutVoiceConnectorLoggingConfigurationResponse
+ReadS [PutVoiceConnectorLoggingConfigurationResponse]
+(Int -&gt; ReadS PutVoiceConnectorLoggingConfigurationResponse)
+-&gt; ReadS [PutVoiceConnectorLoggingConfigurationResponse]
+-&gt; ReadPrec PutVoiceConnectorLoggingConfigurationResponse
+-&gt; ReadPrec [PutVoiceConnectorLoggingConfigurationResponse]
+-&gt; Read PutVoiceConnectorLoggingConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutVoiceConnectorLoggingConfigurationResponse]
+$creadListPrec :: ReadPrec [PutVoiceConnectorLoggingConfigurationResponse]
+readPrec :: ReadPrec PutVoiceConnectorLoggingConfigurationResponse
+$creadPrec :: ReadPrec PutVoiceConnectorLoggingConfigurationResponse
+readList :: ReadS [PutVoiceConnectorLoggingConfigurationResponse]
+$creadList :: ReadS [PutVoiceConnectorLoggingConfigurationResponse]
+readsPrec :: Int -&gt; ReadS PutVoiceConnectorLoggingConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS PutVoiceConnectorLoggingConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528902"><span id="local-6989586621679528904"><span id="local-6989586621679528906"><span class="annot"><span class="annottext">Int -&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; ShowS
+[PutVoiceConnectorLoggingConfigurationResponse] -&gt; ShowS
+PutVoiceConnectorLoggingConfigurationResponse -&gt; String
+(Int -&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; ShowS)
+-&gt; (PutVoiceConnectorLoggingConfigurationResponse -&gt; String)
+-&gt; ([PutVoiceConnectorLoggingConfigurationResponse] -&gt; ShowS)
+-&gt; Show PutVoiceConnectorLoggingConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutVoiceConnectorLoggingConfigurationResponse] -&gt; ShowS
+$cshowList :: [PutVoiceConnectorLoggingConfigurationResponse] -&gt; ShowS
+show :: PutVoiceConnectorLoggingConfigurationResponse -&gt; String
+$cshow :: PutVoiceConnectorLoggingConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutVoiceConnectorLoggingConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PutVoiceConnectorLoggingConfigurationResponse
+ -&gt; Rep PutVoiceConnectorLoggingConfigurationResponse x)
+-&gt; (forall x.
+    Rep PutVoiceConnectorLoggingConfigurationResponse x
+    -&gt; PutVoiceConnectorLoggingConfigurationResponse)
+-&gt; Generic PutVoiceConnectorLoggingConfigurationResponse
+forall x.
+Rep PutVoiceConnectorLoggingConfigurationResponse x
+-&gt; PutVoiceConnectorLoggingConfigurationResponse
+forall x.
+PutVoiceConnectorLoggingConfigurationResponse
+-&gt; Rep PutVoiceConnectorLoggingConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PutVoiceConnectorLoggingConfigurationResponse x
+-&gt; PutVoiceConnectorLoggingConfigurationResponse
+$cfrom :: forall x.
+PutVoiceConnectorLoggingConfigurationResponse
+-&gt; Rep PutVoiceConnectorLoggingConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'PutVoiceConnectorLoggingConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'loggingConfiguration', 'putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration' - The updated logging configuration details.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'httpStatus', 'putVoiceConnectorLoggingConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#newPutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">newPutVoiceConnectorLoggingConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse</span></a></span><span>
+</span><span id="line-182"></span><span id="newPutVoiceConnectorLoggingConfigurationResponse"><span class="annot"><span class="annottext">newPutVoiceConnectorLoggingConfigurationResponse :: Int -&gt; PutVoiceConnectorLoggingConfigurationResponse
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#newPutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutVoiceConnectorLoggingConfigurationResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679528899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfigurationResponse' :: Maybe LoggingConfiguration
+-&gt; Int -&gt; PutVoiceConnectorLoggingConfigurationResponse
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse'</span></a></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loggingConfiguration:PutVoiceConnectorLoggingConfigurationResponse' :: Maybe LoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:PutVoiceConnectorLoggingConfigurationResponse' :: Int
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AhttpStatus%3APutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The updated logging configuration details.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration"><span class="hs-identifier hs-type">putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration"><span class="annot"><span class="annottext">putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration :: (Maybe LoggingConfiguration -&gt; f (Maybe LoggingConfiguration))
+-&gt; PutVoiceConnectorLoggingConfigurationResponse
+-&gt; f PutVoiceConnectorLoggingConfigurationResponse
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration"><span class="hs-identifier hs-var hs-var">putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutVoiceConnectorLoggingConfigurationResponse
+ -&gt; Maybe LoggingConfiguration)
+-&gt; (PutVoiceConnectorLoggingConfigurationResponse
+    -&gt; Maybe LoggingConfiguration
+    -&gt; PutVoiceConnectorLoggingConfigurationResponse)
+-&gt; Lens
+     PutVoiceConnectorLoggingConfigurationResponse
+     PutVoiceConnectorLoggingConfigurationResponse
+     (Maybe LoggingConfiguration)
+     (Maybe LoggingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528898"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+loggingConfiguration :: Maybe LoggingConfiguration
+$sel:loggingConfiguration:PutVoiceConnectorLoggingConfigurationResponse' :: PutVoiceConnectorLoggingConfigurationResponse
+-&gt; Maybe LoggingConfiguration
+</span><a href="#local-6989586621679528898"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679528898"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528897"><span class="annot"><span class="annottext">s :: PutVoiceConnectorLoggingConfigurationResponse
+</span><a href="#local-6989586621679528897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528896"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679528896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfigurationResponse
+</span><a href="#local-6989586621679528897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:PutVoiceConnectorLoggingConfigurationResponse' :: Maybe LoggingConfiguration
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679528896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">putVoiceConnectorLoggingConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span id="putVoiceConnectorLoggingConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">putVoiceConnectorLoggingConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; PutVoiceConnectorLoggingConfigurationResponse
+-&gt; f PutVoiceConnectorLoggingConfigurationResponse
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#putVoiceConnectorLoggingConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putVoiceConnectorLoggingConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutVoiceConnectorLoggingConfigurationResponse -&gt; Int)
+-&gt; (PutVoiceConnectorLoggingConfigurationResponse
+    -&gt; Int -&gt; PutVoiceConnectorLoggingConfigurationResponse)
+-&gt; Lens
+     PutVoiceConnectorLoggingConfigurationResponse
+     PutVoiceConnectorLoggingConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528895"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutVoiceConnectorLoggingConfigurationResponse' :: PutVoiceConnectorLoggingConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679528895"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528895"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528894"><span class="annot"><span class="annottext">s :: PutVoiceConnectorLoggingConfigurationResponse
+</span><a href="#local-6989586621679528894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528893"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutVoiceConnectorLoggingConfigurationResponse
+</span><a href="#local-6989586621679528894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutVoiceConnectorLoggingConfigurationResponse' :: Int
+</span><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#%24sel%3AhttpStatus%3APutVoiceConnectorLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679528891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.PutVoiceConnectorLoggingConfiguration.html#PutVoiceConnectorLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutVoiceConnectorLoggingConfigurationResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

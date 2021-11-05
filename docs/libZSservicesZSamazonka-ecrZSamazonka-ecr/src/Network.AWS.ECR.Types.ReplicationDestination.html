@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An array of objects representing the destination for a replication rule.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newReplicationDestination' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679234220"><span id="local-6989586621679234221"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationDestination"><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-var">ReplicationDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationDestination%27"><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-var">ReplicationDestination'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679234229"><span id="local-6989586621679234230"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationDestination"><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-var">ReplicationDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationDestination%27"><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-var">ReplicationDestination'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Region to replicate to.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aregion%3AReplicationDestination%27"><span class="annot"><span class="annottext">ReplicationDestination -&gt; Text
 </span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#%24sel%3Aregion%3AReplicationDestination%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AregistryId%3AReplicationDestination%27"><span class="annot"><span class="annottext">ReplicationDestination -&gt; Text
 </span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#%24sel%3AregistryId%3AReplicationDestination%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234213"><span id="local-6989586621679234215"><span class="annot"><span class="annottext">ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234222"><span id="local-6989586621679234224"><span class="annot"><span class="annottext">ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
 (ReplicationDestination -&gt; ReplicationDestination -&gt; Bool)
 -&gt; (ReplicationDestination -&gt; ReplicationDestination -&gt; Bool)
 -&gt; Eq ReplicationDestination
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
 == :: ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
 $c== :: ReplicationDestination -&gt; ReplicationDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234204"><span id="local-6989586621679234206"><span id="local-6989586621679234208"><span id="local-6989586621679234210"><span class="annot"><span class="annottext">ReadPrec [ReplicationDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234213"><span id="local-6989586621679234215"><span id="local-6989586621679234217"><span id="local-6989586621679234219"><span class="annot"><span class="annottext">ReadPrec [ReplicationDestination]
 ReadPrec ReplicationDestination
 Int -&gt; ReadS ReplicationDestination
 ReadS [ReplicationDestination]
@@ -65,7 +65,7 @@ readList :: ReadS [ReplicationDestination]
 $creadList :: ReadS [ReplicationDestination]
 readsPrec :: Int -&gt; ReadS ReplicationDestination
 $creadsPrec :: Int -&gt; ReadS ReplicationDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234197"><span id="local-6989586621679234199"><span id="local-6989586621679234201"><span class="annot"><span class="annottext">Int -&gt; ReplicationDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234206"><span id="local-6989586621679234208"><span id="local-6989586621679234210"><span class="annot"><span class="annottext">Int -&gt; ReplicationDestination -&gt; ShowS
 [ReplicationDestination] -&gt; ShowS
 ReplicationDestination -&gt; String
 (Int -&gt; ReplicationDestination -&gt; ShowS)
@@ -112,17 +112,17 @@ $cfrom :: forall x. ReplicationDestination -&gt; Rep ReplicationDestination x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span>
 </span><span id="line-58"></span><span id="newReplicationDestination"><span class="annot"><span class="annottext">newReplicationDestination :: Text -&gt; Text -&gt; ReplicationDestination
-</span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#newReplicationDestination"><span class="hs-identifier hs-var hs-var">newReplicationDestination</span></a></span></span><span> </span><span id="local-6989586621679234191"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234191"><span class="hs-identifier hs-var">pRegion_</span></a></span></span><span> </span><span id="local-6989586621679234190"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234190"><span class="hs-identifier hs-var">pRegistryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#newReplicationDestination"><span class="hs-identifier hs-var hs-var">newReplicationDestination</span></a></span></span><span> </span><span id="local-6989586621679234200"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234200"><span class="hs-identifier hs-var">pRegion_</span></a></span></span><span> </span><span id="local-6989586621679234199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234199"><span class="hs-identifier hs-var">pRegistryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ReplicationDestination' :: Text -&gt; Text -&gt; ReplicationDestination
 </span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:region:ReplicationDestination' :: Text
 </span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#%24sel%3Aregion%3AReplicationDestination%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234191"><span class="hs-identifier hs-var">pRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234200"><span class="hs-identifier hs-var">pRegion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryId:ReplicationDestination' :: Text
 </span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#%24sel%3AregistryId%3AReplicationDestination%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234190"><span class="hs-identifier hs-var">pRegistryId_</span></a></span><span>
+</span><a href="#local-6989586621679234199"><span class="hs-identifier hs-var">pRegistryId_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The Region to replicate to.</span><span>
@@ -133,16 +133,16 @@ $cfrom :: forall x. ReplicationDestination -&gt; Rep ReplicationDestination x
 -&gt; (ReplicationDestination -&gt; Text -&gt; ReplicationDestination)
 -&gt; Lens ReplicationDestination ReplicationDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234186"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234195"><span class="annot"><span class="annottext">Text
 region :: Text
 $sel:region:ReplicationDestination' :: ReplicationDestination -&gt; Text
-</span><a href="#local-6989586621679234186"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234186"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234185"><span class="annot"><span class="annottext">s :: ReplicationDestination
-</span><a href="#local-6989586621679234185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234184"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationDestination
-</span><a href="#local-6989586621679234185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:ReplicationDestination' :: Text
+</span><a href="#local-6989586621679234195"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234195"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234194"><span class="annot"><span class="annottext">s :: ReplicationDestination
+</span><a href="#local-6989586621679234194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234193"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationDestination
+</span><a href="#local-6989586621679234194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:ReplicationDestination' :: Text
 </span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#%24sel%3Aregion%3AReplicationDestination%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The Amazon Web Services account ID of the Amazon ECR private registry to</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- replicate to. When configuring cross-Region replication within your own</span><span>
@@ -154,19 +154,19 @@ $sel:region:ReplicationDestination' :: ReplicationDestination -&gt; Text
 -&gt; (ReplicationDestination -&gt; Text -&gt; ReplicationDestination)
 -&gt; Lens ReplicationDestination ReplicationDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234182"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234191"><span class="annot"><span class="annottext">Text
 registryId :: Text
 $sel:registryId:ReplicationDestination' :: ReplicationDestination -&gt; Text
-</span><a href="#local-6989586621679234182"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234182"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234181"><span class="annot"><span class="annottext">s :: ReplicationDestination
-</span><a href="#local-6989586621679234181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234180"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationDestination
-</span><a href="#local-6989586621679234181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:ReplicationDestination' :: Text
+</span><a href="#local-6989586621679234191"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234191"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234190"><span class="annot"><span class="annottext">s :: ReplicationDestination
+</span><a href="#local-6989586621679234190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationDestination
+</span><a href="#local-6989586621679234190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:ReplicationDestination' :: Text
 </span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#%24sel%3AregistryId%3AReplicationDestination%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679234175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationDestination
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234186"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679234184"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReplicationDestination)
@@ -176,15 +176,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReplicationDestination&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234172"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ReplicationDestination
 </span><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-var">ReplicationDestination'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ReplicationDestination)
 -&gt; Parser Text -&gt; Parser (Text -&gt; ReplicationDestination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679234181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;region&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,24 +192,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ReplicationDestination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679234181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234166"><span id="local-6989586621679234168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234175"><span id="local-6989586621679234177"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234155"><span id="local-6989586621679234157"><span id="local-6989586621679234159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679234153"><span class="annot"><span class="annottext">toJSON :: ReplicationDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234150"><span id="local-6989586621679234151"><span class="annot"><span class="annottext">Text
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234164"><span id="local-6989586621679234166"><span id="local-6989586621679234168"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination"><span class="hs-identifier hs-type">ReplicationDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679234162"><span class="annot"><span class="annottext">toJSON :: ReplicationDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationDestination.html#ReplicationDestination%27"><span class="hs-identifier hs-type">ReplicationDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234159"><span id="local-6989586621679234160"><span class="annot"><span class="annottext">Text
 registryId :: Text
 region :: Text
 $sel:registryId:ReplicationDestination' :: ReplicationDestination -&gt; Text
 $sel:region:ReplicationDestination' :: ReplicationDestination -&gt; Text
-</span><a href="#local-6989586621679234150"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679234159"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -221,14 +221,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234151"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234160"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234150"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234159"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

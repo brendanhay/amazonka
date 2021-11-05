@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.AssetErrorDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.AssetErrorDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorCode.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.AssetErrorCode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains error details for the requested associate project asset action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAssetErrorDetails' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679334507"><span id="local-6989586621679334508"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetErrorDetails"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-var">AssetErrorDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetErrorDetails%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails%27"><span class="hs-identifier hs-var">AssetErrorDetails'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the asset.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AassetId%3AAssetErrorDetails%27"><span class="annot"><span class="annottext">AssetErrorDetails -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#%24sel%3AassetId%3AAssetErrorDetails%27"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acode%3AAssetErrorDetails%27"><span class="annot"><span class="annottext">AssetErrorDetails -&gt; AssetErrorCode
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#%24sel%3Acode%3AAssetErrorDetails%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorCode.html#AssetErrorCode"><span class="hs-identifier hs-type">AssetErrorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Amessage%3AAssetErrorDetails%27"><span class="annot"><span class="annottext">AssetErrorDetails -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#%24sel%3Amessage%3AAssetErrorDetails%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334499"><span id="local-6989586621679334501"><span class="annot"><span class="annottext">AssetErrorDetails -&gt; AssetErrorDetails -&gt; Bool
+(AssetErrorDetails -&gt; AssetErrorDetails -&gt; Bool)
+-&gt; (AssetErrorDetails -&gt; AssetErrorDetails -&gt; Bool)
+-&gt; Eq AssetErrorDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssetErrorDetails -&gt; AssetErrorDetails -&gt; Bool
+$c/= :: AssetErrorDetails -&gt; AssetErrorDetails -&gt; Bool
+== :: AssetErrorDetails -&gt; AssetErrorDetails -&gt; Bool
+$c== :: AssetErrorDetails -&gt; AssetErrorDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334490"><span id="local-6989586621679334492"><span id="local-6989586621679334494"><span id="local-6989586621679334496"><span class="annot"><span class="annottext">ReadPrec [AssetErrorDetails]
+ReadPrec AssetErrorDetails
+Int -&gt; ReadS AssetErrorDetails
+ReadS [AssetErrorDetails]
+(Int -&gt; ReadS AssetErrorDetails)
+-&gt; ReadS [AssetErrorDetails]
+-&gt; ReadPrec AssetErrorDetails
+-&gt; ReadPrec [AssetErrorDetails]
+-&gt; Read AssetErrorDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssetErrorDetails]
+$creadListPrec :: ReadPrec [AssetErrorDetails]
+readPrec :: ReadPrec AssetErrorDetails
+$creadPrec :: ReadPrec AssetErrorDetails
+readList :: ReadS [AssetErrorDetails]
+$creadList :: ReadS [AssetErrorDetails]
+readsPrec :: Int -&gt; ReadS AssetErrorDetails
+$creadsPrec :: Int -&gt; ReadS AssetErrorDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334483"><span id="local-6989586621679334485"><span id="local-6989586621679334487"><span class="annot"><span class="annottext">Int -&gt; AssetErrorDetails -&gt; ShowS
+[AssetErrorDetails] -&gt; ShowS
+AssetErrorDetails -&gt; String
+(Int -&gt; AssetErrorDetails -&gt; ShowS)
+-&gt; (AssetErrorDetails -&gt; String)
+-&gt; ([AssetErrorDetails] -&gt; ShowS)
+-&gt; Show AssetErrorDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssetErrorDetails] -&gt; ShowS
+$cshowList :: [AssetErrorDetails] -&gt; ShowS
+show :: AssetErrorDetails -&gt; String
+$cshow :: AssetErrorDetails -&gt; String
+showsPrec :: Int -&gt; AssetErrorDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssetErrorDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssetErrorDetails -&gt; Rep AssetErrorDetails x)
+-&gt; (forall x. Rep AssetErrorDetails x -&gt; AssetErrorDetails)
+-&gt; Generic AssetErrorDetails
+forall x. Rep AssetErrorDetails x -&gt; AssetErrorDetails
+forall x. AssetErrorDetails -&gt; Rep AssetErrorDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssetErrorDetails x -&gt; AssetErrorDetails
+$cfrom :: forall x. AssetErrorDetails -&gt; Rep AssetErrorDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'AssetErrorDetails' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'assetId', 'assetErrorDetails_assetId' - The ID of the asset.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'code', 'assetErrorDetails_code' - The error code.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'message', 'assetErrorDetails_message' - The error message.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#newAssetErrorDetails"><span class="hs-identifier hs-type">newAssetErrorDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'assetId'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'code'</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorCode.html#AssetErrorCode"><span class="hs-identifier hs-type">AssetErrorCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'message'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span><span>
+</span><span id="line-61"></span><span id="newAssetErrorDetails"><span class="annot"><span class="annottext">newAssetErrorDetails :: Text -&gt; AssetErrorCode -&gt; Text -&gt; AssetErrorDetails
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#newAssetErrorDetails"><span class="hs-identifier hs-var hs-var">newAssetErrorDetails</span></a></span></span><span> </span><span id="local-6989586621679334477"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334477"><span class="hs-identifier hs-var">pAssetId_</span></a></span></span><span> </span><span id="local-6989586621679334476"><span class="annot"><span class="annottext">AssetErrorCode
+</span><a href="#local-6989586621679334476"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span id="local-6989586621679334475"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334475"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">AssetErrorDetails' :: Text -&gt; AssetErrorCode -&gt; Text -&gt; AssetErrorDetails
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails%27"><span class="hs-identifier hs-type">AssetErrorDetails'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assetId:AssetErrorDetails' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#%24sel%3AassetId%3AAssetErrorDetails%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334477"><span class="hs-identifier hs-var">pAssetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:AssetErrorDetails' :: AssetErrorCode
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#%24sel%3Acode%3AAssetErrorDetails%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssetErrorCode
+</span><a href="#local-6989586621679334476"><span class="hs-identifier hs-var">pCode_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:AssetErrorDetails' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#%24sel%3Amessage%3AAssetErrorDetails%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334475"><span class="hs-identifier hs-var">pMessage_</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The ID of the asset.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#assetErrorDetails_assetId"><span class="hs-identifier hs-type">assetErrorDetails_assetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span id="assetErrorDetails_assetId"><span class="annot"><span class="annottext">assetErrorDetails_assetId :: (Text -&gt; f Text) -&gt; AssetErrorDetails -&gt; f AssetErrorDetails
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#assetErrorDetails_assetId"><span class="hs-identifier hs-var hs-var">assetErrorDetails_assetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetErrorDetails -&gt; Text)
+-&gt; (AssetErrorDetails -&gt; Text -&gt; AssetErrorDetails)
+-&gt; Lens AssetErrorDetails AssetErrorDetails Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails%27"><span class="hs-identifier hs-type">AssetErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334471"><span class="annot"><span class="annottext">Text
+assetId :: Text
+$sel:assetId:AssetErrorDetails' :: AssetErrorDetails -&gt; Text
+</span><a href="#local-6989586621679334471"><span class="hs-identifier hs-var hs-var">assetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334471"><span class="hs-identifier hs-var">assetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334470"><span class="annot"><span class="annottext">s :: AssetErrorDetails
+</span><a href="#local-6989586621679334470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails%27"><span class="hs-identifier hs-type">AssetErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334469"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetErrorDetails
+</span><a href="#local-6989586621679334470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetId:AssetErrorDetails' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#%24sel%3AassetId%3AAssetErrorDetails%27"><span class="hs-identifier hs-var">assetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#assetErrorDetails_code"><span class="hs-identifier hs-type">assetErrorDetails_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorCode.html#AssetErrorCode"><span class="hs-identifier hs-type">AssetErrorCode</span></a></span><span>
+</span><span id="line-74"></span><span id="assetErrorDetails_code"><span class="annot"><span class="annottext">assetErrorDetails_code :: (AssetErrorCode -&gt; f AssetErrorCode)
+-&gt; AssetErrorDetails -&gt; f AssetErrorDetails
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#assetErrorDetails_code"><span class="hs-identifier hs-var hs-var">assetErrorDetails_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetErrorDetails -&gt; AssetErrorCode)
+-&gt; (AssetErrorDetails -&gt; AssetErrorCode -&gt; AssetErrorDetails)
+-&gt; Lens
+     AssetErrorDetails AssetErrorDetails AssetErrorCode AssetErrorCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails%27"><span class="hs-identifier hs-type">AssetErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334467"><span class="annot"><span class="annottext">AssetErrorCode
+code :: AssetErrorCode
+$sel:code:AssetErrorDetails' :: AssetErrorDetails -&gt; AssetErrorCode
+</span><a href="#local-6989586621679334467"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetErrorCode
+</span><a href="#local-6989586621679334467"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334466"><span class="annot"><span class="annottext">s :: AssetErrorDetails
+</span><a href="#local-6989586621679334466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails%27"><span class="hs-identifier hs-type">AssetErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334465"><span class="annot"><span class="annottext">AssetErrorCode
+</span><a href="#local-6989586621679334465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetErrorDetails
+</span><a href="#local-6989586621679334466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:AssetErrorDetails' :: AssetErrorCode
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#%24sel%3Acode%3AAssetErrorDetails%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssetErrorCode
+</span><a href="#local-6989586621679334465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#assetErrorDetails_message"><span class="hs-identifier hs-type">assetErrorDetails_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="assetErrorDetails_message"><span class="annot"><span class="annottext">assetErrorDetails_message :: (Text -&gt; f Text) -&gt; AssetErrorDetails -&gt; f AssetErrorDetails
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#assetErrorDetails_message"><span class="hs-identifier hs-var hs-var">assetErrorDetails_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetErrorDetails -&gt; Text)
+-&gt; (AssetErrorDetails -&gt; Text -&gt; AssetErrorDetails)
+-&gt; Lens AssetErrorDetails AssetErrorDetails Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails%27"><span class="hs-identifier hs-type">AssetErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334463"><span class="annot"><span class="annottext">Text
+message :: Text
+$sel:message:AssetErrorDetails' :: AssetErrorDetails -&gt; Text
+</span><a href="#local-6989586621679334463"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334463"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334462"><span class="annot"><span class="annottext">s :: AssetErrorDetails
+</span><a href="#local-6989586621679334462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails%27"><span class="hs-identifier hs-type">AssetErrorDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetErrorDetails
+</span><a href="#local-6989586621679334462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:AssetErrorDetails' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#%24sel%3Amessage%3AAssetErrorDetails%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679334461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334458"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679334456"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetErrorDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssetErrorDetails)
+-&gt; Value
+-&gt; Parser AssetErrorDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssetErrorDetails&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334453"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; AssetErrorCode -&gt; Text -&gt; AssetErrorDetails
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails%27"><span class="hs-identifier hs-var">AssetErrorDetails'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; AssetErrorCode -&gt; Text -&gt; AssetErrorDetails)
+-&gt; Parser Text
+-&gt; Parser (AssetErrorCode -&gt; Text -&gt; AssetErrorDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (AssetErrorCode -&gt; Text -&gt; AssetErrorDetails)
+-&gt; Parser AssetErrorCode -&gt; Parser (Text -&gt; AssetErrorDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AssetErrorCode
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; AssetErrorDetails)
+-&gt; Parser Text -&gt; Parser AssetErrorDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334447"><span id="local-6989586621679334449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetErrorDetails.html#AssetErrorDetails"><span class="hs-identifier hs-type">AssetErrorDetails</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

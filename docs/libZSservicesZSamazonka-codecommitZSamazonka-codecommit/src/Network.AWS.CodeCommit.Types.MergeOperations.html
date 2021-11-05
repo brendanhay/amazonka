@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the file operation conflicts in a merge operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMergeOperations' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679350067"><span id="local-6989586621679350068"></span></span><span class="hs-keyword">data</span><span> </span><span id="MergeOperations"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-var">MergeOperations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeOperations%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-var">MergeOperations'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679350076"><span id="local-6989586621679350077"></span></span><span class="hs-keyword">data</span><span> </span><span id="MergeOperations"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-var">MergeOperations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MergeOperations%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-var">MergeOperations'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operation on a file in the destination of a merge or pull request.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Adestination%3AMergeOperations%27"><span class="annot"><span class="annottext">MergeOperations -&gt; Maybe ChangeTypeEnum
 </span><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#%24sel%3Adestination%3AMergeOperations%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ChangeTypeEnum.html#ChangeTypeEnum"><span class="hs-identifier hs-type">ChangeTypeEnum</span></a></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Asource%3AMergeOperations%27"><span class="annot"><span class="annottext">MergeOperations -&gt; Maybe ChangeTypeEnum
 </span><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#%24sel%3Asource%3AMergeOperations%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ChangeTypeEnum.html#ChangeTypeEnum"><span class="hs-identifier hs-type">ChangeTypeEnum</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350060"><span id="local-6989586621679350062"><span class="annot"><span class="annottext">MergeOperations -&gt; MergeOperations -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350069"><span id="local-6989586621679350071"><span class="annot"><span class="annottext">MergeOperations -&gt; MergeOperations -&gt; Bool
 (MergeOperations -&gt; MergeOperations -&gt; Bool)
 -&gt; (MergeOperations -&gt; MergeOperations -&gt; Bool)
 -&gt; Eq MergeOperations
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MergeOperations -&gt; MergeOperations -&gt; Bool
 == :: MergeOperations -&gt; MergeOperations -&gt; Bool
 $c== :: MergeOperations -&gt; MergeOperations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350051"><span id="local-6989586621679350053"><span id="local-6989586621679350055"><span id="local-6989586621679350057"><span class="annot"><span class="annottext">ReadPrec [MergeOperations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350060"><span id="local-6989586621679350062"><span id="local-6989586621679350064"><span id="local-6989586621679350066"><span class="annot"><span class="annottext">ReadPrec [MergeOperations]
 ReadPrec MergeOperations
 Int -&gt; ReadS MergeOperations
 ReadS [MergeOperations]
@@ -65,7 +65,7 @@ readList :: ReadS [MergeOperations]
 $creadList :: ReadS [MergeOperations]
 readsPrec :: Int -&gt; ReadS MergeOperations
 $creadsPrec :: Int -&gt; ReadS MergeOperations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350044"><span id="local-6989586621679350046"><span id="local-6989586621679350048"><span class="annot"><span class="annottext">Int -&gt; MergeOperations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350053"><span id="local-6989586621679350055"><span id="local-6989586621679350057"><span class="annot"><span class="annottext">Int -&gt; MergeOperations -&gt; ShowS
 [MergeOperations] -&gt; ShowS
 MergeOperations -&gt; String
 (Int -&gt; MergeOperations -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
      (Maybe ChangeTypeEnum)
      (Maybe ChangeTypeEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-type">MergeOperations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350035"><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-type">MergeOperations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350044"><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
 destination :: Maybe ChangeTypeEnum
 $sel:destination:MergeOperations' :: MergeOperations -&gt; Maybe ChangeTypeEnum
-</span><a href="#local-6989586621679350035"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
-</span><a href="#local-6989586621679350035"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350034"><span class="annot"><span class="annottext">s :: MergeOperations
-</span><a href="#local-6989586621679350034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-type">MergeOperations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350033"><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
-</span><a href="#local-6989586621679350033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeOperations
-</span><a href="#local-6989586621679350034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:MergeOperations' :: Maybe ChangeTypeEnum
+</span><a href="#local-6989586621679350044"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
+</span><a href="#local-6989586621679350044"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350043"><span class="annot"><span class="annottext">s :: MergeOperations
+</span><a href="#local-6989586621679350043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-type">MergeOperations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350042"><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
+</span><a href="#local-6989586621679350042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeOperations
+</span><a href="#local-6989586621679350043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:MergeOperations' :: Maybe ChangeTypeEnum
 </span><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#%24sel%3Adestination%3AMergeOperations%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
-</span><a href="#local-6989586621679350033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The operation (add, modify, or delete) on a file in the source of a</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- merge or pull request.</span><span>
@@ -155,19 +155,19 @@ $sel:destination:MergeOperations' :: MergeOperations -&gt; Maybe ChangeTypeEnum
      (Maybe ChangeTypeEnum)
      (Maybe ChangeTypeEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-type">MergeOperations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350031"><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-type">MergeOperations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350040"><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
 source :: Maybe ChangeTypeEnum
 $sel:source:MergeOperations' :: MergeOperations -&gt; Maybe ChangeTypeEnum
-</span><a href="#local-6989586621679350031"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
-</span><a href="#local-6989586621679350031"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350030"><span class="annot"><span class="annottext">s :: MergeOperations
-</span><a href="#local-6989586621679350030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-type">MergeOperations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350029"><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
-</span><a href="#local-6989586621679350029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeOperations
-</span><a href="#local-6989586621679350030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:MergeOperations' :: Maybe ChangeTypeEnum
+</span><a href="#local-6989586621679350040"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
+</span><a href="#local-6989586621679350040"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350039"><span class="annot"><span class="annottext">s :: MergeOperations
+</span><a href="#local-6989586621679350039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-type">MergeOperations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350038"><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
+</span><a href="#local-6989586621679350038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MergeOperations
+</span><a href="#local-6989586621679350039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:MergeOperations' :: Maybe ChangeTypeEnum
 </span><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#%24sel%3Asource%3AMergeOperations%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeTypeEnum
-</span><a href="#local-6989586621679350029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350026"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679350024"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MergeOperations
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350035"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679350033"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MergeOperations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MergeOperations)
@@ -177,8 +177,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MergeOperations&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350021"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350030"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350030"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChangeTypeEnum -&gt; Maybe ChangeTypeEnum -&gt; MergeOperations
 </span><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations%27"><span class="hs-identifier hs-var">MergeOperations'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ChangeTypeEnum -&gt; Maybe ChangeTypeEnum -&gt; MergeOperations)
@@ -186,7 +186,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ChangeTypeEnum -&gt; MergeOperations)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangeTypeEnum)
+</span><a href="#local-6989586621679350030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangeTypeEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
@@ -194,13 +194,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ChangeTypeEnum) -&gt; Parser MergeOperations
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangeTypeEnum)
+</span><a href="#local-6989586621679350030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChangeTypeEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;source&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350015"><span id="local-6989586621679350017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350024"><span id="local-6989586621679350026"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeOperations.html#MergeOperations"><span class="hs-identifier hs-type">MergeOperations</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

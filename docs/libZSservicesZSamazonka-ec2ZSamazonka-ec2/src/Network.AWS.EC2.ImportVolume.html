@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newImportVolume' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621681223488"><span id="local-6989586621681223489"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportVolume"><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-var">ImportVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportVolume%27"><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-var">ImportVolume'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621681223497"><span id="local-6989586621681223498"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportVolume"><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-var">ImportVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportVolume%27"><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-var">ImportVolume'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the volume.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Adescription%3AImportVolume%27"><span class="annot"><span class="annottext">ImportVolume -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3Adescription%3AImportVolume%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3Avolume%3AImportVolume%27"><span class="annot"><span class="annottext">ImportVolume -&gt; VolumeDetail
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3Avolume%3AImportVolume%27"><span class="hs-identifier hs-var hs-var">volume</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681223478"><span id="local-6989586621681223480"><span class="annot"><span class="annottext">ImportVolume -&gt; ImportVolume -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681223487"><span id="local-6989586621681223489"><span class="annot"><span class="annottext">ImportVolume -&gt; ImportVolume -&gt; Bool
 (ImportVolume -&gt; ImportVolume -&gt; Bool)
 -&gt; (ImportVolume -&gt; ImportVolume -&gt; Bool) -&gt; Eq ImportVolume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportVolume -&gt; ImportVolume -&gt; Bool
 == :: ImportVolume -&gt; ImportVolume -&gt; Bool
 $c== :: ImportVolume -&gt; ImportVolume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223469"><span id="local-6989586621681223471"><span id="local-6989586621681223473"><span id="local-6989586621681223475"><span class="annot"><span class="annottext">ReadPrec [ImportVolume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223478"><span id="local-6989586621681223480"><span id="local-6989586621681223482"><span id="local-6989586621681223484"><span class="annot"><span class="annottext">ReadPrec [ImportVolume]
 ReadPrec ImportVolume
 Int -&gt; ReadS ImportVolume
 ReadS [ImportVolume]
@@ -113,7 +113,7 @@ readList :: ReadS [ImportVolume]
 $creadList :: ReadS [ImportVolume]
 readsPrec :: Int -&gt; ReadS ImportVolume
 $creadsPrec :: Int -&gt; ReadS ImportVolume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223462"><span id="local-6989586621681223464"><span id="local-6989586621681223466"><span class="annot"><span class="annottext">Int -&gt; ImportVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223471"><span id="local-6989586621681223473"><span id="local-6989586621681223475"><span class="annot"><span class="annottext">Int -&gt; ImportVolume -&gt; ShowS
 [ImportVolume] -&gt; ShowS
 ImportVolume -&gt; String
 (Int -&gt; ImportVolume -&gt; ShowS)
@@ -168,10 +168,10 @@ $cfrom :: forall x. ImportVolume -&gt; Rep ImportVolume x
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span>
 </span><span id="line-113"></span><span id="newImportVolume"><span class="annot"><span class="annottext">newImportVolume :: Text -&gt; DiskImageDetail -&gt; VolumeDetail -&gt; ImportVolume
-</span><a href="Network.AWS.EC2.ImportVolume.html#newImportVolume"><span class="hs-identifier hs-var hs-var">newImportVolume</span></a></span></span><span> </span><span id="local-6989586621681223457"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681223457"><span class="hs-identifier hs-var">pAvailabilityZone_</span></a></span></span><span> </span><span id="local-6989586621681223456"><span class="annot"><span class="annottext">DiskImageDetail
-</span><a href="#local-6989586621681223456"><span class="hs-identifier hs-var">pImage_</span></a></span></span><span> </span><span id="local-6989586621681223455"><span class="annot"><span class="annottext">VolumeDetail
-</span><a href="#local-6989586621681223455"><span class="hs-identifier hs-var">pVolume_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ImportVolume.html#newImportVolume"><span class="hs-identifier hs-var hs-var">newImportVolume</span></a></span></span><span> </span><span id="local-6989586621681223466"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681223466"><span class="hs-identifier hs-var">pAvailabilityZone_</span></a></span></span><span> </span><span id="local-6989586621681223465"><span class="annot"><span class="annottext">DiskImageDetail
+</span><a href="#local-6989586621681223465"><span class="hs-identifier hs-var">pImage_</span></a></span></span><span> </span><span id="local-6989586621681223464"><span class="annot"><span class="annottext">VolumeDetail
+</span><a href="#local-6989586621681223464"><span class="hs-identifier hs-var">pVolume_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">ImportVolume' :: Maybe Text
 -&gt; Maybe Bool
 -&gt; Text
@@ -189,13 +189,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:ImportVolume' :: Text
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3AavailabilityZone%3AImportVolume%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681223457"><span class="hs-identifier hs-var">pAvailabilityZone_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681223466"><span class="hs-identifier hs-var">pAvailabilityZone_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:image:ImportVolume' :: DiskImageDetail
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3Aimage%3AImportVolume%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
-</span><a href="#local-6989586621681223456"><span class="hs-identifier hs-var">pImage_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681223465"><span class="hs-identifier hs-var">pImage_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:volume:ImportVolume' :: VolumeDetail
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3Avolume%3AImportVolume%27"><span class="hs-identifier hs-var">volume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VolumeDetail
-</span><a href="#local-6989586621681223455"><span class="hs-identifier hs-var">pVolume_</span></a></span><span>
+</span><a href="#local-6989586621681223464"><span class="hs-identifier hs-var">pVolume_</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | A description of the volume.</span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
 -&gt; (ImportVolume -&gt; Maybe Text -&gt; ImportVolume)
 -&gt; Lens ImportVolume ImportVolume (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223452"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223461"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:ImportVolume' :: ImportVolume -&gt; Maybe Text
-</span><a href="#local-6989586621681223452"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681223452"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223451"><span class="annot"><span class="annottext">s :: ImportVolume
-</span><a href="#local-6989586621681223451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223450"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681223450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
-</span><a href="#local-6989586621681223451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImportVolume' :: Maybe Text
+</span><a href="#local-6989586621681223461"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223461"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223460"><span class="annot"><span class="annottext">s :: ImportVolume
+</span><a href="#local-6989586621681223460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
+</span><a href="#local-6989586621681223460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImportVolume' :: Maybe Text
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3Adescription%3AImportVolume%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681223450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -226,16 +226,16 @@ $sel:description:ImportVolume' :: ImportVolume -&gt; Maybe Text
 -&gt; (ImportVolume -&gt; Maybe Bool -&gt; ImportVolume)
 -&gt; Lens ImportVolume ImportVolume (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223449"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223458"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:ImportVolume' :: ImportVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681223449"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681223449"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223448"><span class="annot"><span class="annottext">s :: ImportVolume
-</span><a href="#local-6989586621681223448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223447"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681223447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
-</span><a href="#local-6989586621681223448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ImportVolume' :: Maybe Bool
+</span><a href="#local-6989586621681223458"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223458"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223457"><span class="annot"><span class="annottext">s :: ImportVolume
+</span><a href="#local-6989586621681223457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223456"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
+</span><a href="#local-6989586621681223457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ImportVolume' :: Maybe Bool
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3AdryRun%3AImportVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681223447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The Availability Zone for the resulting EBS volume.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#importVolume_availabilityZone"><span class="hs-identifier hs-type">importVolume_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -244,16 +244,16 @@ $sel:dryRun:ImportVolume' :: ImportVolume -&gt; Maybe Bool
 -&gt; (ImportVolume -&gt; Text -&gt; ImportVolume)
 -&gt; Lens ImportVolume ImportVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223446"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223455"><span class="annot"><span class="annottext">Text
 availabilityZone :: Text
 $sel:availabilityZone:ImportVolume' :: ImportVolume -&gt; Text
-</span><a href="#local-6989586621681223446"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681223446"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223445"><span class="annot"><span class="annottext">s :: ImportVolume
-</span><a href="#local-6989586621681223445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223444"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681223444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
-</span><a href="#local-6989586621681223445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:ImportVolume' :: Text
+</span><a href="#local-6989586621681223455"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681223455"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223454"><span class="annot"><span class="annottext">s :: ImportVolume
+</span><a href="#local-6989586621681223454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681223453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
+</span><a href="#local-6989586621681223454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:ImportVolume' :: Text
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3AavailabilityZone%3AImportVolume%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681223444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The disk image.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#importVolume_image"><span class="hs-identifier hs-type">importVolume_image</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageDetail.html#DiskImageDetail"><span class="hs-identifier hs-type">DiskImageDetail</span></a></span><span>
@@ -263,16 +263,16 @@ $sel:availabilityZone:ImportVolume' :: ImportVolume -&gt; Text
 -&gt; (ImportVolume -&gt; DiskImageDetail -&gt; ImportVolume)
 -&gt; Lens ImportVolume ImportVolume DiskImageDetail DiskImageDetail
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223443"><span class="annot"><span class="annottext">DiskImageDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223452"><span class="annot"><span class="annottext">DiskImageDetail
 image :: DiskImageDetail
 $sel:image:ImportVolume' :: ImportVolume -&gt; DiskImageDetail
-</span><a href="#local-6989586621681223443"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
-</span><a href="#local-6989586621681223443"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223442"><span class="annot"><span class="annottext">s :: ImportVolume
-</span><a href="#local-6989586621681223442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223441"><span class="annot"><span class="annottext">DiskImageDetail
-</span><a href="#local-6989586621681223441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
-</span><a href="#local-6989586621681223442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ImportVolume' :: DiskImageDetail
+</span><a href="#local-6989586621681223452"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
+</span><a href="#local-6989586621681223452"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223451"><span class="annot"><span class="annottext">s :: ImportVolume
+</span><a href="#local-6989586621681223451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223450"><span class="annot"><span class="annottext">DiskImageDetail
+</span><a href="#local-6989586621681223450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
+</span><a href="#local-6989586621681223451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ImportVolume' :: DiskImageDetail
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3Aimage%3AImportVolume%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
-</span><a href="#local-6989586621681223441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The volume size.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#importVolume_volume"><span class="hs-identifier hs-type">importVolume_volume</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span><span>
@@ -281,25 +281,25 @@ $sel:image:ImportVolume' :: ImportVolume -&gt; DiskImageDetail
 -&gt; (ImportVolume -&gt; VolumeDetail -&gt; ImportVolume)
 -&gt; Lens ImportVolume ImportVolume VolumeDetail VolumeDetail
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223440"><span class="annot"><span class="annottext">VolumeDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223449"><span class="annot"><span class="annottext">VolumeDetail
 volume :: VolumeDetail
 $sel:volume:ImportVolume' :: ImportVolume -&gt; VolumeDetail
-</span><a href="#local-6989586621681223440"><span class="hs-identifier hs-var hs-var">volume</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeDetail
-</span><a href="#local-6989586621681223440"><span class="hs-identifier hs-var">volume</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223439"><span class="annot"><span class="annottext">s :: ImportVolume
-</span><a href="#local-6989586621681223439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223438"><span class="annot"><span class="annottext">VolumeDetail
-</span><a href="#local-6989586621681223438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
-</span><a href="#local-6989586621681223439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volume:ImportVolume' :: VolumeDetail
+</span><a href="#local-6989586621681223449"><span class="hs-identifier hs-var hs-var">volume</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeDetail
+</span><a href="#local-6989586621681223449"><span class="hs-identifier hs-var">volume</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223448"><span class="annot"><span class="annottext">s :: ImportVolume
+</span><a href="#local-6989586621681223448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223447"><span class="annot"><span class="annottext">VolumeDetail
+</span><a href="#local-6989586621681223447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolume
+</span><a href="#local-6989586621681223448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volume:ImportVolume' :: VolumeDetail
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3Avolume%3AImportVolume%27"><span class="hs-identifier hs-var">volume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VolumeDetail
-</span><a href="#local-6989586621681223438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-type">ImportVolumeResponse</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621681223434"><span class="annot"><span class="annottext">request :: ImportVolume -&gt; Request ImportVolume
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621681223443"><span class="annot"><span class="annottext">request :: ImportVolume -&gt; Request ImportVolume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportVolume -&gt; Request ImportVolume
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621681223430"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621681223439"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ImportVolume
 -&gt; ClientResponse ClientBody
@@ -323,10 +323,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681223427"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681223427"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681223426"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681223426"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681223425"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681223425"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681223436"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223436"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681223435"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681223435"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681223434"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681223434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConversionTask -&gt; Int -&gt; ImportVolumeResponse
 </span><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-var">ImportVolumeResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConversionTask -&gt; Int -&gt; ImportVolumeResponse)
@@ -334,7 +334,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ImportVolumeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681223425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ConversionTask)
+</span><a href="#local-6989586621681223434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ConversionTask)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;conversionTask&quot;</span></span><span class="hs-special">)</span><span>
@@ -346,15 +346,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681223427"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223436"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223417"><span id="local-6989586621681223419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223426"><span id="local-6989586621681223428"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621681223410"><span class="annot"><span class="annottext">toHeaders :: ImportVolume -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621681223419"><span class="annot"><span class="annottext">toHeaders :: ImportVolume -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportVolume -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -362,15 +362,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621681223405"><span class="annot"><span class="annottext">toPath :: ImportVolume -&gt; ByteString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681223414"><span class="annot"><span class="annottext">toPath :: ImportVolume -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportVolume -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume"><span class="hs-identifier hs-type">ImportVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621681223401"><span class="annot"><span class="annottext">toQuery :: ImportVolume -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223395"><span id="local-6989586621681223396"><span id="local-6989586621681223397"><span id="local-6989586621681223398"><span id="local-6989586621681223399"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681223410"><span class="annot"><span class="annottext">toQuery :: ImportVolume -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolume%27"><span class="hs-identifier hs-type">ImportVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223404"><span id="local-6989586621681223405"><span id="local-6989586621681223406"><span id="local-6989586621681223407"><span id="local-6989586621681223408"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 DiskImageDetail
@@ -385,7 +385,7 @@ $sel:image:ImportVolume' :: ImportVolume -&gt; DiskImageDetail
 $sel:availabilityZone:ImportVolume' :: ImportVolume -&gt; Text
 $sel:dryRun:ImportVolume' :: ImportVolume -&gt; Maybe Bool
 $sel:description:ImportVolume' :: ImportVolume -&gt; Maybe Text
-</span><a href="#local-6989586621681223395"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681223404"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -405,31 +405,31 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681223399"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681223408"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681223398"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681223407"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681223397"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681223406"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Image&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DiskImageDetail -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">DiskImageDetail
-</span><a href="#local-6989586621681223396"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681223405"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Volume&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; VolumeDetail -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">VolumeDetail
-</span><a href="#local-6989586621681223395"><span class="hs-identifier hs-var">volume</span></a></span><span>
+</span><a href="#local-6989586621681223404"><span class="hs-identifier hs-var">volume</span></a></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newImportVolumeResponse' smart constructor.</span><span>
-</span><span id="line-181"></span><span id="local-6989586621681223392"><span id="local-6989586621681223393"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportVolumeResponse"><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-var">ImportVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportVolumeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-var">ImportVolumeResponse'</span></a></span></span><span>
+</span><span id="line-181"></span><span id="local-6989586621681223401"><span id="local-6989586621681223402"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportVolumeResponse"><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-var">ImportVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportVolumeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-var">ImportVolumeResponse'</span></a></span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the conversion task.</span><span>
 </span><span id="line-183"></span><span>    </span><span id="%24sel%3AconversionTask%3AImportVolumeResponse%27"><span class="annot"><span class="annottext">ImportVolumeResponse -&gt; Maybe ConversionTask
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3AconversionTask%3AImportVolumeResponse%27"><span class="hs-identifier hs-var hs-var">conversionTask</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ConversionTask.html#ConversionTask"><span class="hs-identifier hs-type">ConversionTask</span></a></span><span class="hs-special">,</span><span>
@@ -437,7 +437,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportVolumeResponse%27"><span class="annot"><span class="annottext">ImportVolumeResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3AhttpStatus%3AImportVolumeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681223386"><span id="local-6989586621681223388"><span class="annot"><span class="annottext">ImportVolumeResponse -&gt; ImportVolumeResponse -&gt; Bool
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681223395"><span id="local-6989586621681223397"><span class="annot"><span class="annottext">ImportVolumeResponse -&gt; ImportVolumeResponse -&gt; Bool
 (ImportVolumeResponse -&gt; ImportVolumeResponse -&gt; Bool)
 -&gt; (ImportVolumeResponse -&gt; ImportVolumeResponse -&gt; Bool)
 -&gt; Eq ImportVolumeResponse
@@ -446,7 +446,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportVolumeResponse -&gt; ImportVolumeResponse -&gt; Bool
 == :: ImportVolumeResponse -&gt; ImportVolumeResponse -&gt; Bool
 $c== :: ImportVolumeResponse -&gt; ImportVolumeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223378"><span id="local-6989586621681223380"><span id="local-6989586621681223382"><span id="local-6989586621681223384"><span class="annot"><span class="annottext">ReadPrec [ImportVolumeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223387"><span id="local-6989586621681223389"><span id="local-6989586621681223391"><span id="local-6989586621681223393"><span class="annot"><span class="annottext">ReadPrec [ImportVolumeResponse]
 ReadPrec ImportVolumeResponse
 Int -&gt; ReadS ImportVolumeResponse
 ReadS [ImportVolumeResponse]
@@ -466,7 +466,7 @@ readList :: ReadS [ImportVolumeResponse]
 $creadList :: ReadS [ImportVolumeResponse]
 readsPrec :: Int -&gt; ReadS ImportVolumeResponse
 $creadsPrec :: Int -&gt; ReadS ImportVolumeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223372"><span id="local-6989586621681223374"><span id="local-6989586621681223376"><span class="annot"><span class="annottext">Int -&gt; ImportVolumeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223381"><span id="local-6989586621681223383"><span id="local-6989586621681223385"><span class="annot"><span class="annottext">Int -&gt; ImportVolumeResponse -&gt; ShowS
 [ImportVolumeResponse] -&gt; ShowS
 ImportVolumeResponse -&gt; String
 (Int -&gt; ImportVolumeResponse -&gt; ShowS)
@@ -508,8 +508,8 @@ $cfrom :: forall x. ImportVolumeResponse -&gt; Rep ImportVolumeResponse x
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-type">ImportVolumeResponse</span></a></span><span>
 </span><span id="line-204"></span><span id="newImportVolumeResponse"><span class="annot"><span class="annottext">newImportVolumeResponse :: Int -&gt; ImportVolumeResponse
-</span><a href="Network.AWS.EC2.ImportVolume.html#newImportVolumeResponse"><span class="hs-identifier hs-var hs-var">newImportVolumeResponse</span></a></span></span><span> </span><span id="local-6989586621681223369"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681223369"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ImportVolume.html#newImportVolumeResponse"><span class="hs-identifier hs-var hs-var">newImportVolumeResponse</span></a></span></span><span> </span><span id="local-6989586621681223378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223378"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">ImportVolumeResponse' :: Maybe ConversionTask -&gt; Int -&gt; ImportVolumeResponse
 </span><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-type">ImportVolumeResponse'</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:conversionTask:ImportVolumeResponse' :: Maybe ConversionTask
@@ -519,7 +519,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportVolumeResponse' :: Int
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3AhttpStatus%3AImportVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681223369"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681223378"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | Information about the conversion task.</span><span>
@@ -535,16 +535,16 @@ forall a. Maybe a
      (Maybe ConversionTask)
      (Maybe ConversionTask)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-type">ImportVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223368"><span class="annot"><span class="annottext">Maybe ConversionTask
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-type">ImportVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223377"><span class="annot"><span class="annottext">Maybe ConversionTask
 conversionTask :: Maybe ConversionTask
 $sel:conversionTask:ImportVolumeResponse' :: ImportVolumeResponse -&gt; Maybe ConversionTask
-</span><a href="#local-6989586621681223368"><span class="hs-identifier hs-var hs-var">conversionTask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConversionTask
-</span><a href="#local-6989586621681223368"><span class="hs-identifier hs-var">conversionTask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223367"><span class="annot"><span class="annottext">s :: ImportVolumeResponse
-</span><a href="#local-6989586621681223367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-type">ImportVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223366"><span class="annot"><span class="annottext">Maybe ConversionTask
-</span><a href="#local-6989586621681223366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolumeResponse
-</span><a href="#local-6989586621681223367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conversionTask:ImportVolumeResponse' :: Maybe ConversionTask
+</span><a href="#local-6989586621681223377"><span class="hs-identifier hs-var hs-var">conversionTask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConversionTask
+</span><a href="#local-6989586621681223377"><span class="hs-identifier hs-var">conversionTask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223376"><span class="annot"><span class="annottext">s :: ImportVolumeResponse
+</span><a href="#local-6989586621681223376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-type">ImportVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223375"><span class="annot"><span class="annottext">Maybe ConversionTask
+</span><a href="#local-6989586621681223375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolumeResponse
+</span><a href="#local-6989586621681223376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conversionTask:ImportVolumeResponse' :: Maybe ConversionTask
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3AconversionTask%3AImportVolumeResponse%27"><span class="hs-identifier hs-var">conversionTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConversionTask
-</span><a href="#local-6989586621681223366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-type">ImportVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-type">ImportVolumeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#importVolumeResponse_httpStatus"><span class="hs-identifier hs-type">importVolumeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-type">ImportVolumeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -553,16 +553,16 @@ $sel:conversionTask:ImportVolumeResponse' :: ImportVolumeResponse -&gt; Maybe Co
 -&gt; (ImportVolumeResponse -&gt; Int -&gt; ImportVolumeResponse)
 -&gt; Lens ImportVolumeResponse ImportVolumeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-type">ImportVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223365"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-type">ImportVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223374"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ImportVolumeResponse' :: ImportVolumeResponse -&gt; Int
-</span><a href="#local-6989586621681223365"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681223365"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223364"><span class="annot"><span class="annottext">s :: ImportVolumeResponse
-</span><a href="#local-6989586621681223364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-type">ImportVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223363"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681223363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolumeResponse
-</span><a href="#local-6989586621681223364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportVolumeResponse' :: Int
+</span><a href="#local-6989586621681223374"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223374"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223373"><span class="annot"><span class="annottext">s :: ImportVolumeResponse
+</span><a href="#local-6989586621681223373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse%27"><span class="hs-identifier hs-type">ImportVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223372"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportVolumeResponse
+</span><a href="#local-6989586621681223373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportVolumeResponse' :: Int
 </span><a href="Network.AWS.EC2.ImportVolume.html#%24sel%3AhttpStatus%3AImportVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681223363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-type">ImportVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-type">ImportVolumeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-type">ImportVolumeResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportVolume.html#ImportVolumeResponse"><span class="hs-identifier hs-type">ImportVolumeResponse</span></a></span></span><span>
 </span><span id="line-220"></span></pre></body></html>

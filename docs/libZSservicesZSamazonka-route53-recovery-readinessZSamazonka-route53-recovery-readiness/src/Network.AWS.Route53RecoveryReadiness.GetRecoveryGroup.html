@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a Recovery Group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier">GetRecoveryGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#newGetRecoveryGroup"><span class="hs-identifier">newGetRecoveryGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroup_recoveryGroupName"><span class="hs-identifier">getRecoveryGroup_recoveryGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier">GetRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#newGetRecoveryGroupResponse"><span class="hs-identifier">newGetRecoveryGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_cells"><span class="hs-identifier">getRecoveryGroupResponse_cells</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_recoveryGroupName"><span class="hs-identifier">getRecoveryGroupResponse_recoveryGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_recoveryGroupArn"><span class="hs-identifier">getRecoveryGroupResponse_recoveryGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_tags"><span class="hs-identifier">getRecoveryGroupResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_httpStatus"><span class="hs-identifier">getRecoveryGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.html"><span class="hs-identifier">Network.AWS.Route53RecoveryReadiness.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetRecoveryGroup' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679203676"><span id="local-6989586621679203677"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecoveryGroup"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-var">GetRecoveryGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecoveryGroup%27"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup%27"><span class="hs-identifier hs-var">GetRecoveryGroup'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The RecoveryGroup to get</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ArecoveryGroupName%3AGetRecoveryGroup%27"><span class="annot"><span class="annottext">GetRecoveryGroup -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AGetRecoveryGroup%27"><span class="hs-identifier hs-var hs-var">recoveryGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203670"><span id="local-6989586621679203672"><span class="annot"><span class="annottext">GetRecoveryGroup -&gt; GetRecoveryGroup -&gt; Bool
+(GetRecoveryGroup -&gt; GetRecoveryGroup -&gt; Bool)
+-&gt; (GetRecoveryGroup -&gt; GetRecoveryGroup -&gt; Bool)
+-&gt; Eq GetRecoveryGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRecoveryGroup -&gt; GetRecoveryGroup -&gt; Bool
+$c/= :: GetRecoveryGroup -&gt; GetRecoveryGroup -&gt; Bool
+== :: GetRecoveryGroup -&gt; GetRecoveryGroup -&gt; Bool
+$c== :: GetRecoveryGroup -&gt; GetRecoveryGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203661"><span id="local-6989586621679203663"><span id="local-6989586621679203665"><span id="local-6989586621679203667"><span class="annot"><span class="annottext">ReadPrec [GetRecoveryGroup]
+ReadPrec GetRecoveryGroup
+Int -&gt; ReadS GetRecoveryGroup
+ReadS [GetRecoveryGroup]
+(Int -&gt; ReadS GetRecoveryGroup)
+-&gt; ReadS [GetRecoveryGroup]
+-&gt; ReadPrec GetRecoveryGroup
+-&gt; ReadPrec [GetRecoveryGroup]
+-&gt; Read GetRecoveryGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetRecoveryGroup]
+$creadListPrec :: ReadPrec [GetRecoveryGroup]
+readPrec :: ReadPrec GetRecoveryGroup
+$creadPrec :: ReadPrec GetRecoveryGroup
+readList :: ReadS [GetRecoveryGroup]
+$creadList :: ReadS [GetRecoveryGroup]
+readsPrec :: Int -&gt; ReadS GetRecoveryGroup
+$creadsPrec :: Int -&gt; ReadS GetRecoveryGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203654"><span id="local-6989586621679203656"><span id="local-6989586621679203658"><span class="annot"><span class="annottext">Int -&gt; GetRecoveryGroup -&gt; ShowS
+[GetRecoveryGroup] -&gt; ShowS
+GetRecoveryGroup -&gt; String
+(Int -&gt; GetRecoveryGroup -&gt; ShowS)
+-&gt; (GetRecoveryGroup -&gt; String)
+-&gt; ([GetRecoveryGroup] -&gt; ShowS)
+-&gt; Show GetRecoveryGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRecoveryGroup] -&gt; ShowS
+$cshowList :: [GetRecoveryGroup] -&gt; ShowS
+show :: GetRecoveryGroup -&gt; String
+$cshow :: GetRecoveryGroup -&gt; String
+showsPrec :: Int -&gt; GetRecoveryGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRecoveryGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetRecoveryGroup -&gt; Rep GetRecoveryGroup x)
+-&gt; (forall x. Rep GetRecoveryGroup x -&gt; GetRecoveryGroup)
+-&gt; Generic GetRecoveryGroup
+forall x. Rep GetRecoveryGroup x -&gt; GetRecoveryGroup
+forall x. GetRecoveryGroup -&gt; Rep GetRecoveryGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetRecoveryGroup x -&gt; GetRecoveryGroup
+$cfrom :: forall x. GetRecoveryGroup -&gt; Rep GetRecoveryGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetRecoveryGroup' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'recoveryGroupName', 'getRecoveryGroup_recoveryGroupName' - The RecoveryGroup to get</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#newGetRecoveryGroup"><span class="hs-identifier hs-type">newGetRecoveryGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'recoveryGroupName'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetRecoveryGroup"><span class="annot"><span class="annottext">newGetRecoveryGroup :: Text -&gt; GetRecoveryGroup
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#newGetRecoveryGroup"><span class="hs-identifier hs-var hs-var">newGetRecoveryGroup</span></a></span></span><span> </span><span id="local-6989586621679203649"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203649"><span class="hs-identifier hs-var">pRecoveryGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetRecoveryGroup' :: Text -&gt; GetRecoveryGroup
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup%27"><span class="hs-identifier hs-type">GetRecoveryGroup'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:recoveryGroupName:GetRecoveryGroup' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AGetRecoveryGroup%27"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203649"><span class="hs-identifier hs-var">pRecoveryGroupName_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The RecoveryGroup to get</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroup_recoveryGroupName"><span class="hs-identifier hs-type">getRecoveryGroup_recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="getRecoveryGroup_recoveryGroupName"><span class="annot"><span class="annottext">getRecoveryGroup_recoveryGroupName :: (Text -&gt; f Text) -&gt; GetRecoveryGroup -&gt; f GetRecoveryGroup
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroup_recoveryGroupName"><span class="hs-identifier hs-var hs-var">getRecoveryGroup_recoveryGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryGroup -&gt; Text)
+-&gt; (GetRecoveryGroup -&gt; Text -&gt; GetRecoveryGroup)
+-&gt; Lens GetRecoveryGroup GetRecoveryGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup%27"><span class="hs-identifier hs-type">GetRecoveryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203646"><span class="annot"><span class="annottext">Text
+recoveryGroupName :: Text
+$sel:recoveryGroupName:GetRecoveryGroup' :: GetRecoveryGroup -&gt; Text
+</span><a href="#local-6989586621679203646"><span class="hs-identifier hs-var hs-var">recoveryGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203646"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203645"><span class="annot"><span class="annottext">s :: GetRecoveryGroup
+</span><a href="#local-6989586621679203645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup%27"><span class="hs-identifier hs-type">GetRecoveryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryGroup
+</span><a href="#local-6989586621679203645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recoveryGroupName:GetRecoveryGroup' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AGetRecoveryGroup%27"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679203640"><span class="annot"><span class="annottext">request :: GetRecoveryGroup -&gt; Request GetRecoveryGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRecoveryGroup -&gt; Request GetRecoveryGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679203636"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetRecoveryGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetRecoveryGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetRecoveryGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetRecoveryGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetRecoveryGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203633"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203633"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679203632"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679203632"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679203631"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetRecoveryGroupResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">GetRecoveryGroupResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; GetRecoveryGroupResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetRecoveryGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cells&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetRecoveryGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; GetRecoveryGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;recoveryGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; GetRecoveryGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text) -&gt; Int -&gt; GetRecoveryGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;recoveryGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text) -&gt; Int -&gt; GetRecoveryGroupResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; GetRecoveryGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetRecoveryGroupResponse)
+-&gt; Either String Int -&gt; Either String GetRecoveryGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203633"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203622"><span id="local-6989586621679203624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679203615"><span class="annot"><span class="annottext">toHeaders :: GetRecoveryGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRecoveryGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679203609"><span class="annot"><span class="annottext">toPath :: GetRecoveryGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup%27"><span class="hs-identifier hs-type">GetRecoveryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203607"><span class="annot"><span class="annottext">Text
+recoveryGroupName :: Text
+$sel:recoveryGroupName:GetRecoveryGroup' :: GetRecoveryGroup -&gt; Text
+</span><a href="#local-6989586621679203607"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/recoverygroups/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203607"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroup"><span class="hs-identifier hs-type">GetRecoveryGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679203603"><span class="annot"><span class="annottext">toQuery :: GetRecoveryGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRecoveryGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newGetRecoveryGroupResponse' smart constructor.</span><span>
+</span><span id="line-122"></span><span id="local-6989586621679203600"><span id="local-6989586621679203601"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRecoveryGroupResponse"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-var">GetRecoveryGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRecoveryGroupResponse%27"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">GetRecoveryGroupResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Cell arns</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3Acells%3AGetRecoveryGroupResponse%27"><span class="annot"><span class="annottext">GetRecoveryGroupResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3Acells%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The name of the RecoveryGroup</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3ArecoveryGroupName%3AGetRecoveryGroupResponse%27"><span class="annot"><span class="annottext">GetRecoveryGroupResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">recoveryGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The arn for the RecoveryGroup</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3ArecoveryGroupArn%3AGetRecoveryGroupResponse%27"><span class="annot"><span class="annottext">GetRecoveryGroupResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3ArecoveryGroupArn%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">recoveryGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3Atags%3AGetRecoveryGroupResponse%27"><span class="annot"><span class="annottext">GetRecoveryGroupResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3Atags%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRecoveryGroupResponse%27"><span class="annot"><span class="annottext">GetRecoveryGroupResponse -&gt; Int
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3AhttpStatus%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203591"><span id="local-6989586621679203593"><span class="annot"><span class="annottext">GetRecoveryGroupResponse -&gt; GetRecoveryGroupResponse -&gt; Bool
+(GetRecoveryGroupResponse -&gt; GetRecoveryGroupResponse -&gt; Bool)
+-&gt; (GetRecoveryGroupResponse -&gt; GetRecoveryGroupResponse -&gt; Bool)
+-&gt; Eq GetRecoveryGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRecoveryGroupResponse -&gt; GetRecoveryGroupResponse -&gt; Bool
+$c/= :: GetRecoveryGroupResponse -&gt; GetRecoveryGroupResponse -&gt; Bool
+== :: GetRecoveryGroupResponse -&gt; GetRecoveryGroupResponse -&gt; Bool
+$c== :: GetRecoveryGroupResponse -&gt; GetRecoveryGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203583"><span id="local-6989586621679203585"><span id="local-6989586621679203587"><span id="local-6989586621679203589"><span class="annot"><span class="annottext">ReadPrec [GetRecoveryGroupResponse]
+ReadPrec GetRecoveryGroupResponse
+Int -&gt; ReadS GetRecoveryGroupResponse
+ReadS [GetRecoveryGroupResponse]
+(Int -&gt; ReadS GetRecoveryGroupResponse)
+-&gt; ReadS [GetRecoveryGroupResponse]
+-&gt; ReadPrec GetRecoveryGroupResponse
+-&gt; ReadPrec [GetRecoveryGroupResponse]
+-&gt; Read GetRecoveryGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetRecoveryGroupResponse]
+$creadListPrec :: ReadPrec [GetRecoveryGroupResponse]
+readPrec :: ReadPrec GetRecoveryGroupResponse
+$creadPrec :: ReadPrec GetRecoveryGroupResponse
+readList :: ReadS [GetRecoveryGroupResponse]
+$creadList :: ReadS [GetRecoveryGroupResponse]
+readsPrec :: Int -&gt; ReadS GetRecoveryGroupResponse
+$creadsPrec :: Int -&gt; ReadS GetRecoveryGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203577"><span id="local-6989586621679203579"><span id="local-6989586621679203581"><span class="annot"><span class="annottext">Int -&gt; GetRecoveryGroupResponse -&gt; ShowS
+[GetRecoveryGroupResponse] -&gt; ShowS
+GetRecoveryGroupResponse -&gt; String
+(Int -&gt; GetRecoveryGroupResponse -&gt; ShowS)
+-&gt; (GetRecoveryGroupResponse -&gt; String)
+-&gt; ([GetRecoveryGroupResponse] -&gt; ShowS)
+-&gt; Show GetRecoveryGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRecoveryGroupResponse] -&gt; ShowS
+$cshowList :: [GetRecoveryGroupResponse] -&gt; ShowS
+show :: GetRecoveryGroupResponse -&gt; String
+$cshow :: GetRecoveryGroupResponse -&gt; String
+showsPrec :: Int -&gt; GetRecoveryGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRecoveryGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetRecoveryGroupResponse -&gt; Rep GetRecoveryGroupResponse x)
+-&gt; (forall x.
+    Rep GetRecoveryGroupResponse x -&gt; GetRecoveryGroupResponse)
+-&gt; Generic GetRecoveryGroupResponse
+forall x.
+Rep GetRecoveryGroupResponse x -&gt; GetRecoveryGroupResponse
+forall x.
+GetRecoveryGroupResponse -&gt; Rep GetRecoveryGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetRecoveryGroupResponse x -&gt; GetRecoveryGroupResponse
+$cfrom :: forall x.
+GetRecoveryGroupResponse -&gt; Rep GetRecoveryGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Create a value of 'GetRecoveryGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'cells', 'getRecoveryGroupResponse_cells' - A list of Cell arns</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'recoveryGroupName', 'getRecoveryGroupResponse_recoveryGroupName' - The name of the RecoveryGroup</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'recoveryGroupArn', 'getRecoveryGroupResponse_recoveryGroupArn' - The arn for the RecoveryGroup</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'tags', 'getRecoveryGroupResponse_tags' - Undocumented member.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'httpStatus', 'getRecoveryGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#newGetRecoveryGroupResponse"><span class="hs-identifier hs-type">newGetRecoveryGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span>
+</span><span id="line-156"></span><span id="newGetRecoveryGroupResponse"><span class="annot"><span class="annottext">newGetRecoveryGroupResponse :: Int -&gt; GetRecoveryGroupResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#newGetRecoveryGroupResponse"><span class="hs-identifier hs-var hs-var">newGetRecoveryGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679203574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">GetRecoveryGroupResponse' :: Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetRecoveryGroupResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cells:GetRecoveryGroupResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3Acells%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:recoveryGroupName:GetRecoveryGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:recoveryGroupArn:GetRecoveryGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3ArecoveryGroupArn%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">recoveryGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetRecoveryGroupResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3Atags%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRecoveryGroupResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3AhttpStatus%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | A list of Cell arns</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_cells"><span class="hs-identifier hs-type">getRecoveryGroupResponse_cells</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="getRecoveryGroupResponse_cells"><span class="annot"><span class="annottext">getRecoveryGroupResponse_cells :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetRecoveryGroupResponse -&gt; f GetRecoveryGroupResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_cells"><span class="hs-identifier hs-var hs-var">getRecoveryGroupResponse_cells</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryGroupResponse -&gt; Maybe [Text])
+-&gt; (GetRecoveryGroupResponse
+    -&gt; Maybe [Text] -&gt; GetRecoveryGroupResponse)
+-&gt; Lens
+     GetRecoveryGroupResponse
+     GetRecoveryGroupResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203573"><span class="annot"><span class="annottext">Maybe [Text]
+cells :: Maybe [Text]
+$sel:cells:GetRecoveryGroupResponse' :: GetRecoveryGroupResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679203573"><span class="hs-identifier hs-var hs-var">cells</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203573"><span class="hs-identifier hs-var">cells</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203572"><span class="annot"><span class="annottext">s :: GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203571"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cells:GetRecoveryGroupResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3Acells%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">cells</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679203571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetRecoveryGroupResponse -&gt; f GetRecoveryGroupResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetRecoveryGroupResponse
+-&gt; f GetRecoveryGroupResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The name of the RecoveryGroup</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_recoveryGroupName"><span class="hs-identifier hs-type">getRecoveryGroupResponse_recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="getRecoveryGroupResponse_recoveryGroupName"><span class="annot"><span class="annottext">getRecoveryGroupResponse_recoveryGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRecoveryGroupResponse -&gt; f GetRecoveryGroupResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_recoveryGroupName"><span class="hs-identifier hs-var hs-var">getRecoveryGroupResponse_recoveryGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryGroupResponse -&gt; Maybe Text)
+-&gt; (GetRecoveryGroupResponse
+    -&gt; Maybe Text -&gt; GetRecoveryGroupResponse)
+-&gt; Lens
+     GetRecoveryGroupResponse
+     GetRecoveryGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203567"><span class="annot"><span class="annottext">Maybe Text
+recoveryGroupName :: Maybe Text
+$sel:recoveryGroupName:GetRecoveryGroupResponse' :: GetRecoveryGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679203567"><span class="hs-identifier hs-var hs-var">recoveryGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203567"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203566"><span class="annot"><span class="annottext">s :: GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recoveryGroupName:GetRecoveryGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3ArecoveryGroupName%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">recoveryGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The arn for the RecoveryGroup</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_recoveryGroupArn"><span class="hs-identifier hs-type">getRecoveryGroupResponse_recoveryGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="getRecoveryGroupResponse_recoveryGroupArn"><span class="annot"><span class="annottext">getRecoveryGroupResponse_recoveryGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRecoveryGroupResponse -&gt; f GetRecoveryGroupResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_recoveryGroupArn"><span class="hs-identifier hs-var hs-var">getRecoveryGroupResponse_recoveryGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryGroupResponse -&gt; Maybe Text)
+-&gt; (GetRecoveryGroupResponse
+    -&gt; Maybe Text -&gt; GetRecoveryGroupResponse)
+-&gt; Lens
+     GetRecoveryGroupResponse
+     GetRecoveryGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203564"><span class="annot"><span class="annottext">Maybe Text
+recoveryGroupArn :: Maybe Text
+$sel:recoveryGroupArn:GetRecoveryGroupResponse' :: GetRecoveryGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679203564"><span class="hs-identifier hs-var hs-var">recoveryGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203564"><span class="hs-identifier hs-var">recoveryGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203563"><span class="annot"><span class="annottext">s :: GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203562"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recoveryGroupArn:GetRecoveryGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3ArecoveryGroupArn%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">recoveryGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_tags"><span class="hs-identifier hs-type">getRecoveryGroupResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="getRecoveryGroupResponse_tags"><span class="annot"><span class="annottext">getRecoveryGroupResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetRecoveryGroupResponse -&gt; f GetRecoveryGroupResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_tags"><span class="hs-identifier hs-var hs-var">getRecoveryGroupResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryGroupResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetRecoveryGroupResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetRecoveryGroupResponse)
+-&gt; Lens
+     GetRecoveryGroupResponse
+     GetRecoveryGroupResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203561"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:GetRecoveryGroupResponse' :: GetRecoveryGroupResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679203561"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679203561"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203560"><span class="annot"><span class="annottext">s :: GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203559"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679203559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetRecoveryGroupResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3Atags%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679203559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetRecoveryGroupResponse -&gt; f GetRecoveryGroupResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetRecoveryGroupResponse
+-&gt; f GetRecoveryGroupResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_httpStatus"><span class="hs-identifier hs-type">getRecoveryGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="getRecoveryGroupResponse_httpStatus"><span class="annot"><span class="annottext">getRecoveryGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetRecoveryGroupResponse -&gt; f GetRecoveryGroupResponse
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#getRecoveryGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getRecoveryGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRecoveryGroupResponse -&gt; Int)
+-&gt; (GetRecoveryGroupResponse -&gt; Int -&gt; GetRecoveryGroupResponse)
+-&gt; Lens GetRecoveryGroupResponse GetRecoveryGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203558"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetRecoveryGroupResponse' :: GetRecoveryGroupResponse -&gt; Int
+</span><a href="#local-6989586621679203558"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203558"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203557"><span class="annot"><span class="annottext">s :: GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse%27"><span class="hs-identifier hs-type">GetRecoveryGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203556"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRecoveryGroupResponse
+</span><a href="#local-6989586621679203557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRecoveryGroupResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#%24sel%3AhttpStatus%3AGetRecoveryGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679203556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup.html#GetRecoveryGroupResponse"><span class="hs-identifier hs-type">GetRecoveryGroupResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- appear in your input to also appear in this output. Choose None (NONE)</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- if you don\'t want those SCTE-35 markers in this output.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679991987"><span id="local-6989586621679991988"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MpdScte35Source"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Source.html#MpdScte35Source"><span class="hs-identifier hs-var">MpdScte35Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdScte35Source%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Source.html#MpdScte35Source%27"><span class="hs-identifier hs-var">MpdScte35Source'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679991996"><span id="local-6989586621679991997"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MpdScte35Source"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Source.html#MpdScte35Source"><span class="hs-identifier hs-var">MpdScte35Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdScte35Source%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdScte35Source.html#MpdScte35Source%27"><span class="hs-identifier hs-var">MpdScte35Source'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpdScte35Source"><span class="annot"><span class="annottext">MpdScte35Source -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.MpdScte35Source.html#fromMpdScte35Source"><span class="hs-identifier hs-var hs-var">fromMpdScte35Source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991979"><span id="local-6989586621679991981"><span id="local-6989586621679991983"><span class="annot"><span class="annottext">Int -&gt; MpdScte35Source -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991988"><span id="local-6989586621679991990"><span id="local-6989586621679991992"><span class="annot"><span class="annottext">Int -&gt; MpdScte35Source -&gt; ShowS
 [MpdScte35Source] -&gt; ShowS
 MpdScte35Source -&gt; String
 (Int -&gt; MpdScte35Source -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: MpdScte35Source -&gt; String
 showsPrec :: Int -&gt; MpdScte35Source -&gt; ShowS
 $cshowsPrec :: Int -&gt; MpdScte35Source -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679991970"><span id="local-6989586621679991972"><span id="local-6989586621679991974"><span id="local-6989586621679991976"><span class="annot"><span class="annottext">ReadPrec [MpdScte35Source]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679991979"><span id="local-6989586621679991981"><span id="local-6989586621679991983"><span id="local-6989586621679991985"><span class="annot"><span class="annottext">ReadPrec [MpdScte35Source]
 ReadPrec MpdScte35Source
 Int -&gt; ReadS MpdScte35Source
 ReadS [MpdScte35Source]
@@ -76,7 +76,7 @@ $creadList :: ReadS [MpdScte35Source]
 readsPrec :: Int -&gt; ReadS MpdScte35Source
 $creadsPrec :: Int -&gt; ReadS MpdScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679991965"><span id="local-6989586621679991967"><span class="annot"><span class="annottext">MpdScte35Source -&gt; MpdScte35Source -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679991974"><span id="local-6989586621679991976"><span class="annot"><span class="annottext">MpdScte35Source -&gt; MpdScte35Source -&gt; Bool
 (MpdScte35Source -&gt; MpdScte35Source -&gt; Bool)
 -&gt; (MpdScte35Source -&gt; MpdScte35Source -&gt; Bool)
 -&gt; Eq MpdScte35Source
@@ -86,7 +86,7 @@ $c/= :: MpdScte35Source -&gt; MpdScte35Source -&gt; Bool
 == :: MpdScte35Source -&gt; MpdScte35Source -&gt; Bool
 $c== :: MpdScte35Source -&gt; MpdScte35Source -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679991949"><span id="local-6989586621679991951"><span id="local-6989586621679991953"><span id="local-6989586621679991955"><span id="local-6989586621679991957"><span id="local-6989586621679991959"><span id="local-6989586621679991961"><span class="annot"><span class="annottext">Eq MpdScte35Source
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679991958"><span id="local-6989586621679991960"><span id="local-6989586621679991962"><span id="local-6989586621679991964"><span id="local-6989586621679991966"><span id="local-6989586621679991968"><span id="local-6989586621679991970"><span class="annot"><span class="annottext">Eq MpdScte35Source
 Eq MpdScte35Source
 -&gt; (MpdScte35Source -&gt; MpdScte35Source -&gt; Ordering)
 -&gt; (MpdScte35Source -&gt; MpdScte35Source -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. MpdScte35Source -&gt; Rep MpdScte35Source x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991941"><span id="local-6989586621679991943"><span class="annot"><span class="annottext">Int -&gt; MpdScte35Source -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991950"><span id="local-6989586621679991952"><span class="annot"><span class="annottext">Int -&gt; MpdScte35Source -&gt; Int
 MpdScte35Source -&gt; Int
 (Int -&gt; MpdScte35Source -&gt; Int)
 -&gt; (MpdScte35Source -&gt; Int) -&gt; Hashable MpdScte35Source
@@ -147,50 +147,50 @@ $chash :: MpdScte35Source -&gt; Int
 hashWithSalt :: Int -&gt; MpdScte35Source -&gt; Int
 $chashWithSalt :: Int -&gt; MpdScte35Source -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679991938"><span class="annot"><span class="annottext">MpdScte35Source -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679991947"><span class="annot"><span class="annottext">MpdScte35Source -&gt; ()
 (MpdScte35Source -&gt; ()) -&gt; NFData MpdScte35Source
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MpdScte35Source -&gt; ()
 $crnf :: MpdScte35Source -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679991935"><span class="annot"><span class="annottext">Text -&gt; Either String MpdScte35Source
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679991944"><span class="annot"><span class="annottext">Text -&gt; Either String MpdScte35Source
 (Text -&gt; Either String MpdScte35Source) -&gt; FromText MpdScte35Source
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MpdScte35Source
 $cfromText :: Text -&gt; Either String MpdScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679991932"><span class="annot"><span class="annottext">MpdScte35Source -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679991941"><span class="annot"><span class="annottext">MpdScte35Source -&gt; Text
 (MpdScte35Source -&gt; Text) -&gt; ToText MpdScte35Source
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MpdScte35Source -&gt; Text
 $ctoText :: MpdScte35Source -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679991929"><span class="annot"><span class="annottext">MpdScte35Source -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679991938"><span class="annot"><span class="annottext">MpdScte35Source -&gt; ByteString
 (MpdScte35Source -&gt; ByteString) -&gt; ToByteString MpdScte35Source
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MpdScte35Source -&gt; ByteString
 $ctoBS :: MpdScte35Source -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679991926"><span class="annot"><span class="annottext">MpdScte35Source -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679991935"><span class="annot"><span class="annottext">MpdScte35Source -&gt; ByteStringBuilder
 (MpdScte35Source -&gt; ByteStringBuilder) -&gt; ToLog MpdScte35Source
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MpdScte35Source -&gt; ByteStringBuilder
 $cbuild :: MpdScte35Source -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679991923"><span class="annot"><span class="annottext">HeaderName -&gt; MpdScte35Source -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679991932"><span class="annot"><span class="annottext">HeaderName -&gt; MpdScte35Source -&gt; [Header]
 (HeaderName -&gt; MpdScte35Source -&gt; [Header])
 -&gt; ToHeader MpdScte35Source
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MpdScte35Source -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MpdScte35Source -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679991920"><span class="annot"><span class="annottext">MpdScte35Source -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679991929"><span class="annot"><span class="annottext">MpdScte35Source -&gt; QueryString
 (MpdScte35Source -&gt; QueryString) -&gt; ToQuery MpdScte35Source
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MpdScte35Source -&gt; QueryString
 $ctoQuery :: MpdScte35Source -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679991915"><span id="local-6989586621679991917"><span class="annot"><span class="annottext">Value -&gt; Parser [MpdScte35Source]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679991924"><span id="local-6989586621679991926"><span class="annot"><span class="annottext">Value -&gt; Parser [MpdScte35Source]
 Value -&gt; Parser MpdScte35Source
 (Value -&gt; Parser MpdScte35Source)
 -&gt; (Value -&gt; Parser [MpdScte35Source]) -&gt; FromJSON MpdScte35Source
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [MpdScte35Source]
 parseJSON :: Value -&gt; Parser MpdScte35Source
 $cparseJSON :: Value -&gt; Parser MpdScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679991910"><span id="local-6989586621679991912"><span class="annot"><span class="annottext">FromJSONKeyFunction [MpdScte35Source]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679991919"><span id="local-6989586621679991921"><span class="annot"><span class="annottext">FromJSONKeyFunction [MpdScte35Source]
 FromJSONKeyFunction MpdScte35Source
 FromJSONKeyFunction MpdScte35Source
 -&gt; FromJSONKeyFunction [MpdScte35Source]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MpdScte35Source]
 fromJSONKey :: FromJSONKeyFunction MpdScte35Source
 $cfromJSONKey :: FromJSONKeyFunction MpdScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679991901"><span id="local-6989586621679991903"><span id="local-6989586621679991905"><span id="local-6989586621679991907"><span class="annot"><span class="annottext">[MpdScte35Source] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679991910"><span id="local-6989586621679991912"><span id="local-6989586621679991914"><span id="local-6989586621679991916"><span class="annot"><span class="annottext">[MpdScte35Source] -&gt; Encoding
 [MpdScte35Source] -&gt; Value
 MpdScte35Source -&gt; Encoding
 MpdScte35Source -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: MpdScte35Source -&gt; Encoding
 toJSON :: MpdScte35Source -&gt; Value
 $ctoJSON :: MpdScte35Source -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679991896"><span id="local-6989586621679991898"><span class="annot"><span class="annottext">ToJSONKeyFunction [MpdScte35Source]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679991905"><span id="local-6989586621679991907"><span class="annot"><span class="annottext">ToJSONKeyFunction [MpdScte35Source]
 ToJSONKeyFunction MpdScte35Source
 ToJSONKeyFunction MpdScte35Source
 -&gt; ToJSONKeyFunction [MpdScte35Source] -&gt; ToJSONKey MpdScte35Source
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MpdScte35Source]
 toJSONKey :: ToJSONKeyFunction MpdScte35Source
 $ctoJSONKey :: ToJSONKeyFunction MpdScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679991893"><span class="annot"><span class="annottext">[Node] -&gt; Either String MpdScte35Source
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679991902"><span class="annot"><span class="annottext">[Node] -&gt; Either String MpdScte35Source
 ([Node] -&gt; Either String MpdScte35Source)
 -&gt; FromXML MpdScte35Source
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MpdScte35Source
 $cparseXML :: [Node] -&gt; Either String MpdScte35Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679991890"><span class="annot"><span class="annottext">MpdScte35Source -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679991899"><span class="annot"><span class="annottext">MpdScte35Source -&gt; XML
 (MpdScte35Source -&gt; XML) -&gt; ToXML MpdScte35Source
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MpdScte35Source -&gt; XML

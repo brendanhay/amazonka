@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeConfigurationAggregators' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679426982"><span id="local-6989586621679426983"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationAggregators"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-var">DescribeConfigurationAggregators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationAggregators%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-var">DescribeConfigurationAggregators'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679426991"><span id="local-6989586621679426992"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationAggregators"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-var">DescribeConfigurationAggregators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationAggregators%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-var">DescribeConfigurationAggregators'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeConfigurationAggregators%27"><span class="annot"><span class="annottext">DescribeConfigurationAggregators -&gt; Maybe Text
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AconfigurationAggregatorNames%3ADescribeConfigurationAggregators%27"><span class="annot"><span class="annottext">DescribeConfigurationAggregators -&gt; Maybe [Text]
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#%24sel%3AconfigurationAggregatorNames%3ADescribeConfigurationAggregators%27"><span class="hs-identifier hs-var hs-var">configurationAggregatorNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426974"><span id="local-6989586621679426976"><span class="annot"><span class="annottext">DescribeConfigurationAggregators
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426983"><span id="local-6989586621679426985"><span class="annot"><span class="annottext">DescribeConfigurationAggregators
 -&gt; DescribeConfigurationAggregators -&gt; Bool
 (DescribeConfigurationAggregators
  -&gt; DescribeConfigurationAggregators -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: DescribeConfigurationAggregators
 -&gt; DescribeConfigurationAggregators -&gt; Bool
 $c== :: DescribeConfigurationAggregators
 -&gt; DescribeConfigurationAggregators -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426965"><span id="local-6989586621679426967"><span id="local-6989586621679426969"><span id="local-6989586621679426971"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationAggregators]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426974"><span id="local-6989586621679426976"><span id="local-6989586621679426978"><span id="local-6989586621679426980"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationAggregators]
 ReadPrec DescribeConfigurationAggregators
 Int -&gt; ReadS DescribeConfigurationAggregators
 ReadS [DescribeConfigurationAggregators]
@@ -104,7 +104,7 @@ readList :: ReadS [DescribeConfigurationAggregators]
 $creadList :: ReadS [DescribeConfigurationAggregators]
 readsPrec :: Int -&gt; ReadS DescribeConfigurationAggregators
 $creadsPrec :: Int -&gt; ReadS DescribeConfigurationAggregators
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426958"><span id="local-6989586621679426960"><span id="local-6989586621679426962"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationAggregators -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426967"><span id="local-6989586621679426969"><span id="local-6989586621679426971"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationAggregators -&gt; ShowS
 [DescribeConfigurationAggregators] -&gt; ShowS
 DescribeConfigurationAggregators -&gt; String
 (Int -&gt; DescribeConfigurationAggregators -&gt; ShowS)
@@ -197,16 +197,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426952"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426961"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeConfigurationAggregators' :: DescribeConfigurationAggregators -&gt; Maybe Text
-</span><a href="#local-6989586621679426952"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426952"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426951"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregators
-</span><a href="#local-6989586621679426951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426950"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregators
-</span><a href="#local-6989586621679426951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConfigurationAggregators' :: Maybe Text
+</span><a href="#local-6989586621679426961"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426961"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426960"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregators
+</span><a href="#local-6989586621679426960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregators
+</span><a href="#local-6989586621679426960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConfigurationAggregators' :: Maybe Text
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#%24sel%3AnextToken%3ADescribeConfigurationAggregators%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The maximum number of configuration aggregators returned on each page.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- The default is maximum. If you specify 0, Config uses the default.</span><span>
@@ -223,16 +223,16 @@ $sel:nextToken:DescribeConfigurationAggregators' :: DescribeConfigurationAggrega
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426949"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426958"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeConfigurationAggregators' :: DescribeConfigurationAggregators -&gt; Maybe Natural
-</span><a href="#local-6989586621679426949"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679426949"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426948"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregators
-</span><a href="#local-6989586621679426948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426947"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679426947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregators
-</span><a href="#local-6989586621679426948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeConfigurationAggregators' :: Maybe Natural
+</span><a href="#local-6989586621679426958"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679426958"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426957"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregators
+</span><a href="#local-6989586621679426957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426956"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679426956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregators
+</span><a href="#local-6989586621679426957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeConfigurationAggregators' :: Maybe Natural
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#%24sel%3Alimit%3ADescribeConfigurationAggregators%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679426947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The name of the configuration aggregators.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#describeConfigurationAggregators_configurationAggregatorNames"><span class="hs-identifier hs-type">describeConfigurationAggregators_configurationAggregatorNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -248,16 +248,16 @@ $sel:limit:DescribeConfigurationAggregators' :: DescribeConfigurationAggregators
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426946"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426955"><span class="annot"><span class="annottext">Maybe [Text]
 configurationAggregatorNames :: Maybe [Text]
 $sel:configurationAggregatorNames:DescribeConfigurationAggregators' :: DescribeConfigurationAggregators -&gt; Maybe [Text]
-</span><a href="#local-6989586621679426946"><span class="hs-identifier hs-var hs-var">configurationAggregatorNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679426946"><span class="hs-identifier hs-var">configurationAggregatorNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426945"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregators
-</span><a href="#local-6989586621679426945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426944"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679426944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregators
-</span><a href="#local-6989586621679426945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregatorNames:DescribeConfigurationAggregators' :: Maybe [Text]
+</span><a href="#local-6989586621679426955"><span class="hs-identifier hs-var hs-var">configurationAggregatorNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426955"><span class="hs-identifier hs-var">configurationAggregatorNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426954"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregators
+</span><a href="#local-6989586621679426954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426953"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregators
+</span><a href="#local-6989586621679426954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregatorNames:DescribeConfigurationAggregators' :: Maybe [Text]
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#%24sel%3AconfigurationAggregatorNames%3ADescribeConfigurationAggregators%27"><span class="hs-identifier hs-var">configurationAggregatorNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679426944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679426953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeConfigurationAggregators
  -&gt; f DescribeConfigurationAggregators)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -279,18 +279,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679426937"><span class="annot"><span class="annottext">page :: DescribeConfigurationAggregators
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679426946"><span class="annot"><span class="annottext">page :: DescribeConfigurationAggregators
 -&gt; AWSResponse DescribeConfigurationAggregators
 -&gt; Maybe DescribeConfigurationAggregators
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679426935"><span class="annot"><span class="annottext">DescribeConfigurationAggregators
-</span><a href="#local-6989586621679426935"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679426934"><span class="annot"><span class="annottext">AWSResponse DescribeConfigurationAggregators
-</span><a href="#local-6989586621679426934"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679426944"><span class="annot"><span class="annottext">DescribeConfigurationAggregators
+</span><a href="#local-6989586621679426944"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679426943"><span class="annot"><span class="annottext">AWSResponse DescribeConfigurationAggregators
+</span><a href="#local-6989586621679426943"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-116"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeConfigurationAggregators
 DescribeConfigurationAggregatorsResponse
-</span><a href="#local-6989586621679426934"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679426943"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
 -&gt; Getting
      (First Text) DescribeConfigurationAggregatorsResponse Text
@@ -322,7 +322,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeConfigurationAggregators
 DescribeConfigurationAggregatorsResponse
-</span><a href="#local-6989586621679426934"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679426943"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
 -&gt; Getting
      (First [ConfigurationAggregator])
@@ -386,7 +386,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">DescribeConfigurationAggregators
-</span><a href="#local-6989586621679426935"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679426944"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">DescribeConfigurationAggregators
 -&gt; (DescribeConfigurationAggregators
     -&gt; DescribeConfigurationAggregators)
@@ -410,7 +410,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeConfigurationAggregators
 DescribeConfigurationAggregatorsResponse
-</span><a href="#local-6989586621679426934"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679426943"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
 -&gt; Getting
      (First Text) DescribeConfigurationAggregatorsResponse Text
@@ -441,7 +441,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679426925"><span class="annot"><span class="annottext">request :: DescribeConfigurationAggregators
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679426934"><span class="annot"><span class="annottext">request :: DescribeConfigurationAggregators
 -&gt; Request DescribeConfigurationAggregators
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeConfigurationAggregators
@@ -449,7 +449,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679426921"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679426930"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeConfigurationAggregators
 -&gt; ClientResponse ClientBody
@@ -477,10 +477,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679426918"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426918"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679426917"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679426917"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679426916"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679426916"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679426927"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426927"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679426926"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679426926"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679426925"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426925"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [ConfigurationAggregator]
 -&gt; Int
@@ -497,7 +497,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeConfigurationAggregatorsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679426916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679426925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -509,7 +509,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeConfigurationAggregatorsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679426916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ConfigurationAggregator]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -531,22 +531,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426918"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426927"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679426907"><span id="local-6989586621679426909"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679426916"><span id="local-6989586621679426918"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679426904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679426913"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679426900"><span class="annot"><span class="annottext">toHeaders :: DescribeConfigurationAggregators -&gt; ResponseHeaders
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679426909"><span class="annot"><span class="annottext">toHeaders :: DescribeConfigurationAggregators -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeConfigurationAggregators -&gt; ResponseHeaders
@@ -574,9 +574,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426890"><span id="local-6989586621679426892"><span id="local-6989586621679426894"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679426888"><span class="annot"><span class="annottext">toJSON :: DescribeConfigurationAggregators -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426884"><span id="local-6989586621679426885"><span id="local-6989586621679426886"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426899"><span id="local-6989586621679426901"><span id="local-6989586621679426903"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679426897"><span class="annot"><span class="annottext">toJSON :: DescribeConfigurationAggregators -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426893"><span id="local-6989586621679426894"><span id="local-6989586621679426895"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Text]
 Maybe Text
 configurationAggregatorNames :: Maybe [Text]
@@ -585,7 +585,7 @@ nextToken :: Maybe Text
 $sel:configurationAggregatorNames:DescribeConfigurationAggregators' :: DescribeConfigurationAggregators -&gt; Maybe [Text]
 $sel:limit:DescribeConfigurationAggregators' :: DescribeConfigurationAggregators -&gt; Maybe Natural
 $sel:nextToken:DescribeConfigurationAggregators' :: DescribeConfigurationAggregators -&gt; Maybe Text
-</span><a href="#local-6989586621679426884"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679426893"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -597,14 +597,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426886"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679426895"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679426885"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679426894"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfigurationAggregatorNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -612,12 +612,12 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679426884"><span class="hs-identifier hs-var">configurationAggregatorNames</span></a></span><span>
+</span><a href="#local-6989586621679426893"><span class="hs-identifier hs-var">configurationAggregatorNames</span></a></span><span>
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679426878"><span class="annot"><span class="annottext">toPath :: DescribeConfigurationAggregators -&gt; ByteString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679426887"><span class="annot"><span class="annottext">toPath :: DescribeConfigurationAggregators -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeConfigurationAggregators -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -627,7 +627,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregators"><span class="hs-identifier hs-type">DescribeConfigurationAggregators</span></a></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679426874"><span class="annot"><span class="annottext">toQuery :: DescribeConfigurationAggregators -&gt; QueryString
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679426883"><span class="annot"><span class="annottext">toQuery :: DescribeConfigurationAggregators -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeConfigurationAggregators -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -635,7 +635,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | /See:/ 'newDescribeConfigurationAggregatorsResponse' smart constructor.</span><span>
-</span><span id="line-201"></span><span id="local-6989586621679426871"><span id="local-6989586621679426872"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationAggregatorsResponse"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-var">DescribeConfigurationAggregatorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationAggregatorsResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationAggregatorsResponse'</span></a></span></span><span>
+</span><span id="line-201"></span><span id="local-6989586621679426880"><span id="local-6989586621679426881"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationAggregatorsResponse"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-var">DescribeConfigurationAggregatorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationAggregatorsResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationAggregatorsResponse'</span></a></span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-comment">-- the next page of results in a paginated response.</span><span>
 </span><span id="line-204"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeConfigurationAggregatorsResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse -&gt; Maybe Text
@@ -648,7 +648,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-208"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeConfigurationAggregatorsResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse -&gt; Int
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#%24sel%3AhttpStatus%3ADescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426864"><span id="local-6989586621679426866"><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426873"><span id="local-6989586621679426875"><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
 -&gt; DescribeConfigurationAggregatorsResponse -&gt; Bool
 (DescribeConfigurationAggregatorsResponse
  -&gt; DescribeConfigurationAggregatorsResponse -&gt; Bool)
@@ -664,7 +664,7 @@ $c/= :: DescribeConfigurationAggregatorsResponse
 -&gt; DescribeConfigurationAggregatorsResponse -&gt; Bool
 $c== :: DescribeConfigurationAggregatorsResponse
 -&gt; DescribeConfigurationAggregatorsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426856"><span id="local-6989586621679426858"><span id="local-6989586621679426860"><span id="local-6989586621679426862"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationAggregatorsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426865"><span id="local-6989586621679426867"><span id="local-6989586621679426869"><span id="local-6989586621679426871"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationAggregatorsResponse]
 ReadPrec DescribeConfigurationAggregatorsResponse
 Int -&gt; ReadS DescribeConfigurationAggregatorsResponse
 ReadS [DescribeConfigurationAggregatorsResponse]
@@ -684,7 +684,7 @@ readList :: ReadS [DescribeConfigurationAggregatorsResponse]
 $creadList :: ReadS [DescribeConfigurationAggregatorsResponse]
 readsPrec :: Int -&gt; ReadS DescribeConfigurationAggregatorsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeConfigurationAggregatorsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426850"><span id="local-6989586621679426852"><span id="local-6989586621679426854"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationAggregatorsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426859"><span id="local-6989586621679426861"><span id="local-6989586621679426863"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationAggregatorsResponse -&gt; ShowS
 [DescribeConfigurationAggregatorsResponse] -&gt; ShowS
 DescribeConfigurationAggregatorsResponse -&gt; String
 (Int -&gt; DescribeConfigurationAggregatorsResponse -&gt; ShowS)
@@ -742,8 +742,8 @@ DescribeConfigurationAggregatorsResponse
 </span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span><span>
 </span><span id="line-230"></span><span id="newDescribeConfigurationAggregatorsResponse"><span class="annot"><span class="annottext">newDescribeConfigurationAggregatorsResponse :: Int -&gt; DescribeConfigurationAggregatorsResponse
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#newDescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-var hs-var">newDescribeConfigurationAggregatorsResponse</span></a></span></span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679426847"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679426856"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse' :: Maybe Text
 -&gt; Maybe [ConfigurationAggregator]
 -&gt; Int
@@ -761,7 +761,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationAggregatorsResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#%24sel%3AhttpStatus%3ADescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679426856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-238"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | The @nextToken@ string returned on a previous page that you use to get</span><span>
@@ -775,16 +775,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeConfigurationAggregatorsResponse)
 -&gt; Lens' DescribeConfigurationAggregatorsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426846"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426855"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeConfigurationAggregatorsResponse' :: DescribeConfigurationAggregatorsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679426846"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426846"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426845"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregatorsResponse
-</span><a href="#local-6989586621679426845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426844"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
-</span><a href="#local-6989586621679426845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConfigurationAggregatorsResponse' :: Maybe Text
+</span><a href="#local-6989586621679426855"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426855"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426854"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregatorsResponse
+</span><a href="#local-6989586621679426854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426853"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679426853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
+</span><a href="#local-6989586621679426854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConfigurationAggregatorsResponse' :: Maybe Text
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#%24sel%3AnextToken%3ADescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679426844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | Returns a ConfigurationAggregators object.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#describeConfigurationAggregatorsResponse_configurationAggregators"><span class="hs-identifier hs-type">describeConfigurationAggregatorsResponse_configurationAggregators</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ConfigurationAggregator.html#ConfigurationAggregator"><span class="hs-identifier hs-type">ConfigurationAggregator</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -801,17 +801,17 @@ $sel:nextToken:DescribeConfigurationAggregatorsResponse' :: DescribeConfiguratio
      DescribeConfigurationAggregatorsResponse
      (Maybe [ConfigurationAggregator])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426843"><span class="annot"><span class="annottext">Maybe [ConfigurationAggregator]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426852"><span class="annot"><span class="annottext">Maybe [ConfigurationAggregator]
 configurationAggregators :: Maybe [ConfigurationAggregator]
 $sel:configurationAggregators:DescribeConfigurationAggregatorsResponse' :: DescribeConfigurationAggregatorsResponse
 -&gt; Maybe [ConfigurationAggregator]
-</span><a href="#local-6989586621679426843"><span class="hs-identifier hs-var hs-var">configurationAggregators</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationAggregator]
-</span><a href="#local-6989586621679426843"><span class="hs-identifier hs-var">configurationAggregators</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426842"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregatorsResponse
-</span><a href="#local-6989586621679426842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426841"><span class="annot"><span class="annottext">Maybe [ConfigurationAggregator]
-</span><a href="#local-6989586621679426841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
-</span><a href="#local-6989586621679426842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregators:DescribeConfigurationAggregatorsResponse' :: Maybe [ConfigurationAggregator]
+</span><a href="#local-6989586621679426852"><span class="hs-identifier hs-var hs-var">configurationAggregators</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationAggregator]
+</span><a href="#local-6989586621679426852"><span class="hs-identifier hs-var">configurationAggregators</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426851"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregatorsResponse
+</span><a href="#local-6989586621679426851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426850"><span class="annot"><span class="annottext">Maybe [ConfigurationAggregator]
+</span><a href="#local-6989586621679426850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
+</span><a href="#local-6989586621679426851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationAggregators:DescribeConfigurationAggregatorsResponse' :: Maybe [ConfigurationAggregator]
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#%24sel%3AconfigurationAggregators%3ADescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-var">configurationAggregators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationAggregator]
-</span><a href="#local-6989586621679426841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigurationAggregator]
+</span><a href="#local-6989586621679426850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigurationAggregator]
   -&gt; f (Maybe [ConfigurationAggregator]))
  -&gt; DescribeConfigurationAggregatorsResponse
  -&gt; f DescribeConfigurationAggregatorsResponse)
@@ -859,18 +859,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426840"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426849"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeConfigurationAggregatorsResponse' :: DescribeConfigurationAggregatorsResponse -&gt; Int
-</span><a href="#local-6989586621679426840"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426840"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426839"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregatorsResponse
-</span><a href="#local-6989586621679426839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426838"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
-</span><a href="#local-6989586621679426839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationAggregatorsResponse' :: Int
+</span><a href="#local-6989586621679426849"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426849"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426848"><span class="annot"><span class="annottext">s :: DescribeConfigurationAggregatorsResponse
+</span><a href="#local-6989586621679426848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426847"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationAggregatorsResponse
+</span><a href="#local-6989586621679426848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationAggregatorsResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#%24sel%3AhttpStatus%3ADescribeConfigurationAggregatorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679426838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-254"></span><span>  </span><span id="local-6989586621679426836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679426845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationAggregators.html#DescribeConfigurationAggregatorsResponse"><span class="hs-identifier hs-type">DescribeConfigurationAggregatorsResponse</span></a></span></span><span>
 </span><span id="line-256"></span></pre></body></html>

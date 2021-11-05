@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListIpRoutes' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679306251"><span id="local-6989586621679306252"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIpRoutes"><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-var">ListIpRoutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIpRoutes%27"><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-var">ListIpRoutes'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679306260"><span id="local-6989586621679306261"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIpRoutes"><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-var">ListIpRoutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIpRoutes%27"><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-var">ListIpRoutes'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Pass null if this is the first call.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListIpRoutes%27"><span class="annot"><span class="annottext">ListIpRoutes -&gt; Maybe Text
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AdirectoryId%3AListIpRoutes%27"><span class="annot"><span class="annottext">ListIpRoutes -&gt; Text
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AdirectoryId%3AListIpRoutes%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306243"><span id="local-6989586621679306245"><span class="annot"><span class="annottext">ListIpRoutes -&gt; ListIpRoutes -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306252"><span id="local-6989586621679306254"><span class="annot"><span class="annottext">ListIpRoutes -&gt; ListIpRoutes -&gt; Bool
 (ListIpRoutes -&gt; ListIpRoutes -&gt; Bool)
 -&gt; (ListIpRoutes -&gt; ListIpRoutes -&gt; Bool) -&gt; Eq ListIpRoutes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListIpRoutes -&gt; ListIpRoutes -&gt; Bool
 == :: ListIpRoutes -&gt; ListIpRoutes -&gt; Bool
 $c== :: ListIpRoutes -&gt; ListIpRoutes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306234"><span id="local-6989586621679306236"><span id="local-6989586621679306238"><span id="local-6989586621679306240"><span class="annot"><span class="annottext">ReadPrec [ListIpRoutes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306243"><span id="local-6989586621679306245"><span id="local-6989586621679306247"><span id="local-6989586621679306249"><span class="annot"><span class="annottext">ReadPrec [ListIpRoutes]
 ReadPrec ListIpRoutes
 Int -&gt; ReadS ListIpRoutes
 ReadS [ListIpRoutes]
@@ -94,7 +94,7 @@ readList :: ReadS [ListIpRoutes]
 $creadList :: ReadS [ListIpRoutes]
 readsPrec :: Int -&gt; ReadS ListIpRoutes
 $creadsPrec :: Int -&gt; ReadS ListIpRoutes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306227"><span id="local-6989586621679306229"><span id="local-6989586621679306231"><span class="annot"><span class="annottext">Int -&gt; ListIpRoutes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306236"><span id="local-6989586621679306238"><span id="local-6989586621679306240"><span class="annot"><span class="annottext">Int -&gt; ListIpRoutes -&gt; ShowS
 [ListIpRoutes] -&gt; ShowS
 ListIpRoutes -&gt; String
 (Int -&gt; ListIpRoutes -&gt; ShowS)
@@ -141,8 +141,8 @@ $cfrom :: forall x. ListIpRoutes -&gt; Rep ListIpRoutes x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span>
 </span><span id="line-88"></span><span id="newListIpRoutes"><span class="annot"><span class="annottext">newListIpRoutes :: Text -&gt; ListIpRoutes
-</span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#newListIpRoutes"><span class="hs-identifier hs-var hs-var">newListIpRoutes</span></a></span></span><span> </span><span id="local-6989586621679306222"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306222"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#newListIpRoutes"><span class="hs-identifier hs-var hs-var">newListIpRoutes</span></a></span></span><span> </span><span id="local-6989586621679306231"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306231"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">ListIpRoutes' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListIpRoutes
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListIpRoutes' :: Maybe Text
@@ -155,7 +155,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryId:ListIpRoutes' :: Text
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AdirectoryId%3AListIpRoutes%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306222"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span>
+</span><a href="#local-6989586621679306231"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.</span><span>
@@ -166,16 +166,16 @@ forall a. Maybe a
 -&gt; (ListIpRoutes -&gt; Maybe Text -&gt; ListIpRoutes)
 -&gt; Lens ListIpRoutes ListIpRoutes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306220"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306229"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListIpRoutes' :: ListIpRoutes -&gt; Maybe Text
-</span><a href="#local-6989586621679306220"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306220"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306219"><span class="annot"><span class="annottext">s :: ListIpRoutes
-</span><a href="#local-6989586621679306219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306218"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutes
-</span><a href="#local-6989586621679306219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIpRoutes' :: Maybe Text
+</span><a href="#local-6989586621679306229"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306229"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306228"><span class="annot"><span class="annottext">s :: ListIpRoutes
+</span><a href="#local-6989586621679306228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutes
+</span><a href="#local-6989586621679306228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIpRoutes' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AnextToken%3AListIpRoutes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | Maximum number of items to return. If this value is zero, the maximum</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- number of items is specified by the limitations of the operation.</span><span>
@@ -186,16 +186,16 @@ $sel:nextToken:ListIpRoutes' :: ListIpRoutes -&gt; Maybe Text
 -&gt; (ListIpRoutes -&gt; Maybe Natural -&gt; ListIpRoutes)
 -&gt; Lens ListIpRoutes ListIpRoutes (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306217"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306226"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListIpRoutes' :: ListIpRoutes -&gt; Maybe Natural
-</span><a href="#local-6989586621679306217"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306217"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306216"><span class="annot"><span class="annottext">s :: ListIpRoutes
-</span><a href="#local-6989586621679306216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306215"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutes
-</span><a href="#local-6989586621679306216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListIpRoutes' :: Maybe Natural
+</span><a href="#local-6989586621679306226"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306226"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306225"><span class="annot"><span class="annottext">s :: ListIpRoutes
+</span><a href="#local-6989586621679306225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306224"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutes
+</span><a href="#local-6989586621679306225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListIpRoutes' :: Maybe Natural
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3Alimit%3AListIpRoutes%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | Identifier (ID) of the directory for which you want to retrieve the IP</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- addresses.</span><span>
@@ -205,28 +205,28 @@ $sel:limit:ListIpRoutes' :: ListIpRoutes -&gt; Maybe Natural
 -&gt; (ListIpRoutes -&gt; Text -&gt; ListIpRoutes)
 -&gt; Lens ListIpRoutes ListIpRoutes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306214"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306223"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:ListIpRoutes' :: ListIpRoutes -&gt; Text
-</span><a href="#local-6989586621679306214"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306214"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306213"><span class="annot"><span class="annottext">s :: ListIpRoutes
-</span><a href="#local-6989586621679306213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306212"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutes
-</span><a href="#local-6989586621679306213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:ListIpRoutes' :: Text
+</span><a href="#local-6989586621679306223"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306223"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306222"><span class="annot"><span class="annottext">s :: ListIpRoutes
+</span><a href="#local-6989586621679306222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306221"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutes
+</span><a href="#local-6989586621679306222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:ListIpRoutes' :: Text
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AdirectoryId%3AListIpRoutes%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679306208"><span class="annot"><span class="annottext">page :: ListIpRoutes -&gt; AWSResponse ListIpRoutes -&gt; Maybe ListIpRoutes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679306206"><span class="annot"><span class="annottext">ListIpRoutes
-</span><a href="#local-6989586621679306206"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679306205"><span class="annot"><span class="annottext">AWSResponse ListIpRoutes
-</span><a href="#local-6989586621679306205"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679306217"><span class="annot"><span class="annottext">page :: ListIpRoutes -&gt; AWSResponse ListIpRoutes -&gt; Maybe ListIpRoutes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679306215"><span class="annot"><span class="annottext">ListIpRoutes
+</span><a href="#local-6989586621679306215"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679306214"><span class="annot"><span class="annottext">AWSResponse ListIpRoutes
+</span><a href="#local-6989586621679306214"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListIpRoutes
 ListIpRoutesResponse
-</span><a href="#local-6989586621679306205"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679306214"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListIpRoutesResponse
 -&gt; Getting (First Text) ListIpRoutesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -252,7 +252,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListIpRoutes
 ListIpRoutesResponse
-</span><a href="#local-6989586621679306205"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679306214"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListIpRoutesResponse
 -&gt; Getting (First [IpRouteInfo]) ListIpRoutesResponse [IpRouteInfo]
 -&gt; Maybe [IpRouteInfo]
@@ -290,7 +290,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ListIpRoutes
-</span><a href="#local-6989586621679306206"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679306215"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ListIpRoutes -&gt; (ListIpRoutes -&gt; ListIpRoutes) -&gt; ListIpRoutes
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -303,7 +303,7 @@ Lens ListIpRoutes ListIpRoutes (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListIpRoutes
 ListIpRoutesResponse
-</span><a href="#local-6989586621679306205"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679306214"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">ListIpRoutesResponse
 -&gt; Getting (First Text) ListIpRoutesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -323,12 +323,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679306195"><span class="annot"><span class="annottext">request :: ListIpRoutes -&gt; Request ListIpRoutes
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679306204"><span class="annot"><span class="annottext">request :: ListIpRoutes -&gt; Request ListIpRoutes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListIpRoutes -&gt; Request ListIpRoutes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679306191"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679306200"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListIpRoutes
 -&gt; ClientResponse ClientBody
@@ -352,10 +352,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306188"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306188"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306187"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679306187"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306186"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306186"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306197"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306196"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306196"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306195"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306195"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IpRouteInfo] -&gt; Maybe Text -&gt; Int -&gt; ListIpRoutesResponse
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-var">ListIpRoutesResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IpRouteInfo] -&gt; Maybe Text -&gt; Int -&gt; ListIpRoutesResponse)
@@ -363,7 +363,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListIpRoutesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [IpRouteInfo]))
+</span><a href="#local-6989586621679306195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [IpRouteInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IpRoutesInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [IpRouteInfo]))
@@ -377,7 +377,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListIpRoutesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679306195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -389,15 +389,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306188"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306197"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306177"><span id="local-6989586621679306179"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306186"><span id="local-6989586621679306188"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679306170"><span class="annot"><span class="annottext">toHeaders :: ListIpRoutes -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679306179"><span class="annot"><span class="annottext">toHeaders :: ListIpRoutes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListIpRoutes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -424,9 +424,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306160"><span id="local-6989586621679306162"><span id="local-6989586621679306164"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679306158"><span class="annot"><span class="annottext">toJSON :: ListIpRoutes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306154"><span id="local-6989586621679306155"><span id="local-6989586621679306156"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306169"><span id="local-6989586621679306171"><span id="local-6989586621679306173"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679306167"><span class="annot"><span class="annottext">toJSON :: ListIpRoutes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes%27"><span class="hs-identifier hs-type">ListIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306163"><span id="local-6989586621679306164"><span id="local-6989586621679306165"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 directoryId :: Text
@@ -435,7 +435,7 @@ nextToken :: Maybe Text
 $sel:directoryId:ListIpRoutes' :: ListIpRoutes -&gt; Text
 $sel:limit:ListIpRoutes' :: ListIpRoutes -&gt; Maybe Natural
 $sel:nextToken:ListIpRoutes' :: ListIpRoutes -&gt; Maybe Text
-</span><a href="#local-6989586621679306154"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679306163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -447,33 +447,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306156"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306165"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306155"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306164"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306154"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306163"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679306148"><span class="annot"><span class="annottext">toPath :: ListIpRoutes -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679306157"><span class="annot"><span class="annottext">toPath :: ListIpRoutes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListIpRoutes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutes"><span class="hs-identifier hs-type">ListIpRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679306144"><span class="annot"><span class="annottext">toQuery :: ListIpRoutes -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679306153"><span class="annot"><span class="annottext">toQuery :: ListIpRoutes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListIpRoutes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -481,7 +481,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newListIpRoutesResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679306141"><span id="local-6989586621679306142"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIpRoutesResponse"><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-var">ListIpRoutesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIpRoutesResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-var">ListIpRoutesResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679306150"><span id="local-6989586621679306151"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIpRoutesResponse"><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-var">ListIpRoutesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIpRoutesResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-var">ListIpRoutesResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of IpRoutes.</span><span>
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AipRoutesInfo%3AListIpRoutesResponse%27"><span class="annot"><span class="annottext">ListIpRoutesResponse -&gt; Maybe [IpRouteInfo]
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AipRoutesInfo%3AListIpRoutesResponse%27"><span class="hs-identifier hs-var hs-var">ipRoutesInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.IpRouteInfo.html#IpRouteInfo"><span class="hs-identifier hs-type">IpRouteInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -494,7 +494,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListIpRoutesResponse%27"><span class="annot"><span class="annottext">ListIpRoutesResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AhttpStatus%3AListIpRoutesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306134"><span id="local-6989586621679306136"><span class="annot"><span class="annottext">ListIpRoutesResponse -&gt; ListIpRoutesResponse -&gt; Bool
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306143"><span id="local-6989586621679306145"><span class="annot"><span class="annottext">ListIpRoutesResponse -&gt; ListIpRoutesResponse -&gt; Bool
 (ListIpRoutesResponse -&gt; ListIpRoutesResponse -&gt; Bool)
 -&gt; (ListIpRoutesResponse -&gt; ListIpRoutesResponse -&gt; Bool)
 -&gt; Eq ListIpRoutesResponse
@@ -503,7 +503,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListIpRoutesResponse -&gt; ListIpRoutesResponse -&gt; Bool
 == :: ListIpRoutesResponse -&gt; ListIpRoutesResponse -&gt; Bool
 $c== :: ListIpRoutesResponse -&gt; ListIpRoutesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306126"><span id="local-6989586621679306128"><span id="local-6989586621679306130"><span id="local-6989586621679306132"><span class="annot"><span class="annottext">ReadPrec [ListIpRoutesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306135"><span id="local-6989586621679306137"><span id="local-6989586621679306139"><span id="local-6989586621679306141"><span class="annot"><span class="annottext">ReadPrec [ListIpRoutesResponse]
 ReadPrec ListIpRoutesResponse
 Int -&gt; ReadS ListIpRoutesResponse
 ReadS [ListIpRoutesResponse]
@@ -523,7 +523,7 @@ readList :: ReadS [ListIpRoutesResponse]
 $creadList :: ReadS [ListIpRoutesResponse]
 readsPrec :: Int -&gt; ReadS ListIpRoutesResponse
 $creadsPrec :: Int -&gt; ReadS ListIpRoutesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306120"><span id="local-6989586621679306122"><span id="local-6989586621679306124"><span class="annot"><span class="annottext">Int -&gt; ListIpRoutesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306129"><span id="local-6989586621679306131"><span id="local-6989586621679306133"><span class="annot"><span class="annottext">Int -&gt; ListIpRoutesResponse -&gt; ShowS
 [ListIpRoutesResponse] -&gt; ShowS
 ListIpRoutesResponse -&gt; String
 (Int -&gt; ListIpRoutesResponse -&gt; ShowS)
@@ -569,8 +569,8 @@ $cfrom :: forall x. ListIpRoutesResponse -&gt; Rep ListIpRoutesResponse x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span><span>
 </span><span id="line-209"></span><span id="newListIpRoutesResponse"><span class="annot"><span class="annottext">newListIpRoutesResponse :: Int -&gt; ListIpRoutesResponse
-</span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#newListIpRoutesResponse"><span class="hs-identifier hs-var hs-var">newListIpRoutesResponse</span></a></span></span><span> </span><span id="local-6989586621679306117"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306117"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#newListIpRoutesResponse"><span class="hs-identifier hs-var hs-var">newListIpRoutesResponse</span></a></span></span><span> </span><span id="local-6989586621679306126"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306126"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">ListIpRoutesResponse' :: Maybe [IpRouteInfo] -&gt; Maybe Text -&gt; Int -&gt; ListIpRoutesResponse
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipRoutesInfo:ListIpRoutesResponse' :: Maybe [IpRouteInfo]
@@ -584,7 +584,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListIpRoutesResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AhttpStatus%3AListIpRoutesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306117"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679306126"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | A list of IpRoutes.</span><span>
@@ -596,16 +596,16 @@ forall a. Maybe a
     -&gt; Maybe [IpRouteInfo] -&gt; ListIpRoutesResponse)
 -&gt; Lens' ListIpRoutesResponse (Maybe [IpRouteInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306116"><span class="annot"><span class="annottext">Maybe [IpRouteInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306125"><span class="annot"><span class="annottext">Maybe [IpRouteInfo]
 ipRoutesInfo :: Maybe [IpRouteInfo]
 $sel:ipRoutesInfo:ListIpRoutesResponse' :: ListIpRoutesResponse -&gt; Maybe [IpRouteInfo]
-</span><a href="#local-6989586621679306116"><span class="hs-identifier hs-var hs-var">ipRoutesInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpRouteInfo]
-</span><a href="#local-6989586621679306116"><span class="hs-identifier hs-var">ipRoutesInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306115"><span class="annot"><span class="annottext">s :: ListIpRoutesResponse
-</span><a href="#local-6989586621679306115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306114"><span class="annot"><span class="annottext">Maybe [IpRouteInfo]
-</span><a href="#local-6989586621679306114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutesResponse
-</span><a href="#local-6989586621679306115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipRoutesInfo:ListIpRoutesResponse' :: Maybe [IpRouteInfo]
+</span><a href="#local-6989586621679306125"><span class="hs-identifier hs-var hs-var">ipRoutesInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IpRouteInfo]
+</span><a href="#local-6989586621679306125"><span class="hs-identifier hs-var">ipRoutesInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306124"><span class="annot"><span class="annottext">s :: ListIpRoutesResponse
+</span><a href="#local-6989586621679306124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306123"><span class="annot"><span class="annottext">Maybe [IpRouteInfo]
+</span><a href="#local-6989586621679306123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutesResponse
+</span><a href="#local-6989586621679306124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipRoutesInfo:ListIpRoutesResponse' :: Maybe [IpRouteInfo]
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AipRoutesInfo%3AListIpRoutesResponse%27"><span class="hs-identifier hs-var">ipRoutesInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IpRouteInfo]
-</span><a href="#local-6989586621679306114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpRouteInfo] -&gt; f (Maybe [IpRouteInfo]))
+</span><a href="#local-6989586621679306123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IpRouteInfo] -&gt; f (Maybe [IpRouteInfo]))
  -&gt; ListIpRoutesResponse -&gt; f ListIpRoutesResponse)
 -&gt; ((Maybe [IpRouteInfo] -&gt; f (Maybe [IpRouteInfo]))
     -&gt; Maybe [IpRouteInfo] -&gt; f (Maybe [IpRouteInfo]))
@@ -636,16 +636,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListIpRoutesResponse -&gt; Maybe Text -&gt; ListIpRoutesResponse)
 -&gt; Lens' ListIpRoutesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306111"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306120"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListIpRoutesResponse' :: ListIpRoutesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679306111"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306111"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306110"><span class="annot"><span class="annottext">s :: ListIpRoutesResponse
-</span><a href="#local-6989586621679306110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306109"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutesResponse
-</span><a href="#local-6989586621679306110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIpRoutesResponse' :: Maybe Text
+</span><a href="#local-6989586621679306120"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306120"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306119"><span class="annot"><span class="annottext">s :: ListIpRoutesResponse
+</span><a href="#local-6989586621679306119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306118"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutesResponse
+</span><a href="#local-6989586621679306119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIpRoutesResponse' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AnextToken%3AListIpRoutesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#listIpRoutesResponse_httpStatus"><span class="hs-identifier hs-type">listIpRoutesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -654,16 +654,16 @@ $sel:nextToken:ListIpRoutesResponse' :: ListIpRoutesResponse -&gt; Maybe Text
 -&gt; (ListIpRoutesResponse -&gt; Int -&gt; ListIpRoutesResponse)
 -&gt; Lens ListIpRoutesResponse ListIpRoutesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306108"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306117"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListIpRoutesResponse' :: ListIpRoutesResponse -&gt; Int
-</span><a href="#local-6989586621679306108"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306108"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306107"><span class="annot"><span class="annottext">s :: ListIpRoutesResponse
-</span><a href="#local-6989586621679306107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306106"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutesResponse
-</span><a href="#local-6989586621679306107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListIpRoutesResponse' :: Int
+</span><a href="#local-6989586621679306117"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306117"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306116"><span class="annot"><span class="annottext">s :: ListIpRoutesResponse
+</span><a href="#local-6989586621679306116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse%27"><span class="hs-identifier hs-type">ListIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306115"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIpRoutesResponse
+</span><a href="#local-6989586621679306116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListIpRoutesResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.ListIpRoutes.html#%24sel%3AhttpStatus%3AListIpRoutesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.ListIpRoutes.html#ListIpRoutesResponse"><span class="hs-identifier hs-type">ListIpRoutesResponse</span></a></span></span><span>
 </span><span id="line-232"></span></pre></body></html>

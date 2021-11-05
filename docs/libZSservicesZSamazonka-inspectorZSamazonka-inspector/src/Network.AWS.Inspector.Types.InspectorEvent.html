@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679246078"><span id="local-6989586621679246079"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InspectorEvent"><span class="annot"><a href="Network.AWS.Inspector.Types.InspectorEvent.html#InspectorEvent"><span class="hs-identifier hs-var">InspectorEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InspectorEvent%27"><span class="annot"><a href="Network.AWS.Inspector.Types.InspectorEvent.html#InspectorEvent%27"><span class="hs-identifier hs-var">InspectorEvent'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679246087"><span id="local-6989586621679246088"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InspectorEvent"><span class="annot"><a href="Network.AWS.Inspector.Types.InspectorEvent.html#InspectorEvent"><span class="hs-identifier hs-var">InspectorEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InspectorEvent%27"><span class="annot"><a href="Network.AWS.Inspector.Types.InspectorEvent.html#InspectorEvent%27"><span class="hs-identifier hs-var">InspectorEvent'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInspectorEvent"><span class="annot"><span class="annottext">InspectorEvent -&gt; Text
 </span><a href="Network.AWS.Inspector.Types.InspectorEvent.html#fromInspectorEvent"><span class="hs-identifier hs-var hs-var">fromInspectorEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246070"><span id="local-6989586621679246072"><span id="local-6989586621679246074"><span class="annot"><span class="annottext">Int -&gt; InspectorEvent -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246079"><span id="local-6989586621679246081"><span id="local-6989586621679246083"><span class="annot"><span class="annottext">Int -&gt; InspectorEvent -&gt; ShowS
 [InspectorEvent] -&gt; ShowS
 InspectorEvent -&gt; String
 (Int -&gt; InspectorEvent -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: InspectorEvent -&gt; String
 showsPrec :: Int -&gt; InspectorEvent -&gt; ShowS
 $cshowsPrec :: Int -&gt; InspectorEvent -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679246061"><span id="local-6989586621679246063"><span id="local-6989586621679246065"><span id="local-6989586621679246067"><span class="annot"><span class="annottext">ReadPrec [InspectorEvent]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679246070"><span id="local-6989586621679246072"><span id="local-6989586621679246074"><span id="local-6989586621679246076"><span class="annot"><span class="annottext">ReadPrec [InspectorEvent]
 ReadPrec InspectorEvent
 Int -&gt; ReadS InspectorEvent
 ReadS [InspectorEvent]
@@ -75,7 +75,7 @@ $creadList :: ReadS [InspectorEvent]
 readsPrec :: Int -&gt; ReadS InspectorEvent
 $creadsPrec :: Int -&gt; ReadS InspectorEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679246056"><span id="local-6989586621679246058"><span class="annot"><span class="annottext">InspectorEvent -&gt; InspectorEvent -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679246065"><span id="local-6989586621679246067"><span class="annot"><span class="annottext">InspectorEvent -&gt; InspectorEvent -&gt; Bool
 (InspectorEvent -&gt; InspectorEvent -&gt; Bool)
 -&gt; (InspectorEvent -&gt; InspectorEvent -&gt; Bool) -&gt; Eq InspectorEvent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: InspectorEvent -&gt; InspectorEvent -&gt; Bool
 == :: InspectorEvent -&gt; InspectorEvent -&gt; Bool
 $c== :: InspectorEvent -&gt; InspectorEvent -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679246040"><span id="local-6989586621679246042"><span id="local-6989586621679246044"><span id="local-6989586621679246046"><span id="local-6989586621679246048"><span id="local-6989586621679246050"><span id="local-6989586621679246052"><span class="annot"><span class="annottext">Eq InspectorEvent
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679246049"><span id="local-6989586621679246051"><span id="local-6989586621679246053"><span id="local-6989586621679246055"><span id="local-6989586621679246057"><span id="local-6989586621679246059"><span id="local-6989586621679246061"><span class="annot"><span class="annottext">Eq InspectorEvent
 Eq InspectorEvent
 -&gt; (InspectorEvent -&gt; InspectorEvent -&gt; Ordering)
 -&gt; (InspectorEvent -&gt; InspectorEvent -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. InspectorEvent -&gt; Rep InspectorEvent x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246032"><span id="local-6989586621679246034"><span class="annot"><span class="annottext">Int -&gt; InspectorEvent -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246041"><span id="local-6989586621679246043"><span class="annot"><span class="annottext">Int -&gt; InspectorEvent -&gt; Int
 InspectorEvent -&gt; Int
 (Int -&gt; InspectorEvent -&gt; Int)
 -&gt; (InspectorEvent -&gt; Int) -&gt; Hashable InspectorEvent
@@ -145,50 +145,50 @@ $chash :: InspectorEvent -&gt; Int
 hashWithSalt :: Int -&gt; InspectorEvent -&gt; Int
 $chashWithSalt :: Int -&gt; InspectorEvent -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246029"><span class="annot"><span class="annottext">InspectorEvent -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246038"><span class="annot"><span class="annottext">InspectorEvent -&gt; ()
 (InspectorEvent -&gt; ()) -&gt; NFData InspectorEvent
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InspectorEvent -&gt; ()
 $crnf :: InspectorEvent -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246026"><span class="annot"><span class="annottext">Text -&gt; Either String InspectorEvent
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246035"><span class="annot"><span class="annottext">Text -&gt; Either String InspectorEvent
 (Text -&gt; Either String InspectorEvent) -&gt; FromText InspectorEvent
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InspectorEvent
 $cfromText :: Text -&gt; Either String InspectorEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246023"><span class="annot"><span class="annottext">InspectorEvent -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246032"><span class="annot"><span class="annottext">InspectorEvent -&gt; Text
 (InspectorEvent -&gt; Text) -&gt; ToText InspectorEvent
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InspectorEvent -&gt; Text
 $ctoText :: InspectorEvent -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246020"><span class="annot"><span class="annottext">InspectorEvent -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246029"><span class="annot"><span class="annottext">InspectorEvent -&gt; ByteString
 (InspectorEvent -&gt; ByteString) -&gt; ToByteString InspectorEvent
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InspectorEvent -&gt; ByteString
 $ctoBS :: InspectorEvent -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246017"><span class="annot"><span class="annottext">InspectorEvent -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246026"><span class="annot"><span class="annottext">InspectorEvent -&gt; ByteStringBuilder
 (InspectorEvent -&gt; ByteStringBuilder) -&gt; ToLog InspectorEvent
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InspectorEvent -&gt; ByteStringBuilder
 $cbuild :: InspectorEvent -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246014"><span class="annot"><span class="annottext">HeaderName -&gt; InspectorEvent -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246023"><span class="annot"><span class="annottext">HeaderName -&gt; InspectorEvent -&gt; [Header]
 (HeaderName -&gt; InspectorEvent -&gt; [Header])
 -&gt; ToHeader InspectorEvent
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InspectorEvent -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InspectorEvent -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246011"><span class="annot"><span class="annottext">InspectorEvent -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246020"><span class="annot"><span class="annottext">InspectorEvent -&gt; QueryString
 (InspectorEvent -&gt; QueryString) -&gt; ToQuery InspectorEvent
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InspectorEvent -&gt; QueryString
 $ctoQuery :: InspectorEvent -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246006"><span id="local-6989586621679246008"><span class="annot"><span class="annottext">Value -&gt; Parser [InspectorEvent]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246015"><span id="local-6989586621679246017"><span class="annot"><span class="annottext">Value -&gt; Parser [InspectorEvent]
 Value -&gt; Parser InspectorEvent
 (Value -&gt; Parser InspectorEvent)
 -&gt; (Value -&gt; Parser [InspectorEvent]) -&gt; FromJSON InspectorEvent
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [InspectorEvent]
 parseJSON :: Value -&gt; Parser InspectorEvent
 $cparseJSON :: Value -&gt; Parser InspectorEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246001"><span id="local-6989586621679246003"><span class="annot"><span class="annottext">FromJSONKeyFunction [InspectorEvent]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246010"><span id="local-6989586621679246012"><span class="annot"><span class="annottext">FromJSONKeyFunction [InspectorEvent]
 FromJSONKeyFunction InspectorEvent
 FromJSONKeyFunction InspectorEvent
 -&gt; FromJSONKeyFunction [InspectorEvent]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InspectorEvent]
 fromJSONKey :: FromJSONKeyFunction InspectorEvent
 $cfromJSONKey :: FromJSONKeyFunction InspectorEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245992"><span id="local-6989586621679245994"><span id="local-6989586621679245996"><span id="local-6989586621679245998"><span class="annot"><span class="annottext">[InspectorEvent] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246001"><span id="local-6989586621679246003"><span id="local-6989586621679246005"><span id="local-6989586621679246007"><span class="annot"><span class="annottext">[InspectorEvent] -&gt; Encoding
 [InspectorEvent] -&gt; Value
 InspectorEvent -&gt; Encoding
 InspectorEvent -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: InspectorEvent -&gt; Encoding
 toJSON :: InspectorEvent -&gt; Value
 $ctoJSON :: InspectorEvent -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679245987"><span id="local-6989586621679245989"><span class="annot"><span class="annottext">ToJSONKeyFunction [InspectorEvent]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679245996"><span id="local-6989586621679245998"><span class="annot"><span class="annottext">ToJSONKeyFunction [InspectorEvent]
 ToJSONKeyFunction InspectorEvent
 ToJSONKeyFunction InspectorEvent
 -&gt; ToJSONKeyFunction [InspectorEvent] -&gt; ToJSONKey InspectorEvent
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InspectorEvent]
 toJSONKey :: ToJSONKeyFunction InspectorEvent
 $ctoJSONKey :: ToJSONKeyFunction InspectorEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679245984"><span class="annot"><span class="annottext">[Node] -&gt; Either String InspectorEvent
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679245993"><span class="annot"><span class="annottext">[Node] -&gt; Either String InspectorEvent
 ([Node] -&gt; Either String InspectorEvent) -&gt; FromXML InspectorEvent
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InspectorEvent
 $cparseXML :: [Node] -&gt; Either String InspectorEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679245981"><span class="annot"><span class="annottext">InspectorEvent -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679245990"><span class="annot"><span class="annottext">InspectorEvent -&gt; XML
 (InspectorEvent -&gt; XML) -&gt; ToXML InspectorEvent
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InspectorEvent -&gt; XML

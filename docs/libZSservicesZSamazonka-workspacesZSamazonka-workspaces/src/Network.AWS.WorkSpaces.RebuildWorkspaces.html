@@ -57,12 +57,12 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newRebuildWorkspaces' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679279601"><span id="local-6989586621679279602"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildWorkspaces"><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-var">RebuildWorkspaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildWorkspaces%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-var">RebuildWorkspaces'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679279610"><span id="local-6989586621679279611"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildWorkspaces"><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-var">RebuildWorkspaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildWorkspaces%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-var">RebuildWorkspaces'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The WorkSpace to rebuild. You can specify a single WorkSpace.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3ArebuildWorkspaceRequests%3ARebuildWorkspaces%27"><span class="annot"><span class="annottext">RebuildWorkspaces -&gt; NonEmpty RebuildRequest
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#%24sel%3ArebuildWorkspaceRequests%3ARebuildWorkspaces%27"><span class="hs-identifier hs-var hs-var">rebuildWorkspaceRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RebuildRequest.html#RebuildRequest"><span class="hs-identifier hs-type">RebuildRequest</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279595"><span id="local-6989586621679279597"><span class="annot"><span class="annottext">RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279604"><span id="local-6989586621679279606"><span class="annot"><span class="annottext">RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
 (RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool)
 -&gt; (RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool)
 -&gt; Eq RebuildWorkspaces
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
 == :: RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
 $c== :: RebuildWorkspaces -&gt; RebuildWorkspaces -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279586"><span id="local-6989586621679279588"><span id="local-6989586621679279590"><span id="local-6989586621679279592"><span class="annot"><span class="annottext">ReadPrec [RebuildWorkspaces]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279595"><span id="local-6989586621679279597"><span id="local-6989586621679279599"><span id="local-6989586621679279601"><span class="annot"><span class="annottext">ReadPrec [RebuildWorkspaces]
 ReadPrec RebuildWorkspaces
 Int -&gt; ReadS RebuildWorkspaces
 ReadS [RebuildWorkspaces]
@@ -91,7 +91,7 @@ readList :: ReadS [RebuildWorkspaces]
 $creadList :: ReadS [RebuildWorkspaces]
 readsPrec :: Int -&gt; ReadS RebuildWorkspaces
 $creadsPrec :: Int -&gt; ReadS RebuildWorkspaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279579"><span id="local-6989586621679279581"><span id="local-6989586621679279583"><span class="annot"><span class="annottext">Int -&gt; RebuildWorkspaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279588"><span id="local-6989586621679279590"><span id="local-6989586621679279592"><span class="annot"><span class="annottext">Int -&gt; RebuildWorkspaces -&gt; ShowS
 [RebuildWorkspaces] -&gt; ShowS
 RebuildWorkspaces -&gt; String
 (Int -&gt; RebuildWorkspaces -&gt; ShowS)
@@ -131,8 +131,8 @@ $cfrom :: forall x. RebuildWorkspaces -&gt; Rep RebuildWorkspaces x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RebuildRequest.html#RebuildRequest"><span class="hs-identifier hs-type">RebuildRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span>
 </span><span id="line-79"></span><span id="newRebuildWorkspaces"><span class="annot"><span class="annottext">newRebuildWorkspaces :: NonEmpty RebuildRequest -&gt; RebuildWorkspaces
-</span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspaces"><span class="hs-identifier hs-var hs-var">newRebuildWorkspaces</span></a></span></span><span> </span><span id="local-6989586621679279574"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
-</span><a href="#local-6989586621679279574"><span class="hs-identifier hs-var">pRebuildWorkspaceRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspaces"><span class="hs-identifier hs-var hs-var">newRebuildWorkspaces</span></a></span></span><span> </span><span id="local-6989586621679279583"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279583"><span class="hs-identifier hs-var">pRebuildWorkspaceRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">RebuildWorkspaces' :: NonEmpty RebuildRequest -&gt; RebuildWorkspaces
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rebuildWorkspaceRequests:RebuildWorkspaces' :: NonEmpty RebuildRequest
@@ -149,7 +149,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty RebuildRequest -&gt; NonEmpty RebuildRequest
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RebuildRequest
-</span><a href="#local-6989586621679279574"><span class="hs-identifier hs-var">pRebuildWorkspaceRequests_</span></a></span><span>
+</span><a href="#local-6989586621679279583"><span class="hs-identifier hs-var">pRebuildWorkspaceRequests_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The WorkSpace to rebuild. You can specify a single WorkSpace.</span><span>
@@ -165,16 +165,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty RebuildRequest)
      (NonEmpty RebuildRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279569"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279578"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
 rebuildWorkspaceRequests :: NonEmpty RebuildRequest
 $sel:rebuildWorkspaceRequests:RebuildWorkspaces' :: RebuildWorkspaces -&gt; NonEmpty RebuildRequest
-</span><a href="#local-6989586621679279569"><span class="hs-identifier hs-var hs-var">rebuildWorkspaceRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty RebuildRequest
-</span><a href="#local-6989586621679279569"><span class="hs-identifier hs-var">rebuildWorkspaceRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279568"><span class="annot"><span class="annottext">s :: RebuildWorkspaces
-</span><a href="#local-6989586621679279568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279567"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
-</span><a href="#local-6989586621679279567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildWorkspaces
-</span><a href="#local-6989586621679279568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rebuildWorkspaceRequests:RebuildWorkspaces' :: NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279578"><span class="hs-identifier hs-var hs-var">rebuildWorkspaceRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279578"><span class="hs-identifier hs-var">rebuildWorkspaceRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279577"><span class="annot"><span class="annottext">s :: RebuildWorkspaces
+</span><a href="#local-6989586621679279577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279576"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><a href="#local-6989586621679279576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildWorkspaces
+</span><a href="#local-6989586621679279577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rebuildWorkspaceRequests:RebuildWorkspaces' :: NonEmpty RebuildRequest
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#%24sel%3ArebuildWorkspaceRequests%3ARebuildWorkspaces%27"><span class="hs-identifier hs-var">rebuildWorkspaceRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty RebuildRequest
-</span><a href="#local-6989586621679279567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
+</span><a href="#local-6989586621679279576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
  -&gt; RebuildWorkspaces -&gt; f RebuildWorkspaces)
 -&gt; ((NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
     -&gt; NonEmpty RebuildRequest -&gt; f (NonEmpty RebuildRequest))
@@ -191,12 +191,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679279562"><span class="annot"><span class="annottext">request :: RebuildWorkspaces -&gt; Request RebuildWorkspaces
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679279571"><span class="annot"><span class="annottext">request :: RebuildWorkspaces -&gt; Request RebuildWorkspaces
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RebuildWorkspaces -&gt; Request RebuildWorkspaces
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679279558"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679279567"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RebuildWorkspaces
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279555"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279555"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279554"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679279554"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279553"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279564"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279564"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279563"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279563"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279562"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279562"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
 -&gt; Int -&gt; RebuildWorkspacesResponse
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">RebuildWorkspacesResponse'</span></a></span><span>
@@ -235,7 +235,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RebuildWorkspacesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679279553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [FailedWorkspaceChangeRequest]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -255,15 +255,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279555"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279564"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279544"><span id="local-6989586621679279546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279553"><span id="local-6989586621679279555"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679279537"><span class="annot"><span class="annottext">toHeaders :: RebuildWorkspaces -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679279546"><span class="annot"><span class="annottext">toHeaders :: RebuildWorkspaces -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RebuildWorkspaces -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -290,12 +290,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279527"><span id="local-6989586621679279529"><span id="local-6989586621679279531"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679279525"><span class="annot"><span class="annottext">toJSON :: RebuildWorkspaces -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279523"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279536"><span id="local-6989586621679279538"><span id="local-6989586621679279540"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679279534"><span class="annot"><span class="annottext">toJSON :: RebuildWorkspaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces%27"><span class="hs-identifier hs-type">RebuildWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279532"><span class="annot"><span class="annottext">NonEmpty RebuildRequest
 rebuildWorkspaceRequests :: NonEmpty RebuildRequest
 $sel:rebuildWorkspaceRequests:RebuildWorkspaces' :: RebuildWorkspaces -&gt; NonEmpty RebuildRequest
-</span><a href="#local-6989586621679279523"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679279532"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -309,20 +309,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-127"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty RebuildRequest -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty RebuildRequest
-</span><a href="#local-6989586621679279523"><span class="hs-identifier hs-var">rebuildWorkspaceRequests</span></a></span><span>
+</span><a href="#local-6989586621679279532"><span class="hs-identifier hs-var">rebuildWorkspaceRequests</span></a></span><span>
 </span><span id="line-128"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679279517"><span class="annot"><span class="annottext">toPath :: RebuildWorkspaces -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679279526"><span class="annot"><span class="annottext">toPath :: RebuildWorkspaces -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RebuildWorkspaces -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspaces"><span class="hs-identifier hs-type">RebuildWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679279513"><span class="annot"><span class="annottext">toQuery :: RebuildWorkspaces -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679279522"><span class="annot"><span class="annottext">toQuery :: RebuildWorkspaces -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RebuildWorkspaces -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -330,7 +330,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newRebuildWorkspacesResponse' smart constructor.</span><span>
-</span><span id="line-139"></span><span id="local-6989586621679279510"><span id="local-6989586621679279511"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildWorkspacesResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-var">RebuildWorkspacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildWorkspacesResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">RebuildWorkspacesResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span id="local-6989586621679279519"><span id="local-6989586621679279520"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildWorkspacesResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-var">RebuildWorkspacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildWorkspacesResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">RebuildWorkspacesResponse'</span></a></span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the WorkSpace that could not be rebuilt.</span><span>
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AfailedRequests%3ARebuildWorkspacesResponse%27"><span class="annot"><span class="annottext">RebuildWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest]
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#%24sel%3AfailedRequests%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest.html#FailedWorkspaceChangeRequest"><span class="hs-identifier hs-type">FailedWorkspaceChangeRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -338,7 +338,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARebuildWorkspacesResponse%27"><span class="annot"><span class="annottext">RebuildWorkspacesResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#%24sel%3AhttpStatus%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279504"><span id="local-6989586621679279506"><span class="annot"><span class="annottext">RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279513"><span id="local-6989586621679279515"><span class="annot"><span class="annottext">RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
 (RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool)
 -&gt; (RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool)
 -&gt; Eq RebuildWorkspacesResponse
@@ -347,7 +347,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
 == :: RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
 $c== :: RebuildWorkspacesResponse -&gt; RebuildWorkspacesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279496"><span id="local-6989586621679279498"><span id="local-6989586621679279500"><span id="local-6989586621679279502"><span class="annot"><span class="annottext">ReadPrec [RebuildWorkspacesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279505"><span id="local-6989586621679279507"><span id="local-6989586621679279509"><span id="local-6989586621679279511"><span class="annot"><span class="annottext">ReadPrec [RebuildWorkspacesResponse]
 ReadPrec RebuildWorkspacesResponse
 Int -&gt; ReadS RebuildWorkspacesResponse
 ReadS [RebuildWorkspacesResponse]
@@ -367,7 +367,7 @@ readList :: ReadS [RebuildWorkspacesResponse]
 $creadList :: ReadS [RebuildWorkspacesResponse]
 readsPrec :: Int -&gt; ReadS RebuildWorkspacesResponse
 $creadsPrec :: Int -&gt; ReadS RebuildWorkspacesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279490"><span id="local-6989586621679279492"><span id="local-6989586621679279494"><span class="annot"><span class="annottext">Int -&gt; RebuildWorkspacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279499"><span id="local-6989586621679279501"><span id="local-6989586621679279503"><span class="annot"><span class="annottext">Int -&gt; RebuildWorkspacesResponse -&gt; ShowS
 [RebuildWorkspacesResponse] -&gt; ShowS
 RebuildWorkspacesResponse -&gt; String
 (Int -&gt; RebuildWorkspacesResponse -&gt; ShowS)
@@ -415,8 +415,8 @@ RebuildWorkspacesResponse -&gt; Rep RebuildWorkspacesResponse x
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newRebuildWorkspacesResponse"><span class="annot"><span class="annottext">newRebuildWorkspacesResponse :: Int -&gt; RebuildWorkspacesResponse
-</span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspacesResponse"><span class="hs-identifier hs-var hs-var">newRebuildWorkspacesResponse</span></a></span></span><span> </span><span id="local-6989586621679279487"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279487"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#newRebuildWorkspacesResponse"><span class="hs-identifier hs-var hs-var">newRebuildWorkspacesResponse</span></a></span></span><span> </span><span id="local-6989586621679279496"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">RebuildWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
 -&gt; Int -&gt; RebuildWorkspacesResponse
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span>
@@ -427,7 +427,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RebuildWorkspacesResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#%24sel%3AhttpStatus%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279487"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679279496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | Information about the WorkSpace that could not be rebuilt.</span><span>
@@ -445,16 +445,16 @@ forall a. Maybe a
      (Maybe [FailedWorkspaceChangeRequest])
      (Maybe [FailedWorkspaceChangeRequest])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279486"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279495"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
 failedRequests :: Maybe [FailedWorkspaceChangeRequest]
 $sel:failedRequests:RebuildWorkspacesResponse' :: RebuildWorkspacesResponse -&gt; Maybe [FailedWorkspaceChangeRequest]
-</span><a href="#local-6989586621679279486"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
-</span><a href="#local-6989586621679279486"><span class="hs-identifier hs-var">failedRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279485"><span class="annot"><span class="annottext">s :: RebuildWorkspacesResponse
-</span><a href="#local-6989586621679279485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279484"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
-</span><a href="#local-6989586621679279484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildWorkspacesResponse
-</span><a href="#local-6989586621679279485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedRequests:RebuildWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679279495"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679279495"><span class="hs-identifier hs-var">failedRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279494"><span class="annot"><span class="annottext">s :: RebuildWorkspacesResponse
+</span><a href="#local-6989586621679279494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279493"><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679279493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildWorkspacesResponse
+</span><a href="#local-6989586621679279494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedRequests:RebuildWorkspacesResponse' :: Maybe [FailedWorkspaceChangeRequest]
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#%24sel%3AfailedRequests%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">failedRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedWorkspaceChangeRequest]
-</span><a href="#local-6989586621679279484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedWorkspaceChangeRequest]
+</span><a href="#local-6989586621679279493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedWorkspaceChangeRequest]
   -&gt; f (Maybe [FailedWorkspaceChangeRequest]))
  -&gt; RebuildWorkspacesResponse -&gt; f RebuildWorkspacesResponse)
 -&gt; ((Maybe [FailedWorkspaceChangeRequest]
@@ -495,16 +495,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (RebuildWorkspacesResponse -&gt; Int -&gt; RebuildWorkspacesResponse)
 -&gt; Lens RebuildWorkspacesResponse RebuildWorkspacesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279482"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279491"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RebuildWorkspacesResponse' :: RebuildWorkspacesResponse -&gt; Int
-</span><a href="#local-6989586621679279482"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279482"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279481"><span class="annot"><span class="annottext">s :: RebuildWorkspacesResponse
-</span><a href="#local-6989586621679279481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279480"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildWorkspacesResponse
-</span><a href="#local-6989586621679279481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebuildWorkspacesResponse' :: Int
+</span><a href="#local-6989586621679279491"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279491"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279490"><span class="annot"><span class="annottext">s :: RebuildWorkspacesResponse
+</span><a href="#local-6989586621679279490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse%27"><span class="hs-identifier hs-type">RebuildWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279489"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildWorkspacesResponse
+</span><a href="#local-6989586621679279490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebuildWorkspacesResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#%24sel%3AhttpStatus%3ARebuildWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679279480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279478"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.RebuildWorkspaces.html#RebuildWorkspacesResponse"><span class="hs-identifier hs-type">RebuildWorkspacesResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

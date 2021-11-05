@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an action to republish to another topic.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRepublishAction' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679795183"><span id="local-6989586621679795184"></span></span><span class="hs-keyword">data</span><span> </span><span id="RepublishAction"><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-var">RepublishAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepublishAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-var">RepublishAction'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679795192"><span id="local-6989586621679795193"></span></span><span class="hs-keyword">data</span><span> </span><span id="RepublishAction"><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-var">RepublishAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepublishAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-var">RepublishAction'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Quality of Service (QoS) level to use when republishing messages.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- The default value is 0.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aqos%3ARepublishAction%27"><span class="annot"><span class="annottext">RepublishAction -&gt; Maybe Natural
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atopic%3ARepublishAction%27"><span class="annot"><span class="annottext">RepublishAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.RepublishAction.html#%24sel%3Atopic%3ARepublishAction%27"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795175"><span id="local-6989586621679795177"><span class="annot"><span class="annottext">RepublishAction -&gt; RepublishAction -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795184"><span id="local-6989586621679795186"><span class="annot"><span class="annottext">RepublishAction -&gt; RepublishAction -&gt; Bool
 (RepublishAction -&gt; RepublishAction -&gt; Bool)
 -&gt; (RepublishAction -&gt; RepublishAction -&gt; Bool)
 -&gt; Eq RepublishAction
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RepublishAction -&gt; RepublishAction -&gt; Bool
 == :: RepublishAction -&gt; RepublishAction -&gt; Bool
 $c== :: RepublishAction -&gt; RepublishAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795166"><span id="local-6989586621679795168"><span id="local-6989586621679795170"><span id="local-6989586621679795172"><span class="annot"><span class="annottext">ReadPrec [RepublishAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795175"><span id="local-6989586621679795177"><span id="local-6989586621679795179"><span id="local-6989586621679795181"><span class="annot"><span class="annottext">ReadPrec [RepublishAction]
 ReadPrec RepublishAction
 Int -&gt; ReadS RepublishAction
 ReadS [RepublishAction]
@@ -67,7 +67,7 @@ readList :: ReadS [RepublishAction]
 $creadList :: ReadS [RepublishAction]
 readsPrec :: Int -&gt; ReadS RepublishAction
 $creadsPrec :: Int -&gt; ReadS RepublishAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795159"><span id="local-6989586621679795161"><span id="local-6989586621679795163"><span class="annot"><span class="annottext">Int -&gt; RepublishAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795168"><span id="local-6989586621679795170"><span id="local-6989586621679795172"><span class="annot"><span class="annottext">Int -&gt; RepublishAction -&gt; ShowS
 [RepublishAction] -&gt; ShowS
 RepublishAction -&gt; String
 (Int -&gt; RepublishAction -&gt; ShowS)
@@ -114,9 +114,9 @@ $cfrom :: forall x. RepublishAction -&gt; Rep RepublishAction x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span>
 </span><span id="line-60"></span><span id="newRepublishAction"><span class="annot"><span class="annottext">newRepublishAction :: Text -&gt; Text -&gt; RepublishAction
-</span><a href="Network.AWS.IoT.Types.RepublishAction.html#newRepublishAction"><span class="hs-identifier hs-var hs-var">newRepublishAction</span></a></span></span><span> </span><span id="local-6989586621679795153"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795153"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679795152"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795152"><span class="hs-identifier hs-var">pTopic_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.RepublishAction.html#newRepublishAction"><span class="hs-identifier hs-var hs-var">newRepublishAction</span></a></span></span><span> </span><span id="local-6989586621679795162"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795162"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679795161"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795161"><span class="hs-identifier hs-var">pTopic_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">RepublishAction' :: Maybe Natural -&gt; Text -&gt; Text -&gt; RepublishAction
 </span><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qos:RepublishAction' :: Maybe Natural
@@ -125,10 +125,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:RepublishAction' :: Text
 </span><a href="Network.AWS.IoT.Types.RepublishAction.html#%24sel%3AroleArn%3ARepublishAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795153"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679795162"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:topic:RepublishAction' :: Text
 </span><a href="Network.AWS.IoT.Types.RepublishAction.html#%24sel%3Atopic%3ARepublishAction%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795152"><span class="hs-identifier hs-var">pTopic_</span></a></span><span>
+</span><a href="#local-6989586621679795161"><span class="hs-identifier hs-var">pTopic_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The Quality of Service (QoS) level to use when republishing messages.</span><span>
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; Lens
      RepublishAction RepublishAction (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795148"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795157"><span class="annot"><span class="annottext">Maybe Natural
 qos :: Maybe Natural
 $sel:qos:RepublishAction' :: RepublishAction -&gt; Maybe Natural
-</span><a href="#local-6989586621679795148"><span class="hs-identifier hs-var hs-var">qos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679795148"><span class="hs-identifier hs-var">qos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795147"><span class="annot"><span class="annottext">s :: RepublishAction
-</span><a href="#local-6989586621679795147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795146"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679795146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepublishAction
-</span><a href="#local-6989586621679795147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qos:RepublishAction' :: Maybe Natural
+</span><a href="#local-6989586621679795157"><span class="hs-identifier hs-var hs-var">qos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679795157"><span class="hs-identifier hs-var">qos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795156"><span class="annot"><span class="annottext">s :: RepublishAction
+</span><a href="#local-6989586621679795156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795155"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679795155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepublishAction
+</span><a href="#local-6989586621679795156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qos:RepublishAction' :: Maybe Natural
 </span><a href="Network.AWS.IoT.Types.RepublishAction.html#%24sel%3Aqos%3ARepublishAction%27"><span class="hs-identifier hs-var">qos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679795146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The ARN of the IAM role that grants access.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#republishAction_roleArn"><span class="hs-identifier hs-type">republishAction_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -159,16 +159,16 @@ $sel:qos:RepublishAction' :: RepublishAction -&gt; Maybe Natural
 -&gt; (RepublishAction -&gt; Text -&gt; RepublishAction)
 -&gt; Lens RepublishAction RepublishAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795144"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795153"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:RepublishAction' :: RepublishAction -&gt; Text
-</span><a href="#local-6989586621679795144"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795144"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795143"><span class="annot"><span class="annottext">s :: RepublishAction
-</span><a href="#local-6989586621679795143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795142"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepublishAction
-</span><a href="#local-6989586621679795143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:RepublishAction' :: Text
+</span><a href="#local-6989586621679795153"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795153"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795152"><span class="annot"><span class="annottext">s :: RepublishAction
+</span><a href="#local-6989586621679795152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepublishAction
+</span><a href="#local-6989586621679795152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:RepublishAction' :: Text
 </span><a href="Network.AWS.IoT.Types.RepublishAction.html#%24sel%3AroleArn%3ARepublishAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The name of the MQTT topic.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#republishAction_topic"><span class="hs-identifier hs-type">republishAction_topic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,19 +177,19 @@ $sel:roleArn:RepublishAction' :: RepublishAction -&gt; Text
 -&gt; (RepublishAction -&gt; Text -&gt; RepublishAction)
 -&gt; Lens RepublishAction RepublishAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795140"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795149"><span class="annot"><span class="annottext">Text
 topic :: Text
 $sel:topic:RepublishAction' :: RepublishAction -&gt; Text
-</span><a href="#local-6989586621679795140"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795140"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795139"><span class="annot"><span class="annottext">s :: RepublishAction
-</span><a href="#local-6989586621679795139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795138"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepublishAction
-</span><a href="#local-6989586621679795139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:RepublishAction' :: Text
+</span><a href="#local-6989586621679795149"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795149"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795148"><span class="annot"><span class="annottext">s :: RepublishAction
+</span><a href="#local-6989586621679795148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679795147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepublishAction
+</span><a href="#local-6989586621679795148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:RepublishAction' :: Text
 </span><a href="Network.AWS.IoT.Types.RepublishAction.html#%24sel%3Atopic%3ARepublishAction%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795135"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679795133"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RepublishAction
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795144"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679795142"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RepublishAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RepublishAction)
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RepublishAction&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679795130"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679795139"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679795139"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Text -&gt; Text -&gt; RepublishAction
 </span><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-var">RepublishAction'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Text -&gt; Text -&gt; RepublishAction)
@@ -208,7 +208,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; RepublishAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679795139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;qos&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,7 +216,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; RepublishAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679795139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -224,19 +224,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser RepublishAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679795139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;topic&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795123"><span id="local-6989586621679795125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795132"><span id="local-6989586621679795134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795112"><span id="local-6989586621679795114"><span id="local-6989586621679795116"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679795110"><span class="annot"><span class="annottext">toJSON :: RepublishAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795106"><span id="local-6989586621679795107"><span id="local-6989586621679795108"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795121"><span id="local-6989586621679795123"><span id="local-6989586621679795125"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679795119"><span class="annot"><span class="annottext">toJSON :: RepublishAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction%27"><span class="hs-identifier hs-type">RepublishAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795115"><span id="local-6989586621679795116"><span id="local-6989586621679795117"><span class="annot"><span class="annottext">Maybe Natural
 Text
 topic :: Text
 roleArn :: Text
@@ -244,7 +244,7 @@ qos :: Maybe Natural
 $sel:topic:RepublishAction' :: RepublishAction -&gt; Text
 $sel:roleArn:RepublishAction' :: RepublishAction -&gt; Text
 $sel:qos:RepublishAction' :: RepublishAction -&gt; Maybe Natural
-</span><a href="#local-6989586621679795106"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679795115"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -256,21 +256,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679795108"><span class="hs-identifier hs-var">qos</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679795117"><span class="hs-identifier hs-var">qos</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795107"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679795116"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;topic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679795106"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795115"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

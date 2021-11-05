@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeEndpointSettings' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679452129"><span id="local-6989586621679452130"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpointSettings"><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-var">DescribeEndpointSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointSettings%27"><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-var">DescribeEndpointSettings'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679452138"><span id="local-6989586621679452139"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpointSettings"><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-var">DescribeEndpointSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointSettings%27"><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-var">DescribeEndpointSettings'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AengineName%3ADescribeEndpointSettings%27"><span class="annot"><span class="annottext">DescribeEndpointSettings -&gt; Text
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3AengineName%3ADescribeEndpointSettings%27"><span class="hs-identifier hs-var hs-var">engineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452121"><span id="local-6989586621679452123"><span class="annot"><span class="annottext">DescribeEndpointSettings -&gt; DescribeEndpointSettings -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452130"><span id="local-6989586621679452132"><span class="annot"><span class="annottext">DescribeEndpointSettings -&gt; DescribeEndpointSettings -&gt; Bool
 (DescribeEndpointSettings -&gt; DescribeEndpointSettings -&gt; Bool)
 -&gt; (DescribeEndpointSettings -&gt; DescribeEndpointSettings -&gt; Bool)
 -&gt; Eq DescribeEndpointSettings
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEndpointSettings -&gt; DescribeEndpointSettings -&gt; Bool
 == :: DescribeEndpointSettings -&gt; DescribeEndpointSettings -&gt; Bool
 $c== :: DescribeEndpointSettings -&gt; DescribeEndpointSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452112"><span id="local-6989586621679452114"><span id="local-6989586621679452116"><span id="local-6989586621679452118"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452121"><span id="local-6989586621679452123"><span id="local-6989586621679452125"><span id="local-6989586621679452127"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointSettings]
 ReadPrec DescribeEndpointSettings
 Int -&gt; ReadS DescribeEndpointSettings
 ReadS [DescribeEndpointSettings]
@@ -96,7 +96,7 @@ readList :: ReadS [DescribeEndpointSettings]
 $creadList :: ReadS [DescribeEndpointSettings]
 readsPrec :: Int -&gt; ReadS DescribeEndpointSettings
 $creadsPrec :: Int -&gt; ReadS DescribeEndpointSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452105"><span id="local-6989586621679452107"><span id="local-6989586621679452109"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452114"><span id="local-6989586621679452116"><span id="local-6989586621679452118"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointSettings -&gt; ShowS
 [DescribeEndpointSettings] -&gt; ShowS
 DescribeEndpointSettings -&gt; String
 (Int -&gt; DescribeEndpointSettings -&gt; ShowS)
@@ -151,8 +151,8 @@ DescribeEndpointSettings -&gt; Rep DescribeEndpointSettings x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span>
 </span><span id="line-91"></span><span id="newDescribeEndpointSettings"><span class="annot"><span class="annottext">newDescribeEndpointSettings :: Text -&gt; DescribeEndpointSettings
-</span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#newDescribeEndpointSettings"><span class="hs-identifier hs-var hs-var">newDescribeEndpointSettings</span></a></span></span><span> </span><span id="local-6989586621679452100"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452100"><span class="hs-identifier hs-var">pEngineName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#newDescribeEndpointSettings"><span class="hs-identifier hs-var hs-var">newDescribeEndpointSettings</span></a></span></span><span> </span><span id="local-6989586621679452109"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452109"><span class="hs-identifier hs-var">pEngineName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">DescribeEndpointSettings' :: Maybe Text -&gt; Maybe Int -&gt; Text -&gt; DescribeEndpointSettings
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeEndpointSettings' :: Maybe Text
@@ -165,7 +165,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineName:DescribeEndpointSettings' :: Text
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3AengineName%3ADescribeEndpointSettings%27"><span class="hs-identifier hs-var">engineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452100"><span class="hs-identifier hs-var">pEngineName_</span></a></span><span>
+</span><a href="#local-6989586621679452109"><span class="hs-identifier hs-var">pEngineName_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
@@ -183,16 +183,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452097"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452106"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeEndpointSettings' :: DescribeEndpointSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679452097"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452097"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452096"><span class="annot"><span class="annottext">s :: DescribeEndpointSettings
-</span><a href="#local-6989586621679452096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452095"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettings
-</span><a href="#local-6989586621679452096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeEndpointSettings' :: Maybe Text
+</span><a href="#local-6989586621679452106"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452106"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452105"><span class="annot"><span class="annottext">s :: DescribeEndpointSettings
+</span><a href="#local-6989586621679452105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettings
+</span><a href="#local-6989586621679452105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeEndpointSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3Amarker%3ADescribeEndpointSettings%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
@@ -210,16 +210,16 @@ $sel:marker:DescribeEndpointSettings' :: DescribeEndpointSettings -&gt; Maybe Te
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452094"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452103"><span class="annot"><span class="annottext">Maybe Int
 maxRecords :: Maybe Int
 $sel:maxRecords:DescribeEndpointSettings' :: DescribeEndpointSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679452094"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452094"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452093"><span class="annot"><span class="annottext">s :: DescribeEndpointSettings
-</span><a href="#local-6989586621679452093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452092"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettings
-</span><a href="#local-6989586621679452093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEndpointSettings' :: Maybe Int
+</span><a href="#local-6989586621679452103"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679452103"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452102"><span class="annot"><span class="annottext">s :: DescribeEndpointSettings
+</span><a href="#local-6989586621679452102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452101"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679452101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettings
+</span><a href="#local-6989586621679452102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeEndpointSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3AmaxRecords%3ADescribeEndpointSettings%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The databse engine used for your source or target endpoint.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#describeEndpointSettings_engineName"><span class="hs-identifier hs-type">describeEndpointSettings_engineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -229,28 +229,28 @@ $sel:maxRecords:DescribeEndpointSettings' :: DescribeEndpointSettings -&gt; Mayb
 -&gt; (DescribeEndpointSettings -&gt; Text -&gt; DescribeEndpointSettings)
 -&gt; Lens DescribeEndpointSettings DescribeEndpointSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452091"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452100"><span class="annot"><span class="annottext">Text
 engineName :: Text
 $sel:engineName:DescribeEndpointSettings' :: DescribeEndpointSettings -&gt; Text
-</span><a href="#local-6989586621679452091"><span class="hs-identifier hs-var hs-var">engineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452091"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452090"><span class="annot"><span class="annottext">s :: DescribeEndpointSettings
-</span><a href="#local-6989586621679452090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452089"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettings
-</span><a href="#local-6989586621679452090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineName:DescribeEndpointSettings' :: Text
+</span><a href="#local-6989586621679452100"><span class="hs-identifier hs-var hs-var">engineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452100"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452099"><span class="annot"><span class="annottext">s :: DescribeEndpointSettings
+</span><a href="#local-6989586621679452099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452098"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettings
+</span><a href="#local-6989586621679452099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineName:DescribeEndpointSettings' :: Text
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3AengineName%3ADescribeEndpointSettings%27"><span class="hs-identifier hs-var">engineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679452085"><span class="annot"><span class="annottext">request :: DescribeEndpointSettings -&gt; Request DescribeEndpointSettings
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679452094"><span class="annot"><span class="annottext">request :: DescribeEndpointSettings -&gt; Request DescribeEndpointSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeEndpointSettings -&gt; Request DescribeEndpointSettings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679452081"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679452090"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeEndpointSettings
 -&gt; ClientResponse ClientBody
@@ -276,10 +276,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452078"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452078"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679452077"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679452077"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679452076"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452087"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452087"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679452086"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679452086"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679452085"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452085"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe [EndpointSetting]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeEndpointSettingsResponse
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-var">DescribeEndpointSettingsResponse'</span></a></span><span>
@@ -290,7 +290,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; DescribeEndpointSettingsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EndpointSetting]))
+</span><a href="#local-6989586621679452085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [EndpointSetting]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointSettings&quot;</span></span><span>
@@ -308,7 +308,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeEndpointSettingsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679452085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -321,15 +321,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452078"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452087"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452067"><span id="local-6989586621679452069"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452076"><span id="local-6989586621679452078"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452073"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679452060"><span class="annot"><span class="annottext">toHeaders :: DescribeEndpointSettings -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679452069"><span class="annot"><span class="annottext">toHeaders :: DescribeEndpointSettings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEndpointSettings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -356,9 +356,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452050"><span id="local-6989586621679452052"><span id="local-6989586621679452054"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679452048"><span class="annot"><span class="annottext">toJSON :: DescribeEndpointSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452044"><span id="local-6989586621679452045"><span id="local-6989586621679452046"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452059"><span id="local-6989586621679452061"><span id="local-6989586621679452063"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679452057"><span class="annot"><span class="annottext">toJSON :: DescribeEndpointSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings%27"><span class="hs-identifier hs-type">DescribeEndpointSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452053"><span id="local-6989586621679452054"><span id="local-6989586621679452055"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 engineName :: Text
@@ -367,7 +367,7 @@ marker :: Maybe Text
 $sel:engineName:DescribeEndpointSettings' :: DescribeEndpointSettings -&gt; Text
 $sel:maxRecords:DescribeEndpointSettings' :: DescribeEndpointSettings -&gt; Maybe Int
 $sel:marker:DescribeEndpointSettings' :: DescribeEndpointSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679452044"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679452053"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -379,33 +379,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452046"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452055"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679452045"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452054"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EngineName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452044"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452053"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679452038"><span class="annot"><span class="annottext">toPath :: DescribeEndpointSettings -&gt; ByteString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679452047"><span class="annot"><span class="annottext">toPath :: DescribeEndpointSettings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEndpointSettings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettings"><span class="hs-identifier hs-type">DescribeEndpointSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679452034"><span class="annot"><span class="annottext">toQuery :: DescribeEndpointSettings -&gt; QueryString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679452043"><span class="annot"><span class="annottext">toQuery :: DescribeEndpointSettings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeEndpointSettings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -413,7 +413,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newDescribeEndpointSettingsResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679452031"><span id="local-6989586621679452032"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpointSettingsResponse"><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-var">DescribeEndpointSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointSettingsResponse%27"><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-var">DescribeEndpointSettingsResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span id="local-6989586621679452040"><span id="local-6989586621679452041"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpointSettingsResponse"><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-var">DescribeEndpointSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointSettingsResponse%27"><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-var">DescribeEndpointSettingsResponse'</span></a></span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Descriptions of the endpoint settings available for your source or</span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-comment">-- target database engine.</span><span>
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AendpointSettings%3ADescribeEndpointSettingsResponse%27"><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse -&gt; Maybe [EndpointSetting]
@@ -427,7 +427,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEndpointSettingsResponse%27"><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse -&gt; Int
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3AhttpStatus%3ADescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452024"><span id="local-6989586621679452026"><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452033"><span id="local-6989586621679452035"><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse
 -&gt; DescribeEndpointSettingsResponse -&gt; Bool
 (DescribeEndpointSettingsResponse
  -&gt; DescribeEndpointSettingsResponse -&gt; Bool)
@@ -443,7 +443,7 @@ $c/= :: DescribeEndpointSettingsResponse
 -&gt; DescribeEndpointSettingsResponse -&gt; Bool
 $c== :: DescribeEndpointSettingsResponse
 -&gt; DescribeEndpointSettingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452016"><span id="local-6989586621679452018"><span id="local-6989586621679452020"><span id="local-6989586621679452022"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointSettingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452025"><span id="local-6989586621679452027"><span id="local-6989586621679452029"><span id="local-6989586621679452031"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointSettingsResponse]
 ReadPrec DescribeEndpointSettingsResponse
 Int -&gt; ReadS DescribeEndpointSettingsResponse
 ReadS [DescribeEndpointSettingsResponse]
@@ -463,7 +463,7 @@ readList :: ReadS [DescribeEndpointSettingsResponse]
 $creadList :: ReadS [DescribeEndpointSettingsResponse]
 readsPrec :: Int -&gt; ReadS DescribeEndpointSettingsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeEndpointSettingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452010"><span id="local-6989586621679452012"><span id="local-6989586621679452014"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452019"><span id="local-6989586621679452021"><span id="local-6989586621679452023"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointSettingsResponse -&gt; ShowS
 [DescribeEndpointSettingsResponse] -&gt; ShowS
 DescribeEndpointSettingsResponse -&gt; String
 (Int -&gt; DescribeEndpointSettingsResponse -&gt; ShowS)
@@ -522,8 +522,8 @@ DescribeEndpointSettingsResponse
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span><span>
 </span><span id="line-200"></span><span id="newDescribeEndpointSettingsResponse"><span class="annot"><span class="annottext">newDescribeEndpointSettingsResponse :: Int -&gt; DescribeEndpointSettingsResponse
-</span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#newDescribeEndpointSettingsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEndpointSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679452007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#newDescribeEndpointSettingsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEndpointSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679452016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse' :: Maybe [EndpointSetting]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeEndpointSettingsResponse
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span>
@@ -538,7 +538,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEndpointSettingsResponse' :: Int
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3AhttpStatus%3ADescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679452016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | Descriptions of the endpoint settings available for your source or</span><span>
@@ -556,16 +556,16 @@ forall a. Maybe a
      (Maybe [EndpointSetting])
      (Maybe [EndpointSetting])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452006"><span class="annot"><span class="annottext">Maybe [EndpointSetting]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452015"><span class="annot"><span class="annottext">Maybe [EndpointSetting]
 endpointSettings :: Maybe [EndpointSetting]
 $sel:endpointSettings:DescribeEndpointSettingsResponse' :: DescribeEndpointSettingsResponse -&gt; Maybe [EndpointSetting]
-</span><a href="#local-6989586621679452006"><span class="hs-identifier hs-var hs-var">endpointSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EndpointSetting]
-</span><a href="#local-6989586621679452006"><span class="hs-identifier hs-var">endpointSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452005"><span class="annot"><span class="annottext">s :: DescribeEndpointSettingsResponse
-</span><a href="#local-6989586621679452005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452004"><span class="annot"><span class="annottext">Maybe [EndpointSetting]
-</span><a href="#local-6989586621679452004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse
-</span><a href="#local-6989586621679452005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointSettings:DescribeEndpointSettingsResponse' :: Maybe [EndpointSetting]
+</span><a href="#local-6989586621679452015"><span class="hs-identifier hs-var hs-var">endpointSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EndpointSetting]
+</span><a href="#local-6989586621679452015"><span class="hs-identifier hs-var">endpointSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452014"><span class="annot"><span class="annottext">s :: DescribeEndpointSettingsResponse
+</span><a href="#local-6989586621679452014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452013"><span class="annot"><span class="annottext">Maybe [EndpointSetting]
+</span><a href="#local-6989586621679452013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse
+</span><a href="#local-6989586621679452014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointSettings:DescribeEndpointSettingsResponse' :: Maybe [EndpointSetting]
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3AendpointSettings%3ADescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-var">endpointSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EndpointSetting]
-</span><a href="#local-6989586621679452004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EndpointSetting] -&gt; f (Maybe [EndpointSetting]))
+</span><a href="#local-6989586621679452013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EndpointSetting] -&gt; f (Maybe [EndpointSetting]))
  -&gt; DescribeEndpointSettingsResponse
  -&gt; f DescribeEndpointSettingsResponse)
 -&gt; ((Maybe [EndpointSetting] -&gt; f (Maybe [EndpointSetting]))
@@ -611,16 +611,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452000"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452009"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeEndpointSettingsResponse' :: DescribeEndpointSettingsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679452000"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452000"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451999"><span class="annot"><span class="annottext">s :: DescribeEndpointSettingsResponse
-</span><a href="#local-6989586621679451999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451998"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse
-</span><a href="#local-6989586621679451999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeEndpointSettingsResponse' :: Maybe Text
+</span><a href="#local-6989586621679452009"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452009"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452008"><span class="annot"><span class="annottext">s :: DescribeEndpointSettingsResponse
+</span><a href="#local-6989586621679452008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452007"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse
+</span><a href="#local-6989586621679452008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeEndpointSettingsResponse' :: Maybe Text
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3Amarker%3ADescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#describeEndpointSettingsResponse_httpStatus"><span class="hs-identifier hs-type">describeEndpointSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -636,18 +636,18 @@ $sel:marker:DescribeEndpointSettingsResponse' :: DescribeEndpointSettingsRespons
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451997"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452006"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeEndpointSettingsResponse' :: DescribeEndpointSettingsResponse -&gt; Int
-</span><a href="#local-6989586621679451997"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451997"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451996"><span class="annot"><span class="annottext">s :: DescribeEndpointSettingsResponse
-</span><a href="#local-6989586621679451996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451995"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse
-</span><a href="#local-6989586621679451996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEndpointSettingsResponse' :: Int
+</span><a href="#local-6989586621679452006"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452006"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452005"><span class="annot"><span class="annottext">s :: DescribeEndpointSettingsResponse
+</span><a href="#local-6989586621679452005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointSettingsResponse
+</span><a href="#local-6989586621679452005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEndpointSettingsResponse' :: Int
 </span><a href="Network.AWS.DMS.DescribeEndpointSettings.html#%24sel%3AhttpStatus%3ADescribeEndpointSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679451993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679452002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeEndpointSettings.html#DescribeEndpointSettingsResponse"><span class="hs-identifier hs-type">DescribeEndpointSettingsResponse</span></a></span></span><span>
 </span><span id="line-226"></span></pre></body></html>

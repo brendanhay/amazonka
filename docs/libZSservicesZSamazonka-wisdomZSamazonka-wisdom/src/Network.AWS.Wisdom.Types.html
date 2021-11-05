@@ -1,0 +1,809 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.Wisdom.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Wisdom.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_PreconditionFailedException"><span class="hs-identifier">_PreconditionFailedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_TooManyTagsException"><span class="hs-identifier">_TooManyTagsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier">_ServiceQuotaExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssistantStatus</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantStatus.html#AssistantStatus"><span class="hs-identifier">AssistantStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssistantType</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantType.html#AssistantType"><span class="hs-identifier">AssistantType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssociationType</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssociationType.html#AssociationType"><span class="hs-identifier">AssociationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContentStatus</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentStatus.html#ContentStatus"><span class="hs-identifier">ContentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FilterField</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.FilterField.html#FilterField"><span class="hs-identifier">FilterField</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FilterOperator</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.FilterOperator.html#FilterOperator"><span class="hs-identifier">FilterOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * KnowledgeBaseStatus</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseStatus.html#KnowledgeBaseStatus"><span class="hs-identifier">KnowledgeBaseStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * KnowledgeBaseType</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseType.html#KnowledgeBaseType"><span class="hs-identifier">KnowledgeBaseType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RelevanceLevel</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RelevanceLevel.html#RelevanceLevel"><span class="hs-identifier">RelevanceLevel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AppIntegrationsConfiguration</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.html#AppIntegrationsConfiguration"><span class="hs-identifier">AppIntegrationsConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.html#newAppIntegrationsConfiguration"><span class="hs-identifier">newAppIntegrationsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.html#appIntegrationsConfiguration_appIntegrationArn"><span class="hs-identifier">appIntegrationsConfiguration_appIntegrationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.html#appIntegrationsConfiguration_objectFields"><span class="hs-identifier">appIntegrationsConfiguration_objectFields</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssistantAssociationData</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html#AssistantAssociationData"><span class="hs-identifier">AssistantAssociationData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html#newAssistantAssociationData"><span class="hs-identifier">newAssistantAssociationData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html#assistantAssociationData_tags"><span class="hs-identifier">assistantAssociationData_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html#assistantAssociationData_assistantArn"><span class="hs-identifier">assistantAssociationData_assistantArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html#assistantAssociationData_assistantAssociationArn"><span class="hs-identifier">assistantAssociationData_assistantAssociationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html#assistantAssociationData_assistantAssociationId"><span class="hs-identifier">assistantAssociationData_assistantAssociationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html#assistantAssociationData_assistantId"><span class="hs-identifier">assistantAssociationData_assistantId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html#assistantAssociationData_associationData"><span class="hs-identifier">assistantAssociationData_associationData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html#assistantAssociationData_associationType"><span class="hs-identifier">assistantAssociationData_associationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssistantAssociationInputData</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationInputData.html#AssistantAssociationInputData"><span class="hs-identifier">AssistantAssociationInputData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationInputData.html#newAssistantAssociationInputData"><span class="hs-identifier">newAssistantAssociationInputData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationInputData.html#assistantAssociationInputData_knowledgeBaseId"><span class="hs-identifier">assistantAssociationInputData_knowledgeBaseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssistantAssociationOutputData</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationOutputData.html#AssistantAssociationOutputData"><span class="hs-identifier">AssistantAssociationOutputData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationOutputData.html#newAssistantAssociationOutputData"><span class="hs-identifier">newAssistantAssociationOutputData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationOutputData.html#assistantAssociationOutputData_knowledgeBaseAssociation"><span class="hs-identifier">assistantAssociationOutputData_knowledgeBaseAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssistantAssociationSummary</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html#AssistantAssociationSummary"><span class="hs-identifier">AssistantAssociationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html#newAssistantAssociationSummary"><span class="hs-identifier">newAssistantAssociationSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html#assistantAssociationSummary_tags"><span class="hs-identifier">assistantAssociationSummary_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html#assistantAssociationSummary_assistantArn"><span class="hs-identifier">assistantAssociationSummary_assistantArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html#assistantAssociationSummary_assistantAssociationArn"><span class="hs-identifier">assistantAssociationSummary_assistantAssociationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html#assistantAssociationSummary_assistantAssociationId"><span class="hs-identifier">assistantAssociationSummary_assistantAssociationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html#assistantAssociationSummary_assistantId"><span class="hs-identifier">assistantAssociationSummary_assistantId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html#assistantAssociationSummary_associationData"><span class="hs-identifier">assistantAssociationSummary_associationData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html#assistantAssociationSummary_associationType"><span class="hs-identifier">assistantAssociationSummary_associationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssistantData</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#AssistantData"><span class="hs-identifier">AssistantData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#newAssistantData"><span class="hs-identifier">newAssistantData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#assistantData_description"><span class="hs-identifier">assistantData_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#assistantData_serverSideEncryptionConfiguration"><span class="hs-identifier">assistantData_serverSideEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#assistantData_tags"><span class="hs-identifier">assistantData_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#assistantData_assistantArn"><span class="hs-identifier">assistantData_assistantArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#assistantData_assistantId"><span class="hs-identifier">assistantData_assistantId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#assistantData_name"><span class="hs-identifier">assistantData_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#assistantData_status"><span class="hs-identifier">assistantData_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html#assistantData_type"><span class="hs-identifier">assistantData_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssistantSummary</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#AssistantSummary"><span class="hs-identifier">AssistantSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#newAssistantSummary"><span class="hs-identifier">newAssistantSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#assistantSummary_description"><span class="hs-identifier">assistantSummary_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#assistantSummary_serverSideEncryptionConfiguration"><span class="hs-identifier">assistantSummary_serverSideEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#assistantSummary_tags"><span class="hs-identifier">assistantSummary_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#assistantSummary_assistantArn"><span class="hs-identifier">assistantSummary_assistantArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#assistantSummary_assistantId"><span class="hs-identifier">assistantSummary_assistantId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#assistantSummary_name"><span class="hs-identifier">assistantSummary_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#assistantSummary_status"><span class="hs-identifier">assistantSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html#assistantSummary_type"><span class="hs-identifier">assistantSummary_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContentData</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#ContentData"><span class="hs-identifier">ContentData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#newContentData"><span class="hs-identifier">newContentData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_linkOutUri"><span class="hs-identifier">contentData_linkOutUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_tags"><span class="hs-identifier">contentData_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_contentArn"><span class="hs-identifier">contentData_contentArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_contentId"><span class="hs-identifier">contentData_contentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_contentType"><span class="hs-identifier">contentData_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_knowledgeBaseArn"><span class="hs-identifier">contentData_knowledgeBaseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_knowledgeBaseId"><span class="hs-identifier">contentData_knowledgeBaseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_metadata"><span class="hs-identifier">contentData_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_name"><span class="hs-identifier">contentData_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_revisionId"><span class="hs-identifier">contentData_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_status"><span class="hs-identifier">contentData_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_title"><span class="hs-identifier">contentData_title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_url"><span class="hs-identifier">contentData_url</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html#contentData_urlExpiry"><span class="hs-identifier">contentData_urlExpiry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContentReference</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentReference.html#ContentReference"><span class="hs-identifier">ContentReference</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentReference.html#newContentReference"><span class="hs-identifier">newContentReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentReference.html#contentReference_contentArn"><span class="hs-identifier">contentReference_contentArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentReference.html#contentReference_contentId"><span class="hs-identifier">contentReference_contentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentReference.html#contentReference_knowledgeBaseArn"><span class="hs-identifier">contentReference_knowledgeBaseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentReference.html#contentReference_knowledgeBaseId"><span class="hs-identifier">contentReference_knowledgeBaseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ContentSummary</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#ContentSummary"><span class="hs-identifier">ContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#newContentSummary"><span class="hs-identifier">newContentSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_tags"><span class="hs-identifier">contentSummary_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_contentArn"><span class="hs-identifier">contentSummary_contentArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_contentId"><span class="hs-identifier">contentSummary_contentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_contentType"><span class="hs-identifier">contentSummary_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_knowledgeBaseArn"><span class="hs-identifier">contentSummary_knowledgeBaseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_knowledgeBaseId"><span class="hs-identifier">contentSummary_knowledgeBaseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_metadata"><span class="hs-identifier">contentSummary_metadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_name"><span class="hs-identifier">contentSummary_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_revisionId"><span class="hs-identifier">contentSummary_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_status"><span class="hs-identifier">contentSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html#contentSummary_title"><span class="hs-identifier">contentSummary_title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Document</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Document.html#Document"><span class="hs-identifier">Document</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Document.html#newDocument"><span class="hs-identifier">newDocument</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Document.html#document_excerpt"><span class="hs-identifier">document_excerpt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Document.html#document_title"><span class="hs-identifier">document_title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Document.html#document_contentReference"><span class="hs-identifier">document_contentReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DocumentText</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.DocumentText.html#DocumentText"><span class="hs-identifier">DocumentText</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.DocumentText.html#newDocumentText"><span class="hs-identifier">newDocumentText</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.DocumentText.html#documentText_text"><span class="hs-identifier">documentText_text</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.DocumentText.html#documentText_highlights"><span class="hs-identifier">documentText_highlights</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Filter</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Filter.html#Filter"><span class="hs-identifier">Filter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Filter.html#newFilter"><span class="hs-identifier">newFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Filter.html#filter_field"><span class="hs-identifier">filter_field</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Filter.html#filter_operator"><span class="hs-identifier">filter_operator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Filter.html#filter_value"><span class="hs-identifier">filter_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Highlight</span></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Highlight.html#Highlight"><span class="hs-identifier">Highlight</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Highlight.html#newHighlight"><span class="hs-identifier">newHighlight</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Highlight.html#highlight_endOffsetExclusive"><span class="hs-identifier">highlight_endOffsetExclusive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Highlight.html#highlight_beginOffsetInclusive"><span class="hs-identifier">highlight_beginOffsetInclusive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="hs-comment">-- * KnowledgeBaseAssociationData</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.html#KnowledgeBaseAssociationData"><span class="hs-identifier">KnowledgeBaseAssociationData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.html#newKnowledgeBaseAssociationData"><span class="hs-identifier">newKnowledgeBaseAssociationData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.html#knowledgeBaseAssociationData_knowledgeBaseArn"><span class="hs-identifier">knowledgeBaseAssociationData_knowledgeBaseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.html#knowledgeBaseAssociationData_knowledgeBaseId"><span class="hs-identifier">knowledgeBaseAssociationData_knowledgeBaseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="hs-comment">-- * KnowledgeBaseData</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#KnowledgeBaseData"><span class="hs-identifier">KnowledgeBaseData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#newKnowledgeBaseData"><span class="hs-identifier">newKnowledgeBaseData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_renderingConfiguration"><span class="hs-identifier">knowledgeBaseData_renderingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_sourceConfiguration"><span class="hs-identifier">knowledgeBaseData_sourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_lastContentModificationTime"><span class="hs-identifier">knowledgeBaseData_lastContentModificationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_description"><span class="hs-identifier">knowledgeBaseData_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_serverSideEncryptionConfiguration"><span class="hs-identifier">knowledgeBaseData_serverSideEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_tags"><span class="hs-identifier">knowledgeBaseData_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_knowledgeBaseArn"><span class="hs-identifier">knowledgeBaseData_knowledgeBaseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_knowledgeBaseId"><span class="hs-identifier">knowledgeBaseData_knowledgeBaseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_knowledgeBaseType"><span class="hs-identifier">knowledgeBaseData_knowledgeBaseType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_name"><span class="hs-identifier">knowledgeBaseData_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#knowledgeBaseData_status"><span class="hs-identifier">knowledgeBaseData_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="hs-comment">-- * KnowledgeBaseSummary</span></span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#KnowledgeBaseSummary"><span class="hs-identifier">KnowledgeBaseSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#newKnowledgeBaseSummary"><span class="hs-identifier">newKnowledgeBaseSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_renderingConfiguration"><span class="hs-identifier">knowledgeBaseSummary_renderingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_sourceConfiguration"><span class="hs-identifier">knowledgeBaseSummary_sourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_description"><span class="hs-identifier">knowledgeBaseSummary_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_serverSideEncryptionConfiguration"><span class="hs-identifier">knowledgeBaseSummary_serverSideEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_tags"><span class="hs-identifier">knowledgeBaseSummary_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_knowledgeBaseArn"><span class="hs-identifier">knowledgeBaseSummary_knowledgeBaseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_knowledgeBaseId"><span class="hs-identifier">knowledgeBaseSummary_knowledgeBaseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_knowledgeBaseType"><span class="hs-identifier">knowledgeBaseSummary_knowledgeBaseType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_name"><span class="hs-identifier">knowledgeBaseSummary_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html#knowledgeBaseSummary_status"><span class="hs-identifier">knowledgeBaseSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="hs-comment">-- * NotifyRecommendationsReceivedError</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.html#NotifyRecommendationsReceivedError"><span class="hs-identifier">NotifyRecommendationsReceivedError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.html#newNotifyRecommendationsReceivedError"><span class="hs-identifier">newNotifyRecommendationsReceivedError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.html#notifyRecommendationsReceivedError_recommendationId"><span class="hs-identifier">notifyRecommendationsReceivedError_recommendationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.html#notifyRecommendationsReceivedError_message"><span class="hs-identifier">notifyRecommendationsReceivedError_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RecommendationData</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RecommendationData.html#RecommendationData"><span class="hs-identifier">RecommendationData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RecommendationData.html#newRecommendationData"><span class="hs-identifier">newRecommendationData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RecommendationData.html#recommendationData_relevanceLevel"><span class="hs-identifier">recommendationData_relevanceLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RecommendationData.html#recommendationData_relevanceScore"><span class="hs-identifier">recommendationData_relevanceScore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RecommendationData.html#recommendationData_document"><span class="hs-identifier">recommendationData_document</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RecommendationData.html#recommendationData_recommendationId"><span class="hs-identifier">recommendationData_recommendationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RenderingConfiguration</span></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RenderingConfiguration.html#RenderingConfiguration"><span class="hs-identifier">RenderingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RenderingConfiguration.html#newRenderingConfiguration"><span class="hs-identifier">newRenderingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RenderingConfiguration.html#renderingConfiguration_templateUri"><span class="hs-identifier">renderingConfiguration_templateUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResultData</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ResultData.html#ResultData"><span class="hs-identifier">ResultData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ResultData.html#newResultData"><span class="hs-identifier">newResultData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ResultData.html#resultData_relevanceScore"><span class="hs-identifier">resultData_relevanceScore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ResultData.html#resultData_document"><span class="hs-identifier">resultData_document</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ResultData.html#resultData_resultId"><span class="hs-identifier">resultData_resultId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SearchExpression</span></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SearchExpression.html#SearchExpression"><span class="hs-identifier">SearchExpression</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SearchExpression.html#newSearchExpression"><span class="hs-identifier">newSearchExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SearchExpression.html#searchExpression_filters"><span class="hs-identifier">searchExpression_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServerSideEncryptionConfiguration</span></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.html#ServerSideEncryptionConfiguration"><span class="hs-identifier">ServerSideEncryptionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.html#newServerSideEncryptionConfiguration"><span class="hs-identifier">newServerSideEncryptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.html#serverSideEncryptionConfiguration_kmsKeyId"><span class="hs-identifier">serverSideEncryptionConfiguration_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SessionData</span></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionData.html#SessionData"><span class="hs-identifier">SessionData</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionData.html#newSessionData"><span class="hs-identifier">newSessionData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionData.html#sessionData_description"><span class="hs-identifier">sessionData_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionData.html#sessionData_tags"><span class="hs-identifier">sessionData_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionData.html#sessionData_name"><span class="hs-identifier">sessionData_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionData.html#sessionData_sessionArn"><span class="hs-identifier">sessionData_sessionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionData.html#sessionData_sessionId"><span class="hs-identifier">sessionData_sessionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SessionSummary</span></span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionSummary.html#SessionSummary"><span class="hs-identifier">SessionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionSummary.html#newSessionSummary"><span class="hs-identifier">newSessionSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionSummary.html#sessionSummary_assistantArn"><span class="hs-identifier">sessionSummary_assistantArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionSummary.html#sessionSummary_assistantId"><span class="hs-identifier">sessionSummary_assistantId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionSummary.html#sessionSummary_sessionArn"><span class="hs-identifier">sessionSummary_sessionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionSummary.html#sessionSummary_sessionId"><span class="hs-identifier">sessionSummary_sessionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SourceConfiguration</span></span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SourceConfiguration.html#SourceConfiguration"><span class="hs-identifier">SourceConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SourceConfiguration.html#newSourceConfiguration"><span class="hs-identifier">newSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SourceConfiguration.html#sourceConfiguration_appIntegrations"><span class="hs-identifier">sourceConfiguration_appIntegrations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AppIntegrationsConfiguration.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AppIntegrationsConfiguration</span></a></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AssistantAssociationData</span></a></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationInputData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AssistantAssociationInputData</span></a></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationOutputData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AssistantAssociationOutputData</span></a></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantAssociationSummary.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AssistantAssociationSummary</span></a></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AssistantData</span></a></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantStatus.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AssistantStatus</span></a></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantSummary.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AssistantSummary</span></a></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssistantType.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AssistantType</span></a></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.AssociationType.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.AssociationType</span></a></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.ContentData</span></a></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentReference.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.ContentReference</span></a></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentStatus.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.ContentStatus</span></a></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ContentSummary.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.ContentSummary</span></a></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Document.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.Document</span></a></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.DocumentText.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.DocumentText</span></a></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Filter.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.Filter</span></a></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.FilterField.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.FilterField</span></a></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.FilterOperator.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.FilterOperator</span></a></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.Highlight.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.Highlight</span></a></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.KnowledgeBaseAssociationData</span></a></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.KnowledgeBaseData</span></a></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseStatus.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.KnowledgeBaseStatus</span></a></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseSummary.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.KnowledgeBaseSummary</span></a></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseType.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.KnowledgeBaseType</span></a></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.NotifyRecommendationsReceivedError</span></a></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RecommendationData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.RecommendationData</span></a></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RelevanceLevel.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.RelevanceLevel</span></a></span><span>
+</span><span id="line-311"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.RenderingConfiguration.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.RenderingConfiguration</span></a></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ResultData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.ResultData</span></a></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SearchExpression.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.SearchExpression</span></a></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.ServerSideEncryptionConfiguration</span></a></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionData.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.SessionData</span></a></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SessionSummary.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.SessionSummary</span></a></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.SourceConfiguration.html"><span class="hs-identifier">Network.AWS.Wisdom.Types.SourceConfiguration</span></a></span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | API version @2020-10-19@ of the Amazon Connect Wisdom Service SDK configuration.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-321"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-323"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Wisdom&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;wisdom&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;wisdom&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2020-10-19&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Wisdom&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679223912"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-334"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-335"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-336"></span><span>    </span><span id="local-6989586621679223912"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679223912"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-337"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-338"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679223906"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-342"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-343"></span><span>    </span><span id="local-6989586621679223906"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679223906"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679223905"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-344"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-345"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-346"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-347"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-349"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-350"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-351"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-352"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-353"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-354"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-355"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-357"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-358"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-359"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-360"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-361"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-363"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-364"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-365"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-366"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-367"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-368"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-370"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-371"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-372"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-373"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-374"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-375"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-376"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-378"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-379"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-380"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-381"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-382"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-383"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-384"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-385"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-386"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-387"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-388"></span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- | The input fails to satisfy the constraints specified by an AWS service.</span><span>
+</span><span id="line-390"></span><span id="local-6989586621679223900"><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679223900"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679223900"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-391"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Wisdom.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-392"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-393"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-394"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-395"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-396"></span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- | You do not have sufficient access to perform this action.</span><span>
+</span><span id="line-398"></span><span id="local-6989586621679223898"><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679223898"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679223898"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-399"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Wisdom.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-400"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-402"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-403"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">403</span></span><span>
+</span><span id="line-404"></span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- | The provided @revisionId@ does not match, indicating the content has</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- been modified since it was last read.</span><span>
+</span><span id="line-407"></span><span id="local-6989586621679223897"><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_PreconditionFailedException"><span class="hs-identifier hs-type">_PreconditionFailedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679223897"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679223897"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-408"></span><span id="_PreconditionFailedException"><span class="annot"><span class="annottext">_PreconditionFailedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Wisdom.Types.html#_PreconditionFailedException"><span class="hs-identifier hs-var hs-var">_PreconditionFailedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-409"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-410"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-411"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;PreconditionFailedException&quot;</span></span><span>
+</span><span id="line-412"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">412</span></span><span>
+</span><span id="line-413"></span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- | Amazon Connect Wisdom throws this exception if you have too many tags in</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- your tag set.</span><span>
+</span><span id="line-416"></span><span id="local-6989586621679223896"><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_TooManyTagsException"><span class="hs-identifier hs-type">_TooManyTagsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679223896"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679223896"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-417"></span><span id="_TooManyTagsException"><span class="annot"><span class="annottext">_TooManyTagsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Wisdom.Types.html#_TooManyTagsException"><span class="hs-identifier hs-var hs-var">_TooManyTagsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-418"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-419"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-420"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;TooManyTagsException&quot;</span></span><span>
+</span><span id="line-421"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-422"></span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- | The request could not be processed because of conflict in the current</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- state of the resource. For example, if you\'re using a @Create@ API</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- (such as @CreateAssistant@) that accepts name, a conflicting resource</span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- (usually with the same name) is being created or mutated.</span><span>
+</span><span id="line-427"></span><span id="local-6989586621679223895"><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679223895"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679223895"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-428"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Wisdom.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-429"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-430"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-431"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">409</span></span><span>
+</span><span id="line-433"></span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- | You\'ve exceeded your service quota. To perform the requested action,</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- remove some of the relevant resources, or use service quotas to request</span><span>
+</span><span id="line-436"></span><span class="hs-comment">-- a service quota increase.</span><span>
+</span><span id="line-437"></span><span id="local-6989586621679223894"><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier hs-type">_ServiceQuotaExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679223894"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679223894"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-438"></span><span id="_ServiceQuotaExceededException"><span class="annot"><span class="annottext">_ServiceQuotaExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Wisdom.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier hs-var hs-var">_ServiceQuotaExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-439"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-440"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-441"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceQuotaExceededException&quot;</span></span><span>
+</span><span id="line-442"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">402</span></span><span>
+</span><span id="line-443"></span><span>
+</span><span id="line-444"></span><span class="hs-comment">-- | The specified resource does not exist.</span><span>
+</span><span id="line-445"></span><span id="local-6989586621679223893"><span class="annot"><a href="Network.AWS.Wisdom.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679223893"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679223893"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-446"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Wisdom.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-447"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-448"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-449"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-450"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-451"></span></pre></body></html>

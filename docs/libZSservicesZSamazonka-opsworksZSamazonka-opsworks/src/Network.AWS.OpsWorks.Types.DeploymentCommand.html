@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Used to specify a stack or deployment command.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeploymentCommand' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679374270"><span id="local-6989586621679374271"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentCommand"><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-var">DeploymentCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentCommand%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-var">DeploymentCommand'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679374279"><span id="local-6989586621679374280"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeploymentCommand"><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-var">DeploymentCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentCommand%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-var">DeploymentCommand'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The arguments of those commands that take arguments. It should be set to</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- a JSON object with the following format:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3Aname%3ADeploymentCommand%27"><span class="annot"><span class="annottext">DeploymentCommand -&gt; DeploymentCommandName
 </span><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#%24sel%3Aname%3ADeploymentCommand%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommandName.html#DeploymentCommandName"><span class="hs-identifier hs-type">DeploymentCommandName</span></a></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374263"><span id="local-6989586621679374265"><span class="annot"><span class="annottext">DeploymentCommand -&gt; DeploymentCommand -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374272"><span id="local-6989586621679374274"><span class="annot"><span class="annottext">DeploymentCommand -&gt; DeploymentCommand -&gt; Bool
 (DeploymentCommand -&gt; DeploymentCommand -&gt; Bool)
 -&gt; (DeploymentCommand -&gt; DeploymentCommand -&gt; Bool)
 -&gt; Eq DeploymentCommand
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeploymentCommand -&gt; DeploymentCommand -&gt; Bool
 == :: DeploymentCommand -&gt; DeploymentCommand -&gt; Bool
 $c== :: DeploymentCommand -&gt; DeploymentCommand -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374254"><span id="local-6989586621679374256"><span id="local-6989586621679374258"><span id="local-6989586621679374260"><span class="annot"><span class="annottext">ReadPrec [DeploymentCommand]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374263"><span id="local-6989586621679374265"><span id="local-6989586621679374267"><span id="local-6989586621679374269"><span class="annot"><span class="annottext">ReadPrec [DeploymentCommand]
 ReadPrec DeploymentCommand
 Int -&gt; ReadS DeploymentCommand
 ReadS [DeploymentCommand]
@@ -121,7 +121,7 @@ readList :: ReadS [DeploymentCommand]
 $creadList :: ReadS [DeploymentCommand]
 readsPrec :: Int -&gt; ReadS DeploymentCommand
 $creadsPrec :: Int -&gt; ReadS DeploymentCommand
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374247"><span id="local-6989586621679374249"><span id="local-6989586621679374251"><span class="annot"><span class="annottext">Int -&gt; DeploymentCommand -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374256"><span id="local-6989586621679374258"><span id="local-6989586621679374260"><span class="annot"><span class="annottext">Int -&gt; DeploymentCommand -&gt; ShowS
 [DeploymentCommand] -&gt; ShowS
 DeploymentCommand -&gt; String
 (Int -&gt; DeploymentCommand -&gt; ShowS)
@@ -220,8 +220,8 @@ $cfrom :: forall x. DeploymentCommand -&gt; Rep DeploymentCommand x
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommandName.html#DeploymentCommandName"><span class="hs-identifier hs-type">DeploymentCommandName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span><span>
 </span><span id="line-167"></span><span id="newDeploymentCommand"><span class="annot"><span class="annottext">newDeploymentCommand :: DeploymentCommandName -&gt; DeploymentCommand
-</span><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#newDeploymentCommand"><span class="hs-identifier hs-var hs-var">newDeploymentCommand</span></a></span></span><span> </span><span id="local-6989586621679374241"><span class="annot"><span class="annottext">DeploymentCommandName
-</span><a href="#local-6989586621679374241"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#newDeploymentCommand"><span class="hs-identifier hs-var hs-var">newDeploymentCommand</span></a></span></span><span> </span><span id="local-6989586621679374250"><span class="annot"><span class="annottext">DeploymentCommandName
+</span><a href="#local-6989586621679374250"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">DeploymentCommand' :: Maybe (HashMap Text [Text])
 -&gt; DeploymentCommandName -&gt; DeploymentCommand
 </span><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span>
@@ -231,7 +231,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DeploymentCommand' :: DeploymentCommandName
 </span><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#%24sel%3Aname%3ADeploymentCommand%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentCommandName
-</span><a href="#local-6989586621679374241"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679374250"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The arguments of those commands that take arguments. It should be set to</span><span>
@@ -267,16 +267,16 @@ forall a. Maybe a
      (Maybe (HashMap Text [Text]))
      (Maybe (HashMap Text [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374237"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374246"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 args :: Maybe (HashMap Text [Text])
 $sel:args:DeploymentCommand' :: DeploymentCommand -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679374237"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679374237"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374236"><span class="annot"><span class="annottext">s :: DeploymentCommand
-</span><a href="#local-6989586621679374236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374235"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679374235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCommand
-</span><a href="#local-6989586621679374236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:DeploymentCommand' :: Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679374246"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679374246"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374245"><span class="annot"><span class="annottext">s :: DeploymentCommand
+</span><a href="#local-6989586621679374245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374244"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679374244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCommand
+</span><a href="#local-6989586621679374245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:DeploymentCommand' :: Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#%24sel%3Aargs%3ADeploymentCommand%27"><span class="hs-identifier hs-var">args</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679374235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679374244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
  -&gt; DeploymentCommand -&gt; f DeploymentCommand)
 -&gt; ((Maybe (HashMap Text [Text])
      -&gt; f (Maybe (HashMap Text [Text])))
@@ -356,19 +356,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      DeploymentCommandName
      DeploymentCommandName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374230"><span class="annot"><span class="annottext">DeploymentCommandName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374239"><span class="annot"><span class="annottext">DeploymentCommandName
 name :: DeploymentCommandName
 $sel:name:DeploymentCommand' :: DeploymentCommand -&gt; DeploymentCommandName
-</span><a href="#local-6989586621679374230"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCommandName
-</span><a href="#local-6989586621679374230"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374229"><span class="annot"><span class="annottext">s :: DeploymentCommand
-</span><a href="#local-6989586621679374229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374228"><span class="annot"><span class="annottext">DeploymentCommandName
-</span><a href="#local-6989586621679374228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCommand
-</span><a href="#local-6989586621679374229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeploymentCommand' :: DeploymentCommandName
+</span><a href="#local-6989586621679374239"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCommandName
+</span><a href="#local-6989586621679374239"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374238"><span class="annot"><span class="annottext">s :: DeploymentCommand
+</span><a href="#local-6989586621679374238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374237"><span class="annot"><span class="annottext">DeploymentCommandName
+</span><a href="#local-6989586621679374237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeploymentCommand
+</span><a href="#local-6989586621679374238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeploymentCommand' :: DeploymentCommandName
 </span><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#%24sel%3Aname%3ADeploymentCommand%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeploymentCommandName
-</span><a href="#local-6989586621679374228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374225"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679374223"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentCommand
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374234"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679374232"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeploymentCommand
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeploymentCommand)
@@ -378,8 +378,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeploymentCommand&quot;</span></span><span>
-</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374220"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374220"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374229"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374229"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-243"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 -&gt; DeploymentCommandName -&gt; DeploymentCommand
 </span><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-var">DeploymentCommand'</span></a></span><span>
@@ -389,7 +389,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (DeploymentCommandName -&gt; DeploymentCommand)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679374229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text [Text])))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Args&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text [Text])))
@@ -403,25 +403,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser DeploymentCommandName -&gt; Parser DeploymentCommand
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeploymentCommandName
+</span><a href="#local-6989586621679374229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeploymentCommandName
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374212"><span id="local-6989586621679374214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span></span></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374221"><span id="local-6989586621679374223"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span></span></span><span>
 </span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span></span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374201"><span id="local-6989586621679374203"><span id="local-6989586621679374205"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621679374199"><span class="annot"><span class="annottext">toJSON :: DeploymentCommand -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374196"><span id="local-6989586621679374197"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374210"><span id="local-6989586621679374212"><span id="local-6989586621679374214"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand"><span class="hs-identifier hs-type">DeploymentCommand</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679374208"><span class="annot"><span class="annottext">toJSON :: DeploymentCommand -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommand.html#DeploymentCommand%27"><span class="hs-identifier hs-type">DeploymentCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374205"><span id="local-6989586621679374206"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 DeploymentCommandName
 name :: DeploymentCommandName
 args :: Maybe (HashMap Text [Text])
 $sel:name:DeploymentCommand' :: DeploymentCommand -&gt; DeploymentCommandName
 $sel:args:DeploymentCommand' :: DeploymentCommand -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679374196"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374205"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -434,14 +434,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679374197"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374206"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeploymentCommandName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeploymentCommandName
-</span><a href="#local-6989586621679374196"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374205"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span></pre></body></html>

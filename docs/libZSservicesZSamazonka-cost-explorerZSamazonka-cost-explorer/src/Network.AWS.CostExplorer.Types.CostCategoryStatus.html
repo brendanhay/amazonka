@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679327742"><span id="local-6989586621679327743"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CostCategoryStatus"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryStatus.html#CostCategoryStatus"><span class="hs-identifier hs-var">CostCategoryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostCategoryStatus%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryStatus.html#CostCategoryStatus%27"><span class="hs-identifier hs-var">CostCategoryStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679327751"><span id="local-6989586621679327752"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CostCategoryStatus"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryStatus.html#CostCategoryStatus"><span class="hs-identifier hs-var">CostCategoryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CostCategoryStatus%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.CostCategoryStatus.html#CostCategoryStatus%27"><span class="hs-identifier hs-var">CostCategoryStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCostCategoryStatus"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.CostCategoryStatus.html#fromCostCategoryStatus"><span class="hs-identifier hs-var hs-var">fromCostCategoryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327734"><span id="local-6989586621679327736"><span id="local-6989586621679327738"><span class="annot"><span class="annottext">Int -&gt; CostCategoryStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327743"><span id="local-6989586621679327745"><span id="local-6989586621679327747"><span class="annot"><span class="annottext">Int -&gt; CostCategoryStatus -&gt; ShowS
 [CostCategoryStatus] -&gt; ShowS
 CostCategoryStatus -&gt; String
 (Int -&gt; CostCategoryStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CostCategoryStatus -&gt; String
 showsPrec :: Int -&gt; CostCategoryStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CostCategoryStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679327725"><span id="local-6989586621679327727"><span id="local-6989586621679327729"><span id="local-6989586621679327731"><span class="annot"><span class="annottext">ReadPrec [CostCategoryStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679327734"><span id="local-6989586621679327736"><span id="local-6989586621679327738"><span id="local-6989586621679327740"><span class="annot"><span class="annottext">ReadPrec [CostCategoryStatus]
 ReadPrec CostCategoryStatus
 Int -&gt; ReadS CostCategoryStatus
 ReadS [CostCategoryStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CostCategoryStatus]
 readsPrec :: Int -&gt; ReadS CostCategoryStatus
 $creadsPrec :: Int -&gt; ReadS CostCategoryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679327720"><span id="local-6989586621679327722"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; CostCategoryStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679327729"><span id="local-6989586621679327731"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; CostCategoryStatus -&gt; Bool
 (CostCategoryStatus -&gt; CostCategoryStatus -&gt; Bool)
 -&gt; (CostCategoryStatus -&gt; CostCategoryStatus -&gt; Bool)
 -&gt; Eq CostCategoryStatus
@@ -82,7 +82,7 @@ $c/= :: CostCategoryStatus -&gt; CostCategoryStatus -&gt; Bool
 == :: CostCategoryStatus -&gt; CostCategoryStatus -&gt; Bool
 $c== :: CostCategoryStatus -&gt; CostCategoryStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327704"><span id="local-6989586621679327706"><span id="local-6989586621679327708"><span id="local-6989586621679327710"><span id="local-6989586621679327712"><span id="local-6989586621679327714"><span id="local-6989586621679327716"><span class="annot"><span class="annottext">Eq CostCategoryStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327713"><span id="local-6989586621679327715"><span id="local-6989586621679327717"><span id="local-6989586621679327719"><span id="local-6989586621679327721"><span id="local-6989586621679327723"><span id="local-6989586621679327725"><span class="annot"><span class="annottext">Eq CostCategoryStatus
 Eq CostCategoryStatus
 -&gt; (CostCategoryStatus -&gt; CostCategoryStatus -&gt; Ordering)
 -&gt; (CostCategoryStatus -&gt; CostCategoryStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. CostCategoryStatus -&gt; Rep CostCategoryStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327696"><span id="local-6989586621679327698"><span class="annot"><span class="annottext">Int -&gt; CostCategoryStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327705"><span id="local-6989586621679327707"><span class="annot"><span class="annottext">Int -&gt; CostCategoryStatus -&gt; Int
 CostCategoryStatus -&gt; Int
 (Int -&gt; CostCategoryStatus -&gt; Int)
 -&gt; (CostCategoryStatus -&gt; Int) -&gt; Hashable CostCategoryStatus
@@ -143,53 +143,53 @@ $chash :: CostCategoryStatus -&gt; Int
 hashWithSalt :: Int -&gt; CostCategoryStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CostCategoryStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679327693"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679327702"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; ()
 (CostCategoryStatus -&gt; ()) -&gt; NFData CostCategoryStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CostCategoryStatus -&gt; ()
 $crnf :: CostCategoryStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679327690"><span class="annot"><span class="annottext">Text -&gt; Either String CostCategoryStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679327699"><span class="annot"><span class="annottext">Text -&gt; Either String CostCategoryStatus
 (Text -&gt; Either String CostCategoryStatus)
 -&gt; FromText CostCategoryStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CostCategoryStatus
 $cfromText :: Text -&gt; Either String CostCategoryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327687"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327696"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; Text
 (CostCategoryStatus -&gt; Text) -&gt; ToText CostCategoryStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CostCategoryStatus -&gt; Text
 $ctoText :: CostCategoryStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327684"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327693"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; ByteString
 (CostCategoryStatus -&gt; ByteString)
 -&gt; ToByteString CostCategoryStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CostCategoryStatus -&gt; ByteString
 $ctoBS :: CostCategoryStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327681"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327690"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; ByteStringBuilder
 (CostCategoryStatus -&gt; ByteStringBuilder)
 -&gt; ToLog CostCategoryStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CostCategoryStatus -&gt; ByteStringBuilder
 $cbuild :: CostCategoryStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327678"><span class="annot"><span class="annottext">HeaderName -&gt; CostCategoryStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327687"><span class="annot"><span class="annottext">HeaderName -&gt; CostCategoryStatus -&gt; [Header]
 (HeaderName -&gt; CostCategoryStatus -&gt; [Header])
 -&gt; ToHeader CostCategoryStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CostCategoryStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CostCategoryStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327675"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327684"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; QueryString
 (CostCategoryStatus -&gt; QueryString) -&gt; ToQuery CostCategoryStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CostCategoryStatus -&gt; QueryString
 $ctoQuery :: CostCategoryStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327670"><span id="local-6989586621679327672"><span class="annot"><span class="annottext">Value -&gt; Parser [CostCategoryStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327679"><span id="local-6989586621679327681"><span class="annot"><span class="annottext">Value -&gt; Parser [CostCategoryStatus]
 Value -&gt; Parser CostCategoryStatus
 (Value -&gt; Parser CostCategoryStatus)
 -&gt; (Value -&gt; Parser [CostCategoryStatus])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [CostCategoryStatus]
 parseJSON :: Value -&gt; Parser CostCategoryStatus
 $cparseJSON :: Value -&gt; Parser CostCategoryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327665"><span id="local-6989586621679327667"><span class="annot"><span class="annottext">FromJSONKeyFunction [CostCategoryStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327674"><span id="local-6989586621679327676"><span class="annot"><span class="annottext">FromJSONKeyFunction [CostCategoryStatus]
 FromJSONKeyFunction CostCategoryStatus
 FromJSONKeyFunction CostCategoryStatus
 -&gt; FromJSONKeyFunction [CostCategoryStatus]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CostCategoryStatus]
 fromJSONKey :: FromJSONKeyFunction CostCategoryStatus
 $cfromJSONKey :: FromJSONKeyFunction CostCategoryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327656"><span id="local-6989586621679327658"><span id="local-6989586621679327660"><span id="local-6989586621679327662"><span class="annot"><span class="annottext">[CostCategoryStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327665"><span id="local-6989586621679327667"><span id="local-6989586621679327669"><span id="local-6989586621679327671"><span class="annot"><span class="annottext">[CostCategoryStatus] -&gt; Encoding
 [CostCategoryStatus] -&gt; Value
 CostCategoryStatus -&gt; Encoding
 CostCategoryStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: CostCategoryStatus -&gt; Encoding
 toJSON :: CostCategoryStatus -&gt; Value
 $ctoJSON :: CostCategoryStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327651"><span id="local-6989586621679327653"><span class="annot"><span class="annottext">ToJSONKeyFunction [CostCategoryStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327660"><span id="local-6989586621679327662"><span class="annot"><span class="annottext">ToJSONKeyFunction [CostCategoryStatus]
 ToJSONKeyFunction CostCategoryStatus
 ToJSONKeyFunction CostCategoryStatus
 -&gt; ToJSONKeyFunction [CostCategoryStatus]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CostCategoryStatus]
 toJSONKey :: ToJSONKeyFunction CostCategoryStatus
 $ctoJSONKey :: ToJSONKeyFunction CostCategoryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327648"><span class="annot"><span class="annottext">[Node] -&gt; Either String CostCategoryStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327657"><span class="annot"><span class="annottext">[Node] -&gt; Either String CostCategoryStatus
 ([Node] -&gt; Either String CostCategoryStatus)
 -&gt; FromXML CostCategoryStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CostCategoryStatus
 $cparseXML :: [Node] -&gt; Either String CostCategoryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327645"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327654"><span class="annot"><span class="annottext">CostCategoryStatus -&gt; XML
 (CostCategoryStatus -&gt; XML) -&gt; ToXML CostCategoryStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CostCategoryStatus -&gt; XML

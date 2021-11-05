@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Macie.Types.S3OneTimeClassificationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Macie.Types.S3OneTimeClassificationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType"><span class="hs-identifier">S3OneTimeClassificationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType_FULL"><span class="hs-identifier">S3OneTimeClassificationType_FULL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType_NONE"><span class="hs-identifier">S3OneTimeClassificationType_NONE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679149523"><span id="local-6989586621679149524"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3OneTimeClassificationType"><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType"><span class="hs-identifier hs-var">S3OneTimeClassificationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3OneTimeClassificationType%27"><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType%27"><span class="hs-identifier hs-var">S3OneTimeClassificationType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromS3OneTimeClassificationType"><span class="annot"><span class="annottext">S3OneTimeClassificationType -&gt; Text
+</span><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#fromS3OneTimeClassificationType"><span class="hs-identifier hs-var hs-var">fromS3OneTimeClassificationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679149515"><span id="local-6989586621679149517"><span id="local-6989586621679149519"><span class="annot"><span class="annottext">Int -&gt; S3OneTimeClassificationType -&gt; ShowS
+[S3OneTimeClassificationType] -&gt; ShowS
+S3OneTimeClassificationType -&gt; String
+(Int -&gt; S3OneTimeClassificationType -&gt; ShowS)
+-&gt; (S3OneTimeClassificationType -&gt; String)
+-&gt; ([S3OneTimeClassificationType] -&gt; ShowS)
+-&gt; Show S3OneTimeClassificationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [S3OneTimeClassificationType] -&gt; ShowS
+$cshowList :: [S3OneTimeClassificationType] -&gt; ShowS
+show :: S3OneTimeClassificationType -&gt; String
+$cshow :: S3OneTimeClassificationType -&gt; String
+showsPrec :: Int -&gt; S3OneTimeClassificationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; S3OneTimeClassificationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679149506"><span id="local-6989586621679149508"><span id="local-6989586621679149510"><span id="local-6989586621679149512"><span class="annot"><span class="annottext">ReadPrec [S3OneTimeClassificationType]
+ReadPrec S3OneTimeClassificationType
+Int -&gt; ReadS S3OneTimeClassificationType
+ReadS [S3OneTimeClassificationType]
+(Int -&gt; ReadS S3OneTimeClassificationType)
+-&gt; ReadS [S3OneTimeClassificationType]
+-&gt; ReadPrec S3OneTimeClassificationType
+-&gt; ReadPrec [S3OneTimeClassificationType]
+-&gt; Read S3OneTimeClassificationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [S3OneTimeClassificationType]
+$creadListPrec :: ReadPrec [S3OneTimeClassificationType]
+readPrec :: ReadPrec S3OneTimeClassificationType
+$creadPrec :: ReadPrec S3OneTimeClassificationType
+readList :: ReadS [S3OneTimeClassificationType]
+$creadList :: ReadS [S3OneTimeClassificationType]
+readsPrec :: Int -&gt; ReadS S3OneTimeClassificationType
+$creadsPrec :: Int -&gt; ReadS S3OneTimeClassificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679149501"><span id="local-6989586621679149503"><span class="annot"><span class="annottext">S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+(S3OneTimeClassificationType
+ -&gt; S3OneTimeClassificationType -&gt; Bool)
+-&gt; (S3OneTimeClassificationType
+    -&gt; S3OneTimeClassificationType -&gt; Bool)
+-&gt; Eq S3OneTimeClassificationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+$c/= :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+== :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+$c== :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679149485"><span id="local-6989586621679149487"><span id="local-6989586621679149489"><span id="local-6989586621679149491"><span id="local-6989586621679149493"><span id="local-6989586621679149495"><span id="local-6989586621679149497"><span class="annot"><span class="annottext">Eq S3OneTimeClassificationType
+Eq S3OneTimeClassificationType
+-&gt; (S3OneTimeClassificationType
+    -&gt; S3OneTimeClassificationType -&gt; Ordering)
+-&gt; (S3OneTimeClassificationType
+    -&gt; S3OneTimeClassificationType -&gt; Bool)
+-&gt; (S3OneTimeClassificationType
+    -&gt; S3OneTimeClassificationType -&gt; Bool)
+-&gt; (S3OneTimeClassificationType
+    -&gt; S3OneTimeClassificationType -&gt; Bool)
+-&gt; (S3OneTimeClassificationType
+    -&gt; S3OneTimeClassificationType -&gt; Bool)
+-&gt; (S3OneTimeClassificationType
+    -&gt; S3OneTimeClassificationType -&gt; S3OneTimeClassificationType)
+-&gt; (S3OneTimeClassificationType
+    -&gt; S3OneTimeClassificationType -&gt; S3OneTimeClassificationType)
+-&gt; Ord S3OneTimeClassificationType
+S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+S3OneTimeClassificationType
+-&gt; S3OneTimeClassificationType -&gt; Ordering
+S3OneTimeClassificationType
+-&gt; S3OneTimeClassificationType -&gt; S3OneTimeClassificationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: S3OneTimeClassificationType
+-&gt; S3OneTimeClassificationType -&gt; S3OneTimeClassificationType
+$cmin :: S3OneTimeClassificationType
+-&gt; S3OneTimeClassificationType -&gt; S3OneTimeClassificationType
+max :: S3OneTimeClassificationType
+-&gt; S3OneTimeClassificationType -&gt; S3OneTimeClassificationType
+$cmax :: S3OneTimeClassificationType
+-&gt; S3OneTimeClassificationType -&gt; S3OneTimeClassificationType
+&gt;= :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+$c&gt;= :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+&gt; :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+$c&gt; :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+&lt;= :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+$c&lt;= :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+&lt; :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+$c&lt; :: S3OneTimeClassificationType -&gt; S3OneTimeClassificationType -&gt; Bool
+compare :: S3OneTimeClassificationType
+-&gt; S3OneTimeClassificationType -&gt; Ordering
+$ccompare :: S3OneTimeClassificationType
+-&gt; S3OneTimeClassificationType -&gt; Ordering
+$cp1Ord :: Eq S3OneTimeClassificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ S3OneTimeClassificationType -&gt; Rep S3OneTimeClassificationType x)
+-&gt; (forall x.
+    Rep S3OneTimeClassificationType x -&gt; S3OneTimeClassificationType)
+-&gt; Generic S3OneTimeClassificationType
+forall x.
+Rep S3OneTimeClassificationType x -&gt; S3OneTimeClassificationType
+forall x.
+S3OneTimeClassificationType -&gt; Rep S3OneTimeClassificationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep S3OneTimeClassificationType x -&gt; S3OneTimeClassificationType
+$cfrom :: forall x.
+S3OneTimeClassificationType -&gt; Rep S3OneTimeClassificationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679149477"><span id="local-6989586621679149479"><span class="annot"><span class="annottext">Int -&gt; S3OneTimeClassificationType -&gt; Int
+S3OneTimeClassificationType -&gt; Int
+(Int -&gt; S3OneTimeClassificationType -&gt; Int)
+-&gt; (S3OneTimeClassificationType -&gt; Int)
+-&gt; Hashable S3OneTimeClassificationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: S3OneTimeClassificationType -&gt; Int
+$chash :: S3OneTimeClassificationType -&gt; Int
+hashWithSalt :: Int -&gt; S3OneTimeClassificationType -&gt; Int
+$chashWithSalt :: Int -&gt; S3OneTimeClassificationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679149474"><span class="annot"><span class="annottext">S3OneTimeClassificationType -&gt; ()
+(S3OneTimeClassificationType -&gt; ())
+-&gt; NFData S3OneTimeClassificationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: S3OneTimeClassificationType -&gt; ()
+$crnf :: S3OneTimeClassificationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679149471"><span class="annot"><span class="annottext">Text -&gt; Either String S3OneTimeClassificationType
+(Text -&gt; Either String S3OneTimeClassificationType)
+-&gt; FromText S3OneTimeClassificationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String S3OneTimeClassificationType
+$cfromText :: Text -&gt; Either String S3OneTimeClassificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679149468"><span class="annot"><span class="annottext">S3OneTimeClassificationType -&gt; Text
+(S3OneTimeClassificationType -&gt; Text)
+-&gt; ToText S3OneTimeClassificationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: S3OneTimeClassificationType -&gt; Text
+$ctoText :: S3OneTimeClassificationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679149465"><span class="annot"><span class="annottext">S3OneTimeClassificationType -&gt; ByteString
+(S3OneTimeClassificationType -&gt; ByteString)
+-&gt; ToByteString S3OneTimeClassificationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: S3OneTimeClassificationType -&gt; ByteString
+$ctoBS :: S3OneTimeClassificationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679149462"><span class="annot"><span class="annottext">S3OneTimeClassificationType -&gt; ByteStringBuilder
+(S3OneTimeClassificationType -&gt; ByteStringBuilder)
+-&gt; ToLog S3OneTimeClassificationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: S3OneTimeClassificationType -&gt; ByteStringBuilder
+$cbuild :: S3OneTimeClassificationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679149459"><span class="annot"><span class="annottext">HeaderName -&gt; S3OneTimeClassificationType -&gt; [Header]
+(HeaderName -&gt; S3OneTimeClassificationType -&gt; [Header])
+-&gt; ToHeader S3OneTimeClassificationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; S3OneTimeClassificationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; S3OneTimeClassificationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679149456"><span class="annot"><span class="annottext">S3OneTimeClassificationType -&gt; QueryString
+(S3OneTimeClassificationType -&gt; QueryString)
+-&gt; ToQuery S3OneTimeClassificationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: S3OneTimeClassificationType -&gt; QueryString
+$ctoQuery :: S3OneTimeClassificationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679149451"><span id="local-6989586621679149453"><span class="annot"><span class="annottext">Value -&gt; Parser [S3OneTimeClassificationType]
+Value -&gt; Parser S3OneTimeClassificationType
+(Value -&gt; Parser S3OneTimeClassificationType)
+-&gt; (Value -&gt; Parser [S3OneTimeClassificationType])
+-&gt; FromJSON S3OneTimeClassificationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [S3OneTimeClassificationType]
+$cparseJSONList :: Value -&gt; Parser [S3OneTimeClassificationType]
+parseJSON :: Value -&gt; Parser S3OneTimeClassificationType
+$cparseJSON :: Value -&gt; Parser S3OneTimeClassificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679149446"><span id="local-6989586621679149448"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3OneTimeClassificationType]
+FromJSONKeyFunction S3OneTimeClassificationType
+FromJSONKeyFunction S3OneTimeClassificationType
+-&gt; FromJSONKeyFunction [S3OneTimeClassificationType]
+-&gt; FromJSONKey S3OneTimeClassificationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [S3OneTimeClassificationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [S3OneTimeClassificationType]
+fromJSONKey :: FromJSONKeyFunction S3OneTimeClassificationType
+$cfromJSONKey :: FromJSONKeyFunction S3OneTimeClassificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679149437"><span id="local-6989586621679149439"><span id="local-6989586621679149441"><span id="local-6989586621679149443"><span class="annot"><span class="annottext">[S3OneTimeClassificationType] -&gt; Encoding
+[S3OneTimeClassificationType] -&gt; Value
+S3OneTimeClassificationType -&gt; Encoding
+S3OneTimeClassificationType -&gt; Value
+(S3OneTimeClassificationType -&gt; Value)
+-&gt; (S3OneTimeClassificationType -&gt; Encoding)
+-&gt; ([S3OneTimeClassificationType] -&gt; Value)
+-&gt; ([S3OneTimeClassificationType] -&gt; Encoding)
+-&gt; ToJSON S3OneTimeClassificationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [S3OneTimeClassificationType] -&gt; Encoding
+$ctoEncodingList :: [S3OneTimeClassificationType] -&gt; Encoding
+toJSONList :: [S3OneTimeClassificationType] -&gt; Value
+$ctoJSONList :: [S3OneTimeClassificationType] -&gt; Value
+toEncoding :: S3OneTimeClassificationType -&gt; Encoding
+$ctoEncoding :: S3OneTimeClassificationType -&gt; Encoding
+toJSON :: S3OneTimeClassificationType -&gt; Value
+$ctoJSON :: S3OneTimeClassificationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679149432"><span id="local-6989586621679149434"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3OneTimeClassificationType]
+ToJSONKeyFunction S3OneTimeClassificationType
+ToJSONKeyFunction S3OneTimeClassificationType
+-&gt; ToJSONKeyFunction [S3OneTimeClassificationType]
+-&gt; ToJSONKey S3OneTimeClassificationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [S3OneTimeClassificationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [S3OneTimeClassificationType]
+toJSONKey :: ToJSONKeyFunction S3OneTimeClassificationType
+$ctoJSONKey :: ToJSONKeyFunction S3OneTimeClassificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679149429"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3OneTimeClassificationType
+([Node] -&gt; Either String S3OneTimeClassificationType)
+-&gt; FromXML S3OneTimeClassificationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String S3OneTimeClassificationType
+$cparseXML :: [Node] -&gt; Either String S3OneTimeClassificationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679149426"><span class="annot"><span class="annottext">S3OneTimeClassificationType -&gt; XML
+(S3OneTimeClassificationType -&gt; XML)
+-&gt; ToXML S3OneTimeClassificationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: S3OneTimeClassificationType -&gt; XML
+$ctoXML :: S3OneTimeClassificationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType_FULL"><span class="hs-identifier hs-type">S3OneTimeClassificationType_FULL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType"><span class="hs-identifier hs-type">S3OneTimeClassificationType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3OneTimeClassificationType_FULL"><span id="%24mS3OneTimeClassificationType_FULL"><span id="S3OneTimeClassificationType_FULL"><span class="annot"><span class="annottext">$bS3OneTimeClassificationType_FULL :: S3OneTimeClassificationType
+$mS3OneTimeClassificationType_FULL :: forall r.
+S3OneTimeClassificationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#%24bS3OneTimeClassificationType_FULL"><span class="hs-identifier hs-var hs-var hs-var">S3OneTimeClassificationType_FULL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType%27"><span class="hs-identifier hs-type">S3OneTimeClassificationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FULL&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType_NONE"><span class="hs-identifier hs-type">S3OneTimeClassificationType_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType"><span class="hs-identifier hs-type">S3OneTimeClassificationType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bS3OneTimeClassificationType_NONE"><span id="%24mS3OneTimeClassificationType_NONE"><span id="S3OneTimeClassificationType_NONE"><span class="annot"><span class="annottext">$bS3OneTimeClassificationType_NONE :: S3OneTimeClassificationType
+$mS3OneTimeClassificationType_NONE :: forall r.
+S3OneTimeClassificationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#%24bS3OneTimeClassificationType_NONE"><span class="hs-identifier hs-var hs-var hs-var">S3OneTimeClassificationType_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType%27"><span class="hs-identifier hs-type">S3OneTimeClassificationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType_FULL"><span class="hs-pragma hs-type">S3OneTimeClassificationType_FULL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType_NONE"><span class="hs-pragma hs-type">S3OneTimeClassificationType_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Macie.Types.S3OneTimeClassificationType.html#S3OneTimeClassificationType%27"><span class="hs-pragma hs-type">S3OneTimeClassificationType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

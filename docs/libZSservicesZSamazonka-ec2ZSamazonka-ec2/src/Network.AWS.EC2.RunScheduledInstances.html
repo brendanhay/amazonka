@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span class="hs-comment">-- | Contains the parameters for RunScheduledInstances.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- /See:/ 'newRunScheduledInstances' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621681203905"><span id="local-6989586621681203906"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunScheduledInstances"><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-var">RunScheduledInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunScheduledInstances%27"><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-var">RunScheduledInstances'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621681203914"><span id="local-6989586621681203915"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunScheduledInstances"><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-var">RunScheduledInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunScheduledInstances%27"><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-var">RunScheduledInstances'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique, case-sensitive identifier that ensures the idempotency of the</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- request. For more information, see</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency&gt;.</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-85"></span><span>    </span><span id="%24sel%3AscheduledInstanceId%3ARunScheduledInstances%27"><span class="annot"><span class="annottext">RunScheduledInstances -&gt; Text
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AscheduledInstanceId%3ARunScheduledInstances%27"><span class="hs-identifier hs-var hs-var">scheduledInstanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681203895"><span id="local-6989586621681203897"><span class="annot"><span class="annottext">RunScheduledInstances -&gt; RunScheduledInstances -&gt; Bool
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681203904"><span id="local-6989586621681203906"><span class="annot"><span class="annottext">RunScheduledInstances -&gt; RunScheduledInstances -&gt; Bool
 (RunScheduledInstances -&gt; RunScheduledInstances -&gt; Bool)
 -&gt; (RunScheduledInstances -&gt; RunScheduledInstances -&gt; Bool)
 -&gt; Eq RunScheduledInstances
@@ -98,7 +98,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RunScheduledInstances -&gt; RunScheduledInstances -&gt; Bool
 == :: RunScheduledInstances -&gt; RunScheduledInstances -&gt; Bool
 $c== :: RunScheduledInstances -&gt; RunScheduledInstances -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203886"><span id="local-6989586621681203888"><span id="local-6989586621681203890"><span id="local-6989586621681203892"><span class="annot"><span class="annottext">ReadPrec [RunScheduledInstances]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203895"><span id="local-6989586621681203897"><span id="local-6989586621681203899"><span id="local-6989586621681203901"><span class="annot"><span class="annottext">ReadPrec [RunScheduledInstances]
 ReadPrec RunScheduledInstances
 Int -&gt; ReadS RunScheduledInstances
 ReadS [RunScheduledInstances]
@@ -118,7 +118,7 @@ readList :: ReadS [RunScheduledInstances]
 $creadList :: ReadS [RunScheduledInstances]
 readsPrec :: Int -&gt; ReadS RunScheduledInstances
 $creadsPrec :: Int -&gt; ReadS RunScheduledInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203879"><span id="local-6989586621681203881"><span id="local-6989586621681203883"><span class="annot"><span class="annottext">Int -&gt; RunScheduledInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203888"><span id="local-6989586621681203890"><span id="local-6989586621681203892"><span class="annot"><span class="annottext">Int -&gt; RunScheduledInstances -&gt; ShowS
 [RunScheduledInstances] -&gt; ShowS
 RunScheduledInstances -&gt; String
 (Int -&gt; RunScheduledInstances -&gt; ShowS)
@@ -178,10 +178,10 @@ $cfrom :: forall x. RunScheduledInstances -&gt; Rep RunScheduledInstances x
 </span><span id="line-120"></span><span id="newRunScheduledInstances"><span class="annot"><span class="annottext">newRunScheduledInstances :: ScheduledInstancesLaunchSpecification
 -&gt; Text -&gt; RunScheduledInstances
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#newRunScheduledInstances"><span class="hs-identifier hs-var hs-var">newRunScheduledInstances</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621681203874"><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
-</span><a href="#local-6989586621681203874"><span class="hs-identifier hs-var">pLaunchSpecification_</span></a></span></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621681203873"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681203873"><span class="hs-identifier hs-var">pScheduledInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621681203883"><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
+</span><a href="#local-6989586621681203883"><span class="hs-identifier hs-var">pLaunchSpecification_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621681203882"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681203882"><span class="hs-identifier hs-var">pScheduledInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">RunScheduledInstances' :: Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Bool
@@ -204,10 +204,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:launchSpecification:RunScheduledInstances' :: ScheduledInstancesLaunchSpecification
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AlaunchSpecification%3ARunScheduledInstances%27"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
-</span><a href="#local-6989586621681203874"><span class="hs-identifier hs-var">pLaunchSpecification_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681203883"><span class="hs-identifier hs-var">pLaunchSpecification_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledInstanceId:RunScheduledInstances' :: Text
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AscheduledInstanceId%3ARunScheduledInstances%27"><span class="hs-identifier hs-var">scheduledInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681203873"><span class="hs-identifier hs-var">pScheduledInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621681203882"><span class="hs-identifier hs-var">pScheduledInstanceId_</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that ensures the idempotency of the</span><span>
@@ -224,16 +224,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203870"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203879"><span class="annot"><span class="annottext">Maybe Text
 clientToken :: Maybe Text
 $sel:clientToken:RunScheduledInstances' :: RunScheduledInstances -&gt; Maybe Text
-</span><a href="#local-6989586621681203870"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203870"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203869"><span class="annot"><span class="annottext">s :: RunScheduledInstances
-</span><a href="#local-6989586621681203869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203868"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
-</span><a href="#local-6989586621681203869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:RunScheduledInstances' :: Maybe Text
+</span><a href="#local-6989586621681203879"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681203879"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203878"><span class="annot"><span class="annottext">s :: RunScheduledInstances
+</span><a href="#local-6989586621681203878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203877"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681203877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
+</span><a href="#local-6989586621681203878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:RunScheduledInstances' :: Maybe Text
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AclientToken%3ARunScheduledInstances%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681203877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The number of instances.</span><span>
 </span><span id="line-139"></span><span class="hs-comment">--</span><span>
@@ -246,16 +246,16 @@ $sel:clientToken:RunScheduledInstances' :: RunScheduledInstances -&gt; Maybe Tex
 -&gt; Lens
      RunScheduledInstances RunScheduledInstances (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203867"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203876"><span class="annot"><span class="annottext">Maybe Int
 instanceCount :: Maybe Int
 $sel:instanceCount:RunScheduledInstances' :: RunScheduledInstances -&gt; Maybe Int
-</span><a href="#local-6989586621681203867"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681203867"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203866"><span class="annot"><span class="annottext">s :: RunScheduledInstances
-</span><a href="#local-6989586621681203866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203865"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681203865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
-</span><a href="#local-6989586621681203866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:RunScheduledInstances' :: Maybe Int
+</span><a href="#local-6989586621681203876"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681203876"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203875"><span class="annot"><span class="annottext">s :: RunScheduledInstances
+</span><a href="#local-6989586621681203875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203874"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681203874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
+</span><a href="#local-6989586621681203875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:RunScheduledInstances' :: Maybe Int
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AinstanceCount%3ARunScheduledInstances%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681203865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681203874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -272,16 +272,16 @@ $sel:instanceCount:RunScheduledInstances' :: RunScheduledInstances -&gt; Maybe I
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203864"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203873"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:RunScheduledInstances' :: RunScheduledInstances -&gt; Maybe Bool
-</span><a href="#local-6989586621681203864"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681203864"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203863"><span class="annot"><span class="annottext">s :: RunScheduledInstances
-</span><a href="#local-6989586621681203863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203862"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681203862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
-</span><a href="#local-6989586621681203863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:RunScheduledInstances' :: Maybe Bool
+</span><a href="#local-6989586621681203873"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681203873"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203872"><span class="annot"><span class="annottext">s :: RunScheduledInstances
+</span><a href="#local-6989586621681203872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203871"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681203871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
+</span><a href="#local-6989586621681203872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:RunScheduledInstances' :: Maybe Bool
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AdryRun%3ARunScheduledInstances%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681203862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681203871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The launch specification. You must match the instance type, Availability</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- Zone, network, and platform of the schedule that you purchased.</span><span>
@@ -298,16 +298,16 @@ $sel:dryRun:RunScheduledInstances' :: RunScheduledInstances -&gt; Maybe Bool
      ScheduledInstancesLaunchSpecification
      ScheduledInstancesLaunchSpecification
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203861"><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203870"><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
 launchSpecification :: ScheduledInstancesLaunchSpecification
 $sel:launchSpecification:RunScheduledInstances' :: RunScheduledInstances -&gt; ScheduledInstancesLaunchSpecification
-</span><a href="#local-6989586621681203861"><span class="hs-identifier hs-var hs-var">launchSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
-</span><a href="#local-6989586621681203861"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203860"><span class="annot"><span class="annottext">s :: RunScheduledInstances
-</span><a href="#local-6989586621681203860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203859"><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
-</span><a href="#local-6989586621681203859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
-</span><a href="#local-6989586621681203860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchSpecification:RunScheduledInstances' :: ScheduledInstancesLaunchSpecification
+</span><a href="#local-6989586621681203870"><span class="hs-identifier hs-var hs-var">launchSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
+</span><a href="#local-6989586621681203870"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203869"><span class="annot"><span class="annottext">s :: RunScheduledInstances
+</span><a href="#local-6989586621681203869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203868"><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
+</span><a href="#local-6989586621681203868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
+</span><a href="#local-6989586621681203869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchSpecification:RunScheduledInstances' :: ScheduledInstancesLaunchSpecification
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AlaunchSpecification%3ARunScheduledInstances%27"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
-</span><a href="#local-6989586621681203859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681203868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The Scheduled Instance ID.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#runScheduledInstances_scheduledInstanceId"><span class="hs-identifier hs-type">runScheduledInstances_scheduledInstanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -317,27 +317,27 @@ $sel:launchSpecification:RunScheduledInstances' :: RunScheduledInstances -&gt; S
 -&gt; (RunScheduledInstances -&gt; Text -&gt; RunScheduledInstances)
 -&gt; Lens RunScheduledInstances RunScheduledInstances Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203858"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203867"><span class="annot"><span class="annottext">Text
 scheduledInstanceId :: Text
 $sel:scheduledInstanceId:RunScheduledInstances' :: RunScheduledInstances -&gt; Text
-</span><a href="#local-6989586621681203858"><span class="hs-identifier hs-var hs-var">scheduledInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681203858"><span class="hs-identifier hs-var">scheduledInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203857"><span class="annot"><span class="annottext">s :: RunScheduledInstances
-</span><a href="#local-6989586621681203857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203856"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681203856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
-</span><a href="#local-6989586621681203857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledInstanceId:RunScheduledInstances' :: Text
+</span><a href="#local-6989586621681203867"><span class="hs-identifier hs-var hs-var">scheduledInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681203867"><span class="hs-identifier hs-var">scheduledInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203866"><span class="annot"><span class="annottext">s :: RunScheduledInstances
+</span><a href="#local-6989586621681203866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203865"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681203865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstances
+</span><a href="#local-6989586621681203866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledInstanceId:RunScheduledInstances' :: Text
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AscheduledInstanceId%3ARunScheduledInstances%27"><span class="hs-identifier hs-var">scheduledInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681203856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681203865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-type">RunScheduledInstancesResponse</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621681203852"><span class="annot"><span class="annottext">request :: RunScheduledInstances -&gt; Request RunScheduledInstances
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681203861"><span class="annot"><span class="annottext">request :: RunScheduledInstances -&gt; Request RunScheduledInstances
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RunScheduledInstances -&gt; Request RunScheduledInstances
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621681203848"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621681203857"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RunScheduledInstances
 -&gt; ClientResponse ClientBody
@@ -363,10 +363,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681203845"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203845"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681203844"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681203844"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681203843"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681203843"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681203854"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681203854"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681203853"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681203853"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681203852"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681203852"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Int -&gt; RunScheduledInstancesResponse
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-var">RunScheduledInstancesResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Int -&gt; RunScheduledInstancesResponse)
@@ -374,7 +374,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; RunScheduledInstancesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681203843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681203852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceIdSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -404,15 +404,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203845"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681203854"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681203832"><span id="local-6989586621681203834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681203841"><span id="local-6989586621681203843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span></span></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681203829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681203838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621681203825"><span class="annot"><span class="annottext">toHeaders :: RunScheduledInstances -&gt; ResponseHeaders
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621681203834"><span class="annot"><span class="annottext">toHeaders :: RunScheduledInstances -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RunScheduledInstances -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -420,15 +420,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621681203820"><span class="annot"><span class="annottext">toPath :: RunScheduledInstances -&gt; ByteString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621681203829"><span class="annot"><span class="annottext">toPath :: RunScheduledInstances -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RunScheduledInstances -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances"><span class="hs-identifier hs-type">RunScheduledInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621681203816"><span class="annot"><span class="annottext">toQuery :: RunScheduledInstances -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203810"><span id="local-6989586621681203811"><span id="local-6989586621681203812"><span id="local-6989586621681203813"><span id="local-6989586621681203814"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621681203825"><span class="annot"><span class="annottext">toQuery :: RunScheduledInstances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstances%27"><span class="hs-identifier hs-type">RunScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203819"><span id="local-6989586621681203820"><span id="local-6989586621681203821"><span id="local-6989586621681203822"><span id="local-6989586621681203823"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Text
@@ -443,7 +443,7 @@ $sel:launchSpecification:RunScheduledInstances' :: RunScheduledInstances -&gt; S
 $sel:dryRun:RunScheduledInstances' :: RunScheduledInstances -&gt; Maybe Bool
 $sel:instanceCount:RunScheduledInstances' :: RunScheduledInstances -&gt; Maybe Int
 $sel:clientToken:RunScheduledInstances' :: RunScheduledInstances -&gt; Maybe Text
-</span><a href="#local-6989586621681203810"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681203819"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -463,33 +463,33 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203814"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681203823"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681203813"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681203822"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681203812"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681203821"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LaunchSpecification&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ScheduledInstancesLaunchSpecification -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ScheduledInstancesLaunchSpecification
-</span><a href="#local-6989586621681203811"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681203820"><span class="hs-identifier hs-var">launchSpecification</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ScheduledInstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681203810"><span class="hs-identifier hs-var">scheduledInstanceId</span></a></span><span>
+</span><a href="#local-6989586621681203819"><span class="hs-identifier hs-var">scheduledInstanceId</span></a></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | Contains the output of RunScheduledInstances.</span><span>
 </span><span id="line-200"></span><span class="hs-comment">--</span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- /See:/ 'newRunScheduledInstancesResponse' smart constructor.</span><span>
-</span><span id="line-202"></span><span id="local-6989586621681203807"><span id="local-6989586621681203808"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunScheduledInstancesResponse"><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-var">RunScheduledInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunScheduledInstancesResponse%27"><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-var">RunScheduledInstancesResponse'</span></a></span></span><span>
+</span><span id="line-202"></span><span id="local-6989586621681203816"><span id="local-6989586621681203817"></span></span><span class="hs-keyword">data</span><span> </span><span id="RunScheduledInstancesResponse"><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-var">RunScheduledInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RunScheduledInstancesResponse%27"><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-var">RunScheduledInstancesResponse'</span></a></span></span><span>
 </span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the newly launched instances.</span><span>
 </span><span id="line-204"></span><span>    </span><span id="%24sel%3AinstanceIdSet%3ARunScheduledInstancesResponse%27"><span class="annot"><span class="annottext">RunScheduledInstancesResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AinstanceIdSet%3ARunScheduledInstancesResponse%27"><span class="hs-identifier hs-var hs-var">instanceIdSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -497,7 +497,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARunScheduledInstancesResponse%27"><span class="annot"><span class="annottext">RunScheduledInstancesResponse -&gt; Int
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AhttpStatus%3ARunScheduledInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681203801"><span id="local-6989586621681203803"><span class="annot"><span class="annottext">RunScheduledInstancesResponse
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681203810"><span id="local-6989586621681203812"><span class="annot"><span class="annottext">RunScheduledInstancesResponse
 -&gt; RunScheduledInstancesResponse -&gt; Bool
 (RunScheduledInstancesResponse
  -&gt; RunScheduledInstancesResponse -&gt; Bool)
@@ -513,7 +513,7 @@ $c/= :: RunScheduledInstancesResponse
 -&gt; RunScheduledInstancesResponse -&gt; Bool
 $c== :: RunScheduledInstancesResponse
 -&gt; RunScheduledInstancesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203793"><span id="local-6989586621681203795"><span id="local-6989586621681203797"><span id="local-6989586621681203799"><span class="annot"><span class="annottext">ReadPrec [RunScheduledInstancesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203802"><span id="local-6989586621681203804"><span id="local-6989586621681203806"><span id="local-6989586621681203808"><span class="annot"><span class="annottext">ReadPrec [RunScheduledInstancesResponse]
 ReadPrec RunScheduledInstancesResponse
 Int -&gt; ReadS RunScheduledInstancesResponse
 ReadS [RunScheduledInstancesResponse]
@@ -533,7 +533,7 @@ readList :: ReadS [RunScheduledInstancesResponse]
 $creadList :: ReadS [RunScheduledInstancesResponse]
 readsPrec :: Int -&gt; ReadS RunScheduledInstancesResponse
 $creadsPrec :: Int -&gt; ReadS RunScheduledInstancesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203787"><span id="local-6989586621681203789"><span id="local-6989586621681203791"><span class="annot"><span class="annottext">Int -&gt; RunScheduledInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203796"><span id="local-6989586621681203798"><span id="local-6989586621681203800"><span class="annot"><span class="annottext">Int -&gt; RunScheduledInstancesResponse -&gt; ShowS
 [RunScheduledInstancesResponse] -&gt; ShowS
 RunScheduledInstancesResponse -&gt; String
 (Int -&gt; RunScheduledInstancesResponse -&gt; ShowS)
@@ -587,8 +587,8 @@ RunScheduledInstancesResponse
 </span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-type">RunScheduledInstancesResponse</span></a></span><span>
 </span><span id="line-225"></span><span id="newRunScheduledInstancesResponse"><span class="annot"><span class="annottext">newRunScheduledInstancesResponse :: Int -&gt; RunScheduledInstancesResponse
-</span><a href="Network.AWS.EC2.RunScheduledInstances.html#newRunScheduledInstancesResponse"><span class="hs-identifier hs-var hs-var">newRunScheduledInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621681203784"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.RunScheduledInstances.html#newRunScheduledInstancesResponse"><span class="hs-identifier hs-var hs-var">newRunScheduledInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621681203793"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681203793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">RunScheduledInstancesResponse' :: Maybe [Text] -&gt; Int -&gt; RunScheduledInstancesResponse
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-type">RunScheduledInstancesResponse'</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceIdSet:RunScheduledInstancesResponse' :: Maybe [Text]
@@ -598,7 +598,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RunScheduledInstancesResponse' :: Int
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AhttpStatus%3ARunScheduledInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681203793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | The IDs of the newly launched instances.</span><span>
@@ -614,16 +614,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-type">RunScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203783"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-type">RunScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203792"><span class="annot"><span class="annottext">Maybe [Text]
 instanceIdSet :: Maybe [Text]
 $sel:instanceIdSet:RunScheduledInstancesResponse' :: RunScheduledInstancesResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621681203783"><span class="hs-identifier hs-var hs-var">instanceIdSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681203783"><span class="hs-identifier hs-var">instanceIdSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203782"><span class="annot"><span class="annottext">s :: RunScheduledInstancesResponse
-</span><a href="#local-6989586621681203782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-type">RunScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203781"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681203781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstancesResponse
-</span><a href="#local-6989586621681203782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIdSet:RunScheduledInstancesResponse' :: Maybe [Text]
+</span><a href="#local-6989586621681203792"><span class="hs-identifier hs-var hs-var">instanceIdSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681203792"><span class="hs-identifier hs-var">instanceIdSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203791"><span class="annot"><span class="annottext">s :: RunScheduledInstancesResponse
+</span><a href="#local-6989586621681203791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-type">RunScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203790"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681203790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstancesResponse
+</span><a href="#local-6989586621681203791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIdSet:RunScheduledInstancesResponse' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AinstanceIdSet%3ARunScheduledInstancesResponse%27"><span class="hs-identifier hs-var">instanceIdSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681203781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-type">RunScheduledInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681203790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-type">RunScheduledInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; RunScheduledInstancesResponse
  -&gt; f RunScheduledInstancesResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -651,16 +651,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      RunScheduledInstancesResponse RunScheduledInstancesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-type">RunScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203777"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-type">RunScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203786"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RunScheduledInstancesResponse' :: RunScheduledInstancesResponse -&gt; Int
-</span><a href="#local-6989586621681203777"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203777"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203776"><span class="annot"><span class="annottext">s :: RunScheduledInstancesResponse
-</span><a href="#local-6989586621681203776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-type">RunScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203775"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstancesResponse
-</span><a href="#local-6989586621681203776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RunScheduledInstancesResponse' :: Int
+</span><a href="#local-6989586621681203786"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681203786"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203785"><span class="annot"><span class="annottext">s :: RunScheduledInstancesResponse
+</span><a href="#local-6989586621681203785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse%27"><span class="hs-identifier hs-type">RunScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681203784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RunScheduledInstancesResponse
+</span><a href="#local-6989586621681203785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RunScheduledInstancesResponse' :: Int
 </span><a href="Network.AWS.EC2.RunScheduledInstances.html#%24sel%3AhttpStatus%3ARunScheduledInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-type">RunScheduledInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681203784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-type">RunScheduledInstancesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681203773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-type">RunScheduledInstancesResponse</span></a></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681203782"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.RunScheduledInstances.html#RunScheduledInstancesResponse"><span class="hs-identifier hs-type">RunScheduledInstancesResponse</span></a></span></span><span>
 </span><span id="line-241"></span></pre></body></html>

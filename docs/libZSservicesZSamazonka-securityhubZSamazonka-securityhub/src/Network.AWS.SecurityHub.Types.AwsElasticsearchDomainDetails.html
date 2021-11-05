@@ -1,0 +1,1193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDomainEndpointOptions.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDomainEndpointOptions</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConfigDetails.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConfigDetails</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainEncryptionAtRestOptions.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsElasticsearchDomainEncryptionAtRestOptions</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptions.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptions</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainNodeToNodeEncryptionOptions.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsElasticsearchDomainNodeToNodeEncryptionOptions</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainServiceSoftwareOptions.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsElasticsearchDomainServiceSoftwareOptions</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainVPCOptions.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.AwsElasticsearchDomainVPCOptions</span></a></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Information about an Elasticsearch domain.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newAwsElasticsearchDomainDetails' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679956209"><span id="local-6989586621679956210"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsElasticsearchDomainDetails"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-var">AwsElasticsearchDomainDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsElasticsearchDomainDetails%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">AwsElasticsearchDomainDetails'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the configuration for node-to-node encryption.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AnodeToNodeEncryptionOptions%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AnodeToNodeEncryptionOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">nodeToNodeEncryptionOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainNodeToNodeEncryptionOptions.html#AwsElasticsearchDomainNodeToNodeEncryptionOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainNodeToNodeEncryptionOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | IAM policy document specifying the access policies for the new</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Elasticsearch domain.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AaccessPolicies%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AaccessPolicies%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">accessPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Information about the status of a domain relative to the latest service</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- software.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AserviceSoftwareOptions%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AserviceSoftwareOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">serviceSoftwareOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainServiceSoftwareOptions.html#AwsElasticsearchDomainServiceSoftwareOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainServiceSoftwareOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Configures the CloudWatch Logs to publish for the Elasticsearch domain.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlogPublishingOptions%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AlogPublishingOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">logPublishingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptions.html#AwsElasticsearchDomainLogPublishingOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainLogPublishingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Information about an OpenSearch cluster configuration.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AelasticsearchClusterConfig%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AelasticsearchClusterConfig%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConfigDetails.html#AwsElasticsearchDomainElasticsearchClusterConfigDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainElasticsearchClusterConfigDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Name of an Elasticsearch domain.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- Domain names are unique across all domains owned by the same account</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- within an Amazon Web Services Region.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Domain names must start with a lowercase letter and must be between 3</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- and 28 characters.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Valid characters are a-z (lowercase only), 0-9, and &#8211; (hyphen).</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdomainName%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AdomainName%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Details about the configuration for encryption at rest.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AencryptionAtRestOptions%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AencryptionAtRestOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">encryptionAtRestOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainEncryptionAtRestOptions.html#AwsElasticsearchDomainEncryptionAtRestOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainEncryptionAtRestOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Information that OpenSearch derives based on @VPCOptions@ for the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AvPCOptions%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainVPCOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AvPCOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">vPCOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainVPCOptions.html#AwsElasticsearchDomainVPCOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainVPCOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Unique identifier for an Elasticsearch domain.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdomainId%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AdomainId%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The key-value pair that exists if the Elasticsearch domain uses VPC</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- endpoints.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aendpoints%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3Aendpoints%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Additional options for the domain endpoint.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdomainEndpointOptions%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AdomainEndpointOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">domainEndpointOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDomainEndpointOptions.html#AwsElasticsearchDomainDomainEndpointOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainDomainEndpointOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Domain-specific endpoint used to submit index, search, and data upload</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- requests to an Elasticsearch domain.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- The endpoint is a service URL.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aendpoint%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3Aendpoint%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | OpenSearch version.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AelasticsearchVersion%3AAwsElasticsearchDomainDetails%27"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AelasticsearchVersion%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var hs-var">elasticsearchVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679956191"><span id="local-6989586621679956193"><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+-&gt; AwsElasticsearchDomainDetails -&gt; Bool
+(AwsElasticsearchDomainDetails
+ -&gt; AwsElasticsearchDomainDetails -&gt; Bool)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; AwsElasticsearchDomainDetails -&gt; Bool)
+-&gt; Eq AwsElasticsearchDomainDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsElasticsearchDomainDetails
+-&gt; AwsElasticsearchDomainDetails -&gt; Bool
+$c/= :: AwsElasticsearchDomainDetails
+-&gt; AwsElasticsearchDomainDetails -&gt; Bool
+== :: AwsElasticsearchDomainDetails
+-&gt; AwsElasticsearchDomainDetails -&gt; Bool
+$c== :: AwsElasticsearchDomainDetails
+-&gt; AwsElasticsearchDomainDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679956182"><span id="local-6989586621679956184"><span id="local-6989586621679956186"><span id="local-6989586621679956188"><span class="annot"><span class="annottext">ReadPrec [AwsElasticsearchDomainDetails]
+ReadPrec AwsElasticsearchDomainDetails
+Int -&gt; ReadS AwsElasticsearchDomainDetails
+ReadS [AwsElasticsearchDomainDetails]
+(Int -&gt; ReadS AwsElasticsearchDomainDetails)
+-&gt; ReadS [AwsElasticsearchDomainDetails]
+-&gt; ReadPrec AwsElasticsearchDomainDetails
+-&gt; ReadPrec [AwsElasticsearchDomainDetails]
+-&gt; Read AwsElasticsearchDomainDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsElasticsearchDomainDetails]
+$creadListPrec :: ReadPrec [AwsElasticsearchDomainDetails]
+readPrec :: ReadPrec AwsElasticsearchDomainDetails
+$creadPrec :: ReadPrec AwsElasticsearchDomainDetails
+readList :: ReadS [AwsElasticsearchDomainDetails]
+$creadList :: ReadS [AwsElasticsearchDomainDetails]
+readsPrec :: Int -&gt; ReadS AwsElasticsearchDomainDetails
+$creadsPrec :: Int -&gt; ReadS AwsElasticsearchDomainDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679956175"><span id="local-6989586621679956177"><span id="local-6989586621679956179"><span class="annot"><span class="annottext">Int -&gt; AwsElasticsearchDomainDetails -&gt; ShowS
+[AwsElasticsearchDomainDetails] -&gt; ShowS
+AwsElasticsearchDomainDetails -&gt; String
+(Int -&gt; AwsElasticsearchDomainDetails -&gt; ShowS)
+-&gt; (AwsElasticsearchDomainDetails -&gt; String)
+-&gt; ([AwsElasticsearchDomainDetails] -&gt; ShowS)
+-&gt; Show AwsElasticsearchDomainDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsElasticsearchDomainDetails] -&gt; ShowS
+$cshowList :: [AwsElasticsearchDomainDetails] -&gt; ShowS
+show :: AwsElasticsearchDomainDetails -&gt; String
+$cshow :: AwsElasticsearchDomainDetails -&gt; String
+showsPrec :: Int -&gt; AwsElasticsearchDomainDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsElasticsearchDomainDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsElasticsearchDomainDetails
+ -&gt; Rep AwsElasticsearchDomainDetails x)
+-&gt; (forall x.
+    Rep AwsElasticsearchDomainDetails x
+    -&gt; AwsElasticsearchDomainDetails)
+-&gt; Generic AwsElasticsearchDomainDetails
+forall x.
+Rep AwsElasticsearchDomainDetails x
+-&gt; AwsElasticsearchDomainDetails
+forall x.
+AwsElasticsearchDomainDetails
+-&gt; Rep AwsElasticsearchDomainDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsElasticsearchDomainDetails x
+-&gt; AwsElasticsearchDomainDetails
+$cfrom :: forall x.
+AwsElasticsearchDomainDetails
+-&gt; Rep AwsElasticsearchDomainDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'AwsElasticsearchDomainDetails' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'nodeToNodeEncryptionOptions', 'awsElasticsearchDomainDetails_nodeToNodeEncryptionOptions' - Details about the configuration for node-to-node encryption.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'accessPolicies', 'awsElasticsearchDomainDetails_accessPolicies' - IAM policy document specifying the access policies for the new</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Elasticsearch domain.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'serviceSoftwareOptions', 'awsElasticsearchDomainDetails_serviceSoftwareOptions' - Information about the status of a domain relative to the latest service</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- software.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'logPublishingOptions', 'awsElasticsearchDomainDetails_logPublishingOptions' - Configures the CloudWatch Logs to publish for the Elasticsearch domain.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'elasticsearchClusterConfig', 'awsElasticsearchDomainDetails_elasticsearchClusterConfig' - Information about an OpenSearch cluster configuration.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'domainName', 'awsElasticsearchDomainDetails_domainName' - Name of an Elasticsearch domain.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Domain names are unique across all domains owned by the same account</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- within an Amazon Web Services Region.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Domain names must start with a lowercase letter and must be between 3</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- and 28 characters.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Valid characters are a-z (lowercase only), 0-9, and &#8211; (hyphen).</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'encryptionAtRestOptions', 'awsElasticsearchDomainDetails_encryptionAtRestOptions' - Details about the configuration for encryption at rest.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'vPCOptions', 'awsElasticsearchDomainDetails_vPCOptions' - Information that OpenSearch derives based on @VPCOptions@ for the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'domainId', 'awsElasticsearchDomainDetails_domainId' - Unique identifier for an Elasticsearch domain.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'endpoints', 'awsElasticsearchDomainDetails_endpoints' - The key-value pair that exists if the Elasticsearch domain uses VPC</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- endpoints.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'domainEndpointOptions', 'awsElasticsearchDomainDetails_domainEndpointOptions' - Additional options for the domain endpoint.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'endpoint', 'awsElasticsearchDomainDetails_endpoint' - Domain-specific endpoint used to submit index, search, and data upload</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- requests to an Elasticsearch domain.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- The endpoint is a service URL.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'elasticsearchVersion', 'awsElasticsearchDomainDetails_elasticsearchVersion' - OpenSearch version.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#newAwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">newAwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span>
+</span><span id="line-131"></span><span id="newAwsElasticsearchDomainDetails"><span class="annot"><span class="annottext">newAwsElasticsearchDomainDetails :: AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#newAwsElasticsearchDomainDetails"><span class="hs-identifier hs-var hs-var">newAwsElasticsearchDomainDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+-&gt; Maybe Text
+-&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions
+-&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+-&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+-&gt; Maybe Text
+-&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+-&gt; Maybe AwsElasticsearchDomainVPCOptions
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nodeToNodeEncryptionOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AnodeToNodeEncryptionOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">nodeToNodeEncryptionOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessPolicies:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AaccessPolicies%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">accessPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceSoftwareOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainServiceSoftwareOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AserviceSoftwareOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">serviceSoftwareOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainServiceSoftwareOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:logPublishingOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainLogPublishingOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AlogPublishingOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">logPublishingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainLogPublishingOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:elasticsearchClusterConfig:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AelasticsearchClusterConfig%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">elasticsearchClusterConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AdomainName%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionAtRestOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AencryptionAtRestOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">encryptionAtRestOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:vPCOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainVPCOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AvPCOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">vPCOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainVPCOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainId:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AdomainId%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpoints:AwsElasticsearchDomainDetails' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3Aendpoints%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">endpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainEndpointOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainDomainEndpointOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AdomainEndpointOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">domainEndpointOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainDomainEndpointOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpoint:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3Aendpoint%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:elasticsearchVersion:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AelasticsearchVersion%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">elasticsearchVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Details about the configuration for node-to-node encryption.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_nodeToNodeEncryptionOptions"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_nodeToNodeEncryptionOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainNodeToNodeEncryptionOptions.html#AwsElasticsearchDomainNodeToNodeEncryptionOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainNodeToNodeEncryptionOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="awsElasticsearchDomainDetails_nodeToNodeEncryptionOptions"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_nodeToNodeEncryptionOptions :: (Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+ -&gt; f (Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_nodeToNodeEncryptionOptions"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_nodeToNodeEncryptionOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails
+ -&gt; Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+    -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions)
+     (Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956166"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+nodeToNodeEncryptionOptions :: Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+$sel:nodeToNodeEncryptionOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+</span><a href="#local-6989586621679956166"><span class="hs-identifier hs-var hs-var">nodeToNodeEncryptionOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+</span><a href="#local-6989586621679956166"><span class="hs-identifier hs-var">nodeToNodeEncryptionOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956165"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956164"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+</span><a href="#local-6989586621679956164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeToNodeEncryptionOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AnodeToNodeEncryptionOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">nodeToNodeEncryptionOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+</span><a href="#local-6989586621679956164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | IAM policy document specifying the access policies for the new</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Elasticsearch domain.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_accessPolicies"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_accessPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="awsElasticsearchDomainDetails_accessPolicies"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_accessPolicies :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_accessPolicies"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_accessPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails -&gt; Maybe Text)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe Text -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956162"><span class="annot"><span class="annottext">Maybe Text
+accessPolicies :: Maybe Text
+$sel:accessPolicies:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679956162"><span class="hs-identifier hs-var hs-var">accessPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956162"><span class="hs-identifier hs-var">accessPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956161"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956160"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessPolicies:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AaccessPolicies%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">accessPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Information about the status of a domain relative to the latest service</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- software.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_serviceSoftwareOptions"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_serviceSoftwareOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainServiceSoftwareOptions.html#AwsElasticsearchDomainServiceSoftwareOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainServiceSoftwareOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="awsElasticsearchDomainDetails_serviceSoftwareOptions"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_serviceSoftwareOptions :: (Maybe AwsElasticsearchDomainServiceSoftwareOptions
+ -&gt; f (Maybe AwsElasticsearchDomainServiceSoftwareOptions))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_serviceSoftwareOptions"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_serviceSoftwareOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails
+ -&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions
+    -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe AwsElasticsearchDomainServiceSoftwareOptions)
+     (Maybe AwsElasticsearchDomainServiceSoftwareOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956158"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainServiceSoftwareOptions
+serviceSoftwareOptions :: Maybe AwsElasticsearchDomainServiceSoftwareOptions
+$sel:serviceSoftwareOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions
+</span><a href="#local-6989586621679956158"><span class="hs-identifier hs-var hs-var">serviceSoftwareOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainServiceSoftwareOptions
+</span><a href="#local-6989586621679956158"><span class="hs-identifier hs-var">serviceSoftwareOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956157"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956156"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainServiceSoftwareOptions
+</span><a href="#local-6989586621679956156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceSoftwareOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainServiceSoftwareOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AserviceSoftwareOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">serviceSoftwareOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainServiceSoftwareOptions
+</span><a href="#local-6989586621679956156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Configures the CloudWatch Logs to publish for the Elasticsearch domain.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_logPublishingOptions"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_logPublishingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptions.html#AwsElasticsearchDomainLogPublishingOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainLogPublishingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="awsElasticsearchDomainDetails_logPublishingOptions"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_logPublishingOptions :: (Maybe AwsElasticsearchDomainLogPublishingOptions
+ -&gt; f (Maybe AwsElasticsearchDomainLogPublishingOptions))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_logPublishingOptions"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_logPublishingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails
+ -&gt; Maybe AwsElasticsearchDomainLogPublishingOptions)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+    -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe AwsElasticsearchDomainLogPublishingOptions)
+     (Maybe AwsElasticsearchDomainLogPublishingOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956154"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainLogPublishingOptions
+logPublishingOptions :: Maybe AwsElasticsearchDomainLogPublishingOptions
+$sel:logPublishingOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+</span><a href="#local-6989586621679956154"><span class="hs-identifier hs-var hs-var">logPublishingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainLogPublishingOptions
+</span><a href="#local-6989586621679956154"><span class="hs-identifier hs-var">logPublishingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956153"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956152"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainLogPublishingOptions
+</span><a href="#local-6989586621679956152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logPublishingOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainLogPublishingOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AlogPublishingOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">logPublishingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainLogPublishingOptions
+</span><a href="#local-6989586621679956152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Information about an OpenSearch cluster configuration.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_elasticsearchClusterConfig"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_elasticsearchClusterConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConfigDetails.html#AwsElasticsearchDomainElasticsearchClusterConfigDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainElasticsearchClusterConfigDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="awsElasticsearchDomainDetails_elasticsearchClusterConfig"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_elasticsearchClusterConfig :: (Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+ -&gt; f (Maybe
+         AwsElasticsearchDomainElasticsearchClusterConfigDetails))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_elasticsearchClusterConfig"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_elasticsearchClusterConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails
+ -&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+    -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails)
+     (Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956150"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+elasticsearchClusterConfig :: Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+$sel:elasticsearchClusterConfig:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+</span><a href="#local-6989586621679956150"><span class="hs-identifier hs-var hs-var">elasticsearchClusterConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+</span><a href="#local-6989586621679956150"><span class="hs-identifier hs-var">elasticsearchClusterConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956149"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956148"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+</span><a href="#local-6989586621679956148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticsearchClusterConfig:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AelasticsearchClusterConfig%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">elasticsearchClusterConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+</span><a href="#local-6989586621679956148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Name of an Elasticsearch domain.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Domain names are unique across all domains owned by the same account</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- within an Amazon Web Services Region.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Domain names must start with a lowercase letter and must be between 3</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- and 28 characters.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Valid characters are a-z (lowercase only), 0-9, and &#8211; (hyphen).</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_domainName"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="awsElasticsearchDomainDetails_domainName"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_domainName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_domainName"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails -&gt; Maybe Text)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe Text -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956146"><span class="annot"><span class="annottext">Maybe Text
+domainName :: Maybe Text
+$sel:domainName:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679956146"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956146"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956145"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AdomainName%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Details about the configuration for encryption at rest.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_encryptionAtRestOptions"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_encryptionAtRestOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainEncryptionAtRestOptions.html#AwsElasticsearchDomainEncryptionAtRestOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainEncryptionAtRestOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="awsElasticsearchDomainDetails_encryptionAtRestOptions"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_encryptionAtRestOptions :: (Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+ -&gt; f (Maybe AwsElasticsearchDomainEncryptionAtRestOptions))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_encryptionAtRestOptions"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_encryptionAtRestOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails
+ -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+    -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe AwsElasticsearchDomainEncryptionAtRestOptions)
+     (Maybe AwsElasticsearchDomainEncryptionAtRestOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956142"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+encryptionAtRestOptions :: Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+$sel:encryptionAtRestOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+</span><a href="#local-6989586621679956142"><span class="hs-identifier hs-var hs-var">encryptionAtRestOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+</span><a href="#local-6989586621679956142"><span class="hs-identifier hs-var">encryptionAtRestOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956141"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956140"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+</span><a href="#local-6989586621679956140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionAtRestOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AencryptionAtRestOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">encryptionAtRestOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+</span><a href="#local-6989586621679956140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Information that OpenSearch derives based on @VPCOptions@ for the</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_vPCOptions"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_vPCOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainVPCOptions.html#AwsElasticsearchDomainVPCOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainVPCOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="awsElasticsearchDomainDetails_vPCOptions"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_vPCOptions :: (Maybe AwsElasticsearchDomainVPCOptions
+ -&gt; f (Maybe AwsElasticsearchDomainVPCOptions))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_vPCOptions"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_vPCOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails
+ -&gt; Maybe AwsElasticsearchDomainVPCOptions)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe AwsElasticsearchDomainVPCOptions
+    -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe AwsElasticsearchDomainVPCOptions)
+     (Maybe AwsElasticsearchDomainVPCOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956138"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainVPCOptions
+vPCOptions :: Maybe AwsElasticsearchDomainVPCOptions
+$sel:vPCOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainVPCOptions
+</span><a href="#local-6989586621679956138"><span class="hs-identifier hs-var hs-var">vPCOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainVPCOptions
+</span><a href="#local-6989586621679956138"><span class="hs-identifier hs-var">vPCOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956137"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956136"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainVPCOptions
+</span><a href="#local-6989586621679956136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vPCOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainVPCOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AvPCOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">vPCOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainVPCOptions
+</span><a href="#local-6989586621679956136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Unique identifier for an Elasticsearch domain.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_domainId"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_domainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="awsElasticsearchDomainDetails_domainId"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_domainId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_domainId"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_domainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails -&gt; Maybe Text)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe Text -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956134"><span class="annot"><span class="annottext">Maybe Text
+domainId :: Maybe Text
+$sel:domainId:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679956134"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956134"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956133"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainId:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AdomainId%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The key-value pair that exists if the Elasticsearch domain uses VPC</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- endpoints.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_endpoints"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_endpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="awsElasticsearchDomainDetails_endpoints"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_endpoints :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_endpoints"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_endpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails -&gt; Maybe (HashMap Text Text))
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe (HashMap Text Text) -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956130"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+endpoints :: Maybe (HashMap Text Text)
+$sel:endpoints:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679956130"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679956130"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956129"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956128"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679956128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoints:AwsElasticsearchDomainDetails' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3Aendpoints%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">endpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679956128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; AwsElasticsearchDomainDetails
+ -&gt; f AwsElasticsearchDomainDetails)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; AwsElasticsearchDomainDetails
+-&gt; f AwsElasticsearchDomainDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Additional options for the domain endpoint.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_domainEndpointOptions"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_domainEndpointOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDomainEndpointOptions.html#AwsElasticsearchDomainDomainEndpointOptions"><span class="hs-identifier hs-type">AwsElasticsearchDomainDomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="awsElasticsearchDomainDetails_domainEndpointOptions"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_domainEndpointOptions :: (Maybe AwsElasticsearchDomainDomainEndpointOptions
+ -&gt; f (Maybe AwsElasticsearchDomainDomainEndpointOptions))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_domainEndpointOptions"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_domainEndpointOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails
+ -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+    -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe AwsElasticsearchDomainDomainEndpointOptions)
+     (Maybe AwsElasticsearchDomainDomainEndpointOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956123"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainDomainEndpointOptions
+domainEndpointOptions :: Maybe AwsElasticsearchDomainDomainEndpointOptions
+$sel:domainEndpointOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+</span><a href="#local-6989586621679956123"><span class="hs-identifier hs-var hs-var">domainEndpointOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainDomainEndpointOptions
+</span><a href="#local-6989586621679956123"><span class="hs-identifier hs-var">domainEndpointOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956122"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956121"><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainDomainEndpointOptions
+</span><a href="#local-6989586621679956121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainEndpointOptions:AwsElasticsearchDomainDetails' :: Maybe AwsElasticsearchDomainDomainEndpointOptions
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AdomainEndpointOptions%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">domainEndpointOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainDomainEndpointOptions
+</span><a href="#local-6989586621679956121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Domain-specific endpoint used to submit index, search, and data upload</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- requests to an Elasticsearch domain.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The endpoint is a service URL.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_endpoint"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="awsElasticsearchDomainDetails_endpoint"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_endpoint :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_endpoint"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails -&gt; Maybe Text)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe Text -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956119"><span class="annot"><span class="annottext">Maybe Text
+endpoint :: Maybe Text
+$sel:endpoint:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679956119"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956119"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956118"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956117"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3Aendpoint%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | OpenSearch version.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_elasticsearchVersion"><span class="hs-identifier hs-type">awsElasticsearchDomainDetails_elasticsearchVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="awsElasticsearchDomainDetails_elasticsearchVersion"><span class="annot"><span class="annottext">awsElasticsearchDomainDetails_elasticsearchVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsElasticsearchDomainDetails -&gt; f AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#awsElasticsearchDomainDetails_elasticsearchVersion"><span class="hs-identifier hs-var hs-var">awsElasticsearchDomainDetails_elasticsearchVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDetails -&gt; Maybe Text)
+-&gt; (AwsElasticsearchDomainDetails
+    -&gt; Maybe Text -&gt; AwsElasticsearchDomainDetails)
+-&gt; Lens
+     AwsElasticsearchDomainDetails
+     AwsElasticsearchDomainDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956115"><span class="annot"><span class="annottext">Maybe Text
+elasticsearchVersion :: Maybe Text
+$sel:elasticsearchVersion:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679956115"><span class="hs-identifier hs-var hs-var">elasticsearchVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956115"><span class="hs-identifier hs-var">elasticsearchVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956114"><span class="annot"><span class="annottext">s :: AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956113"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsElasticsearchDomainDetails
+</span><a href="#local-6989586621679956114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticsearchVersion:AwsElasticsearchDomainDetails' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#%24sel%3AelasticsearchVersion%3AAwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">elasticsearchVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956110"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679956108"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsElasticsearchDomainDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsElasticsearchDomainDetails)
+-&gt; Value
+-&gt; Parser AwsElasticsearchDomainDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsElasticsearchDomainDetails&quot;</span></span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679956105"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+-&gt; Maybe Text
+-&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions
+-&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+-&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+-&gt; Maybe Text
+-&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+-&gt; Maybe AwsElasticsearchDomainVPCOptions
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; AwsElasticsearchDomainDetails
+</span><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-var">AwsElasticsearchDomainDetails'</span></a></span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+ -&gt; Maybe Text
+ -&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions
+ -&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+ -&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+ -&gt; Maybe Text
+ -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+ -&gt; Maybe AwsElasticsearchDomainVPCOptions
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions
+      -&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+      -&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+      -&gt; Maybe Text
+      -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+      -&gt; Maybe AwsElasticsearchDomainVPCOptions
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeToNodeEncryptionOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions
+   -&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+   -&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+   -&gt; Maybe Text
+   -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+   -&gt; Maybe AwsElasticsearchDomainVPCOptions
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AwsElasticsearchDomainServiceSoftwareOptions
+      -&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+      -&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+      -&gt; Maybe Text
+      -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+      -&gt; Maybe AwsElasticsearchDomainVPCOptions
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessPolicies&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsElasticsearchDomainServiceSoftwareOptions
+   -&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+   -&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+   -&gt; Maybe Text
+   -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+   -&gt; Maybe AwsElasticsearchDomainVPCOptions
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe AwsElasticsearchDomainServiceSoftwareOptions)
+-&gt; Parser
+     (Maybe AwsElasticsearchDomainLogPublishingOptions
+      -&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+      -&gt; Maybe Text
+      -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+      -&gt; Maybe AwsElasticsearchDomainVPCOptions
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe AwsElasticsearchDomainServiceSoftwareOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceSoftwareOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsElasticsearchDomainLogPublishingOptions
+   -&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+   -&gt; Maybe Text
+   -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+   -&gt; Maybe AwsElasticsearchDomainVPCOptions
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe AwsElasticsearchDomainLogPublishingOptions)
+-&gt; Parser
+     (Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+      -&gt; Maybe Text
+      -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+      -&gt; Maybe AwsElasticsearchDomainVPCOptions
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe AwsElasticsearchDomainLogPublishingOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogPublishingOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+   -&gt; Maybe Text
+   -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+   -&gt; Maybe AwsElasticsearchDomainVPCOptions
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser
+     (Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+      -&gt; Maybe AwsElasticsearchDomainVPCOptions
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ElasticsearchClusterConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+   -&gt; Maybe AwsElasticsearchDomainVPCOptions
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+      -&gt; Maybe AwsElasticsearchDomainVPCOptions
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+   -&gt; Maybe AwsElasticsearchDomainVPCOptions
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe AwsElasticsearchDomainEncryptionAtRestOptions)
+-&gt; Parser
+     (Maybe AwsElasticsearchDomainVPCOptions
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe AwsElasticsearchDomainEncryptionAtRestOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionAtRestOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsElasticsearchDomainVPCOptions
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe AwsElasticsearchDomainVPCOptions)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsElasticsearchDomainVPCOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VPCOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe AwsElasticsearchDomainDomainEndpointOptions
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Endpoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsElasticsearchDomainDomainEndpointOptions
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe AwsElasticsearchDomainDomainEndpointOptions)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe AwsElasticsearchDomainDomainEndpointOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainEndpointOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; AwsElasticsearchDomainDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Endpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AwsElasticsearchDomainDetails)
+-&gt; Parser (Maybe Text) -&gt; Parser AwsElasticsearchDomainDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ElasticsearchVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679956098"><span id="local-6989586621679956100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span></span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956087"><span id="local-6989586621679956089"><span id="local-6989586621679956091"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679956085"><span class="annot"><span class="annottext">toJSON :: AwsElasticsearchDomainDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.AwsElasticsearchDomainDetails.html#AwsElasticsearchDomainDetails%27"><span class="hs-identifier hs-type">AwsElasticsearchDomainDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956071"><span id="local-6989586621679956072"><span id="local-6989586621679956073"><span id="local-6989586621679956074"><span id="local-6989586621679956075"><span id="local-6989586621679956076"><span id="local-6989586621679956077"><span id="local-6989586621679956078"><span id="local-6989586621679956079"><span id="local-6989586621679956080"><span id="local-6989586621679956081"><span id="local-6989586621679956082"><span id="local-6989586621679956083"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe AwsElasticsearchDomainDomainEndpointOptions
+Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+Maybe AwsElasticsearchDomainLogPublishingOptions
+Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+Maybe AwsElasticsearchDomainServiceSoftwareOptions
+Maybe AwsElasticsearchDomainVPCOptions
+elasticsearchVersion :: Maybe Text
+endpoint :: Maybe Text
+domainEndpointOptions :: Maybe AwsElasticsearchDomainDomainEndpointOptions
+endpoints :: Maybe (HashMap Text Text)
+domainId :: Maybe Text
+vPCOptions :: Maybe AwsElasticsearchDomainVPCOptions
+encryptionAtRestOptions :: Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+domainName :: Maybe Text
+elasticsearchClusterConfig :: Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+logPublishingOptions :: Maybe AwsElasticsearchDomainLogPublishingOptions
+serviceSoftwareOptions :: Maybe AwsElasticsearchDomainServiceSoftwareOptions
+accessPolicies :: Maybe Text
+nodeToNodeEncryptionOptions :: Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+$sel:elasticsearchVersion:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+$sel:endpoint:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+$sel:domainEndpointOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions
+$sel:endpoints:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe (HashMap Text Text)
+$sel:domainId:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+$sel:vPCOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainVPCOptions
+$sel:encryptionAtRestOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+$sel:domainName:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+$sel:elasticsearchClusterConfig:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+$sel:logPublishingOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainLogPublishingOptions
+$sel:serviceSoftwareOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions
+$sel:accessPolicies:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails -&gt; Maybe Text
+$sel:nodeToNodeEncryptionOptions:AwsElasticsearchDomainDetails' :: AwsElasticsearchDomainDetails
+-&gt; Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+</span><a href="#local-6989586621679956071"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NodeToNodeEncryptionOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsElasticsearchDomainNodeToNodeEncryptionOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>              </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainNodeToNodeEncryptionOptions -&gt; Pair)
+-&gt; Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainNodeToNodeEncryptionOptions
+</span><a href="#local-6989586621679956083"><span class="hs-identifier hs-var">nodeToNodeEncryptionOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessPolicies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956082"><span class="hs-identifier hs-var">accessPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceSoftwareOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsElasticsearchDomainServiceSoftwareOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainServiceSoftwareOptions -&gt; Pair)
+-&gt; Maybe AwsElasticsearchDomainServiceSoftwareOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainServiceSoftwareOptions
+</span><a href="#local-6989586621679956081"><span class="hs-identifier hs-var">serviceSoftwareOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogPublishingOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsElasticsearchDomainLogPublishingOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainLogPublishingOptions -&gt; Pair)
+-&gt; Maybe AwsElasticsearchDomainLogPublishingOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainLogPublishingOptions
+</span><a href="#local-6989586621679956080"><span class="hs-identifier hs-var">logPublishingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ElasticsearchClusterConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+-&gt; AwsElasticsearchDomainElasticsearchClusterConfigDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>              </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainElasticsearchClusterConfigDetails -&gt; Pair)
+-&gt; Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainElasticsearchClusterConfigDetails
+</span><a href="#local-6989586621679956079"><span class="hs-identifier hs-var">elasticsearchClusterConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956078"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionAtRestOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsElasticsearchDomainEncryptionAtRestOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainEncryptionAtRestOptions -&gt; Pair)
+-&gt; Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainEncryptionAtRestOptions
+</span><a href="#local-6989586621679956077"><span class="hs-identifier hs-var">encryptionAtRestOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VPCOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsElasticsearchDomainVPCOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainVPCOptions -&gt; Pair)
+-&gt; Maybe AwsElasticsearchDomainVPCOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainVPCOptions
+</span><a href="#local-6989586621679956076"><span class="hs-identifier hs-var">vPCOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956075"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Endpoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679956074"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainEndpointOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsElasticsearchDomainDomainEndpointOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">(AwsElasticsearchDomainDomainEndpointOptions -&gt; Pair)
+-&gt; Maybe AwsElasticsearchDomainDomainEndpointOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsElasticsearchDomainDomainEndpointOptions
+</span><a href="#local-6989586621679956073"><span class="hs-identifier hs-var">domainEndpointOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Endpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956072"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ElasticsearchVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679956071"><span class="hs-identifier hs-var">elasticsearchVersion</span></a></span><span>
+</span><span id="line-268"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span></pre></body></html>

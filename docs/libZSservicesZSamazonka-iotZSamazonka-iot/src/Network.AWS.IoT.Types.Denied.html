@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains information that denied the authorization.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDenied' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679792323"><span id="local-6989586621679792324"></span></span><span class="hs-keyword">data</span><span> </span><span id="Denied"><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-var">Denied</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Denied%27"><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-var">Denied'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679792332"><span id="local-6989586621679792333"></span></span><span class="hs-keyword">data</span><span> </span><span id="Denied"><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-var">Denied</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Denied%27"><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-var">Denied'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information that implicitly denies the authorization. When a policy</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- doesn\'t explicitly deny or allow an action on a resource it is</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- considered an implicit deny.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AexplicitDeny%3ADenied%27"><span class="annot"><span class="annottext">Denied -&gt; Maybe ExplicitDeny
 </span><a href="Network.AWS.IoT.Types.Denied.html#%24sel%3AexplicitDeny%3ADenied%27"><span class="hs-identifier hs-var hs-var">explicitDeny</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679792316"><span id="local-6989586621679792318"><span class="annot"><span class="annottext">Denied -&gt; Denied -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679792325"><span id="local-6989586621679792327"><span class="annot"><span class="annottext">Denied -&gt; Denied -&gt; Bool
 (Denied -&gt; Denied -&gt; Bool)
 -&gt; (Denied -&gt; Denied -&gt; Bool) -&gt; Eq Denied
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Denied -&gt; Denied -&gt; Bool
 == :: Denied -&gt; Denied -&gt; Bool
 $c== :: Denied -&gt; Denied -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792307"><span id="local-6989586621679792309"><span id="local-6989586621679792311"><span id="local-6989586621679792313"><span class="annot"><span class="annottext">ReadPrec [Denied]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792316"><span id="local-6989586621679792318"><span id="local-6989586621679792320"><span id="local-6989586621679792322"><span class="annot"><span class="annottext">ReadPrec [Denied]
 ReadPrec Denied
 Int -&gt; ReadS Denied
 ReadS [Denied]
@@ -66,7 +66,7 @@ readList :: ReadS [Denied]
 $creadList :: ReadS [Denied]
 readsPrec :: Int -&gt; ReadS Denied
 $creadsPrec :: Int -&gt; ReadS Denied
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792300"><span id="local-6989586621679792302"><span id="local-6989586621679792304"><span class="annot"><span class="annottext">Int -&gt; Denied -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792309"><span id="local-6989586621679792311"><span id="local-6989586621679792313"><span class="annot"><span class="annottext">Int -&gt; Denied -&gt; ShowS
 [Denied] -&gt; ShowS
 Denied -&gt; String
 (Int -&gt; Denied -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (Denied -&gt; Maybe ImplicitDeny -&gt; Denied)
 -&gt; Lens Denied Denied (Maybe ImplicitDeny) (Maybe ImplicitDeny)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-type">Denied'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792291"><span class="annot"><span class="annottext">Maybe ImplicitDeny
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-type">Denied'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792300"><span class="annot"><span class="annottext">Maybe ImplicitDeny
 implicitDeny :: Maybe ImplicitDeny
 $sel:implicitDeny:Denied' :: Denied -&gt; Maybe ImplicitDeny
-</span><a href="#local-6989586621679792291"><span class="hs-identifier hs-var hs-var">implicitDeny</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImplicitDeny
-</span><a href="#local-6989586621679792291"><span class="hs-identifier hs-var">implicitDeny</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792290"><span class="annot"><span class="annottext">s :: Denied
-</span><a href="#local-6989586621679792290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-type">Denied'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792289"><span class="annot"><span class="annottext">Maybe ImplicitDeny
-</span><a href="#local-6989586621679792289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Denied
-</span><a href="#local-6989586621679792290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:implicitDeny:Denied' :: Maybe ImplicitDeny
+</span><a href="#local-6989586621679792300"><span class="hs-identifier hs-var hs-var">implicitDeny</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImplicitDeny
+</span><a href="#local-6989586621679792300"><span class="hs-identifier hs-var">implicitDeny</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792299"><span class="annot"><span class="annottext">s :: Denied
+</span><a href="#local-6989586621679792299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-type">Denied'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792298"><span class="annot"><span class="annottext">Maybe ImplicitDeny
+</span><a href="#local-6989586621679792298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Denied
+</span><a href="#local-6989586621679792299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:implicitDeny:Denied' :: Maybe ImplicitDeny
 </span><a href="Network.AWS.IoT.Types.Denied.html#%24sel%3AimplicitDeny%3ADenied%27"><span class="hs-identifier hs-var">implicitDeny</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImplicitDeny
-</span><a href="#local-6989586621679792289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679792298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Information that explicitly denies the authorization.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#denied_explicitDeny"><span class="hs-identifier hs-type">denied_explicitDeny</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span><span class="hs-special">)</span><span>
@@ -147,27 +147,27 @@ $sel:implicitDeny:Denied' :: Denied -&gt; Maybe ImplicitDeny
 -&gt; (Denied -&gt; Maybe ExplicitDeny -&gt; Denied)
 -&gt; Lens Denied Denied (Maybe ExplicitDeny) (Maybe ExplicitDeny)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-type">Denied'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792287"><span class="annot"><span class="annottext">Maybe ExplicitDeny
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-type">Denied'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792296"><span class="annot"><span class="annottext">Maybe ExplicitDeny
 explicitDeny :: Maybe ExplicitDeny
 $sel:explicitDeny:Denied' :: Denied -&gt; Maybe ExplicitDeny
-</span><a href="#local-6989586621679792287"><span class="hs-identifier hs-var hs-var">explicitDeny</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExplicitDeny
-</span><a href="#local-6989586621679792287"><span class="hs-identifier hs-var">explicitDeny</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792286"><span class="annot"><span class="annottext">s :: Denied
-</span><a href="#local-6989586621679792286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-type">Denied'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792285"><span class="annot"><span class="annottext">Maybe ExplicitDeny
-</span><a href="#local-6989586621679792285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Denied
-</span><a href="#local-6989586621679792286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:explicitDeny:Denied' :: Maybe ExplicitDeny
+</span><a href="#local-6989586621679792296"><span class="hs-identifier hs-var hs-var">explicitDeny</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExplicitDeny
+</span><a href="#local-6989586621679792296"><span class="hs-identifier hs-var">explicitDeny</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792295"><span class="annot"><span class="annottext">s :: Denied
+</span><a href="#local-6989586621679792295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-type">Denied'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792294"><span class="annot"><span class="annottext">Maybe ExplicitDeny
+</span><a href="#local-6989586621679792294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Denied
+</span><a href="#local-6989586621679792295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:explicitDeny:Denied' :: Maybe ExplicitDeny
 </span><a href="Network.AWS.IoT.Types.Denied.html#%24sel%3AexplicitDeny%3ADenied%27"><span class="hs-identifier hs-var">explicitDeny</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExplicitDeny
-</span><a href="#local-6989586621679792285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679792294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792282"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679792280"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Denied
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792291"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679792289"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Denied
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Denied) -&gt; Value -&gt; Parser Denied
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Denied&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679792277"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679792286"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679792286"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe ImplicitDeny -&gt; Maybe ExplicitDeny -&gt; Denied
 </span><a href="Network.AWS.IoT.Types.Denied.html#Denied%27"><span class="hs-identifier hs-var">Denied'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ImplicitDeny -&gt; Maybe ExplicitDeny -&gt; Denied)
@@ -175,7 +175,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ExplicitDeny -&gt; Denied)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImplicitDeny)
+</span><a href="#local-6989586621679792286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImplicitDeny)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;implicitDeny&quot;</span></span><span class="hs-special">)</span><span>
@@ -183,13 +183,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ExplicitDeny) -&gt; Parser Denied
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExplicitDeny)
+</span><a href="#local-6989586621679792286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExplicitDeny)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;explicitDeny&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792271"><span id="local-6989586621679792273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792280"><span id="local-6989586621679792282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Denied.html#Denied"><span class="hs-identifier hs-type">Denied</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

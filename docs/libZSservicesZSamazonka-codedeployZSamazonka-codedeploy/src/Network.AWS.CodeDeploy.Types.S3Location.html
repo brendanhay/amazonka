@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- S3.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3Location' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679311817"><span id="local-6989586621679311818"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Location"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-var">S3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Location%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-var">S3Location'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679311826"><span id="local-6989586621679311827"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Location"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-var">S3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Location%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-var">S3Location'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The file type of the application revision. Must be one of the following:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @tar@: A tar archive file.</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aversion%3AS3Location%27"><span class="annot"><span class="annottext">S3Location -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.S3Location.html#%24sel%3Aversion%3AS3Location%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311807"><span id="local-6989586621679311809"><span class="annot"><span class="annottext">S3Location -&gt; S3Location -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311816"><span id="local-6989586621679311818"><span class="annot"><span class="annottext">S3Location -&gt; S3Location -&gt; Bool
 (S3Location -&gt; S3Location -&gt; Bool)
 -&gt; (S3Location -&gt; S3Location -&gt; Bool) -&gt; Eq S3Location
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Location -&gt; S3Location -&gt; Bool
 == :: S3Location -&gt; S3Location -&gt; Bool
 $c== :: S3Location -&gt; S3Location -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311798"><span id="local-6989586621679311800"><span id="local-6989586621679311802"><span id="local-6989586621679311804"><span class="annot"><span class="annottext">ReadPrec [S3Location]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311807"><span id="local-6989586621679311809"><span id="local-6989586621679311811"><span id="local-6989586621679311813"><span class="annot"><span class="annottext">ReadPrec [S3Location]
 ReadPrec S3Location
 Int -&gt; ReadS S3Location
 ReadS [S3Location]
@@ -89,7 +89,7 @@ readList :: ReadS [S3Location]
 $creadList :: ReadS [S3Location]
 readsPrec :: Int -&gt; ReadS S3Location
 $creadsPrec :: Int -&gt; ReadS S3Location
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311791"><span id="local-6989586621679311793"><span id="local-6989586621679311795"><span class="annot"><span class="annottext">Int -&gt; S3Location -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311800"><span id="local-6989586621679311802"><span id="local-6989586621679311804"><span class="annot"><span class="annottext">Int -&gt; S3Location -&gt; ShowS
 [S3Location] -&gt; ShowS
 S3Location -&gt; String
 (Int -&gt; S3Location -&gt; ShowS)
@@ -194,16 +194,16 @@ forall a. Maybe a
 -&gt; (S3Location -&gt; Maybe BundleType -&gt; S3Location)
 -&gt; Lens S3Location S3Location (Maybe BundleType) (Maybe BundleType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311782"><span class="annot"><span class="annottext">Maybe BundleType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311791"><span class="annot"><span class="annottext">Maybe BundleType
 bundleType :: Maybe BundleType
 $sel:bundleType:S3Location' :: S3Location -&gt; Maybe BundleType
-</span><a href="#local-6989586621679311782"><span class="hs-identifier hs-var hs-var">bundleType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BundleType
-</span><a href="#local-6989586621679311782"><span class="hs-identifier hs-var">bundleType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311781"><span class="annot"><span class="annottext">s :: S3Location
-</span><a href="#local-6989586621679311781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311780"><span class="annot"><span class="annottext">Maybe BundleType
-</span><a href="#local-6989586621679311780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679311781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleType:S3Location' :: Maybe BundleType
+</span><a href="#local-6989586621679311791"><span class="hs-identifier hs-var hs-var">bundleType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BundleType
+</span><a href="#local-6989586621679311791"><span class="hs-identifier hs-var">bundleType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311790"><span class="annot"><span class="annottext">s :: S3Location
+</span><a href="#local-6989586621679311790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311789"><span class="annot"><span class="annottext">Maybe BundleType
+</span><a href="#local-6989586621679311789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679311790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleType:S3Location' :: Maybe BundleType
 </span><a href="Network.AWS.CodeDeploy.Types.S3Location.html#%24sel%3AbundleType%3AS3Location%27"><span class="hs-identifier hs-var">bundleType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BundleType
-</span><a href="#local-6989586621679311780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The ETag of the Amazon S3 object that represents the bundled artifacts</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- for the application revision.</span><span>
@@ -216,16 +216,16 @@ $sel:bundleType:S3Location' :: S3Location -&gt; Maybe BundleType
 -&gt; (S3Location -&gt; Maybe Text -&gt; S3Location)
 -&gt; Lens S3Location S3Location (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311778"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311787"><span class="annot"><span class="annottext">Maybe Text
 eTag :: Maybe Text
 $sel:eTag:S3Location' :: S3Location -&gt; Maybe Text
-</span><a href="#local-6989586621679311778"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311778"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311777"><span class="annot"><span class="annottext">s :: S3Location
-</span><a href="#local-6989586621679311777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311776"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679311777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:S3Location' :: Maybe Text
+</span><a href="#local-6989586621679311787"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311787"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311786"><span class="annot"><span class="annottext">s :: S3Location
+</span><a href="#local-6989586621679311786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311785"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679311786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:S3Location' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.S3Location.html#%24sel%3AeTag%3AS3Location%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket where the application revision is</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- stored.</span><span>
@@ -235,16 +235,16 @@ $sel:eTag:S3Location' :: S3Location -&gt; Maybe Text
 -&gt; (S3Location -&gt; Maybe Text -&gt; S3Location)
 -&gt; Lens S3Location S3Location (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311774"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311783"><span class="annot"><span class="annottext">Maybe Text
 bucket :: Maybe Text
 $sel:bucket:S3Location' :: S3Location -&gt; Maybe Text
-</span><a href="#local-6989586621679311774"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311774"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311773"><span class="annot"><span class="annottext">s :: S3Location
-</span><a href="#local-6989586621679311773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311772"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679311773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:S3Location' :: Maybe Text
+</span><a href="#local-6989586621679311783"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311783"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311782"><span class="annot"><span class="annottext">s :: S3Location
+</span><a href="#local-6989586621679311782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679311782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:S3Location' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.S3Location.html#%24sel%3Abucket%3AS3Location%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The name of the Amazon S3 object that represents the bundled artifacts</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- for the application revision.</span><span>
@@ -254,16 +254,16 @@ $sel:bucket:S3Location' :: S3Location -&gt; Maybe Text
 -&gt; (S3Location -&gt; Maybe Text -&gt; S3Location)
 -&gt; Lens S3Location S3Location (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311770"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311779"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:S3Location' :: S3Location -&gt; Maybe Text
-</span><a href="#local-6989586621679311770"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311770"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311769"><span class="annot"><span class="annottext">s :: S3Location
-</span><a href="#local-6989586621679311769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311768"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679311769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:S3Location' :: Maybe Text
+</span><a href="#local-6989586621679311779"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311779"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311778"><span class="annot"><span class="annottext">s :: S3Location
+</span><a href="#local-6989586621679311778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311777"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679311778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:S3Location' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.S3Location.html#%24sel%3Akey%3AS3Location%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | A specific version of the Amazon S3 object that represents the bundled</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- artifacts for the application revision.</span><span>
@@ -276,19 +276,19 @@ $sel:key:S3Location' :: S3Location -&gt; Maybe Text
 -&gt; (S3Location -&gt; Maybe Text -&gt; S3Location)
 -&gt; Lens S3Location S3Location (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311766"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311775"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:S3Location' :: S3Location -&gt; Maybe Text
-</span><a href="#local-6989586621679311766"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311766"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311765"><span class="annot"><span class="annottext">s :: S3Location
-</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311764"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
-</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:S3Location' :: Maybe Text
+</span><a href="#local-6989586621679311775"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311775"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311774"><span class="annot"><span class="annottext">s :: S3Location
+</span><a href="#local-6989586621679311774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311773"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Location
+</span><a href="#local-6989586621679311774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:S3Location' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.S3Location.html#%24sel%3Aversion%3AS3Location%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311761"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679311759"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Location
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311770"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679311768"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Location
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3Location) -&gt; Value -&gt; Parser S3Location
@@ -296,8 +296,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3Location&quot;</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311756"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311756"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311765"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe BundleType
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -317,7 +317,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; S3Location)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BundleType)
+</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BundleType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bundleType&quot;</span></span><span class="hs-special">)</span><span>
@@ -328,7 +328,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; S3Location)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eTag&quot;</span></span><span class="hs-special">)</span><span>
@@ -337,7 +337,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; S3Location)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucket&quot;</span></span><span class="hs-special">)</span><span>
@@ -345,7 +345,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; S3Location)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
@@ -353,19 +353,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser S3Location
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311750"><span id="local-6989586621679311752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311759"><span id="local-6989586621679311761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311739"><span id="local-6989586621679311741"><span id="local-6989586621679311743"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679311737"><span class="annot"><span class="annottext">toJSON :: S3Location -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311731"><span id="local-6989586621679311732"><span id="local-6989586621679311733"><span id="local-6989586621679311734"><span id="local-6989586621679311735"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311748"><span id="local-6989586621679311750"><span id="local-6989586621679311752"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679311746"><span class="annot"><span class="annottext">toJSON :: S3Location -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location%27"><span class="hs-identifier hs-type">S3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311740"><span id="local-6989586621679311741"><span id="local-6989586621679311742"><span id="local-6989586621679311743"><span id="local-6989586621679311744"><span class="annot"><span class="annottext">Maybe Text
 Maybe BundleType
 version :: Maybe Text
 key :: Maybe Text
@@ -377,7 +377,7 @@ $sel:key:S3Location' :: S3Location -&gt; Maybe Text
 $sel:bucket:S3Location' :: S3Location -&gt; Maybe Text
 $sel:eTag:S3Location' :: S3Location -&gt; Maybe Text
 $sel:bundleType:S3Location' :: S3Location -&gt; Maybe BundleType
-</span><a href="#local-6989586621679311731"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311740"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -389,35 +389,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(BundleType -&gt; Pair) -&gt; Maybe BundleType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BundleType
-</span><a href="#local-6989586621679311735"><span class="hs-identifier hs-var">bundleType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311744"><span class="hs-identifier hs-var">bundleType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eTag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311734"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311743"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311733"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311742"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311732"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311741"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311731"><span class="hs-identifier hs-var">version</span></a></span><span>
+</span><a href="#local-6989586621679311740"><span class="hs-identifier hs-var">version</span></a></span><span>
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span></pre></body></html>

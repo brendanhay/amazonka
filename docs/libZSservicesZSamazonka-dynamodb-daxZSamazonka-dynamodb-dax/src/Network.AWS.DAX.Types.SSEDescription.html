@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- DAX cluster.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSSEDescription' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679195608"><span id="local-6989586621679195609"></span></span><span class="hs-keyword">data</span><span> </span><span id="SSEDescription"><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-var">SSEDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSEDescription%27"><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-var">SSEDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679195617"><span id="local-6989586621679195618"></span></span><span class="hs-keyword">data</span><span> </span><span id="SSEDescription"><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-var">SSEDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSEDescription%27"><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-var">SSEDescription'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of server-side encryption:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @ENABLING@ - Server-side encryption is being enabled.</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Astatus%3ASSEDescription%27"><span class="annot"><span class="annottext">SSEDescription -&gt; Maybe SSEStatus
 </span><a href="Network.AWS.DAX.Types.SSEDescription.html#%24sel%3Astatus%3ASSEDescription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEStatus.html#SSEStatus"><span class="hs-identifier hs-type">SSEStatus</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195602"><span id="local-6989586621679195604"><span class="annot"><span class="annottext">SSEDescription -&gt; SSEDescription -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195611"><span id="local-6989586621679195613"><span class="annot"><span class="annottext">SSEDescription -&gt; SSEDescription -&gt; Bool
 (SSEDescription -&gt; SSEDescription -&gt; Bool)
 -&gt; (SSEDescription -&gt; SSEDescription -&gt; Bool) -&gt; Eq SSEDescription
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SSEDescription -&gt; SSEDescription -&gt; Bool
 == :: SSEDescription -&gt; SSEDescription -&gt; Bool
 $c== :: SSEDescription -&gt; SSEDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195593"><span id="local-6989586621679195595"><span id="local-6989586621679195597"><span id="local-6989586621679195599"><span class="annot"><span class="annottext">ReadPrec [SSEDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195602"><span id="local-6989586621679195604"><span id="local-6989586621679195606"><span id="local-6989586621679195608"><span class="annot"><span class="annottext">ReadPrec [SSEDescription]
 ReadPrec SSEDescription
 Int -&gt; ReadS SSEDescription
 ReadS [SSEDescription]
@@ -69,7 +69,7 @@ readList :: ReadS [SSEDescription]
 $creadList :: ReadS [SSEDescription]
 readsPrec :: Int -&gt; ReadS SSEDescription
 $creadsPrec :: Int -&gt; ReadS SSEDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195586"><span id="local-6989586621679195588"><span id="local-6989586621679195590"><span class="annot"><span class="annottext">Int -&gt; SSEDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195595"><span id="local-6989586621679195597"><span id="local-6989586621679195599"><span class="annot"><span class="annottext">Int -&gt; SSEDescription -&gt; ShowS
 [SSEDescription] -&gt; ShowS
 SSEDescription -&gt; String
 (Int -&gt; SSEDescription -&gt; ShowS)
@@ -139,19 +139,19 @@ forall a. Maybe a
 -&gt; Lens
      SSEDescription SSEDescription (Maybe SSEStatus) (Maybe SSEStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195577"><span class="annot"><span class="annottext">Maybe SSEStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195586"><span class="annot"><span class="annottext">Maybe SSEStatus
 status :: Maybe SSEStatus
 $sel:status:SSEDescription' :: SSEDescription -&gt; Maybe SSEStatus
-</span><a href="#local-6989586621679195577"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSEStatus
-</span><a href="#local-6989586621679195577"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195576"><span class="annot"><span class="annottext">s :: SSEDescription
-</span><a href="#local-6989586621679195576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195575"><span class="annot"><span class="annottext">Maybe SSEStatus
-</span><a href="#local-6989586621679195575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
-</span><a href="#local-6989586621679195576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SSEDescription' :: Maybe SSEStatus
+</span><a href="#local-6989586621679195586"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSEStatus
+</span><a href="#local-6989586621679195586"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195585"><span class="annot"><span class="annottext">s :: SSEDescription
+</span><a href="#local-6989586621679195585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-type">SSEDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195584"><span class="annot"><span class="annottext">Maybe SSEStatus
+</span><a href="#local-6989586621679195584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SSEDescription
+</span><a href="#local-6989586621679195585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SSEDescription' :: Maybe SSEStatus
 </span><a href="Network.AWS.DAX.Types.SSEDescription.html#%24sel%3Astatus%3ASSEDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSEStatus
-</span><a href="#local-6989586621679195575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195572"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679195570"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SSEDescription
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195581"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679195579"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SSEDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SSEDescription)
@@ -161,20 +161,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SSEDescription&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195567"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679195567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195576"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195576"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe SSEStatus -&gt; SSEDescription
 </span><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription%27"><span class="hs-identifier hs-var">SSEDescription'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe SSEStatus -&gt; SSEDescription)
 -&gt; Parser (Maybe SSEStatus) -&gt; Parser SSEDescription
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679195567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SSEStatus)
+</span><a href="#local-6989586621679195576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SSEStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195561"><span id="local-6989586621679195563"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195570"><span id="local-6989586621679195572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.SSEDescription.html#SSEDescription"><span class="hs-identifier hs-type">SSEDescription</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

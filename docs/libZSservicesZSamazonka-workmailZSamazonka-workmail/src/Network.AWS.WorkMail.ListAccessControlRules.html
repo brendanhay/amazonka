@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newListAccessControlRules' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679288855"><span id="local-6989586621679288856"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccessControlRules"><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-var">ListAccessControlRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccessControlRules%27"><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules%27"><span class="hs-identifier hs-var">ListAccessControlRules'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679288864"><span id="local-6989586621679288865"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccessControlRules"><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-var">ListAccessControlRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccessControlRules%27"><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules%27"><span class="hs-identifier hs-var">ListAccessControlRules'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the organization.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AorganizationId%3AListAccessControlRules%27"><span class="annot"><span class="annottext">ListAccessControlRules -&gt; Text
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#%24sel%3AorganizationId%3AListAccessControlRules%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288849"><span id="local-6989586621679288851"><span class="annot"><span class="annottext">ListAccessControlRules -&gt; ListAccessControlRules -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288858"><span id="local-6989586621679288860"><span class="annot"><span class="annottext">ListAccessControlRules -&gt; ListAccessControlRules -&gt; Bool
 (ListAccessControlRules -&gt; ListAccessControlRules -&gt; Bool)
 -&gt; (ListAccessControlRules -&gt; ListAccessControlRules -&gt; Bool)
 -&gt; Eq ListAccessControlRules
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAccessControlRules -&gt; ListAccessControlRules -&gt; Bool
 == :: ListAccessControlRules -&gt; ListAccessControlRules -&gt; Bool
 $c== :: ListAccessControlRules -&gt; ListAccessControlRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288840"><span id="local-6989586621679288842"><span id="local-6989586621679288844"><span id="local-6989586621679288846"><span class="annot"><span class="annottext">ReadPrec [ListAccessControlRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288849"><span id="local-6989586621679288851"><span id="local-6989586621679288853"><span id="local-6989586621679288855"><span class="annot"><span class="annottext">ReadPrec [ListAccessControlRules]
 ReadPrec ListAccessControlRules
 Int -&gt; ReadS ListAccessControlRules
 ReadS [ListAccessControlRules]
@@ -81,7 +81,7 @@ readList :: ReadS [ListAccessControlRules]
 $creadList :: ReadS [ListAccessControlRules]
 readsPrec :: Int -&gt; ReadS ListAccessControlRules
 $creadsPrec :: Int -&gt; ReadS ListAccessControlRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288833"><span id="local-6989586621679288835"><span id="local-6989586621679288837"><span class="annot"><span class="annottext">Int -&gt; ListAccessControlRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288842"><span id="local-6989586621679288844"><span id="local-6989586621679288846"><span class="annot"><span class="annottext">Int -&gt; ListAccessControlRules -&gt; ShowS
 [ListAccessControlRules] -&gt; ShowS
 ListAccessControlRules -&gt; String
 (Int -&gt; ListAccessControlRules -&gt; ShowS)
@@ -122,14 +122,14 @@ $cfrom :: forall x. ListAccessControlRules -&gt; Rep ListAccessControlRules x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span><span>
 </span><span id="line-69"></span><span id="newListAccessControlRules"><span class="annot"><span class="annottext">newListAccessControlRules :: Text -&gt; ListAccessControlRules
-</span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#newListAccessControlRules"><span class="hs-identifier hs-var hs-var">newListAccessControlRules</span></a></span></span><span> </span><span id="local-6989586621679288828"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288828"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#newListAccessControlRules"><span class="hs-identifier hs-var hs-var">newListAccessControlRules</span></a></span></span><span> </span><span id="local-6989586621679288837"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288837"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">ListAccessControlRules' :: Text -&gt; ListAccessControlRules
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules%27"><span class="hs-identifier hs-type">ListAccessControlRules'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationId:ListAccessControlRules' :: Text
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#%24sel%3AorganizationId%3AListAccessControlRules%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288828"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span>
+</span><a href="#local-6989586621679288837"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The identifier for the organization.</span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. ListAccessControlRules -&gt; Rep ListAccessControlRules x
 -&gt; (ListAccessControlRules -&gt; Text -&gt; ListAccessControlRules)
 -&gt; Lens ListAccessControlRules ListAccessControlRules Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules%27"><span class="hs-identifier hs-type">ListAccessControlRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288825"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules%27"><span class="hs-identifier hs-type">ListAccessControlRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288834"><span class="annot"><span class="annottext">Text
 organizationId :: Text
 $sel:organizationId:ListAccessControlRules' :: ListAccessControlRules -&gt; Text
-</span><a href="#local-6989586621679288825"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288825"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288824"><span class="annot"><span class="annottext">s :: ListAccessControlRules
-</span><a href="#local-6989586621679288824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules%27"><span class="hs-identifier hs-type">ListAccessControlRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288823"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccessControlRules
-</span><a href="#local-6989586621679288824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:ListAccessControlRules' :: Text
+</span><a href="#local-6989586621679288834"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288834"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288833"><span class="annot"><span class="annottext">s :: ListAccessControlRules
+</span><a href="#local-6989586621679288833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules%27"><span class="hs-identifier hs-type">ListAccessControlRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288832"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccessControlRules
+</span><a href="#local-6989586621679288833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:ListAccessControlRules' :: Text
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#%24sel%3AorganizationId%3AListAccessControlRules%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse"><span class="hs-identifier hs-type">ListAccessControlRulesResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679288819"><span class="annot"><span class="annottext">request :: ListAccessControlRules -&gt; Request ListAccessControlRules
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679288828"><span class="annot"><span class="annottext">request :: ListAccessControlRules -&gt; Request ListAccessControlRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAccessControlRules -&gt; Request ListAccessControlRules
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679288815"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679288824"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAccessControlRules
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288812"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288812"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288811"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679288811"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288810"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288821"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288821"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288820"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679288820"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288819"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AccessControlRule] -&gt; Int -&gt; ListAccessControlRulesResponse
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-var">ListAccessControlRulesResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AccessControlRule]
@@ -198,7 +198,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ListAccessControlRulesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AccessControlRule]))
+</span><a href="#local-6989586621679288819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AccessControlRule]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AccessControlRule]))
@@ -217,15 +217,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288812"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288821"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288801"><span id="local-6989586621679288803"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288810"><span id="local-6989586621679288812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679288794"><span class="annot"><span class="annottext">toHeaders :: ListAccessControlRules -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679288803"><span class="annot"><span class="annottext">toHeaders :: ListAccessControlRules -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAccessControlRules -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -252,12 +252,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288784"><span id="local-6989586621679288786"><span id="local-6989586621679288788"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679288782"><span class="annot"><span class="annottext">toJSON :: ListAccessControlRules -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules%27"><span class="hs-identifier hs-type">ListAccessControlRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288780"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288793"><span id="local-6989586621679288795"><span id="local-6989586621679288797"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679288791"><span class="annot"><span class="annottext">toJSON :: ListAccessControlRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules%27"><span class="hs-identifier hs-type">ListAccessControlRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288789"><span class="annot"><span class="annottext">Text
 organizationId :: Text
 $sel:organizationId:ListAccessControlRules' :: ListAccessControlRules -&gt; Text
-</span><a href="#local-6989586621679288780"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679288789"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -270,19 +270,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288780"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288789"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679288774"><span class="annot"><span class="annottext">toPath :: ListAccessControlRules -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679288783"><span class="annot"><span class="annottext">toPath :: ListAccessControlRules -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAccessControlRules -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRules"><span class="hs-identifier hs-type">ListAccessControlRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679288770"><span class="annot"><span class="annottext">toQuery :: ListAccessControlRules -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679288779"><span class="annot"><span class="annottext">toQuery :: ListAccessControlRules -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAccessControlRules -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -290,7 +290,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newListAccessControlRulesResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679288767"><span id="local-6989586621679288768"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccessControlRulesResponse"><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse"><span class="hs-identifier hs-var">ListAccessControlRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccessControlRulesResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-var">ListAccessControlRulesResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679288776"><span id="local-6989586621679288777"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccessControlRulesResponse"><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse"><span class="hs-identifier hs-var">ListAccessControlRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccessControlRulesResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-var">ListAccessControlRulesResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The access control rules.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3Arules%3AListAccessControlRulesResponse%27"><span class="annot"><span class="annottext">ListAccessControlRulesResponse -&gt; Maybe [AccessControlRule]
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#%24sel%3Arules%3AListAccessControlRulesResponse%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkMail.Types.AccessControlRule.html#AccessControlRule"><span class="hs-identifier hs-type">AccessControlRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -298,7 +298,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAccessControlRulesResponse%27"><span class="annot"><span class="annottext">ListAccessControlRulesResponse -&gt; Int
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#%24sel%3AhttpStatus%3AListAccessControlRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288761"><span id="local-6989586621679288763"><span class="annot"><span class="annottext">ListAccessControlRulesResponse
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288770"><span id="local-6989586621679288772"><span class="annot"><span class="annottext">ListAccessControlRulesResponse
 -&gt; ListAccessControlRulesResponse -&gt; Bool
 (ListAccessControlRulesResponse
  -&gt; ListAccessControlRulesResponse -&gt; Bool)
@@ -314,7 +314,7 @@ $c/= :: ListAccessControlRulesResponse
 -&gt; ListAccessControlRulesResponse -&gt; Bool
 $c== :: ListAccessControlRulesResponse
 -&gt; ListAccessControlRulesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288753"><span id="local-6989586621679288755"><span id="local-6989586621679288757"><span id="local-6989586621679288759"><span class="annot"><span class="annottext">ReadPrec [ListAccessControlRulesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288762"><span id="local-6989586621679288764"><span id="local-6989586621679288766"><span id="local-6989586621679288768"><span class="annot"><span class="annottext">ReadPrec [ListAccessControlRulesResponse]
 ReadPrec ListAccessControlRulesResponse
 Int -&gt; ReadS ListAccessControlRulesResponse
 ReadS [ListAccessControlRulesResponse]
@@ -334,7 +334,7 @@ readList :: ReadS [ListAccessControlRulesResponse]
 $creadList :: ReadS [ListAccessControlRulesResponse]
 readsPrec :: Int -&gt; ReadS ListAccessControlRulesResponse
 $creadsPrec :: Int -&gt; ReadS ListAccessControlRulesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288747"><span id="local-6989586621679288749"><span id="local-6989586621679288751"><span class="annot"><span class="annottext">Int -&gt; ListAccessControlRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288756"><span id="local-6989586621679288758"><span id="local-6989586621679288760"><span class="annot"><span class="annottext">Int -&gt; ListAccessControlRulesResponse -&gt; ShowS
 [ListAccessControlRulesResponse] -&gt; ShowS
 ListAccessControlRulesResponse -&gt; String
 (Int -&gt; ListAccessControlRulesResponse -&gt; ShowS)
@@ -388,8 +388,8 @@ ListAccessControlRulesResponse
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse"><span class="hs-identifier hs-type">ListAccessControlRulesResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newListAccessControlRulesResponse"><span class="annot"><span class="annottext">newListAccessControlRulesResponse :: Int -&gt; ListAccessControlRulesResponse
-</span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#newListAccessControlRulesResponse"><span class="hs-identifier hs-var hs-var">newListAccessControlRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679288744"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288744"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#newListAccessControlRulesResponse"><span class="hs-identifier hs-var hs-var">newListAccessControlRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679288753"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288753"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">ListAccessControlRulesResponse' :: Maybe [AccessControlRule] -&gt; Int -&gt; ListAccessControlRulesResponse
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-type">ListAccessControlRulesResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rules:ListAccessControlRulesResponse' :: Maybe [AccessControlRule]
@@ -399,7 +399,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccessControlRulesResponse' :: Int
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#%24sel%3AhttpStatus%3AListAccessControlRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288744"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679288753"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The access control rules.</span><span>
@@ -416,16 +416,16 @@ forall a. Maybe a
      (Maybe [AccessControlRule])
      (Maybe [AccessControlRule])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-type">ListAccessControlRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288743"><span class="annot"><span class="annottext">Maybe [AccessControlRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-type">ListAccessControlRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288752"><span class="annot"><span class="annottext">Maybe [AccessControlRule]
 rules :: Maybe [AccessControlRule]
 $sel:rules:ListAccessControlRulesResponse' :: ListAccessControlRulesResponse -&gt; Maybe [AccessControlRule]
-</span><a href="#local-6989586621679288743"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessControlRule]
-</span><a href="#local-6989586621679288743"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288742"><span class="annot"><span class="annottext">s :: ListAccessControlRulesResponse
-</span><a href="#local-6989586621679288742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-type">ListAccessControlRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288741"><span class="annot"><span class="annottext">Maybe [AccessControlRule]
-</span><a href="#local-6989586621679288741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccessControlRulesResponse
-</span><a href="#local-6989586621679288742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListAccessControlRulesResponse' :: Maybe [AccessControlRule]
+</span><a href="#local-6989586621679288752"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessControlRule]
+</span><a href="#local-6989586621679288752"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288751"><span class="annot"><span class="annottext">s :: ListAccessControlRulesResponse
+</span><a href="#local-6989586621679288751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-type">ListAccessControlRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288750"><span class="annot"><span class="annottext">Maybe [AccessControlRule]
+</span><a href="#local-6989586621679288750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccessControlRulesResponse
+</span><a href="#local-6989586621679288751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListAccessControlRulesResponse' :: Maybe [AccessControlRule]
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#%24sel%3Arules%3AListAccessControlRulesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AccessControlRule]
-</span><a href="#local-6989586621679288741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse"><span class="hs-identifier hs-type">ListAccessControlRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccessControlRule] -&gt; f (Maybe [AccessControlRule]))
+</span><a href="#local-6989586621679288750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse"><span class="hs-identifier hs-type">ListAccessControlRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AccessControlRule] -&gt; f (Maybe [AccessControlRule]))
  -&gt; ListAccessControlRulesResponse
  -&gt; f ListAccessControlRulesResponse)
 -&gt; ((Maybe [AccessControlRule] -&gt; f (Maybe [AccessControlRule]))
@@ -469,18 +469,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-type">ListAccessControlRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288737"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-type">ListAccessControlRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288746"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAccessControlRulesResponse' :: ListAccessControlRulesResponse -&gt; Int
-</span><a href="#local-6989586621679288737"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288737"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288736"><span class="annot"><span class="annottext">s :: ListAccessControlRulesResponse
-</span><a href="#local-6989586621679288736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-type">ListAccessControlRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288735"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccessControlRulesResponse
-</span><a href="#local-6989586621679288736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccessControlRulesResponse' :: Int
+</span><a href="#local-6989586621679288746"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288746"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288745"><span class="annot"><span class="annottext">s :: ListAccessControlRulesResponse
+</span><a href="#local-6989586621679288745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse%27"><span class="hs-identifier hs-type">ListAccessControlRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288744"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccessControlRulesResponse
+</span><a href="#local-6989586621679288745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccessControlRulesResponse' :: Int
 </span><a href="Network.AWS.WorkMail.ListAccessControlRules.html#%24sel%3AhttpStatus%3AListAccessControlRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse"><span class="hs-identifier hs-type">ListAccessControlRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse"><span class="hs-identifier hs-type">ListAccessControlRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679288733"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679288742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.ListAccessControlRules.html#ListAccessControlRulesResponse"><span class="hs-identifier hs-type">ListAccessControlRulesResponse</span></a></span></span><span>
 </span><span id="line-168"></span></pre></body></html>

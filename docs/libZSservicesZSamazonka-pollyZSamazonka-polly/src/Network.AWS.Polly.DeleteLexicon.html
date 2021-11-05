@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteLexicon' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679175231"><span id="local-6989586621679175232"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLexicon"><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-var">DeleteLexicon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLexicon%27"><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier hs-var">DeleteLexicon'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679175240"><span id="local-6989586621679175241"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLexicon"><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-var">DeleteLexicon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLexicon%27"><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier hs-var">DeleteLexicon'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the lexicon to delete. Must be an existing lexicon in the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- region.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3ADeleteLexicon%27"><span class="annot"><span class="annottext">DeleteLexicon -&gt; Text
 </span><a href="Network.AWS.Polly.DeleteLexicon.html#%24sel%3Aname%3ADeleteLexicon%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175225"><span id="local-6989586621679175227"><span class="annot"><span class="annottext">DeleteLexicon -&gt; DeleteLexicon -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175234"><span id="local-6989586621679175236"><span class="annot"><span class="annottext">DeleteLexicon -&gt; DeleteLexicon -&gt; Bool
 (DeleteLexicon -&gt; DeleteLexicon -&gt; Bool)
 -&gt; (DeleteLexicon -&gt; DeleteLexicon -&gt; Bool) -&gt; Eq DeleteLexicon
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLexicon -&gt; DeleteLexicon -&gt; Bool
 == :: DeleteLexicon -&gt; DeleteLexicon -&gt; Bool
 $c== :: DeleteLexicon -&gt; DeleteLexicon -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175216"><span id="local-6989586621679175218"><span id="local-6989586621679175220"><span id="local-6989586621679175222"><span class="annot"><span class="annottext">ReadPrec [DeleteLexicon]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175225"><span id="local-6989586621679175227"><span id="local-6989586621679175229"><span id="local-6989586621679175231"><span class="annot"><span class="annottext">ReadPrec [DeleteLexicon]
 ReadPrec DeleteLexicon
 Int -&gt; ReadS DeleteLexicon
 ReadS [DeleteLexicon]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteLexicon]
 $creadList :: ReadS [DeleteLexicon]
 readsPrec :: Int -&gt; ReadS DeleteLexicon
 $creadsPrec :: Int -&gt; ReadS DeleteLexicon
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175209"><span id="local-6989586621679175211"><span id="local-6989586621679175213"><span class="annot"><span class="annottext">Int -&gt; DeleteLexicon -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175218"><span id="local-6989586621679175220"><span id="local-6989586621679175222"><span class="annot"><span class="annottext">Int -&gt; DeleteLexicon -&gt; ShowS
 [DeleteLexicon] -&gt; ShowS
 DeleteLexicon -&gt; String
 (Int -&gt; DeleteLexicon -&gt; ShowS)
@@ -127,12 +127,12 @@ $cfrom :: forall x. DeleteLexicon -&gt; Rep DeleteLexicon x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span><span>
 </span><span id="line-76"></span><span id="newDeleteLexicon"><span class="annot"><span class="annottext">newDeleteLexicon :: Text -&gt; DeleteLexicon
-</span><a href="Network.AWS.Polly.DeleteLexicon.html#newDeleteLexicon"><span class="hs-identifier hs-var hs-var">newDeleteLexicon</span></a></span></span><span> </span><span id="local-6989586621679175204"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175204"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Polly.DeleteLexicon.html#newDeleteLexicon"><span class="hs-identifier hs-var hs-var">newDeleteLexicon</span></a></span></span><span> </span><span id="local-6989586621679175213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175213"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DeleteLexicon' :: Text -&gt; DeleteLexicon
 </span><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier hs-type">DeleteLexicon'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteLexicon' :: Text
 </span><a href="Network.AWS.Polly.DeleteLexicon.html#%24sel%3Aname%3ADeleteLexicon%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175204"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679175213"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The name of the lexicon to delete. Must be an existing lexicon in the</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- region.</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. DeleteLexicon -&gt; Rep DeleteLexicon x
 -&gt; (DeleteLexicon -&gt; Text -&gt; DeleteLexicon)
 -&gt; Lens DeleteLexicon DeleteLexicon Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier hs-type">DeleteLexicon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175201"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier hs-type">DeleteLexicon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175210"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteLexicon' :: DeleteLexicon -&gt; Text
-</span><a href="#local-6989586621679175201"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175201"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175200"><span class="annot"><span class="annottext">s :: DeleteLexicon
-</span><a href="#local-6989586621679175200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier hs-type">DeleteLexicon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175199"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLexicon
-</span><a href="#local-6989586621679175200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteLexicon' :: Text
+</span><a href="#local-6989586621679175210"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175210"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175209"><span class="annot"><span class="annottext">s :: DeleteLexicon
+</span><a href="#local-6989586621679175209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier hs-type">DeleteLexicon'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLexicon
+</span><a href="#local-6989586621679175209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteLexicon' :: Text
 </span><a href="Network.AWS.Polly.DeleteLexicon.html#%24sel%3Aname%3ADeleteLexicon%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier hs-type">DeleteLexiconResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679175195"><span class="annot"><span class="annottext">request :: DeleteLexicon -&gt; Request DeleteLexicon
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679175204"><span class="annot"><span class="annottext">request :: DeleteLexicon -&gt; Request DeleteLexicon
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLexicon -&gt; Request DeleteLexicon
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Polly.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679175191"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679175200"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteLexicon
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175188"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175188"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175187"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679175187"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175186"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679175186"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175197"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175196"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175196"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175195"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679175195"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteLexiconResponse
 </span><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse%27"><span class="hs-identifier hs-var">DeleteLexiconResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteLexiconResponse)
@@ -200,15 +200,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175188"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175197"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175179"><span id="local-6989586621679175181"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175188"><span id="local-6989586621679175190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175176"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679175172"><span class="annot"><span class="annottext">toHeaders :: DeleteLexicon -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679175181"><span class="annot"><span class="annottext">toHeaders :: DeleteLexicon -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteLexicon -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -216,21 +216,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679175167"><span class="annot"><span class="annottext">toPath :: DeleteLexicon -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier hs-type">DeleteLexicon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175165"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679175176"><span class="annot"><span class="annottext">toPath :: DeleteLexicon -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon%27"><span class="hs-identifier hs-type">DeleteLexicon'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175174"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteLexicon' :: DeleteLexicon -&gt; Text
-</span><a href="#local-6989586621679175165"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175174"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v1/lexicons/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175165"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679175174"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexicon"><span class="hs-identifier hs-type">DeleteLexicon</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679175161"><span class="annot"><span class="annottext">toQuery :: DeleteLexicon -&gt; QueryString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679175170"><span class="annot"><span class="annottext">toQuery :: DeleteLexicon -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteLexicon -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -238,12 +238,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newDeleteLexiconResponse' smart constructor.</span><span>
-</span><span id="line-111"></span><span id="local-6989586621679175158"><span id="local-6989586621679175159"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLexiconResponse"><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier hs-var">DeleteLexiconResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLexiconResponse%27"><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse%27"><span class="hs-identifier hs-var">DeleteLexiconResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span id="local-6989586621679175167"><span id="local-6989586621679175168"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLexiconResponse"><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier hs-var">DeleteLexiconResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLexiconResponse%27"><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse%27"><span class="hs-identifier hs-var">DeleteLexiconResponse'</span></a></span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteLexiconResponse%27"><span class="annot"><span class="annottext">DeleteLexiconResponse -&gt; Int
 </span><a href="Network.AWS.Polly.DeleteLexicon.html#%24sel%3AhttpStatus%3ADeleteLexiconResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175153"><span id="local-6989586621679175155"><span class="annot"><span class="annottext">DeleteLexiconResponse -&gt; DeleteLexiconResponse -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175162"><span id="local-6989586621679175164"><span class="annot"><span class="annottext">DeleteLexiconResponse -&gt; DeleteLexiconResponse -&gt; Bool
 (DeleteLexiconResponse -&gt; DeleteLexiconResponse -&gt; Bool)
 -&gt; (DeleteLexiconResponse -&gt; DeleteLexiconResponse -&gt; Bool)
 -&gt; Eq DeleteLexiconResponse
@@ -252,7 +252,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLexiconResponse -&gt; DeleteLexiconResponse -&gt; Bool
 == :: DeleteLexiconResponse -&gt; DeleteLexiconResponse -&gt; Bool
 $c== :: DeleteLexiconResponse -&gt; DeleteLexiconResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175145"><span id="local-6989586621679175147"><span id="local-6989586621679175149"><span id="local-6989586621679175151"><span class="annot"><span class="annottext">ReadPrec [DeleteLexiconResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175154"><span id="local-6989586621679175156"><span id="local-6989586621679175158"><span id="local-6989586621679175160"><span class="annot"><span class="annottext">ReadPrec [DeleteLexiconResponse]
 ReadPrec DeleteLexiconResponse
 Int -&gt; ReadS DeleteLexiconResponse
 ReadS [DeleteLexiconResponse]
@@ -272,7 +272,7 @@ readList :: ReadS [DeleteLexiconResponse]
 $creadList :: ReadS [DeleteLexiconResponse]
 readsPrec :: Int -&gt; ReadS DeleteLexiconResponse
 $creadsPrec :: Int -&gt; ReadS DeleteLexiconResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175139"><span id="local-6989586621679175141"><span id="local-6989586621679175143"><span class="annot"><span class="annottext">Int -&gt; DeleteLexiconResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175148"><span id="local-6989586621679175150"><span id="local-6989586621679175152"><span class="annot"><span class="annottext">Int -&gt; DeleteLexiconResponse -&gt; ShowS
 [DeleteLexiconResponse] -&gt; ShowS
 DeleteLexiconResponse -&gt; String
 (Int -&gt; DeleteLexiconResponse -&gt; ShowS)
@@ -312,12 +312,12 @@ $cfrom :: forall x. DeleteLexiconResponse -&gt; Rep DeleteLexiconResponse x
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier hs-type">DeleteLexiconResponse</span></a></span><span>
 </span><span id="line-130"></span><span id="newDeleteLexiconResponse"><span class="annot"><span class="annottext">newDeleteLexiconResponse :: Int -&gt; DeleteLexiconResponse
-</span><a href="Network.AWS.Polly.DeleteLexicon.html#newDeleteLexiconResponse"><span class="hs-identifier hs-var hs-var">newDeleteLexiconResponse</span></a></span></span><span> </span><span id="local-6989586621679175136"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Polly.DeleteLexicon.html#newDeleteLexiconResponse"><span class="hs-identifier hs-var hs-var">newDeleteLexiconResponse</span></a></span></span><span> </span><span id="local-6989586621679175145"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">DeleteLexiconResponse' :: Int -&gt; DeleteLexiconResponse
 </span><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse%27"><span class="hs-identifier hs-type">DeleteLexiconResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLexiconResponse' :: Int
 </span><a href="Network.AWS.Polly.DeleteLexicon.html#%24sel%3AhttpStatus%3ADeleteLexiconResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679175145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#deleteLexiconResponse_httpStatus"><span class="hs-identifier hs-type">deleteLexiconResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier hs-type">DeleteLexiconResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -326,16 +326,16 @@ $cfrom :: forall x. DeleteLexiconResponse -&gt; Rep DeleteLexiconResponse x
 -&gt; (DeleteLexiconResponse -&gt; Int -&gt; DeleteLexiconResponse)
 -&gt; Lens DeleteLexiconResponse DeleteLexiconResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse%27"><span class="hs-identifier hs-type">DeleteLexiconResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175135"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse%27"><span class="hs-identifier hs-type">DeleteLexiconResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175144"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteLexiconResponse' :: DeleteLexiconResponse -&gt; Int
-</span><a href="#local-6989586621679175135"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175135"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175134"><span class="annot"><span class="annottext">s :: DeleteLexiconResponse
-</span><a href="#local-6989586621679175134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse%27"><span class="hs-identifier hs-type">DeleteLexiconResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175133"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLexiconResponse
-</span><a href="#local-6989586621679175134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLexiconResponse' :: Int
+</span><a href="#local-6989586621679175144"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175144"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175143"><span class="annot"><span class="annottext">s :: DeleteLexiconResponse
+</span><a href="#local-6989586621679175143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse%27"><span class="hs-identifier hs-type">DeleteLexiconResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175142"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLexiconResponse
+</span><a href="#local-6989586621679175143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLexiconResponse' :: Int
 </span><a href="Network.AWS.Polly.DeleteLexicon.html#%24sel%3AhttpStatus%3ADeleteLexiconResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier hs-type">DeleteLexiconResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier hs-type">DeleteLexiconResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier hs-type">DeleteLexiconResponse</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.DeleteLexicon.html#DeleteLexiconResponse"><span class="hs-identifier hs-type">DeleteLexiconResponse</span></a></span></span><span>
 </span><span id="line-138"></span></pre></body></html>

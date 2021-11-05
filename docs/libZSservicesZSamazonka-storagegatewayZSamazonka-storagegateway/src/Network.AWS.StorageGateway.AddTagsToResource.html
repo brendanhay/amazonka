@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-comment">-- | AddTagsToResourceInput</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newAddTagsToResource' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679394864"><span id="local-6989586621679394865"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResource"><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-var">AddTagsToResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResource%27"><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-var">AddTagsToResource'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679394873"><span id="local-6989586621679394874"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResource"><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-var">AddTagsToResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResource%27"><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-var">AddTagsToResource'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource you want to add tags to.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AresourceARN%3AAddTagsToResource%27"><span class="annot"><span class="annottext">AddTagsToResource -&gt; Text
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3AresourceARN%3AAddTagsToResource%27"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3Atags%3AAddTagsToResource%27"><span class="annot"><span class="annottext">AddTagsToResource -&gt; [Tag]
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3Atags%3AAddTagsToResource%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394857"><span id="local-6989586621679394859"><span class="annot"><span class="annottext">AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394866"><span id="local-6989586621679394868"><span class="annot"><span class="annottext">AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
 (AddTagsToResource -&gt; AddTagsToResource -&gt; Bool)
 -&gt; (AddTagsToResource -&gt; AddTagsToResource -&gt; Bool)
 -&gt; Eq AddTagsToResource
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
 == :: AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
 $c== :: AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394848"><span id="local-6989586621679394850"><span id="local-6989586621679394852"><span id="local-6989586621679394854"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394857"><span id="local-6989586621679394859"><span id="local-6989586621679394861"><span id="local-6989586621679394863"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResource]
 ReadPrec AddTagsToResource
 Int -&gt; ReadS AddTagsToResource
 ReadS [AddTagsToResource]
@@ -110,7 +110,7 @@ readList :: ReadS [AddTagsToResource]
 $creadList :: ReadS [AddTagsToResource]
 readsPrec :: Int -&gt; ReadS AddTagsToResource
 $creadsPrec :: Int -&gt; ReadS AddTagsToResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394841"><span id="local-6989586621679394843"><span id="local-6989586621679394845"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394850"><span id="local-6989586621679394852"><span id="local-6989586621679394854"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResource -&gt; ShowS
 [AddTagsToResource] -&gt; ShowS
 AddTagsToResource -&gt; String
 (Int -&gt; AddTagsToResource -&gt; ShowS)
@@ -158,13 +158,13 @@ $cfrom :: forall x. AddTagsToResource -&gt; Rep AddTagsToResource x
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span>
 </span><span id="line-105"></span><span id="newAddTagsToResource"><span class="annot"><span class="annottext">newAddTagsToResource :: Text -&gt; AddTagsToResource
-</span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#newAddTagsToResource"><span class="hs-identifier hs-var hs-var">newAddTagsToResource</span></a></span></span><span> </span><span id="local-6989586621679394836"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394836"><span class="hs-identifier hs-var">pResourceARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#newAddTagsToResource"><span class="hs-identifier hs-var hs-var">newAddTagsToResource</span></a></span></span><span> </span><span id="local-6989586621679394845"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394845"><span class="hs-identifier hs-var">pResourceARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">AddTagsToResource' :: Text -&gt; [Tag] -&gt; AddTagsToResource
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceARN:AddTagsToResource' :: Text
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3AresourceARN%3AAddTagsToResource%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394836"><span class="hs-identifier hs-var">pResourceARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394845"><span class="hs-identifier hs-var">pResourceARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AddTagsToResource' :: [Tag]
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3Atags%3AAddTagsToResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -178,16 +178,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AddTagsToResource -&gt; Text -&gt; AddTagsToResource)
 -&gt; Lens AddTagsToResource AddTagsToResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394833"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394842"><span class="annot"><span class="annottext">Text
 resourceARN :: Text
 $sel:resourceARN:AddTagsToResource' :: AddTagsToResource -&gt; Text
-</span><a href="#local-6989586621679394833"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394833"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394832"><span class="annot"><span class="annottext">s :: AddTagsToResource
-</span><a href="#local-6989586621679394832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394831"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
-</span><a href="#local-6989586621679394832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:AddTagsToResource' :: Text
+</span><a href="#local-6989586621679394842"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394842"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394841"><span class="annot"><span class="annottext">s :: AddTagsToResource
+</span><a href="#local-6989586621679394841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
+</span><a href="#local-6989586621679394841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:AddTagsToResource' :: Text
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3AresourceARN%3AAddTagsToResource%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The key-value pair that represents the tag you want to add to the</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- resource. The value can be an empty string.</span><span>
@@ -202,16 +202,16 @@ $sel:resourceARN:AddTagsToResource' :: AddTagsToResource -&gt; Text
 -&gt; (AddTagsToResource -&gt; [Tag] -&gt; AddTagsToResource)
 -&gt; Lens AddTagsToResource AddTagsToResource [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394830"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394839"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:AddTagsToResource' :: AddTagsToResource -&gt; [Tag]
-</span><a href="#local-6989586621679394830"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679394830"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394829"><span class="annot"><span class="annottext">s :: AddTagsToResource
-</span><a href="#local-6989586621679394829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394828"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679394828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
-</span><a href="#local-6989586621679394829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTagsToResource' :: [Tag]
+</span><a href="#local-6989586621679394839"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679394839"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394838"><span class="annot"><span class="annottext">s :: AddTagsToResource
+</span><a href="#local-6989586621679394838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394837"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679394837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
+</span><a href="#local-6989586621679394838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTagsToResource' :: [Tag]
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3Atags%3AAddTagsToResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679394828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTagsToResource -&gt; f AddTagsToResource)
+</span><a href="#local-6989586621679394837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTagsToResource -&gt; f AddTagsToResource)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; AddTagsToResource
@@ -225,12 +225,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679394822"><span class="annot"><span class="annottext">request :: AddTagsToResource -&gt; Request AddTagsToResource
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679394831"><span class="annot"><span class="annottext">request :: AddTagsToResource -&gt; Request AddTagsToResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddTagsToResource -&gt; Request AddTagsToResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679394818"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679394827"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddTagsToResource
 -&gt; ClientResponse ClientBody
@@ -256,10 +256,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394815"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394815"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394814"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679394814"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394813"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394824"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394823"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394823"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394822"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; AddTagsToResourceResponse
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-var">AddTagsToResourceResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; AddTagsToResourceResponse)
@@ -267,7 +267,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AddTagsToResourceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679394822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,15 +279,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394815"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394824"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394805"><span id="local-6989586621679394807"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394814"><span id="local-6989586621679394816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679394798"><span class="annot"><span class="annottext">toHeaders :: AddTagsToResource -&gt; ResponseHeaders
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679394807"><span class="annot"><span class="annottext">toHeaders :: AddTagsToResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddTagsToResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -314,15 +314,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394788"><span id="local-6989586621679394790"><span id="local-6989586621679394792"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679394786"><span class="annot"><span class="annottext">toJSON :: AddTagsToResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394783"><span id="local-6989586621679394784"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394797"><span id="local-6989586621679394799"><span id="local-6989586621679394801"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679394795"><span class="annot"><span class="annottext">toJSON :: AddTagsToResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394792"><span id="local-6989586621679394793"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 resourceARN :: Text
 $sel:tags:AddTagsToResource' :: AddTagsToResource -&gt; [Tag]
 $sel:resourceARN:AddTagsToResource' :: AddTagsToResource -&gt; Text
-</span><a href="#local-6989586621679394783"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394792"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -334,26 +334,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394784"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394793"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679394783"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394792"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679394777"><span class="annot"><span class="annottext">toPath :: AddTagsToResource -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679394786"><span class="annot"><span class="annottext">toPath :: AddTagsToResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddTagsToResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679394773"><span class="annot"><span class="annottext">toQuery :: AddTagsToResource -&gt; QueryString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679394782"><span class="annot"><span class="annottext">toQuery :: AddTagsToResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddTagsToResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -363,7 +363,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-172"></span><span class="hs-comment">-- | AddTagsToResourceOutput</span><span>
 </span><span id="line-173"></span><span class="hs-comment">--</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- /See:/ 'newAddTagsToResourceResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621679394770"><span id="local-6989586621679394771"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResourceResponse"><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-var">AddTagsToResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResourceResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-var">AddTagsToResourceResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span id="local-6989586621679394779"><span id="local-6989586621679394780"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResourceResponse"><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-var">AddTagsToResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResourceResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-var">AddTagsToResourceResponse'</span></a></span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource you want to add tags to.</span><span>
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3AresourceARN%3AAddTagsToResourceResponse%27"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3AresourceARN%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -371,7 +371,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394764"><span id="local-6989586621679394766"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394773"><span id="local-6989586621679394775"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
 (AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool)
 -&gt; (AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool)
 -&gt; Eq AddTagsToResourceResponse
@@ -380,7 +380,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
 == :: AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
 $c== :: AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394756"><span id="local-6989586621679394758"><span id="local-6989586621679394760"><span id="local-6989586621679394762"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394765"><span id="local-6989586621679394767"><span id="local-6989586621679394769"><span id="local-6989586621679394771"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResourceResponse]
 ReadPrec AddTagsToResourceResponse
 Int -&gt; ReadS AddTagsToResourceResponse
 ReadS [AddTagsToResourceResponse]
@@ -400,7 +400,7 @@ readList :: ReadS [AddTagsToResourceResponse]
 $creadList :: ReadS [AddTagsToResourceResponse]
 readsPrec :: Int -&gt; ReadS AddTagsToResourceResponse
 $creadsPrec :: Int -&gt; ReadS AddTagsToResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394750"><span id="local-6989586621679394752"><span id="local-6989586621679394754"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394759"><span id="local-6989586621679394761"><span id="local-6989586621679394763"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResourceResponse -&gt; ShowS
 [AddTagsToResourceResponse] -&gt; ShowS
 AddTagsToResourceResponse -&gt; String
 (Int -&gt; AddTagsToResourceResponse -&gt; ShowS)
@@ -448,8 +448,8 @@ AddTagsToResourceResponse -&gt; Rep AddTagsToResourceResponse x
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span>
 </span><span id="line-198"></span><span id="newAddTagsToResourceResponse"><span class="annot"><span class="annottext">newAddTagsToResourceResponse :: Int -&gt; AddTagsToResourceResponse
-</span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#newAddTagsToResourceResponse"><span class="hs-identifier hs-var hs-var">newAddTagsToResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679394747"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394747"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#newAddTagsToResourceResponse"><span class="hs-identifier hs-var hs-var">newAddTagsToResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679394756"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394756"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">AddTagsToResourceResponse' :: Maybe Text -&gt; Int -&gt; AddTagsToResourceResponse
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceARN:AddTagsToResourceResponse' :: Maybe Text
@@ -459,7 +459,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsToResourceResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394747"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679394756"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource you want to add tags to.</span><span>
@@ -475,16 +475,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394746"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394755"><span class="annot"><span class="annottext">Maybe Text
 resourceARN :: Maybe Text
 $sel:resourceARN:AddTagsToResourceResponse' :: AddTagsToResourceResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679394746"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394746"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394745"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
-</span><a href="#local-6989586621679394745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394744"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
-</span><a href="#local-6989586621679394745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:AddTagsToResourceResponse' :: Maybe Text
+</span><a href="#local-6989586621679394755"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394755"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394754"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
+</span><a href="#local-6989586621679394754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
+</span><a href="#local-6989586621679394754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:AddTagsToResourceResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3AresourceARN%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#addTagsToResourceResponse_httpStatus"><span class="hs-identifier hs-type">addTagsToResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -494,16 +494,16 @@ $sel:resourceARN:AddTagsToResourceResponse' :: AddTagsToResourceResponse -&gt; M
 -&gt; (AddTagsToResourceResponse -&gt; Int -&gt; AddTagsToResourceResponse)
 -&gt; Lens AddTagsToResourceResponse AddTagsToResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394743"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394752"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddTagsToResourceResponse' :: AddTagsToResourceResponse -&gt; Int
-</span><a href="#local-6989586621679394743"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394743"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394742"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
-</span><a href="#local-6989586621679394742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394741"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
-</span><a href="#local-6989586621679394742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsToResourceResponse' :: Int
+</span><a href="#local-6989586621679394752"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394752"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394751"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
+</span><a href="#local-6989586621679394751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394750"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
+</span><a href="#local-6989586621679394751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsToResourceResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.AddTagsToResource.html#%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

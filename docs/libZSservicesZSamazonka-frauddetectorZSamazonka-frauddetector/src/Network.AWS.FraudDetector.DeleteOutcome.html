@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.DeleteOutcome</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an outcome.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You cannot delete an outcome that is used in a rule version.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- When you delete an outcome, Amazon Fraud Detector permanently deletes</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- that outcome and the data is no longer stored in Amazon Fraud Detector.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.DeleteOutcome</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier">DeleteOutcome</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#newDeleteOutcome"><span class="hs-identifier">newDeleteOutcome</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#deleteOutcome_name"><span class="hs-identifier">deleteOutcome_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse"><span class="hs-identifier">DeleteOutcomeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#newDeleteOutcomeResponse"><span class="hs-identifier">newDeleteOutcomeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#deleteOutcomeResponse_httpStatus"><span class="hs-identifier">deleteOutcomeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteOutcome' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679317489"><span id="local-6989586621679317490"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOutcome"><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-var">DeleteOutcome</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOutcome%27"><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome%27"><span class="hs-identifier hs-var">DeleteOutcome'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the outcome to delete.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aname%3ADeleteOutcome%27"><span class="annot"><span class="annottext">DeleteOutcome -&gt; Text
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#%24sel%3Aname%3ADeleteOutcome%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317483"><span id="local-6989586621679317485"><span class="annot"><span class="annottext">DeleteOutcome -&gt; DeleteOutcome -&gt; Bool
+(DeleteOutcome -&gt; DeleteOutcome -&gt; Bool)
+-&gt; (DeleteOutcome -&gt; DeleteOutcome -&gt; Bool) -&gt; Eq DeleteOutcome
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteOutcome -&gt; DeleteOutcome -&gt; Bool
+$c/= :: DeleteOutcome -&gt; DeleteOutcome -&gt; Bool
+== :: DeleteOutcome -&gt; DeleteOutcome -&gt; Bool
+$c== :: DeleteOutcome -&gt; DeleteOutcome -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317474"><span id="local-6989586621679317476"><span id="local-6989586621679317478"><span id="local-6989586621679317480"><span class="annot"><span class="annottext">ReadPrec [DeleteOutcome]
+ReadPrec DeleteOutcome
+Int -&gt; ReadS DeleteOutcome
+ReadS [DeleteOutcome]
+(Int -&gt; ReadS DeleteOutcome)
+-&gt; ReadS [DeleteOutcome]
+-&gt; ReadPrec DeleteOutcome
+-&gt; ReadPrec [DeleteOutcome]
+-&gt; Read DeleteOutcome
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteOutcome]
+$creadListPrec :: ReadPrec [DeleteOutcome]
+readPrec :: ReadPrec DeleteOutcome
+$creadPrec :: ReadPrec DeleteOutcome
+readList :: ReadS [DeleteOutcome]
+$creadList :: ReadS [DeleteOutcome]
+readsPrec :: Int -&gt; ReadS DeleteOutcome
+$creadsPrec :: Int -&gt; ReadS DeleteOutcome
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317467"><span id="local-6989586621679317469"><span id="local-6989586621679317471"><span class="annot"><span class="annottext">Int -&gt; DeleteOutcome -&gt; ShowS
+[DeleteOutcome] -&gt; ShowS
+DeleteOutcome -&gt; String
+(Int -&gt; DeleteOutcome -&gt; ShowS)
+-&gt; (DeleteOutcome -&gt; String)
+-&gt; ([DeleteOutcome] -&gt; ShowS)
+-&gt; Show DeleteOutcome
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteOutcome] -&gt; ShowS
+$cshowList :: [DeleteOutcome] -&gt; ShowS
+show :: DeleteOutcome -&gt; String
+$cshow :: DeleteOutcome -&gt; String
+showsPrec :: Int -&gt; DeleteOutcome -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteOutcome -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteOutcome -&gt; Rep DeleteOutcome x)
+-&gt; (forall x. Rep DeleteOutcome x -&gt; DeleteOutcome)
+-&gt; Generic DeleteOutcome
+forall x. Rep DeleteOutcome x -&gt; DeleteOutcome
+forall x. DeleteOutcome -&gt; Rep DeleteOutcome x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteOutcome x -&gt; DeleteOutcome
+$cfrom :: forall x. DeleteOutcome -&gt; Rep DeleteOutcome x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DeleteOutcome' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'name', 'deleteOutcome_name' - The name of the outcome to delete.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#newDeleteOutcome"><span class="hs-identifier hs-type">newDeleteOutcome</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span><span>
+</span><span id="line-73"></span><span id="newDeleteOutcome"><span class="annot"><span class="annottext">newDeleteOutcome :: Text -&gt; DeleteOutcome
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#newDeleteOutcome"><span class="hs-identifier hs-var hs-var">newDeleteOutcome</span></a></span></span><span> </span><span id="local-6989586621679317462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317462"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeleteOutcome' :: Text -&gt; DeleteOutcome
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome%27"><span class="hs-identifier hs-type">DeleteOutcome'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteOutcome' :: Text
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#%24sel%3Aname%3ADeleteOutcome%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317462"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The name of the outcome to delete.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#deleteOutcome_name"><span class="hs-identifier hs-type">deleteOutcome_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="deleteOutcome_name"><span class="annot"><span class="annottext">deleteOutcome_name :: (Text -&gt; f Text) -&gt; DeleteOutcome -&gt; f DeleteOutcome
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#deleteOutcome_name"><span class="hs-identifier hs-var hs-var">deleteOutcome_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteOutcome -&gt; Text)
+-&gt; (DeleteOutcome -&gt; Text -&gt; DeleteOutcome)
+-&gt; Lens DeleteOutcome DeleteOutcome Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome%27"><span class="hs-identifier hs-type">DeleteOutcome'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317459"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeleteOutcome' :: DeleteOutcome -&gt; Text
+</span><a href="#local-6989586621679317459"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317459"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317458"><span class="annot"><span class="annottext">s :: DeleteOutcome
+</span><a href="#local-6989586621679317458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome%27"><span class="hs-identifier hs-type">DeleteOutcome'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOutcome
+</span><a href="#local-6989586621679317458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteOutcome' :: Text
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#%24sel%3Aname%3ADeleteOutcome%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse"><span class="hs-identifier hs-type">DeleteOutcomeResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679317453"><span class="annot"><span class="annottext">request :: DeleteOutcome -&gt; Request DeleteOutcome
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteOutcome -&gt; Request DeleteOutcome
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679317449"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteOutcome
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteOutcome)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteOutcome))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteOutcome
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteOutcome)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317446"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317446"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317445"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317445"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317444"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679317444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteOutcomeResponse
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse%27"><span class="hs-identifier hs-var">DeleteOutcomeResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteOutcomeResponse)
+-&gt; Either String Int -&gt; Either String DeleteOutcomeResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317446"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317437"><span id="local-6989586621679317439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679317430"><span class="annot"><span class="annottext">toHeaders :: DeleteOutcome -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteOutcome -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.DeleteOutcome&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-103"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317420"><span id="local-6989586621679317422"><span id="local-6989586621679317424"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679317418"><span class="annot"><span class="annottext">toJSON :: DeleteOutcome -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome%27"><span class="hs-identifier hs-type">DeleteOutcome'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317416"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:DeleteOutcome' :: DeleteOutcome -&gt; Text
+</span><a href="#local-6989586621679317416"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317416"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679317410"><span class="annot"><span class="annottext">toPath :: DeleteOutcome -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteOutcome -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcome"><span class="hs-identifier hs-type">DeleteOutcome</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679317406"><span class="annot"><span class="annottext">toQuery :: DeleteOutcome -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteOutcome -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newDeleteOutcomeResponse' smart constructor.</span><span>
+</span><span id="line-125"></span><span id="local-6989586621679317403"><span id="local-6989586621679317404"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOutcomeResponse"><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse"><span class="hs-identifier hs-var">DeleteOutcomeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOutcomeResponse%27"><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse%27"><span class="hs-identifier hs-var">DeleteOutcomeResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteOutcomeResponse%27"><span class="annot"><span class="annottext">DeleteOutcomeResponse -&gt; Int
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#%24sel%3AhttpStatus%3ADeleteOutcomeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317398"><span id="local-6989586621679317400"><span class="annot"><span class="annottext">DeleteOutcomeResponse -&gt; DeleteOutcomeResponse -&gt; Bool
+(DeleteOutcomeResponse -&gt; DeleteOutcomeResponse -&gt; Bool)
+-&gt; (DeleteOutcomeResponse -&gt; DeleteOutcomeResponse -&gt; Bool)
+-&gt; Eq DeleteOutcomeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteOutcomeResponse -&gt; DeleteOutcomeResponse -&gt; Bool
+$c/= :: DeleteOutcomeResponse -&gt; DeleteOutcomeResponse -&gt; Bool
+== :: DeleteOutcomeResponse -&gt; DeleteOutcomeResponse -&gt; Bool
+$c== :: DeleteOutcomeResponse -&gt; DeleteOutcomeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317390"><span id="local-6989586621679317392"><span id="local-6989586621679317394"><span id="local-6989586621679317396"><span class="annot"><span class="annottext">ReadPrec [DeleteOutcomeResponse]
+ReadPrec DeleteOutcomeResponse
+Int -&gt; ReadS DeleteOutcomeResponse
+ReadS [DeleteOutcomeResponse]
+(Int -&gt; ReadS DeleteOutcomeResponse)
+-&gt; ReadS [DeleteOutcomeResponse]
+-&gt; ReadPrec DeleteOutcomeResponse
+-&gt; ReadPrec [DeleteOutcomeResponse]
+-&gt; Read DeleteOutcomeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteOutcomeResponse]
+$creadListPrec :: ReadPrec [DeleteOutcomeResponse]
+readPrec :: ReadPrec DeleteOutcomeResponse
+$creadPrec :: ReadPrec DeleteOutcomeResponse
+readList :: ReadS [DeleteOutcomeResponse]
+$creadList :: ReadS [DeleteOutcomeResponse]
+readsPrec :: Int -&gt; ReadS DeleteOutcomeResponse
+$creadsPrec :: Int -&gt; ReadS DeleteOutcomeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317384"><span id="local-6989586621679317386"><span id="local-6989586621679317388"><span class="annot"><span class="annottext">Int -&gt; DeleteOutcomeResponse -&gt; ShowS
+[DeleteOutcomeResponse] -&gt; ShowS
+DeleteOutcomeResponse -&gt; String
+(Int -&gt; DeleteOutcomeResponse -&gt; ShowS)
+-&gt; (DeleteOutcomeResponse -&gt; String)
+-&gt; ([DeleteOutcomeResponse] -&gt; ShowS)
+-&gt; Show DeleteOutcomeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteOutcomeResponse] -&gt; ShowS
+$cshowList :: [DeleteOutcomeResponse] -&gt; ShowS
+show :: DeleteOutcomeResponse -&gt; String
+$cshow :: DeleteOutcomeResponse -&gt; String
+showsPrec :: Int -&gt; DeleteOutcomeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteOutcomeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteOutcomeResponse -&gt; Rep DeleteOutcomeResponse x)
+-&gt; (forall x. Rep DeleteOutcomeResponse x -&gt; DeleteOutcomeResponse)
+-&gt; Generic DeleteOutcomeResponse
+forall x. Rep DeleteOutcomeResponse x -&gt; DeleteOutcomeResponse
+forall x. DeleteOutcomeResponse -&gt; Rep DeleteOutcomeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteOutcomeResponse x -&gt; DeleteOutcomeResponse
+$cfrom :: forall x. DeleteOutcomeResponse -&gt; Rep DeleteOutcomeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'DeleteOutcomeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'httpStatus', 'deleteOutcomeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#newDeleteOutcomeResponse"><span class="hs-identifier hs-type">newDeleteOutcomeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse"><span class="hs-identifier hs-type">DeleteOutcomeResponse</span></a></span><span>
+</span><span id="line-144"></span><span id="newDeleteOutcomeResponse"><span class="annot"><span class="annottext">newDeleteOutcomeResponse :: Int -&gt; DeleteOutcomeResponse
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#newDeleteOutcomeResponse"><span class="hs-identifier hs-var hs-var">newDeleteOutcomeResponse</span></a></span></span><span> </span><span id="local-6989586621679317381"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DeleteOutcomeResponse' :: Int -&gt; DeleteOutcomeResponse
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse%27"><span class="hs-identifier hs-type">DeleteOutcomeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOutcomeResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#%24sel%3AhttpStatus%3ADeleteOutcomeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317381"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#deleteOutcomeResponse_httpStatus"><span class="hs-identifier hs-type">deleteOutcomeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse"><span class="hs-identifier hs-type">DeleteOutcomeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-149"></span><span id="deleteOutcomeResponse_httpStatus"><span class="annot"><span class="annottext">deleteOutcomeResponse_httpStatus :: (Int -&gt; f Int) -&gt; DeleteOutcomeResponse -&gt; f DeleteOutcomeResponse
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#deleteOutcomeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteOutcomeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteOutcomeResponse -&gt; Int)
+-&gt; (DeleteOutcomeResponse -&gt; Int -&gt; DeleteOutcomeResponse)
+-&gt; Lens DeleteOutcomeResponse DeleteOutcomeResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse%27"><span class="hs-identifier hs-type">DeleteOutcomeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317380"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteOutcomeResponse' :: DeleteOutcomeResponse -&gt; Int
+</span><a href="#local-6989586621679317380"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317380"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317379"><span class="annot"><span class="annottext">s :: DeleteOutcomeResponse
+</span><a href="#local-6989586621679317379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse%27"><span class="hs-identifier hs-type">DeleteOutcomeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOutcomeResponse
+</span><a href="#local-6989586621679317379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOutcomeResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.DeleteOutcome.html#%24sel%3AhttpStatus%3ADeleteOutcomeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse"><span class="hs-identifier hs-type">DeleteOutcomeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteOutcome.html#DeleteOutcomeResponse"><span class="hs-identifier hs-type">DeleteOutcomeResponse</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

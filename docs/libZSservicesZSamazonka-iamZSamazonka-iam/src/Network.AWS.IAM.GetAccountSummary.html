@@ -49,10 +49,10 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetAccountSummary' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679451986"><span id="local-6989586621679451987"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAccountSummary"><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-var">GetAccountSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAccountSummary%27"><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary%27"><span class="hs-identifier hs-var">GetAccountSummary'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679451995"><span id="local-6989586621679451996"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAccountSummary"><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-var">GetAccountSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAccountSummary%27"><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary%27"><span class="hs-identifier hs-var">GetAccountSummary'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451981"><span id="local-6989586621679451983"><span class="annot"><span class="annottext">GetAccountSummary -&gt; GetAccountSummary -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451990"><span id="local-6989586621679451992"><span class="annot"><span class="annottext">GetAccountSummary -&gt; GetAccountSummary -&gt; Bool
 (GetAccountSummary -&gt; GetAccountSummary -&gt; Bool)
 -&gt; (GetAccountSummary -&gt; GetAccountSummary -&gt; Bool)
 -&gt; Eq GetAccountSummary
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAccountSummary -&gt; GetAccountSummary -&gt; Bool
 == :: GetAccountSummary -&gt; GetAccountSummary -&gt; Bool
 $c== :: GetAccountSummary -&gt; GetAccountSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451972"><span id="local-6989586621679451974"><span id="local-6989586621679451976"><span id="local-6989586621679451978"><span class="annot"><span class="annottext">ReadPrec [GetAccountSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451981"><span id="local-6989586621679451983"><span id="local-6989586621679451985"><span id="local-6989586621679451987"><span class="annot"><span class="annottext">ReadPrec [GetAccountSummary]
 ReadPrec GetAccountSummary
 Int -&gt; ReadS GetAccountSummary
 ReadS [GetAccountSummary]
@@ -81,7 +81,7 @@ readList :: ReadS [GetAccountSummary]
 $creadList :: ReadS [GetAccountSummary]
 readsPrec :: Int -&gt; ReadS GetAccountSummary
 $creadsPrec :: Int -&gt; ReadS GetAccountSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451965"><span id="local-6989586621679451967"><span id="local-6989586621679451969"><span class="annot"><span class="annottext">Int -&gt; GetAccountSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451974"><span id="local-6989586621679451976"><span id="local-6989586621679451978"><span class="annot"><span class="annottext">Int -&gt; GetAccountSummary -&gt; ShowS
 [GetAccountSummary] -&gt; ShowS
 GetAccountSummary -&gt; String
 (Int -&gt; GetAccountSummary -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. GetAccountSummary -&gt; Rep GetAccountSummary x
 </span><span id="line-66"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-67"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-type">GetAccountSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-type">GetAccountSummaryResponse</span></a></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679451957"><span class="annot"><span class="annottext">request :: GetAccountSummary -&gt; Request GetAccountSummary
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679451966"><span class="annot"><span class="annottext">request :: GetAccountSummary -&gt; Request GetAccountSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAccountSummary -&gt; Request GetAccountSummary
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679451953"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679451962"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAccountSummary
 -&gt; ClientResponse ClientBody
@@ -157,10 +157,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetAccountSummaryResult&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679451950"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451950"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679451949"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679451949"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679451948"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679451948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679451959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451959"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679451958"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679451958"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679451957"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679451957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap SummaryKeyType Int)
 -&gt; Int -&gt; GetAccountSummaryResponse
 </span><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-var">GetAccountSummaryResponse'</span></a></span><span>
@@ -170,7 +170,7 @@ Text
 -&gt; Either String (Int -&gt; GetAccountSummaryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679451948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679451957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SummaryMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -208,15 +208,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451950"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679451959"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451937"><span id="local-6989586621679451939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-type">GetAccountSummary</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451946"><span id="local-6989586621679451948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-type">GetAccountSummary</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-type">GetAccountSummary</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-type">GetAccountSummary</span></a></span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-type">GetAccountSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679451930"><span class="annot"><span class="annottext">toHeaders :: GetAccountSummary -&gt; ResponseHeaders
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679451939"><span class="annot"><span class="annottext">toHeaders :: GetAccountSummary -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAccountSummary -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -224,14 +224,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-type">GetAccountSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679451925"><span class="annot"><span class="annottext">toPath :: GetAccountSummary -&gt; ByteString
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679451934"><span class="annot"><span class="annottext">toPath :: GetAccountSummary -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAccountSummary -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummary"><span class="hs-identifier hs-type">GetAccountSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679451921"><span class="annot"><span class="annottext">toQuery :: GetAccountSummary -&gt; QueryString
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679451930"><span class="annot"><span class="annottext">toQuery :: GetAccountSummary -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; GetAccountSummary -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -257,7 +257,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-102"></span><span class="hs-comment">-- | Contains the response to a successful GetAccountSummary request.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- /See:/ 'newGetAccountSummaryResponse' smart constructor.</span><span>
-</span><span id="line-105"></span><span id="local-6989586621679451917"><span id="local-6989586621679451918"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAccountSummaryResponse"><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-var">GetAccountSummaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAccountSummaryResponse%27"><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-var">GetAccountSummaryResponse'</span></a></span></span><span>
+</span><span id="line-105"></span><span id="local-6989586621679451926"><span id="local-6989586621679451927"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAccountSummaryResponse"><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-var">GetAccountSummaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAccountSummaryResponse%27"><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-var">GetAccountSummaryResponse'</span></a></span></span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of key&#8211;value pairs containing information about IAM entity usage</span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-comment">-- and IAM quotas.</span><span>
 </span><span id="line-108"></span><span>    </span><span id="%24sel%3AsummaryMap%3AGetAccountSummaryResponse%27"><span class="annot"><span class="annottext">GetAccountSummaryResponse -&gt; Maybe (HashMap SummaryKeyType Int)
@@ -266,7 +266,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAccountSummaryResponse%27"><span class="annot"><span class="annottext">GetAccountSummaryResponse -&gt; Int
 </span><a href="Network.AWS.IAM.GetAccountSummary.html#%24sel%3AhttpStatus%3AGetAccountSummaryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451911"><span id="local-6989586621679451913"><span class="annot"><span class="annottext">GetAccountSummaryResponse -&gt; GetAccountSummaryResponse -&gt; Bool
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451920"><span id="local-6989586621679451922"><span class="annot"><span class="annottext">GetAccountSummaryResponse -&gt; GetAccountSummaryResponse -&gt; Bool
 (GetAccountSummaryResponse -&gt; GetAccountSummaryResponse -&gt; Bool)
 -&gt; (GetAccountSummaryResponse -&gt; GetAccountSummaryResponse -&gt; Bool)
 -&gt; Eq GetAccountSummaryResponse
@@ -275,7 +275,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAccountSummaryResponse -&gt; GetAccountSummaryResponse -&gt; Bool
 == :: GetAccountSummaryResponse -&gt; GetAccountSummaryResponse -&gt; Bool
 $c== :: GetAccountSummaryResponse -&gt; GetAccountSummaryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451903"><span id="local-6989586621679451905"><span id="local-6989586621679451907"><span id="local-6989586621679451909"><span class="annot"><span class="annottext">ReadPrec [GetAccountSummaryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451912"><span id="local-6989586621679451914"><span id="local-6989586621679451916"><span id="local-6989586621679451918"><span class="annot"><span class="annottext">ReadPrec [GetAccountSummaryResponse]
 ReadPrec GetAccountSummaryResponse
 Int -&gt; ReadS GetAccountSummaryResponse
 ReadS [GetAccountSummaryResponse]
@@ -295,7 +295,7 @@ readList :: ReadS [GetAccountSummaryResponse]
 $creadList :: ReadS [GetAccountSummaryResponse]
 readsPrec :: Int -&gt; ReadS GetAccountSummaryResponse
 $creadsPrec :: Int -&gt; ReadS GetAccountSummaryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451897"><span id="local-6989586621679451899"><span id="local-6989586621679451901"><span class="annot"><span class="annottext">Int -&gt; GetAccountSummaryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451906"><span id="local-6989586621679451908"><span id="local-6989586621679451910"><span class="annot"><span class="annottext">Int -&gt; GetAccountSummaryResponse -&gt; ShowS
 [GetAccountSummaryResponse] -&gt; ShowS
 GetAccountSummaryResponse -&gt; String
 (Int -&gt; GetAccountSummaryResponse -&gt; ShowS)
@@ -344,8 +344,8 @@ GetAccountSummaryResponse -&gt; Rep GetAccountSummaryResponse x
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-type">GetAccountSummaryResponse</span></a></span><span>
 </span><span id="line-130"></span><span id="newGetAccountSummaryResponse"><span class="annot"><span class="annottext">newGetAccountSummaryResponse :: Int -&gt; GetAccountSummaryResponse
-</span><a href="Network.AWS.IAM.GetAccountSummary.html#newGetAccountSummaryResponse"><span class="hs-identifier hs-var hs-var">newGetAccountSummaryResponse</span></a></span></span><span> </span><span id="local-6989586621679451894"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451894"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.GetAccountSummary.html#newGetAccountSummaryResponse"><span class="hs-identifier hs-var hs-var">newGetAccountSummaryResponse</span></a></span></span><span> </span><span id="local-6989586621679451903"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">GetAccountSummaryResponse' :: Maybe (HashMap SummaryKeyType Int)
 -&gt; Int -&gt; GetAccountSummaryResponse
 </span><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-type">GetAccountSummaryResponse'</span></a></span><span>
@@ -356,7 +356,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAccountSummaryResponse' :: Int
 </span><a href="Network.AWS.IAM.GetAccountSummary.html#%24sel%3AhttpStatus%3AGetAccountSummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451894"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679451903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | A set of key&#8211;value pairs containing information about IAM entity usage</span><span>
@@ -374,16 +374,16 @@ forall a. Maybe a
      (Maybe (HashMap SummaryKeyType Int))
      (Maybe (HashMap SummaryKeyType Int))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-type">GetAccountSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451891"><span class="annot"><span class="annottext">Maybe (HashMap SummaryKeyType Int)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-type">GetAccountSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451900"><span class="annot"><span class="annottext">Maybe (HashMap SummaryKeyType Int)
 summaryMap :: Maybe (HashMap SummaryKeyType Int)
 $sel:summaryMap:GetAccountSummaryResponse' :: GetAccountSummaryResponse -&gt; Maybe (HashMap SummaryKeyType Int)
-</span><a href="#local-6989586621679451891"><span class="hs-identifier hs-var hs-var">summaryMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap SummaryKeyType Int)
-</span><a href="#local-6989586621679451891"><span class="hs-identifier hs-var">summaryMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451890"><span class="annot"><span class="annottext">s :: GetAccountSummaryResponse
-</span><a href="#local-6989586621679451890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-type">GetAccountSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451889"><span class="annot"><span class="annottext">Maybe (HashMap SummaryKeyType Int)
-</span><a href="#local-6989586621679451889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAccountSummaryResponse
-</span><a href="#local-6989586621679451890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaryMap:GetAccountSummaryResponse' :: Maybe (HashMap SummaryKeyType Int)
+</span><a href="#local-6989586621679451900"><span class="hs-identifier hs-var hs-var">summaryMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap SummaryKeyType Int)
+</span><a href="#local-6989586621679451900"><span class="hs-identifier hs-var">summaryMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451899"><span class="annot"><span class="annottext">s :: GetAccountSummaryResponse
+</span><a href="#local-6989586621679451899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-type">GetAccountSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451898"><span class="annot"><span class="annottext">Maybe (HashMap SummaryKeyType Int)
+</span><a href="#local-6989586621679451898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAccountSummaryResponse
+</span><a href="#local-6989586621679451899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaryMap:GetAccountSummaryResponse' :: Maybe (HashMap SummaryKeyType Int)
 </span><a href="Network.AWS.IAM.GetAccountSummary.html#%24sel%3AsummaryMap%3AGetAccountSummaryResponse%27"><span class="hs-identifier hs-var">summaryMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap SummaryKeyType Int)
-</span><a href="#local-6989586621679451889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-type">GetAccountSummaryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap SummaryKeyType Int)
+</span><a href="#local-6989586621679451898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-type">GetAccountSummaryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap SummaryKeyType Int)
   -&gt; f (Maybe (HashMap SummaryKeyType Int)))
  -&gt; GetAccountSummaryResponse -&gt; f GetAccountSummaryResponse)
 -&gt; ((Maybe (HashMap SummaryKeyType Int)
@@ -424,16 +424,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetAccountSummaryResponse -&gt; Int -&gt; GetAccountSummaryResponse)
 -&gt; Lens GetAccountSummaryResponse GetAccountSummaryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-type">GetAccountSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451885"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-type">GetAccountSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451894"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAccountSummaryResponse' :: GetAccountSummaryResponse -&gt; Int
-</span><a href="#local-6989586621679451885"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451885"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451884"><span class="annot"><span class="annottext">s :: GetAccountSummaryResponse
-</span><a href="#local-6989586621679451884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-type">GetAccountSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451883"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAccountSummaryResponse
-</span><a href="#local-6989586621679451884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAccountSummaryResponse' :: Int
+</span><a href="#local-6989586621679451894"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451894"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451893"><span class="annot"><span class="annottext">s :: GetAccountSummaryResponse
+</span><a href="#local-6989586621679451893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse%27"><span class="hs-identifier hs-type">GetAccountSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451892"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAccountSummaryResponse
+</span><a href="#local-6989586621679451893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAccountSummaryResponse' :: Int
 </span><a href="Network.AWS.IAM.GetAccountSummary.html#%24sel%3AhttpStatus%3AGetAccountSummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-type">GetAccountSummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679451892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-type">GetAccountSummaryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-type">GetAccountSummaryResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451890"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.GetAccountSummary.html#GetAccountSummaryResponse"><span class="hs-identifier hs-type">GetAccountSummaryResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

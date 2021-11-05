@@ -50,10 +50,10 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventConfigurations' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679838176"><span id="local-6989586621679838177"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventConfigurations"><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-var">DescribeEventConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventConfigurations%27"><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations%27"><span class="hs-identifier hs-var">DescribeEventConfigurations'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679838185"><span id="local-6989586621679838186"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventConfigurations"><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-var">DescribeEventConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventConfigurations%27"><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations%27"><span class="hs-identifier hs-var">DescribeEventConfigurations'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679838171"><span id="local-6989586621679838173"><span class="annot"><span class="annottext">DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679838180"><span id="local-6989586621679838182"><span class="annot"><span class="annottext">DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
 (DescribeEventConfigurations
  -&gt; DescribeEventConfigurations -&gt; Bool)
 -&gt; (DescribeEventConfigurations
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
 == :: DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
 $c== :: DescribeEventConfigurations -&gt; DescribeEventConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838162"><span id="local-6989586621679838164"><span id="local-6989586621679838166"><span id="local-6989586621679838168"><span class="annot"><span class="annottext">ReadPrec [DescribeEventConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838171"><span id="local-6989586621679838173"><span id="local-6989586621679838175"><span id="local-6989586621679838177"><span class="annot"><span class="annottext">ReadPrec [DescribeEventConfigurations]
 ReadPrec DescribeEventConfigurations
 Int -&gt; ReadS DescribeEventConfigurations
 ReadS [DescribeEventConfigurations]
@@ -84,7 +84,7 @@ readList :: ReadS [DescribeEventConfigurations]
 $creadList :: ReadS [DescribeEventConfigurations]
 readsPrec :: Int -&gt; ReadS DescribeEventConfigurations
 $creadsPrec :: Int -&gt; ReadS DescribeEventConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838155"><span id="local-6989586621679838157"><span id="local-6989586621679838159"><span class="annot"><span class="annottext">Int -&gt; DescribeEventConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838164"><span id="local-6989586621679838166"><span id="local-6989586621679838168"><span class="annot"><span class="annottext">Int -&gt; DescribeEventConfigurations -&gt; ShowS
 [DescribeEventConfigurations] -&gt; ShowS
 DescribeEventConfigurations -&gt; String
 (Int -&gt; DescribeEventConfigurations -&gt; ShowS)
@@ -131,14 +131,14 @@ DescribeEventConfigurations -&gt; Rep DescribeEventConfigurations x
 </span><span id="line-68"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-69"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679838147"><span class="annot"><span class="annottext">request :: DescribeEventConfigurations -&gt; Request DescribeEventConfigurations
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679838156"><span class="annot"><span class="annottext">request :: DescribeEventConfigurations -&gt; Request DescribeEventConfigurations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeEventConfigurations
 -&gt; Request DescribeEventConfigurations
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679838143"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679838152"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeEventConfigurations
 -&gt; ClientResponse ClientBody
@@ -164,10 +164,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679838140"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838140"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679838139"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679838139"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679838138"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679838138"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679838149"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838149"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679838148"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679838148"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679838147"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679838147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe (HashMap EventType Configuration)
 -&gt; Maybe POSIX
@@ -186,7 +186,7 @@ MonadResource m =&gt;
       -&gt; Maybe POSIX -&gt; Int -&gt; DescribeEventConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679838138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679838147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,7 +199,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe POSIX -&gt; Int -&gt; DescribeEventConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679838138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679838147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe (HashMap EventType Configuration)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -219,7 +219,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeEventConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679838138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679838147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,15 +232,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838140"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679838149"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838129"><span id="local-6989586621679838131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838138"><span id="local-6989586621679838140"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838135"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679838122"><span class="annot"><span class="annottext">toHeaders :: DescribeEventConfigurations -&gt; ResponseHeaders
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679838131"><span class="annot"><span class="annottext">toHeaders :: DescribeEventConfigurations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEventConfigurations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -248,14 +248,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679838117"><span class="annot"><span class="annottext">toPath :: DescribeEventConfigurations -&gt; ByteString
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679838126"><span class="annot"><span class="annottext">toPath :: DescribeEventConfigurations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEventConfigurations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/event-configurations&quot;</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurations"><span class="hs-identifier hs-type">DescribeEventConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679838113"><span class="annot"><span class="annottext">toQuery :: DescribeEventConfigurations -&gt; QueryString
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679838122"><span class="annot"><span class="annottext">toQuery :: DescribeEventConfigurations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeEventConfigurations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -263,7 +263,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | /See:/ 'newDescribeEventConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-98"></span><span id="local-6989586621679838110"><span id="local-6989586621679838111"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventConfigurationsResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-var">DescribeEventConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeEventConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-98"></span><span id="local-6989586621679838119"><span id="local-6989586621679838120"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEventConfigurationsResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-var">DescribeEventConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEventConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeEventConfigurationsResponse'</span></a></span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date the event configurations were last modified.</span><span>
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3ADescribeEventConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoT.DescribeEventConfigurations.html#%24sel%3AlastModifiedDate%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -278,7 +278,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEventConfigurationsResponse%27"><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DescribeEventConfigurations.html#%24sel%3AhttpStatus%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679838102"><span id="local-6989586621679838104"><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679838111"><span id="local-6989586621679838113"><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
 -&gt; DescribeEventConfigurationsResponse -&gt; Bool
 (DescribeEventConfigurationsResponse
  -&gt; DescribeEventConfigurationsResponse -&gt; Bool)
@@ -294,7 +294,7 @@ $c/= :: DescribeEventConfigurationsResponse
 -&gt; DescribeEventConfigurationsResponse -&gt; Bool
 $c== :: DescribeEventConfigurationsResponse
 -&gt; DescribeEventConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838094"><span id="local-6989586621679838096"><span id="local-6989586621679838098"><span id="local-6989586621679838100"><span class="annot"><span class="annottext">ReadPrec [DescribeEventConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838103"><span id="local-6989586621679838105"><span id="local-6989586621679838107"><span id="local-6989586621679838109"><span class="annot"><span class="annottext">ReadPrec [DescribeEventConfigurationsResponse]
 ReadPrec DescribeEventConfigurationsResponse
 Int -&gt; ReadS DescribeEventConfigurationsResponse
 ReadS [DescribeEventConfigurationsResponse]
@@ -314,7 +314,7 @@ readList :: ReadS [DescribeEventConfigurationsResponse]
 $creadList :: ReadS [DescribeEventConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeEventConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeEventConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838088"><span id="local-6989586621679838090"><span id="local-6989586621679838092"><span class="annot"><span class="annottext">Int -&gt; DescribeEventConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838097"><span id="local-6989586621679838099"><span id="local-6989586621679838101"><span class="annot"><span class="annottext">Int -&gt; DescribeEventConfigurationsResponse -&gt; ShowS
 [DescribeEventConfigurationsResponse] -&gt; ShowS
 DescribeEventConfigurationsResponse -&gt; String
 (Int -&gt; DescribeEventConfigurationsResponse -&gt; ShowS)
@@ -372,8 +372,8 @@ DescribeEventConfigurationsResponse
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span>
 </span><span id="line-129"></span><span id="newDescribeEventConfigurationsResponse"><span class="annot"><span class="annottext">newDescribeEventConfigurationsResponse :: Int -&gt; DescribeEventConfigurationsResponse
-</span><a href="Network.AWS.IoT.DescribeEventConfigurations.html#newDescribeEventConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679838085"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838085"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeEventConfigurations.html#newDescribeEventConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEventConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679838094"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838094"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse' :: Maybe POSIX
 -&gt; Maybe (HashMap EventType Configuration)
 -&gt; Maybe POSIX
@@ -395,7 +395,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventConfigurationsResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeEventConfigurations.html#%24sel%3AhttpStatus%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838085"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679838094"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The date the event configurations were last modified.</span><span>
@@ -412,16 +412,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838082"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838091"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedDate :: Maybe POSIX
 $sel:lastModifiedDate:DescribeEventConfigurationsResponse' :: DescribeEventConfigurationsResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679838082"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679838082"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838081"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
-</span><a href="#local-6989586621679838081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838080"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679838080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
-</span><a href="#local-6989586621679838081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:DescribeEventConfigurationsResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679838091"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679838091"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838090"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679838090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838089"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679838089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679838090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:DescribeEventConfigurationsResponse' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.DescribeEventConfigurations.html#%24sel%3AlastModifiedDate%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679838080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679838089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DescribeEventConfigurationsResponse
  -&gt; f DescribeEventConfigurationsResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -456,17 +456,17 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe (HashMap EventType Configuration))
      (Maybe (HashMap EventType Configuration))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838076"><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838085"><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
 eventConfigurations :: Maybe (HashMap EventType Configuration)
 $sel:eventConfigurations:DescribeEventConfigurationsResponse' :: DescribeEventConfigurationsResponse
 -&gt; Maybe (HashMap EventType Configuration)
-</span><a href="#local-6989586621679838076"><span class="hs-identifier hs-var hs-var">eventConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
-</span><a href="#local-6989586621679838076"><span class="hs-identifier hs-var">eventConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838075"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
-</span><a href="#local-6989586621679838075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838074"><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
-</span><a href="#local-6989586621679838074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
-</span><a href="#local-6989586621679838075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventConfigurations:DescribeEventConfigurationsResponse' :: Maybe (HashMap EventType Configuration)
+</span><a href="#local-6989586621679838085"><span class="hs-identifier hs-var hs-var">eventConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
+</span><a href="#local-6989586621679838085"><span class="hs-identifier hs-var">eventConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838084"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679838084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838083"><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
+</span><a href="#local-6989586621679838083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679838084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventConfigurations:DescribeEventConfigurationsResponse' :: Maybe (HashMap EventType Configuration)
 </span><a href="Network.AWS.IoT.DescribeEventConfigurations.html#%24sel%3AeventConfigurations%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">eventConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EventType Configuration)
-</span><a href="#local-6989586621679838074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap EventType Configuration)
+</span><a href="#local-6989586621679838083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap EventType Configuration)
   -&gt; f (Maybe (HashMap EventType Configuration)))
  -&gt; DescribeEventConfigurationsResponse
  -&gt; f DescribeEventConfigurationsResponse)
@@ -514,16 +514,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838072"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838081"><span class="annot"><span class="annottext">Maybe POSIX
 creationDate :: Maybe POSIX
 $sel:creationDate:DescribeEventConfigurationsResponse' :: DescribeEventConfigurationsResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679838072"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679838072"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838071"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
-</span><a href="#local-6989586621679838071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838070"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679838070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
-</span><a href="#local-6989586621679838071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:DescribeEventConfigurationsResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679838081"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679838081"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838080"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679838080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838079"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679838079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679838080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:DescribeEventConfigurationsResponse' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.DescribeEventConfigurations.html#%24sel%3AcreationDate%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679838070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679838079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DescribeEventConfigurationsResponse
  -&gt; f DescribeEventConfigurationsResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -555,18 +555,18 @@ forall (a :: Format). Iso' (Time a) UTCTime
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838069"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838078"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeEventConfigurationsResponse' :: DescribeEventConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679838069"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838069"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838068"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
-</span><a href="#local-6989586621679838068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838067"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
-</span><a href="#local-6989586621679838068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679838078"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838078"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838077"><span class="annot"><span class="annottext">s :: DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679838077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838076"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679838076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEventConfigurationsResponse
+</span><a href="#local-6989586621679838077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEventConfigurationsResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeEventConfigurations.html#%24sel%3AhttpStatus%3ADescribeEventConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679838076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679838065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679838074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.DescribeEventConfigurations.html#DescribeEventConfigurationsResponse"><span class="hs-identifier hs-type">DescribeEventConfigurationsResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

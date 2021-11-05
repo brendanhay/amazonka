@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.FolderType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.FolderType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FolderType.html#FolderType"><span class="hs-identifier">FolderType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FolderType.html#FolderType_SHARED"><span class="hs-identifier">FolderType_SHARED</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679555899"><span id="local-6989586621679555900"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FolderType"><span class="annot"><a href="Network.AWS.QuickSight.Types.FolderType.html#FolderType"><span class="hs-identifier hs-var">FolderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FolderType%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.FolderType.html#FolderType%27"><span class="hs-identifier hs-var">FolderType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFolderType"><span class="annot"><span class="annottext">FolderType -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.FolderType.html#fromFolderType"><span class="hs-identifier hs-var hs-var">fromFolderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679555891"><span id="local-6989586621679555893"><span id="local-6989586621679555895"><span class="annot"><span class="annottext">Int -&gt; FolderType -&gt; ShowS
+[FolderType] -&gt; ShowS
+FolderType -&gt; String
+(Int -&gt; FolderType -&gt; ShowS)
+-&gt; (FolderType -&gt; String)
+-&gt; ([FolderType] -&gt; ShowS)
+-&gt; Show FolderType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FolderType] -&gt; ShowS
+$cshowList :: [FolderType] -&gt; ShowS
+show :: FolderType -&gt; String
+$cshow :: FolderType -&gt; String
+showsPrec :: Int -&gt; FolderType -&gt; ShowS
+$cshowsPrec :: Int -&gt; FolderType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679555882"><span id="local-6989586621679555884"><span id="local-6989586621679555886"><span id="local-6989586621679555888"><span class="annot"><span class="annottext">ReadPrec [FolderType]
+ReadPrec FolderType
+Int -&gt; ReadS FolderType
+ReadS [FolderType]
+(Int -&gt; ReadS FolderType)
+-&gt; ReadS [FolderType]
+-&gt; ReadPrec FolderType
+-&gt; ReadPrec [FolderType]
+-&gt; Read FolderType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FolderType]
+$creadListPrec :: ReadPrec [FolderType]
+readPrec :: ReadPrec FolderType
+$creadPrec :: ReadPrec FolderType
+readList :: ReadS [FolderType]
+$creadList :: ReadS [FolderType]
+readsPrec :: Int -&gt; ReadS FolderType
+$creadsPrec :: Int -&gt; ReadS FolderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679555877"><span id="local-6989586621679555879"><span class="annot"><span class="annottext">FolderType -&gt; FolderType -&gt; Bool
+(FolderType -&gt; FolderType -&gt; Bool)
+-&gt; (FolderType -&gt; FolderType -&gt; Bool) -&gt; Eq FolderType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FolderType -&gt; FolderType -&gt; Bool
+$c/= :: FolderType -&gt; FolderType -&gt; Bool
+== :: FolderType -&gt; FolderType -&gt; Bool
+$c== :: FolderType -&gt; FolderType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679555861"><span id="local-6989586621679555863"><span id="local-6989586621679555865"><span id="local-6989586621679555867"><span id="local-6989586621679555869"><span id="local-6989586621679555871"><span id="local-6989586621679555873"><span class="annot"><span class="annottext">Eq FolderType
+Eq FolderType
+-&gt; (FolderType -&gt; FolderType -&gt; Ordering)
+-&gt; (FolderType -&gt; FolderType -&gt; Bool)
+-&gt; (FolderType -&gt; FolderType -&gt; Bool)
+-&gt; (FolderType -&gt; FolderType -&gt; Bool)
+-&gt; (FolderType -&gt; FolderType -&gt; Bool)
+-&gt; (FolderType -&gt; FolderType -&gt; FolderType)
+-&gt; (FolderType -&gt; FolderType -&gt; FolderType)
+-&gt; Ord FolderType
+FolderType -&gt; FolderType -&gt; Bool
+FolderType -&gt; FolderType -&gt; Ordering
+FolderType -&gt; FolderType -&gt; FolderType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FolderType -&gt; FolderType -&gt; FolderType
+$cmin :: FolderType -&gt; FolderType -&gt; FolderType
+max :: FolderType -&gt; FolderType -&gt; FolderType
+$cmax :: FolderType -&gt; FolderType -&gt; FolderType
+&gt;= :: FolderType -&gt; FolderType -&gt; Bool
+$c&gt;= :: FolderType -&gt; FolderType -&gt; Bool
+&gt; :: FolderType -&gt; FolderType -&gt; Bool
+$c&gt; :: FolderType -&gt; FolderType -&gt; Bool
+&lt;= :: FolderType -&gt; FolderType -&gt; Bool
+$c&lt;= :: FolderType -&gt; FolderType -&gt; Bool
+&lt; :: FolderType -&gt; FolderType -&gt; Bool
+$c&lt; :: FolderType -&gt; FolderType -&gt; Bool
+compare :: FolderType -&gt; FolderType -&gt; Ordering
+$ccompare :: FolderType -&gt; FolderType -&gt; Ordering
+$cp1Ord :: Eq FolderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FolderType -&gt; Rep FolderType x)
+-&gt; (forall x. Rep FolderType x -&gt; FolderType) -&gt; Generic FolderType
+forall x. Rep FolderType x -&gt; FolderType
+forall x. FolderType -&gt; Rep FolderType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FolderType x -&gt; FolderType
+$cfrom :: forall x. FolderType -&gt; Rep FolderType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679555853"><span id="local-6989586621679555855"><span class="annot"><span class="annottext">Int -&gt; FolderType -&gt; Int
+FolderType -&gt; Int
+(Int -&gt; FolderType -&gt; Int)
+-&gt; (FolderType -&gt; Int) -&gt; Hashable FolderType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FolderType -&gt; Int
+$chash :: FolderType -&gt; Int
+hashWithSalt :: Int -&gt; FolderType -&gt; Int
+$chashWithSalt :: Int -&gt; FolderType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679555850"><span class="annot"><span class="annottext">FolderType -&gt; ()
+(FolderType -&gt; ()) -&gt; NFData FolderType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FolderType -&gt; ()
+$crnf :: FolderType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679555847"><span class="annot"><span class="annottext">Text -&gt; Either String FolderType
+(Text -&gt; Either String FolderType) -&gt; FromText FolderType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FolderType
+$cfromText :: Text -&gt; Either String FolderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679555844"><span class="annot"><span class="annottext">FolderType -&gt; Text
+(FolderType -&gt; Text) -&gt; ToText FolderType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FolderType -&gt; Text
+$ctoText :: FolderType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679555841"><span class="annot"><span class="annottext">FolderType -&gt; ByteString
+(FolderType -&gt; ByteString) -&gt; ToByteString FolderType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FolderType -&gt; ByteString
+$ctoBS :: FolderType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679555838"><span class="annot"><span class="annottext">FolderType -&gt; ByteStringBuilder
+(FolderType -&gt; ByteStringBuilder) -&gt; ToLog FolderType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FolderType -&gt; ByteStringBuilder
+$cbuild :: FolderType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679555835"><span class="annot"><span class="annottext">HeaderName -&gt; FolderType -&gt; [Header]
+(HeaderName -&gt; FolderType -&gt; [Header]) -&gt; ToHeader FolderType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FolderType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FolderType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679555832"><span class="annot"><span class="annottext">FolderType -&gt; QueryString
+(FolderType -&gt; QueryString) -&gt; ToQuery FolderType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FolderType -&gt; QueryString
+$ctoQuery :: FolderType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679555827"><span id="local-6989586621679555829"><span class="annot"><span class="annottext">Value -&gt; Parser [FolderType]
+Value -&gt; Parser FolderType
+(Value -&gt; Parser FolderType)
+-&gt; (Value -&gt; Parser [FolderType]) -&gt; FromJSON FolderType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FolderType]
+$cparseJSONList :: Value -&gt; Parser [FolderType]
+parseJSON :: Value -&gt; Parser FolderType
+$cparseJSON :: Value -&gt; Parser FolderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679555822"><span id="local-6989586621679555824"><span class="annot"><span class="annottext">FromJSONKeyFunction [FolderType]
+FromJSONKeyFunction FolderType
+FromJSONKeyFunction FolderType
+-&gt; FromJSONKeyFunction [FolderType] -&gt; FromJSONKey FolderType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FolderType]
+$cfromJSONKeyList :: FromJSONKeyFunction [FolderType]
+fromJSONKey :: FromJSONKeyFunction FolderType
+$cfromJSONKey :: FromJSONKeyFunction FolderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679555813"><span id="local-6989586621679555815"><span id="local-6989586621679555817"><span id="local-6989586621679555819"><span class="annot"><span class="annottext">[FolderType] -&gt; Encoding
+[FolderType] -&gt; Value
+FolderType -&gt; Encoding
+FolderType -&gt; Value
+(FolderType -&gt; Value)
+-&gt; (FolderType -&gt; Encoding)
+-&gt; ([FolderType] -&gt; Value)
+-&gt; ([FolderType] -&gt; Encoding)
+-&gt; ToJSON FolderType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FolderType] -&gt; Encoding
+$ctoEncodingList :: [FolderType] -&gt; Encoding
+toJSONList :: [FolderType] -&gt; Value
+$ctoJSONList :: [FolderType] -&gt; Value
+toEncoding :: FolderType -&gt; Encoding
+$ctoEncoding :: FolderType -&gt; Encoding
+toJSON :: FolderType -&gt; Value
+$ctoJSON :: FolderType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679555808"><span id="local-6989586621679555810"><span class="annot"><span class="annottext">ToJSONKeyFunction [FolderType]
+ToJSONKeyFunction FolderType
+ToJSONKeyFunction FolderType
+-&gt; ToJSONKeyFunction [FolderType] -&gt; ToJSONKey FolderType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FolderType]
+$ctoJSONKeyList :: ToJSONKeyFunction [FolderType]
+toJSONKey :: ToJSONKeyFunction FolderType
+$ctoJSONKey :: ToJSONKeyFunction FolderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679555805"><span class="annot"><span class="annottext">[Node] -&gt; Either String FolderType
+([Node] -&gt; Either String FolderType) -&gt; FromXML FolderType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FolderType
+$cparseXML :: [Node] -&gt; Either String FolderType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679555802"><span class="annot"><span class="annottext">FolderType -&gt; XML
+(FolderType -&gt; XML) -&gt; ToXML FolderType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FolderType -&gt; XML
+$ctoXML :: FolderType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FolderType.html#FolderType_SHARED"><span class="hs-identifier hs-type">FolderType_SHARED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FolderType.html#FolderType"><span class="hs-identifier hs-type">FolderType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFolderType_SHARED"><span id="%24mFolderType_SHARED"><span id="FolderType_SHARED"><span class="annot"><span class="annottext">$bFolderType_SHARED :: FolderType
+$mFolderType_SHARED :: forall r. FolderType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.FolderType.html#%24bFolderType_SHARED"><span class="hs-identifier hs-var hs-var hs-var">FolderType_SHARED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FolderType.html#FolderType%27"><span class="hs-identifier hs-type">FolderType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SHARED&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FolderType.html#FolderType_SHARED"><span class="hs-pragma hs-type">FolderType_SHARED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FolderType.html#FolderType%27"><span class="hs-pragma hs-type">FolderType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

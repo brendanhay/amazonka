@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.UpdateGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Changes a group description.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.UpdateGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier">newUpdateGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_description"><span class="hs-identifier">updateGroup_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier">updateGroup_groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_awsAccountId"><span class="hs-identifier">updateGroup_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_namespace"><span class="hs-identifier">updateGroup_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier">UpdateGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#newUpdateGroupResponse"><span class="hs-identifier">newUpdateGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroupResponse_requestId"><span class="hs-identifier">updateGroupResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroupResponse_group"><span class="hs-identifier">updateGroupResponse_group</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroupResponse_status"><span class="hs-identifier">updateGroupResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroup' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679601263"><span id="local-6989586621679601264"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroup"><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-var">UpdateGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroup%27"><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-var">UpdateGroup'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description for the group that you want to update.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Adescription%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the group that you want to update.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AgroupName%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID for the Amazon Web Services account that the group is in.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Currently, you use the ID for the Amazon Web Services account that</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- contains your Amazon QuickSight account.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AawsAccountId%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3AawsAccountId%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The namespace. Currently, you should set this to @default@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Anamespace%3AUpdateGroup%27"><span class="annot"><span class="annottext">UpdateGroup -&gt; Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Anamespace%3AUpdateGroup%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679601254"><span id="local-6989586621679601256"><span class="annot"><span class="annottext">UpdateGroup -&gt; UpdateGroup -&gt; Bool
+(UpdateGroup -&gt; UpdateGroup -&gt; Bool)
+-&gt; (UpdateGroup -&gt; UpdateGroup -&gt; Bool) -&gt; Eq UpdateGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
+$c/= :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
+== :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
+$c== :: UpdateGroup -&gt; UpdateGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601245"><span id="local-6989586621679601247"><span id="local-6989586621679601249"><span id="local-6989586621679601251"><span class="annot"><span class="annottext">ReadPrec [UpdateGroup]
+ReadPrec UpdateGroup
+Int -&gt; ReadS UpdateGroup
+ReadS [UpdateGroup]
+(Int -&gt; ReadS UpdateGroup)
+-&gt; ReadS [UpdateGroup]
+-&gt; ReadPrec UpdateGroup
+-&gt; ReadPrec [UpdateGroup]
+-&gt; Read UpdateGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGroup]
+$creadListPrec :: ReadPrec [UpdateGroup]
+readPrec :: ReadPrec UpdateGroup
+$creadPrec :: ReadPrec UpdateGroup
+readList :: ReadS [UpdateGroup]
+$creadList :: ReadS [UpdateGroup]
+readsPrec :: Int -&gt; ReadS UpdateGroup
+$creadsPrec :: Int -&gt; ReadS UpdateGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601238"><span id="local-6989586621679601240"><span id="local-6989586621679601242"><span class="annot"><span class="annottext">Int -&gt; UpdateGroup -&gt; ShowS
+[UpdateGroup] -&gt; ShowS
+UpdateGroup -&gt; String
+(Int -&gt; UpdateGroup -&gt; ShowS)
+-&gt; (UpdateGroup -&gt; String)
+-&gt; ([UpdateGroup] -&gt; ShowS)
+-&gt; Show UpdateGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGroup] -&gt; ShowS
+$cshowList :: [UpdateGroup] -&gt; ShowS
+show :: UpdateGroup -&gt; String
+$cshow :: UpdateGroup -&gt; String
+showsPrec :: Int -&gt; UpdateGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateGroup -&gt; Rep UpdateGroup x)
+-&gt; (forall x. Rep UpdateGroup x -&gt; UpdateGroup)
+-&gt; Generic UpdateGroup
+forall x. Rep UpdateGroup x -&gt; UpdateGroup
+forall x. UpdateGroup -&gt; Rep UpdateGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateGroup x -&gt; UpdateGroup
+$cfrom :: forall x. UpdateGroup -&gt; Rep UpdateGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'UpdateGroup' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'description', 'updateGroup_description' - The description for the group that you want to update.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'groupName', 'updateGroup_groupName' - The name of the group that you want to update.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'awsAccountId', 'updateGroup_awsAccountId' - The ID for the Amazon Web Services account that the group is in.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Currently, you use the ID for the Amazon Web Services account that</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- contains your Amazon QuickSight account.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'namespace', 'updateGroup_namespace' - The namespace. Currently, you should set this to @default@.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier hs-type">newUpdateGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'groupName'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'namespace'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span>
+</span><span id="line-93"></span><span id="newUpdateGroup"><span class="annot"><span class="annottext">newUpdateGroup :: Text -&gt; Text -&gt; Text -&gt; UpdateGroup
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#newUpdateGroup"><span class="hs-identifier hs-var hs-var">newUpdateGroup</span></a></span></span><span> </span><span id="local-6989586621679601233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601233"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679601232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601232"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679601231"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601231"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">UpdateGroup' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; UpdateGroup
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Adescription%3AUpdateGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601233"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateGroup' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3AawsAccountId%3AUpdateGroup%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601232"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:UpdateGroup' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Anamespace%3AUpdateGroup%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601231"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The description for the group that you want to update.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_description"><span class="hs-identifier hs-type">updateGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="updateGroup_description"><span class="annot"><span class="annottext">updateGroup_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateGroup -&gt; f UpdateGroup
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_description"><span class="hs-identifier hs-var hs-var">updateGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Maybe Text)
+-&gt; (UpdateGroup -&gt; Maybe Text -&gt; UpdateGroup)
+-&gt; Lens UpdateGroup UpdateGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601228"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679601228"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601228"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601227"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679601227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601226"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679601227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateGroup' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Adescription%3AUpdateGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name of the group that you want to update.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier hs-type">updateGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="updateGroup_groupName"><span class="annot"><span class="annottext">updateGroup_groupName :: (Text -&gt; f Text) -&gt; UpdateGroup -&gt; f UpdateGroup
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_groupName"><span class="hs-identifier hs-var hs-var">updateGroup_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Text)
+-&gt; (UpdateGroup -&gt; Text -&gt; UpdateGroup)
+-&gt; Lens UpdateGroup UpdateGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601225"><span class="annot"><span class="annottext">Text
+groupName :: Text
+$sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Text
+</span><a href="#local-6989586621679601225"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601225"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601224"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679601224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601223"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679601224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:UpdateGroup' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3AgroupName%3AUpdateGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The ID for the Amazon Web Services account that the group is in.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Currently, you use the ID for the Amazon Web Services account that</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- contains your Amazon QuickSight account.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_awsAccountId"><span class="hs-identifier hs-type">updateGroup_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="updateGroup_awsAccountId"><span class="annot"><span class="annottext">updateGroup_awsAccountId :: (Text -&gt; f Text) -&gt; UpdateGroup -&gt; f UpdateGroup
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_awsAccountId"><span class="hs-identifier hs-var hs-var">updateGroup_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Text)
+-&gt; (UpdateGroup -&gt; Text -&gt; UpdateGroup)
+-&gt; Lens UpdateGroup UpdateGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601222"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:UpdateGroup' :: UpdateGroup -&gt; Text
+</span><a href="#local-6989586621679601222"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601222"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601221"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679601221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601220"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679601221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateGroup' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3AawsAccountId%3AUpdateGroup%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The namespace. Currently, you should set this to @default@.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_namespace"><span class="hs-identifier hs-type">updateGroup_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="updateGroup_namespace"><span class="annot"><span class="annottext">updateGroup_namespace :: (Text -&gt; f Text) -&gt; UpdateGroup -&gt; f UpdateGroup
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroup_namespace"><span class="hs-identifier hs-var hs-var">updateGroup_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroup -&gt; Text)
+-&gt; (UpdateGroup -&gt; Text -&gt; UpdateGroup)
+-&gt; Lens UpdateGroup UpdateGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601219"><span class="annot"><span class="annottext">Text
+namespace :: Text
+$sel:namespace:UpdateGroup' :: UpdateGroup -&gt; Text
+</span><a href="#local-6989586621679601219"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601219"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601218"><span class="annot"><span class="annottext">s :: UpdateGroup
+</span><a href="#local-6989586621679601218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601217"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroup
+</span><a href="#local-6989586621679601218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:UpdateGroup' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Anamespace%3AUpdateGroup%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679601213"><span class="annot"><span class="annottext">request :: UpdateGroup -&gt; Request UpdateGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateGroup -&gt; Request UpdateGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679601209"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679601206"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601206"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679601205"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679601205"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679601204"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601204"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Group -&gt; Int -&gt; UpdateGroupResponse
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Group -&gt; Int -&gt; UpdateGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Group -&gt; Int -&gt; UpdateGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Group -&gt; Int -&gt; UpdateGroupResponse)
+-&gt; Either String (Maybe Group)
+-&gt; Either String (Int -&gt; UpdateGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Group)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Group&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateGroupResponse)
+-&gt; Either String Int -&gt; Either String UpdateGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601206"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601196"><span id="local-6989586621679601198"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679601189"><span class="annot"><span class="annottext">toHeaders :: UpdateGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-142"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601179"><span id="local-6989586621679601181"><span id="local-6989586621679601183"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679601177"><span class="annot"><span class="annottext">toJSON :: UpdateGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601172"><span id="local-6989586621679601173"><span id="local-6989586621679601174"><span id="local-6989586621679601175"><span class="annot"><span class="annottext">Maybe Text
+Text
+namespace :: Text
+awsAccountId :: Text
+groupName :: Text
+description :: Maybe Text
+$sel:namespace:UpdateGroup' :: UpdateGroup -&gt; Text
+$sel:awsAccountId:UpdateGroup' :: UpdateGroup -&gt; Text
+$sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Text
+$sel:description:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679601172"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601175"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679601166"><span class="annot"><span class="annottext">toPath :: UpdateGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup%27"><span class="hs-identifier hs-type">UpdateGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601161"><span id="local-6989586621679601162"><span id="local-6989586621679601163"><span id="local-6989586621679601164"><span class="annot"><span class="annottext">Maybe Text
+Text
+namespace :: Text
+awsAccountId :: Text
+groupName :: Text
+description :: Maybe Text
+$sel:namespace:UpdateGroup' :: UpdateGroup -&gt; Text
+$sel:awsAccountId:UpdateGroup' :: UpdateGroup -&gt; Text
+$sel:groupName:UpdateGroup' :: UpdateGroup -&gt; Text
+$sel:description:UpdateGroup' :: UpdateGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679601161"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601162"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/namespaces/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601161"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/groups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601163"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroup"><span class="hs-identifier hs-type">UpdateGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679601157"><span class="annot"><span class="annottext">toQuery :: UpdateGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newUpdateGroupResponse' smart constructor.</span><span>
+</span><span id="line-168"></span><span id="local-6989586621679601154"><span id="local-6989586621679601155"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGroupResponse"><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-var">UpdateGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGroupResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-var">UpdateGroupResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3ArequestId%3AUpdateGroupResponse%27"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3ArequestId%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The name of the group.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3Agroup%27%3AUpdateGroupResponse%27"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; Maybe Group
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Agroup%27%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateGroupResponse%27"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Astatus%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679601147"><span id="local-6989586621679601149"><span class="annot"><span class="annottext">UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
+(UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool)
+-&gt; (UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool)
+-&gt; Eq UpdateGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
+$c/= :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
+== :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
+$c== :: UpdateGroupResponse -&gt; UpdateGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601139"><span id="local-6989586621679601141"><span id="local-6989586621679601143"><span id="local-6989586621679601145"><span class="annot"><span class="annottext">ReadPrec [UpdateGroupResponse]
+ReadPrec UpdateGroupResponse
+Int -&gt; ReadS UpdateGroupResponse
+ReadS [UpdateGroupResponse]
+(Int -&gt; ReadS UpdateGroupResponse)
+-&gt; ReadS [UpdateGroupResponse]
+-&gt; ReadPrec UpdateGroupResponse
+-&gt; ReadPrec [UpdateGroupResponse]
+-&gt; Read UpdateGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGroupResponse]
+$creadListPrec :: ReadPrec [UpdateGroupResponse]
+readPrec :: ReadPrec UpdateGroupResponse
+$creadPrec :: ReadPrec UpdateGroupResponse
+readList :: ReadS [UpdateGroupResponse]
+$creadList :: ReadS [UpdateGroupResponse]
+readsPrec :: Int -&gt; ReadS UpdateGroupResponse
+$creadsPrec :: Int -&gt; ReadS UpdateGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601133"><span id="local-6989586621679601135"><span id="local-6989586621679601137"><span class="annot"><span class="annottext">Int -&gt; UpdateGroupResponse -&gt; ShowS
+[UpdateGroupResponse] -&gt; ShowS
+UpdateGroupResponse -&gt; String
+(Int -&gt; UpdateGroupResponse -&gt; ShowS)
+-&gt; (UpdateGroupResponse -&gt; String)
+-&gt; ([UpdateGroupResponse] -&gt; ShowS)
+-&gt; Show UpdateGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGroupResponse] -&gt; ShowS
+$cshowList :: [UpdateGroupResponse] -&gt; ShowS
+show :: UpdateGroupResponse -&gt; String
+$cshow :: UpdateGroupResponse -&gt; String
+showsPrec :: Int -&gt; UpdateGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateGroupResponse -&gt; Rep UpdateGroupResponse x)
+-&gt; (forall x. Rep UpdateGroupResponse x -&gt; UpdateGroupResponse)
+-&gt; Generic UpdateGroupResponse
+forall x. Rep UpdateGroupResponse x -&gt; UpdateGroupResponse
+forall x. UpdateGroupResponse -&gt; Rep UpdateGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateGroupResponse x -&gt; UpdateGroupResponse
+$cfrom :: forall x. UpdateGroupResponse -&gt; Rep UpdateGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Create a value of 'UpdateGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'requestId', 'updateGroupResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'group'', 'updateGroupResponse_group' - The name of the group.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'status', 'updateGroupResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#newUpdateGroupResponse"><span class="hs-identifier hs-type">newUpdateGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newUpdateGroupResponse"><span class="annot"><span class="annottext">newUpdateGroupResponse :: Int -&gt; UpdateGroupResponse
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#newUpdateGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679601130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601130"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">UpdateGroupResponse' :: Maybe Text -&gt; Maybe Group -&gt; Int -&gt; UpdateGroupResponse
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:UpdateGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3ArequestId%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:group':UpdateGroupResponse' :: Maybe Group
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Agroup%27%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Group
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:UpdateGroupResponse' :: Int
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Astatus%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601130"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroupResponse_requestId"><span class="hs-identifier hs-type">updateGroupResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="updateGroupResponse_requestId"><span class="annot"><span class="annottext">updateGroupResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGroupResponse -&gt; f UpdateGroupResponse
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroupResponse_requestId"><span class="hs-identifier hs-var hs-var">updateGroupResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroupResponse -&gt; Maybe Text)
+-&gt; (UpdateGroupResponse -&gt; Maybe Text -&gt; UpdateGroupResponse)
+-&gt; Lens
+     UpdateGroupResponse UpdateGroupResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601129"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:UpdateGroupResponse' :: UpdateGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679601129"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601129"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601128"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
+</span><a href="#local-6989586621679601128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601127"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
+</span><a href="#local-6989586621679601128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:UpdateGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3ArequestId%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The name of the group.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroupResponse_group"><span class="hs-identifier hs-type">updateGroupResponse_group</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.Group.html#Group"><span class="hs-identifier hs-type">Group</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="updateGroupResponse_group"><span class="annot"><span class="annottext">updateGroupResponse_group :: (Maybe Group -&gt; f (Maybe Group))
+-&gt; UpdateGroupResponse -&gt; f UpdateGroupResponse
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroupResponse_group"><span class="hs-identifier hs-var hs-var">updateGroupResponse_group</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroupResponse -&gt; Maybe Group)
+-&gt; (UpdateGroupResponse -&gt; Maybe Group -&gt; UpdateGroupResponse)
+-&gt; Lens
+     UpdateGroupResponse UpdateGroupResponse (Maybe Group) (Maybe Group)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601126"><span class="annot"><span class="annottext">Maybe Group
+group' :: Maybe Group
+$sel:group':UpdateGroupResponse' :: UpdateGroupResponse -&gt; Maybe Group
+</span><a href="#local-6989586621679601126"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679601126"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601125"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
+</span><a href="#local-6989586621679601125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601124"><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679601124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
+</span><a href="#local-6989586621679601125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':UpdateGroupResponse' :: Maybe Group
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Agroup%27%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Group
+</span><a href="#local-6989586621679601124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroupResponse_status"><span class="hs-identifier hs-type">updateGroupResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span id="updateGroupResponse_status"><span class="annot"><span class="annottext">updateGroupResponse_status :: (Int -&gt; f Int) -&gt; UpdateGroupResponse -&gt; f UpdateGroupResponse
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#updateGroupResponse_status"><span class="hs-identifier hs-var hs-var">updateGroupResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGroupResponse -&gt; Int)
+-&gt; (UpdateGroupResponse -&gt; Int -&gt; UpdateGroupResponse)
+-&gt; Lens UpdateGroupResponse UpdateGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601123"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:UpdateGroupResponse' :: UpdateGroupResponse -&gt; Int
+</span><a href="#local-6989586621679601123"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601123"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601122"><span class="annot"><span class="annottext">s :: UpdateGroupResponse
+</span><a href="#local-6989586621679601122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse%27"><span class="hs-identifier hs-type">UpdateGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGroupResponse
+</span><a href="#local-6989586621679601122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateGroupResponse' :: Int
+</span><a href="Network.AWS.QuickSight.UpdateGroup.html#%24sel%3Astatus%3AUpdateGroupResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679601121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateGroup.html#UpdateGroupResponse"><span class="hs-identifier hs-type">UpdateGroupResponse</span></a></span></span><span>
+</span><span id="line-215"></span></pre></body></html>

@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679208742"><span id="local-6989586621679208743"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainAvailability"><span class="annot"><a href="Network.AWS.Route53Domains.Types.DomainAvailability.html#DomainAvailability"><span class="hs-identifier hs-var">DomainAvailability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainAvailability%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.DomainAvailability.html#DomainAvailability%27"><span class="hs-identifier hs-var">DomainAvailability'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679208751"><span id="local-6989586621679208752"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainAvailability"><span class="annot"><a href="Network.AWS.Route53Domains.Types.DomainAvailability.html#DomainAvailability"><span class="hs-identifier hs-var">DomainAvailability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainAvailability%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.DomainAvailability.html#DomainAvailability%27"><span class="hs-identifier hs-var">DomainAvailability'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDomainAvailability"><span class="annot"><span class="annottext">DomainAvailability -&gt; Text
 </span><a href="Network.AWS.Route53Domains.Types.DomainAvailability.html#fromDomainAvailability"><span class="hs-identifier hs-var hs-var">fromDomainAvailability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208734"><span id="local-6989586621679208736"><span id="local-6989586621679208738"><span class="annot"><span class="annottext">Int -&gt; DomainAvailability -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208743"><span id="local-6989586621679208745"><span id="local-6989586621679208747"><span class="annot"><span class="annottext">Int -&gt; DomainAvailability -&gt; ShowS
 [DomainAvailability] -&gt; ShowS
 DomainAvailability -&gt; String
 (Int -&gt; DomainAvailability -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: DomainAvailability -&gt; String
 showsPrec :: Int -&gt; DomainAvailability -&gt; ShowS
 $cshowsPrec :: Int -&gt; DomainAvailability -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679208725"><span id="local-6989586621679208727"><span id="local-6989586621679208729"><span id="local-6989586621679208731"><span class="annot"><span class="annottext">ReadPrec [DomainAvailability]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679208734"><span id="local-6989586621679208736"><span id="local-6989586621679208738"><span id="local-6989586621679208740"><span class="annot"><span class="annottext">ReadPrec [DomainAvailability]
 ReadPrec DomainAvailability
 Int -&gt; ReadS DomainAvailability
 ReadS [DomainAvailability]
@@ -78,7 +78,7 @@ $creadList :: ReadS [DomainAvailability]
 readsPrec :: Int -&gt; ReadS DomainAvailability
 $creadsPrec :: Int -&gt; ReadS DomainAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679208720"><span id="local-6989586621679208722"><span class="annot"><span class="annottext">DomainAvailability -&gt; DomainAvailability -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679208729"><span id="local-6989586621679208731"><span class="annot"><span class="annottext">DomainAvailability -&gt; DomainAvailability -&gt; Bool
 (DomainAvailability -&gt; DomainAvailability -&gt; Bool)
 -&gt; (DomainAvailability -&gt; DomainAvailability -&gt; Bool)
 -&gt; Eq DomainAvailability
@@ -88,7 +88,7 @@ $c/= :: DomainAvailability -&gt; DomainAvailability -&gt; Bool
 == :: DomainAvailability -&gt; DomainAvailability -&gt; Bool
 $c== :: DomainAvailability -&gt; DomainAvailability -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679208704"><span id="local-6989586621679208706"><span id="local-6989586621679208708"><span id="local-6989586621679208710"><span id="local-6989586621679208712"><span id="local-6989586621679208714"><span id="local-6989586621679208716"><span class="annot"><span class="annottext">Eq DomainAvailability
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679208713"><span id="local-6989586621679208715"><span id="local-6989586621679208717"><span id="local-6989586621679208719"><span id="local-6989586621679208721"><span id="local-6989586621679208723"><span id="local-6989586621679208725"><span class="annot"><span class="annottext">Eq DomainAvailability
 Eq DomainAvailability
 -&gt; (DomainAvailability -&gt; DomainAvailability -&gt; Ordering)
 -&gt; (DomainAvailability -&gt; DomainAvailability -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. DomainAvailability -&gt; Rep DomainAvailability x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208696"><span id="local-6989586621679208698"><span class="annot"><span class="annottext">Int -&gt; DomainAvailability -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208705"><span id="local-6989586621679208707"><span class="annot"><span class="annottext">Int -&gt; DomainAvailability -&gt; Int
 DomainAvailability -&gt; Int
 (Int -&gt; DomainAvailability -&gt; Int)
 -&gt; (DomainAvailability -&gt; Int) -&gt; Hashable DomainAvailability
@@ -149,53 +149,53 @@ $chash :: DomainAvailability -&gt; Int
 hashWithSalt :: Int -&gt; DomainAvailability -&gt; Int
 $chashWithSalt :: Int -&gt; DomainAvailability -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679208693"><span class="annot"><span class="annottext">DomainAvailability -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679208702"><span class="annot"><span class="annottext">DomainAvailability -&gt; ()
 (DomainAvailability -&gt; ()) -&gt; NFData DomainAvailability
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DomainAvailability -&gt; ()
 $crnf :: DomainAvailability -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679208690"><span class="annot"><span class="annottext">Text -&gt; Either String DomainAvailability
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679208699"><span class="annot"><span class="annottext">Text -&gt; Either String DomainAvailability
 (Text -&gt; Either String DomainAvailability)
 -&gt; FromText DomainAvailability
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DomainAvailability
 $cfromText :: Text -&gt; Either String DomainAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679208687"><span class="annot"><span class="annottext">DomainAvailability -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679208696"><span class="annot"><span class="annottext">DomainAvailability -&gt; Text
 (DomainAvailability -&gt; Text) -&gt; ToText DomainAvailability
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DomainAvailability -&gt; Text
 $ctoText :: DomainAvailability -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679208684"><span class="annot"><span class="annottext">DomainAvailability -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679208693"><span class="annot"><span class="annottext">DomainAvailability -&gt; ByteString
 (DomainAvailability -&gt; ByteString)
 -&gt; ToByteString DomainAvailability
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DomainAvailability -&gt; ByteString
 $ctoBS :: DomainAvailability -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679208681"><span class="annot"><span class="annottext">DomainAvailability -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679208690"><span class="annot"><span class="annottext">DomainAvailability -&gt; ByteStringBuilder
 (DomainAvailability -&gt; ByteStringBuilder)
 -&gt; ToLog DomainAvailability
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DomainAvailability -&gt; ByteStringBuilder
 $cbuild :: DomainAvailability -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679208678"><span class="annot"><span class="annottext">HeaderName -&gt; DomainAvailability -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679208687"><span class="annot"><span class="annottext">HeaderName -&gt; DomainAvailability -&gt; [Header]
 (HeaderName -&gt; DomainAvailability -&gt; [Header])
 -&gt; ToHeader DomainAvailability
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DomainAvailability -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DomainAvailability -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679208675"><span class="annot"><span class="annottext">DomainAvailability -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679208684"><span class="annot"><span class="annottext">DomainAvailability -&gt; QueryString
 (DomainAvailability -&gt; QueryString) -&gt; ToQuery DomainAvailability
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DomainAvailability -&gt; QueryString
 $ctoQuery :: DomainAvailability -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679208670"><span id="local-6989586621679208672"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainAvailability]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679208679"><span id="local-6989586621679208681"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainAvailability]
 Value -&gt; Parser DomainAvailability
 (Value -&gt; Parser DomainAvailability)
 -&gt; (Value -&gt; Parser [DomainAvailability])
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [DomainAvailability]
 parseJSON :: Value -&gt; Parser DomainAvailability
 $cparseJSON :: Value -&gt; Parser DomainAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679208665"><span id="local-6989586621679208667"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainAvailability]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679208674"><span id="local-6989586621679208676"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainAvailability]
 FromJSONKeyFunction DomainAvailability
 FromJSONKeyFunction DomainAvailability
 -&gt; FromJSONKeyFunction [DomainAvailability]
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DomainAvailability]
 fromJSONKey :: FromJSONKeyFunction DomainAvailability
 $cfromJSONKey :: FromJSONKeyFunction DomainAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679208656"><span id="local-6989586621679208658"><span id="local-6989586621679208660"><span id="local-6989586621679208662"><span class="annot"><span class="annottext">[DomainAvailability] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679208665"><span id="local-6989586621679208667"><span id="local-6989586621679208669"><span id="local-6989586621679208671"><span class="annot"><span class="annottext">[DomainAvailability] -&gt; Encoding
 [DomainAvailability] -&gt; Value
 DomainAvailability -&gt; Encoding
 DomainAvailability -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: DomainAvailability -&gt; Encoding
 toJSON :: DomainAvailability -&gt; Value
 $ctoJSON :: DomainAvailability -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679208651"><span id="local-6989586621679208653"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainAvailability]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679208660"><span id="local-6989586621679208662"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainAvailability]
 ToJSONKeyFunction DomainAvailability
 ToJSONKeyFunction DomainAvailability
 -&gt; ToJSONKeyFunction [DomainAvailability]
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DomainAvailability]
 toJSONKey :: ToJSONKeyFunction DomainAvailability
 $ctoJSONKey :: ToJSONKeyFunction DomainAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679208648"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainAvailability
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679208657"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainAvailability
 ([Node] -&gt; Either String DomainAvailability)
 -&gt; FromXML DomainAvailability
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DomainAvailability
 $cparseXML :: [Node] -&gt; Either String DomainAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679208645"><span class="annot"><span class="annottext">DomainAvailability -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679208654"><span class="annot"><span class="annottext">DomainAvailability -&gt; XML
 (DomainAvailability -&gt; XML) -&gt; ToXML DomainAvailability
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DomainAvailability -&gt; XML

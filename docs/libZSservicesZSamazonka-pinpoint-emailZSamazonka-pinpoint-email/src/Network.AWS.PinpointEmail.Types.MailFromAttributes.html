@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.PinpointEmail.Types.MailFromAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.PinpointEmail.Types.MailFromAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.BehaviorOnMxFailure.html"><span class="hs-identifier">Network.AWS.PinpointEmail.Types.BehaviorOnMxFailure</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromDomainStatus.html"><span class="hs-identifier">Network.AWS.PinpointEmail.Types.MailFromDomainStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A list of attributes that are associated with a MAIL FROM domain.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMailFromAttributes' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679233604"><span id="local-6989586621679233605"></span></span><span class="hs-keyword">data</span><span> </span><span id="MailFromAttributes"><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-var">MailFromAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MailFromAttributes%27"><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes%27"><span class="hs-identifier hs-var">MailFromAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a domain that an email identity uses as a custom MAIL FROM</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmailFromDomain%3AMailFromAttributes%27"><span class="annot"><span class="annottext">MailFromAttributes -&gt; Text
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#%24sel%3AmailFromDomain%3AMailFromAttributes%27"><span class="hs-identifier hs-var hs-var">mailFromDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status of the MAIL FROM domain. This status can have the following</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @PENDING@ &#8211; Amazon Pinpoint hasn\'t started searching for the MX</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     record yet.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @SUCCESS@ &#8211; Amazon Pinpoint detected the required MX record for the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     MAIL FROM domain.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @FAILED@ &#8211; Amazon Pinpoint can\'t find the required MX record, or</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     the record no longer exists.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @TEMPORARY_FAILURE@ &#8211; A temporary issue occurred, which prevented</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     Amazon Pinpoint from determining the status of the MAIL FROM domain.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AmailFromDomainStatus%3AMailFromAttributes%27"><span class="annot"><span class="annottext">MailFromAttributes -&gt; MailFromDomainStatus
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#%24sel%3AmailFromDomainStatus%3AMailFromAttributes%27"><span class="hs-identifier hs-var hs-var">mailFromDomainStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromDomainStatus.html#MailFromDomainStatus"><span class="hs-identifier hs-type">MailFromDomainStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The action that Amazon Pinpoint to takes if it can\'t read the required</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- MX record for a custom MAIL FROM domain. When you set this value to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @UseDefaultValue@, Amazon Pinpoint uses /amazonses.com/ as the MAIL FROM</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- domain. When you set this value to @RejectMessage@, Amazon Pinpoint</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- returns a @MailFromDomainNotVerified@ error, and doesn\'t attempt to</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- deliver the email.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- These behaviors are taken when the custom MAIL FROM domain configuration</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AbehaviorOnMxFailure%3AMailFromAttributes%27"><span class="annot"><span class="annottext">MailFromAttributes -&gt; BehaviorOnMxFailure
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#%24sel%3AbehaviorOnMxFailure%3AMailFromAttributes%27"><span class="hs-identifier hs-var hs-var">behaviorOnMxFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.BehaviorOnMxFailure.html#BehaviorOnMxFailure"><span class="hs-identifier hs-type">BehaviorOnMxFailure</span></a></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679233596"><span id="local-6989586621679233598"><span class="annot"><span class="annottext">MailFromAttributes -&gt; MailFromAttributes -&gt; Bool
+(MailFromAttributes -&gt; MailFromAttributes -&gt; Bool)
+-&gt; (MailFromAttributes -&gt; MailFromAttributes -&gt; Bool)
+-&gt; Eq MailFromAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MailFromAttributes -&gt; MailFromAttributes -&gt; Bool
+$c/= :: MailFromAttributes -&gt; MailFromAttributes -&gt; Bool
+== :: MailFromAttributes -&gt; MailFromAttributes -&gt; Bool
+$c== :: MailFromAttributes -&gt; MailFromAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233587"><span id="local-6989586621679233589"><span id="local-6989586621679233591"><span id="local-6989586621679233593"><span class="annot"><span class="annottext">ReadPrec [MailFromAttributes]
+ReadPrec MailFromAttributes
+Int -&gt; ReadS MailFromAttributes
+ReadS [MailFromAttributes]
+(Int -&gt; ReadS MailFromAttributes)
+-&gt; ReadS [MailFromAttributes]
+-&gt; ReadPrec MailFromAttributes
+-&gt; ReadPrec [MailFromAttributes]
+-&gt; Read MailFromAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MailFromAttributes]
+$creadListPrec :: ReadPrec [MailFromAttributes]
+readPrec :: ReadPrec MailFromAttributes
+$creadPrec :: ReadPrec MailFromAttributes
+readList :: ReadS [MailFromAttributes]
+$creadList :: ReadS [MailFromAttributes]
+readsPrec :: Int -&gt; ReadS MailFromAttributes
+$creadsPrec :: Int -&gt; ReadS MailFromAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679233580"><span id="local-6989586621679233582"><span id="local-6989586621679233584"><span class="annot"><span class="annottext">Int -&gt; MailFromAttributes -&gt; ShowS
+[MailFromAttributes] -&gt; ShowS
+MailFromAttributes -&gt; String
+(Int -&gt; MailFromAttributes -&gt; ShowS)
+-&gt; (MailFromAttributes -&gt; String)
+-&gt; ([MailFromAttributes] -&gt; ShowS)
+-&gt; Show MailFromAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MailFromAttributes] -&gt; ShowS
+$cshowList :: [MailFromAttributes] -&gt; ShowS
+show :: MailFromAttributes -&gt; String
+$cshow :: MailFromAttributes -&gt; String
+showsPrec :: Int -&gt; MailFromAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; MailFromAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MailFromAttributes -&gt; Rep MailFromAttributes x)
+-&gt; (forall x. Rep MailFromAttributes x -&gt; MailFromAttributes)
+-&gt; Generic MailFromAttributes
+forall x. Rep MailFromAttributes x -&gt; MailFromAttributes
+forall x. MailFromAttributes -&gt; Rep MailFromAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MailFromAttributes x -&gt; MailFromAttributes
+$cfrom :: forall x. MailFromAttributes -&gt; Rep MailFromAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'MailFromAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'mailFromDomain', 'mailFromAttributes_mailFromDomain' - The name of a domain that an email identity uses as a custom MAIL FROM</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'mailFromDomainStatus', 'mailFromAttributes_mailFromDomainStatus' - The status of the MAIL FROM domain. This status can have the following</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- -   @PENDING@ &#8211; Amazon Pinpoint hasn\'t started searching for the MX</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--     record yet.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- -   @SUCCESS@ &#8211; Amazon Pinpoint detected the required MX record for the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--     MAIL FROM domain.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   @FAILED@ &#8211; Amazon Pinpoint can\'t find the required MX record, or</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--     the record no longer exists.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   @TEMPORARY_FAILURE@ &#8211; A temporary issue occurred, which prevented</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     Amazon Pinpoint from determining the status of the MAIL FROM domain.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'behaviorOnMxFailure', 'mailFromAttributes_behaviorOnMxFailure' - The action that Amazon Pinpoint to takes if it can\'t read the required</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- MX record for a custom MAIL FROM domain. When you set this value to</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- @UseDefaultValue@, Amazon Pinpoint uses /amazonses.com/ as the MAIL FROM</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- domain. When you set this value to @RejectMessage@, Amazon Pinpoint</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- returns a @MailFromDomainNotVerified@ error, and doesn\'t attempt to</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- deliver the email.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- These behaviors are taken when the custom MAIL FROM domain configuration</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#newMailFromAttributes"><span class="hs-identifier hs-type">newMailFromAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'mailFromDomain'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'mailFromDomainStatus'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromDomainStatus.html#MailFromDomainStatus"><span class="hs-identifier hs-type">MailFromDomainStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'behaviorOnMxFailure'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.BehaviorOnMxFailure.html#BehaviorOnMxFailure"><span class="hs-identifier hs-type">BehaviorOnMxFailure</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span><span>
+</span><span id="line-106"></span><span id="newMailFromAttributes"><span class="annot"><span class="annottext">newMailFromAttributes :: Text
+-&gt; MailFromDomainStatus
+-&gt; BehaviorOnMxFailure
+-&gt; MailFromAttributes
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#newMailFromAttributes"><span class="hs-identifier hs-var hs-var">newMailFromAttributes</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679233574"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233574"><span class="hs-identifier hs-var">pMailFromDomain_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679233573"><span class="annot"><span class="annottext">MailFromDomainStatus
+</span><a href="#local-6989586621679233573"><span class="hs-identifier hs-var">pMailFromDomainStatus_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679233572"><span class="annot"><span class="annottext">BehaviorOnMxFailure
+</span><a href="#local-6989586621679233572"><span class="hs-identifier hs-var">pBehaviorOnMxFailure_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">MailFromAttributes' :: Text
+-&gt; MailFromDomainStatus
+-&gt; BehaviorOnMxFailure
+-&gt; MailFromAttributes
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes%27"><span class="hs-identifier hs-type">MailFromAttributes'</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mailFromDomain:MailFromAttributes' :: Text
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#%24sel%3AmailFromDomain%3AMailFromAttributes%27"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233574"><span class="hs-identifier hs-var">pMailFromDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:mailFromDomainStatus:MailFromAttributes' :: MailFromDomainStatus
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#%24sel%3AmailFromDomainStatus%3AMailFromAttributes%27"><span class="hs-identifier hs-var">mailFromDomainStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MailFromDomainStatus
+</span><a href="#local-6989586621679233573"><span class="hs-identifier hs-var">pMailFromDomainStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:behaviorOnMxFailure:MailFromAttributes' :: BehaviorOnMxFailure
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#%24sel%3AbehaviorOnMxFailure%3AMailFromAttributes%27"><span class="hs-identifier hs-var">behaviorOnMxFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BehaviorOnMxFailure
+</span><a href="#local-6989586621679233572"><span class="hs-identifier hs-var">pBehaviorOnMxFailure_</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The name of a domain that an email identity uses as a custom MAIL FROM</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#mailFromAttributes_mailFromDomain"><span class="hs-identifier hs-type">mailFromAttributes_mailFromDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="mailFromAttributes_mailFromDomain"><span class="annot"><span class="annottext">mailFromAttributes_mailFromDomain :: (Text -&gt; f Text) -&gt; MailFromAttributes -&gt; f MailFromAttributes
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#mailFromAttributes_mailFromDomain"><span class="hs-identifier hs-var hs-var">mailFromAttributes_mailFromDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailFromAttributes -&gt; Text)
+-&gt; (MailFromAttributes -&gt; Text -&gt; MailFromAttributes)
+-&gt; Lens MailFromAttributes MailFromAttributes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes%27"><span class="hs-identifier hs-type">MailFromAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233568"><span class="annot"><span class="annottext">Text
+mailFromDomain :: Text
+$sel:mailFromDomain:MailFromAttributes' :: MailFromAttributes -&gt; Text
+</span><a href="#local-6989586621679233568"><span class="hs-identifier hs-var hs-var">mailFromDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233568"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233567"><span class="annot"><span class="annottext">s :: MailFromAttributes
+</span><a href="#local-6989586621679233567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes%27"><span class="hs-identifier hs-type">MailFromAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233566"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailFromAttributes
+</span><a href="#local-6989586621679233567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomain:MailFromAttributes' :: Text
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#%24sel%3AmailFromDomain%3AMailFromAttributes%27"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679233566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The status of the MAIL FROM domain. This status can have the following</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- values:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   @PENDING@ &#8211; Amazon Pinpoint hasn\'t started searching for the MX</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     record yet.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @SUCCESS@ &#8211; Amazon Pinpoint detected the required MX record for the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     MAIL FROM domain.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @FAILED@ &#8211; Amazon Pinpoint can\'t find the required MX record, or</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     the record no longer exists.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @TEMPORARY_FAILURE@ &#8211; A temporary issue occurred, which prevented</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     Amazon Pinpoint from determining the status of the MAIL FROM domain.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#mailFromAttributes_mailFromDomainStatus"><span class="hs-identifier hs-type">mailFromAttributes_mailFromDomainStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromDomainStatus.html#MailFromDomainStatus"><span class="hs-identifier hs-type">MailFromDomainStatus</span></a></span><span>
+</span><span id="line-137"></span><span id="mailFromAttributes_mailFromDomainStatus"><span class="annot"><span class="annottext">mailFromAttributes_mailFromDomainStatus :: (MailFromDomainStatus -&gt; f MailFromDomainStatus)
+-&gt; MailFromAttributes -&gt; f MailFromAttributes
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#mailFromAttributes_mailFromDomainStatus"><span class="hs-identifier hs-var hs-var">mailFromAttributes_mailFromDomainStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailFromAttributes -&gt; MailFromDomainStatus)
+-&gt; (MailFromAttributes
+    -&gt; MailFromDomainStatus -&gt; MailFromAttributes)
+-&gt; Lens
+     MailFromAttributes
+     MailFromAttributes
+     MailFromDomainStatus
+     MailFromDomainStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes%27"><span class="hs-identifier hs-type">MailFromAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233564"><span class="annot"><span class="annottext">MailFromDomainStatus
+mailFromDomainStatus :: MailFromDomainStatus
+$sel:mailFromDomainStatus:MailFromAttributes' :: MailFromAttributes -&gt; MailFromDomainStatus
+</span><a href="#local-6989586621679233564"><span class="hs-identifier hs-var hs-var">mailFromDomainStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailFromDomainStatus
+</span><a href="#local-6989586621679233564"><span class="hs-identifier hs-var">mailFromDomainStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233563"><span class="annot"><span class="annottext">s :: MailFromAttributes
+</span><a href="#local-6989586621679233563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes%27"><span class="hs-identifier hs-type">MailFromAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233562"><span class="annot"><span class="annottext">MailFromDomainStatus
+</span><a href="#local-6989586621679233562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailFromAttributes
+</span><a href="#local-6989586621679233563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomainStatus:MailFromAttributes' :: MailFromDomainStatus
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#%24sel%3AmailFromDomainStatus%3AMailFromAttributes%27"><span class="hs-identifier hs-var">mailFromDomainStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MailFromDomainStatus
+</span><a href="#local-6989586621679233562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The action that Amazon Pinpoint to takes if it can\'t read the required</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- MX record for a custom MAIL FROM domain. When you set this value to</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @UseDefaultValue@, Amazon Pinpoint uses /amazonses.com/ as the MAIL FROM</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- domain. When you set this value to @RejectMessage@, Amazon Pinpoint</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- returns a @MailFromDomainNotVerified@ error, and doesn\'t attempt to</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- deliver the email.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- These behaviors are taken when the custom MAIL FROM domain configuration</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#mailFromAttributes_behaviorOnMxFailure"><span class="hs-identifier hs-type">mailFromAttributes_behaviorOnMxFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.BehaviorOnMxFailure.html#BehaviorOnMxFailure"><span class="hs-identifier hs-type">BehaviorOnMxFailure</span></a></span><span>
+</span><span id="line-149"></span><span id="mailFromAttributes_behaviorOnMxFailure"><span class="annot"><span class="annottext">mailFromAttributes_behaviorOnMxFailure :: (BehaviorOnMxFailure -&gt; f BehaviorOnMxFailure)
+-&gt; MailFromAttributes -&gt; f MailFromAttributes
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#mailFromAttributes_behaviorOnMxFailure"><span class="hs-identifier hs-var hs-var">mailFromAttributes_behaviorOnMxFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailFromAttributes -&gt; BehaviorOnMxFailure)
+-&gt; (MailFromAttributes
+    -&gt; BehaviorOnMxFailure -&gt; MailFromAttributes)
+-&gt; Lens
+     MailFromAttributes
+     MailFromAttributes
+     BehaviorOnMxFailure
+     BehaviorOnMxFailure
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes%27"><span class="hs-identifier hs-type">MailFromAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679233560"><span class="annot"><span class="annottext">BehaviorOnMxFailure
+behaviorOnMxFailure :: BehaviorOnMxFailure
+$sel:behaviorOnMxFailure:MailFromAttributes' :: MailFromAttributes -&gt; BehaviorOnMxFailure
+</span><a href="#local-6989586621679233560"><span class="hs-identifier hs-var hs-var">behaviorOnMxFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorOnMxFailure
+</span><a href="#local-6989586621679233560"><span class="hs-identifier hs-var">behaviorOnMxFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679233559"><span class="annot"><span class="annottext">s :: MailFromAttributes
+</span><a href="#local-6989586621679233559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes%27"><span class="hs-identifier hs-type">MailFromAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679233558"><span class="annot"><span class="annottext">BehaviorOnMxFailure
+</span><a href="#local-6989586621679233558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailFromAttributes
+</span><a href="#local-6989586621679233559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behaviorOnMxFailure:MailFromAttributes' :: BehaviorOnMxFailure
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#%24sel%3AbehaviorOnMxFailure%3AMailFromAttributes%27"><span class="hs-identifier hs-var">behaviorOnMxFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BehaviorOnMxFailure
+</span><a href="#local-6989586621679233558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233555"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679233553"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MailFromAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MailFromAttributes)
+-&gt; Value
+-&gt; Parser MailFromAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MailFromAttributes&quot;</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679233550"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233550"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; MailFromDomainStatus
+-&gt; BehaviorOnMxFailure
+-&gt; MailFromAttributes
+</span><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes%27"><span class="hs-identifier hs-var">MailFromAttributes'</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; MailFromDomainStatus
+ -&gt; BehaviorOnMxFailure
+ -&gt; MailFromAttributes)
+-&gt; Parser Text
+-&gt; Parser
+     (MailFromDomainStatus -&gt; BehaviorOnMxFailure -&gt; MailFromAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MailFromDomain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (MailFromDomainStatus -&gt; BehaviorOnMxFailure -&gt; MailFromAttributes)
+-&gt; Parser MailFromDomainStatus
+-&gt; Parser (BehaviorOnMxFailure -&gt; MailFromAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MailFromDomainStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MailFromDomainStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (BehaviorOnMxFailure -&gt; MailFromAttributes)
+-&gt; Parser BehaviorOnMxFailure -&gt; Parser MailFromAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679233550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser BehaviorOnMxFailure
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BehaviorOnMxFailure&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233544"><span id="local-6989586621679233546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679233541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.MailFromAttributes.html#MailFromAttributes"><span class="hs-identifier hs-type">MailFromAttributes</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- must be of type Transfer to Queue.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newQueueQuickConnectConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679402107"><span id="local-6989586621679402108"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueueQuickConnectConfig"><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-var">QueueQuickConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueueQuickConnectConfig%27"><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-var">QueueQuickConnectConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679402116"><span id="local-6989586621679402117"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueueQuickConnectConfig"><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-var">QueueQuickConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueueQuickConnectConfig%27"><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-var">QueueQuickConnectConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the queue.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AqueueId%3AQueueQuickConnectConfig%27"><span class="annot"><span class="annottext">QueueQuickConnectConfig -&gt; Text
 </span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#%24sel%3AqueueId%3AQueueQuickConnectConfig%27"><span class="hs-identifier hs-var hs-var">queueId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AcontactFlowId%3AQueueQuickConnectConfig%27"><span class="annot"><span class="annottext">QueueQuickConnectConfig -&gt; Text
 </span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#%24sel%3AcontactFlowId%3AQueueQuickConnectConfig%27"><span class="hs-identifier hs-var hs-var">contactFlowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402100"><span id="local-6989586621679402102"><span class="annot"><span class="annottext">QueueQuickConnectConfig -&gt; QueueQuickConnectConfig -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402109"><span id="local-6989586621679402111"><span class="annot"><span class="annottext">QueueQuickConnectConfig -&gt; QueueQuickConnectConfig -&gt; Bool
 (QueueQuickConnectConfig -&gt; QueueQuickConnectConfig -&gt; Bool)
 -&gt; (QueueQuickConnectConfig -&gt; QueueQuickConnectConfig -&gt; Bool)
 -&gt; Eq QueueQuickConnectConfig
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: QueueQuickConnectConfig -&gt; QueueQuickConnectConfig -&gt; Bool
 == :: QueueQuickConnectConfig -&gt; QueueQuickConnectConfig -&gt; Bool
 $c== :: QueueQuickConnectConfig -&gt; QueueQuickConnectConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402091"><span id="local-6989586621679402093"><span id="local-6989586621679402095"><span id="local-6989586621679402097"><span class="annot"><span class="annottext">ReadPrec [QueueQuickConnectConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402100"><span id="local-6989586621679402102"><span id="local-6989586621679402104"><span id="local-6989586621679402106"><span class="annot"><span class="annottext">ReadPrec [QueueQuickConnectConfig]
 ReadPrec QueueQuickConnectConfig
 Int -&gt; ReadS QueueQuickConnectConfig
 ReadS [QueueQuickConnectConfig]
@@ -64,7 +64,7 @@ readList :: ReadS [QueueQuickConnectConfig]
 $creadList :: ReadS [QueueQuickConnectConfig]
 readsPrec :: Int -&gt; ReadS QueueQuickConnectConfig
 $creadsPrec :: Int -&gt; ReadS QueueQuickConnectConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402084"><span id="local-6989586621679402086"><span id="local-6989586621679402088"><span class="annot"><span class="annottext">Int -&gt; QueueQuickConnectConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402093"><span id="local-6989586621679402095"><span id="local-6989586621679402097"><span class="annot"><span class="annottext">Int -&gt; QueueQuickConnectConfig -&gt; ShowS
 [QueueQuickConnectConfig] -&gt; ShowS
 QueueQuickConnectConfig -&gt; String
 (Int -&gt; QueueQuickConnectConfig -&gt; ShowS)
@@ -110,17 +110,17 @@ $cfrom :: forall x. QueueQuickConnectConfig -&gt; Rep QueueQuickConnectConfig x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span><span>
 </span><span id="line-55"></span><span id="newQueueQuickConnectConfig"><span class="annot"><span class="annottext">newQueueQuickConnectConfig :: Text -&gt; Text -&gt; QueueQuickConnectConfig
-</span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#newQueueQuickConnectConfig"><span class="hs-identifier hs-var hs-var">newQueueQuickConnectConfig</span></a></span></span><span> </span><span id="local-6989586621679402078"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402078"><span class="hs-identifier hs-var">pQueueId_</span></a></span></span><span> </span><span id="local-6989586621679402077"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402077"><span class="hs-identifier hs-var">pContactFlowId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#newQueueQuickConnectConfig"><span class="hs-identifier hs-var hs-var">newQueueQuickConnectConfig</span></a></span></span><span> </span><span id="local-6989586621679402087"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402087"><span class="hs-identifier hs-var">pQueueId_</span></a></span></span><span> </span><span id="local-6989586621679402086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402086"><span class="hs-identifier hs-var">pContactFlowId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">QueueQuickConnectConfig' :: Text -&gt; Text -&gt; QueueQuickConnectConfig
 </span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queueId:QueueQuickConnectConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#%24sel%3AqueueId%3AQueueQuickConnectConfig%27"><span class="hs-identifier hs-var">queueId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402078"><span class="hs-identifier hs-var">pQueueId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402087"><span class="hs-identifier hs-var">pQueueId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactFlowId:QueueQuickConnectConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#%24sel%3AcontactFlowId%3AQueueQuickConnectConfig%27"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402077"><span class="hs-identifier hs-var">pContactFlowId_</span></a></span><span>
+</span><a href="#local-6989586621679402086"><span class="hs-identifier hs-var">pContactFlowId_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The identifier for the queue.</span><span>
@@ -131,16 +131,16 @@ $cfrom :: forall x. QueueQuickConnectConfig -&gt; Rep QueueQuickConnectConfig x
 -&gt; (QueueQuickConnectConfig -&gt; Text -&gt; QueueQuickConnectConfig)
 -&gt; Lens QueueQuickConnectConfig QueueQuickConnectConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402073"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402082"><span class="annot"><span class="annottext">Text
 queueId :: Text
 $sel:queueId:QueueQuickConnectConfig' :: QueueQuickConnectConfig -&gt; Text
-</span><a href="#local-6989586621679402073"><span class="hs-identifier hs-var hs-var">queueId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402073"><span class="hs-identifier hs-var">queueId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402072"><span class="annot"><span class="annottext">s :: QueueQuickConnectConfig
-</span><a href="#local-6989586621679402072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402071"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueQuickConnectConfig
-</span><a href="#local-6989586621679402072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueId:QueueQuickConnectConfig' :: Text
+</span><a href="#local-6989586621679402082"><span class="hs-identifier hs-var hs-var">queueId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402082"><span class="hs-identifier hs-var">queueId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402081"><span class="annot"><span class="annottext">s :: QueueQuickConnectConfig
+</span><a href="#local-6989586621679402081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueQuickConnectConfig
+</span><a href="#local-6989586621679402081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueId:QueueQuickConnectConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#%24sel%3AqueueId%3AQueueQuickConnectConfig%27"><span class="hs-identifier hs-var">queueId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The identifier of the contact flow.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#queueQuickConnectConfig_contactFlowId"><span class="hs-identifier hs-type">queueQuickConnectConfig_contactFlowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -150,19 +150,19 @@ $sel:queueId:QueueQuickConnectConfig' :: QueueQuickConnectConfig -&gt; Text
 -&gt; (QueueQuickConnectConfig -&gt; Text -&gt; QueueQuickConnectConfig)
 -&gt; Lens QueueQuickConnectConfig QueueQuickConnectConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402069"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402078"><span class="annot"><span class="annottext">Text
 contactFlowId :: Text
 $sel:contactFlowId:QueueQuickConnectConfig' :: QueueQuickConnectConfig -&gt; Text
-</span><a href="#local-6989586621679402069"><span class="hs-identifier hs-var hs-var">contactFlowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402069"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402068"><span class="annot"><span class="annottext">s :: QueueQuickConnectConfig
-</span><a href="#local-6989586621679402068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402067"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueQuickConnectConfig
-</span><a href="#local-6989586621679402068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactFlowId:QueueQuickConnectConfig' :: Text
+</span><a href="#local-6989586621679402078"><span class="hs-identifier hs-var hs-var">contactFlowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402078"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402077"><span class="annot"><span class="annottext">s :: QueueQuickConnectConfig
+</span><a href="#local-6989586621679402077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueQuickConnectConfig
+</span><a href="#local-6989586621679402077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactFlowId:QueueQuickConnectConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#%24sel%3AcontactFlowId%3AQueueQuickConnectConfig%27"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402064"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679402062"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueueQuickConnectConfig
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402073"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679402071"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueueQuickConnectConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser QueueQuickConnectConfig)
@@ -172,15 +172,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;QueueQuickConnectConfig&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679402059"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679402059"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679402068"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; QueueQuickConnectConfig
 </span><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-var">QueueQuickConnectConfig'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; QueueQuickConnectConfig)
 -&gt; Parser Text -&gt; Parser (Text -&gt; QueueQuickConnectConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679402059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679402068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueueId&quot;</span></span><span class="hs-special">)</span><span>
@@ -188,24 +188,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser QueueQuickConnectConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679402059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679402068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactFlowId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402053"><span id="local-6989586621679402055"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402062"><span id="local-6989586621679402064"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402042"><span id="local-6989586621679402044"><span id="local-6989586621679402046"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679402040"><span class="annot"><span class="annottext">toJSON :: QueueQuickConnectConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402037"><span id="local-6989586621679402038"><span class="annot"><span class="annottext">Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402051"><span id="local-6989586621679402053"><span id="local-6989586621679402055"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig"><span class="hs-identifier hs-type">QueueQuickConnectConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679402049"><span class="annot"><span class="annottext">toJSON :: QueueQuickConnectConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.QueueQuickConnectConfig.html#QueueQuickConnectConfig%27"><span class="hs-identifier hs-type">QueueQuickConnectConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402046"><span id="local-6989586621679402047"><span class="annot"><span class="annottext">Text
 contactFlowId :: Text
 queueId :: Text
 $sel:contactFlowId:QueueQuickConnectConfig' :: QueueQuickConnectConfig -&gt; Text
 $sel:queueId:QueueQuickConnectConfig' :: QueueQuickConnectConfig -&gt; Text
-</span><a href="#local-6989586621679402037"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679402046"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -217,7 +217,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;QueueId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402038"><span class="hs-identifier hs-var">queueId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402047"><span class="hs-identifier hs-var">queueId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -225,7 +225,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContactFlowId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679402037"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402046"><span class="hs-identifier hs-var">contactFlowId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

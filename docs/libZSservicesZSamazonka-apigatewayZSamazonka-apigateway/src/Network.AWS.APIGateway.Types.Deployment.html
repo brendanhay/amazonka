@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/tools/ AWS SDKs&gt;</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newDeployment' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679367989"><span id="local-6989586621679367990"></span></span><span class="hs-keyword">data</span><span> </span><span id="Deployment"><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-var">Deployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Deployment%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-var">Deployment'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679367998"><span id="local-6989586621679367999"></span></span><span class="hs-keyword">data</span><span> </span><span id="Deployment"><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-var">Deployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Deployment%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-var">Deployment'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A summary of the RestApi at the date and time that the deployment</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- resource was created.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AapiSummary%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe (HashMap Text (HashMap Text MethodSnapshot))
@@ -53,7 +53,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Adescription%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Deployment.html#%24sel%3Adescription%3ADeployment%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367980"><span id="local-6989586621679367982"><span class="annot"><span class="annottext">Deployment -&gt; Deployment -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367989"><span id="local-6989586621679367991"><span class="annot"><span class="annottext">Deployment -&gt; Deployment -&gt; Bool
 (Deployment -&gt; Deployment -&gt; Bool)
 -&gt; (Deployment -&gt; Deployment -&gt; Bool) -&gt; Eq Deployment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Deployment -&gt; Deployment -&gt; Bool
 == :: Deployment -&gt; Deployment -&gt; Bool
 $c== :: Deployment -&gt; Deployment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367971"><span id="local-6989586621679367973"><span id="local-6989586621679367975"><span id="local-6989586621679367977"><span class="annot"><span class="annottext">ReadPrec [Deployment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367980"><span id="local-6989586621679367982"><span id="local-6989586621679367984"><span id="local-6989586621679367986"><span class="annot"><span class="annottext">ReadPrec [Deployment]
 ReadPrec Deployment
 Int -&gt; ReadS Deployment
 ReadS [Deployment]
@@ -81,7 +81,7 @@ readList :: ReadS [Deployment]
 $creadList :: ReadS [Deployment]
 readsPrec :: Int -&gt; ReadS Deployment
 $creadsPrec :: Int -&gt; ReadS Deployment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367964"><span id="local-6989586621679367966"><span id="local-6989586621679367968"><span class="annot"><span class="annottext">Int -&gt; Deployment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367973"><span id="local-6989586621679367975"><span id="local-6989586621679367977"><span class="annot"><span class="annottext">Int -&gt; Deployment -&gt; ShowS
 [Deployment] -&gt; ShowS
 Deployment -&gt; String
 (Int -&gt; Deployment -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe (HashMap Text (HashMap Text MethodSnapshot)))
      (Maybe (HashMap Text (HashMap Text MethodSnapshot)))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367955"><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text MethodSnapshot))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367964"><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text MethodSnapshot))
 apiSummary :: Maybe (HashMap Text (HashMap Text MethodSnapshot))
 $sel:apiSummary:Deployment' :: Deployment -&gt; Maybe (HashMap Text (HashMap Text MethodSnapshot))
-</span><a href="#local-6989586621679367955"><span class="hs-identifier hs-var hs-var">apiSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text MethodSnapshot))
-</span><a href="#local-6989586621679367955"><span class="hs-identifier hs-var">apiSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367954"><span class="annot"><span class="annottext">s :: Deployment
-</span><a href="#local-6989586621679367954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367953"><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text MethodSnapshot))
-</span><a href="#local-6989586621679367953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
-</span><a href="#local-6989586621679367954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiSummary:Deployment' :: Maybe (HashMap Text (HashMap Text MethodSnapshot))
+</span><a href="#local-6989586621679367964"><span class="hs-identifier hs-var hs-var">apiSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text MethodSnapshot))
+</span><a href="#local-6989586621679367964"><span class="hs-identifier hs-var">apiSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367963"><span class="annot"><span class="annottext">s :: Deployment
+</span><a href="#local-6989586621679367963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367962"><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text MethodSnapshot))
+</span><a href="#local-6989586621679367962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
+</span><a href="#local-6989586621679367963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiSummary:Deployment' :: Maybe (HashMap Text (HashMap Text MethodSnapshot))
 </span><a href="Network.AWS.APIGateway.Types.Deployment.html#%24sel%3AapiSummary%3ADeployment%27"><span class="hs-identifier hs-var">apiSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text MethodSnapshot))
-</span><a href="#local-6989586621679367953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (HashMap Text MethodSnapshot))
+</span><a href="#local-6989586621679367962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (HashMap Text MethodSnapshot))
   -&gt; f (Maybe (HashMap Text (HashMap Text MethodSnapshot))))
  -&gt; Deployment -&gt; f Deployment)
 -&gt; ((Maybe (HashMap Text (HashMap Text MethodSnapshot))
@@ -212,16 +212,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Deployment -&gt; Maybe POSIX -&gt; Deployment)
 -&gt; Lens Deployment Deployment (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367948"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367957"><span class="annot"><span class="annottext">Maybe POSIX
 createdDate :: Maybe POSIX
 $sel:createdDate:Deployment' :: Deployment -&gt; Maybe POSIX
-</span><a href="#local-6989586621679367948"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679367948"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367947"><span class="annot"><span class="annottext">s :: Deployment
-</span><a href="#local-6989586621679367947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367946"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679367946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
-</span><a href="#local-6989586621679367947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:Deployment' :: Maybe POSIX
+</span><a href="#local-6989586621679367957"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679367957"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367956"><span class="annot"><span class="annottext">s :: Deployment
+</span><a href="#local-6989586621679367956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367955"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679367955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
+</span><a href="#local-6989586621679367956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:Deployment' :: Maybe POSIX
 </span><a href="Network.AWS.APIGateway.Types.Deployment.html#%24sel%3AcreatedDate%3ADeployment%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679367946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Deployment -&gt; f Deployment)
+</span><a href="#local-6989586621679367955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Deployment -&gt; f Deployment)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -244,16 +244,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Deployment -&gt; Maybe Text -&gt; Deployment)
 -&gt; Lens Deployment Deployment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367943"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367952"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Deployment' :: Deployment -&gt; Maybe Text
-</span><a href="#local-6989586621679367943"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367943"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367942"><span class="annot"><span class="annottext">s :: Deployment
-</span><a href="#local-6989586621679367942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
-</span><a href="#local-6989586621679367942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Deployment' :: Maybe Text
+</span><a href="#local-6989586621679367952"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367952"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367951"><span class="annot"><span class="annottext">s :: Deployment
+</span><a href="#local-6989586621679367951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
+</span><a href="#local-6989586621679367951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Deployment' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Deployment.html#%24sel%3Aid%3ADeployment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The description for the deployment resource.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#deployment_description"><span class="hs-identifier hs-type">deployment_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -262,19 +262,19 @@ $sel:id:Deployment' :: Deployment -&gt; Maybe Text
 -&gt; (Deployment -&gt; Maybe Text -&gt; Deployment)
 -&gt; Lens Deployment Deployment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367939"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367948"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Deployment' :: Deployment -&gt; Maybe Text
-</span><a href="#local-6989586621679367939"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367939"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367938"><span class="annot"><span class="annottext">s :: Deployment
-</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367937"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
-</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Deployment' :: Maybe Text
+</span><a href="#local-6989586621679367948"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367948"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367947"><span class="annot"><span class="annottext">s :: Deployment
+</span><a href="#local-6989586621679367947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367946"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
+</span><a href="#local-6989586621679367947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Deployment' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Deployment.html#%24sel%3Adescription%3ADeployment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367934"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679367932"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Deployment
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367943"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679367941"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Deployment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Deployment) -&gt; Value -&gt; Parser Deployment
@@ -282,8 +282,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Deployment&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367929"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367929"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367938"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text (HashMap Text MethodSnapshot))
 -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Deployment
 </span><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-var">Deployment'</span></a></span><span>
@@ -293,7 +293,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Deployment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser
      (Maybe (Maybe (HashMap Text (HashMap Text MethodSnapshot))))
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Deployment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,7 +319,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Deployment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,13 +327,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Deployment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367929"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679367938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367922"><span id="local-6989586621679367924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367931"><span id="local-6989586621679367933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WellArchitected.AssociateLenses</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Associate a lens to a workload.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WellArchitected.AssociateLenses</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier">AssociateLenses</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#newAssociateLenses"><span class="hs-identifier">newAssociateLenses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#associateLenses_workloadId"><span class="hs-identifier">associateLenses_workloadId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#associateLenses_lensAliases"><span class="hs-identifier">associateLenses_lensAliases</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLensesResponse"><span class="hs-identifier">AssociateLensesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#newAssociateLensesResponse"><span class="hs-identifier">newAssociateLensesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.html"><span class="hs-identifier">Network.AWS.WellArchitected.Types</span></a></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | Input to associate lens reviews.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newAssociateLenses' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679251736"><span id="local-6989586621679251737"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateLenses"><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-var">AssociateLenses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateLenses%27"><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses%27"><span class="hs-identifier hs-var">AssociateLenses'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AworkloadId%3AAssociateLenses%27"><span class="annot"><span class="annottext">AssociateLenses -&gt; Text
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#%24sel%3AworkloadId%3AAssociateLenses%27"><span class="hs-identifier hs-var hs-var">workloadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AlensAliases%3AAssociateLenses%27"><span class="annot"><span class="annottext">AssociateLenses -&gt; NonEmpty Text
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#%24sel%3AlensAliases%3AAssociateLenses%27"><span class="hs-identifier hs-var hs-var">lensAliases</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251729"><span id="local-6989586621679251731"><span class="annot"><span class="annottext">AssociateLenses -&gt; AssociateLenses -&gt; Bool
+(AssociateLenses -&gt; AssociateLenses -&gt; Bool)
+-&gt; (AssociateLenses -&gt; AssociateLenses -&gt; Bool)
+-&gt; Eq AssociateLenses
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateLenses -&gt; AssociateLenses -&gt; Bool
+$c/= :: AssociateLenses -&gt; AssociateLenses -&gt; Bool
+== :: AssociateLenses -&gt; AssociateLenses -&gt; Bool
+$c== :: AssociateLenses -&gt; AssociateLenses -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251720"><span id="local-6989586621679251722"><span id="local-6989586621679251724"><span id="local-6989586621679251726"><span class="annot"><span class="annottext">ReadPrec [AssociateLenses]
+ReadPrec AssociateLenses
+Int -&gt; ReadS AssociateLenses
+ReadS [AssociateLenses]
+(Int -&gt; ReadS AssociateLenses)
+-&gt; ReadS [AssociateLenses]
+-&gt; ReadPrec AssociateLenses
+-&gt; ReadPrec [AssociateLenses]
+-&gt; Read AssociateLenses
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateLenses]
+$creadListPrec :: ReadPrec [AssociateLenses]
+readPrec :: ReadPrec AssociateLenses
+$creadPrec :: ReadPrec AssociateLenses
+readList :: ReadS [AssociateLenses]
+$creadList :: ReadS [AssociateLenses]
+readsPrec :: Int -&gt; ReadS AssociateLenses
+$creadsPrec :: Int -&gt; ReadS AssociateLenses
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251713"><span id="local-6989586621679251715"><span id="local-6989586621679251717"><span class="annot"><span class="annottext">Int -&gt; AssociateLenses -&gt; ShowS
+[AssociateLenses] -&gt; ShowS
+AssociateLenses -&gt; String
+(Int -&gt; AssociateLenses -&gt; ShowS)
+-&gt; (AssociateLenses -&gt; String)
+-&gt; ([AssociateLenses] -&gt; ShowS)
+-&gt; Show AssociateLenses
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateLenses] -&gt; ShowS
+$cshowList :: [AssociateLenses] -&gt; ShowS
+show :: AssociateLenses -&gt; String
+$cshow :: AssociateLenses -&gt; String
+showsPrec :: Int -&gt; AssociateLenses -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateLenses -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssociateLenses -&gt; Rep AssociateLenses x)
+-&gt; (forall x. Rep AssociateLenses x -&gt; AssociateLenses)
+-&gt; Generic AssociateLenses
+forall x. Rep AssociateLenses x -&gt; AssociateLenses
+forall x. AssociateLenses -&gt; Rep AssociateLenses x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateLenses x -&gt; AssociateLenses
+$cfrom :: forall x. AssociateLenses -&gt; Rep AssociateLenses x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'AssociateLenses' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'workloadId', 'associateLenses_workloadId' - Undocumented member.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'lensAliases', 'associateLenses_lensAliases' - Undocumented member.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#newAssociateLenses"><span class="hs-identifier hs-type">newAssociateLenses</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'workloadId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'lensAliases'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span>
+</span><span id="line-72"></span><span id="newAssociateLenses"><span class="annot"><span class="annottext">newAssociateLenses :: Text -&gt; NonEmpty Text -&gt; AssociateLenses
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#newAssociateLenses"><span class="hs-identifier hs-var hs-var">newAssociateLenses</span></a></span></span><span> </span><span id="local-6989586621679251708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251708"><span class="hs-identifier hs-var">pWorkloadId_</span></a></span></span><span> </span><span id="local-6989586621679251707"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679251707"><span class="hs-identifier hs-var">pLensAliases_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">AssociateLenses' :: Text -&gt; NonEmpty Text -&gt; AssociateLenses
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses%27"><span class="hs-identifier hs-type">AssociateLenses'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workloadId:AssociateLenses' :: Text
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#%24sel%3AworkloadId%3AAssociateLenses%27"><span class="hs-identifier hs-var">workloadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251708"><span class="hs-identifier hs-var">pWorkloadId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:lensAliases:AssociateLenses' :: NonEmpty Text
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#%24sel%3AlensAliases%3AAssociateLenses%27"><span class="hs-identifier hs-var">lensAliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679251707"><span class="hs-identifier hs-var">pLensAliases_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#associateLenses_workloadId"><span class="hs-identifier hs-type">associateLenses_workloadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="associateLenses_workloadId"><span class="annot"><span class="annottext">associateLenses_workloadId :: (Text -&gt; f Text) -&gt; AssociateLenses -&gt; f AssociateLenses
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#associateLenses_workloadId"><span class="hs-identifier hs-var hs-var">associateLenses_workloadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateLenses -&gt; Text)
+-&gt; (AssociateLenses -&gt; Text -&gt; AssociateLenses)
+-&gt; Lens AssociateLenses AssociateLenses Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses%27"><span class="hs-identifier hs-type">AssociateLenses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251702"><span class="annot"><span class="annottext">Text
+workloadId :: Text
+$sel:workloadId:AssociateLenses' :: AssociateLenses -&gt; Text
+</span><a href="#local-6989586621679251702"><span class="hs-identifier hs-var hs-var">workloadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251702"><span class="hs-identifier hs-var">workloadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251701"><span class="annot"><span class="annottext">s :: AssociateLenses
+</span><a href="#local-6989586621679251701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses%27"><span class="hs-identifier hs-type">AssociateLenses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251700"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLenses
+</span><a href="#local-6989586621679251701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workloadId:AssociateLenses' :: Text
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#%24sel%3AworkloadId%3AAssociateLenses%27"><span class="hs-identifier hs-var">workloadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#associateLenses_lensAliases"><span class="hs-identifier hs-type">associateLenses_lensAliases</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="associateLenses_lensAliases"><span class="annot"><span class="annottext">associateLenses_lensAliases :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; AssociateLenses -&gt; f AssociateLenses
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#associateLenses_lensAliases"><span class="hs-identifier hs-var hs-var">associateLenses_lensAliases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateLenses -&gt; NonEmpty Text)
+-&gt; (AssociateLenses -&gt; NonEmpty Text -&gt; AssociateLenses)
+-&gt; Lens
+     AssociateLenses AssociateLenses (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses%27"><span class="hs-identifier hs-type">AssociateLenses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251699"><span class="annot"><span class="annottext">NonEmpty Text
+lensAliases :: NonEmpty Text
+$sel:lensAliases:AssociateLenses' :: AssociateLenses -&gt; NonEmpty Text
+</span><a href="#local-6989586621679251699"><span class="hs-identifier hs-var hs-var">lensAliases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679251699"><span class="hs-identifier hs-var">lensAliases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251698"><span class="annot"><span class="annottext">s :: AssociateLenses
+</span><a href="#local-6989586621679251698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses%27"><span class="hs-identifier hs-type">AssociateLenses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251697"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679251697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLenses
+</span><a href="#local-6989586621679251698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lensAliases:AssociateLenses' :: NonEmpty Text
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#%24sel%3AlensAliases%3AAssociateLenses%27"><span class="hs-identifier hs-var">lensAliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679251697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; AssociateLenses -&gt; f AssociateLenses)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; AssociateLenses
+-&gt; f AssociateLenses
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLensesResponse"><span class="hs-identifier hs-type">AssociateLensesResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679251692"><span class="annot"><span class="annottext">request :: AssociateLenses -&gt; Request AssociateLenses
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateLenses -&gt; Request AssociateLenses
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WellArchitected.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679251688"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateLenses
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AssociateLenses)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse AssociateLenses
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateLenses
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AssociateLenses)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse AssociateLenses
+AssociateLensesResponse
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLensesResponse%27"><span class="hs-identifier hs-var">AssociateLensesResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251681"><span id="local-6989586621679251683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679251674"><span class="annot"><span class="annottext">toHeaders :: AssociateLenses -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; AssociateLenses -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-105"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251664"><span id="local-6989586621679251666"><span id="local-6989586621679251668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679251662"><span class="annot"><span class="annottext">toJSON :: AssociateLenses -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses%27"><span class="hs-identifier hs-type">AssociateLenses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251659"><span id="local-6989586621679251660"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+lensAliases :: NonEmpty Text
+workloadId :: Text
+$sel:lensAliases:AssociateLenses' :: AssociateLenses -&gt; NonEmpty Text
+$sel:workloadId:AssociateLenses' :: AssociateLenses -&gt; Text
+</span><a href="#local-6989586621679251659"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LensAliases&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679251659"><span class="hs-identifier hs-var">lensAliases</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679251653"><span class="annot"><span class="annottext">toPath :: AssociateLenses -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses%27"><span class="hs-identifier hs-type">AssociateLenses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251650"><span id="local-6989586621679251651"><span class="annot"><span class="annottext">NonEmpty Text
+Text
+lensAliases :: NonEmpty Text
+workloadId :: Text
+$sel:lensAliases:AssociateLenses' :: AssociateLenses -&gt; NonEmpty Text
+$sel:workloadId:AssociateLenses' :: AssociateLenses -&gt; Text
+</span><a href="#local-6989586621679251650"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workloads/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251651"><span class="hs-identifier hs-var">workloadId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/associateLenses&quot;</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLenses"><span class="hs-identifier hs-type">AssociateLenses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679251646"><span class="annot"><span class="annottext">toQuery :: AssociateLenses -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateLenses -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newAssociateLensesResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679251643"><span id="local-6989586621679251644"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateLensesResponse"><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLensesResponse"><span class="hs-identifier hs-var">AssociateLensesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateLensesResponse%27"><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLensesResponse%27"><span class="hs-identifier hs-var">AssociateLensesResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251639"><span id="local-6989586621679251641"><span class="annot"><span class="annottext">AssociateLensesResponse -&gt; AssociateLensesResponse -&gt; Bool
+(AssociateLensesResponse -&gt; AssociateLensesResponse -&gt; Bool)
+-&gt; (AssociateLensesResponse -&gt; AssociateLensesResponse -&gt; Bool)
+-&gt; Eq AssociateLensesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateLensesResponse -&gt; AssociateLensesResponse -&gt; Bool
+$c/= :: AssociateLensesResponse -&gt; AssociateLensesResponse -&gt; Bool
+== :: AssociateLensesResponse -&gt; AssociateLensesResponse -&gt; Bool
+$c== :: AssociateLensesResponse -&gt; AssociateLensesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251631"><span id="local-6989586621679251633"><span id="local-6989586621679251635"><span id="local-6989586621679251637"><span class="annot"><span class="annottext">ReadPrec [AssociateLensesResponse]
+ReadPrec AssociateLensesResponse
+Int -&gt; ReadS AssociateLensesResponse
+ReadS [AssociateLensesResponse]
+(Int -&gt; ReadS AssociateLensesResponse)
+-&gt; ReadS [AssociateLensesResponse]
+-&gt; ReadPrec AssociateLensesResponse
+-&gt; ReadPrec [AssociateLensesResponse]
+-&gt; Read AssociateLensesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateLensesResponse]
+$creadListPrec :: ReadPrec [AssociateLensesResponse]
+readPrec :: ReadPrec AssociateLensesResponse
+$creadPrec :: ReadPrec AssociateLensesResponse
+readList :: ReadS [AssociateLensesResponse]
+$creadList :: ReadS [AssociateLensesResponse]
+readsPrec :: Int -&gt; ReadS AssociateLensesResponse
+$creadsPrec :: Int -&gt; ReadS AssociateLensesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251625"><span id="local-6989586621679251627"><span id="local-6989586621679251629"><span class="annot"><span class="annottext">Int -&gt; AssociateLensesResponse -&gt; ShowS
+[AssociateLensesResponse] -&gt; ShowS
+AssociateLensesResponse -&gt; String
+(Int -&gt; AssociateLensesResponse -&gt; ShowS)
+-&gt; (AssociateLensesResponse -&gt; String)
+-&gt; ([AssociateLensesResponse] -&gt; ShowS)
+-&gt; Show AssociateLensesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateLensesResponse] -&gt; ShowS
+$cshowList :: [AssociateLensesResponse] -&gt; ShowS
+show :: AssociateLensesResponse -&gt; String
+$cshow :: AssociateLensesResponse -&gt; String
+showsPrec :: Int -&gt; AssociateLensesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateLensesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateLensesResponse -&gt; Rep AssociateLensesResponse x)
+-&gt; (forall x.
+    Rep AssociateLensesResponse x -&gt; AssociateLensesResponse)
+-&gt; Generic AssociateLensesResponse
+forall x. Rep AssociateLensesResponse x -&gt; AssociateLensesResponse
+forall x. AssociateLensesResponse -&gt; Rep AssociateLensesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateLensesResponse x -&gt; AssociateLensesResponse
+$cfrom :: forall x. AssociateLensesResponse -&gt; Rep AssociateLensesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Create a value of 'AssociateLensesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#newAssociateLensesResponse"><span class="hs-identifier hs-type">newAssociateLensesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLensesResponse"><span class="hs-identifier hs-type">AssociateLensesResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newAssociateLensesResponse"><span class="annot"><span class="annottext">newAssociateLensesResponse :: AssociateLensesResponse
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#newAssociateLensesResponse"><span class="hs-identifier hs-var hs-var">newAssociateLensesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssociateLensesResponse
+</span><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLensesResponse%27"><span class="hs-identifier hs-var">AssociateLensesResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.AssociateLenses.html#AssociateLensesResponse"><span class="hs-identifier hs-type">AssociateLensesResponse</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

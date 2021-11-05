@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetApplicationSettings' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679633669"><span id="local-6989586621679633670"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationSettings"><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-var">GetApplicationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationSettings%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings%27"><span class="hs-identifier hs-var">GetApplicationSettings'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679633678"><span id="local-6989586621679633679"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationSettings"><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-var">GetApplicationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationSettings%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings%27"><span class="hs-identifier hs-var">GetApplicationSettings'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetApplicationSettings%27"><span class="annot"><span class="annottext">GetApplicationSettings -&gt; Text
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#%24sel%3AapplicationId%3AGetApplicationSettings%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633663"><span id="local-6989586621679633665"><span class="annot"><span class="annottext">GetApplicationSettings -&gt; GetApplicationSettings -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633672"><span id="local-6989586621679633674"><span class="annot"><span class="annottext">GetApplicationSettings -&gt; GetApplicationSettings -&gt; Bool
 (GetApplicationSettings -&gt; GetApplicationSettings -&gt; Bool)
 -&gt; (GetApplicationSettings -&gt; GetApplicationSettings -&gt; Bool)
 -&gt; Eq GetApplicationSettings
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetApplicationSettings -&gt; GetApplicationSettings -&gt; Bool
 == :: GetApplicationSettings -&gt; GetApplicationSettings -&gt; Bool
 $c== :: GetApplicationSettings -&gt; GetApplicationSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633654"><span id="local-6989586621679633656"><span id="local-6989586621679633658"><span id="local-6989586621679633660"><span class="annot"><span class="annottext">ReadPrec [GetApplicationSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633663"><span id="local-6989586621679633665"><span id="local-6989586621679633667"><span id="local-6989586621679633669"><span class="annot"><span class="annottext">ReadPrec [GetApplicationSettings]
 ReadPrec GetApplicationSettings
 Int -&gt; ReadS GetApplicationSettings
 ReadS [GetApplicationSettings]
@@ -82,7 +82,7 @@ readList :: ReadS [GetApplicationSettings]
 $creadList :: ReadS [GetApplicationSettings]
 readsPrec :: Int -&gt; ReadS GetApplicationSettings
 $creadsPrec :: Int -&gt; ReadS GetApplicationSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633647"><span id="local-6989586621679633649"><span id="local-6989586621679633651"><span class="annot"><span class="annottext">Int -&gt; GetApplicationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633656"><span id="local-6989586621679633658"><span id="local-6989586621679633660"><span class="annot"><span class="annottext">Int -&gt; GetApplicationSettings -&gt; ShowS
 [GetApplicationSettings] -&gt; ShowS
 GetApplicationSettings -&gt; String
 (Int -&gt; GetApplicationSettings -&gt; ShowS)
@@ -124,14 +124,14 @@ $cfrom :: forall x. GetApplicationSettings -&gt; Rep GetApplicationSettings x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetApplicationSettings"><span class="annot"><span class="annottext">newGetApplicationSettings :: Text -&gt; GetApplicationSettings
-</span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#newGetApplicationSettings"><span class="hs-identifier hs-var hs-var">newGetApplicationSettings</span></a></span></span><span> </span><span id="local-6989586621679633642"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633642"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#newGetApplicationSettings"><span class="hs-identifier hs-var hs-var">newGetApplicationSettings</span></a></span></span><span> </span><span id="local-6989586621679633651"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633651"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetApplicationSettings' :: Text -&gt; GetApplicationSettings
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings%27"><span class="hs-identifier hs-type">GetApplicationSettings'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:GetApplicationSettings' :: Text
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#%24sel%3AapplicationId%3AGetApplicationSettings%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633642"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><a href="#local-6989586621679633651"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
@@ -143,27 +143,27 @@ $cfrom :: forall x. GetApplicationSettings -&gt; Rep GetApplicationSettings x
 -&gt; (GetApplicationSettings -&gt; Text -&gt; GetApplicationSettings)
 -&gt; Lens GetApplicationSettings GetApplicationSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings%27"><span class="hs-identifier hs-type">GetApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633639"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings%27"><span class="hs-identifier hs-type">GetApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633648"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:GetApplicationSettings' :: GetApplicationSettings -&gt; Text
-</span><a href="#local-6989586621679633639"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633639"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633638"><span class="annot"><span class="annottext">s :: GetApplicationSettings
-</span><a href="#local-6989586621679633638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings%27"><span class="hs-identifier hs-type">GetApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633637"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationSettings
-</span><a href="#local-6989586621679633638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetApplicationSettings' :: Text
+</span><a href="#local-6989586621679633648"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633648"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633647"><span class="annot"><span class="annottext">s :: GetApplicationSettings
+</span><a href="#local-6989586621679633647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings%27"><span class="hs-identifier hs-type">GetApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633646"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679633646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationSettings
+</span><a href="#local-6989586621679633647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetApplicationSettings' :: Text
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#%24sel%3AapplicationId%3AGetApplicationSettings%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse"><span class="hs-identifier hs-type">GetApplicationSettingsResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679633633"><span class="annot"><span class="annottext">request :: GetApplicationSettings -&gt; Request GetApplicationSettings
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679633642"><span class="annot"><span class="annottext">request :: GetApplicationSettings -&gt; Request GetApplicationSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetApplicationSettings -&gt; Request GetApplicationSettings
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679633629"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679633638"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetApplicationSettings
 -&gt; ClientResponse ClientBody
@@ -189,10 +189,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679633626"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633626"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679633625"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679633625"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679633624"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679633624"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679633635"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633635"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679633634"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679633634"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679633633"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679633633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; ApplicationSettingsResource -&gt; GetApplicationSettingsResponse
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-var">GetApplicationSettingsResponse'</span></a></span><span>
@@ -208,7 +208,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633626"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633635"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (ApplicationSettingsResource -&gt; GetApplicationSettingsResponse)
@@ -218,15 +218,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String ApplicationSettingsResource
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679633624"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633633"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633616"><span id="local-6989586621679633618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633625"><span id="local-6989586621679633627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679633622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679633609"><span class="annot"><span class="annottext">toHeaders :: GetApplicationSettings -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679633618"><span class="annot"><span class="annottext">toHeaders :: GetApplicationSettings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetApplicationSettings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -246,11 +246,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679633603"><span class="annot"><span class="annottext">toPath :: GetApplicationSettings -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings%27"><span class="hs-identifier hs-type">GetApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633601"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679633612"><span class="annot"><span class="annottext">toPath :: GetApplicationSettings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings%27"><span class="hs-identifier hs-type">GetApplicationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633610"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:GetApplicationSettings' :: GetApplicationSettings -&gt; Text
-</span><a href="#local-6989586621679633601"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679633610"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -258,11 +258,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679633601"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679633610"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/settings&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettings"><span class="hs-identifier hs-type">GetApplicationSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679633597"><span class="annot"><span class="annottext">toQuery :: GetApplicationSettings -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679633606"><span class="annot"><span class="annottext">toQuery :: GetApplicationSettings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetApplicationSettings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -270,14 +270,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newGetApplicationSettingsResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679633594"><span id="local-6989586621679633595"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationSettingsResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse"><span class="hs-identifier hs-var">GetApplicationSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationSettingsResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-var">GetApplicationSettingsResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679633603"><span id="local-6989586621679633604"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApplicationSettingsResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse"><span class="hs-identifier hs-var">GetApplicationSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApplicationSettingsResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-var">GetApplicationSettingsResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetApplicationSettingsResponse%27"><span class="annot"><span class="annottext">GetApplicationSettingsResponse -&gt; Int
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#%24sel%3AhttpStatus%3AGetApplicationSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AapplicationSettingsResource%3AGetApplicationSettingsResponse%27"><span class="annot"><span class="annottext">GetApplicationSettingsResponse -&gt; ApplicationSettingsResource
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#%24sel%3AapplicationSettingsResource%3AGetApplicationSettingsResponse%27"><span class="hs-identifier hs-var hs-var">applicationSettingsResource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationSettingsResource.html#ApplicationSettingsResource"><span class="hs-identifier hs-type">ApplicationSettingsResource</span></a></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633588"><span id="local-6989586621679633590"><span class="annot"><span class="annottext">GetApplicationSettingsResponse
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679633597"><span id="local-6989586621679633599"><span class="annot"><span class="annottext">GetApplicationSettingsResponse
 -&gt; GetApplicationSettingsResponse -&gt; Bool
 (GetApplicationSettingsResponse
  -&gt; GetApplicationSettingsResponse -&gt; Bool)
@@ -293,7 +293,7 @@ $c/= :: GetApplicationSettingsResponse
 -&gt; GetApplicationSettingsResponse -&gt; Bool
 $c== :: GetApplicationSettingsResponse
 -&gt; GetApplicationSettingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633580"><span id="local-6989586621679633582"><span id="local-6989586621679633584"><span id="local-6989586621679633586"><span class="annot"><span class="annottext">ReadPrec [GetApplicationSettingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633589"><span id="local-6989586621679633591"><span id="local-6989586621679633593"><span id="local-6989586621679633595"><span class="annot"><span class="annottext">ReadPrec [GetApplicationSettingsResponse]
 ReadPrec GetApplicationSettingsResponse
 Int -&gt; ReadS GetApplicationSettingsResponse
 ReadS [GetApplicationSettingsResponse]
@@ -313,7 +313,7 @@ readList :: ReadS [GetApplicationSettingsResponse]
 $creadList :: ReadS [GetApplicationSettingsResponse]
 readsPrec :: Int -&gt; ReadS GetApplicationSettingsResponse
 $creadsPrec :: Int -&gt; ReadS GetApplicationSettingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633574"><span id="local-6989586621679633576"><span id="local-6989586621679633578"><span class="annot"><span class="annottext">Int -&gt; GetApplicationSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679633583"><span id="local-6989586621679633585"><span id="local-6989586621679633587"><span class="annot"><span class="annottext">Int -&gt; GetApplicationSettingsResponse -&gt; ShowS
 [GetApplicationSettingsResponse] -&gt; ShowS
 GetApplicationSettingsResponse -&gt; String
 (Int -&gt; GetApplicationSettingsResponse -&gt; ShowS)
@@ -371,21 +371,21 @@ GetApplicationSettingsResponse
 </span><span id="line-143"></span><span id="newGetApplicationSettingsResponse"><span class="annot"><span class="annottext">newGetApplicationSettingsResponse :: Int
 -&gt; ApplicationSettingsResource -&gt; GetApplicationSettingsResponse
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#newGetApplicationSettingsResponse"><span class="hs-identifier hs-var hs-var">newGetApplicationSettingsResponse</span></a></span></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679633571"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633571"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679633570"><span class="annot"><span class="annottext">ApplicationSettingsResource
-</span><a href="#local-6989586621679633570"><span class="hs-identifier hs-var">pApplicationSettingsResource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679633580"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633580"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679633579"><span class="annot"><span class="annottext">ApplicationSettingsResource
+</span><a href="#local-6989586621679633579"><span class="hs-identifier hs-var">pApplicationSettingsResource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">GetApplicationSettingsResponse' :: Int
 -&gt; ApplicationSettingsResource -&gt; GetApplicationSettingsResponse
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-type">GetApplicationSettingsResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationSettingsResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#%24sel%3AhttpStatus%3AGetApplicationSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633571"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679633580"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationSettingsResource:GetApplicationSettingsResponse' :: ApplicationSettingsResource
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#%24sel%3AapplicationSettingsResource%3AGetApplicationSettingsResponse%27"><span class="hs-identifier hs-var">applicationSettingsResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ApplicationSettingsResource
-</span><a href="#local-6989586621679633570"><span class="hs-identifier hs-var">pApplicationSettingsResource_</span></a></span><span>
+</span><a href="#local-6989586621679633579"><span class="hs-identifier hs-var">pApplicationSettingsResource_</span></a></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -402,16 +402,16 @@ GetApplicationSettingsResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-type">GetApplicationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633569"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-type">GetApplicationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633578"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetApplicationSettingsResponse' :: GetApplicationSettingsResponse -&gt; Int
-</span><a href="#local-6989586621679633569"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633569"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633568"><span class="annot"><span class="annottext">s :: GetApplicationSettingsResponse
-</span><a href="#local-6989586621679633568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-type">GetApplicationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633567"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationSettingsResponse
-</span><a href="#local-6989586621679633568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationSettingsResponse' :: Int
+</span><a href="#local-6989586621679633578"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633578"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633577"><span class="annot"><span class="annottext">s :: GetApplicationSettingsResponse
+</span><a href="#local-6989586621679633577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-type">GetApplicationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679633576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationSettingsResponse
+</span><a href="#local-6989586621679633577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetApplicationSettingsResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#%24sel%3AhttpStatus%3AGetApplicationSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679633567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse"><span class="hs-identifier hs-type">GetApplicationSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse"><span class="hs-identifier hs-type">GetApplicationSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#getApplicationSettingsResponse_applicationSettingsResource"><span class="hs-identifier hs-type">getApplicationSettingsResponse_applicationSettingsResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse"><span class="hs-identifier hs-type">GetApplicationSettingsResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationSettingsResource.html#ApplicationSettingsResource"><span class="hs-identifier hs-type">ApplicationSettingsResource</span></a></span><span>
@@ -427,18 +427,18 @@ $sel:httpStatus:GetApplicationSettingsResponse' :: GetApplicationSettingsRespons
      ApplicationSettingsResource
      ApplicationSettingsResource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-type">GetApplicationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633566"><span class="annot"><span class="annottext">ApplicationSettingsResource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-type">GetApplicationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679633575"><span class="annot"><span class="annottext">ApplicationSettingsResource
 applicationSettingsResource :: ApplicationSettingsResource
 $sel:applicationSettingsResource:GetApplicationSettingsResponse' :: GetApplicationSettingsResponse -&gt; ApplicationSettingsResource
-</span><a href="#local-6989586621679633566"><span class="hs-identifier hs-var hs-var">applicationSettingsResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSettingsResource
-</span><a href="#local-6989586621679633566"><span class="hs-identifier hs-var">applicationSettingsResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633565"><span class="annot"><span class="annottext">s :: GetApplicationSettingsResponse
-</span><a href="#local-6989586621679633565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-type">GetApplicationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633564"><span class="annot"><span class="annottext">ApplicationSettingsResource
-</span><a href="#local-6989586621679633564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationSettingsResponse
-</span><a href="#local-6989586621679633565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationSettingsResource:GetApplicationSettingsResponse' :: ApplicationSettingsResource
+</span><a href="#local-6989586621679633575"><span class="hs-identifier hs-var hs-var">applicationSettingsResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSettingsResource
+</span><a href="#local-6989586621679633575"><span class="hs-identifier hs-var">applicationSettingsResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679633574"><span class="annot"><span class="annottext">s :: GetApplicationSettingsResponse
+</span><a href="#local-6989586621679633574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse%27"><span class="hs-identifier hs-type">GetApplicationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679633573"><span class="annot"><span class="annottext">ApplicationSettingsResource
+</span><a href="#local-6989586621679633573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApplicationSettingsResponse
+</span><a href="#local-6989586621679633574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationSettingsResource:GetApplicationSettingsResponse' :: ApplicationSettingsResource
 </span><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#%24sel%3AapplicationSettingsResource%3AGetApplicationSettingsResponse%27"><span class="hs-identifier hs-var">applicationSettingsResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApplicationSettingsResource
-</span><a href="#local-6989586621679633564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse"><span class="hs-identifier hs-type">GetApplicationSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679633573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse"><span class="hs-identifier hs-type">GetApplicationSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679633562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679633571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApplicationSettings.html#GetApplicationSettingsResponse"><span class="hs-identifier hs-type">GetApplicationSettingsResponse</span></a></span></span><span>
 </span><span id="line-164"></span></pre></body></html>

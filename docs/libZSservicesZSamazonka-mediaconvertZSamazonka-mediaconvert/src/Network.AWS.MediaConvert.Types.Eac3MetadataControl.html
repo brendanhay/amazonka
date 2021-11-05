@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- DD+, or DolbyE decoder that supplied this audio data. If audio was not</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- supplied from one of these streams, then the static metadata settings</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- will be used.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679962978"><span id="local-6989586621679962979"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3MetadataControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl"><span class="hs-identifier hs-var">Eac3MetadataControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3MetadataControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl%27"><span class="hs-identifier hs-var">Eac3MetadataControl'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679962987"><span id="local-6989586621679962988"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3MetadataControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl"><span class="hs-identifier hs-var">Eac3MetadataControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3MetadataControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl%27"><span class="hs-identifier hs-var">Eac3MetadataControl'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3MetadataControl"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Eac3MetadataControl.html#fromEac3MetadataControl"><span class="hs-identifier hs-var hs-var">fromEac3MetadataControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962970"><span id="local-6989586621679962972"><span id="local-6989586621679962974"><span class="annot"><span class="annottext">Int -&gt; Eac3MetadataControl -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962979"><span id="local-6989586621679962981"><span id="local-6989586621679962983"><span class="annot"><span class="annottext">Int -&gt; Eac3MetadataControl -&gt; ShowS
 [Eac3MetadataControl] -&gt; ShowS
 Eac3MetadataControl -&gt; String
 (Int -&gt; Eac3MetadataControl -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: Eac3MetadataControl -&gt; String
 showsPrec :: Int -&gt; Eac3MetadataControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Eac3MetadataControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679962961"><span id="local-6989586621679962963"><span id="local-6989586621679962965"><span id="local-6989586621679962967"><span class="annot"><span class="annottext">ReadPrec [Eac3MetadataControl]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679962970"><span id="local-6989586621679962972"><span id="local-6989586621679962974"><span id="local-6989586621679962976"><span class="annot"><span class="annottext">ReadPrec [Eac3MetadataControl]
 ReadPrec Eac3MetadataControl
 Int -&gt; ReadS Eac3MetadataControl
 ReadS [Eac3MetadataControl]
@@ -76,7 +76,7 @@ $creadList :: ReadS [Eac3MetadataControl]
 readsPrec :: Int -&gt; ReadS Eac3MetadataControl
 $creadsPrec :: Int -&gt; ReadS Eac3MetadataControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679962956"><span id="local-6989586621679962958"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679962965"><span id="local-6989586621679962967"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
 (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool)
 -&gt; (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool)
 -&gt; Eq Eac3MetadataControl
@@ -86,7 +86,7 @@ $c/= :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
 == :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
 $c== :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679962940"><span id="local-6989586621679962942"><span id="local-6989586621679962944"><span id="local-6989586621679962946"><span id="local-6989586621679962948"><span id="local-6989586621679962950"><span id="local-6989586621679962952"><span class="annot"><span class="annottext">Eq Eac3MetadataControl
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679962949"><span id="local-6989586621679962951"><span id="local-6989586621679962953"><span id="local-6989586621679962955"><span id="local-6989586621679962957"><span id="local-6989586621679962959"><span id="local-6989586621679962961"><span class="annot"><span class="annottext">Eq Eac3MetadataControl
 Eq Eac3MetadataControl
 -&gt; (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Ordering)
 -&gt; (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. Eac3MetadataControl -&gt; Rep Eac3MetadataControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962932"><span id="local-6989586621679962934"><span class="annot"><span class="annottext">Int -&gt; Eac3MetadataControl -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962941"><span id="local-6989586621679962943"><span class="annot"><span class="annottext">Int -&gt; Eac3MetadataControl -&gt; Int
 Eac3MetadataControl -&gt; Int
 (Int -&gt; Eac3MetadataControl -&gt; Int)
 -&gt; (Eac3MetadataControl -&gt; Int) -&gt; Hashable Eac3MetadataControl
@@ -149,53 +149,53 @@ $chash :: Eac3MetadataControl -&gt; Int
 hashWithSalt :: Int -&gt; Eac3MetadataControl -&gt; Int
 $chashWithSalt :: Int -&gt; Eac3MetadataControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679962929"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679962938"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; ()
 (Eac3MetadataControl -&gt; ()) -&gt; NFData Eac3MetadataControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Eac3MetadataControl -&gt; ()
 $crnf :: Eac3MetadataControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679962926"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3MetadataControl
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679962935"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3MetadataControl
 (Text -&gt; Either String Eac3MetadataControl)
 -&gt; FromText Eac3MetadataControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Eac3MetadataControl
 $cfromText :: Text -&gt; Either String Eac3MetadataControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679962923"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679962932"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; Text
 (Eac3MetadataControl -&gt; Text) -&gt; ToText Eac3MetadataControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Eac3MetadataControl -&gt; Text
 $ctoText :: Eac3MetadataControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679962920"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679962929"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; ByteString
 (Eac3MetadataControl -&gt; ByteString)
 -&gt; ToByteString Eac3MetadataControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Eac3MetadataControl -&gt; ByteString
 $ctoBS :: Eac3MetadataControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679962917"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679962926"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; ByteStringBuilder
 (Eac3MetadataControl -&gt; ByteStringBuilder)
 -&gt; ToLog Eac3MetadataControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Eac3MetadataControl -&gt; ByteStringBuilder
 $cbuild :: Eac3MetadataControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679962914"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3MetadataControl -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679962923"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3MetadataControl -&gt; [Header]
 (HeaderName -&gt; Eac3MetadataControl -&gt; [Header])
 -&gt; ToHeader Eac3MetadataControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Eac3MetadataControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Eac3MetadataControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679962911"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679962920"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; QueryString
 (Eac3MetadataControl -&gt; QueryString) -&gt; ToQuery Eac3MetadataControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Eac3MetadataControl -&gt; QueryString
 $ctoQuery :: Eac3MetadataControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679962906"><span id="local-6989586621679962908"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3MetadataControl]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679962915"><span id="local-6989586621679962917"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3MetadataControl]
 Value -&gt; Parser Eac3MetadataControl
 (Value -&gt; Parser Eac3MetadataControl)
 -&gt; (Value -&gt; Parser [Eac3MetadataControl])
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [Eac3MetadataControl]
 parseJSON :: Value -&gt; Parser Eac3MetadataControl
 $cparseJSON :: Value -&gt; Parser Eac3MetadataControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679962901"><span id="local-6989586621679962903"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3MetadataControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679962910"><span id="local-6989586621679962912"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3MetadataControl]
 FromJSONKeyFunction Eac3MetadataControl
 FromJSONKeyFunction Eac3MetadataControl
 -&gt; FromJSONKeyFunction [Eac3MetadataControl]
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Eac3MetadataControl]
 fromJSONKey :: FromJSONKeyFunction Eac3MetadataControl
 $cfromJSONKey :: FromJSONKeyFunction Eac3MetadataControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679962892"><span id="local-6989586621679962894"><span id="local-6989586621679962896"><span id="local-6989586621679962898"><span class="annot"><span class="annottext">[Eac3MetadataControl] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679962901"><span id="local-6989586621679962903"><span id="local-6989586621679962905"><span id="local-6989586621679962907"><span class="annot"><span class="annottext">[Eac3MetadataControl] -&gt; Encoding
 [Eac3MetadataControl] -&gt; Value
 Eac3MetadataControl -&gt; Encoding
 Eac3MetadataControl -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: Eac3MetadataControl -&gt; Encoding
 toJSON :: Eac3MetadataControl -&gt; Value
 $ctoJSON :: Eac3MetadataControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679962887"><span id="local-6989586621679962889"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3MetadataControl]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679962896"><span id="local-6989586621679962898"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3MetadataControl]
 ToJSONKeyFunction Eac3MetadataControl
 ToJSONKeyFunction Eac3MetadataControl
 -&gt; ToJSONKeyFunction [Eac3MetadataControl]
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Eac3MetadataControl]
 toJSONKey :: ToJSONKeyFunction Eac3MetadataControl
 $ctoJSONKey :: ToJSONKeyFunction Eac3MetadataControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679962884"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3MetadataControl
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679962893"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3MetadataControl
 ([Node] -&gt; Either String Eac3MetadataControl)
 -&gt; FromXML Eac3MetadataControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Eac3MetadataControl
 $cparseXML :: [Node] -&gt; Either String Eac3MetadataControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679962881"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679962890"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; XML
 (Eac3MetadataControl -&gt; XML) -&gt; ToXML Eac3MetadataControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Eac3MetadataControl -&gt; XML

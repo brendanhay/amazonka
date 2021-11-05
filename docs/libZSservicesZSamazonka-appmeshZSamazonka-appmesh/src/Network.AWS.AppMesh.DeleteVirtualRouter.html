@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.DeleteVirtualRouter</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an existing virtual router.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- You must delete any routes associated with the virtual router before you</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- can delete the router itself.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.DeleteVirtualRouter</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier">DeleteVirtualRouter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#newDeleteVirtualRouter"><span class="hs-identifier">newDeleteVirtualRouter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouter_meshOwner"><span class="hs-identifier">deleteVirtualRouter_meshOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouter_meshName"><span class="hs-identifier">deleteVirtualRouter_meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouter_virtualRouterName"><span class="hs-identifier">deleteVirtualRouter_virtualRouterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse"><span class="hs-identifier">DeleteVirtualRouterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#newDeleteVirtualRouterResponse"><span class="hs-identifier">newDeleteVirtualRouterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouterResponse_httpStatus"><span class="hs-identifier">deleteVirtualRouterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouterResponse_virtualRouter"><span class="hs-identifier">deleteVirtualRouterResponse_virtualRouter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.html"><span class="hs-identifier">Network.AWS.AppMesh.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDeleteVirtualRouter' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679349006"><span id="local-6989586621679349007"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVirtualRouter"><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-var">DeleteVirtualRouter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVirtualRouter%27"><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-var">DeleteVirtualRouter'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmeshOwner%3ADeleteVirtualRouter%27"><span class="annot"><span class="annottext">DeleteVirtualRouter -&gt; Maybe Text
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AmeshOwner%3ADeleteVirtualRouter%27"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the service mesh to delete the virtual router in.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmeshName%3ADeleteVirtualRouter%27"><span class="annot"><span class="annottext">DeleteVirtualRouter -&gt; Text
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AmeshName%3ADeleteVirtualRouter%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the virtual router to delete.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AvirtualRouterName%3ADeleteVirtualRouter%27"><span class="annot"><span class="annottext">DeleteVirtualRouter -&gt; Text
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AvirtualRouterName%3ADeleteVirtualRouter%27"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348998"><span id="local-6989586621679349000"><span class="annot"><span class="annottext">DeleteVirtualRouter -&gt; DeleteVirtualRouter -&gt; Bool
+(DeleteVirtualRouter -&gt; DeleteVirtualRouter -&gt; Bool)
+-&gt; (DeleteVirtualRouter -&gt; DeleteVirtualRouter -&gt; Bool)
+-&gt; Eq DeleteVirtualRouter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteVirtualRouter -&gt; DeleteVirtualRouter -&gt; Bool
+$c/= :: DeleteVirtualRouter -&gt; DeleteVirtualRouter -&gt; Bool
+== :: DeleteVirtualRouter -&gt; DeleteVirtualRouter -&gt; Bool
+$c== :: DeleteVirtualRouter -&gt; DeleteVirtualRouter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348989"><span id="local-6989586621679348991"><span id="local-6989586621679348993"><span id="local-6989586621679348995"><span class="annot"><span class="annottext">ReadPrec [DeleteVirtualRouter]
+ReadPrec DeleteVirtualRouter
+Int -&gt; ReadS DeleteVirtualRouter
+ReadS [DeleteVirtualRouter]
+(Int -&gt; ReadS DeleteVirtualRouter)
+-&gt; ReadS [DeleteVirtualRouter]
+-&gt; ReadPrec DeleteVirtualRouter
+-&gt; ReadPrec [DeleteVirtualRouter]
+-&gt; Read DeleteVirtualRouter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteVirtualRouter]
+$creadListPrec :: ReadPrec [DeleteVirtualRouter]
+readPrec :: ReadPrec DeleteVirtualRouter
+$creadPrec :: ReadPrec DeleteVirtualRouter
+readList :: ReadS [DeleteVirtualRouter]
+$creadList :: ReadS [DeleteVirtualRouter]
+readsPrec :: Int -&gt; ReadS DeleteVirtualRouter
+$creadsPrec :: Int -&gt; ReadS DeleteVirtualRouter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348982"><span id="local-6989586621679348984"><span id="local-6989586621679348986"><span class="annot"><span class="annottext">Int -&gt; DeleteVirtualRouter -&gt; ShowS
+[DeleteVirtualRouter] -&gt; ShowS
+DeleteVirtualRouter -&gt; String
+(Int -&gt; DeleteVirtualRouter -&gt; ShowS)
+-&gt; (DeleteVirtualRouter -&gt; String)
+-&gt; ([DeleteVirtualRouter] -&gt; ShowS)
+-&gt; Show DeleteVirtualRouter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteVirtualRouter] -&gt; ShowS
+$cshowList :: [DeleteVirtualRouter] -&gt; ShowS
+show :: DeleteVirtualRouter -&gt; String
+$cshow :: DeleteVirtualRouter -&gt; String
+showsPrec :: Int -&gt; DeleteVirtualRouter -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteVirtualRouter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteVirtualRouter -&gt; Rep DeleteVirtualRouter x)
+-&gt; (forall x. Rep DeleteVirtualRouter x -&gt; DeleteVirtualRouter)
+-&gt; Generic DeleteVirtualRouter
+forall x. Rep DeleteVirtualRouter x -&gt; DeleteVirtualRouter
+forall x. DeleteVirtualRouter -&gt; Rep DeleteVirtualRouter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteVirtualRouter x -&gt; DeleteVirtualRouter
+$cfrom :: forall x. DeleteVirtualRouter -&gt; Rep DeleteVirtualRouter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'DeleteVirtualRouter' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'meshOwner', 'deleteVirtualRouter_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'meshName', 'deleteVirtualRouter_meshName' - The name of the service mesh to delete the virtual router in.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'virtualRouterName', 'deleteVirtualRouter_virtualRouterName' - The name of the virtual router to delete.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#newDeleteVirtualRouter"><span class="hs-identifier hs-type">newDeleteVirtualRouter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'virtualRouterName'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span>
+</span><span id="line-92"></span><span id="newDeleteVirtualRouter"><span class="annot"><span class="annottext">newDeleteVirtualRouter :: Text -&gt; Text -&gt; DeleteVirtualRouter
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#newDeleteVirtualRouter"><span class="hs-identifier hs-var hs-var">newDeleteVirtualRouter</span></a></span></span><span> </span><span id="local-6989586621679348977"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348977"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span> </span><span id="local-6989586621679348976"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348976"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">DeleteVirtualRouter' :: Maybe Text -&gt; Text -&gt; Text -&gt; DeleteVirtualRouter
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-type">DeleteVirtualRouter'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:meshOwner:DeleteVirtualRouter' :: Maybe Text
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AmeshOwner%3ADeleteVirtualRouter%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:meshName:DeleteVirtualRouter' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AmeshName%3ADeleteVirtualRouter%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348977"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualRouterName:DeleteVirtualRouter' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AvirtualRouterName%3ADeleteVirtualRouter%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348976"><span class="hs-identifier hs-var">pVirtualRouterName_</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The AWS IAM account ID of the service mesh owner. If the account ID is</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- not your own, then it\'s the ID of the account that shared the mesh with</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- your account. For more information about mesh sharing, see</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes&gt;.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouter_meshOwner"><span class="hs-identifier hs-type">deleteVirtualRouter_meshOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="deleteVirtualRouter_meshOwner"><span class="annot"><span class="annottext">deleteVirtualRouter_meshOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteVirtualRouter -&gt; f DeleteVirtualRouter
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouter_meshOwner"><span class="hs-identifier hs-var hs-var">deleteVirtualRouter_meshOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVirtualRouter -&gt; Maybe Text)
+-&gt; (DeleteVirtualRouter -&gt; Maybe Text -&gt; DeleteVirtualRouter)
+-&gt; Lens
+     DeleteVirtualRouter DeleteVirtualRouter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-type">DeleteVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348973"><span class="annot"><span class="annottext">Maybe Text
+meshOwner :: Maybe Text
+$sel:meshOwner:DeleteVirtualRouter' :: DeleteVirtualRouter -&gt; Maybe Text
+</span><a href="#local-6989586621679348973"><span class="hs-identifier hs-var hs-var">meshOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348973"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348972"><span class="annot"><span class="annottext">s :: DeleteVirtualRouter
+</span><a href="#local-6989586621679348972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-type">DeleteVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualRouter
+</span><a href="#local-6989586621679348972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshOwner:DeleteVirtualRouter' :: Maybe Text
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AmeshOwner%3ADeleteVirtualRouter%27"><span class="hs-identifier hs-var">meshOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the service mesh to delete the virtual router in.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouter_meshName"><span class="hs-identifier hs-type">deleteVirtualRouter_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="deleteVirtualRouter_meshName"><span class="annot"><span class="annottext">deleteVirtualRouter_meshName :: (Text -&gt; f Text) -&gt; DeleteVirtualRouter -&gt; f DeleteVirtualRouter
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouter_meshName"><span class="hs-identifier hs-var hs-var">deleteVirtualRouter_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVirtualRouter -&gt; Text)
+-&gt; (DeleteVirtualRouter -&gt; Text -&gt; DeleteVirtualRouter)
+-&gt; Lens DeleteVirtualRouter DeleteVirtualRouter Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-type">DeleteVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348970"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:DeleteVirtualRouter' :: DeleteVirtualRouter -&gt; Text
+</span><a href="#local-6989586621679348970"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348970"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348969"><span class="annot"><span class="annottext">s :: DeleteVirtualRouter
+</span><a href="#local-6989586621679348969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-type">DeleteVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualRouter
+</span><a href="#local-6989586621679348969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:DeleteVirtualRouter' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AmeshName%3ADeleteVirtualRouter%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The name of the virtual router to delete.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouter_virtualRouterName"><span class="hs-identifier hs-type">deleteVirtualRouter_virtualRouterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="deleteVirtualRouter_virtualRouterName"><span class="annot"><span class="annottext">deleteVirtualRouter_virtualRouterName :: (Text -&gt; f Text) -&gt; DeleteVirtualRouter -&gt; f DeleteVirtualRouter
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouter_virtualRouterName"><span class="hs-identifier hs-var hs-var">deleteVirtualRouter_virtualRouterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVirtualRouter -&gt; Text)
+-&gt; (DeleteVirtualRouter -&gt; Text -&gt; DeleteVirtualRouter)
+-&gt; Lens DeleteVirtualRouter DeleteVirtualRouter Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-type">DeleteVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348967"><span class="annot"><span class="annottext">Text
+virtualRouterName :: Text
+$sel:virtualRouterName:DeleteVirtualRouter' :: DeleteVirtualRouter -&gt; Text
+</span><a href="#local-6989586621679348967"><span class="hs-identifier hs-var hs-var">virtualRouterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348967"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348966"><span class="annot"><span class="annottext">s :: DeleteVirtualRouter
+</span><a href="#local-6989586621679348966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-type">DeleteVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348965"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualRouter
+</span><a href="#local-6989586621679348966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualRouterName:DeleteVirtualRouter' :: Text
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AvirtualRouterName%3ADeleteVirtualRouter%27"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679348961"><span class="annot"><span class="annottext">request :: DeleteVirtualRouter -&gt; Request DeleteVirtualRouter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteVirtualRouter -&gt; Request DeleteVirtualRouter
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppMesh.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679348957"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteVirtualRouter
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteVirtualRouter)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteVirtualRouter))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteVirtualRouter
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteVirtualRouter)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348954"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348954"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348953"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348953"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348952"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348952"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; VirtualRouterData -&gt; DeleteVirtualRouterResponse
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse%27"><span class="hs-identifier hs-var">DeleteVirtualRouterResponse'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; VirtualRouterData -&gt; DeleteVirtualRouterResponse)
+-&gt; Either String Int
+-&gt; Either String (VirtualRouterData -&gt; DeleteVirtualRouterResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348954"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (VirtualRouterData -&gt; DeleteVirtualRouterResponse)
+-&gt; Either String VirtualRouterData
+-&gt; Either String DeleteVirtualRouterResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String VirtualRouterData
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348952"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348944"><span id="local-6989586621679348946"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348941"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679348937"><span class="annot"><span class="annottext">toHeaders :: DeleteVirtualRouter -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteVirtualRouter -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679348931"><span class="annot"><span class="annottext">toPath :: DeleteVirtualRouter -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-type">DeleteVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348927"><span id="local-6989586621679348928"><span id="local-6989586621679348929"><span class="annot"><span class="annottext">Maybe Text
+Text
+virtualRouterName :: Text
+meshName :: Text
+meshOwner :: Maybe Text
+$sel:virtualRouterName:DeleteVirtualRouter' :: DeleteVirtualRouter -&gt; Text
+$sel:meshName:DeleteVirtualRouter' :: DeleteVirtualRouter -&gt; Text
+$sel:meshOwner:DeleteVirtualRouter' :: DeleteVirtualRouter -&gt; Maybe Text
+</span><a href="#local-6989586621679348927"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v20190125/meshes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348928"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/virtualRouters/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348927"><span class="hs-identifier hs-var">virtualRouterName</span></a></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter"><span class="hs-identifier hs-type">DeleteVirtualRouter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679348923"><span class="annot"><span class="annottext">toQuery :: DeleteVirtualRouter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouter%27"><span class="hs-identifier hs-type">DeleteVirtualRouter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348919"><span id="local-6989586621679348920"><span id="local-6989586621679348921"><span class="annot"><span class="annottext">Maybe Text
+Text
+virtualRouterName :: Text
+meshName :: Text
+meshOwner :: Maybe Text
+$sel:virtualRouterName:DeleteVirtualRouter' :: DeleteVirtualRouter -&gt; Text
+$sel:meshName:DeleteVirtualRouter' :: DeleteVirtualRouter -&gt; Text
+$sel:meshOwner:DeleteVirtualRouter' :: DeleteVirtualRouter -&gt; Maybe Text
+</span><a href="#local-6989586621679348919"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;meshOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679348921"><span class="hs-identifier hs-var">meshOwner</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newDeleteVirtualRouterResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679348916"><span id="local-6989586621679348917"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVirtualRouterResponse"><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse"><span class="hs-identifier hs-var">DeleteVirtualRouterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVirtualRouterResponse%27"><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse%27"><span class="hs-identifier hs-var">DeleteVirtualRouterResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteVirtualRouterResponse%27"><span class="annot"><span class="annottext">DeleteVirtualRouterResponse -&gt; Int
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AhttpStatus%3ADeleteVirtualRouterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The virtual router that was deleted.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AvirtualRouter%3ADeleteVirtualRouterResponse%27"><span class="annot"><span class="annottext">DeleteVirtualRouterResponse -&gt; VirtualRouterData
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AvirtualRouter%3ADeleteVirtualRouterResponse%27"><span class="hs-identifier hs-var hs-var">virtualRouter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348910"><span id="local-6989586621679348912"><span class="annot"><span class="annottext">DeleteVirtualRouterResponse -&gt; DeleteVirtualRouterResponse -&gt; Bool
+(DeleteVirtualRouterResponse
+ -&gt; DeleteVirtualRouterResponse -&gt; Bool)
+-&gt; (DeleteVirtualRouterResponse
+    -&gt; DeleteVirtualRouterResponse -&gt; Bool)
+-&gt; Eq DeleteVirtualRouterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteVirtualRouterResponse -&gt; DeleteVirtualRouterResponse -&gt; Bool
+$c/= :: DeleteVirtualRouterResponse -&gt; DeleteVirtualRouterResponse -&gt; Bool
+== :: DeleteVirtualRouterResponse -&gt; DeleteVirtualRouterResponse -&gt; Bool
+$c== :: DeleteVirtualRouterResponse -&gt; DeleteVirtualRouterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348902"><span id="local-6989586621679348904"><span id="local-6989586621679348906"><span id="local-6989586621679348908"><span class="annot"><span class="annottext">ReadPrec [DeleteVirtualRouterResponse]
+ReadPrec DeleteVirtualRouterResponse
+Int -&gt; ReadS DeleteVirtualRouterResponse
+ReadS [DeleteVirtualRouterResponse]
+(Int -&gt; ReadS DeleteVirtualRouterResponse)
+-&gt; ReadS [DeleteVirtualRouterResponse]
+-&gt; ReadPrec DeleteVirtualRouterResponse
+-&gt; ReadPrec [DeleteVirtualRouterResponse]
+-&gt; Read DeleteVirtualRouterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteVirtualRouterResponse]
+$creadListPrec :: ReadPrec [DeleteVirtualRouterResponse]
+readPrec :: ReadPrec DeleteVirtualRouterResponse
+$creadPrec :: ReadPrec DeleteVirtualRouterResponse
+readList :: ReadS [DeleteVirtualRouterResponse]
+$creadList :: ReadS [DeleteVirtualRouterResponse]
+readsPrec :: Int -&gt; ReadS DeleteVirtualRouterResponse
+$creadsPrec :: Int -&gt; ReadS DeleteVirtualRouterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348896"><span id="local-6989586621679348898"><span id="local-6989586621679348900"><span class="annot"><span class="annottext">Int -&gt; DeleteVirtualRouterResponse -&gt; ShowS
+[DeleteVirtualRouterResponse] -&gt; ShowS
+DeleteVirtualRouterResponse -&gt; String
+(Int -&gt; DeleteVirtualRouterResponse -&gt; ShowS)
+-&gt; (DeleteVirtualRouterResponse -&gt; String)
+-&gt; ([DeleteVirtualRouterResponse] -&gt; ShowS)
+-&gt; Show DeleteVirtualRouterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteVirtualRouterResponse] -&gt; ShowS
+$cshowList :: [DeleteVirtualRouterResponse] -&gt; ShowS
+show :: DeleteVirtualRouterResponse -&gt; String
+$cshow :: DeleteVirtualRouterResponse -&gt; String
+showsPrec :: Int -&gt; DeleteVirtualRouterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteVirtualRouterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteVirtualRouterResponse -&gt; Rep DeleteVirtualRouterResponse x)
+-&gt; (forall x.
+    Rep DeleteVirtualRouterResponse x -&gt; DeleteVirtualRouterResponse)
+-&gt; Generic DeleteVirtualRouterResponse
+forall x.
+Rep DeleteVirtualRouterResponse x -&gt; DeleteVirtualRouterResponse
+forall x.
+DeleteVirtualRouterResponse -&gt; Rep DeleteVirtualRouterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteVirtualRouterResponse x -&gt; DeleteVirtualRouterResponse
+$cfrom :: forall x.
+DeleteVirtualRouterResponse -&gt; Rep DeleteVirtualRouterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'DeleteVirtualRouterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'deleteVirtualRouterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'virtualRouter', 'deleteVirtualRouterResponse_virtualRouter' - The virtual router that was deleted.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#newDeleteVirtualRouterResponse"><span class="hs-identifier hs-type">newDeleteVirtualRouterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'virtualRouter'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newDeleteVirtualRouterResponse"><span class="annot"><span class="annottext">newDeleteVirtualRouterResponse :: Int -&gt; VirtualRouterData -&gt; DeleteVirtualRouterResponse
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#newDeleteVirtualRouterResponse"><span class="hs-identifier hs-var hs-var">newDeleteVirtualRouterResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679348893"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348893"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679348892"><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679348892"><span class="hs-identifier hs-var">pVirtualRouter_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">DeleteVirtualRouterResponse' :: Int -&gt; VirtualRouterData -&gt; DeleteVirtualRouterResponse
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse%27"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse'</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVirtualRouterResponse' :: Int
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AhttpStatus%3ADeleteVirtualRouterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348893"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualRouter:DeleteVirtualRouterResponse' :: VirtualRouterData
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AvirtualRouter%3ADeleteVirtualRouterResponse%27"><span class="hs-identifier hs-var">virtualRouter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679348892"><span class="hs-identifier hs-var">pVirtualRouter_</span></a></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouterResponse_httpStatus"><span class="hs-identifier hs-type">deleteVirtualRouterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="deleteVirtualRouterResponse_httpStatus"><span class="annot"><span class="annottext">deleteVirtualRouterResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteVirtualRouterResponse -&gt; f DeleteVirtualRouterResponse
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteVirtualRouterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVirtualRouterResponse -&gt; Int)
+-&gt; (DeleteVirtualRouterResponse
+    -&gt; Int -&gt; DeleteVirtualRouterResponse)
+-&gt; Lens
+     DeleteVirtualRouterResponse DeleteVirtualRouterResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse%27"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348891"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteVirtualRouterResponse' :: DeleteVirtualRouterResponse -&gt; Int
+</span><a href="#local-6989586621679348891"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348891"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348890"><span class="annot"><span class="annottext">s :: DeleteVirtualRouterResponse
+</span><a href="#local-6989586621679348890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse%27"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348889"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualRouterResponse
+</span><a href="#local-6989586621679348890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVirtualRouterResponse' :: Int
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AhttpStatus%3ADeleteVirtualRouterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The virtual router that was deleted.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouterResponse_virtualRouter"><span class="hs-identifier hs-type">deleteVirtualRouterResponse_virtualRouter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualRouterData.html#VirtualRouterData"><span class="hs-identifier hs-type">VirtualRouterData</span></a></span><span>
+</span><span id="line-198"></span><span id="deleteVirtualRouterResponse_virtualRouter"><span class="annot"><span class="annottext">deleteVirtualRouterResponse_virtualRouter :: (VirtualRouterData -&gt; f VirtualRouterData)
+-&gt; DeleteVirtualRouterResponse -&gt; f DeleteVirtualRouterResponse
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#deleteVirtualRouterResponse_virtualRouter"><span class="hs-identifier hs-var hs-var">deleteVirtualRouterResponse_virtualRouter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVirtualRouterResponse -&gt; VirtualRouterData)
+-&gt; (DeleteVirtualRouterResponse
+    -&gt; VirtualRouterData -&gt; DeleteVirtualRouterResponse)
+-&gt; Lens
+     DeleteVirtualRouterResponse
+     DeleteVirtualRouterResponse
+     VirtualRouterData
+     VirtualRouterData
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse%27"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348888"><span class="annot"><span class="annottext">VirtualRouterData
+virtualRouter :: VirtualRouterData
+$sel:virtualRouter:DeleteVirtualRouterResponse' :: DeleteVirtualRouterResponse -&gt; VirtualRouterData
+</span><a href="#local-6989586621679348888"><span class="hs-identifier hs-var hs-var">virtualRouter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679348888"><span class="hs-identifier hs-var">virtualRouter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348887"><span class="annot"><span class="annottext">s :: DeleteVirtualRouterResponse
+</span><a href="#local-6989586621679348887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse%27"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348886"><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679348886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVirtualRouterResponse
+</span><a href="#local-6989586621679348887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualRouter:DeleteVirtualRouterResponse' :: VirtualRouterData
+</span><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#%24sel%3AvirtualRouter%3ADeleteVirtualRouterResponse%27"><span class="hs-identifier hs-var">virtualRouter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VirtualRouterData
+</span><a href="#local-6989586621679348886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348884"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.DeleteVirtualRouter.html#DeleteVirtualRouterResponse"><span class="hs-identifier hs-type">DeleteVirtualRouterResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

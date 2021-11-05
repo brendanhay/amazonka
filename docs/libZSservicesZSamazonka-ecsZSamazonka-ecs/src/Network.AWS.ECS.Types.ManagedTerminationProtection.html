@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679456317"><span id="local-6989586621679456318"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ManagedTerminationProtection"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection"><span class="hs-identifier hs-var">ManagedTerminationProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManagedTerminationProtection%27"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection%27"><span class="hs-identifier hs-var">ManagedTerminationProtection'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679456326"><span id="local-6989586621679456327"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ManagedTerminationProtection"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection"><span class="hs-identifier hs-var">ManagedTerminationProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManagedTerminationProtection%27"><span class="annot"><a href="Network.AWS.ECS.Types.ManagedTerminationProtection.html#ManagedTerminationProtection%27"><span class="hs-identifier hs-var">ManagedTerminationProtection'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromManagedTerminationProtection"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; Text
 </span><a href="Network.AWS.ECS.Types.ManagedTerminationProtection.html#fromManagedTerminationProtection"><span class="hs-identifier hs-var hs-var">fromManagedTerminationProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456309"><span id="local-6989586621679456311"><span id="local-6989586621679456313"><span class="annot"><span class="annottext">Int -&gt; ManagedTerminationProtection -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456318"><span id="local-6989586621679456320"><span id="local-6989586621679456322"><span class="annot"><span class="annottext">Int -&gt; ManagedTerminationProtection -&gt; ShowS
 [ManagedTerminationProtection] -&gt; ShowS
 ManagedTerminationProtection -&gt; String
 (Int -&gt; ManagedTerminationProtection -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ManagedTerminationProtection -&gt; String
 showsPrec :: Int -&gt; ManagedTerminationProtection -&gt; ShowS
 $cshowsPrec :: Int -&gt; ManagedTerminationProtection -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679456300"><span id="local-6989586621679456302"><span id="local-6989586621679456304"><span id="local-6989586621679456306"><span class="annot"><span class="annottext">ReadPrec [ManagedTerminationProtection]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679456309"><span id="local-6989586621679456311"><span id="local-6989586621679456313"><span id="local-6989586621679456315"><span class="annot"><span class="annottext">ReadPrec [ManagedTerminationProtection]
 ReadPrec ManagedTerminationProtection
 Int -&gt; ReadS ManagedTerminationProtection
 ReadS [ManagedTerminationProtection]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ManagedTerminationProtection]
 readsPrec :: Int -&gt; ReadS ManagedTerminationProtection
 $creadsPrec :: Int -&gt; ReadS ManagedTerminationProtection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679456295"><span id="local-6989586621679456297"><span class="annot"><span class="annottext">ManagedTerminationProtection
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679456304"><span id="local-6989586621679456306"><span class="annot"><span class="annottext">ManagedTerminationProtection
 -&gt; ManagedTerminationProtection -&gt; Bool
 (ManagedTerminationProtection
  -&gt; ManagedTerminationProtection -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: ManagedTerminationProtection
 $c== :: ManagedTerminationProtection
 -&gt; ManagedTerminationProtection -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679456279"><span id="local-6989586621679456281"><span id="local-6989586621679456283"><span id="local-6989586621679456285"><span id="local-6989586621679456287"><span id="local-6989586621679456289"><span id="local-6989586621679456291"><span class="annot"><span class="annottext">Eq ManagedTerminationProtection
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679456288"><span id="local-6989586621679456290"><span id="local-6989586621679456292"><span id="local-6989586621679456294"><span id="local-6989586621679456296"><span id="local-6989586621679456298"><span id="local-6989586621679456300"><span class="annot"><span class="annottext">Eq ManagedTerminationProtection
 Eq ManagedTerminationProtection
 -&gt; (ManagedTerminationProtection
     -&gt; ManagedTerminationProtection -&gt; Ordering)
@@ -170,7 +170,7 @@ ManagedTerminationProtection -&gt; Rep ManagedTerminationProtection x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456271"><span id="local-6989586621679456273"><span class="annot"><span class="annottext">Int -&gt; ManagedTerminationProtection -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456280"><span id="local-6989586621679456282"><span class="annot"><span class="annottext">Int -&gt; ManagedTerminationProtection -&gt; Int
 ManagedTerminationProtection -&gt; Int
 (Int -&gt; ManagedTerminationProtection -&gt; Int)
 -&gt; (ManagedTerminationProtection -&gt; Int)
@@ -181,56 +181,56 @@ $chash :: ManagedTerminationProtection -&gt; Int
 hashWithSalt :: Int -&gt; ManagedTerminationProtection -&gt; Int
 $chashWithSalt :: Int -&gt; ManagedTerminationProtection -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679456268"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679456277"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; ()
 (ManagedTerminationProtection -&gt; ())
 -&gt; NFData ManagedTerminationProtection
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ManagedTerminationProtection -&gt; ()
 $crnf :: ManagedTerminationProtection -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679456265"><span class="annot"><span class="annottext">Text -&gt; Either String ManagedTerminationProtection
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679456274"><span class="annot"><span class="annottext">Text -&gt; Either String ManagedTerminationProtection
 (Text -&gt; Either String ManagedTerminationProtection)
 -&gt; FromText ManagedTerminationProtection
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ManagedTerminationProtection
 $cfromText :: Text -&gt; Either String ManagedTerminationProtection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679456262"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679456271"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; Text
 (ManagedTerminationProtection -&gt; Text)
 -&gt; ToText ManagedTerminationProtection
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ManagedTerminationProtection -&gt; Text
 $ctoText :: ManagedTerminationProtection -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679456259"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679456268"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; ByteString
 (ManagedTerminationProtection -&gt; ByteString)
 -&gt; ToByteString ManagedTerminationProtection
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ManagedTerminationProtection -&gt; ByteString
 $ctoBS :: ManagedTerminationProtection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679456256"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679456265"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; ByteStringBuilder
 (ManagedTerminationProtection -&gt; ByteStringBuilder)
 -&gt; ToLog ManagedTerminationProtection
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ManagedTerminationProtection -&gt; ByteStringBuilder
 $cbuild :: ManagedTerminationProtection -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679456253"><span class="annot"><span class="annottext">HeaderName -&gt; ManagedTerminationProtection -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679456262"><span class="annot"><span class="annottext">HeaderName -&gt; ManagedTerminationProtection -&gt; [Header]
 (HeaderName -&gt; ManagedTerminationProtection -&gt; [Header])
 -&gt; ToHeader ManagedTerminationProtection
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ManagedTerminationProtection -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ManagedTerminationProtection -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679456250"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679456259"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; QueryString
 (ManagedTerminationProtection -&gt; QueryString)
 -&gt; ToQuery ManagedTerminationProtection
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ManagedTerminationProtection -&gt; QueryString
 $ctoQuery :: ManagedTerminationProtection -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679456245"><span id="local-6989586621679456247"><span class="annot"><span class="annottext">Value -&gt; Parser [ManagedTerminationProtection]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679456254"><span id="local-6989586621679456256"><span class="annot"><span class="annottext">Value -&gt; Parser [ManagedTerminationProtection]
 Value -&gt; Parser ManagedTerminationProtection
 (Value -&gt; Parser ManagedTerminationProtection)
 -&gt; (Value -&gt; Parser [ManagedTerminationProtection])
@@ -242,7 +242,7 @@ $cparseJSONList :: Value -&gt; Parser [ManagedTerminationProtection]
 parseJSON :: Value -&gt; Parser ManagedTerminationProtection
 $cparseJSON :: Value -&gt; Parser ManagedTerminationProtection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679456240"><span id="local-6989586621679456242"><span class="annot"><span class="annottext">FromJSONKeyFunction [ManagedTerminationProtection]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679456249"><span id="local-6989586621679456251"><span class="annot"><span class="annottext">FromJSONKeyFunction [ManagedTerminationProtection]
 FromJSONKeyFunction ManagedTerminationProtection
 FromJSONKeyFunction ManagedTerminationProtection
 -&gt; FromJSONKeyFunction [ManagedTerminationProtection]
@@ -254,7 +254,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ManagedTerminationProtection]
 fromJSONKey :: FromJSONKeyFunction ManagedTerminationProtection
 $cfromJSONKey :: FromJSONKeyFunction ManagedTerminationProtection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679456231"><span id="local-6989586621679456233"><span id="local-6989586621679456235"><span id="local-6989586621679456237"><span class="annot"><span class="annottext">[ManagedTerminationProtection] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679456240"><span id="local-6989586621679456242"><span id="local-6989586621679456244"><span id="local-6989586621679456246"><span class="annot"><span class="annottext">[ManagedTerminationProtection] -&gt; Encoding
 [ManagedTerminationProtection] -&gt; Value
 ManagedTerminationProtection -&gt; Encoding
 ManagedTerminationProtection -&gt; Value
@@ -278,7 +278,7 @@ $ctoEncoding :: ManagedTerminationProtection -&gt; Encoding
 toJSON :: ManagedTerminationProtection -&gt; Value
 $ctoJSON :: ManagedTerminationProtection -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679456226"><span id="local-6989586621679456228"><span class="annot"><span class="annottext">ToJSONKeyFunction [ManagedTerminationProtection]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679456235"><span id="local-6989586621679456237"><span class="annot"><span class="annottext">ToJSONKeyFunction [ManagedTerminationProtection]
 ToJSONKeyFunction ManagedTerminationProtection
 ToJSONKeyFunction ManagedTerminationProtection
 -&gt; ToJSONKeyFunction [ManagedTerminationProtection]
@@ -290,14 +290,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ManagedTerminationProtection]
 toJSONKey :: ToJSONKeyFunction ManagedTerminationProtection
 $ctoJSONKey :: ToJSONKeyFunction ManagedTerminationProtection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679456223"><span class="annot"><span class="annottext">[Node] -&gt; Either String ManagedTerminationProtection
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679456232"><span class="annot"><span class="annottext">[Node] -&gt; Either String ManagedTerminationProtection
 ([Node] -&gt; Either String ManagedTerminationProtection)
 -&gt; FromXML ManagedTerminationProtection
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ManagedTerminationProtection
 $cparseXML :: [Node] -&gt; Either String ManagedTerminationProtection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679456220"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679456229"><span class="annot"><span class="annottext">ManagedTerminationProtection -&gt; XML
 (ManagedTerminationProtection -&gt; XML)
 -&gt; ToXML ManagedTerminationProtection
 forall a. (a -&gt; XML) -&gt; ToXML a

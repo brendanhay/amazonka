@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeScalingActivities' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679188541"><span id="local-6989586621679188542"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScalingActivities"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-var">DescribeScalingActivities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScalingActivities%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-var">DescribeScalingActivities'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679188550"><span id="local-6989586621679188551"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScalingActivities"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-var">DescribeScalingActivities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScalingActivities%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-var">DescribeScalingActivities'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- resource type, and scaling property. If you specify a scalable</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- dimension, you must also specify a resource ID.</span><span>
@@ -214,7 +214,7 @@
 </span><span id="line-210"></span><span>    </span><span id="%24sel%3AserviceNamespace%3ADescribeScalingActivities%27"><span class="annot"><span class="annottext">DescribeScalingActivities -&gt; ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AserviceNamespace%3ADescribeScalingActivities%27"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188531"><span id="local-6989586621679188533"><span class="annot"><span class="annottext">DescribeScalingActivities -&gt; DescribeScalingActivities -&gt; Bool
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188540"><span id="local-6989586621679188542"><span class="annot"><span class="annottext">DescribeScalingActivities -&gt; DescribeScalingActivities -&gt; Bool
 (DescribeScalingActivities -&gt; DescribeScalingActivities -&gt; Bool)
 -&gt; (DescribeScalingActivities -&gt; DescribeScalingActivities -&gt; Bool)
 -&gt; Eq DescribeScalingActivities
@@ -223,7 +223,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeScalingActivities -&gt; DescribeScalingActivities -&gt; Bool
 == :: DescribeScalingActivities -&gt; DescribeScalingActivities -&gt; Bool
 $c== :: DescribeScalingActivities -&gt; DescribeScalingActivities -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188522"><span id="local-6989586621679188524"><span id="local-6989586621679188526"><span id="local-6989586621679188528"><span class="annot"><span class="annottext">ReadPrec [DescribeScalingActivities]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188531"><span id="local-6989586621679188533"><span id="local-6989586621679188535"><span id="local-6989586621679188537"><span class="annot"><span class="annottext">ReadPrec [DescribeScalingActivities]
 ReadPrec DescribeScalingActivities
 Int -&gt; ReadS DescribeScalingActivities
 ReadS [DescribeScalingActivities]
@@ -243,7 +243,7 @@ readList :: ReadS [DescribeScalingActivities]
 $creadList :: ReadS [DescribeScalingActivities]
 readsPrec :: Int -&gt; ReadS DescribeScalingActivities
 $creadsPrec :: Int -&gt; ReadS DescribeScalingActivities
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188515"><span id="local-6989586621679188517"><span id="local-6989586621679188519"><span class="annot"><span class="annottext">Int -&gt; DescribeScalingActivities -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188524"><span id="local-6989586621679188526"><span id="local-6989586621679188528"><span class="annot"><span class="annottext">Int -&gt; DescribeScalingActivities -&gt; ShowS
 [DescribeScalingActivities] -&gt; ShowS
 DescribeScalingActivities -&gt; String
 (Int -&gt; DescribeScalingActivities -&gt; ShowS)
@@ -437,8 +437,8 @@ DescribeScalingActivities -&gt; Rep DescribeScalingActivities x
 </span><span id="line-373"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-374"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span>
 </span><span id="line-375"></span><span id="newDescribeScalingActivities"><span class="annot"><span class="annottext">newDescribeScalingActivities :: ServiceNamespace -&gt; DescribeScalingActivities
-</span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#newDescribeScalingActivities"><span class="hs-identifier hs-var hs-var">newDescribeScalingActivities</span></a></span></span><span> </span><span id="local-6989586621679188510"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679188510"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#newDescribeScalingActivities"><span class="hs-identifier hs-var hs-var">newDescribeScalingActivities</span></a></span></span><span> </span><span id="local-6989586621679188519"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679188519"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-376"></span><span>  </span><span class="annot"><span class="annottext">DescribeScalingActivities' :: Maybe ScalableDimension
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -465,7 +465,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-382"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceNamespace:DescribeScalingActivities' :: ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AserviceNamespace%3ADescribeScalingActivities%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679188510"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span>
+</span><a href="#local-6989586621679188519"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span>
 </span><span id="line-383"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-384"></span><span>
 </span><span id="line-385"></span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
@@ -546,16 +546,16 @@ forall a. Maybe a
      (Maybe ScalableDimension)
      (Maybe ScalableDimension)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188508"><span class="annot"><span class="annottext">Maybe ScalableDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188517"><span class="annot"><span class="annottext">Maybe ScalableDimension
 scalableDimension :: Maybe ScalableDimension
 $sel:scalableDimension:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Maybe ScalableDimension
-</span><a href="#local-6989586621679188508"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScalableDimension
-</span><a href="#local-6989586621679188508"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188507"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
-</span><a href="#local-6989586621679188507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188506"><span class="annot"><span class="annottext">Maybe ScalableDimension
-</span><a href="#local-6989586621679188506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
-</span><a href="#local-6989586621679188507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:DescribeScalingActivities' :: Maybe ScalableDimension
+</span><a href="#local-6989586621679188517"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScalableDimension
+</span><a href="#local-6989586621679188517"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188516"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
+</span><a href="#local-6989586621679188516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188515"><span class="annot"><span class="annottext">Maybe ScalableDimension
+</span><a href="#local-6989586621679188515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
+</span><a href="#local-6989586621679188516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:DescribeScalingActivities' :: Maybe ScalableDimension
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AscalableDimension%3ADescribeScalingActivities%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScalableDimension
-</span><a href="#local-6989586621679188506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-453"></span><span>
 </span><span id="line-454"></span><span class="hs-comment">-- | The identifier of the resource associated with the scaling activity.</span><span>
 </span><span id="line-455"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
@@ -636,16 +636,16 @@ $sel:scalableDimension:DescribeScalingActivities' :: DescribeScalingActivities -
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188505"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188514"><span class="annot"><span class="annottext">Maybe Text
 resourceId :: Maybe Text
 $sel:resourceId:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Maybe Text
-</span><a href="#local-6989586621679188505"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188505"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188504"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
-</span><a href="#local-6989586621679188504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188503"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
-</span><a href="#local-6989586621679188504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DescribeScalingActivities' :: Maybe Text
+</span><a href="#local-6989586621679188514"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188514"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188513"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
+</span><a href="#local-6989586621679188513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
+</span><a href="#local-6989586621679188513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DescribeScalingActivities' :: Maybe Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AresourceId%3ADescribeScalingActivities%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-523"></span><span>
 </span><span id="line-524"></span><span class="hs-comment">-- | The token for the next set of results.</span><span>
 </span><span id="line-525"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#describeScalingActivities_nextToken"><span class="hs-identifier hs-type">describeScalingActivities_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -660,16 +660,16 @@ $sel:resourceId:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188502"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188511"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Maybe Text
-</span><a href="#local-6989586621679188502"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188502"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188501"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
-</span><a href="#local-6989586621679188501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188500"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
-</span><a href="#local-6989586621679188501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeScalingActivities' :: Maybe Text
+</span><a href="#local-6989586621679188511"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188511"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188510"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
+</span><a href="#local-6989586621679188510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
+</span><a href="#local-6989586621679188510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeScalingActivities' :: Maybe Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AnextToken%3ADescribeScalingActivities%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-527"></span><span>
 </span><span id="line-528"></span><span class="hs-comment">-- | The maximum number of scalable targets. This value can be between 1 and</span><span>
 </span><span id="line-529"></span><span class="hs-comment">-- 50. The default value is 50.</span><span>
@@ -691,16 +691,16 @@ $sel:nextToken:DescribeScalingActivities' :: DescribeScalingActivities -&gt; May
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188499"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188508"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Maybe Int
-</span><a href="#local-6989586621679188499"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679188499"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188498"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
-</span><a href="#local-6989586621679188498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188497"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679188497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
-</span><a href="#local-6989586621679188498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeScalingActivities' :: Maybe Int
+</span><a href="#local-6989586621679188508"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679188508"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188507"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
+</span><a href="#local-6989586621679188507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188506"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679188506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
+</span><a href="#local-6989586621679188507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeScalingActivities' :: Maybe Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AmaxResults%3ADescribeScalingActivities%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679188497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-538"></span><span>
 </span><span id="line-539"></span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
 </span><span id="line-540"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
@@ -717,30 +717,30 @@ $sel:maxResults:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Ma
      ServiceNamespace
      ServiceNamespace
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188496"><span class="annot"><span class="annottext">ServiceNamespace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188505"><span class="annot"><span class="annottext">ServiceNamespace
 serviceNamespace :: ServiceNamespace
 $sel:serviceNamespace:DescribeScalingActivities' :: DescribeScalingActivities -&gt; ServiceNamespace
-</span><a href="#local-6989586621679188496"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679188496"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188495"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
-</span><a href="#local-6989586621679188495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188494"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679188494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
-</span><a href="#local-6989586621679188495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:DescribeScalingActivities' :: ServiceNamespace
+</span><a href="#local-6989586621679188505"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679188505"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188504"><span class="annot"><span class="annottext">s :: DescribeScalingActivities
+</span><a href="#local-6989586621679188504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188503"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679188503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivities
+</span><a href="#local-6989586621679188504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:DescribeScalingActivities' :: ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AserviceNamespace%3ADescribeScalingActivities%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679188494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-544"></span><span>
 </span><span id="line-545"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-546"></span><span>  </span><span id="local-6989586621679188490"><span class="annot"><span class="annottext">page :: DescribeScalingActivities
+</span><span id="line-546"></span><span>  </span><span id="local-6989586621679188499"><span class="annot"><span class="annottext">page :: DescribeScalingActivities
 -&gt; AWSResponse DescribeScalingActivities
 -&gt; Maybe DescribeScalingActivities
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679188488"><span class="annot"><span class="annottext">DescribeScalingActivities
-</span><a href="#local-6989586621679188488"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679188487"><span class="annot"><span class="annottext">AWSResponse DescribeScalingActivities
-</span><a href="#local-6989586621679188487"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679188497"><span class="annot"><span class="annottext">DescribeScalingActivities
+</span><a href="#local-6989586621679188497"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679188496"><span class="annot"><span class="annottext">AWSResponse DescribeScalingActivities
+</span><a href="#local-6989586621679188496"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-547"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-548"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeScalingActivities
 DescribeScalingActivitiesResponse
-</span><a href="#local-6989586621679188487"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679188496"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-549"></span><span>            </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
 -&gt; Getting (First Text) DescribeScalingActivitiesResponse Text
 -&gt; Maybe Text
@@ -770,7 +770,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-554"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeScalingActivities
 DescribeScalingActivitiesResponse
-</span><a href="#local-6989586621679188487"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679188496"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-555"></span><span>            </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
 -&gt; Getting
      (First [ScalingActivity])
@@ -818,7 +818,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-561"></span><span>        </span><span class="annot"><span class="annottext">DescribeScalingActivities
-</span><a href="#local-6989586621679188488"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679188497"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-562"></span><span>          </span><span class="annot"><span class="annottext">DescribeScalingActivities
 -&gt; (DescribeScalingActivities -&gt; DescribeScalingActivities)
 -&gt; DescribeScalingActivities
@@ -839,7 +839,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeScalingActivities
 DescribeScalingActivitiesResponse
-</span><a href="#local-6989586621679188487"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679188496"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-564"></span><span>          </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
 -&gt; Getting (First Text) DescribeScalingActivitiesResponse Text
 -&gt; Maybe Text
@@ -865,13 +865,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-568"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-569"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-570"></span><span>      </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span><span>
-</span><span id="line-571"></span><span>  </span><span id="local-6989586621679188477"><span class="annot"><span class="annottext">request :: DescribeScalingActivities -&gt; Request DescribeScalingActivities
+</span><span id="line-571"></span><span>  </span><span id="local-6989586621679188486"><span class="annot"><span class="annottext">request :: DescribeScalingActivities -&gt; Request DescribeScalingActivities
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeScalingActivities -&gt; Request DescribeScalingActivities
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-572"></span><span>  </span><span id="local-6989586621679188473"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-572"></span><span>  </span><span id="local-6989586621679188482"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeScalingActivities
 -&gt; ClientResponse ClientBody
@@ -897,10 +897,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-574"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188470"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188470"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679188469"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679188469"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679188468"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-574"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188479"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188479"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679188478"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679188478"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679188477"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188477"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-575"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ScalingActivity]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeScalingActivitiesResponse
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-var">DescribeScalingActivitiesResponse'</span></a></span><span>
@@ -911,7 +911,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; DescribeScalingActivitiesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ScalingActivity]))
+</span><a href="#local-6989586621679188477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ScalingActivity]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalingActivities&quot;</span></span><span>
@@ -929,7 +929,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeScalingActivitiesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679188477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -942,15 +942,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188470"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188479"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-581"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-582"></span><span>
-</span><span id="line-583"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188459"><span id="local-6989586621679188461"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span></span></span><span>
+</span><span id="line-583"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188468"><span id="local-6989586621679188470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span></span></span><span>
 </span><span id="line-584"></span><span>
-</span><span id="line-585"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span></span><span>
+</span><span id="line-585"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span></span><span>
 </span><span id="line-586"></span><span>
 </span><span id="line-587"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-588"></span><span>  </span><span id="local-6989586621679188452"><span class="annot"><span class="annottext">toHeaders :: DescribeScalingActivities -&gt; ResponseHeaders
+</span><span id="line-588"></span><span>  </span><span id="local-6989586621679188461"><span class="annot"><span class="annottext">toHeaders :: DescribeScalingActivities -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-589"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeScalingActivities -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -977,9 +977,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-599"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-600"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-601"></span><span>
-</span><span id="line-602"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188442"><span id="local-6989586621679188444"><span id="local-6989586621679188446"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-603"></span><span>  </span><span id="local-6989586621679188440"><span class="annot"><span class="annottext">toJSON :: DescribeScalingActivities -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188434"><span id="local-6989586621679188435"><span id="local-6989586621679188436"><span id="local-6989586621679188437"><span id="local-6989586621679188438"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-602"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188451"><span id="local-6989586621679188453"><span id="local-6989586621679188455"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-603"></span><span>  </span><span id="local-6989586621679188449"><span class="annot"><span class="annottext">toJSON :: DescribeScalingActivities -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities%27"><span class="hs-identifier hs-type">DescribeScalingActivities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188443"><span id="local-6989586621679188444"><span id="local-6989586621679188445"><span id="local-6989586621679188446"><span id="local-6989586621679188447"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe ScalableDimension
 ServiceNamespace
@@ -993,7 +993,7 @@ $sel:maxResults:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Ma
 $sel:nextToken:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Maybe Text
 $sel:resourceId:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Maybe Text
 $sel:scalableDimension:DescribeScalingActivities' :: DescribeScalingActivities -&gt; Maybe ScalableDimension
-</span><a href="#local-6989586621679188434"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679188443"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-604"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-605"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1007,28 +1007,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ScalableDimension -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScalableDimension
-</span><a href="#local-6989586621679188438"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679188447"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-608"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188437"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679188446"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-609"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188436"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679188445"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-610"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679188435"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679188444"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-611"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1036,19 +1036,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceNamespace -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679188434"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188443"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-613"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-614"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-615"></span><span>
 </span><span id="line-616"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-617"></span><span>  </span><span id="local-6989586621679188428"><span class="annot"><span class="annottext">toPath :: DescribeScalingActivities -&gt; ByteString
+</span><span id="line-617"></span><span>  </span><span id="local-6989586621679188437"><span class="annot"><span class="annottext">toPath :: DescribeScalingActivities -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeScalingActivities -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-618"></span><span>
 </span><span id="line-619"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivities"><span class="hs-identifier hs-type">DescribeScalingActivities</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-620"></span><span>  </span><span id="local-6989586621679188424"><span class="annot"><span class="annottext">toQuery :: DescribeScalingActivities -&gt; QueryString
+</span><span id="line-620"></span><span>  </span><span id="local-6989586621679188433"><span class="annot"><span class="annottext">toQuery :: DescribeScalingActivities -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeScalingActivities -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1056,7 +1056,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-621"></span><span>
 </span><span id="line-622"></span><span class="hs-comment">-- | /See:/ 'newDescribeScalingActivitiesResponse' smart constructor.</span><span>
-</span><span id="line-623"></span><span id="local-6989586621679188421"><span id="local-6989586621679188422"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScalingActivitiesResponse"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-var">DescribeScalingActivitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScalingActivitiesResponse%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-var">DescribeScalingActivitiesResponse'</span></a></span></span><span>
+</span><span id="line-623"></span><span id="local-6989586621679188430"><span id="local-6989586621679188431"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScalingActivitiesResponse"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-var">DescribeScalingActivitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScalingActivitiesResponse%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-var">DescribeScalingActivitiesResponse'</span></a></span></span><span>
 </span><span id="line-624"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of scaling activity objects.</span><span>
 </span><span id="line-625"></span><span>    </span><span id="%24sel%3AscalingActivities%3ADescribeScalingActivitiesResponse%27"><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse -&gt; Maybe [ScalingActivity]
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AscalingActivities%3ADescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-var hs-var">scalingActivities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalingActivity.html#ScalingActivity"><span class="hs-identifier hs-type">ScalingActivity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -1068,7 +1068,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-630"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeScalingActivitiesResponse%27"><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse -&gt; Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AhttpStatus%3ADescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-631"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-632"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188414"><span id="local-6989586621679188416"><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
+</span><span id="line-632"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188423"><span id="local-6989586621679188425"><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
 -&gt; DescribeScalingActivitiesResponse -&gt; Bool
 (DescribeScalingActivitiesResponse
  -&gt; DescribeScalingActivitiesResponse -&gt; Bool)
@@ -1084,7 +1084,7 @@ $c/= :: DescribeScalingActivitiesResponse
 -&gt; DescribeScalingActivitiesResponse -&gt; Bool
 $c== :: DescribeScalingActivitiesResponse
 -&gt; DescribeScalingActivitiesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188406"><span id="local-6989586621679188408"><span id="local-6989586621679188410"><span id="local-6989586621679188412"><span class="annot"><span class="annottext">ReadPrec [DescribeScalingActivitiesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188415"><span id="local-6989586621679188417"><span id="local-6989586621679188419"><span id="local-6989586621679188421"><span class="annot"><span class="annottext">ReadPrec [DescribeScalingActivitiesResponse]
 ReadPrec DescribeScalingActivitiesResponse
 Int -&gt; ReadS DescribeScalingActivitiesResponse
 ReadS [DescribeScalingActivitiesResponse]
@@ -1104,7 +1104,7 @@ readList :: ReadS [DescribeScalingActivitiesResponse]
 $creadList :: ReadS [DescribeScalingActivitiesResponse]
 readsPrec :: Int -&gt; ReadS DescribeScalingActivitiesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeScalingActivitiesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188400"><span id="local-6989586621679188402"><span id="local-6989586621679188404"><span class="annot"><span class="annottext">Int -&gt; DescribeScalingActivitiesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188409"><span id="local-6989586621679188411"><span id="local-6989586621679188413"><span class="annot"><span class="annottext">Int -&gt; DescribeScalingActivitiesResponse -&gt; ShowS
 [DescribeScalingActivitiesResponse] -&gt; ShowS
 DescribeScalingActivitiesResponse -&gt; String
 (Int -&gt; DescribeScalingActivitiesResponse -&gt; ShowS)
@@ -1161,8 +1161,8 @@ DescribeScalingActivitiesResponse
 </span><span id="line-650"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-651"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span><span>
 </span><span id="line-652"></span><span id="newDescribeScalingActivitiesResponse"><span class="annot"><span class="annottext">newDescribeScalingActivitiesResponse :: Int -&gt; DescribeScalingActivitiesResponse
-</span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#newDescribeScalingActivitiesResponse"><span class="hs-identifier hs-var hs-var">newDescribeScalingActivitiesResponse</span></a></span></span><span> </span><span id="local-6989586621679188397"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188397"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#newDescribeScalingActivitiesResponse"><span class="hs-identifier hs-var hs-var">newDescribeScalingActivitiesResponse</span></a></span></span><span> </span><span id="local-6989586621679188406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-653"></span><span>  </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse' :: Maybe [ScalingActivity]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeScalingActivitiesResponse
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span>
@@ -1177,7 +1177,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-657"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScalingActivitiesResponse' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AhttpStatus%3ADescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188397"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679188406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-658"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-659"></span><span>
 </span><span id="line-660"></span><span class="hs-comment">-- | A list of scaling activity objects.</span><span>
@@ -1191,16 +1191,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeScalingActivitiesResponse (Maybe [ScalingActivity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188396"><span class="annot"><span class="annottext">Maybe [ScalingActivity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188405"><span class="annot"><span class="annottext">Maybe [ScalingActivity]
 scalingActivities :: Maybe [ScalingActivity]
 $sel:scalingActivities:DescribeScalingActivitiesResponse' :: DescribeScalingActivitiesResponse -&gt; Maybe [ScalingActivity]
-</span><a href="#local-6989586621679188396"><span class="hs-identifier hs-var hs-var">scalingActivities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingActivity]
-</span><a href="#local-6989586621679188396"><span class="hs-identifier hs-var">scalingActivities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188395"><span class="annot"><span class="annottext">s :: DescribeScalingActivitiesResponse
-</span><a href="#local-6989586621679188395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188394"><span class="annot"><span class="annottext">Maybe [ScalingActivity]
-</span><a href="#local-6989586621679188394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
-</span><a href="#local-6989586621679188395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingActivities:DescribeScalingActivitiesResponse' :: Maybe [ScalingActivity]
+</span><a href="#local-6989586621679188405"><span class="hs-identifier hs-var hs-var">scalingActivities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingActivity]
+</span><a href="#local-6989586621679188405"><span class="hs-identifier hs-var">scalingActivities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188404"><span class="annot"><span class="annottext">s :: DescribeScalingActivitiesResponse
+</span><a href="#local-6989586621679188404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188403"><span class="annot"><span class="annottext">Maybe [ScalingActivity]
+</span><a href="#local-6989586621679188403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
+</span><a href="#local-6989586621679188404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingActivities:DescribeScalingActivitiesResponse' :: Maybe [ScalingActivity]
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AscalingActivities%3ADescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-var">scalingActivities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScalingActivity]
-</span><a href="#local-6989586621679188394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScalingActivity] -&gt; f (Maybe [ScalingActivity]))
+</span><a href="#local-6989586621679188403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScalingActivity] -&gt; f (Maybe [ScalingActivity]))
  -&gt; DescribeScalingActivitiesResponse
  -&gt; f DescribeScalingActivitiesResponse)
 -&gt; ((Maybe [ScalingActivity] -&gt; f (Maybe [ScalingActivity]))
@@ -1241,16 +1241,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeScalingActivitiesResponse)
 -&gt; Lens' DescribeScalingActivitiesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188391"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188400"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeScalingActivitiesResponse' :: DescribeScalingActivitiesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679188391"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188391"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188390"><span class="annot"><span class="annottext">s :: DescribeScalingActivitiesResponse
-</span><a href="#local-6989586621679188390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188389"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
-</span><a href="#local-6989586621679188390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeScalingActivitiesResponse' :: Maybe Text
+</span><a href="#local-6989586621679188400"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188400"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188399"><span class="annot"><span class="annottext">s :: DescribeScalingActivitiesResponse
+</span><a href="#local-6989586621679188399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188398"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
+</span><a href="#local-6989586621679188399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeScalingActivitiesResponse' :: Maybe Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AnextToken%3ADescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-668"></span><span>
 </span><span id="line-669"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-670"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#describeScalingActivitiesResponse_httpStatus"><span class="hs-identifier hs-type">describeScalingActivitiesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1266,18 +1266,18 @@ $sel:nextToken:DescribeScalingActivitiesResponse' :: DescribeScalingActivitiesRe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188388"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188397"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeScalingActivitiesResponse' :: DescribeScalingActivitiesResponse -&gt; Int
-</span><a href="#local-6989586621679188388"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188388"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188387"><span class="annot"><span class="annottext">s :: DescribeScalingActivitiesResponse
-</span><a href="#local-6989586621679188387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188386"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
-</span><a href="#local-6989586621679188387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScalingActivitiesResponse' :: Int
+</span><a href="#local-6989586621679188397"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188397"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188396"><span class="annot"><span class="annottext">s :: DescribeScalingActivitiesResponse
+</span><a href="#local-6989586621679188396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScalingActivitiesResponse
+</span><a href="#local-6989586621679188396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScalingActivitiesResponse' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#%24sel%3AhttpStatus%3ADescribeScalingActivitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679188386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-672"></span><span>
 </span><span id="line-673"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-674"></span><span>  </span><span id="local-6989586621679188384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-674"></span><span>  </span><span id="local-6989586621679188393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-675"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScalingActivities.html#DescribeScalingActivitiesResponse"><span class="hs-identifier hs-type">DescribeScalingActivitiesResponse</span></a></span></span><span>
 </span><span id="line-676"></span></pre></body></html>

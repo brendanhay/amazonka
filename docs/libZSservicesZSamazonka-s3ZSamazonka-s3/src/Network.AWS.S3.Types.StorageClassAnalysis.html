@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-comment">-- an Amazon S3 bucket.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newStorageClassAnalysis' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679555043"><span id="local-6989586621679555044"></span></span><span class="hs-keyword">data</span><span> </span><span id="StorageClassAnalysis"><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-var">StorageClassAnalysis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageClassAnalysis%27"><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis%27"><span class="hs-identifier hs-var">StorageClassAnalysis'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679555052"><span id="local-6989586621679555053"></span></span><span class="hs-keyword">data</span><span> </span><span id="StorageClassAnalysis"><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-var">StorageClassAnalysis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageClassAnalysis%27"><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis%27"><span class="hs-identifier hs-var">StorageClassAnalysis'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how data related to the storage class analysis for an Amazon</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- S3 bucket should be exported.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AdataExport%3AStorageClassAnalysis%27"><span class="annot"><span class="annottext">StorageClassAnalysis -&gt; Maybe StorageClassAnalysisDataExport
 </span><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#%24sel%3AdataExport%3AStorageClassAnalysis%27"><span class="hs-identifier hs-var hs-var">dataExport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysisDataExport.html#StorageClassAnalysisDataExport"><span class="hs-identifier hs-type">StorageClassAnalysisDataExport</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555037"><span id="local-6989586621679555039"><span class="annot"><span class="annottext">StorageClassAnalysis -&gt; StorageClassAnalysis -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555046"><span id="local-6989586621679555048"><span class="annot"><span class="annottext">StorageClassAnalysis -&gt; StorageClassAnalysis -&gt; Bool
 (StorageClassAnalysis -&gt; StorageClassAnalysis -&gt; Bool)
 -&gt; (StorageClassAnalysis -&gt; StorageClassAnalysis -&gt; Bool)
 -&gt; Eq StorageClassAnalysis
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StorageClassAnalysis -&gt; StorageClassAnalysis -&gt; Bool
 == :: StorageClassAnalysis -&gt; StorageClassAnalysis -&gt; Bool
 $c== :: StorageClassAnalysis -&gt; StorageClassAnalysis -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555028"><span id="local-6989586621679555030"><span id="local-6989586621679555032"><span id="local-6989586621679555034"><span class="annot"><span class="annottext">ReadPrec [StorageClassAnalysis]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555037"><span id="local-6989586621679555039"><span id="local-6989586621679555041"><span id="local-6989586621679555043"><span class="annot"><span class="annottext">ReadPrec [StorageClassAnalysis]
 ReadPrec StorageClassAnalysis
 Int -&gt; ReadS StorageClassAnalysis
 ReadS [StorageClassAnalysis]
@@ -65,7 +65,7 @@ readList :: ReadS [StorageClassAnalysis]
 $creadList :: ReadS [StorageClassAnalysis]
 readsPrec :: Int -&gt; ReadS StorageClassAnalysis
 $creadsPrec :: Int -&gt; ReadS StorageClassAnalysis
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555021"><span id="local-6989586621679555023"><span id="local-6989586621679555025"><span class="annot"><span class="annottext">Int -&gt; StorageClassAnalysis -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555030"><span id="local-6989586621679555032"><span id="local-6989586621679555034"><span class="annot"><span class="annottext">Int -&gt; StorageClassAnalysis -&gt; ShowS
 [StorageClassAnalysis] -&gt; ShowS
 StorageClassAnalysis -&gt; String
 (Int -&gt; StorageClassAnalysis -&gt; ShowS)
@@ -126,21 +126,21 @@ forall a. Maybe a
      (Maybe StorageClassAnalysisDataExport)
      (Maybe StorageClassAnalysisDataExport)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis%27"><span class="hs-identifier hs-type">StorageClassAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555012"><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis%27"><span class="hs-identifier hs-type">StorageClassAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555021"><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
 dataExport :: Maybe StorageClassAnalysisDataExport
 $sel:dataExport:StorageClassAnalysis' :: StorageClassAnalysis -&gt; Maybe StorageClassAnalysisDataExport
-</span><a href="#local-6989586621679555012"><span class="hs-identifier hs-var hs-var">dataExport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
-</span><a href="#local-6989586621679555012"><span class="hs-identifier hs-var">dataExport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555011"><span class="annot"><span class="annottext">s :: StorageClassAnalysis
-</span><a href="#local-6989586621679555011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis%27"><span class="hs-identifier hs-type">StorageClassAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555010"><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
-</span><a href="#local-6989586621679555010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageClassAnalysis
-</span><a href="#local-6989586621679555011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataExport:StorageClassAnalysis' :: Maybe StorageClassAnalysisDataExport
+</span><a href="#local-6989586621679555021"><span class="hs-identifier hs-var hs-var">dataExport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
+</span><a href="#local-6989586621679555021"><span class="hs-identifier hs-var">dataExport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555020"><span class="annot"><span class="annottext">s :: StorageClassAnalysis
+</span><a href="#local-6989586621679555020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis%27"><span class="hs-identifier hs-type">StorageClassAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555019"><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
+</span><a href="#local-6989586621679555019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageClassAnalysis
+</span><a href="#local-6989586621679555020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataExport:StorageClassAnalysis' :: Maybe StorageClassAnalysisDataExport
 </span><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#%24sel%3AdataExport%3AStorageClassAnalysis%27"><span class="hs-identifier hs-var">dataExport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
-</span><a href="#local-6989586621679555010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679555019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679555007"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StorageClassAnalysis
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679555005"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555005"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679555016"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StorageClassAnalysis
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679555014"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport -&gt; StorageClassAnalysis
 </span><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis%27"><span class="hs-identifier hs-var">StorageClassAnalysis'</span></a></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(Maybe StorageClassAnalysisDataExport -&gt; StorageClassAnalysis)
@@ -148,27 +148,27 @@ $sel:dataExport:StorageClassAnalysis' :: StorageClassAnalysis -&gt; Maybe Storag
 -&gt; Either String StorageClassAnalysis
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe StorageClassAnalysisDataExport)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataExport&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554999"><span id="local-6989586621679555001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555008"><span id="local-6989586621679555010"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis"><span class="hs-identifier hs-type">StorageClassAnalysis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679554992"><span class="annot"><span class="annottext">toXML :: StorageClassAnalysis -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis%27"><span class="hs-identifier hs-type">StorageClassAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554990"><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679555001"><span class="annot"><span class="annottext">toXML :: StorageClassAnalysis -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysis.html#StorageClassAnalysis%27"><span class="hs-identifier hs-type">StorageClassAnalysis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554999"><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
 dataExport :: Maybe StorageClassAnalysisDataExport
 $sel:dataExport:StorageClassAnalysis' :: StorageClassAnalysis -&gt; Maybe StorageClassAnalysisDataExport
-</span><a href="#local-6989586621679554990"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679554999"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;DataExport&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe StorageClassAnalysisDataExport -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe StorageClassAnalysisDataExport
-</span><a href="#local-6989586621679554990"><span class="hs-identifier hs-var">dataExport</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679554999"><span class="hs-identifier hs-var">dataExport</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span></pre></body></html>

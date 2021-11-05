@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details of the service registry.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newServiceRegistry' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679460967"><span id="local-6989586621679460968"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceRegistry"><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-var">ServiceRegistry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceRegistry%27"><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-var">ServiceRegistry'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679460976"><span id="local-6989586621679460977"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceRegistry"><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-var">ServiceRegistry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceRegistry%27"><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-var">ServiceRegistry'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the service registry. The currently</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- supported service registry is Cloud Map. For more information, see</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService&gt;.</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aport%3AServiceRegistry%27"><span class="annot"><span class="annottext">ServiceRegistry -&gt; Maybe Int
 </span><a href="Network.AWS.ECS.Types.ServiceRegistry.html#%24sel%3Aport%3AServiceRegistry%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460958"><span id="local-6989586621679460960"><span class="annot"><span class="annottext">ServiceRegistry -&gt; ServiceRegistry -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460967"><span id="local-6989586621679460969"><span class="annot"><span class="annottext">ServiceRegistry -&gt; ServiceRegistry -&gt; Bool
 (ServiceRegistry -&gt; ServiceRegistry -&gt; Bool)
 -&gt; (ServiceRegistry -&gt; ServiceRegistry -&gt; Bool)
 -&gt; Eq ServiceRegistry
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServiceRegistry -&gt; ServiceRegistry -&gt; Bool
 == :: ServiceRegistry -&gt; ServiceRegistry -&gt; Bool
 $c== :: ServiceRegistry -&gt; ServiceRegistry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460949"><span id="local-6989586621679460951"><span id="local-6989586621679460953"><span id="local-6989586621679460955"><span class="annot"><span class="annottext">ReadPrec [ServiceRegistry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460958"><span id="local-6989586621679460960"><span id="local-6989586621679460962"><span id="local-6989586621679460964"><span class="annot"><span class="annottext">ReadPrec [ServiceRegistry]
 ReadPrec ServiceRegistry
 Int -&gt; ReadS ServiceRegistry
 ReadS [ServiceRegistry]
@@ -87,7 +87,7 @@ readList :: ReadS [ServiceRegistry]
 $creadList :: ReadS [ServiceRegistry]
 readsPrec :: Int -&gt; ReadS ServiceRegistry
 $creadsPrec :: Int -&gt; ReadS ServiceRegistry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460942"><span id="local-6989586621679460944"><span id="local-6989586621679460946"><span class="annot"><span class="annottext">Int -&gt; ServiceRegistry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460951"><span id="local-6989586621679460953"><span id="local-6989586621679460955"><span class="annot"><span class="annottext">Int -&gt; ServiceRegistry -&gt; ShowS
 [ServiceRegistry] -&gt; ShowS
 ServiceRegistry -&gt; String
 (Int -&gt; ServiceRegistry -&gt; ShowS)
@@ -181,16 +181,16 @@ forall a. Maybe a
 -&gt; (ServiceRegistry -&gt; Maybe Text -&gt; ServiceRegistry)
 -&gt; Lens ServiceRegistry ServiceRegistry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460933"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460942"><span class="annot"><span class="annottext">Maybe Text
 registryArn :: Maybe Text
 $sel:registryArn:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Text
-</span><a href="#local-6989586621679460933"><span class="hs-identifier hs-var hs-var">registryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460933"><span class="hs-identifier hs-var">registryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460932"><span class="annot"><span class="annottext">s :: ServiceRegistry
-</span><a href="#local-6989586621679460932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460931"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceRegistry
-</span><a href="#local-6989586621679460932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryArn:ServiceRegistry' :: Maybe Text
+</span><a href="#local-6989586621679460942"><span class="hs-identifier hs-var hs-var">registryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460942"><span class="hs-identifier hs-var">registryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460941"><span class="annot"><span class="annottext">s :: ServiceRegistry
+</span><a href="#local-6989586621679460941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460940"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceRegistry
+</span><a href="#local-6989586621679460941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryArn:ServiceRegistry' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.ServiceRegistry.html#%24sel%3AregistryArn%3AServiceRegistry%27"><span class="hs-identifier hs-var">registryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The container name value, already specified in the task definition, to</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- be used for your service discovery service. If the task definition that</span><span>
@@ -207,16 +207,16 @@ $sel:registryArn:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Text
 -&gt; (ServiceRegistry -&gt; Maybe Text -&gt; ServiceRegistry)
 -&gt; Lens ServiceRegistry ServiceRegistry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460929"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460938"><span class="annot"><span class="annottext">Maybe Text
 containerName :: Maybe Text
 $sel:containerName:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Text
-</span><a href="#local-6989586621679460929"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460929"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460928"><span class="annot"><span class="annottext">s :: ServiceRegistry
-</span><a href="#local-6989586621679460928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460927"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceRegistry
-</span><a href="#local-6989586621679460928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:ServiceRegistry' :: Maybe Text
+</span><a href="#local-6989586621679460938"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460938"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460937"><span class="annot"><span class="annottext">s :: ServiceRegistry
+</span><a href="#local-6989586621679460937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceRegistry
+</span><a href="#local-6989586621679460937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:ServiceRegistry' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.ServiceRegistry.html#%24sel%3AcontainerName%3AServiceRegistry%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The port value, already specified in the task definition, to be used for</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- your service discovery service. If the task definition your service task</span><span>
@@ -233,16 +233,16 @@ $sel:containerName:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Text
 -&gt; (ServiceRegistry -&gt; Maybe Int -&gt; ServiceRegistry)
 -&gt; Lens ServiceRegistry ServiceRegistry (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460925"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460934"><span class="annot"><span class="annottext">Maybe Int
 containerPort :: Maybe Int
 $sel:containerPort:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Int
-</span><a href="#local-6989586621679460925"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679460925"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460924"><span class="annot"><span class="annottext">s :: ServiceRegistry
-</span><a href="#local-6989586621679460924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460923"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679460923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceRegistry
-</span><a href="#local-6989586621679460924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerPort:ServiceRegistry' :: Maybe Int
+</span><a href="#local-6989586621679460934"><span class="hs-identifier hs-var hs-var">containerPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679460934"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460933"><span class="annot"><span class="annottext">s :: ServiceRegistry
+</span><a href="#local-6989586621679460933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460932"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679460932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceRegistry
+</span><a href="#local-6989586621679460933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerPort:ServiceRegistry' :: Maybe Int
 </span><a href="Network.AWS.ECS.Types.ServiceRegistry.html#%24sel%3AcontainerPort%3AServiceRegistry%27"><span class="hs-identifier hs-var">containerPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679460923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The port value used if your service discovery service specified an SRV</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- record. This field may be used if both the @awsvpc@ network mode and SRV</span><span>
@@ -254,19 +254,19 @@ $sel:containerPort:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Int
 -&gt; (ServiceRegistry -&gt; Maybe Int -&gt; ServiceRegistry)
 -&gt; Lens ServiceRegistry ServiceRegistry (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460921"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460930"><span class="annot"><span class="annottext">Maybe Int
 port :: Maybe Int
 $sel:port:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Int
-</span><a href="#local-6989586621679460921"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679460921"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460920"><span class="annot"><span class="annottext">s :: ServiceRegistry
-</span><a href="#local-6989586621679460920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460919"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679460919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceRegistry
-</span><a href="#local-6989586621679460920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:ServiceRegistry' :: Maybe Int
+</span><a href="#local-6989586621679460930"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679460930"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460929"><span class="annot"><span class="annottext">s :: ServiceRegistry
+</span><a href="#local-6989586621679460929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460928"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679460928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceRegistry
+</span><a href="#local-6989586621679460929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:ServiceRegistry' :: Maybe Int
 </span><a href="Network.AWS.ECS.Types.ServiceRegistry.html#%24sel%3Aport%3AServiceRegistry%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679460919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460916"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679460914"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceRegistry
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460925"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679460923"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceRegistry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServiceRegistry)
@@ -276,8 +276,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServiceRegistry&quot;</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679460911"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460911"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679460920"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679460920"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Int -&gt; ServiceRegistry
 </span><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-var">ServiceRegistry'</span></a></span><span>
@@ -287,7 +287,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Maybe Int -&gt; ServiceRegistry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679460920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -296,7 +296,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; ServiceRegistry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679460920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerName&quot;</span></span><span class="hs-special">)</span><span>
@@ -304,7 +304,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; ServiceRegistry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679460920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerPort&quot;</span></span><span class="hs-special">)</span><span>
@@ -312,19 +312,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser ServiceRegistry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679460920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;port&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460905"><span id="local-6989586621679460907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460914"><span id="local-6989586621679460916"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460894"><span id="local-6989586621679460896"><span id="local-6989586621679460898"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679460892"><span class="annot"><span class="annottext">toJSON :: ServiceRegistry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460887"><span id="local-6989586621679460888"><span id="local-6989586621679460889"><span id="local-6989586621679460890"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460903"><span id="local-6989586621679460905"><span id="local-6989586621679460907"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry"><span class="hs-identifier hs-type">ServiceRegistry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679460901"><span class="annot"><span class="annottext">toJSON :: ServiceRegistry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceRegistry.html#ServiceRegistry%27"><span class="hs-identifier hs-type">ServiceRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460896"><span id="local-6989586621679460897"><span id="local-6989586621679460898"><span id="local-6989586621679460899"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 port :: Maybe Int
 containerPort :: Maybe Int
@@ -334,7 +334,7 @@ $sel:port:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Int
 $sel:containerPort:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Int
 $sel:containerName:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Text
 $sel:registryArn:ServiceRegistry' :: ServiceRegistry -&gt; Maybe Text
-</span><a href="#local-6989586621679460887"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679460896"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -346,28 +346,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460890"><span class="hs-identifier hs-var">registryArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679460899"><span class="hs-identifier hs-var">registryArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460889"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679460898"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679460888"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679460897"><span class="hs-identifier hs-var">containerPort</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;port&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679460887"><span class="hs-identifier hs-var">port</span></a></span><span>
+</span><a href="#local-6989586621679460896"><span class="hs-identifier hs-var">port</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span></pre></body></html>

@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-comment">-- (NONE), MediaConvert does a standard frame rate conversion to 29.97</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- without doing anything with the field polarity to create a smoother</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- picture.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679995105"><span id="local-6989586621679995106"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2Telecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2Telecine.html#Mpeg2Telecine"><span class="hs-identifier hs-var">Mpeg2Telecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2Telecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2Telecine.html#Mpeg2Telecine%27"><span class="hs-identifier hs-var">Mpeg2Telecine'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679995114"><span id="local-6989586621679995115"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2Telecine"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2Telecine.html#Mpeg2Telecine"><span class="hs-identifier hs-var">Mpeg2Telecine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2Telecine%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2Telecine.html#Mpeg2Telecine%27"><span class="hs-identifier hs-var">Mpeg2Telecine'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2Telecine"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Mpeg2Telecine.html#fromMpeg2Telecine"><span class="hs-identifier hs-var hs-var">fromMpeg2Telecine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995097"><span id="local-6989586621679995099"><span id="local-6989586621679995101"><span class="annot"><span class="annottext">Int -&gt; Mpeg2Telecine -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995106"><span id="local-6989586621679995108"><span id="local-6989586621679995110"><span class="annot"><span class="annottext">Int -&gt; Mpeg2Telecine -&gt; ShowS
 [Mpeg2Telecine] -&gt; ShowS
 Mpeg2Telecine -&gt; String
 (Int -&gt; Mpeg2Telecine -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: Mpeg2Telecine -&gt; String
 showsPrec :: Int -&gt; Mpeg2Telecine -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mpeg2Telecine -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679995088"><span id="local-6989586621679995090"><span id="local-6989586621679995092"><span id="local-6989586621679995094"><span class="annot"><span class="annottext">ReadPrec [Mpeg2Telecine]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679995097"><span id="local-6989586621679995099"><span id="local-6989586621679995101"><span id="local-6989586621679995103"><span class="annot"><span class="annottext">ReadPrec [Mpeg2Telecine]
 ReadPrec Mpeg2Telecine
 Int -&gt; ReadS Mpeg2Telecine
 ReadS [Mpeg2Telecine]
@@ -82,7 +82,7 @@ $creadList :: ReadS [Mpeg2Telecine]
 readsPrec :: Int -&gt; ReadS Mpeg2Telecine
 $creadsPrec :: Int -&gt; ReadS Mpeg2Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679995083"><span id="local-6989586621679995085"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; Mpeg2Telecine -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679995092"><span id="local-6989586621679995094"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; Mpeg2Telecine -&gt; Bool
 (Mpeg2Telecine -&gt; Mpeg2Telecine -&gt; Bool)
 -&gt; (Mpeg2Telecine -&gt; Mpeg2Telecine -&gt; Bool) -&gt; Eq Mpeg2Telecine
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ $c/= :: Mpeg2Telecine -&gt; Mpeg2Telecine -&gt; Bool
 == :: Mpeg2Telecine -&gt; Mpeg2Telecine -&gt; Bool
 $c== :: Mpeg2Telecine -&gt; Mpeg2Telecine -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679995067"><span id="local-6989586621679995069"><span id="local-6989586621679995071"><span id="local-6989586621679995073"><span id="local-6989586621679995075"><span id="local-6989586621679995077"><span id="local-6989586621679995079"><span class="annot"><span class="annottext">Eq Mpeg2Telecine
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679995076"><span id="local-6989586621679995078"><span id="local-6989586621679995080"><span id="local-6989586621679995082"><span id="local-6989586621679995084"><span id="local-6989586621679995086"><span id="local-6989586621679995088"><span class="annot"><span class="annottext">Eq Mpeg2Telecine
 Eq Mpeg2Telecine
 -&gt; (Mpeg2Telecine -&gt; Mpeg2Telecine -&gt; Ordering)
 -&gt; (Mpeg2Telecine -&gt; Mpeg2Telecine -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. Mpeg2Telecine -&gt; Rep Mpeg2Telecine x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995059"><span id="local-6989586621679995061"><span class="annot"><span class="annottext">Int -&gt; Mpeg2Telecine -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679995068"><span id="local-6989586621679995070"><span class="annot"><span class="annottext">Int -&gt; Mpeg2Telecine -&gt; Int
 Mpeg2Telecine -&gt; Int
 (Int -&gt; Mpeg2Telecine -&gt; Int)
 -&gt; (Mpeg2Telecine -&gt; Int) -&gt; Hashable Mpeg2Telecine
@@ -152,49 +152,49 @@ $chash :: Mpeg2Telecine -&gt; Int
 hashWithSalt :: Int -&gt; Mpeg2Telecine -&gt; Int
 $chashWithSalt :: Int -&gt; Mpeg2Telecine -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679995056"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679995065"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; ()
 (Mpeg2Telecine -&gt; ()) -&gt; NFData Mpeg2Telecine
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mpeg2Telecine -&gt; ()
 $crnf :: Mpeg2Telecine -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679995053"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2Telecine
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679995062"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2Telecine
 (Text -&gt; Either String Mpeg2Telecine) -&gt; FromText Mpeg2Telecine
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mpeg2Telecine
 $cfromText :: Text -&gt; Either String Mpeg2Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679995050"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679995059"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; Text
 (Mpeg2Telecine -&gt; Text) -&gt; ToText Mpeg2Telecine
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mpeg2Telecine -&gt; Text
 $ctoText :: Mpeg2Telecine -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679995047"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679995056"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; ByteString
 (Mpeg2Telecine -&gt; ByteString) -&gt; ToByteString Mpeg2Telecine
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mpeg2Telecine -&gt; ByteString
 $ctoBS :: Mpeg2Telecine -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679995044"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679995053"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; ByteStringBuilder
 (Mpeg2Telecine -&gt; ByteStringBuilder) -&gt; ToLog Mpeg2Telecine
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mpeg2Telecine -&gt; ByteStringBuilder
 $cbuild :: Mpeg2Telecine -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679995041"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2Telecine -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679995050"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2Telecine -&gt; [Header]
 (HeaderName -&gt; Mpeg2Telecine -&gt; [Header]) -&gt; ToHeader Mpeg2Telecine
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mpeg2Telecine -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mpeg2Telecine -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679995038"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679995047"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; QueryString
 (Mpeg2Telecine -&gt; QueryString) -&gt; ToQuery Mpeg2Telecine
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mpeg2Telecine -&gt; QueryString
 $ctoQuery :: Mpeg2Telecine -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679995033"><span id="local-6989586621679995035"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2Telecine]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679995042"><span id="local-6989586621679995044"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2Telecine]
 Value -&gt; Parser Mpeg2Telecine
 (Value -&gt; Parser Mpeg2Telecine)
 -&gt; (Value -&gt; Parser [Mpeg2Telecine]) -&gt; FromJSON Mpeg2Telecine
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [Mpeg2Telecine]
 parseJSON :: Value -&gt; Parser Mpeg2Telecine
 $cparseJSON :: Value -&gt; Parser Mpeg2Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679995028"><span id="local-6989586621679995030"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2Telecine]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679995037"><span id="local-6989586621679995039"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2Telecine]
 FromJSONKeyFunction Mpeg2Telecine
 FromJSONKeyFunction Mpeg2Telecine
 -&gt; FromJSONKeyFunction [Mpeg2Telecine] -&gt; FromJSONKey Mpeg2Telecine
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2Telecine]
 fromJSONKey :: FromJSONKeyFunction Mpeg2Telecine
 $cfromJSONKey :: FromJSONKeyFunction Mpeg2Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679995019"><span id="local-6989586621679995021"><span id="local-6989586621679995023"><span id="local-6989586621679995025"><span class="annot"><span class="annottext">[Mpeg2Telecine] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679995028"><span id="local-6989586621679995030"><span id="local-6989586621679995032"><span id="local-6989586621679995034"><span class="annot"><span class="annottext">[Mpeg2Telecine] -&gt; Encoding
 [Mpeg2Telecine] -&gt; Value
 Mpeg2Telecine -&gt; Encoding
 Mpeg2Telecine -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: Mpeg2Telecine -&gt; Encoding
 toJSON :: Mpeg2Telecine -&gt; Value
 $ctoJSON :: Mpeg2Telecine -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679995014"><span id="local-6989586621679995016"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2Telecine]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679995023"><span id="local-6989586621679995025"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2Telecine]
 ToJSONKeyFunction Mpeg2Telecine
 ToJSONKeyFunction Mpeg2Telecine
 -&gt; ToJSONKeyFunction [Mpeg2Telecine] -&gt; ToJSONKey Mpeg2Telecine
@@ -251,13 +251,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2Telecine]
 toJSONKey :: ToJSONKeyFunction Mpeg2Telecine
 $ctoJSONKey :: ToJSONKeyFunction Mpeg2Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679995011"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2Telecine
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679995020"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2Telecine
 ([Node] -&gt; Either String Mpeg2Telecine) -&gt; FromXML Mpeg2Telecine
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mpeg2Telecine
 $cparseXML :: [Node] -&gt; Either String Mpeg2Telecine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679995008"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679995017"><span class="annot"><span class="annottext">Mpeg2Telecine -&gt; XML
 (Mpeg2Telecine -&gt; XML) -&gt; ToXML Mpeg2Telecine
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mpeg2Telecine -&gt; XML

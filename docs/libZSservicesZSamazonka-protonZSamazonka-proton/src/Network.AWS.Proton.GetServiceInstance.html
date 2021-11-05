@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Proton.GetServiceInstance</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Get detail data for a service instance. A service instance is an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- instantiation of service template, which is running in a specific</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- environment.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Proton.GetServiceInstance</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier">GetServiceInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#newGetServiceInstance"><span class="hs-identifier">newGetServiceInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstance_name"><span class="hs-identifier">getServiceInstance_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstance_serviceName"><span class="hs-identifier">getServiceInstance_serviceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse"><span class="hs-identifier">GetServiceInstanceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#newGetServiceInstanceResponse"><span class="hs-identifier">newGetServiceInstanceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstanceResponse_httpStatus"><span class="hs-identifier">getServiceInstanceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstanceResponse_serviceInstance"><span class="hs-identifier">getServiceInstanceResponse_serviceInstance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.html"><span class="hs-identifier">Network.AWS.Proton.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetServiceInstance' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679269661"><span id="local-6989586621679269662"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceInstance"><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-var">GetServiceInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceInstance%27"><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance%27"><span class="hs-identifier hs-var">GetServiceInstance'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a service instance that you want to get the detail data for.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aname%3AGetServiceInstance%27"><span class="annot"><span class="annottext">GetServiceInstance -&gt; Text
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3Aname%3AGetServiceInstance%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The name of the service that the service instance belongs to.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AserviceName%3AGetServiceInstance%27"><span class="annot"><span class="annottext">GetServiceInstance -&gt; Text
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3AserviceName%3AGetServiceInstance%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269654"><span id="local-6989586621679269656"><span class="annot"><span class="annottext">GetServiceInstance -&gt; GetServiceInstance -&gt; Bool
+(GetServiceInstance -&gt; GetServiceInstance -&gt; Bool)
+-&gt; (GetServiceInstance -&gt; GetServiceInstance -&gt; Bool)
+-&gt; Eq GetServiceInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetServiceInstance -&gt; GetServiceInstance -&gt; Bool
+$c/= :: GetServiceInstance -&gt; GetServiceInstance -&gt; Bool
+== :: GetServiceInstance -&gt; GetServiceInstance -&gt; Bool
+$c== :: GetServiceInstance -&gt; GetServiceInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269645"><span id="local-6989586621679269647"><span id="local-6989586621679269649"><span id="local-6989586621679269651"><span class="annot"><span class="annottext">ReadPrec [GetServiceInstance]
+ReadPrec GetServiceInstance
+Int -&gt; ReadS GetServiceInstance
+ReadS [GetServiceInstance]
+(Int -&gt; ReadS GetServiceInstance)
+-&gt; ReadS [GetServiceInstance]
+-&gt; ReadPrec GetServiceInstance
+-&gt; ReadPrec [GetServiceInstance]
+-&gt; Read GetServiceInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetServiceInstance]
+$creadListPrec :: ReadPrec [GetServiceInstance]
+readPrec :: ReadPrec GetServiceInstance
+$creadPrec :: ReadPrec GetServiceInstance
+readList :: ReadS [GetServiceInstance]
+$creadList :: ReadS [GetServiceInstance]
+readsPrec :: Int -&gt; ReadS GetServiceInstance
+$creadsPrec :: Int -&gt; ReadS GetServiceInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269638"><span id="local-6989586621679269640"><span id="local-6989586621679269642"><span class="annot"><span class="annottext">Int -&gt; GetServiceInstance -&gt; ShowS
+[GetServiceInstance] -&gt; ShowS
+GetServiceInstance -&gt; String
+(Int -&gt; GetServiceInstance -&gt; ShowS)
+-&gt; (GetServiceInstance -&gt; String)
+-&gt; ([GetServiceInstance] -&gt; ShowS)
+-&gt; Show GetServiceInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetServiceInstance] -&gt; ShowS
+$cshowList :: [GetServiceInstance] -&gt; ShowS
+show :: GetServiceInstance -&gt; String
+$cshow :: GetServiceInstance -&gt; String
+showsPrec :: Int -&gt; GetServiceInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetServiceInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetServiceInstance -&gt; Rep GetServiceInstance x)
+-&gt; (forall x. Rep GetServiceInstance x -&gt; GetServiceInstance)
+-&gt; Generic GetServiceInstance
+forall x. Rep GetServiceInstance x -&gt; GetServiceInstance
+forall x. GetServiceInstance -&gt; Rep GetServiceInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetServiceInstance x -&gt; GetServiceInstance
+$cfrom :: forall x. GetServiceInstance -&gt; Rep GetServiceInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'GetServiceInstance' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'getServiceInstance_name' - The name of a service instance that you want to get the detail data for.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'serviceName', 'getServiceInstance_serviceName' - The name of the service that the service instance belongs to.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#newGetServiceInstance"><span class="hs-identifier hs-type">newGetServiceInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'serviceName'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span>
+</span><span id="line-78"></span><span id="newGetServiceInstance"><span class="annot"><span class="annottext">newGetServiceInstance :: Text -&gt; Text -&gt; GetServiceInstance
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#newGetServiceInstance"><span class="hs-identifier hs-var hs-var">newGetServiceInstance</span></a></span></span><span> </span><span id="local-6989586621679269633"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269633"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679269632"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269632"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">GetServiceInstance' :: Text -&gt; Text -&gt; GetServiceInstance
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance%27"><span class="hs-identifier hs-type">GetServiceInstance'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:GetServiceInstance' :: Text
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3Aname%3AGetServiceInstance%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269633"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceName:GetServiceInstance' :: Text
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3AserviceName%3AGetServiceInstance%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269632"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of a service instance that you want to get the detail data for.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstance_name"><span class="hs-identifier hs-type">getServiceInstance_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="getServiceInstance_name"><span class="annot"><span class="annottext">getServiceInstance_name :: (Text -&gt; f Text) -&gt; GetServiceInstance -&gt; f GetServiceInstance
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstance_name"><span class="hs-identifier hs-var hs-var">getServiceInstance_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceInstance -&gt; Text)
+-&gt; (GetServiceInstance -&gt; Text -&gt; GetServiceInstance)
+-&gt; Lens GetServiceInstance GetServiceInstance Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance%27"><span class="hs-identifier hs-type">GetServiceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269629"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetServiceInstance' :: GetServiceInstance -&gt; Text
+</span><a href="#local-6989586621679269629"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269629"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269628"><span class="annot"><span class="annottext">s :: GetServiceInstance
+</span><a href="#local-6989586621679269628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance%27"><span class="hs-identifier hs-type">GetServiceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269627"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceInstance
+</span><a href="#local-6989586621679269628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetServiceInstance' :: Text
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3Aname%3AGetServiceInstance%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The name of the service that the service instance belongs to.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstance_serviceName"><span class="hs-identifier hs-type">getServiceInstance_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="getServiceInstance_serviceName"><span class="annot"><span class="annottext">getServiceInstance_serviceName :: (Text -&gt; f Text) -&gt; GetServiceInstance -&gt; f GetServiceInstance
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstance_serviceName"><span class="hs-identifier hs-var hs-var">getServiceInstance_serviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceInstance -&gt; Text)
+-&gt; (GetServiceInstance -&gt; Text -&gt; GetServiceInstance)
+-&gt; Lens GetServiceInstance GetServiceInstance Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance%27"><span class="hs-identifier hs-type">GetServiceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269626"><span class="annot"><span class="annottext">Text
+serviceName :: Text
+$sel:serviceName:GetServiceInstance' :: GetServiceInstance -&gt; Text
+</span><a href="#local-6989586621679269626"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269626"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269625"><span class="annot"><span class="annottext">s :: GetServiceInstance
+</span><a href="#local-6989586621679269625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance%27"><span class="hs-identifier hs-type">GetServiceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceInstance
+</span><a href="#local-6989586621679269625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:GetServiceInstance' :: Text
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3AserviceName%3AGetServiceInstance%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse"><span class="hs-identifier hs-type">GetServiceInstanceResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679269620"><span class="annot"><span class="annottext">request :: GetServiceInstance -&gt; Request GetServiceInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetServiceInstance -&gt; Request GetServiceInstance
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Proton.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679269616"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetServiceInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetServiceInstance)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetServiceInstance))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetServiceInstance
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetServiceInstance)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269613"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269613"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679269612"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679269612"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679269611"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ServiceInstance -&gt; GetServiceInstanceResponse
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse%27"><span class="hs-identifier hs-var">GetServiceInstanceResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ServiceInstance -&gt; GetServiceInstanceResponse)
+-&gt; Either String Int
+-&gt; Either String (ServiceInstance -&gt; GetServiceInstanceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269613"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (ServiceInstance -&gt; GetServiceInstanceResponse)
+-&gt; Either String ServiceInstance
+-&gt; Either String GetServiceInstanceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String ServiceInstance
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceInstance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269603"><span id="local-6989586621679269605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679269596"><span class="annot"><span class="annottext">toHeaders :: GetServiceInstance -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetServiceInstance -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AwsProton20200720.GetServiceInstance&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-120"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269586"><span id="local-6989586621679269588"><span id="local-6989586621679269590"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679269584"><span class="annot"><span class="annottext">toJSON :: GetServiceInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance%27"><span class="hs-identifier hs-type">GetServiceInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269581"><span id="local-6989586621679269582"><span class="annot"><span class="annottext">Text
+serviceName :: Text
+name :: Text
+$sel:serviceName:GetServiceInstance' :: GetServiceInstance -&gt; Text
+$sel:name:GetServiceInstance' :: GetServiceInstance -&gt; Text
+</span><a href="#local-6989586621679269581"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269582"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679269581"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679269575"><span class="annot"><span class="annottext">toPath :: GetServiceInstance -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetServiceInstance -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679269571"><span class="annot"><span class="annottext">toQuery :: GetServiceInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetServiceInstance -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newGetServiceInstanceResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679269568"><span id="local-6989586621679269569"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceInstanceResponse"><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse"><span class="hs-identifier hs-var">GetServiceInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceInstanceResponse%27"><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse%27"><span class="hs-identifier hs-var">GetServiceInstanceResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetServiceInstanceResponse%27"><span class="annot"><span class="annottext">GetServiceInstanceResponse -&gt; Int
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3AhttpStatus%3AGetServiceInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The service instance detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AserviceInstance%3AGetServiceInstanceResponse%27"><span class="annot"><span class="annottext">GetServiceInstanceResponse -&gt; ServiceInstance
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3AserviceInstance%3AGetServiceInstanceResponse%27"><span class="hs-identifier hs-var hs-var">serviceInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceInstance.html#ServiceInstance"><span class="hs-identifier hs-type">ServiceInstance</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269562"><span id="local-6989586621679269564"><span class="annot"><span class="annottext">GetServiceInstanceResponse -&gt; GetServiceInstanceResponse -&gt; Bool
+(GetServiceInstanceResponse -&gt; GetServiceInstanceResponse -&gt; Bool)
+-&gt; (GetServiceInstanceResponse
+    -&gt; GetServiceInstanceResponse -&gt; Bool)
+-&gt; Eq GetServiceInstanceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetServiceInstanceResponse -&gt; GetServiceInstanceResponse -&gt; Bool
+$c/= :: GetServiceInstanceResponse -&gt; GetServiceInstanceResponse -&gt; Bool
+== :: GetServiceInstanceResponse -&gt; GetServiceInstanceResponse -&gt; Bool
+$c== :: GetServiceInstanceResponse -&gt; GetServiceInstanceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269556"><span id="local-6989586621679269558"><span id="local-6989586621679269560"><span class="annot"><span class="annottext">Int -&gt; GetServiceInstanceResponse -&gt; ShowS
+[GetServiceInstanceResponse] -&gt; ShowS
+GetServiceInstanceResponse -&gt; String
+(Int -&gt; GetServiceInstanceResponse -&gt; ShowS)
+-&gt; (GetServiceInstanceResponse -&gt; String)
+-&gt; ([GetServiceInstanceResponse] -&gt; ShowS)
+-&gt; Show GetServiceInstanceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetServiceInstanceResponse] -&gt; ShowS
+$cshowList :: [GetServiceInstanceResponse] -&gt; ShowS
+show :: GetServiceInstanceResponse -&gt; String
+$cshow :: GetServiceInstanceResponse -&gt; String
+showsPrec :: Int -&gt; GetServiceInstanceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetServiceInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetServiceInstanceResponse -&gt; Rep GetServiceInstanceResponse x)
+-&gt; (forall x.
+    Rep GetServiceInstanceResponse x -&gt; GetServiceInstanceResponse)
+-&gt; Generic GetServiceInstanceResponse
+forall x.
+Rep GetServiceInstanceResponse x -&gt; GetServiceInstanceResponse
+forall x.
+GetServiceInstanceResponse -&gt; Rep GetServiceInstanceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetServiceInstanceResponse x -&gt; GetServiceInstanceResponse
+$cfrom :: forall x.
+GetServiceInstanceResponse -&gt; Rep GetServiceInstanceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'GetServiceInstanceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'getServiceInstanceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'serviceInstance', 'getServiceInstanceResponse_serviceInstance' - The service instance detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#newGetServiceInstanceResponse"><span class="hs-identifier hs-type">newGetServiceInstanceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'serviceInstance'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceInstance.html#ServiceInstance"><span class="hs-identifier hs-type">ServiceInstance</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse"><span class="hs-identifier hs-type">GetServiceInstanceResponse</span></a></span><span>
+</span><span id="line-165"></span><span id="newGetServiceInstanceResponse"><span class="annot"><span class="annottext">newGetServiceInstanceResponse :: Int -&gt; ServiceInstance -&gt; GetServiceInstanceResponse
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#newGetServiceInstanceResponse"><span class="hs-identifier hs-var hs-var">newGetServiceInstanceResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679269553"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269553"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679269552"><span class="annot"><span class="annottext">ServiceInstance
+</span><a href="#local-6989586621679269552"><span class="hs-identifier hs-var">pServiceInstance_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">GetServiceInstanceResponse' :: Int -&gt; ServiceInstance -&gt; GetServiceInstanceResponse
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse%27"><span class="hs-identifier hs-type">GetServiceInstanceResponse'</span></a></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceInstanceResponse' :: Int
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3AhttpStatus%3AGetServiceInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269553"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceInstance:GetServiceInstanceResponse' :: ServiceInstance
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3AserviceInstance%3AGetServiceInstanceResponse%27"><span class="hs-identifier hs-var">serviceInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceInstance
+</span><a href="#local-6989586621679269552"><span class="hs-identifier hs-var">pServiceInstance_</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstanceResponse_httpStatus"><span class="hs-identifier hs-type">getServiceInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse"><span class="hs-identifier hs-type">GetServiceInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span id="getServiceInstanceResponse_httpStatus"><span class="annot"><span class="annottext">getServiceInstanceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetServiceInstanceResponse -&gt; f GetServiceInstanceResponse
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstanceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getServiceInstanceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceInstanceResponse -&gt; Int)
+-&gt; (GetServiceInstanceResponse
+    -&gt; Int -&gt; GetServiceInstanceResponse)
+-&gt; Lens
+     GetServiceInstanceResponse GetServiceInstanceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse%27"><span class="hs-identifier hs-type">GetServiceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269551"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetServiceInstanceResponse' :: GetServiceInstanceResponse -&gt; Int
+</span><a href="#local-6989586621679269551"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269551"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269550"><span class="annot"><span class="annottext">s :: GetServiceInstanceResponse
+</span><a href="#local-6989586621679269550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse%27"><span class="hs-identifier hs-type">GetServiceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269549"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceInstanceResponse
+</span><a href="#local-6989586621679269550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceInstanceResponse' :: Int
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3AhttpStatus%3AGetServiceInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse"><span class="hs-identifier hs-type">GetServiceInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The service instance detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstanceResponse_serviceInstance"><span class="hs-identifier hs-type">getServiceInstanceResponse_serviceInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse"><span class="hs-identifier hs-type">GetServiceInstanceResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceInstance.html#ServiceInstance"><span class="hs-identifier hs-type">ServiceInstance</span></a></span><span>
+</span><span id="line-180"></span><span id="getServiceInstanceResponse_serviceInstance"><span class="annot"><span class="annottext">getServiceInstanceResponse_serviceInstance :: (ServiceInstance -&gt; f ServiceInstance)
+-&gt; GetServiceInstanceResponse -&gt; f GetServiceInstanceResponse
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstanceResponse_serviceInstance"><span class="hs-identifier hs-var hs-var">getServiceInstanceResponse_serviceInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetServiceInstanceResponse -&gt; ServiceInstance)
+-&gt; (GetServiceInstanceResponse
+    -&gt; ServiceInstance -&gt; GetServiceInstanceResponse)
+-&gt; Lens
+     GetServiceInstanceResponse
+     GetServiceInstanceResponse
+     ServiceInstance
+     ServiceInstance
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse%27"><span class="hs-identifier hs-type">GetServiceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269548"><span class="annot"><span class="annottext">ServiceInstance
+serviceInstance :: ServiceInstance
+$sel:serviceInstance:GetServiceInstanceResponse' :: GetServiceInstanceResponse -&gt; ServiceInstance
+</span><a href="#local-6989586621679269548"><span class="hs-identifier hs-var hs-var">serviceInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceInstance
+</span><a href="#local-6989586621679269548"><span class="hs-identifier hs-var">serviceInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269547"><span class="annot"><span class="annottext">s :: GetServiceInstanceResponse
+</span><a href="#local-6989586621679269547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse%27"><span class="hs-identifier hs-type">GetServiceInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269546"><span class="annot"><span class="annottext">ServiceInstance
+</span><a href="#local-6989586621679269546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceInstanceResponse
+</span><a href="#local-6989586621679269547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceInstance:GetServiceInstanceResponse' :: ServiceInstance
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#%24sel%3AserviceInstance%3AGetServiceInstanceResponse%27"><span class="hs-identifier hs-var">serviceInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceInstance
+</span><a href="#local-6989586621679269546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse"><span class="hs-identifier hs-type">GetServiceInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstanceResponse"><span class="hs-identifier hs-type">GetServiceInstanceResponse</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteStack' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679299198"><span id="local-6989586621679299199"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStack"><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-var">DeleteStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStack%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-var">DeleteStack'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679299207"><span id="local-6989586621679299208"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStack"><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-var">DeleteStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStack%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-var">DeleteStack'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the stack.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3ADeleteStack%27"><span class="annot"><span class="annottext">DeleteStack -&gt; Text
 </span><a href="Network.AWS.AppStream.DeleteStack.html#%24sel%3Aname%3ADeleteStack%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299192"><span id="local-6989586621679299194"><span class="annot"><span class="annottext">DeleteStack -&gt; DeleteStack -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299201"><span id="local-6989586621679299203"><span class="annot"><span class="annottext">DeleteStack -&gt; DeleteStack -&gt; Bool
 (DeleteStack -&gt; DeleteStack -&gt; Bool)
 -&gt; (DeleteStack -&gt; DeleteStack -&gt; Bool) -&gt; Eq DeleteStack
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStack -&gt; DeleteStack -&gt; Bool
 == :: DeleteStack -&gt; DeleteStack -&gt; Bool
 $c== :: DeleteStack -&gt; DeleteStack -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299183"><span id="local-6989586621679299185"><span id="local-6989586621679299187"><span id="local-6989586621679299189"><span class="annot"><span class="annottext">ReadPrec [DeleteStack]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299192"><span id="local-6989586621679299194"><span id="local-6989586621679299196"><span id="local-6989586621679299198"><span class="annot"><span class="annottext">ReadPrec [DeleteStack]
 ReadPrec DeleteStack
 Int -&gt; ReadS DeleteStack
 ReadS [DeleteStack]
@@ -82,7 +82,7 @@ readList :: ReadS [DeleteStack]
 $creadList :: ReadS [DeleteStack]
 readsPrec :: Int -&gt; ReadS DeleteStack
 $creadsPrec :: Int -&gt; ReadS DeleteStack
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299176"><span id="local-6989586621679299178"><span id="local-6989586621679299180"><span class="annot"><span class="annottext">Int -&gt; DeleteStack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299185"><span id="local-6989586621679299187"><span id="local-6989586621679299189"><span class="annot"><span class="annottext">Int -&gt; DeleteStack -&gt; ShowS
 [DeleteStack] -&gt; ShowS
 DeleteStack -&gt; String
 (Int -&gt; DeleteStack -&gt; ShowS)
@@ -122,11 +122,11 @@ $cfrom :: forall x. DeleteStack -&gt; Rep DeleteStack x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteStack"><span class="annot"><span class="annottext">newDeleteStack :: Text -&gt; DeleteStack
-</span><a href="Network.AWS.AppStream.DeleteStack.html#newDeleteStack"><span class="hs-identifier hs-var hs-var">newDeleteStack</span></a></span></span><span> </span><span id="local-6989586621679299171"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299171"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteStack' :: Text -&gt; DeleteStack
+</span><a href="Network.AWS.AppStream.DeleteStack.html#newDeleteStack"><span class="hs-identifier hs-var hs-var">newDeleteStack</span></a></span></span><span> </span><span id="local-6989586621679299180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299180"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteStack' :: Text -&gt; DeleteStack
 </span><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteStack' :: Text
 </span><a href="Network.AWS.AppStream.DeleteStack.html#%24sel%3Aname%3ADeleteStack%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299171"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679299180"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the stack.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#deleteStack_name"><span class="hs-identifier hs-type">deleteStack_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,25 +135,25 @@ $cfrom :: forall x. DeleteStack -&gt; Rep DeleteStack x
 -&gt; (DeleteStack -&gt; Text -&gt; DeleteStack)
 -&gt; Lens DeleteStack DeleteStack Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299168"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299177"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteStack' :: DeleteStack -&gt; Text
-</span><a href="#local-6989586621679299168"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299168"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299167"><span class="annot"><span class="annottext">s :: DeleteStack
-</span><a href="#local-6989586621679299167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299166"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
-</span><a href="#local-6989586621679299167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteStack' :: Text
+</span><a href="#local-6989586621679299177"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299177"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299176"><span class="annot"><span class="annottext">s :: DeleteStack
+</span><a href="#local-6989586621679299176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStack
+</span><a href="#local-6989586621679299176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteStack' :: Text
 </span><a href="Network.AWS.AppStream.DeleteStack.html#%24sel%3Aname%3ADeleteStack%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679299162"><span class="annot"><span class="annottext">request :: DeleteStack -&gt; Request DeleteStack
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679299171"><span class="annot"><span class="annottext">request :: DeleteStack -&gt; Request DeleteStack
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteStack -&gt; Request DeleteStack
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679299158"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679299167"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteStack
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299155"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299155"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299154"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679299154"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299153"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679299153"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299164"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299164"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299163"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679299163"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299162"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679299162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteStackResponse
 </span><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-var">DeleteStackResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteStackResponse)
@@ -191,15 +191,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299155"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299164"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299146"><span id="local-6989586621679299148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299155"><span id="local-6989586621679299157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679299139"><span class="annot"><span class="annottext">toHeaders :: DeleteStack -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679299148"><span class="annot"><span class="annottext">toHeaders :: DeleteStack -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteStack -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -226,12 +226,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299129"><span id="local-6989586621679299131"><span id="local-6989586621679299133"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679299127"><span class="annot"><span class="annottext">toJSON :: DeleteStack -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299125"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299138"><span id="local-6989586621679299140"><span id="local-6989586621679299142"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679299136"><span class="annot"><span class="annottext">toJSON :: DeleteStack -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack%27"><span class="hs-identifier hs-type">DeleteStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299134"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteStack' :: DeleteStack -&gt; Text
-</span><a href="#local-6989586621679299125"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679299134"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,18 +243,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299125"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679299134"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679299119"><span class="annot"><span class="annottext">toPath :: DeleteStack -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679299128"><span class="annot"><span class="annottext">toPath :: DeleteStack -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteStack -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStack"><span class="hs-identifier hs-type">DeleteStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679299115"><span class="annot"><span class="annottext">toQuery :: DeleteStack -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679299124"><span class="annot"><span class="annottext">toQuery :: DeleteStack -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteStack -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -262,12 +262,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteStackResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679299112"><span id="local-6989586621679299113"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStackResponse"><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-var">DeleteStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStackResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-var">DeleteStackResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679299121"><span id="local-6989586621679299122"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStackResponse"><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-var">DeleteStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStackResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-var">DeleteStackResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteStackResponse%27"><span class="annot"><span class="annottext">DeleteStackResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.DeleteStack.html#%24sel%3AhttpStatus%3ADeleteStackResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299107"><span id="local-6989586621679299109"><span class="annot"><span class="annottext">DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299116"><span id="local-6989586621679299118"><span class="annot"><span class="annottext">DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
 (DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool)
 -&gt; (DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool)
 -&gt; Eq DeleteStackResponse
@@ -276,7 +276,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
 == :: DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
 $c== :: DeleteStackResponse -&gt; DeleteStackResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299099"><span id="local-6989586621679299101"><span id="local-6989586621679299103"><span id="local-6989586621679299105"><span class="annot"><span class="annottext">ReadPrec [DeleteStackResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299108"><span id="local-6989586621679299110"><span id="local-6989586621679299112"><span id="local-6989586621679299114"><span class="annot"><span class="annottext">ReadPrec [DeleteStackResponse]
 ReadPrec DeleteStackResponse
 Int -&gt; ReadS DeleteStackResponse
 ReadS [DeleteStackResponse]
@@ -296,7 +296,7 @@ readList :: ReadS [DeleteStackResponse]
 $creadList :: ReadS [DeleteStackResponse]
 readsPrec :: Int -&gt; ReadS DeleteStackResponse
 $creadsPrec :: Int -&gt; ReadS DeleteStackResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299093"><span id="local-6989586621679299095"><span id="local-6989586621679299097"><span class="annot"><span class="annottext">Int -&gt; DeleteStackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299102"><span id="local-6989586621679299104"><span id="local-6989586621679299106"><span class="annot"><span class="annottext">Int -&gt; DeleteStackResponse -&gt; ShowS
 [DeleteStackResponse] -&gt; ShowS
 DeleteStackResponse -&gt; String
 (Int -&gt; DeleteStackResponse -&gt; ShowS)
@@ -336,12 +336,12 @@ $cfrom :: forall x. DeleteStackResponse -&gt; Rep DeleteStackResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newDeleteStackResponse"><span class="annot"><span class="annottext">newDeleteStackResponse :: Int -&gt; DeleteStackResponse
-</span><a href="Network.AWS.AppStream.DeleteStack.html#newDeleteStackResponse"><span class="hs-identifier hs-var hs-var">newDeleteStackResponse</span></a></span></span><span> </span><span id="local-6989586621679299090"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299090"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.DeleteStack.html#newDeleteStackResponse"><span class="hs-identifier hs-var hs-var">newDeleteStackResponse</span></a></span></span><span> </span><span id="local-6989586621679299099"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299099"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteStackResponse' :: Int -&gt; DeleteStackResponse
 </span><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-type">DeleteStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStackResponse' :: Int
 </span><a href="Network.AWS.AppStream.DeleteStack.html#%24sel%3AhttpStatus%3ADeleteStackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299090"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679299099"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#deleteStackResponse_httpStatus"><span class="hs-identifier hs-type">deleteStackResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -350,16 +350,16 @@ $cfrom :: forall x. DeleteStackResponse -&gt; Rep DeleteStackResponse x
 -&gt; (DeleteStackResponse -&gt; Int -&gt; DeleteStackResponse)
 -&gt; Lens DeleteStackResponse DeleteStackResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-type">DeleteStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299089"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-type">DeleteStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299098"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteStackResponse' :: DeleteStackResponse -&gt; Int
-</span><a href="#local-6989586621679299089"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299089"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299088"><span class="annot"><span class="annottext">s :: DeleteStackResponse
-</span><a href="#local-6989586621679299088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-type">DeleteStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299087"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStackResponse
-</span><a href="#local-6989586621679299088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStackResponse' :: Int
+</span><a href="#local-6989586621679299098"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299098"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299097"><span class="annot"><span class="annottext">s :: DeleteStackResponse
+</span><a href="#local-6989586621679299097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse%27"><span class="hs-identifier hs-type">DeleteStackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299096"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStackResponse
+</span><a href="#local-6989586621679299097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStackResponse' :: Int
 </span><a href="Network.AWS.AppStream.DeleteStack.html#%24sel%3AhttpStatus%3ADeleteStackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299085"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299094"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteStack.html#DeleteStackResponse"><span class="hs-identifier hs-type">DeleteStackResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

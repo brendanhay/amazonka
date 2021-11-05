@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a partition error.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPartitionError' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679692334"><span id="local-6989586621679692335"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartitionError"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-var">PartitionError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionError%27"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-var">PartitionError'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679692343"><span id="local-6989586621679692344"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartitionError"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-var">PartitionError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionError%27"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-var">PartitionError'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The values that define the partition.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApartitionValues%3APartitionError%27"><span class="annot"><span class="annottext">PartitionError -&gt; Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.PartitionError.html#%24sel%3ApartitionValues%3APartitionError%27"><span class="hs-identifier hs-var hs-var">partitionValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AerrorDetail%3APartitionError%27"><span class="annot"><span class="annottext">PartitionError -&gt; Maybe ErrorDetail
 </span><a href="Network.AWS.Glue.Types.PartitionError.html#%24sel%3AerrorDetail%3APartitionError%27"><span class="hs-identifier hs-var hs-var">errorDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692327"><span id="local-6989586621679692329"><span class="annot"><span class="annottext">PartitionError -&gt; PartitionError -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692336"><span id="local-6989586621679692338"><span class="annot"><span class="annottext">PartitionError -&gt; PartitionError -&gt; Bool
 (PartitionError -&gt; PartitionError -&gt; Bool)
 -&gt; (PartitionError -&gt; PartitionError -&gt; Bool) -&gt; Eq PartitionError
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PartitionError -&gt; PartitionError -&gt; Bool
 == :: PartitionError -&gt; PartitionError -&gt; Bool
 $c== :: PartitionError -&gt; PartitionError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692318"><span id="local-6989586621679692320"><span id="local-6989586621679692322"><span id="local-6989586621679692324"><span class="annot"><span class="annottext">ReadPrec [PartitionError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692327"><span id="local-6989586621679692329"><span id="local-6989586621679692331"><span id="local-6989586621679692333"><span class="annot"><span class="annottext">ReadPrec [PartitionError]
 ReadPrec PartitionError
 Int -&gt; ReadS PartitionError
 ReadS [PartitionError]
@@ -63,7 +63,7 @@ readList :: ReadS [PartitionError]
 $creadList :: ReadS [PartitionError]
 readsPrec :: Int -&gt; ReadS PartitionError
 $creadsPrec :: Int -&gt; ReadS PartitionError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692311"><span id="local-6989586621679692313"><span id="local-6989586621679692315"><span class="annot"><span class="annottext">Int -&gt; PartitionError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692320"><span id="local-6989586621679692322"><span id="local-6989586621679692324"><span class="annot"><span class="annottext">Int -&gt; PartitionError -&gt; ShowS
 [PartitionError] -&gt; ShowS
 PartitionError -&gt; String
 (Int -&gt; PartitionError -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (PartitionError -&gt; Maybe [Text] -&gt; PartitionError)
 -&gt; Lens PartitionError PartitionError (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-type">PartitionError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692302"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-type">PartitionError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692311"><span class="annot"><span class="annottext">Maybe [Text]
 partitionValues :: Maybe [Text]
 $sel:partitionValues:PartitionError' :: PartitionError -&gt; Maybe [Text]
-</span><a href="#local-6989586621679692302"><span class="hs-identifier hs-var hs-var">partitionValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679692302"><span class="hs-identifier hs-var">partitionValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692301"><span class="annot"><span class="annottext">s :: PartitionError
-</span><a href="#local-6989586621679692301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-type">PartitionError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692300"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679692300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionError
-</span><a href="#local-6989586621679692301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionValues:PartitionError' :: Maybe [Text]
+</span><a href="#local-6989586621679692311"><span class="hs-identifier hs-var hs-var">partitionValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679692311"><span class="hs-identifier hs-var">partitionValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692310"><span class="annot"><span class="annottext">s :: PartitionError
+</span><a href="#local-6989586621679692310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-type">PartitionError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692309"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679692309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionError
+</span><a href="#local-6989586621679692310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionValues:PartitionError' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.PartitionError.html#%24sel%3ApartitionValues%3APartitionError%27"><span class="hs-identifier hs-var">partitionValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679692300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679692309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PartitionError -&gt; f PartitionError)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -162,19 +162,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ErrorDetail)
      (Maybe ErrorDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-type">PartitionError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692295"><span class="annot"><span class="annottext">Maybe ErrorDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-type">PartitionError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692304"><span class="annot"><span class="annottext">Maybe ErrorDetail
 errorDetail :: Maybe ErrorDetail
 $sel:errorDetail:PartitionError' :: PartitionError -&gt; Maybe ErrorDetail
-</span><a href="#local-6989586621679692295"><span class="hs-identifier hs-var hs-var">errorDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetail
-</span><a href="#local-6989586621679692295"><span class="hs-identifier hs-var">errorDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692294"><span class="annot"><span class="annottext">s :: PartitionError
-</span><a href="#local-6989586621679692294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-type">PartitionError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692293"><span class="annot"><span class="annottext">Maybe ErrorDetail
-</span><a href="#local-6989586621679692293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionError
-</span><a href="#local-6989586621679692294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDetail:PartitionError' :: Maybe ErrorDetail
+</span><a href="#local-6989586621679692304"><span class="hs-identifier hs-var hs-var">errorDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetail
+</span><a href="#local-6989586621679692304"><span class="hs-identifier hs-var">errorDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692303"><span class="annot"><span class="annottext">s :: PartitionError
+</span><a href="#local-6989586621679692303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-type">PartitionError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692302"><span class="annot"><span class="annottext">Maybe ErrorDetail
+</span><a href="#local-6989586621679692302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionError
+</span><a href="#local-6989586621679692303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDetail:PartitionError' :: Maybe ErrorDetail
 </span><a href="Network.AWS.Glue.Types.PartitionError.html#%24sel%3AerrorDetail%3APartitionError%27"><span class="hs-identifier hs-var">errorDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorDetail
-</span><a href="#local-6989586621679692293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679692302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692290"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679692288"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartitionError
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692299"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679692297"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartitionError
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PartitionError)
@@ -184,8 +184,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PartitionError&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692285"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692285"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692294"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679692294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe ErrorDetail -&gt; PartitionError
 </span><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError%27"><span class="hs-identifier hs-var">PartitionError'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe ErrorDetail -&gt; PartitionError)
@@ -193,7 +193,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ErrorDetail -&gt; PartitionError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679692294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartitionValues&quot;</span></span><span>
@@ -208,13 +208,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe ErrorDetail) -&gt; Parser PartitionError
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorDetail)
+</span><a href="#local-6989586621679692294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorDetail)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorDetail&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692278"><span id="local-6989586621679692280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692287"><span id="local-6989586621679692289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

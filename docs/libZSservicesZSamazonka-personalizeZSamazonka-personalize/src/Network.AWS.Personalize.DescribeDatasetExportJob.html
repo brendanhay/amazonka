@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.DescribeDatasetExportJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the dataset export job created by CreateDatasetExportJob,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- including the export job status.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.DescribeDatasetExportJob</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier">DescribeDatasetExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#newDescribeDatasetExportJob"><span class="hs-identifier">newDescribeDatasetExportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#describeDatasetExportJob_datasetExportJobArn"><span class="hs-identifier">describeDatasetExportJob_datasetExportJobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse"><span class="hs-identifier">DescribeDatasetExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#newDescribeDatasetExportJobResponse"><span class="hs-identifier">newDescribeDatasetExportJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#describeDatasetExportJobResponse_datasetExportJob"><span class="hs-identifier">describeDatasetExportJobResponse_datasetExportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#describeDatasetExportJobResponse_httpStatus"><span class="hs-identifier">describeDatasetExportJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.html"><span class="hs-identifier">Network.AWS.Personalize.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeDatasetExportJob' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679281226"><span id="local-6989586621679281227"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDatasetExportJob"><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-var">DescribeDatasetExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDatasetExportJob%27"><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob%27"><span class="hs-identifier hs-var">DescribeDatasetExportJob'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset export job to describe.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdatasetExportJobArn%3ADescribeDatasetExportJob%27"><span class="annot"><span class="annottext">DescribeDatasetExportJob -&gt; Text
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#%24sel%3AdatasetExportJobArn%3ADescribeDatasetExportJob%27"><span class="hs-identifier hs-var hs-var">datasetExportJobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281220"><span id="local-6989586621679281222"><span class="annot"><span class="annottext">DescribeDatasetExportJob -&gt; DescribeDatasetExportJob -&gt; Bool
+(DescribeDatasetExportJob -&gt; DescribeDatasetExportJob -&gt; Bool)
+-&gt; (DescribeDatasetExportJob -&gt; DescribeDatasetExportJob -&gt; Bool)
+-&gt; Eq DescribeDatasetExportJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDatasetExportJob -&gt; DescribeDatasetExportJob -&gt; Bool
+$c/= :: DescribeDatasetExportJob -&gt; DescribeDatasetExportJob -&gt; Bool
+== :: DescribeDatasetExportJob -&gt; DescribeDatasetExportJob -&gt; Bool
+$c== :: DescribeDatasetExportJob -&gt; DescribeDatasetExportJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281211"><span id="local-6989586621679281213"><span id="local-6989586621679281215"><span id="local-6989586621679281217"><span class="annot"><span class="annottext">ReadPrec [DescribeDatasetExportJob]
+ReadPrec DescribeDatasetExportJob
+Int -&gt; ReadS DescribeDatasetExportJob
+ReadS [DescribeDatasetExportJob]
+(Int -&gt; ReadS DescribeDatasetExportJob)
+-&gt; ReadS [DescribeDatasetExportJob]
+-&gt; ReadPrec DescribeDatasetExportJob
+-&gt; ReadPrec [DescribeDatasetExportJob]
+-&gt; Read DescribeDatasetExportJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDatasetExportJob]
+$creadListPrec :: ReadPrec [DescribeDatasetExportJob]
+readPrec :: ReadPrec DescribeDatasetExportJob
+$creadPrec :: ReadPrec DescribeDatasetExportJob
+readList :: ReadS [DescribeDatasetExportJob]
+$creadList :: ReadS [DescribeDatasetExportJob]
+readsPrec :: Int -&gt; ReadS DescribeDatasetExportJob
+$creadsPrec :: Int -&gt; ReadS DescribeDatasetExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281204"><span id="local-6989586621679281206"><span id="local-6989586621679281208"><span class="annot"><span class="annottext">Int -&gt; DescribeDatasetExportJob -&gt; ShowS
+[DescribeDatasetExportJob] -&gt; ShowS
+DescribeDatasetExportJob -&gt; String
+(Int -&gt; DescribeDatasetExportJob -&gt; ShowS)
+-&gt; (DescribeDatasetExportJob -&gt; String)
+-&gt; ([DescribeDatasetExportJob] -&gt; ShowS)
+-&gt; Show DescribeDatasetExportJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDatasetExportJob] -&gt; ShowS
+$cshowList :: [DescribeDatasetExportJob] -&gt; ShowS
+show :: DescribeDatasetExportJob -&gt; String
+$cshow :: DescribeDatasetExportJob -&gt; String
+showsPrec :: Int -&gt; DescribeDatasetExportJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDatasetExportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDatasetExportJob -&gt; Rep DescribeDatasetExportJob x)
+-&gt; (forall x.
+    Rep DescribeDatasetExportJob x -&gt; DescribeDatasetExportJob)
+-&gt; Generic DescribeDatasetExportJob
+forall x.
+Rep DescribeDatasetExportJob x -&gt; DescribeDatasetExportJob
+forall x.
+DescribeDatasetExportJob -&gt; Rep DescribeDatasetExportJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDatasetExportJob x -&gt; DescribeDatasetExportJob
+$cfrom :: forall x.
+DescribeDatasetExportJob -&gt; Rep DescribeDatasetExportJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DescribeDatasetExportJob' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'datasetExportJobArn', 'describeDatasetExportJob_datasetExportJobArn' - The Amazon Resource Name (ARN) of the dataset export job to describe.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#newDescribeDatasetExportJob"><span class="hs-identifier hs-type">newDescribeDatasetExportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'datasetExportJobArn'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span><span>
+</span><span id="line-70"></span><span id="newDescribeDatasetExportJob"><span class="annot"><span class="annottext">newDescribeDatasetExportJob :: Text -&gt; DescribeDatasetExportJob
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#newDescribeDatasetExportJob"><span class="hs-identifier hs-var hs-var">newDescribeDatasetExportJob</span></a></span></span><span> </span><span id="local-6989586621679281199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281199"><span class="hs-identifier hs-var">pDatasetExportJobArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DescribeDatasetExportJob' :: Text -&gt; DescribeDatasetExportJob
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob%27"><span class="hs-identifier hs-type">DescribeDatasetExportJob'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:datasetExportJobArn:DescribeDatasetExportJob' :: Text
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#%24sel%3AdatasetExportJobArn%3ADescribeDatasetExportJob%27"><span class="hs-identifier hs-var">datasetExportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281199"><span class="hs-identifier hs-var">pDatasetExportJobArn_</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the dataset export job to describe.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#describeDatasetExportJob_datasetExportJobArn"><span class="hs-identifier hs-type">describeDatasetExportJob_datasetExportJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="describeDatasetExportJob_datasetExportJobArn"><span class="annot"><span class="annottext">describeDatasetExportJob_datasetExportJobArn :: (Text -&gt; f Text)
+-&gt; DescribeDatasetExportJob -&gt; f DescribeDatasetExportJob
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#describeDatasetExportJob_datasetExportJobArn"><span class="hs-identifier hs-var hs-var">describeDatasetExportJob_datasetExportJobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDatasetExportJob -&gt; Text)
+-&gt; (DescribeDatasetExportJob -&gt; Text -&gt; DescribeDatasetExportJob)
+-&gt; Lens DescribeDatasetExportJob DescribeDatasetExportJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob%27"><span class="hs-identifier hs-type">DescribeDatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281196"><span class="annot"><span class="annottext">Text
+datasetExportJobArn :: Text
+$sel:datasetExportJobArn:DescribeDatasetExportJob' :: DescribeDatasetExportJob -&gt; Text
+</span><a href="#local-6989586621679281196"><span class="hs-identifier hs-var hs-var">datasetExportJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281196"><span class="hs-identifier hs-var">datasetExportJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281195"><span class="annot"><span class="annottext">s :: DescribeDatasetExportJob
+</span><a href="#local-6989586621679281195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob%27"><span class="hs-identifier hs-type">DescribeDatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281194"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatasetExportJob
+</span><a href="#local-6989586621679281195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetExportJobArn:DescribeDatasetExportJob' :: Text
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#%24sel%3AdatasetExportJobArn%3ADescribeDatasetExportJob%27"><span class="hs-identifier hs-var">datasetExportJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679281190"><span class="annot"><span class="annottext">request :: DescribeDatasetExportJob -&gt; Request DescribeDatasetExportJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeDatasetExportJob -&gt; Request DescribeDatasetExportJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Personalize.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679281186"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeDatasetExportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDatasetExportJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeDatasetExportJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeDatasetExportJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeDatasetExportJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281183"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679281182"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679281182"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679281181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe DatasetExportJob -&gt; Int -&gt; DescribeDatasetExportJobResponse
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-var">DescribeDatasetExportJobResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DatasetExportJob -&gt; Int -&gt; DescribeDatasetExportJobResponse)
+-&gt; Either String (Maybe DatasetExportJob)
+-&gt; Either String (Int -&gt; DescribeDatasetExportJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DatasetExportJob)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetExportJob&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDatasetExportJobResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeDatasetExportJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281183"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281173"><span id="local-6989586621679281175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679281166"><span class="annot"><span class="annottext">toHeaders :: DescribeDatasetExportJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDatasetExportJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonPersonalize.DescribeDatasetExportJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-108"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281156"><span id="local-6989586621679281158"><span id="local-6989586621679281160"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679281154"><span class="annot"><span class="annottext">toJSON :: DescribeDatasetExportJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob%27"><span class="hs-identifier hs-type">DescribeDatasetExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281152"><span class="annot"><span class="annottext">Text
+datasetExportJobArn :: Text
+$sel:datasetExportJobArn:DescribeDatasetExportJob' :: DescribeDatasetExportJob -&gt; Text
+</span><a href="#local-6989586621679281152"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetExportJobArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281152"><span class="hs-identifier hs-var">datasetExportJobArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679281146"><span class="annot"><span class="annottext">toPath :: DescribeDatasetExportJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDatasetExportJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJob"><span class="hs-identifier hs-type">DescribeDatasetExportJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679281142"><span class="annot"><span class="annottext">toQuery :: DescribeDatasetExportJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDatasetExportJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDescribeDatasetExportJobResponse' smart constructor.</span><span>
+</span><span id="line-128"></span><span id="local-6989586621679281139"><span id="local-6989586621679281140"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDatasetExportJobResponse"><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse"><span class="hs-identifier hs-var">DescribeDatasetExportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDatasetExportJobResponse%27"><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-var">DescribeDatasetExportJobResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the dataset export job, including the status.</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- The status is one of the following values:</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- -   CREATE PENDING</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- -   CREATE IN_PROGRESS</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- -   ACTIVE</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- -   CREATE FAILED</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AdatasetExportJob%3ADescribeDatasetExportJobResponse%27"><span class="annot"><span class="annottext">DescribeDatasetExportJobResponse -&gt; Maybe DatasetExportJob
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#%24sel%3AdatasetExportJob%3ADescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-var hs-var">datasetExportJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDatasetExportJobResponse%27"><span class="annot"><span class="annottext">DescribeDatasetExportJobResponse -&gt; Int
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#%24sel%3AhttpStatus%3ADescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281133"><span id="local-6989586621679281135"><span class="annot"><span class="annottext">DescribeDatasetExportJobResponse
+-&gt; DescribeDatasetExportJobResponse -&gt; Bool
+(DescribeDatasetExportJobResponse
+ -&gt; DescribeDatasetExportJobResponse -&gt; Bool)
+-&gt; (DescribeDatasetExportJobResponse
+    -&gt; DescribeDatasetExportJobResponse -&gt; Bool)
+-&gt; Eq DescribeDatasetExportJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDatasetExportJobResponse
+-&gt; DescribeDatasetExportJobResponse -&gt; Bool
+$c/= :: DescribeDatasetExportJobResponse
+-&gt; DescribeDatasetExportJobResponse -&gt; Bool
+== :: DescribeDatasetExportJobResponse
+-&gt; DescribeDatasetExportJobResponse -&gt; Bool
+$c== :: DescribeDatasetExportJobResponse
+-&gt; DescribeDatasetExportJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281125"><span id="local-6989586621679281127"><span id="local-6989586621679281129"><span id="local-6989586621679281131"><span class="annot"><span class="annottext">ReadPrec [DescribeDatasetExportJobResponse]
+ReadPrec DescribeDatasetExportJobResponse
+Int -&gt; ReadS DescribeDatasetExportJobResponse
+ReadS [DescribeDatasetExportJobResponse]
+(Int -&gt; ReadS DescribeDatasetExportJobResponse)
+-&gt; ReadS [DescribeDatasetExportJobResponse]
+-&gt; ReadPrec DescribeDatasetExportJobResponse
+-&gt; ReadPrec [DescribeDatasetExportJobResponse]
+-&gt; Read DescribeDatasetExportJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDatasetExportJobResponse]
+$creadListPrec :: ReadPrec [DescribeDatasetExportJobResponse]
+readPrec :: ReadPrec DescribeDatasetExportJobResponse
+$creadPrec :: ReadPrec DescribeDatasetExportJobResponse
+readList :: ReadS [DescribeDatasetExportJobResponse]
+$creadList :: ReadS [DescribeDatasetExportJobResponse]
+readsPrec :: Int -&gt; ReadS DescribeDatasetExportJobResponse
+$creadsPrec :: Int -&gt; ReadS DescribeDatasetExportJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281119"><span id="local-6989586621679281121"><span id="local-6989586621679281123"><span class="annot"><span class="annottext">Int -&gt; DescribeDatasetExportJobResponse -&gt; ShowS
+[DescribeDatasetExportJobResponse] -&gt; ShowS
+DescribeDatasetExportJobResponse -&gt; String
+(Int -&gt; DescribeDatasetExportJobResponse -&gt; ShowS)
+-&gt; (DescribeDatasetExportJobResponse -&gt; String)
+-&gt; ([DescribeDatasetExportJobResponse] -&gt; ShowS)
+-&gt; Show DescribeDatasetExportJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDatasetExportJobResponse] -&gt; ShowS
+$cshowList :: [DescribeDatasetExportJobResponse] -&gt; ShowS
+show :: DescribeDatasetExportJobResponse -&gt; String
+$cshow :: DescribeDatasetExportJobResponse -&gt; String
+showsPrec :: Int -&gt; DescribeDatasetExportJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDatasetExportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeDatasetExportJobResponse
+ -&gt; Rep DescribeDatasetExportJobResponse x)
+-&gt; (forall x.
+    Rep DescribeDatasetExportJobResponse x
+    -&gt; DescribeDatasetExportJobResponse)
+-&gt; Generic DescribeDatasetExportJobResponse
+forall x.
+Rep DescribeDatasetExportJobResponse x
+-&gt; DescribeDatasetExportJobResponse
+forall x.
+DescribeDatasetExportJobResponse
+-&gt; Rep DescribeDatasetExportJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeDatasetExportJobResponse x
+-&gt; DescribeDatasetExportJobResponse
+$cfrom :: forall x.
+DescribeDatasetExportJobResponse
+-&gt; Rep DescribeDatasetExportJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'DescribeDatasetExportJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'datasetExportJob', 'describeDatasetExportJobResponse_datasetExportJob' - Information about the dataset export job, including the status.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The status is one of the following values:</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   CREATE PENDING</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   CREATE IN_PROGRESS</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   ACTIVE</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   CREATE FAILED</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'httpStatus', 'describeDatasetExportJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#newDescribeDatasetExportJobResponse"><span class="hs-identifier hs-type">newDescribeDatasetExportJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse</span></a></span><span>
+</span><span id="line-171"></span><span id="newDescribeDatasetExportJobResponse"><span class="annot"><span class="annottext">newDescribeDatasetExportJobResponse :: Int -&gt; DescribeDatasetExportJobResponse
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#newDescribeDatasetExportJobResponse"><span class="hs-identifier hs-var hs-var">newDescribeDatasetExportJobResponse</span></a></span></span><span> </span><span id="local-6989586621679281116"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281116"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">DescribeDatasetExportJobResponse' :: Maybe DatasetExportJob -&gt; Int -&gt; DescribeDatasetExportJobResponse
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse'</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:datasetExportJob:DescribeDatasetExportJobResponse' :: Maybe DatasetExportJob
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#%24sel%3AdatasetExportJob%3ADescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-var">datasetExportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Maybe DatasetExportJob
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDatasetExportJobResponse' :: Int
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#%24sel%3AhttpStatus%3ADescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281116"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | Information about the dataset export job, including the status.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The status is one of the following values:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   CREATE PENDING</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   CREATE IN_PROGRESS</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   ACTIVE</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   CREATE FAILED</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#describeDatasetExportJobResponse_datasetExportJob"><span class="hs-identifier hs-type">describeDatasetExportJobResponse_datasetExportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DatasetExportJob.html#DatasetExportJob"><span class="hs-identifier hs-type">DatasetExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="describeDatasetExportJobResponse_datasetExportJob"><span class="annot"><span class="annottext">describeDatasetExportJobResponse_datasetExportJob :: (Maybe DatasetExportJob -&gt; f (Maybe DatasetExportJob))
+-&gt; DescribeDatasetExportJobResponse
+-&gt; f DescribeDatasetExportJobResponse
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#describeDatasetExportJobResponse_datasetExportJob"><span class="hs-identifier hs-var hs-var">describeDatasetExportJobResponse_datasetExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDatasetExportJobResponse -&gt; Maybe DatasetExportJob)
+-&gt; (DescribeDatasetExportJobResponse
+    -&gt; Maybe DatasetExportJob -&gt; DescribeDatasetExportJobResponse)
+-&gt; Lens
+     DescribeDatasetExportJobResponse
+     DescribeDatasetExportJobResponse
+     (Maybe DatasetExportJob)
+     (Maybe DatasetExportJob)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281115"><span class="annot"><span class="annottext">Maybe DatasetExportJob
+datasetExportJob :: Maybe DatasetExportJob
+$sel:datasetExportJob:DescribeDatasetExportJobResponse' :: DescribeDatasetExportJobResponse -&gt; Maybe DatasetExportJob
+</span><a href="#local-6989586621679281115"><span class="hs-identifier hs-var hs-var">datasetExportJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetExportJob
+</span><a href="#local-6989586621679281115"><span class="hs-identifier hs-var">datasetExportJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281114"><span class="annot"><span class="annottext">s :: DescribeDatasetExportJobResponse
+</span><a href="#local-6989586621679281114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281113"><span class="annot"><span class="annottext">Maybe DatasetExportJob
+</span><a href="#local-6989586621679281113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatasetExportJobResponse
+</span><a href="#local-6989586621679281114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetExportJob:DescribeDatasetExportJobResponse' :: Maybe DatasetExportJob
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#%24sel%3AdatasetExportJob%3ADescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-var">datasetExportJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetExportJob
+</span><a href="#local-6989586621679281113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#describeDatasetExportJobResponse_httpStatus"><span class="hs-identifier hs-type">describeDatasetExportJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="describeDatasetExportJobResponse_httpStatus"><span class="annot"><span class="annottext">describeDatasetExportJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeDatasetExportJobResponse
+-&gt; f DescribeDatasetExportJobResponse
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#describeDatasetExportJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeDatasetExportJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDatasetExportJobResponse -&gt; Int)
+-&gt; (DescribeDatasetExportJobResponse
+    -&gt; Int -&gt; DescribeDatasetExportJobResponse)
+-&gt; Lens
+     DescribeDatasetExportJobResponse
+     DescribeDatasetExportJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281112"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeDatasetExportJobResponse' :: DescribeDatasetExportJobResponse -&gt; Int
+</span><a href="#local-6989586621679281112"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281112"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281111"><span class="annot"><span class="annottext">s :: DescribeDatasetExportJobResponse
+</span><a href="#local-6989586621679281111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDatasetExportJobResponse
+</span><a href="#local-6989586621679281111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDatasetExportJobResponse' :: Int
+</span><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#%24sel%3AhttpStatus%3ADescribeDatasetExportJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679281108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.DescribeDatasetExportJob.html#DescribeDatasetExportJobResponse"><span class="hs-identifier hs-type">DescribeDatasetExportJobResponse</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

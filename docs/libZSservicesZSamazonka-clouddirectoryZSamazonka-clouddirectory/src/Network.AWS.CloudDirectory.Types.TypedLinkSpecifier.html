@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- output. You can also construct a typed link specifier from scratch.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newTypedLinkSpecifier' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679331907"><span id="local-6989586621679331908"></span></span><span class="hs-keyword">data</span><span> </span><span id="TypedLinkSpecifier"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-var">TypedLinkSpecifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypedLinkSpecifier%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-var">TypedLinkSpecifier'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679331916"><span id="local-6989586621679331917"></span></span><span class="hs-keyword">data</span><span> </span><span id="TypedLinkSpecifier"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-var">TypedLinkSpecifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypedLinkSpecifier%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-var">TypedLinkSpecifier'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the typed link facet that is associated with the typed link.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AtypedLinkFacet%3ATypedLinkSpecifier%27"><span class="annot"><span class="annottext">TypedLinkSpecifier -&gt; TypedLinkSchemaAndFacetName
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AtypedLinkFacet%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var hs-var">typedLinkFacet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName.html#TypedLinkSchemaAndFacetName"><span class="hs-identifier hs-type">TypedLinkSchemaAndFacetName</span></a></span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AidentityAttributeValues%3ATypedLinkSpecifier%27"><span class="annot"><span class="annottext">TypedLinkSpecifier -&gt; [AttributeNameAndValue]
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AidentityAttributeValues%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var hs-var">identityAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeNameAndValue.html#AttributeNameAndValue"><span class="hs-identifier hs-type">AttributeNameAndValue</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331898"><span id="local-6989586621679331900"><span class="annot"><span class="annottext">TypedLinkSpecifier -&gt; TypedLinkSpecifier -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331907"><span id="local-6989586621679331909"><span class="annot"><span class="annottext">TypedLinkSpecifier -&gt; TypedLinkSpecifier -&gt; Bool
 (TypedLinkSpecifier -&gt; TypedLinkSpecifier -&gt; Bool)
 -&gt; (TypedLinkSpecifier -&gt; TypedLinkSpecifier -&gt; Bool)
 -&gt; Eq TypedLinkSpecifier
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TypedLinkSpecifier -&gt; TypedLinkSpecifier -&gt; Bool
 == :: TypedLinkSpecifier -&gt; TypedLinkSpecifier -&gt; Bool
 $c== :: TypedLinkSpecifier -&gt; TypedLinkSpecifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331889"><span id="local-6989586621679331891"><span id="local-6989586621679331893"><span id="local-6989586621679331895"><span class="annot"><span class="annottext">ReadPrec [TypedLinkSpecifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331898"><span id="local-6989586621679331900"><span id="local-6989586621679331902"><span id="local-6989586621679331904"><span class="annot"><span class="annottext">ReadPrec [TypedLinkSpecifier]
 ReadPrec TypedLinkSpecifier
 Int -&gt; ReadS TypedLinkSpecifier
 ReadS [TypedLinkSpecifier]
@@ -78,7 +78,7 @@ readList :: ReadS [TypedLinkSpecifier]
 $creadList :: ReadS [TypedLinkSpecifier]
 readsPrec :: Int -&gt; ReadS TypedLinkSpecifier
 $creadsPrec :: Int -&gt; ReadS TypedLinkSpecifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331882"><span id="local-6989586621679331884"><span id="local-6989586621679331886"><span class="annot"><span class="annottext">Int -&gt; TypedLinkSpecifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331891"><span id="local-6989586621679331893"><span id="local-6989586621679331895"><span class="annot"><span class="annottext">Int -&gt; TypedLinkSpecifier -&gt; ShowS
 [TypedLinkSpecifier] -&gt; ShowS
 TypedLinkSpecifier -&gt; String
 (Int -&gt; TypedLinkSpecifier -&gt; ShowS)
@@ -130,12 +130,12 @@ $cfrom :: forall x. TypedLinkSpecifier -&gt; Rep TypedLinkSpecifier x
 </span><span id="line-73"></span><span id="newTypedLinkSpecifier"><span class="annot"><span class="annottext">newTypedLinkSpecifier :: TypedLinkSchemaAndFacetName
 -&gt; ObjectReference -&gt; ObjectReference -&gt; TypedLinkSpecifier
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#newTypedLinkSpecifier"><span class="hs-identifier hs-var hs-var">newTypedLinkSpecifier</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679331876"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679331876"><span class="hs-identifier hs-var">pTypedLinkFacet_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679331875"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331875"><span class="hs-identifier hs-var">pSourceObjectReference_</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679331874"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331874"><span class="hs-identifier hs-var">pTargetObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679331885"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
+</span><a href="#local-6989586621679331885"><span class="hs-identifier hs-var">pTypedLinkFacet_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679331884"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679331884"><span class="hs-identifier hs-var">pSourceObjectReference_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679331883"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679331883"><span class="hs-identifier hs-var">pTargetObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">TypedLinkSpecifier' :: TypedLinkSchemaAndFacetName
 -&gt; ObjectReference
 -&gt; ObjectReference
@@ -145,13 +145,13 @@ $cfrom :: forall x. TypedLinkSpecifier -&gt; Rep TypedLinkSpecifier x
 </span><span id="line-78"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typedLinkFacet:TypedLinkSpecifier' :: TypedLinkSchemaAndFacetName
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AtypedLinkFacet%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679331876"><span class="hs-identifier hs-var">pTypedLinkFacet_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679331885"><span class="hs-identifier hs-var">pTypedLinkFacet_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceObjectReference:TypedLinkSpecifier' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AsourceObjectReference%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331875"><span class="hs-identifier hs-var">pSourceObjectReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679331884"><span class="hs-identifier hs-var">pSourceObjectReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetObjectReference:TypedLinkSpecifier' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AtargetObjectReference%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331874"><span class="hs-identifier hs-var">pTargetObjectReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679331883"><span class="hs-identifier hs-var">pTargetObjectReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityAttributeValues:TypedLinkSpecifier' :: [AttributeNameAndValue]
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AidentityAttributeValues%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var">identityAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
 forall a. Monoid a =&gt; a
@@ -171,16 +171,16 @@ forall a. Monoid a =&gt; a
      TypedLinkSchemaAndFacetName
      TypedLinkSchemaAndFacetName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331870"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331879"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
 typedLinkFacet :: TypedLinkSchemaAndFacetName
 $sel:typedLinkFacet:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679331870"><span class="hs-identifier hs-var hs-var">typedLinkFacet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679331870"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331869"><span class="annot"><span class="annottext">s :: TypedLinkSpecifier
-</span><a href="#local-6989586621679331869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331868"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679331868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679331869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typedLinkFacet:TypedLinkSpecifier' :: TypedLinkSchemaAndFacetName
+</span><a href="#local-6989586621679331879"><span class="hs-identifier hs-var hs-var">typedLinkFacet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
+</span><a href="#local-6989586621679331879"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331878"><span class="annot"><span class="annottext">s :: TypedLinkSpecifier
+</span><a href="#local-6989586621679331878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331877"><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
+</span><a href="#local-6989586621679331877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
+</span><a href="#local-6989586621679331878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typedLinkFacet:TypedLinkSpecifier' :: TypedLinkSchemaAndFacetName
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AtypedLinkFacet%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679331868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Identifies the source object that the typed link will attach to.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#typedLinkSpecifier_sourceObjectReference"><span class="hs-identifier hs-type">typedLinkSpecifier_sourceObjectReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
@@ -194,16 +194,16 @@ $sel:typedLinkFacet:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; TypedLinkSch
      ObjectReference
      ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331866"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331875"><span class="annot"><span class="annottext">ObjectReference
 sourceObjectReference :: ObjectReference
 $sel:sourceObjectReference:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; ObjectReference
-</span><a href="#local-6989586621679331866"><span class="hs-identifier hs-var hs-var">sourceObjectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331866"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331865"><span class="annot"><span class="annottext">s :: TypedLinkSpecifier
-</span><a href="#local-6989586621679331865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331864"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679331865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceObjectReference:TypedLinkSpecifier' :: ObjectReference
+</span><a href="#local-6989586621679331875"><span class="hs-identifier hs-var hs-var">sourceObjectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679331875"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331874"><span class="annot"><span class="annottext">s :: TypedLinkSpecifier
+</span><a href="#local-6989586621679331874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331873"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679331873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
+</span><a href="#local-6989586621679331874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceObjectReference:TypedLinkSpecifier' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AsourceObjectReference%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Identifies the target object that the typed link will attach to.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#typedLinkSpecifier_targetObjectReference"><span class="hs-identifier hs-type">typedLinkSpecifier_targetObjectReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
@@ -217,16 +217,16 @@ $sel:sourceObjectReference:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; Objec
      ObjectReference
      ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331862"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331871"><span class="annot"><span class="annottext">ObjectReference
 targetObjectReference :: ObjectReference
 $sel:targetObjectReference:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; ObjectReference
-</span><a href="#local-6989586621679331862"><span class="hs-identifier hs-var hs-var">targetObjectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331862"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331861"><span class="annot"><span class="annottext">s :: TypedLinkSpecifier
-</span><a href="#local-6989586621679331861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331860"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679331861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetObjectReference:TypedLinkSpecifier' :: ObjectReference
+</span><a href="#local-6989586621679331871"><span class="hs-identifier hs-var hs-var">targetObjectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679331871"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331870"><span class="annot"><span class="annottext">s :: TypedLinkSpecifier
+</span><a href="#local-6989586621679331870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331869"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679331869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
+</span><a href="#local-6989586621679331870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetObjectReference:TypedLinkSpecifier' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AtargetObjectReference%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Identifies the attribute value to update.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#typedLinkSpecifier_identityAttributeValues"><span class="hs-identifier hs-type">typedLinkSpecifier_identityAttributeValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeNameAndValue.html#AttributeNameAndValue"><span class="hs-identifier hs-type">AttributeNameAndValue</span></a></span><span class="hs-special">]</span><span>
@@ -241,16 +241,16 @@ $sel:targetObjectReference:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; Objec
      [AttributeNameAndValue]
      [AttributeNameAndValue]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331858"><span class="annot"><span class="annottext">[AttributeNameAndValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331867"><span class="annot"><span class="annottext">[AttributeNameAndValue]
 identityAttributeValues :: [AttributeNameAndValue]
 $sel:identityAttributeValues:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; [AttributeNameAndValue]
-</span><a href="#local-6989586621679331858"><span class="hs-identifier hs-var hs-var">identityAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
-</span><a href="#local-6989586621679331858"><span class="hs-identifier hs-var">identityAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331857"><span class="annot"><span class="annottext">s :: TypedLinkSpecifier
-</span><a href="#local-6989586621679331857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331856"><span class="annot"><span class="annottext">[AttributeNameAndValue]
-</span><a href="#local-6989586621679331856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679331857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityAttributeValues:TypedLinkSpecifier' :: [AttributeNameAndValue]
+</span><a href="#local-6989586621679331867"><span class="hs-identifier hs-var hs-var">identityAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
+</span><a href="#local-6989586621679331867"><span class="hs-identifier hs-var">identityAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331866"><span class="annot"><span class="annottext">s :: TypedLinkSpecifier
+</span><a href="#local-6989586621679331866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331865"><span class="annot"><span class="annottext">[AttributeNameAndValue]
+</span><a href="#local-6989586621679331865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
+</span><a href="#local-6989586621679331866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityAttributeValues:TypedLinkSpecifier' :: [AttributeNameAndValue]
 </span><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#%24sel%3AidentityAttributeValues%3ATypedLinkSpecifier%27"><span class="hs-identifier hs-var">identityAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
-</span><a href="#local-6989586621679331856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeNameAndValue] -&gt; f [AttributeNameAndValue])
+</span><a href="#local-6989586621679331865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeNameAndValue] -&gt; f [AttributeNameAndValue])
  -&gt; TypedLinkSpecifier -&gt; f TypedLinkSpecifier)
 -&gt; (([AttributeNameAndValue] -&gt; f [AttributeNameAndValue])
     -&gt; [AttributeNameAndValue] -&gt; f [AttributeNameAndValue])
@@ -263,8 +263,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331851"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679331849"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TypedLinkSpecifier
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331860"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679331858"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TypedLinkSpecifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TypedLinkSpecifier)
@@ -274,8 +274,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TypedLinkSpecifier&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331846"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331846"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331855"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331855"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
 -&gt; ObjectReference
 -&gt; ObjectReference
@@ -295,7 +295,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; TypedLinkSpecifier)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TypedLinkSchemaAndFacetName
+</span><a href="#local-6989586621679331855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TypedLinkSchemaAndFacetName
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TypedLinkFacet&quot;</span></span><span class="hs-special">)</span><span>
@@ -309,7 +309,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (ObjectReference -&gt; [AttributeNameAndValue] -&gt; TypedLinkSpecifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ObjectReference
+</span><a href="#local-6989586621679331855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ObjectReference
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceObjectReference&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,7 +319,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ([AttributeNameAndValue] -&gt; TypedLinkSpecifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ObjectReference
+</span><a href="#local-6989586621679331855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ObjectReference
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetObjectReference&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,7 +327,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [AttributeNameAndValue] -&gt; Parser TypedLinkSpecifier
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AttributeNameAndValue])
+</span><a href="#local-6989586621679331855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AttributeNameAndValue])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdentityAttributeValues&quot;</span></span><span>
@@ -340,13 +340,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-112"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331838"><span id="local-6989586621679331840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331847"><span id="local-6989586621679331849"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331827"><span id="local-6989586621679331829"><span id="local-6989586621679331831"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679331825"><span class="annot"><span class="annottext">toJSON :: TypedLinkSpecifier -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331820"><span id="local-6989586621679331821"><span id="local-6989586621679331822"><span id="local-6989586621679331823"><span class="annot"><span class="annottext">[AttributeNameAndValue]
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331836"><span id="local-6989586621679331838"><span id="local-6989586621679331840"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679331834"><span class="annot"><span class="annottext">toJSON :: TypedLinkSpecifier -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier%27"><span class="hs-identifier hs-type">TypedLinkSpecifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331829"><span id="local-6989586621679331830"><span id="local-6989586621679331831"><span id="local-6989586621679331832"><span class="annot"><span class="annottext">[AttributeNameAndValue]
 ObjectReference
 TypedLinkSchemaAndFacetName
 identityAttributeValues :: [AttributeNameAndValue]
@@ -357,7 +357,7 @@ $sel:identityAttributeValues:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; [At
 $sel:targetObjectReference:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; ObjectReference
 $sel:sourceObjectReference:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; ObjectReference
 $sel:typedLinkFacet:TypedLinkSpecifier' :: TypedLinkSpecifier -&gt; TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679331820"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679331829"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -370,7 +370,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TypedLinkFacet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TypedLinkSchemaAndFacetName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TypedLinkSchemaAndFacetName
-</span><a href="#local-6989586621679331823"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679331832"><span class="hs-identifier hs-var">typedLinkFacet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -379,7 +379,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-127"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331822"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span>
+</span><a href="#local-6989586621679331831"><span class="hs-identifier hs-var">sourceObjectReference</span></a></span><span>
 </span><span id="line-128"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -389,7 +389,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-131"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679331821"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span>
+</span><a href="#local-6989586621679331830"><span class="hs-identifier hs-var">targetObjectReference</span></a></span><span>
 </span><span id="line-132"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -399,7 +399,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-135"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [AttributeNameAndValue] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AttributeNameAndValue]
-</span><a href="#local-6989586621679331820"><span class="hs-identifier hs-var">identityAttributeValues</span></a></span><span>
+</span><a href="#local-6989586621679331829"><span class="hs-identifier hs-var">identityAttributeValues</span></a></span><span>
 </span><span id="line-136"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>

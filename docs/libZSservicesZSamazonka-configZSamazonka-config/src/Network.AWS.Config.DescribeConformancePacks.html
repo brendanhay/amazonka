@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeConformancePacks' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679425702"><span id="local-6989586621679425703"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConformancePacks"><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-var">DescribeConformancePacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConformancePacks%27"><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-var">DescribeConformancePacks'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679425711"><span id="local-6989586621679425712"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConformancePacks"><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-var">DescribeConformancePacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConformancePacks%27"><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-var">DescribeConformancePacks'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Comma-separated list of conformance pack names for which you want</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- details. If you do not specify any names, Config returns details for all</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- your conformance packs.</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeConformancePacks%27"><span class="annot"><span class="annottext">DescribeConformancePacks -&gt; Maybe Natural
 </span><a href="Network.AWS.Config.DescribeConformancePacks.html#%24sel%3Alimit%3ADescribeConformancePacks%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425694"><span id="local-6989586621679425696"><span class="annot"><span class="annottext">DescribeConformancePacks -&gt; DescribeConformancePacks -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425703"><span id="local-6989586621679425705"><span class="annot"><span class="annottext">DescribeConformancePacks -&gt; DescribeConformancePacks -&gt; Bool
 (DescribeConformancePacks -&gt; DescribeConformancePacks -&gt; Bool)
 -&gt; (DescribeConformancePacks -&gt; DescribeConformancePacks -&gt; Bool)
 -&gt; Eq DescribeConformancePacks
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeConformancePacks -&gt; DescribeConformancePacks -&gt; Bool
 == :: DescribeConformancePacks -&gt; DescribeConformancePacks -&gt; Bool
 $c== :: DescribeConformancePacks -&gt; DescribeConformancePacks -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425685"><span id="local-6989586621679425687"><span id="local-6989586621679425689"><span id="local-6989586621679425691"><span class="annot"><span class="annottext">ReadPrec [DescribeConformancePacks]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425694"><span id="local-6989586621679425696"><span id="local-6989586621679425698"><span id="local-6989586621679425700"><span class="annot"><span class="annottext">ReadPrec [DescribeConformancePacks]
 ReadPrec DescribeConformancePacks
 Int -&gt; ReadS DescribeConformancePacks
 ReadS [DescribeConformancePacks]
@@ -95,7 +95,7 @@ readList :: ReadS [DescribeConformancePacks]
 $creadList :: ReadS [DescribeConformancePacks]
 readsPrec :: Int -&gt; ReadS DescribeConformancePacks
 $creadsPrec :: Int -&gt; ReadS DescribeConformancePacks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425678"><span id="local-6989586621679425680"><span id="local-6989586621679425682"><span class="annot"><span class="annottext">Int -&gt; DescribeConformancePacks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425687"><span id="local-6989586621679425689"><span id="local-6989586621679425691"><span class="annot"><span class="annottext">Int -&gt; DescribeConformancePacks -&gt; ShowS
 [DescribeConformancePacks] -&gt; ShowS
 DescribeConformancePacks -&gt; String
 (Int -&gt; DescribeConformancePacks -&gt; ShowS)
@@ -180,16 +180,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425672"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425681"><span class="annot"><span class="annottext">Maybe [Text]
 conformancePackNames :: Maybe [Text]
 $sel:conformancePackNames:DescribeConformancePacks' :: DescribeConformancePacks -&gt; Maybe [Text]
-</span><a href="#local-6989586621679425672"><span class="hs-identifier hs-var hs-var">conformancePackNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425672"><span class="hs-identifier hs-var">conformancePackNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425671"><span class="annot"><span class="annottext">s :: DescribeConformancePacks
-</span><a href="#local-6989586621679425671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425670"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacks
-</span><a href="#local-6989586621679425671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackNames:DescribeConformancePacks' :: Maybe [Text]
+</span><a href="#local-6989586621679425681"><span class="hs-identifier hs-var hs-var">conformancePackNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679425681"><span class="hs-identifier hs-var">conformancePackNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425680"><span class="annot"><span class="annottext">s :: DescribeConformancePacks
+</span><a href="#local-6989586621679425680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425679"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679425679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacks
+</span><a href="#local-6989586621679425680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackNames:DescribeConformancePacks' :: Maybe [Text]
 </span><a href="Network.AWS.Config.DescribeConformancePacks.html#%24sel%3AconformancePackNames%3ADescribeConformancePacks%27"><span class="hs-identifier hs-var">conformancePackNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679425679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeConformancePacks -&gt; f DescribeConformancePacks)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -220,16 +220,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425666"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425675"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeConformancePacks' :: DescribeConformancePacks -&gt; Maybe Text
-</span><a href="#local-6989586621679425666"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425666"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425665"><span class="annot"><span class="annottext">s :: DescribeConformancePacks
-</span><a href="#local-6989586621679425665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425664"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacks
-</span><a href="#local-6989586621679425665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConformancePacks' :: Maybe Text
+</span><a href="#local-6989586621679425675"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425675"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425674"><span class="annot"><span class="annottext">s :: DescribeConformancePacks
+</span><a href="#local-6989586621679425674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425673"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacks
+</span><a href="#local-6989586621679425674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConformancePacks' :: Maybe Text
 </span><a href="Network.AWS.Config.DescribeConformancePacks.html#%24sel%3AnextToken%3ADescribeConformancePacks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The maximum number of conformance packs returned on each page.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#describeConformancePacks_limit"><span class="hs-identifier hs-type">describeConformancePacks_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -244,30 +244,30 @@ $sel:nextToken:DescribeConformancePacks' :: DescribeConformancePacks -&gt; Maybe
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425663"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425672"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeConformancePacks' :: DescribeConformancePacks -&gt; Maybe Natural
-</span><a href="#local-6989586621679425663"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679425663"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425662"><span class="annot"><span class="annottext">s :: DescribeConformancePacks
-</span><a href="#local-6989586621679425662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425661"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679425661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacks
-</span><a href="#local-6989586621679425662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeConformancePacks' :: Maybe Natural
+</span><a href="#local-6989586621679425672"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679425672"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425671"><span class="annot"><span class="annottext">s :: DescribeConformancePacks
+</span><a href="#local-6989586621679425671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425670"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679425670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacks
+</span><a href="#local-6989586621679425671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeConformancePacks' :: Maybe Natural
 </span><a href="Network.AWS.Config.DescribeConformancePacks.html#%24sel%3Alimit%3ADescribeConformancePacks%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679425661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679425657"><span class="annot"><span class="annottext">page :: DescribeConformancePacks
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679425666"><span class="annot"><span class="annottext">page :: DescribeConformancePacks
 -&gt; AWSResponse DescribeConformancePacks
 -&gt; Maybe DescribeConformancePacks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679425655"><span class="annot"><span class="annottext">DescribeConformancePacks
-</span><a href="#local-6989586621679425655"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679425654"><span class="annot"><span class="annottext">AWSResponse DescribeConformancePacks
-</span><a href="#local-6989586621679425654"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679425664"><span class="annot"><span class="annottext">DescribeConformancePacks
+</span><a href="#local-6989586621679425664"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679425663"><span class="annot"><span class="annottext">AWSResponse DescribeConformancePacks
+</span><a href="#local-6989586621679425663"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeConformancePacks
 DescribeConformancePacksResponse
-</span><a href="#local-6989586621679425654"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679425663"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse
 -&gt; Getting (First Text) DescribeConformancePacksResponse Text
 -&gt; Maybe Text
@@ -297,7 +297,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeConformancePacks
 DescribeConformancePacksResponse
-</span><a href="#local-6989586621679425654"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679425663"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse
 -&gt; Getting
      (First [ConformancePackDetail])
@@ -350,7 +350,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">DescribeConformancePacks
-</span><a href="#local-6989586621679425655"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679425664"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">DescribeConformancePacks
 -&gt; (DescribeConformancePacks -&gt; DescribeConformancePacks)
 -&gt; DescribeConformancePacks
@@ -371,7 +371,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeConformancePacks
 DescribeConformancePacksResponse
-</span><a href="#local-6989586621679425654"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679425663"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse
 -&gt; Getting (First Text) DescribeConformancePacksResponse Text
 -&gt; Maybe Text
@@ -397,13 +397,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679425645"><span class="annot"><span class="annottext">request :: DescribeConformancePacks -&gt; Request DescribeConformancePacks
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679425654"><span class="annot"><span class="annottext">request :: DescribeConformancePacks -&gt; Request DescribeConformancePacks
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeConformancePacks -&gt; Request DescribeConformancePacks
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679425641"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679425650"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeConformancePacks
 -&gt; ClientResponse ClientBody
@@ -429,10 +429,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679425638"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425638"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679425637"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679425637"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679425636"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679425636"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679425647"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425647"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679425646"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679425646"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679425645"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679425645"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [ConformancePackDetail]
 -&gt; Int
@@ -449,7 +449,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeConformancePacksResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679425636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679425645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -461,7 +461,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeConformancePacksResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679425636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679425645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ConformancePackDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -483,15 +483,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425638"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425647"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425627"><span id="local-6989586621679425629"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425636"><span id="local-6989586621679425638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679425620"><span class="annot"><span class="annottext">toHeaders :: DescribeConformancePacks -&gt; ResponseHeaders
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679425629"><span class="annot"><span class="annottext">toHeaders :: DescribeConformancePacks -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeConformancePacks -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -518,9 +518,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425610"><span id="local-6989586621679425612"><span id="local-6989586621679425614"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679425608"><span class="annot"><span class="annottext">toJSON :: DescribeConformancePacks -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425604"><span id="local-6989586621679425605"><span id="local-6989586621679425606"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425619"><span id="local-6989586621679425621"><span id="local-6989586621679425623"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679425617"><span class="annot"><span class="annottext">toJSON :: DescribeConformancePacks -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks%27"><span class="hs-identifier hs-type">DescribeConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425613"><span id="local-6989586621679425614"><span id="local-6989586621679425615"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Text]
 Maybe Text
 limit :: Maybe Natural
@@ -529,7 +529,7 @@ conformancePackNames :: Maybe [Text]
 $sel:limit:DescribeConformancePacks' :: DescribeConformancePacks -&gt; Maybe Natural
 $sel:nextToken:DescribeConformancePacks' :: DescribeConformancePacks -&gt; Maybe Text
 $sel:conformancePackNames:DescribeConformancePacks' :: DescribeConformancePacks -&gt; Maybe [Text]
-</span><a href="#local-6989586621679425604"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679425613"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -542,33 +542,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425606"><span class="hs-identifier hs-var">conformancePackNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679425615"><span class="hs-identifier hs-var">conformancePackNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425605"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679425614"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679425604"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679425613"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679425598"><span class="annot"><span class="annottext">toPath :: DescribeConformancePacks -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679425607"><span class="annot"><span class="annottext">toPath :: DescribeConformancePacks -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeConformancePacks -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacks"><span class="hs-identifier hs-type">DescribeConformancePacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679425594"><span class="annot"><span class="annottext">toQuery :: DescribeConformancePacks -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679425603"><span class="annot"><span class="annottext">toQuery :: DescribeConformancePacks -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeConformancePacks -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -576,7 +576,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newDescribeConformancePacksResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679425591"><span id="local-6989586621679425592"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConformancePacksResponse"><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-var">DescribeConformancePacksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConformancePacksResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-var">DescribeConformancePacksResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679425600"><span id="local-6989586621679425601"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConformancePacksResponse"><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-var">DescribeConformancePacksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConformancePacksResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-var">DescribeConformancePacksResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ string returned in a previous request that you use to</span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-comment">-- request the next page of results in a paginated response.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeConformancePacksResponse%27"><span class="annot"><span class="annottext">DescribeConformancePacksResponse -&gt; Maybe Text
@@ -588,7 +588,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeConformancePacksResponse%27"><span class="annot"><span class="annottext">DescribeConformancePacksResponse -&gt; Int
 </span><a href="Network.AWS.Config.DescribeConformancePacks.html#%24sel%3AhttpStatus%3ADescribeConformancePacksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425584"><span id="local-6989586621679425586"><span class="annot"><span class="annottext">DescribeConformancePacksResponse
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425593"><span id="local-6989586621679425595"><span class="annot"><span class="annottext">DescribeConformancePacksResponse
 -&gt; DescribeConformancePacksResponse -&gt; Bool
 (DescribeConformancePacksResponse
  -&gt; DescribeConformancePacksResponse -&gt; Bool)
@@ -604,7 +604,7 @@ $c/= :: DescribeConformancePacksResponse
 -&gt; DescribeConformancePacksResponse -&gt; Bool
 $c== :: DescribeConformancePacksResponse
 -&gt; DescribeConformancePacksResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425576"><span id="local-6989586621679425578"><span id="local-6989586621679425580"><span id="local-6989586621679425582"><span class="annot"><span class="annottext">ReadPrec [DescribeConformancePacksResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425585"><span id="local-6989586621679425587"><span id="local-6989586621679425589"><span id="local-6989586621679425591"><span class="annot"><span class="annottext">ReadPrec [DescribeConformancePacksResponse]
 ReadPrec DescribeConformancePacksResponse
 Int -&gt; ReadS DescribeConformancePacksResponse
 ReadS [DescribeConformancePacksResponse]
@@ -624,7 +624,7 @@ readList :: ReadS [DescribeConformancePacksResponse]
 $creadList :: ReadS [DescribeConformancePacksResponse]
 readsPrec :: Int -&gt; ReadS DescribeConformancePacksResponse
 $creadsPrec :: Int -&gt; ReadS DescribeConformancePacksResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425570"><span id="local-6989586621679425572"><span id="local-6989586621679425574"><span class="annot"><span class="annottext">Int -&gt; DescribeConformancePacksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425579"><span id="local-6989586621679425581"><span id="local-6989586621679425583"><span class="annot"><span class="annottext">Int -&gt; DescribeConformancePacksResponse -&gt; ShowS
 [DescribeConformancePacksResponse] -&gt; ShowS
 DescribeConformancePacksResponse -&gt; String
 (Int -&gt; DescribeConformancePacksResponse -&gt; ShowS)
@@ -681,8 +681,8 @@ DescribeConformancePacksResponse
 </span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span><span>
 </span><span id="line-213"></span><span id="newDescribeConformancePacksResponse"><span class="annot"><span class="annottext">newDescribeConformancePacksResponse :: Int -&gt; DescribeConformancePacksResponse
-</span><a href="Network.AWS.Config.DescribeConformancePacks.html#newDescribeConformancePacksResponse"><span class="hs-identifier hs-var hs-var">newDescribeConformancePacksResponse</span></a></span></span><span> </span><span id="local-6989586621679425567"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425567"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.DescribeConformancePacks.html#newDescribeConformancePacksResponse"><span class="hs-identifier hs-var hs-var">newDescribeConformancePacksResponse</span></a></span></span><span> </span><span id="local-6989586621679425576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425576"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse' :: Maybe Text
 -&gt; Maybe [ConformancePackDetail]
 -&gt; Int
@@ -699,7 +699,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConformancePacksResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeConformancePacks.html#%24sel%3AhttpStatus%3ADescribeConformancePacksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425567"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679425576"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The @nextToken@ string returned in a previous request that you use to</span><span>
@@ -713,16 +713,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeConformancePacksResponse)
 -&gt; Lens' DescribeConformancePacksResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425566"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425575"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeConformancePacksResponse' :: DescribeConformancePacksResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679425566"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425566"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425565"><span class="annot"><span class="annottext">s :: DescribeConformancePacksResponse
-</span><a href="#local-6989586621679425565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425564"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse
-</span><a href="#local-6989586621679425565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConformancePacksResponse' :: Maybe Text
+</span><a href="#local-6989586621679425575"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425575"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425574"><span class="annot"><span class="annottext">s :: DescribeConformancePacksResponse
+</span><a href="#local-6989586621679425574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425573"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse
+</span><a href="#local-6989586621679425574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeConformancePacksResponse' :: Maybe Text
 </span><a href="Network.AWS.Config.DescribeConformancePacks.html#%24sel%3AnextToken%3ADescribeConformancePacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | Returns a list of @ConformancePackDetail@ objects.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#describeConformancePacksResponse_conformancePackDetails"><span class="hs-identifier hs-type">describeConformancePacksResponse_conformancePackDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackDetail.html#ConformancePackDetail"><span class="hs-identifier hs-type">ConformancePackDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -737,16 +737,16 @@ $sel:nextToken:DescribeConformancePacksResponse' :: DescribeConformancePacksResp
 -&gt; Lens'
      DescribeConformancePacksResponse (Maybe [ConformancePackDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425563"><span class="annot"><span class="annottext">Maybe [ConformancePackDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425572"><span class="annot"><span class="annottext">Maybe [ConformancePackDetail]
 conformancePackDetails :: Maybe [ConformancePackDetail]
 $sel:conformancePackDetails:DescribeConformancePacksResponse' :: DescribeConformancePacksResponse -&gt; Maybe [ConformancePackDetail]
-</span><a href="#local-6989586621679425563"><span class="hs-identifier hs-var hs-var">conformancePackDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackDetail]
-</span><a href="#local-6989586621679425563"><span class="hs-identifier hs-var">conformancePackDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425562"><span class="annot"><span class="annottext">s :: DescribeConformancePacksResponse
-</span><a href="#local-6989586621679425562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425561"><span class="annot"><span class="annottext">Maybe [ConformancePackDetail]
-</span><a href="#local-6989586621679425561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse
-</span><a href="#local-6989586621679425562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackDetails:DescribeConformancePacksResponse' :: Maybe [ConformancePackDetail]
+</span><a href="#local-6989586621679425572"><span class="hs-identifier hs-var hs-var">conformancePackDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackDetail]
+</span><a href="#local-6989586621679425572"><span class="hs-identifier hs-var">conformancePackDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425571"><span class="annot"><span class="annottext">s :: DescribeConformancePacksResponse
+</span><a href="#local-6989586621679425571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425570"><span class="annot"><span class="annottext">Maybe [ConformancePackDetail]
+</span><a href="#local-6989586621679425570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse
+</span><a href="#local-6989586621679425571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackDetails:DescribeConformancePacksResponse' :: Maybe [ConformancePackDetail]
 </span><a href="Network.AWS.Config.DescribeConformancePacks.html#%24sel%3AconformancePackDetails%3ADescribeConformancePacksResponse%27"><span class="hs-identifier hs-var">conformancePackDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConformancePackDetail]
-</span><a href="#local-6989586621679425561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConformancePackDetail]
+</span><a href="#local-6989586621679425570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConformancePackDetail]
   -&gt; f (Maybe [ConformancePackDetail]))
  -&gt; DescribeConformancePacksResponse
  -&gt; f DescribeConformancePacksResponse)
@@ -794,18 +794,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425560"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425569"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeConformancePacksResponse' :: DescribeConformancePacksResponse -&gt; Int
-</span><a href="#local-6989586621679425560"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425560"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425559"><span class="annot"><span class="annottext">s :: DescribeConformancePacksResponse
-</span><a href="#local-6989586621679425559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425558"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse
-</span><a href="#local-6989586621679425559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConformancePacksResponse' :: Int
+</span><a href="#local-6989586621679425569"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425569"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425568"><span class="annot"><span class="annottext">s :: DescribeConformancePacksResponse
+</span><a href="#local-6989586621679425568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425567"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConformancePacksResponse
+</span><a href="#local-6989586621679425568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConformancePacksResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeConformancePacks.html#%24sel%3AhttpStatus%3ADescribeConformancePacksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679425556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679425565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConformancePacks.html#DescribeConformancePacksResponse"><span class="hs-identifier hs-type">DescribeConformancePacksResponse</span></a></span></span><span>
 </span><span id="line-237"></span></pre></body></html>

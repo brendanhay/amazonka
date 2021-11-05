@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The list of device events.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeviceEvent' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679365676"><span id="local-6989586621679365677"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceEvent"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-var">DeviceEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceEvent%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-var">DeviceEvent'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679365685"><span id="local-6989586621679365686"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceEvent"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-var">DeviceEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceEvent%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-var">DeviceEvent'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the event.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3ADeviceEvent%27"><span class="annot"><span class="annottext">DeviceEvent -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#%24sel%3Avalue%3ADeviceEvent%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atimestamp%3ADeviceEvent%27"><span class="annot"><span class="annottext">DeviceEvent -&gt; Maybe POSIX
 </span><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#%24sel%3Atimestamp%3ADeviceEvent%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365668"><span id="local-6989586621679365670"><span class="annot"><span class="annottext">DeviceEvent -&gt; DeviceEvent -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365677"><span id="local-6989586621679365679"><span class="annot"><span class="annottext">DeviceEvent -&gt; DeviceEvent -&gt; Bool
 (DeviceEvent -&gt; DeviceEvent -&gt; Bool)
 -&gt; (DeviceEvent -&gt; DeviceEvent -&gt; Bool) -&gt; Eq DeviceEvent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeviceEvent -&gt; DeviceEvent -&gt; Bool
 == :: DeviceEvent -&gt; DeviceEvent -&gt; Bool
 $c== :: DeviceEvent -&gt; DeviceEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365659"><span id="local-6989586621679365661"><span id="local-6989586621679365663"><span id="local-6989586621679365665"><span class="annot"><span class="annottext">ReadPrec [DeviceEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365668"><span id="local-6989586621679365670"><span id="local-6989586621679365672"><span id="local-6989586621679365674"><span class="annot"><span class="annottext">ReadPrec [DeviceEvent]
 ReadPrec DeviceEvent
 Int -&gt; ReadS DeviceEvent
 ReadS [DeviceEvent]
@@ -66,7 +66,7 @@ readList :: ReadS [DeviceEvent]
 $creadList :: ReadS [DeviceEvent]
 readsPrec :: Int -&gt; ReadS DeviceEvent
 $creadsPrec :: Int -&gt; ReadS DeviceEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365652"><span id="local-6989586621679365654"><span id="local-6989586621679365656"><span class="annot"><span class="annottext">Int -&gt; DeviceEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365661"><span id="local-6989586621679365663"><span id="local-6989586621679365665"><span class="annot"><span class="annottext">Int -&gt; DeviceEvent -&gt; ShowS
 [DeviceEvent] -&gt; ShowS
 DeviceEvent -&gt; String
 (Int -&gt; DeviceEvent -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; (DeviceEvent -&gt; Maybe Text -&gt; DeviceEvent)
 -&gt; Lens DeviceEvent DeviceEvent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365643"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365652"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:DeviceEvent' :: DeviceEvent -&gt; Maybe Text
-</span><a href="#local-6989586621679365643"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365643"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365642"><span class="annot"><span class="annottext">s :: DeviceEvent
-</span><a href="#local-6989586621679365642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365641"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceEvent
-</span><a href="#local-6989586621679365642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:DeviceEvent' :: Maybe Text
+</span><a href="#local-6989586621679365652"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365652"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365651"><span class="annot"><span class="annottext">s :: DeviceEvent
+</span><a href="#local-6989586621679365651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceEvent
+</span><a href="#local-6989586621679365651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:DeviceEvent' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#%24sel%3Avalue%3ADeviceEvent%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The type of device event.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#deviceEvent_type"><span class="hs-identifier hs-type">deviceEvent_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEventType.html#DeviceEventType"><span class="hs-identifier hs-type">DeviceEventType</span></a></span><span class="hs-special">)</span><span>
@@ -155,16 +155,16 @@ $sel:value:DeviceEvent' :: DeviceEvent -&gt; Maybe Text
      (Maybe DeviceEventType)
      (Maybe DeviceEventType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365639"><span class="annot"><span class="annottext">Maybe DeviceEventType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365648"><span class="annot"><span class="annottext">Maybe DeviceEventType
 type' :: Maybe DeviceEventType
 $sel:type':DeviceEvent' :: DeviceEvent -&gt; Maybe DeviceEventType
-</span><a href="#local-6989586621679365639"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceEventType
-</span><a href="#local-6989586621679365639"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365638"><span class="annot"><span class="annottext">s :: DeviceEvent
-</span><a href="#local-6989586621679365638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365637"><span class="annot"><span class="annottext">Maybe DeviceEventType
-</span><a href="#local-6989586621679365637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceEvent
-</span><a href="#local-6989586621679365638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DeviceEvent' :: Maybe DeviceEventType
+</span><a href="#local-6989586621679365648"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceEventType
+</span><a href="#local-6989586621679365648"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365647"><span class="annot"><span class="annottext">s :: DeviceEvent
+</span><a href="#local-6989586621679365647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365646"><span class="annot"><span class="annottext">Maybe DeviceEventType
+</span><a href="#local-6989586621679365646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceEvent
+</span><a href="#local-6989586621679365647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DeviceEvent' :: Maybe DeviceEventType
 </span><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#%24sel%3Atype%27%3ADeviceEvent%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceEventType
-</span><a href="#local-6989586621679365637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The time (in epoch) when the event occurred.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#deviceEvent_timestamp"><span class="hs-identifier hs-type">deviceEvent_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -174,16 +174,16 @@ $sel:type':DeviceEvent' :: DeviceEvent -&gt; Maybe DeviceEventType
 -&gt; (DeviceEvent -&gt; Maybe POSIX -&gt; DeviceEvent)
 -&gt; Lens DeviceEvent DeviceEvent (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365635"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365644"><span class="annot"><span class="annottext">Maybe POSIX
 timestamp :: Maybe POSIX
 $sel:timestamp:DeviceEvent' :: DeviceEvent -&gt; Maybe POSIX
-</span><a href="#local-6989586621679365635"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679365635"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365634"><span class="annot"><span class="annottext">s :: DeviceEvent
-</span><a href="#local-6989586621679365634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365633"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679365633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceEvent
-</span><a href="#local-6989586621679365634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:DeviceEvent' :: Maybe POSIX
+</span><a href="#local-6989586621679365644"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365644"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365643"><span class="annot"><span class="annottext">s :: DeviceEvent
+</span><a href="#local-6989586621679365643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-type">DeviceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365642"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceEvent
+</span><a href="#local-6989586621679365643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:DeviceEvent' :: Maybe POSIX
 </span><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#%24sel%3Atimestamp%3ADeviceEvent%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679365633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; DeviceEvent -&gt; f DeviceEvent)
+</span><a href="#local-6989586621679365642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; DeviceEvent -&gt; f DeviceEvent)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -199,8 +199,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365627"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679365625"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceEvent
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365636"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679365634"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeviceEvent) -&gt; Value -&gt; Parser DeviceEvent
@@ -208,8 +208,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeviceEvent&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365622"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365622"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365631"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe DeviceEventType -&gt; Maybe POSIX -&gt; DeviceEvent
 </span><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent%27"><span class="hs-identifier hs-var">DeviceEvent'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe DeviceEventType -&gt; Maybe POSIX -&gt; DeviceEvent)
@@ -217,7 +217,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe DeviceEventType -&gt; Maybe POSIX -&gt; DeviceEvent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679365631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,7 +226,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; DeviceEvent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceEventType)
+</span><a href="#local-6989586621679365631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceEventType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
@@ -234,13 +234,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser DeviceEvent
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679365631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365616"><span id="local-6989586621679365618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365625"><span id="local-6989586621679365627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceEvent.html#DeviceEvent"><span class="hs-identifier hs-type">DeviceEvent</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

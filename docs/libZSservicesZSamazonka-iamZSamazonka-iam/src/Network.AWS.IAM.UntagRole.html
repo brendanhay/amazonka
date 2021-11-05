@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUntagRole' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679462560"><span id="local-6989586621679462561"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagRole"><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-var">UntagRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagRole%27"><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-var">UntagRole'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679462569"><span id="local-6989586621679462570"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagRole"><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-var">UntagRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagRole%27"><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-var">UntagRole'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM role from which you want to remove tags.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- This parameter accepts (through its</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AtagKeys%3AUntagRole%27"><span class="annot"><span class="annottext">UntagRole -&gt; [Text]
 </span><a href="Network.AWS.IAM.UntagRole.html#%24sel%3AtagKeys%3AUntagRole%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462553"><span id="local-6989586621679462555"><span class="annot"><span class="annottext">UntagRole -&gt; UntagRole -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462562"><span id="local-6989586621679462564"><span class="annot"><span class="annottext">UntagRole -&gt; UntagRole -&gt; Bool
 (UntagRole -&gt; UntagRole -&gt; Bool)
 -&gt; (UntagRole -&gt; UntagRole -&gt; Bool) -&gt; Eq UntagRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagRole -&gt; UntagRole -&gt; Bool
 == :: UntagRole -&gt; UntagRole -&gt; Bool
 $c== :: UntagRole -&gt; UntagRole -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462544"><span id="local-6989586621679462546"><span id="local-6989586621679462548"><span id="local-6989586621679462550"><span class="annot"><span class="annottext">ReadPrec [UntagRole]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462553"><span id="local-6989586621679462555"><span id="local-6989586621679462557"><span id="local-6989586621679462559"><span class="annot"><span class="annottext">ReadPrec [UntagRole]
 ReadPrec UntagRole
 Int -&gt; ReadS UntagRole
 ReadS [UntagRole]
@@ -89,7 +89,7 @@ readList :: ReadS [UntagRole]
 $creadList :: ReadS [UntagRole]
 readsPrec :: Int -&gt; ReadS UntagRole
 $creadsPrec :: Int -&gt; ReadS UntagRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462537"><span id="local-6989586621679462539"><span id="local-6989586621679462541"><span class="annot"><span class="annottext">Int -&gt; UntagRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462546"><span id="local-6989586621679462548"><span id="local-6989586621679462550"><span class="annot"><span class="annottext">Int -&gt; UntagRole -&gt; ShowS
 [UntagRole] -&gt; ShowS
 UntagRole -&gt; String
 (Int -&gt; UntagRole -&gt; ShowS)
@@ -136,13 +136,13 @@ $cfrom :: forall x. UntagRole -&gt; Rep UntagRole x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span>
 </span><span id="line-85"></span><span id="newUntagRole"><span class="annot"><span class="annottext">newUntagRole :: Text -&gt; UntagRole
-</span><a href="Network.AWS.IAM.UntagRole.html#newUntagRole"><span class="hs-identifier hs-var hs-var">newUntagRole</span></a></span></span><span> </span><span id="local-6989586621679462532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462532"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UntagRole.html#newUntagRole"><span class="hs-identifier hs-var hs-var">newUntagRole</span></a></span></span><span> </span><span id="local-6989586621679462541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679462541"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">UntagRole' :: Text -&gt; [Text] -&gt; UntagRole
 </span><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleName:UntagRole' :: Text
 </span><a href="Network.AWS.IAM.UntagRole.html#%24sel%3AroleName%3AUntagRole%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462532"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679462541"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:UntagRole' :: [Text]
 </span><a href="Network.AWS.IAM.UntagRole.html#%24sel%3AtagKeys%3AUntagRole%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -161,16 +161,16 @@ forall a. Monoid a =&gt; a
 -&gt; (UntagRole -&gt; Text -&gt; UntagRole)
 -&gt; Lens UntagRole UntagRole Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462529"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462538"><span class="annot"><span class="annottext">Text
 roleName :: Text
 $sel:roleName:UntagRole' :: UntagRole -&gt; Text
-</span><a href="#local-6989586621679462529"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462529"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462528"><span class="annot"><span class="annottext">s :: UntagRole
-</span><a href="#local-6989586621679462528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462527"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagRole
-</span><a href="#local-6989586621679462528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:UntagRole' :: Text
+</span><a href="#local-6989586621679462538"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679462538"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462537"><span class="annot"><span class="annottext">s :: UntagRole
+</span><a href="#local-6989586621679462537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462536"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679462536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagRole
+</span><a href="#local-6989586621679462537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:UntagRole' :: Text
 </span><a href="Network.AWS.IAM.UntagRole.html#%24sel%3AroleName%3AUntagRole%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679462536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | A list of key names as a simple array of strings. The tags with matching</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- keys are removed from the specified role.</span><span>
@@ -180,16 +180,16 @@ $sel:roleName:UntagRole' :: UntagRole -&gt; Text
 -&gt; (UntagRole -&gt; [Text] -&gt; UntagRole)
 -&gt; Lens UntagRole UntagRole [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462526"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462535"><span class="annot"><span class="annottext">[Text]
 tagKeys :: [Text]
 $sel:tagKeys:UntagRole' :: UntagRole -&gt; [Text]
-</span><a href="#local-6989586621679462526"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462526"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462525"><span class="annot"><span class="annottext">s :: UntagRole
-</span><a href="#local-6989586621679462525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462524"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagRole
-</span><a href="#local-6989586621679462525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagRole' :: [Text]
+</span><a href="#local-6989586621679462535"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679462535"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462534"><span class="annot"><span class="annottext">s :: UntagRole
+</span><a href="#local-6989586621679462534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462533"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679462533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagRole
+</span><a href="#local-6989586621679462534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagRole' :: [Text]
 </span><a href="Network.AWS.IAM.UntagRole.html#%24sel%3AtagKeys%3AUntagRole%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagRole -&gt; f UntagRole)
+</span><a href="#local-6989586621679462533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagRole -&gt; f UntagRole)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; UntagRole
@@ -201,12 +201,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRoleResponse"><span class="hs-identifier hs-type">UntagRoleResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679462518"><span class="annot"><span class="annottext">request :: UntagRole -&gt; Request UntagRole
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679462527"><span class="annot"><span class="annottext">request :: UntagRole -&gt; Request UntagRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagRole -&gt; Request UntagRole
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679462514"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679462523"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UntagRole
 -&gt; ClientResponse ClientBody
@@ -229,12 +229,12 @@ AWSResponse a
 UntagRoleResponse
 </span><a href="Network.AWS.IAM.UntagRole.html#UntagRoleResponse%27"><span class="hs-identifier hs-var">UntagRoleResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462507"><span id="local-6989586621679462509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462516"><span id="local-6989586621679462518"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679462500"><span class="annot"><span class="annottext">toHeaders :: UntagRole -&gt; [Header]
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679462509"><span class="annot"><span class="annottext">toHeaders :: UntagRole -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UntagRole -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -242,21 +242,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679462495"><span class="annot"><span class="annottext">toPath :: UntagRole -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679462504"><span class="annot"><span class="annottext">toPath :: UntagRole -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagRole -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole"><span class="hs-identifier hs-type">UntagRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679462491"><span class="annot"><span class="annottext">toQuery :: UntagRole -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462488"><span id="local-6989586621679462489"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679462500"><span class="annot"><span class="annottext">toQuery :: UntagRole -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRole%27"><span class="hs-identifier hs-type">UntagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462497"><span id="local-6989586621679462498"><span class="annot"><span class="annottext">[Text]
 Text
 tagKeys :: [Text]
 roleName :: Text
 $sel:tagKeys:UntagRole' :: UntagRole -&gt; [Text]
 $sel:roleName:UntagRole' :: UntagRole -&gt; Text
-</span><a href="#local-6989586621679462488"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679462497"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -276,7 +276,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462489"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679462498"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -286,14 +286,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679462488"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
+</span><a href="#local-6989586621679462497"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newUntagRoleResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679462484"><span id="local-6989586621679462485"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagRoleResponse"><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRoleResponse"><span class="hs-identifier hs-var">UntagRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagRoleResponse%27"><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRoleResponse%27"><span class="hs-identifier hs-var">UntagRoleResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621679462493"><span id="local-6989586621679462494"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagRoleResponse"><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRoleResponse"><span class="hs-identifier hs-var">UntagRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagRoleResponse%27"><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRoleResponse%27"><span class="hs-identifier hs-var">UntagRoleResponse'</span></a></span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462480"><span id="local-6989586621679462482"><span class="annot"><span class="annottext">UntagRoleResponse -&gt; UntagRoleResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462489"><span id="local-6989586621679462491"><span class="annot"><span class="annottext">UntagRoleResponse -&gt; UntagRoleResponse -&gt; Bool
 (UntagRoleResponse -&gt; UntagRoleResponse -&gt; Bool)
 -&gt; (UntagRoleResponse -&gt; UntagRoleResponse -&gt; Bool)
 -&gt; Eq UntagRoleResponse
@@ -302,7 +302,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagRoleResponse -&gt; UntagRoleResponse -&gt; Bool
 == :: UntagRoleResponse -&gt; UntagRoleResponse -&gt; Bool
 $c== :: UntagRoleResponse -&gt; UntagRoleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462472"><span id="local-6989586621679462474"><span id="local-6989586621679462476"><span id="local-6989586621679462478"><span class="annot"><span class="annottext">ReadPrec [UntagRoleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462481"><span id="local-6989586621679462483"><span id="local-6989586621679462485"><span id="local-6989586621679462487"><span class="annot"><span class="annottext">ReadPrec [UntagRoleResponse]
 ReadPrec UntagRoleResponse
 Int -&gt; ReadS UntagRoleResponse
 ReadS [UntagRoleResponse]
@@ -322,7 +322,7 @@ readList :: ReadS [UntagRoleResponse]
 $creadList :: ReadS [UntagRoleResponse]
 readsPrec :: Int -&gt; ReadS UntagRoleResponse
 $creadsPrec :: Int -&gt; ReadS UntagRoleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462466"><span id="local-6989586621679462468"><span id="local-6989586621679462470"><span class="annot"><span class="annottext">Int -&gt; UntagRoleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462475"><span id="local-6989586621679462477"><span id="local-6989586621679462479"><span class="annot"><span class="annottext">Int -&gt; UntagRoleResponse -&gt; ShowS
 [UntagRoleResponse] -&gt; ShowS
 UntagRoleResponse -&gt; String
 (Int -&gt; UntagRoleResponse -&gt; ShowS)
@@ -358,5 +358,5 @@ $cfrom :: forall x. UntagRoleResponse -&gt; Rep UntagRoleResponse x
 </span><a href="Network.AWS.IAM.UntagRole.html#newUntagRoleResponse"><span class="hs-identifier hs-var hs-var">newUntagRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UntagRoleResponse
 </span><a href="Network.AWS.IAM.UntagRole.html#UntagRoleResponse%27"><span class="hs-identifier hs-var">UntagRoleResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRoleResponse"><span class="hs-identifier hs-type">UntagRoleResponse</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagRole.html#UntagRoleResponse"><span class="hs-identifier hs-type">UntagRoleResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

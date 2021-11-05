@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- deployment.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDiagnostics' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679310086"><span id="local-6989586621679310087"></span></span><span class="hs-keyword">data</span><span> </span><span id="Diagnostics"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-var">Diagnostics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Diagnostics%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-var">Diagnostics'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679310095"><span id="local-6989586621679310096"></span></span><span class="hs-keyword">data</span><span> </span><span id="Diagnostics"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-var">Diagnostics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Diagnostics%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-var">Diagnostics'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The last portion of the diagnostic log.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- If available, AWS CodeDeploy returns up to the last 4 KB of the</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Amessage%3ADiagnostics%27"><span class="annot"><span class="annottext">Diagnostics -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#%24sel%3Amessage%3ADiagnostics%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310077"><span id="local-6989586621679310079"><span class="annot"><span class="annottext">Diagnostics -&gt; Diagnostics -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310086"><span id="local-6989586621679310088"><span class="annot"><span class="annottext">Diagnostics -&gt; Diagnostics -&gt; Bool
 (Diagnostics -&gt; Diagnostics -&gt; Bool)
 -&gt; (Diagnostics -&gt; Diagnostics -&gt; Bool) -&gt; Eq Diagnostics
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Diagnostics -&gt; Diagnostics -&gt; Bool
 == :: Diagnostics -&gt; Diagnostics -&gt; Bool
 $c== :: Diagnostics -&gt; Diagnostics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310068"><span id="local-6989586621679310070"><span id="local-6989586621679310072"><span id="local-6989586621679310074"><span class="annot"><span class="annottext">ReadPrec [Diagnostics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310077"><span id="local-6989586621679310079"><span id="local-6989586621679310081"><span id="local-6989586621679310083"><span class="annot"><span class="annottext">ReadPrec [Diagnostics]
 ReadPrec Diagnostics
 Int -&gt; ReadS Diagnostics
 ReadS [Diagnostics]
@@ -89,7 +89,7 @@ readList :: ReadS [Diagnostics]
 $creadList :: ReadS [Diagnostics]
 readsPrec :: Int -&gt; ReadS Diagnostics
 $creadsPrec :: Int -&gt; ReadS Diagnostics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310061"><span id="local-6989586621679310063"><span id="local-6989586621679310065"><span class="annot"><span class="annottext">Int -&gt; Diagnostics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310070"><span id="local-6989586621679310072"><span id="local-6989586621679310074"><span class="annot"><span class="annottext">Int -&gt; Diagnostics -&gt; ShowS
 [Diagnostics] -&gt; ShowS
 Diagnostics -&gt; String
 (Int -&gt; Diagnostics -&gt; ShowS)
@@ -187,16 +187,16 @@ forall a. Maybe a
 -&gt; (Diagnostics -&gt; Maybe Text -&gt; Diagnostics)
 -&gt; Lens Diagnostics Diagnostics (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310052"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310061"><span class="annot"><span class="annottext">Maybe Text
 logTail :: Maybe Text
 $sel:logTail:Diagnostics' :: Diagnostics -&gt; Maybe Text
-</span><a href="#local-6989586621679310052"><span class="hs-identifier hs-var hs-var">logTail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310052"><span class="hs-identifier hs-var">logTail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310051"><span class="annot"><span class="annottext">s :: Diagnostics
-</span><a href="#local-6989586621679310051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310050"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Diagnostics
-</span><a href="#local-6989586621679310051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTail:Diagnostics' :: Maybe Text
+</span><a href="#local-6989586621679310061"><span class="hs-identifier hs-var hs-var">logTail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310061"><span class="hs-identifier hs-var">logTail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310060"><span class="annot"><span class="annottext">s :: Diagnostics
+</span><a href="#local-6989586621679310060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310059"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Diagnostics
+</span><a href="#local-6989586621679310060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTail:Diagnostics' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#%24sel%3AlogTail%3ADiagnostics%27"><span class="hs-identifier hs-var">logTail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The associated error code:</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
@@ -226,16 +226,16 @@ $sel:logTail:Diagnostics' :: Diagnostics -&gt; Maybe Text
      (Maybe LifecycleErrorCode)
      (Maybe LifecycleErrorCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310048"><span class="annot"><span class="annottext">Maybe LifecycleErrorCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310057"><span class="annot"><span class="annottext">Maybe LifecycleErrorCode
 errorCode :: Maybe LifecycleErrorCode
 $sel:errorCode:Diagnostics' :: Diagnostics -&gt; Maybe LifecycleErrorCode
-</span><a href="#local-6989586621679310048"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleErrorCode
-</span><a href="#local-6989586621679310048"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310047"><span class="annot"><span class="annottext">s :: Diagnostics
-</span><a href="#local-6989586621679310047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310046"><span class="annot"><span class="annottext">Maybe LifecycleErrorCode
-</span><a href="#local-6989586621679310046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Diagnostics
-</span><a href="#local-6989586621679310047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:Diagnostics' :: Maybe LifecycleErrorCode
+</span><a href="#local-6989586621679310057"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleErrorCode
+</span><a href="#local-6989586621679310057"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310056"><span class="annot"><span class="annottext">s :: Diagnostics
+</span><a href="#local-6989586621679310056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310055"><span class="annot"><span class="annottext">Maybe LifecycleErrorCode
+</span><a href="#local-6989586621679310055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Diagnostics
+</span><a href="#local-6989586621679310056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:Diagnostics' :: Maybe LifecycleErrorCode
 </span><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#%24sel%3AerrorCode%3ADiagnostics%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleErrorCode
-</span><a href="#local-6989586621679310046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The name of the script.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#diagnostics_scriptName"><span class="hs-identifier hs-type">diagnostics_scriptName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -244,16 +244,16 @@ $sel:errorCode:Diagnostics' :: Diagnostics -&gt; Maybe LifecycleErrorCode
 -&gt; (Diagnostics -&gt; Maybe Text -&gt; Diagnostics)
 -&gt; Lens Diagnostics Diagnostics (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310044"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310053"><span class="annot"><span class="annottext">Maybe Text
 scriptName :: Maybe Text
 $sel:scriptName:Diagnostics' :: Diagnostics -&gt; Maybe Text
-</span><a href="#local-6989586621679310044"><span class="hs-identifier hs-var hs-var">scriptName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310044"><span class="hs-identifier hs-var">scriptName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310043"><span class="annot"><span class="annottext">s :: Diagnostics
-</span><a href="#local-6989586621679310043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310042"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Diagnostics
-</span><a href="#local-6989586621679310043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptName:Diagnostics' :: Maybe Text
+</span><a href="#local-6989586621679310053"><span class="hs-identifier hs-var hs-var">scriptName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310053"><span class="hs-identifier hs-var">scriptName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310052"><span class="annot"><span class="annottext">s :: Diagnostics
+</span><a href="#local-6989586621679310052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Diagnostics
+</span><a href="#local-6989586621679310052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptName:Diagnostics' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#%24sel%3AscriptName%3ADiagnostics%27"><span class="hs-identifier hs-var">scriptName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The message associated with the error.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#diagnostics_message"><span class="hs-identifier hs-type">diagnostics_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -262,19 +262,19 @@ $sel:scriptName:Diagnostics' :: Diagnostics -&gt; Maybe Text
 -&gt; (Diagnostics -&gt; Maybe Text -&gt; Diagnostics)
 -&gt; Lens Diagnostics Diagnostics (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310040"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310049"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:Diagnostics' :: Diagnostics -&gt; Maybe Text
-</span><a href="#local-6989586621679310040"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310040"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310039"><span class="annot"><span class="annottext">s :: Diagnostics
-</span><a href="#local-6989586621679310039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310038"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Diagnostics
-</span><a href="#local-6989586621679310039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Diagnostics' :: Maybe Text
+</span><a href="#local-6989586621679310049"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310049"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310048"><span class="annot"><span class="annottext">s :: Diagnostics
+</span><a href="#local-6989586621679310048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics%27"><span class="hs-identifier hs-type">Diagnostics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310047"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Diagnostics
+</span><a href="#local-6989586621679310048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Diagnostics' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#%24sel%3Amessage%3ADiagnostics%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310035"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679310033"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Diagnostics
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310044"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679310042"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Diagnostics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Diagnostics) -&gt; Value -&gt; Parser Diagnostics
@@ -282,8 +282,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Diagnostics&quot;</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310030"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310030"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310039"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310039"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe LifecycleErrorCode
 -&gt; Maybe Text
@@ -301,7 +301,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Diagnostics)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679310039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logTail&quot;</span></span><span class="hs-special">)</span><span>
@@ -312,7 +312,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Diagnostics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LifecycleErrorCode)
+</span><a href="#local-6989586621679310039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LifecycleErrorCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,7 +320,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Diagnostics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679310039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scriptName&quot;</span></span><span class="hs-special">)</span><span>
@@ -328,13 +328,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Diagnostics
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679310039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310024"><span id="local-6989586621679310026"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310033"><span id="local-6989586621679310035"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.Diagnostics.html#Diagnostics"><span class="hs-identifier hs-type">Diagnostics</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

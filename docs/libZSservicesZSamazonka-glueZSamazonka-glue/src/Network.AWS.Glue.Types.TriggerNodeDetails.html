@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The details of a Trigger node present in the workflow.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTriggerNodeDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679704049"><span id="local-6989586621679704050"></span></span><span class="hs-keyword">data</span><span> </span><span id="TriggerNodeDetails"><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-var">TriggerNodeDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TriggerNodeDetails%27"><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails%27"><span class="hs-identifier hs-var">TriggerNodeDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679704058"><span id="local-6989586621679704059"></span></span><span class="hs-keyword">data</span><span> </span><span id="TriggerNodeDetails"><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-var">TriggerNodeDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TriggerNodeDetails%27"><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails%27"><span class="hs-identifier hs-var">TriggerNodeDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The information of the trigger represented by the trigger node.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Atrigger%3ATriggerNodeDetails%27"><span class="annot"><span class="annottext">TriggerNodeDetails -&gt; Maybe Trigger
 </span><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#%24sel%3Atrigger%3ATriggerNodeDetails%27"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679704043"><span id="local-6989586621679704045"><span class="annot"><span class="annottext">TriggerNodeDetails -&gt; TriggerNodeDetails -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679704052"><span id="local-6989586621679704054"><span class="annot"><span class="annottext">TriggerNodeDetails -&gt; TriggerNodeDetails -&gt; Bool
 (TriggerNodeDetails -&gt; TriggerNodeDetails -&gt; Bool)
 -&gt; (TriggerNodeDetails -&gt; TriggerNodeDetails -&gt; Bool)
 -&gt; Eq TriggerNodeDetails
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TriggerNodeDetails -&gt; TriggerNodeDetails -&gt; Bool
 == :: TriggerNodeDetails -&gt; TriggerNodeDetails -&gt; Bool
 $c== :: TriggerNodeDetails -&gt; TriggerNodeDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679704034"><span id="local-6989586621679704036"><span id="local-6989586621679704038"><span id="local-6989586621679704040"><span class="annot"><span class="annottext">ReadPrec [TriggerNodeDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679704043"><span id="local-6989586621679704045"><span id="local-6989586621679704047"><span id="local-6989586621679704049"><span class="annot"><span class="annottext">ReadPrec [TriggerNodeDetails]
 ReadPrec TriggerNodeDetails
 Int -&gt; ReadS TriggerNodeDetails
 ReadS [TriggerNodeDetails]
@@ -61,7 +61,7 @@ readList :: ReadS [TriggerNodeDetails]
 $creadList :: ReadS [TriggerNodeDetails]
 readsPrec :: Int -&gt; ReadS TriggerNodeDetails
 $creadsPrec :: Int -&gt; ReadS TriggerNodeDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679704027"><span id="local-6989586621679704029"><span id="local-6989586621679704031"><span class="annot"><span class="annottext">Int -&gt; TriggerNodeDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679704036"><span id="local-6989586621679704038"><span id="local-6989586621679704040"><span class="annot"><span class="annottext">Int -&gt; TriggerNodeDetails -&gt; ShowS
 [TriggerNodeDetails] -&gt; ShowS
 TriggerNodeDetails -&gt; String
 (Int -&gt; TriggerNodeDetails -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
      (Maybe Trigger)
      (Maybe Trigger)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails%27"><span class="hs-identifier hs-type">TriggerNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704018"><span class="annot"><span class="annottext">Maybe Trigger
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails%27"><span class="hs-identifier hs-type">TriggerNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679704027"><span class="annot"><span class="annottext">Maybe Trigger
 trigger :: Maybe Trigger
 $sel:trigger:TriggerNodeDetails' :: TriggerNodeDetails -&gt; Maybe Trigger
-</span><a href="#local-6989586621679704018"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Trigger
-</span><a href="#local-6989586621679704018"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704017"><span class="annot"><span class="annottext">s :: TriggerNodeDetails
-</span><a href="#local-6989586621679704017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails%27"><span class="hs-identifier hs-type">TriggerNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704016"><span class="annot"><span class="annottext">Maybe Trigger
-</span><a href="#local-6989586621679704016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerNodeDetails
-</span><a href="#local-6989586621679704017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trigger:TriggerNodeDetails' :: Maybe Trigger
+</span><a href="#local-6989586621679704027"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Trigger
+</span><a href="#local-6989586621679704027"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679704026"><span class="annot"><span class="annottext">s :: TriggerNodeDetails
+</span><a href="#local-6989586621679704026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails%27"><span class="hs-identifier hs-type">TriggerNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679704025"><span class="annot"><span class="annottext">Maybe Trigger
+</span><a href="#local-6989586621679704025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerNodeDetails
+</span><a href="#local-6989586621679704026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trigger:TriggerNodeDetails' :: Maybe Trigger
 </span><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#%24sel%3Atrigger%3ATriggerNodeDetails%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Trigger
-</span><a href="#local-6989586621679704016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-type">TriggerNodeDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679704025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-type">TriggerNodeDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679704013"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-type">TriggerNodeDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679704011"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TriggerNodeDetails
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679704022"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-type">TriggerNodeDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679704020"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TriggerNodeDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TriggerNodeDetails)
@@ -140,21 +140,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TriggerNodeDetails&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679704008"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679704008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679704017"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679704017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe Trigger -&gt; TriggerNodeDetails
 </span><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails%27"><span class="hs-identifier hs-var">TriggerNodeDetails'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Trigger -&gt; TriggerNodeDetails)
 -&gt; Parser (Maybe Trigger) -&gt; Parser TriggerNodeDetails
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679704008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Trigger)
+</span><a href="#local-6989586621679704017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Trigger)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Trigger&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679704002"><span id="local-6989586621679704004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-type">TriggerNodeDetails</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679704011"><span id="local-6989586621679704013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-type">TriggerNodeDetails</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679703999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-type">TriggerNodeDetails</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679704008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerNodeDetails.html#TriggerNodeDetails"><span class="hs-identifier hs-type">TriggerNodeDetails</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

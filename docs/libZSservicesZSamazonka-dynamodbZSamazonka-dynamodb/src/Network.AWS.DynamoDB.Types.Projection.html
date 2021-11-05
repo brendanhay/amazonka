@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- attributes, which are automatically projected.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newProjection' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679375369"><span id="local-6989586621679375370"></span></span><span class="hs-keyword">data</span><span> </span><span id="Projection"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-var">Projection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Projection%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-var">Projection'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679375378"><span id="local-6989586621679375379"></span></span><span class="hs-keyword">data</span><span> </span><span id="Projection"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-var">Projection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Projection%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-var">Projection'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The set of attributes that are projected into the index:</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @KEYS_ONLY@ - Only the index and primary keys are projected into the</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AnonKeyAttributes%3AProjection%27"><span class="annot"><span class="annottext">Projection -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.DynamoDB.Types.Projection.html#%24sel%3AnonKeyAttributes%3AProjection%27"><span class="hs-identifier hs-var hs-var">nonKeyAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375362"><span id="local-6989586621679375364"><span class="annot"><span class="annottext">Projection -&gt; Projection -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375371"><span id="local-6989586621679375373"><span class="annot"><span class="annottext">Projection -&gt; Projection -&gt; Bool
 (Projection -&gt; Projection -&gt; Bool)
 -&gt; (Projection -&gt; Projection -&gt; Bool) -&gt; Eq Projection
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Projection -&gt; Projection -&gt; Bool
 == :: Projection -&gt; Projection -&gt; Bool
 $c== :: Projection -&gt; Projection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375353"><span id="local-6989586621679375355"><span id="local-6989586621679375357"><span id="local-6989586621679375359"><span class="annot"><span class="annottext">ReadPrec [Projection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375362"><span id="local-6989586621679375364"><span id="local-6989586621679375366"><span id="local-6989586621679375368"><span class="annot"><span class="annottext">ReadPrec [Projection]
 ReadPrec Projection
 Int -&gt; ReadS Projection
 ReadS [Projection]
@@ -80,7 +80,7 @@ readList :: ReadS [Projection]
 $creadList :: ReadS [Projection]
 readsPrec :: Int -&gt; ReadS Projection
 $creadsPrec :: Int -&gt; ReadS Projection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375346"><span id="local-6989586621679375348"><span id="local-6989586621679375350"><span class="annot"><span class="annottext">Int -&gt; Projection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375355"><span id="local-6989586621679375357"><span id="local-6989586621679375359"><span class="annot"><span class="annottext">Int -&gt; Projection -&gt; ShowS
 [Projection] -&gt; ShowS
 Projection -&gt; String
 (Int -&gt; Projection -&gt; ShowS)
@@ -165,16 +165,16 @@ forall a. Maybe a
 -&gt; Lens
      Projection Projection (Maybe ProjectionType) (Maybe ProjectionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375337"><span class="annot"><span class="annottext">Maybe ProjectionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375346"><span class="annot"><span class="annottext">Maybe ProjectionType
 projectionType :: Maybe ProjectionType
 $sel:projectionType:Projection' :: Projection -&gt; Maybe ProjectionType
-</span><a href="#local-6989586621679375337"><span class="hs-identifier hs-var hs-var">projectionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectionType
-</span><a href="#local-6989586621679375337"><span class="hs-identifier hs-var">projectionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375336"><span class="annot"><span class="annottext">s :: Projection
-</span><a href="#local-6989586621679375336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375335"><span class="annot"><span class="annottext">Maybe ProjectionType
-</span><a href="#local-6989586621679375335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679375336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectionType:Projection' :: Maybe ProjectionType
+</span><a href="#local-6989586621679375346"><span class="hs-identifier hs-var hs-var">projectionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectionType
+</span><a href="#local-6989586621679375346"><span class="hs-identifier hs-var">projectionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375345"><span class="annot"><span class="annottext">s :: Projection
+</span><a href="#local-6989586621679375345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375344"><span class="annot"><span class="annottext">Maybe ProjectionType
+</span><a href="#local-6989586621679375344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectionType:Projection' :: Maybe ProjectionType
 </span><a href="Network.AWS.DynamoDB.Types.Projection.html#%24sel%3AprojectionType%3AProjection%27"><span class="hs-identifier hs-var">projectionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectionType
-</span><a href="#local-6989586621679375335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | Represents the non-key attribute names which will be projected into the</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- index.</span><span>
@@ -194,16 +194,16 @@ $sel:projectionType:Projection' :: Projection -&gt; Maybe ProjectionType
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375333"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375342"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 nonKeyAttributes :: Maybe (NonEmpty Text)
 $sel:nonKeyAttributes:Projection' :: Projection -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679375333"><span class="hs-identifier hs-var hs-var">nonKeyAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679375333"><span class="hs-identifier hs-var">nonKeyAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375332"><span class="annot"><span class="annottext">s :: Projection
-</span><a href="#local-6989586621679375332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375331"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679375331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679375332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonKeyAttributes:Projection' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679375342"><span class="hs-identifier hs-var hs-var">nonKeyAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679375342"><span class="hs-identifier hs-var">nonKeyAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375341"><span class="annot"><span class="annottext">s :: Projection
+</span><a href="#local-6989586621679375341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375340"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679375340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679375341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonKeyAttributes:Projection' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.DynamoDB.Types.Projection.html#%24sel%3AnonKeyAttributes%3AProjection%27"><span class="hs-identifier hs-var">nonKeyAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679375331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679375340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; Projection -&gt; f Projection)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -226,8 +226,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375325"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679375323"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Projection
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375334"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679375332"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Projection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Projection) -&gt; Value -&gt; Parser Projection
@@ -235,8 +235,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Projection&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679375320"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679375329"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679375329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProjectionType -&gt; Maybe (NonEmpty Text) -&gt; Projection
 </span><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-var">Projection'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ProjectionType -&gt; Maybe (NonEmpty Text) -&gt; Projection)
@@ -244,7 +244,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe (NonEmpty Text) -&gt; Projection)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProjectionType)
+</span><a href="#local-6989586621679375329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProjectionType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProjectionType&quot;</span></span><span class="hs-special">)</span><span>
@@ -252,25 +252,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (NonEmpty Text)) -&gt; Parser Projection
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679375329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NonKeyAttributes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375314"><span id="local-6989586621679375316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375323"><span id="local-6989586621679375325"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375303"><span id="local-6989586621679375305"><span id="local-6989586621679375307"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679375301"><span class="annot"><span class="annottext">toJSON :: Projection -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375298"><span id="local-6989586621679375299"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375312"><span id="local-6989586621679375314"><span id="local-6989586621679375316"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679375310"><span class="annot"><span class="annottext">toJSON :: Projection -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection%27"><span class="hs-identifier hs-type">Projection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375307"><span id="local-6989586621679375308"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 Maybe ProjectionType
 nonKeyAttributes :: Maybe (NonEmpty Text)
 projectionType :: Maybe ProjectionType
 $sel:nonKeyAttributes:Projection' :: Projection -&gt; Maybe (NonEmpty Text)
 $sel:projectionType:Projection' :: Projection -&gt; Maybe ProjectionType
-</span><a href="#local-6989586621679375298"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679375307"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -283,7 +283,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(ProjectionType -&gt; Pair) -&gt; Maybe ProjectionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProjectionType
-</span><a href="#local-6989586621679375299"><span class="hs-identifier hs-var">projectionType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679375308"><span class="hs-identifier hs-var">projectionType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NonKeyAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -291,7 +291,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679375298"><span class="hs-identifier hs-var">nonKeyAttributes</span></a></span><span>
+</span><a href="#local-6989586621679375307"><span class="hs-identifier hs-var">nonKeyAttributes</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span></pre></body></html>

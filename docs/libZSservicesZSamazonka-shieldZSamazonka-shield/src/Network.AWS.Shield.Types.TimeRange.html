@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The time range.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTimeRange' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679204807"><span id="local-6989586621679204808"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeRange"><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-var">TimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeRange%27"><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-var">TimeRange'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679204816"><span id="local-6989586621679204817"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeRange"><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-var">TimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeRange%27"><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-var">TimeRange'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start time, in Unix time in seconds. For more information see</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp&gt;.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AfromInclusive%3ATimeRange%27"><span class="annot"><span class="annottext">TimeRange -&gt; Maybe POSIX
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AtoExclusive%3ATimeRange%27"><span class="annot"><span class="annottext">TimeRange -&gt; Maybe POSIX
 </span><a href="Network.AWS.Shield.Types.TimeRange.html#%24sel%3AtoExclusive%3ATimeRange%27"><span class="hs-identifier hs-var hs-var">toExclusive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204800"><span id="local-6989586621679204802"><span class="annot"><span class="annottext">TimeRange -&gt; TimeRange -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204809"><span id="local-6989586621679204811"><span class="annot"><span class="annottext">TimeRange -&gt; TimeRange -&gt; Bool
 (TimeRange -&gt; TimeRange -&gt; Bool)
 -&gt; (TimeRange -&gt; TimeRange -&gt; Bool) -&gt; Eq TimeRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimeRange -&gt; TimeRange -&gt; Bool
 == :: TimeRange -&gt; TimeRange -&gt; Bool
 $c== :: TimeRange -&gt; TimeRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204791"><span id="local-6989586621679204793"><span id="local-6989586621679204795"><span id="local-6989586621679204797"><span class="annot"><span class="annottext">ReadPrec [TimeRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204800"><span id="local-6989586621679204802"><span id="local-6989586621679204804"><span id="local-6989586621679204806"><span class="annot"><span class="annottext">ReadPrec [TimeRange]
 ReadPrec TimeRange
 Int -&gt; ReadS TimeRange
 ReadS [TimeRange]
@@ -64,7 +64,7 @@ readList :: ReadS [TimeRange]
 $creadList :: ReadS [TimeRange]
 readsPrec :: Int -&gt; ReadS TimeRange
 $creadsPrec :: Int -&gt; ReadS TimeRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204784"><span id="local-6989586621679204786"><span id="local-6989586621679204788"><span class="annot"><span class="annottext">Int -&gt; TimeRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204793"><span id="local-6989586621679204795"><span id="local-6989586621679204797"><span class="annot"><span class="annottext">Int -&gt; TimeRange -&gt; ShowS
 [TimeRange] -&gt; ShowS
 TimeRange -&gt; String
 (Int -&gt; TimeRange -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (TimeRange -&gt; Maybe POSIX -&gt; TimeRange)
 -&gt; Lens TimeRange TimeRange (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204775"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204784"><span class="annot"><span class="annottext">Maybe POSIX
 fromInclusive :: Maybe POSIX
 $sel:fromInclusive:TimeRange' :: TimeRange -&gt; Maybe POSIX
-</span><a href="#local-6989586621679204775"><span class="hs-identifier hs-var hs-var">fromInclusive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679204775"><span class="hs-identifier hs-var">fromInclusive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204774"><span class="annot"><span class="annottext">s :: TimeRange
-</span><a href="#local-6989586621679204774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204773"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679204773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRange
-</span><a href="#local-6989586621679204774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromInclusive:TimeRange' :: Maybe POSIX
+</span><a href="#local-6989586621679204784"><span class="hs-identifier hs-var hs-var">fromInclusive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204784"><span class="hs-identifier hs-var">fromInclusive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204783"><span class="annot"><span class="annottext">s :: TimeRange
+</span><a href="#local-6989586621679204783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204782"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRange
+</span><a href="#local-6989586621679204783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromInclusive:TimeRange' :: Maybe POSIX
 </span><a href="Network.AWS.Shield.Types.TimeRange.html#%24sel%3AfromInclusive%3ATimeRange%27"><span class="hs-identifier hs-var">fromInclusive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679204773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; TimeRange -&gt; f TimeRange)
+</span><a href="#local-6989586621679204782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; TimeRange -&gt; f TimeRange)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -159,16 +159,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (TimeRange -&gt; Maybe POSIX -&gt; TimeRange)
 -&gt; Lens TimeRange TimeRange (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204768"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204777"><span class="annot"><span class="annottext">Maybe POSIX
 toExclusive :: Maybe POSIX
 $sel:toExclusive:TimeRange' :: TimeRange -&gt; Maybe POSIX
-</span><a href="#local-6989586621679204768"><span class="hs-identifier hs-var hs-var">toExclusive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679204768"><span class="hs-identifier hs-var">toExclusive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204767"><span class="annot"><span class="annottext">s :: TimeRange
-</span><a href="#local-6989586621679204767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204766"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679204766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRange
-</span><a href="#local-6989586621679204767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toExclusive:TimeRange' :: Maybe POSIX
+</span><a href="#local-6989586621679204777"><span class="hs-identifier hs-var hs-var">toExclusive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204777"><span class="hs-identifier hs-var">toExclusive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204776"><span class="annot"><span class="annottext">s :: TimeRange
+</span><a href="#local-6989586621679204776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204775"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeRange
+</span><a href="#local-6989586621679204776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toExclusive:TimeRange' :: Maybe POSIX
 </span><a href="Network.AWS.Shield.Types.TimeRange.html#%24sel%3AtoExclusive%3ATimeRange%27"><span class="hs-identifier hs-var">toExclusive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679204766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; TimeRange -&gt; f TimeRange)
+</span><a href="#local-6989586621679204775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; TimeRange -&gt; f TimeRange)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -184,23 +184,23 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204763"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679204761"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeRange
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204772"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679204770"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser TimeRange) -&gt; Value -&gt; Parser TimeRange
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TimeRange&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204758"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204767"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204767"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe POSIX -&gt; TimeRange
 </span><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-var">TimeRange'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe POSIX -&gt; TimeRange)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe POSIX -&gt; TimeRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679204767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FromInclusive&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,24 +208,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser TimeRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679204758"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679204767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ToExclusive&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204752"><span id="local-6989586621679204754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204761"><span id="local-6989586621679204763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204741"><span id="local-6989586621679204743"><span id="local-6989586621679204745"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679204739"><span class="annot"><span class="annottext">toJSON :: TimeRange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204736"><span id="local-6989586621679204737"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204750"><span id="local-6989586621679204752"><span id="local-6989586621679204754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange"><span class="hs-identifier hs-type">TimeRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679204748"><span class="annot"><span class="annottext">toJSON :: TimeRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.TimeRange.html#TimeRange%27"><span class="hs-identifier hs-type">TimeRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204745"><span id="local-6989586621679204746"><span class="annot"><span class="annottext">Maybe POSIX
 toExclusive :: Maybe POSIX
 fromInclusive :: Maybe POSIX
 $sel:toExclusive:TimeRange' :: TimeRange -&gt; Maybe POSIX
 $sel:fromInclusive:TimeRange' :: TimeRange -&gt; Maybe POSIX
-</span><a href="#local-6989586621679204736"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679204745"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -237,14 +237,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679204737"><span class="hs-identifier hs-var">fromInclusive</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679204746"><span class="hs-identifier hs-var">fromInclusive</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ToExclusive&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679204736"><span class="hs-identifier hs-var">toExclusive</span></a></span><span>
+</span><a href="#local-6989586621679204745"><span class="hs-identifier hs-var">toExclusive</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

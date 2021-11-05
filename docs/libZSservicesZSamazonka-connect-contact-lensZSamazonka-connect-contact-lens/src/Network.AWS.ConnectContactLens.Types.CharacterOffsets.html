@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ConnectContactLens.Types.CharacterOffsets</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ConnectContactLens.Types.CharacterOffsets</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | For characters that were detected as issues, where they occur in the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- transcript.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCharacterOffsets' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679141963"><span id="local-6989586621679141964"></span></span><span class="hs-keyword">data</span><span> </span><span id="CharacterOffsets"><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets"><span class="hs-identifier hs-var">CharacterOffsets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CharacterOffsets%27"><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets%27"><span class="hs-identifier hs-var">CharacterOffsets'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The beginning of the issue.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AbeginOffsetChar%3ACharacterOffsets%27"><span class="annot"><span class="annottext">CharacterOffsets -&gt; Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#%24sel%3AbeginOffsetChar%3ACharacterOffsets%27"><span class="hs-identifier hs-var hs-var">beginOffsetChar</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The end of the issue.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AendOffsetChar%3ACharacterOffsets%27"><span class="annot"><span class="annottext">CharacterOffsets -&gt; Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#%24sel%3AendOffsetChar%3ACharacterOffsets%27"><span class="hs-identifier hs-var hs-var">endOffsetChar</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679141956"><span id="local-6989586621679141958"><span class="annot"><span class="annottext">CharacterOffsets -&gt; CharacterOffsets -&gt; Bool
+(CharacterOffsets -&gt; CharacterOffsets -&gt; Bool)
+-&gt; (CharacterOffsets -&gt; CharacterOffsets -&gt; Bool)
+-&gt; Eq CharacterOffsets
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CharacterOffsets -&gt; CharacterOffsets -&gt; Bool
+$c/= :: CharacterOffsets -&gt; CharacterOffsets -&gt; Bool
+== :: CharacterOffsets -&gt; CharacterOffsets -&gt; Bool
+$c== :: CharacterOffsets -&gt; CharacterOffsets -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141947"><span id="local-6989586621679141949"><span id="local-6989586621679141951"><span id="local-6989586621679141953"><span class="annot"><span class="annottext">ReadPrec [CharacterOffsets]
+ReadPrec CharacterOffsets
+Int -&gt; ReadS CharacterOffsets
+ReadS [CharacterOffsets]
+(Int -&gt; ReadS CharacterOffsets)
+-&gt; ReadS [CharacterOffsets]
+-&gt; ReadPrec CharacterOffsets
+-&gt; ReadPrec [CharacterOffsets]
+-&gt; Read CharacterOffsets
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CharacterOffsets]
+$creadListPrec :: ReadPrec [CharacterOffsets]
+readPrec :: ReadPrec CharacterOffsets
+$creadPrec :: ReadPrec CharacterOffsets
+readList :: ReadS [CharacterOffsets]
+$creadList :: ReadS [CharacterOffsets]
+readsPrec :: Int -&gt; ReadS CharacterOffsets
+$creadsPrec :: Int -&gt; ReadS CharacterOffsets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141940"><span id="local-6989586621679141942"><span id="local-6989586621679141944"><span class="annot"><span class="annottext">Int -&gt; CharacterOffsets -&gt; ShowS
+[CharacterOffsets] -&gt; ShowS
+CharacterOffsets -&gt; String
+(Int -&gt; CharacterOffsets -&gt; ShowS)
+-&gt; (CharacterOffsets -&gt; String)
+-&gt; ([CharacterOffsets] -&gt; ShowS)
+-&gt; Show CharacterOffsets
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CharacterOffsets] -&gt; ShowS
+$cshowList :: [CharacterOffsets] -&gt; ShowS
+show :: CharacterOffsets -&gt; String
+$cshow :: CharacterOffsets -&gt; String
+showsPrec :: Int -&gt; CharacterOffsets -&gt; ShowS
+$cshowsPrec :: Int -&gt; CharacterOffsets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CharacterOffsets -&gt; Rep CharacterOffsets x)
+-&gt; (forall x. Rep CharacterOffsets x -&gt; CharacterOffsets)
+-&gt; Generic CharacterOffsets
+forall x. Rep CharacterOffsets x -&gt; CharacterOffsets
+forall x. CharacterOffsets -&gt; Rep CharacterOffsets x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CharacterOffsets x -&gt; CharacterOffsets
+$cfrom :: forall x. CharacterOffsets -&gt; Rep CharacterOffsets x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'CharacterOffsets' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'beginOffsetChar', 'characterOffsets_beginOffsetChar' - The beginning of the issue.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'endOffsetChar', 'characterOffsets_endOffsetChar' - The end of the issue.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#newCharacterOffsets"><span class="hs-identifier hs-type">newCharacterOffsets</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'beginOffsetChar'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'endOffsetChar'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets"><span class="hs-identifier hs-type">CharacterOffsets</span></a></span><span>
+</span><span id="line-55"></span><span id="newCharacterOffsets"><span class="annot"><span class="annottext">newCharacterOffsets :: Natural -&gt; Natural -&gt; CharacterOffsets
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#newCharacterOffsets"><span class="hs-identifier hs-var hs-var">newCharacterOffsets</span></a></span></span><span> </span><span id="local-6989586621679141934"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141934"><span class="hs-identifier hs-var">pBeginOffsetChar_</span></a></span></span><span> </span><span id="local-6989586621679141933"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141933"><span class="hs-identifier hs-var">pEndOffsetChar_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">CharacterOffsets' :: Natural -&gt; Natural -&gt; CharacterOffsets
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets%27"><span class="hs-identifier hs-type">CharacterOffsets'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:beginOffsetChar:CharacterOffsets' :: Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#%24sel%3AbeginOffsetChar%3ACharacterOffsets%27"><span class="hs-identifier hs-var">beginOffsetChar</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141934"><span class="hs-identifier hs-var">pBeginOffsetChar_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:endOffsetChar:CharacterOffsets' :: Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#%24sel%3AendOffsetChar%3ACharacterOffsets%27"><span class="hs-identifier hs-var">endOffsetChar</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141933"><span class="hs-identifier hs-var">pEndOffsetChar_</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The beginning of the issue.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#characterOffsets_beginOffsetChar"><span class="hs-identifier hs-type">characterOffsets_beginOffsetChar</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets"><span class="hs-identifier hs-type">CharacterOffsets</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-64"></span><span id="characterOffsets_beginOffsetChar"><span class="annot"><span class="annottext">characterOffsets_beginOffsetChar :: (Natural -&gt; f Natural) -&gt; CharacterOffsets -&gt; f CharacterOffsets
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#characterOffsets_beginOffsetChar"><span class="hs-identifier hs-var hs-var">characterOffsets_beginOffsetChar</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CharacterOffsets -&gt; Natural)
+-&gt; (CharacterOffsets -&gt; Natural -&gt; CharacterOffsets)
+-&gt; Lens CharacterOffsets CharacterOffsets Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets%27"><span class="hs-identifier hs-type">CharacterOffsets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141929"><span class="annot"><span class="annottext">Natural
+beginOffsetChar :: Natural
+$sel:beginOffsetChar:CharacterOffsets' :: CharacterOffsets -&gt; Natural
+</span><a href="#local-6989586621679141929"><span class="hs-identifier hs-var hs-var">beginOffsetChar</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141929"><span class="hs-identifier hs-var">beginOffsetChar</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141928"><span class="annot"><span class="annottext">s :: CharacterOffsets
+</span><a href="#local-6989586621679141928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets%27"><span class="hs-identifier hs-type">CharacterOffsets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141927"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CharacterOffsets
+</span><a href="#local-6989586621679141928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beginOffsetChar:CharacterOffsets' :: Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#%24sel%3AbeginOffsetChar%3ACharacterOffsets%27"><span class="hs-identifier hs-var">beginOffsetChar</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets"><span class="hs-identifier hs-type">CharacterOffsets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The end of the issue.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#characterOffsets_endOffsetChar"><span class="hs-identifier hs-type">characterOffsets_endOffsetChar</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets"><span class="hs-identifier hs-type">CharacterOffsets</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-68"></span><span id="characterOffsets_endOffsetChar"><span class="annot"><span class="annottext">characterOffsets_endOffsetChar :: (Natural -&gt; f Natural) -&gt; CharacterOffsets -&gt; f CharacterOffsets
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#characterOffsets_endOffsetChar"><span class="hs-identifier hs-var hs-var">characterOffsets_endOffsetChar</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CharacterOffsets -&gt; Natural)
+-&gt; (CharacterOffsets -&gt; Natural -&gt; CharacterOffsets)
+-&gt; Lens CharacterOffsets CharacterOffsets Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets%27"><span class="hs-identifier hs-type">CharacterOffsets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141925"><span class="annot"><span class="annottext">Natural
+endOffsetChar :: Natural
+$sel:endOffsetChar:CharacterOffsets' :: CharacterOffsets -&gt; Natural
+</span><a href="#local-6989586621679141925"><span class="hs-identifier hs-var hs-var">endOffsetChar</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141925"><span class="hs-identifier hs-var">endOffsetChar</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141924"><span class="annot"><span class="annottext">s :: CharacterOffsets
+</span><a href="#local-6989586621679141924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets%27"><span class="hs-identifier hs-type">CharacterOffsets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141923"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CharacterOffsets
+</span><a href="#local-6989586621679141924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endOffsetChar:CharacterOffsets' :: Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#%24sel%3AendOffsetChar%3ACharacterOffsets%27"><span class="hs-identifier hs-var">endOffsetChar</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679141923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets"><span class="hs-identifier hs-type">CharacterOffsets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141920"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets"><span class="hs-identifier hs-type">CharacterOffsets</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679141918"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CharacterOffsets
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CharacterOffsets)
+-&gt; Value
+-&gt; Parser CharacterOffsets
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CharacterOffsets&quot;</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679141915"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141915"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; CharacterOffsets
+</span><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets%27"><span class="hs-identifier hs-var">CharacterOffsets'</span></a></span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Natural -&gt; Natural -&gt; CharacterOffsets)
+-&gt; Parser Natural -&gt; Parser (Natural -&gt; CharacterOffsets)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BeginOffsetChar&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; CharacterOffsets)
+-&gt; Parser Natural -&gt; Parser CharacterOffsets
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndOffsetChar&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141909"><span id="local-6989586621679141911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets"><span class="hs-identifier hs-type">CharacterOffsets</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.CharacterOffsets.html#CharacterOffsets"><span class="hs-identifier hs-type">CharacterOffsets</span></a></span></span><span>
+</span><span id="line-83"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679198634"><span id="local-6989586621679198635"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ShardIteratorType"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardIteratorType.html#ShardIteratorType"><span class="hs-identifier hs-var">ShardIteratorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShardIteratorType%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardIteratorType.html#ShardIteratorType%27"><span class="hs-identifier hs-var">ShardIteratorType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679198643"><span id="local-6989586621679198644"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ShardIteratorType"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardIteratorType.html#ShardIteratorType"><span class="hs-identifier hs-var">ShardIteratorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShardIteratorType%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardIteratorType.html#ShardIteratorType%27"><span class="hs-identifier hs-var">ShardIteratorType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromShardIteratorType"><span class="annot"><span class="annottext">ShardIteratorType -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.ShardIteratorType.html#fromShardIteratorType"><span class="hs-identifier hs-var hs-var">fromShardIteratorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198626"><span id="local-6989586621679198628"><span id="local-6989586621679198630"><span class="annot"><span class="annottext">Int -&gt; ShardIteratorType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198635"><span id="local-6989586621679198637"><span id="local-6989586621679198639"><span class="annot"><span class="annottext">Int -&gt; ShardIteratorType -&gt; ShowS
 [ShardIteratorType] -&gt; ShowS
 ShardIteratorType -&gt; String
 (Int -&gt; ShardIteratorType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ShardIteratorType -&gt; String
 showsPrec :: Int -&gt; ShardIteratorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ShardIteratorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679198617"><span id="local-6989586621679198619"><span id="local-6989586621679198621"><span id="local-6989586621679198623"><span class="annot"><span class="annottext">ReadPrec [ShardIteratorType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679198626"><span id="local-6989586621679198628"><span id="local-6989586621679198630"><span id="local-6989586621679198632"><span class="annot"><span class="annottext">ReadPrec [ShardIteratorType]
 ReadPrec ShardIteratorType
 Int -&gt; ReadS ShardIteratorType
 ReadS [ShardIteratorType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ShardIteratorType]
 readsPrec :: Int -&gt; ReadS ShardIteratorType
 $creadsPrec :: Int -&gt; ReadS ShardIteratorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679198612"><span id="local-6989586621679198614"><span class="annot"><span class="annottext">ShardIteratorType -&gt; ShardIteratorType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679198621"><span id="local-6989586621679198623"><span class="annot"><span class="annottext">ShardIteratorType -&gt; ShardIteratorType -&gt; Bool
 (ShardIteratorType -&gt; ShardIteratorType -&gt; Bool)
 -&gt; (ShardIteratorType -&gt; ShardIteratorType -&gt; Bool)
 -&gt; Eq ShardIteratorType
@@ -85,7 +85,7 @@ $c/= :: ShardIteratorType -&gt; ShardIteratorType -&gt; Bool
 == :: ShardIteratorType -&gt; ShardIteratorType -&gt; Bool
 $c== :: ShardIteratorType -&gt; ShardIteratorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679198596"><span id="local-6989586621679198598"><span id="local-6989586621679198600"><span id="local-6989586621679198602"><span id="local-6989586621679198604"><span id="local-6989586621679198606"><span id="local-6989586621679198608"><span class="annot"><span class="annottext">Eq ShardIteratorType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679198605"><span id="local-6989586621679198607"><span id="local-6989586621679198609"><span id="local-6989586621679198611"><span id="local-6989586621679198613"><span id="local-6989586621679198615"><span id="local-6989586621679198617"><span class="annot"><span class="annottext">Eq ShardIteratorType
 Eq ShardIteratorType
 -&gt; (ShardIteratorType -&gt; ShardIteratorType -&gt; Ordering)
 -&gt; (ShardIteratorType -&gt; ShardIteratorType -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ShardIteratorType -&gt; Rep ShardIteratorType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198588"><span id="local-6989586621679198590"><span class="annot"><span class="annottext">Int -&gt; ShardIteratorType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198597"><span id="local-6989586621679198599"><span class="annot"><span class="annottext">Int -&gt; ShardIteratorType -&gt; Int
 ShardIteratorType -&gt; Int
 (Int -&gt; ShardIteratorType -&gt; Int)
 -&gt; (ShardIteratorType -&gt; Int) -&gt; Hashable ShardIteratorType
@@ -146,51 +146,51 @@ $chash :: ShardIteratorType -&gt; Int
 hashWithSalt :: Int -&gt; ShardIteratorType -&gt; Int
 $chashWithSalt :: Int -&gt; ShardIteratorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679198585"><span class="annot"><span class="annottext">ShardIteratorType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679198594"><span class="annot"><span class="annottext">ShardIteratorType -&gt; ()
 (ShardIteratorType -&gt; ()) -&gt; NFData ShardIteratorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ShardIteratorType -&gt; ()
 $crnf :: ShardIteratorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679198582"><span class="annot"><span class="annottext">Text -&gt; Either String ShardIteratorType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679198591"><span class="annot"><span class="annottext">Text -&gt; Either String ShardIteratorType
 (Text -&gt; Either String ShardIteratorType)
 -&gt; FromText ShardIteratorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ShardIteratorType
 $cfromText :: Text -&gt; Either String ShardIteratorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679198579"><span class="annot"><span class="annottext">ShardIteratorType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679198588"><span class="annot"><span class="annottext">ShardIteratorType -&gt; Text
 (ShardIteratorType -&gt; Text) -&gt; ToText ShardIteratorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ShardIteratorType -&gt; Text
 $ctoText :: ShardIteratorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679198576"><span class="annot"><span class="annottext">ShardIteratorType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679198585"><span class="annot"><span class="annottext">ShardIteratorType -&gt; ByteString
 (ShardIteratorType -&gt; ByteString) -&gt; ToByteString ShardIteratorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ShardIteratorType -&gt; ByteString
 $ctoBS :: ShardIteratorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679198573"><span class="annot"><span class="annottext">ShardIteratorType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679198582"><span class="annot"><span class="annottext">ShardIteratorType -&gt; ByteStringBuilder
 (ShardIteratorType -&gt; ByteStringBuilder) -&gt; ToLog ShardIteratorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ShardIteratorType -&gt; ByteStringBuilder
 $cbuild :: ShardIteratorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679198570"><span class="annot"><span class="annottext">HeaderName -&gt; ShardIteratorType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679198579"><span class="annot"><span class="annottext">HeaderName -&gt; ShardIteratorType -&gt; [Header]
 (HeaderName -&gt; ShardIteratorType -&gt; [Header])
 -&gt; ToHeader ShardIteratorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ShardIteratorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ShardIteratorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679198567"><span class="annot"><span class="annottext">ShardIteratorType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679198576"><span class="annot"><span class="annottext">ShardIteratorType -&gt; QueryString
 (ShardIteratorType -&gt; QueryString) -&gt; ToQuery ShardIteratorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ShardIteratorType -&gt; QueryString
 $ctoQuery :: ShardIteratorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679198562"><span id="local-6989586621679198564"><span class="annot"><span class="annottext">Value -&gt; Parser [ShardIteratorType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679198571"><span id="local-6989586621679198573"><span class="annot"><span class="annottext">Value -&gt; Parser [ShardIteratorType]
 Value -&gt; Parser ShardIteratorType
 (Value -&gt; Parser ShardIteratorType)
 -&gt; (Value -&gt; Parser [ShardIteratorType])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ShardIteratorType]
 parseJSON :: Value -&gt; Parser ShardIteratorType
 $cparseJSON :: Value -&gt; Parser ShardIteratorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679198557"><span id="local-6989586621679198559"><span class="annot"><span class="annottext">FromJSONKeyFunction [ShardIteratorType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679198566"><span id="local-6989586621679198568"><span class="annot"><span class="annottext">FromJSONKeyFunction [ShardIteratorType]
 FromJSONKeyFunction ShardIteratorType
 FromJSONKeyFunction ShardIteratorType
 -&gt; FromJSONKeyFunction [ShardIteratorType]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ShardIteratorType]
 fromJSONKey :: FromJSONKeyFunction ShardIteratorType
 $cfromJSONKey :: FromJSONKeyFunction ShardIteratorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679198548"><span id="local-6989586621679198550"><span id="local-6989586621679198552"><span id="local-6989586621679198554"><span class="annot"><span class="annottext">[ShardIteratorType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679198557"><span id="local-6989586621679198559"><span id="local-6989586621679198561"><span id="local-6989586621679198563"><span class="annot"><span class="annottext">[ShardIteratorType] -&gt; Encoding
 [ShardIteratorType] -&gt; Value
 ShardIteratorType -&gt; Encoding
 ShardIteratorType -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: ShardIteratorType -&gt; Encoding
 toJSON :: ShardIteratorType -&gt; Value
 $ctoJSON :: ShardIteratorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679198543"><span id="local-6989586621679198545"><span class="annot"><span class="annottext">ToJSONKeyFunction [ShardIteratorType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679198552"><span id="local-6989586621679198554"><span class="annot"><span class="annottext">ToJSONKeyFunction [ShardIteratorType]
 ToJSONKeyFunction ShardIteratorType
 ToJSONKeyFunction ShardIteratorType
 -&gt; ToJSONKeyFunction [ShardIteratorType]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ShardIteratorType]
 toJSONKey :: ToJSONKeyFunction ShardIteratorType
 $ctoJSONKey :: ToJSONKeyFunction ShardIteratorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679198540"><span class="annot"><span class="annottext">[Node] -&gt; Either String ShardIteratorType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679198549"><span class="annot"><span class="annottext">[Node] -&gt; Either String ShardIteratorType
 ([Node] -&gt; Either String ShardIteratorType)
 -&gt; FromXML ShardIteratorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ShardIteratorType
 $cparseXML :: [Node] -&gt; Either String ShardIteratorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679198537"><span class="annot"><span class="annottext">ShardIteratorType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679198546"><span class="annot"><span class="annottext">ShardIteratorType -&gt; XML
 (ShardIteratorType -&gt; XML) -&gt; ToXML ShardIteratorType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ShardIteratorType -&gt; XML

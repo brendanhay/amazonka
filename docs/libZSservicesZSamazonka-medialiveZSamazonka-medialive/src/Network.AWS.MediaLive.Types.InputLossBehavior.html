@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Input Loss Behavior</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInputLossBehavior' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679895929"><span id="local-6989586621679895930"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputLossBehavior"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-var">InputLossBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputLossBehavior%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-var">InputLossBehavior'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679895938"><span id="local-6989586621679895939"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputLossBehavior"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-var">InputLossBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputLossBehavior%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-var">InputLossBehavior'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When input loss image type is \&quot;color\&quot; this field specifies the color</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to use. Value: 6 hex characters representing the values of RGB.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AinputLossImageColor%3AInputLossBehavior%27"><span class="annot"><span class="annottext">InputLossBehavior -&gt; Maybe Text
@@ -48,7 +48,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AinputLossImageSlate%3AInputLossBehavior%27"><span class="annot"><span class="annottext">InputLossBehavior -&gt; Maybe InputLocation
 </span><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#%24sel%3AinputLossImageSlate%3AInputLossBehavior%27"><span class="hs-identifier hs-var hs-var">inputLossImageSlate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLocation.html#InputLocation"><span class="hs-identifier hs-type">InputLocation</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679895919"><span id="local-6989586621679895921"><span class="annot"><span class="annottext">InputLossBehavior -&gt; InputLossBehavior -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679895928"><span id="local-6989586621679895930"><span class="annot"><span class="annottext">InputLossBehavior -&gt; InputLossBehavior -&gt; Bool
 (InputLossBehavior -&gt; InputLossBehavior -&gt; Bool)
 -&gt; (InputLossBehavior -&gt; InputLossBehavior -&gt; Bool)
 -&gt; Eq InputLossBehavior
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputLossBehavior -&gt; InputLossBehavior -&gt; Bool
 == :: InputLossBehavior -&gt; InputLossBehavior -&gt; Bool
 $c== :: InputLossBehavior -&gt; InputLossBehavior -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679895910"><span id="local-6989586621679895912"><span id="local-6989586621679895914"><span id="local-6989586621679895916"><span class="annot"><span class="annottext">ReadPrec [InputLossBehavior]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679895919"><span id="local-6989586621679895921"><span id="local-6989586621679895923"><span id="local-6989586621679895925"><span class="annot"><span class="annottext">ReadPrec [InputLossBehavior]
 ReadPrec InputLossBehavior
 Int -&gt; ReadS InputLossBehavior
 ReadS [InputLossBehavior]
@@ -77,7 +77,7 @@ readList :: ReadS [InputLossBehavior]
 $creadList :: ReadS [InputLossBehavior]
 readsPrec :: Int -&gt; ReadS InputLossBehavior
 $creadsPrec :: Int -&gt; ReadS InputLossBehavior
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679895903"><span id="local-6989586621679895905"><span id="local-6989586621679895907"><span class="annot"><span class="annottext">Int -&gt; InputLossBehavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679895912"><span id="local-6989586621679895914"><span id="local-6989586621679895916"><span class="annot"><span class="annottext">Int -&gt; InputLossBehavior -&gt; ShowS
 [InputLossBehavior] -&gt; ShowS
 InputLossBehavior -&gt; String
 (Int -&gt; InputLossBehavior -&gt; ShowS)
@@ -167,16 +167,16 @@ forall a. Maybe a
 -&gt; Lens
      InputLossBehavior InputLossBehavior (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895894"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895903"><span class="annot"><span class="annottext">Maybe Text
 inputLossImageColor :: Maybe Text
 $sel:inputLossImageColor:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Text
-</span><a href="#local-6989586621679895894"><span class="hs-identifier hs-var hs-var">inputLossImageColor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679895894"><span class="hs-identifier hs-var">inputLossImageColor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895893"><span class="annot"><span class="annottext">s :: InputLossBehavior
-</span><a href="#local-6989586621679895893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895892"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679895892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
-</span><a href="#local-6989586621679895893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossImageColor:InputLossBehavior' :: Maybe Text
+</span><a href="#local-6989586621679895903"><span class="hs-identifier hs-var hs-var">inputLossImageColor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679895903"><span class="hs-identifier hs-var">inputLossImageColor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895902"><span class="annot"><span class="annottext">s :: InputLossBehavior
+</span><a href="#local-6989586621679895902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679895901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
+</span><a href="#local-6989586621679895902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossImageColor:InputLossBehavior' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#%24sel%3AinputLossImageColor%3AInputLossBehavior%27"><span class="hs-identifier hs-var">inputLossImageColor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679895892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679895901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Documentation update needed</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#inputLossBehavior_blackFrameMsec"><span class="hs-identifier hs-type">inputLossBehavior_blackFrameMsec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -187,16 +187,16 @@ $sel:inputLossImageColor:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Tex
 -&gt; Lens
      InputLossBehavior InputLossBehavior (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895890"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895899"><span class="annot"><span class="annottext">Maybe Natural
 blackFrameMsec :: Maybe Natural
 $sel:blackFrameMsec:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Natural
-</span><a href="#local-6989586621679895890"><span class="hs-identifier hs-var hs-var">blackFrameMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679895890"><span class="hs-identifier hs-var">blackFrameMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895889"><span class="annot"><span class="annottext">s :: InputLossBehavior
-</span><a href="#local-6989586621679895889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895888"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679895888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
-</span><a href="#local-6989586621679895889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blackFrameMsec:InputLossBehavior' :: Maybe Natural
+</span><a href="#local-6989586621679895899"><span class="hs-identifier hs-var hs-var">blackFrameMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679895899"><span class="hs-identifier hs-var">blackFrameMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895898"><span class="annot"><span class="annottext">s :: InputLossBehavior
+</span><a href="#local-6989586621679895898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895897"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679895897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
+</span><a href="#local-6989586621679895898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blackFrameMsec:InputLossBehavior' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#%24sel%3AblackFrameMsec%3AInputLossBehavior%27"><span class="hs-identifier hs-var">blackFrameMsec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679895888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679895897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Documentation update needed</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#inputLossBehavior_repeatFrameMsec"><span class="hs-identifier hs-type">inputLossBehavior_repeatFrameMsec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -207,16 +207,16 @@ $sel:blackFrameMsec:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Natural
 -&gt; Lens
      InputLossBehavior InputLossBehavior (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895886"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895895"><span class="annot"><span class="annottext">Maybe Natural
 repeatFrameMsec :: Maybe Natural
 $sel:repeatFrameMsec:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Natural
-</span><a href="#local-6989586621679895886"><span class="hs-identifier hs-var hs-var">repeatFrameMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679895886"><span class="hs-identifier hs-var">repeatFrameMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895885"><span class="annot"><span class="annottext">s :: InputLossBehavior
-</span><a href="#local-6989586621679895885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895884"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679895884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
-</span><a href="#local-6989586621679895885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repeatFrameMsec:InputLossBehavior' :: Maybe Natural
+</span><a href="#local-6989586621679895895"><span class="hs-identifier hs-var hs-var">repeatFrameMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679895895"><span class="hs-identifier hs-var">repeatFrameMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895894"><span class="annot"><span class="annottext">s :: InputLossBehavior
+</span><a href="#local-6989586621679895894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895893"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679895893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
+</span><a href="#local-6989586621679895894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repeatFrameMsec:InputLossBehavior' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#%24sel%3ArepeatFrameMsec%3AInputLossBehavior%27"><span class="hs-identifier hs-var">repeatFrameMsec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679895884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679895893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Indicates whether to substitute a solid color or a slate into the output</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- after input loss exceeds blackFrameMsec.</span><span>
@@ -232,16 +232,16 @@ $sel:repeatFrameMsec:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Natural
      (Maybe InputLossImageType)
      (Maybe InputLossImageType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895882"><span class="annot"><span class="annottext">Maybe InputLossImageType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895891"><span class="annot"><span class="annottext">Maybe InputLossImageType
 inputLossImageType :: Maybe InputLossImageType
 $sel:inputLossImageType:InputLossBehavior' :: InputLossBehavior -&gt; Maybe InputLossImageType
-</span><a href="#local-6989586621679895882"><span class="hs-identifier hs-var hs-var">inputLossImageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossImageType
-</span><a href="#local-6989586621679895882"><span class="hs-identifier hs-var">inputLossImageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895881"><span class="annot"><span class="annottext">s :: InputLossBehavior
-</span><a href="#local-6989586621679895881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895880"><span class="annot"><span class="annottext">Maybe InputLossImageType
-</span><a href="#local-6989586621679895880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
-</span><a href="#local-6989586621679895881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossImageType:InputLossBehavior' :: Maybe InputLossImageType
+</span><a href="#local-6989586621679895891"><span class="hs-identifier hs-var hs-var">inputLossImageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossImageType
+</span><a href="#local-6989586621679895891"><span class="hs-identifier hs-var">inputLossImageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895890"><span class="annot"><span class="annottext">s :: InputLossBehavior
+</span><a href="#local-6989586621679895890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895889"><span class="annot"><span class="annottext">Maybe InputLossImageType
+</span><a href="#local-6989586621679895889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
+</span><a href="#local-6989586621679895890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossImageType:InputLossBehavior' :: Maybe InputLossImageType
 </span><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#%24sel%3AinputLossImageType%3AInputLossBehavior%27"><span class="hs-identifier hs-var">inputLossImageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLossImageType
-</span><a href="#local-6989586621679895880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679895889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | When input loss image type is \&quot;slate\&quot; these fields specify the</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- parameters for accessing the slate.</span><span>
@@ -256,19 +256,19 @@ $sel:inputLossImageType:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Inpu
      (Maybe InputLocation)
      (Maybe InputLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895878"><span class="annot"><span class="annottext">Maybe InputLocation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895887"><span class="annot"><span class="annottext">Maybe InputLocation
 inputLossImageSlate :: Maybe InputLocation
 $sel:inputLossImageSlate:InputLossBehavior' :: InputLossBehavior -&gt; Maybe InputLocation
-</span><a href="#local-6989586621679895878"><span class="hs-identifier hs-var hs-var">inputLossImageSlate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679895878"><span class="hs-identifier hs-var">inputLossImageSlate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895877"><span class="annot"><span class="annottext">s :: InputLossBehavior
-</span><a href="#local-6989586621679895877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895876"><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679895876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
-</span><a href="#local-6989586621679895877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossImageSlate:InputLossBehavior' :: Maybe InputLocation
+</span><a href="#local-6989586621679895887"><span class="hs-identifier hs-var hs-var">inputLossImageSlate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679895887"><span class="hs-identifier hs-var">inputLossImageSlate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679895886"><span class="annot"><span class="annottext">s :: InputLossBehavior
+</span><a href="#local-6989586621679895886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679895885"><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679895885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLossBehavior
+</span><a href="#local-6989586621679895886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputLossImageSlate:InputLossBehavior' :: Maybe InputLocation
 </span><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#%24sel%3AinputLossImageSlate%3AInputLossBehavior%27"><span class="hs-identifier hs-var">inputLossImageSlate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679895876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679895885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895873"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679895871"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputLossBehavior
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895882"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679895880"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputLossBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputLossBehavior)
@@ -278,8 +278,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputLossBehavior&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679895868"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679895868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679895877"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679895877"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe Natural
@@ -302,7 +302,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; InputLossBehavior)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679895868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679895877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputLossImageColor&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,7 +320,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InputLossBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679895868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679895877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;blackFrameMsec&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe InputLocation -&gt; InputLossBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679895868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679895877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repeatFrameMsec&quot;</span></span><span class="hs-special">)</span><span>
@@ -346,7 +346,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputLocation -&gt; InputLossBehavior)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679895868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLossImageType)
+</span><a href="#local-6989586621679895877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLossImageType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputLossImageType&quot;</span></span><span class="hs-special">)</span><span>
@@ -354,19 +354,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputLocation) -&gt; Parser InputLossBehavior
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679895868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
+</span><a href="#local-6989586621679895877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputLossImageSlate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895862"><span id="local-6989586621679895864"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895871"><span id="local-6989586621679895873"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895851"><span id="local-6989586621679895853"><span id="local-6989586621679895855"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679895849"><span class="annot"><span class="annottext">toJSON :: InputLossBehavior -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895843"><span id="local-6989586621679895844"><span id="local-6989586621679895845"><span id="local-6989586621679895846"><span id="local-6989586621679895847"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679895860"><span id="local-6989586621679895862"><span id="local-6989586621679895864"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior"><span class="hs-identifier hs-type">InputLossBehavior</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679895858"><span class="annot"><span class="annottext">toJSON :: InputLossBehavior -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLossBehavior.html#InputLossBehavior%27"><span class="hs-identifier hs-type">InputLossBehavior'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679895852"><span id="local-6989586621679895853"><span id="local-6989586621679895854"><span id="local-6989586621679895855"><span id="local-6989586621679895856"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe InputLocation
 Maybe InputLossImageType
@@ -380,7 +380,7 @@ $sel:inputLossImageType:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Inpu
 $sel:repeatFrameMsec:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Natural
 $sel:blackFrameMsec:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Natural
 $sel:inputLossImageColor:InputLossBehavior' :: InputLossBehavior -&gt; Maybe Text
-</span><a href="#local-6989586621679895843"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679895852"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -393,7 +393,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679895847"><span class="hs-identifier hs-var">inputLossImageColor</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679895856"><span class="hs-identifier hs-var">inputLossImageColor</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;blackFrameMsec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -401,7 +401,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679895846"><span class="hs-identifier hs-var">blackFrameMsec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679895855"><span class="hs-identifier hs-var">blackFrameMsec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repeatFrameMsec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -409,7 +409,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679895845"><span class="hs-identifier hs-var">repeatFrameMsec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679895854"><span class="hs-identifier hs-var">repeatFrameMsec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputLossImageType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputLossImageType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -418,7 +418,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe InputLossImageType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLossImageType
-</span><a href="#local-6989586621679895844"><span class="hs-identifier hs-var">inputLossImageType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679895853"><span class="hs-identifier hs-var">inputLossImageType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputLossImageSlate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputLocation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -426,7 +426,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(InputLocation -&gt; Pair) -&gt; Maybe InputLocation -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679895843"><span class="hs-identifier hs-var">inputLossImageSlate</span></a></span><span>
+</span><a href="#local-6989586621679895852"><span class="hs-identifier hs-var">inputLossImageSlate</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span></pre></body></html>

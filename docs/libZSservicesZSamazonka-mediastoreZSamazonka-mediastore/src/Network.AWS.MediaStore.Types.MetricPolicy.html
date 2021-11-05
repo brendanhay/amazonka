@@ -36,7 +36,7 @@
 </span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediastore/latest/ug/policies-metric-examples.html Example Metric Policies&gt;.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newMetricPolicy' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679164168"><span id="local-6989586621679164169"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricPolicy"><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-var">MetricPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-var">MetricPolicy'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679164177"><span id="local-6989586621679164178"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricPolicy"><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-var">MetricPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-var">MetricPolicy'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A parameter that holds an array of rules that enable metrics at the</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- object level. This parameter is optional, but if you choose to include</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- it, you must also include at least one rule. By default, you can include</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AcontainerLevelMetrics%3AMetricPolicy%27"><span class="annot"><span class="annottext">MetricPolicy -&gt; ContainerLevelMetrics
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#%24sel%3AcontainerLevelMetrics%3AMetricPolicy%27"><span class="hs-identifier hs-var hs-var">containerLevelMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.ContainerLevelMetrics.html#ContainerLevelMetrics"><span class="hs-identifier hs-type">ContainerLevelMetrics</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679164161"><span id="local-6989586621679164163"><span class="annot"><span class="annottext">MetricPolicy -&gt; MetricPolicy -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679164170"><span id="local-6989586621679164172"><span class="annot"><span class="annottext">MetricPolicy -&gt; MetricPolicy -&gt; Bool
 (MetricPolicy -&gt; MetricPolicy -&gt; Bool)
 -&gt; (MetricPolicy -&gt; MetricPolicy -&gt; Bool) -&gt; Eq MetricPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricPolicy -&gt; MetricPolicy -&gt; Bool
 == :: MetricPolicy -&gt; MetricPolicy -&gt; Bool
 $c== :: MetricPolicy -&gt; MetricPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164152"><span id="local-6989586621679164154"><span id="local-6989586621679164156"><span id="local-6989586621679164158"><span class="annot"><span class="annottext">ReadPrec [MetricPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164161"><span id="local-6989586621679164163"><span id="local-6989586621679164165"><span id="local-6989586621679164167"><span class="annot"><span class="annottext">ReadPrec [MetricPolicy]
 ReadPrec MetricPolicy
 Int -&gt; ReadS MetricPolicy
 ReadS [MetricPolicy]
@@ -77,7 +77,7 @@ readList :: ReadS [MetricPolicy]
 $creadList :: ReadS [MetricPolicy]
 readsPrec :: Int -&gt; ReadS MetricPolicy
 $creadsPrec :: Int -&gt; ReadS MetricPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164145"><span id="local-6989586621679164147"><span id="local-6989586621679164149"><span class="annot"><span class="annottext">Int -&gt; MetricPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679164154"><span id="local-6989586621679164156"><span id="local-6989586621679164158"><span class="annot"><span class="annottext">Int -&gt; MetricPolicy -&gt; ShowS
 [MetricPolicy] -&gt; ShowS
 MetricPolicy -&gt; String
 (Int -&gt; MetricPolicy -&gt; ShowS)
@@ -124,8 +124,8 @@ $cfrom :: forall x. MetricPolicy -&gt; Rep MetricPolicy x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.Types.ContainerLevelMetrics.html#ContainerLevelMetrics"><span class="hs-identifier hs-type">ContainerLevelMetrics</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span>
 </span><span id="line-72"></span><span id="newMetricPolicy"><span class="annot"><span class="annottext">newMetricPolicy :: ContainerLevelMetrics -&gt; MetricPolicy
-</span><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#newMetricPolicy"><span class="hs-identifier hs-var hs-var">newMetricPolicy</span></a></span></span><span> </span><span id="local-6989586621679164139"><span class="annot"><span class="annottext">ContainerLevelMetrics
-</span><a href="#local-6989586621679164139"><span class="hs-identifier hs-var">pContainerLevelMetrics_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#newMetricPolicy"><span class="hs-identifier hs-var hs-var">newMetricPolicy</span></a></span></span><span> </span><span id="local-6989586621679164148"><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><a href="#local-6989586621679164148"><span class="hs-identifier hs-var">pContainerLevelMetrics_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">MetricPolicy' :: Maybe (NonEmpty MetricPolicyRule)
 -&gt; ContainerLevelMetrics -&gt; MetricPolicy
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span>
@@ -135,7 +135,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerLevelMetrics:MetricPolicy' :: ContainerLevelMetrics
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#%24sel%3AcontainerLevelMetrics%3AMetricPolicy%27"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContainerLevelMetrics
-</span><a href="#local-6989586621679164139"><span class="hs-identifier hs-var">pContainerLevelMetrics_</span></a></span><span>
+</span><a href="#local-6989586621679164148"><span class="hs-identifier hs-var">pContainerLevelMetrics_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | A parameter that holds an array of rules that enable metrics at the</span><span>
@@ -157,16 +157,16 @@ forall a. Maybe a
      (Maybe (NonEmpty MetricPolicyRule))
      (Maybe (NonEmpty MetricPolicyRule))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164135"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164144"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
 metricPolicyRules :: Maybe (NonEmpty MetricPolicyRule)
 $sel:metricPolicyRules:MetricPolicy' :: MetricPolicy -&gt; Maybe (NonEmpty MetricPolicyRule)
-</span><a href="#local-6989586621679164135"><span class="hs-identifier hs-var hs-var">metricPolicyRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
-</span><a href="#local-6989586621679164135"><span class="hs-identifier hs-var">metricPolicyRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679164134"><span class="annot"><span class="annottext">s :: MetricPolicy
-</span><a href="#local-6989586621679164134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679164133"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
-</span><a href="#local-6989586621679164133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicy
-</span><a href="#local-6989586621679164134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricPolicyRules:MetricPolicy' :: Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679164144"><span class="hs-identifier hs-var hs-var">metricPolicyRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679164144"><span class="hs-identifier hs-var">metricPolicyRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679164143"><span class="annot"><span class="annottext">s :: MetricPolicy
+</span><a href="#local-6989586621679164143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679164142"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679164142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicy
+</span><a href="#local-6989586621679164143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricPolicyRules:MetricPolicy' :: Maybe (NonEmpty MetricPolicyRule)
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#%24sel%3AmetricPolicyRules%3AMetricPolicy%27"><span class="hs-identifier hs-var">metricPolicyRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
-</span><a href="#local-6989586621679164133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty MetricPolicyRule)
+</span><a href="#local-6989586621679164142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty MetricPolicyRule)
   -&gt; f (Maybe (NonEmpty MetricPolicyRule)))
  -&gt; MetricPolicy -&gt; f MetricPolicy)
 -&gt; ((Maybe (NonEmpty MetricPolicyRule)
@@ -211,19 +211,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      ContainerLevelMetrics
      ContainerLevelMetrics
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164128"><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164137"><span class="annot"><span class="annottext">ContainerLevelMetrics
 containerLevelMetrics :: ContainerLevelMetrics
 $sel:containerLevelMetrics:MetricPolicy' :: MetricPolicy -&gt; ContainerLevelMetrics
-</span><a href="#local-6989586621679164128"><span class="hs-identifier hs-var hs-var">containerLevelMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerLevelMetrics
-</span><a href="#local-6989586621679164128"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679164127"><span class="annot"><span class="annottext">s :: MetricPolicy
-</span><a href="#local-6989586621679164127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679164126"><span class="annot"><span class="annottext">ContainerLevelMetrics
-</span><a href="#local-6989586621679164126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicy
-</span><a href="#local-6989586621679164127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerLevelMetrics:MetricPolicy' :: ContainerLevelMetrics
+</span><a href="#local-6989586621679164137"><span class="hs-identifier hs-var hs-var">containerLevelMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><a href="#local-6989586621679164137"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679164136"><span class="annot"><span class="annottext">s :: MetricPolicy
+</span><a href="#local-6989586621679164136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679164135"><span class="annot"><span class="annottext">ContainerLevelMetrics
+</span><a href="#local-6989586621679164135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricPolicy
+</span><a href="#local-6989586621679164136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerLevelMetrics:MetricPolicy' :: ContainerLevelMetrics
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#%24sel%3AcontainerLevelMetrics%3AMetricPolicy%27"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContainerLevelMetrics
-</span><a href="#local-6989586621679164126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679164135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164123"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679164121"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricPolicy
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164132"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679164130"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricPolicy) -&gt; Value -&gt; Parser MetricPolicy
@@ -231,8 +231,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricPolicy&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679164118"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679164118"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679164127"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679164127"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
 -&gt; ContainerLevelMetrics -&gt; MetricPolicy
 </span><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-var">MetricPolicy'</span></a></span><span>
@@ -242,7 +242,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (ContainerLevelMetrics -&gt; MetricPolicy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679164118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty MetricPolicyRule))
+</span><a href="#local-6989586621679164127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty MetricPolicyRule))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricPolicyRules&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,25 +250,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ContainerLevelMetrics -&gt; Parser MetricPolicy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679164118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ContainerLevelMetrics
+</span><a href="#local-6989586621679164127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ContainerLevelMetrics
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContainerLevelMetrics&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164111"><span id="local-6989586621679164113"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164120"><span id="local-6989586621679164122"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164100"><span id="local-6989586621679164102"><span id="local-6989586621679164104"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679164098"><span class="annot"><span class="annottext">toJSON :: MetricPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164095"><span id="local-6989586621679164096"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679164109"><span id="local-6989586621679164111"><span id="local-6989586621679164113"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy"><span class="hs-identifier hs-type">MetricPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679164107"><span class="annot"><span class="annottext">toJSON :: MetricPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.MetricPolicy.html#MetricPolicy%27"><span class="hs-identifier hs-type">MetricPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679164104"><span id="local-6989586621679164105"><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
 ContainerLevelMetrics
 containerLevelMetrics :: ContainerLevelMetrics
 metricPolicyRules :: Maybe (NonEmpty MetricPolicyRule)
 $sel:containerLevelMetrics:MetricPolicy' :: MetricPolicy -&gt; ContainerLevelMetrics
 $sel:metricPolicyRules:MetricPolicy' :: MetricPolicy -&gt; Maybe (NonEmpty MetricPolicyRule)
-</span><a href="#local-6989586621679164095"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679164104"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -282,7 +282,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (NonEmpty MetricPolicyRule) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty MetricPolicyRule)
-</span><a href="#local-6989586621679164096"><span class="hs-identifier hs-var">metricPolicyRules</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679164105"><span class="hs-identifier hs-var">metricPolicyRules</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -291,7 +291,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-113"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ContainerLevelMetrics -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ContainerLevelMetrics
-</span><a href="#local-6989586621679164095"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span>
+</span><a href="#local-6989586621679164104"><span class="hs-identifier hs-var">containerLevelMetrics</span></a></span><span>
 </span><span id="line-114"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>

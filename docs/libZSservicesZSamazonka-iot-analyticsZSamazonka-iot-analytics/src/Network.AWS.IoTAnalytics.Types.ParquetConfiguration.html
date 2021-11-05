@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains the configuration information of the Parquet format.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newParquetConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679259295"><span id="local-6989586621679259296"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParquetConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-var">ParquetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParquetConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration%27"><span class="hs-identifier hs-var">ParquetConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679259304"><span id="local-6989586621679259305"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParquetConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-var">ParquetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParquetConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration%27"><span class="hs-identifier hs-var">ParquetConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information needed to define a schema.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AschemaDefinition%3AParquetConfiguration%27"><span class="annot"><span class="annottext">ParquetConfiguration -&gt; Maybe SchemaDefinition
 </span><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#%24sel%3AschemaDefinition%3AParquetConfiguration%27"><span class="hs-identifier hs-var hs-var">schemaDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.SchemaDefinition.html#SchemaDefinition"><span class="hs-identifier hs-type">SchemaDefinition</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259289"><span id="local-6989586621679259291"><span class="annot"><span class="annottext">ParquetConfiguration -&gt; ParquetConfiguration -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259298"><span id="local-6989586621679259300"><span class="annot"><span class="annottext">ParquetConfiguration -&gt; ParquetConfiguration -&gt; Bool
 (ParquetConfiguration -&gt; ParquetConfiguration -&gt; Bool)
 -&gt; (ParquetConfiguration -&gt; ParquetConfiguration -&gt; Bool)
 -&gt; Eq ParquetConfiguration
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ParquetConfiguration -&gt; ParquetConfiguration -&gt; Bool
 == :: ParquetConfiguration -&gt; ParquetConfiguration -&gt; Bool
 $c== :: ParquetConfiguration -&gt; ParquetConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259280"><span id="local-6989586621679259282"><span id="local-6989586621679259284"><span id="local-6989586621679259286"><span class="annot"><span class="annottext">ReadPrec [ParquetConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259289"><span id="local-6989586621679259291"><span id="local-6989586621679259293"><span id="local-6989586621679259295"><span class="annot"><span class="annottext">ReadPrec [ParquetConfiguration]
 ReadPrec ParquetConfiguration
 Int -&gt; ReadS ParquetConfiguration
 ReadS [ParquetConfiguration]
@@ -61,7 +61,7 @@ readList :: ReadS [ParquetConfiguration]
 $creadList :: ReadS [ParquetConfiguration]
 readsPrec :: Int -&gt; ReadS ParquetConfiguration
 $creadsPrec :: Int -&gt; ReadS ParquetConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259273"><span id="local-6989586621679259275"><span id="local-6989586621679259277"><span class="annot"><span class="annottext">Int -&gt; ParquetConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259282"><span id="local-6989586621679259284"><span id="local-6989586621679259286"><span class="annot"><span class="annottext">Int -&gt; ParquetConfiguration -&gt; ShowS
 [ParquetConfiguration] -&gt; ShowS
 ParquetConfiguration -&gt; String
 (Int -&gt; ParquetConfiguration -&gt; ShowS)
@@ -122,19 +122,19 @@ forall a. Maybe a
      (Maybe SchemaDefinition)
      (Maybe SchemaDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration%27"><span class="hs-identifier hs-type">ParquetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259264"><span class="annot"><span class="annottext">Maybe SchemaDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration%27"><span class="hs-identifier hs-type">ParquetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259273"><span class="annot"><span class="annottext">Maybe SchemaDefinition
 schemaDefinition :: Maybe SchemaDefinition
 $sel:schemaDefinition:ParquetConfiguration' :: ParquetConfiguration -&gt; Maybe SchemaDefinition
-</span><a href="#local-6989586621679259264"><span class="hs-identifier hs-var hs-var">schemaDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaDefinition
-</span><a href="#local-6989586621679259264"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259263"><span class="annot"><span class="annottext">s :: ParquetConfiguration
-</span><a href="#local-6989586621679259263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration%27"><span class="hs-identifier hs-type">ParquetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259262"><span class="annot"><span class="annottext">Maybe SchemaDefinition
-</span><a href="#local-6989586621679259262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetConfiguration
-</span><a href="#local-6989586621679259263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaDefinition:ParquetConfiguration' :: Maybe SchemaDefinition
+</span><a href="#local-6989586621679259273"><span class="hs-identifier hs-var hs-var">schemaDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaDefinition
+</span><a href="#local-6989586621679259273"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259272"><span class="annot"><span class="annottext">s :: ParquetConfiguration
+</span><a href="#local-6989586621679259272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration%27"><span class="hs-identifier hs-type">ParquetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259271"><span class="annot"><span class="annottext">Maybe SchemaDefinition
+</span><a href="#local-6989586621679259271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParquetConfiguration
+</span><a href="#local-6989586621679259272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaDefinition:ParquetConfiguration' :: Maybe SchemaDefinition
 </span><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#%24sel%3AschemaDefinition%3AParquetConfiguration%27"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaDefinition
-</span><a href="#local-6989586621679259262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259259"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679259257"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParquetConfiguration
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259268"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679259266"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParquetConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ParquetConfiguration)
@@ -144,30 +144,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ParquetConfiguration&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259254"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259254"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259263"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe SchemaDefinition -&gt; ParquetConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration%27"><span class="hs-identifier hs-var">ParquetConfiguration'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SchemaDefinition -&gt; ParquetConfiguration)
 -&gt; Parser (Maybe SchemaDefinition) -&gt; Parser ParquetConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SchemaDefinition)
+</span><a href="#local-6989586621679259263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SchemaDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;schemaDefinition&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259248"><span id="local-6989586621679259250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259257"><span id="local-6989586621679259259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259237"><span id="local-6989586621679259239"><span id="local-6989586621679259241"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679259235"><span class="annot"><span class="annottext">toJSON :: ParquetConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration%27"><span class="hs-identifier hs-type">ParquetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259233"><span class="annot"><span class="annottext">Maybe SchemaDefinition
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259246"><span id="local-6989586621679259248"><span id="local-6989586621679259250"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679259244"><span class="annot"><span class="annottext">toJSON :: ParquetConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration%27"><span class="hs-identifier hs-type">ParquetConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259242"><span class="annot"><span class="annottext">Maybe SchemaDefinition
 schemaDefinition :: Maybe SchemaDefinition
 $sel:schemaDefinition:ParquetConfiguration' :: ParquetConfiguration -&gt; Maybe SchemaDefinition
-</span><a href="#local-6989586621679259233"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679259242"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,7 +180,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-75"></span><span>              </span><span class="annot"><span class="annottext">(SchemaDefinition -&gt; Pair) -&gt; Maybe SchemaDefinition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SchemaDefinition
-</span><a href="#local-6989586621679259233"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span>
+</span><a href="#local-6989586621679259242"><span class="hs-identifier hs-var">schemaDefinition</span></a></span><span>
 </span><span id="line-76"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

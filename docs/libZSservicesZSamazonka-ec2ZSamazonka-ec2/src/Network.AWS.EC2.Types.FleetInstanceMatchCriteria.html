@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681108184"><span id="local-6989586621681108185"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetInstanceMatchCriteria"><span class="annot"><a href="Network.AWS.EC2.Types.FleetInstanceMatchCriteria.html#FleetInstanceMatchCriteria"><span class="hs-identifier hs-var">FleetInstanceMatchCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetInstanceMatchCriteria%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetInstanceMatchCriteria.html#FleetInstanceMatchCriteria%27"><span class="hs-identifier hs-var">FleetInstanceMatchCriteria'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681108193"><span id="local-6989586621681108194"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetInstanceMatchCriteria"><span class="annot"><a href="Network.AWS.EC2.Types.FleetInstanceMatchCriteria.html#FleetInstanceMatchCriteria"><span class="hs-identifier hs-var">FleetInstanceMatchCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetInstanceMatchCriteria%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetInstanceMatchCriteria.html#FleetInstanceMatchCriteria%27"><span class="hs-identifier hs-var">FleetInstanceMatchCriteria'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetInstanceMatchCriteria"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; Text
 </span><a href="Network.AWS.EC2.Types.FleetInstanceMatchCriteria.html#fromFleetInstanceMatchCriteria"><span class="hs-identifier hs-var hs-var">fromFleetInstanceMatchCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108176"><span id="local-6989586621681108178"><span id="local-6989586621681108180"><span class="annot"><span class="annottext">Int -&gt; FleetInstanceMatchCriteria -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108185"><span id="local-6989586621681108187"><span id="local-6989586621681108189"><span class="annot"><span class="annottext">Int -&gt; FleetInstanceMatchCriteria -&gt; ShowS
 [FleetInstanceMatchCriteria] -&gt; ShowS
 FleetInstanceMatchCriteria -&gt; String
 (Int -&gt; FleetInstanceMatchCriteria -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: FleetInstanceMatchCriteria -&gt; String
 showsPrec :: Int -&gt; FleetInstanceMatchCriteria -&gt; ShowS
 $cshowsPrec :: Int -&gt; FleetInstanceMatchCriteria -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681108167"><span id="local-6989586621681108169"><span id="local-6989586621681108171"><span id="local-6989586621681108173"><span class="annot"><span class="annottext">ReadPrec [FleetInstanceMatchCriteria]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681108176"><span id="local-6989586621681108178"><span id="local-6989586621681108180"><span id="local-6989586621681108182"><span class="annot"><span class="annottext">ReadPrec [FleetInstanceMatchCriteria]
 ReadPrec FleetInstanceMatchCriteria
 Int -&gt; ReadS FleetInstanceMatchCriteria
 ReadS [FleetInstanceMatchCriteria]
@@ -72,7 +72,7 @@ $creadList :: ReadS [FleetInstanceMatchCriteria]
 readsPrec :: Int -&gt; ReadS FleetInstanceMatchCriteria
 $creadsPrec :: Int -&gt; ReadS FleetInstanceMatchCriteria
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681108162"><span id="local-6989586621681108164"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; FleetInstanceMatchCriteria -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681108171"><span id="local-6989586621681108173"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; FleetInstanceMatchCriteria -&gt; Bool
 (FleetInstanceMatchCriteria -&gt; FleetInstanceMatchCriteria -&gt; Bool)
 -&gt; (FleetInstanceMatchCriteria
     -&gt; FleetInstanceMatchCriteria -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: FleetInstanceMatchCriteria -&gt; FleetInstanceMatchCriteria -&gt; Bool
 == :: FleetInstanceMatchCriteria -&gt; FleetInstanceMatchCriteria -&gt; Bool
 $c== :: FleetInstanceMatchCriteria -&gt; FleetInstanceMatchCriteria -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681108146"><span id="local-6989586621681108148"><span id="local-6989586621681108150"><span id="local-6989586621681108152"><span id="local-6989586621681108154"><span id="local-6989586621681108156"><span id="local-6989586621681108158"><span class="annot"><span class="annottext">Eq FleetInstanceMatchCriteria
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681108155"><span id="local-6989586621681108157"><span id="local-6989586621681108159"><span id="local-6989586621681108161"><span id="local-6989586621681108163"><span id="local-6989586621681108165"><span id="local-6989586621681108167"><span class="annot"><span class="annottext">Eq FleetInstanceMatchCriteria
 Eq FleetInstanceMatchCriteria
 -&gt; (FleetInstanceMatchCriteria
     -&gt; FleetInstanceMatchCriteria -&gt; Ordering)
@@ -155,7 +155,7 @@ FleetInstanceMatchCriteria -&gt; Rep FleetInstanceMatchCriteria x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108138"><span id="local-6989586621681108140"><span class="annot"><span class="annottext">Int -&gt; FleetInstanceMatchCriteria -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108147"><span id="local-6989586621681108149"><span class="annot"><span class="annottext">Int -&gt; FleetInstanceMatchCriteria -&gt; Int
 FleetInstanceMatchCriteria -&gt; Int
 (Int -&gt; FleetInstanceMatchCriteria -&gt; Int)
 -&gt; (FleetInstanceMatchCriteria -&gt; Int)
@@ -166,56 +166,56 @@ $chash :: FleetInstanceMatchCriteria -&gt; Int
 hashWithSalt :: Int -&gt; FleetInstanceMatchCriteria -&gt; Int
 $chashWithSalt :: Int -&gt; FleetInstanceMatchCriteria -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681108135"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681108144"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; ()
 (FleetInstanceMatchCriteria -&gt; ())
 -&gt; NFData FleetInstanceMatchCriteria
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FleetInstanceMatchCriteria -&gt; ()
 $crnf :: FleetInstanceMatchCriteria -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681108132"><span class="annot"><span class="annottext">Text -&gt; Either String FleetInstanceMatchCriteria
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681108141"><span class="annot"><span class="annottext">Text -&gt; Either String FleetInstanceMatchCriteria
 (Text -&gt; Either String FleetInstanceMatchCriteria)
 -&gt; FromText FleetInstanceMatchCriteria
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FleetInstanceMatchCriteria
 $cfromText :: Text -&gt; Either String FleetInstanceMatchCriteria
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681108129"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681108138"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; Text
 (FleetInstanceMatchCriteria -&gt; Text)
 -&gt; ToText FleetInstanceMatchCriteria
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FleetInstanceMatchCriteria -&gt; Text
 $ctoText :: FleetInstanceMatchCriteria -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681108126"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681108135"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; ByteString
 (FleetInstanceMatchCriteria -&gt; ByteString)
 -&gt; ToByteString FleetInstanceMatchCriteria
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FleetInstanceMatchCriteria -&gt; ByteString
 $ctoBS :: FleetInstanceMatchCriteria -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681108123"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681108132"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; ByteStringBuilder
 (FleetInstanceMatchCriteria -&gt; ByteStringBuilder)
 -&gt; ToLog FleetInstanceMatchCriteria
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FleetInstanceMatchCriteria -&gt; ByteStringBuilder
 $cbuild :: FleetInstanceMatchCriteria -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681108120"><span class="annot"><span class="annottext">HeaderName -&gt; FleetInstanceMatchCriteria -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681108129"><span class="annot"><span class="annottext">HeaderName -&gt; FleetInstanceMatchCriteria -&gt; [Header]
 (HeaderName -&gt; FleetInstanceMatchCriteria -&gt; [Header])
 -&gt; ToHeader FleetInstanceMatchCriteria
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FleetInstanceMatchCriteria -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FleetInstanceMatchCriteria -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681108117"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681108126"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; QueryString
 (FleetInstanceMatchCriteria -&gt; QueryString)
 -&gt; ToQuery FleetInstanceMatchCriteria
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FleetInstanceMatchCriteria -&gt; QueryString
 $ctoQuery :: FleetInstanceMatchCriteria -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681108112"><span id="local-6989586621681108114"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetInstanceMatchCriteria]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681108121"><span id="local-6989586621681108123"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetInstanceMatchCriteria]
 Value -&gt; Parser FleetInstanceMatchCriteria
 (Value -&gt; Parser FleetInstanceMatchCriteria)
 -&gt; (Value -&gt; Parser [FleetInstanceMatchCriteria])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [FleetInstanceMatchCriteria]
 parseJSON :: Value -&gt; Parser FleetInstanceMatchCriteria
 $cparseJSON :: Value -&gt; Parser FleetInstanceMatchCriteria
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681108107"><span id="local-6989586621681108109"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetInstanceMatchCriteria]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681108116"><span id="local-6989586621681108118"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetInstanceMatchCriteria]
 FromJSONKeyFunction FleetInstanceMatchCriteria
 FromJSONKeyFunction FleetInstanceMatchCriteria
 -&gt; FromJSONKeyFunction [FleetInstanceMatchCriteria]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FleetInstanceMatchCriteria]
 fromJSONKey :: FromJSONKeyFunction FleetInstanceMatchCriteria
 $cfromJSONKey :: FromJSONKeyFunction FleetInstanceMatchCriteria
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681108098"><span id="local-6989586621681108100"><span id="local-6989586621681108102"><span id="local-6989586621681108104"><span class="annot"><span class="annottext">[FleetInstanceMatchCriteria] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681108107"><span id="local-6989586621681108109"><span id="local-6989586621681108111"><span id="local-6989586621681108113"><span class="annot"><span class="annottext">[FleetInstanceMatchCriteria] -&gt; Encoding
 [FleetInstanceMatchCriteria] -&gt; Value
 FleetInstanceMatchCriteria -&gt; Encoding
 FleetInstanceMatchCriteria -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: FleetInstanceMatchCriteria -&gt; Encoding
 toJSON :: FleetInstanceMatchCriteria -&gt; Value
 $ctoJSON :: FleetInstanceMatchCriteria -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681108093"><span id="local-6989586621681108095"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetInstanceMatchCriteria]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681108102"><span id="local-6989586621681108104"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetInstanceMatchCriteria]
 ToJSONKeyFunction FleetInstanceMatchCriteria
 ToJSONKeyFunction FleetInstanceMatchCriteria
 -&gt; ToJSONKeyFunction [FleetInstanceMatchCriteria]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FleetInstanceMatchCriteria]
 toJSONKey :: ToJSONKeyFunction FleetInstanceMatchCriteria
 $ctoJSONKey :: ToJSONKeyFunction FleetInstanceMatchCriteria
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681108090"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetInstanceMatchCriteria
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681108099"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetInstanceMatchCriteria
 ([Node] -&gt; Either String FleetInstanceMatchCriteria)
 -&gt; FromXML FleetInstanceMatchCriteria
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FleetInstanceMatchCriteria
 $cparseXML :: [Node] -&gt; Either String FleetInstanceMatchCriteria
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681108087"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681108096"><span class="annot"><span class="annottext">FleetInstanceMatchCriteria -&gt; XML
 (FleetInstanceMatchCriteria -&gt; XML)
 -&gt; ToXML FleetInstanceMatchCriteria
 forall a. (a -&gt; XML) -&gt; ToXML a

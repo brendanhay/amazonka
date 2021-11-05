@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newPutClusterCapacityProviders' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679471895"><span id="local-6989586621679471896"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutClusterCapacityProviders"><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-var">PutClusterCapacityProviders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutClusterCapacityProviders%27"><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-var">PutClusterCapacityProviders'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679471904"><span id="local-6989586621679471905"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutClusterCapacityProviders"><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-var">PutClusterCapacityProviders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutClusterCapacityProviders%27"><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-var">PutClusterCapacityProviders'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster to</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- modify the capacity provider settings for. If you do not specify a</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- cluster, the default cluster is assumed.</span><span>
@@ -109,7 +109,7 @@
 </span><span id="line-107"></span><span>    </span><span id="%24sel%3AdefaultCapacityProviderStrategy%3APutClusterCapacityProviders%27"><span class="annot"><span class="annottext">PutClusterCapacityProviders -&gt; [CapacityProviderStrategyItem]
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3AdefaultCapacityProviderStrategy%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var hs-var">defaultCapacityProviderStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679471887"><span id="local-6989586621679471889"><span class="annot"><span class="annottext">PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679471896"><span id="local-6989586621679471898"><span class="annot"><span class="annottext">PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
 (PutClusterCapacityProviders
  -&gt; PutClusterCapacityProviders -&gt; Bool)
 -&gt; (PutClusterCapacityProviders
@@ -120,7 +120,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
 == :: PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
 $c== :: PutClusterCapacityProviders -&gt; PutClusterCapacityProviders -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471878"><span id="local-6989586621679471880"><span id="local-6989586621679471882"><span id="local-6989586621679471884"><span class="annot"><span class="annottext">ReadPrec [PutClusterCapacityProviders]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471887"><span id="local-6989586621679471889"><span id="local-6989586621679471891"><span id="local-6989586621679471893"><span class="annot"><span class="annottext">ReadPrec [PutClusterCapacityProviders]
 ReadPrec PutClusterCapacityProviders
 Int -&gt; ReadS PutClusterCapacityProviders
 ReadS [PutClusterCapacityProviders]
@@ -140,7 +140,7 @@ readList :: ReadS [PutClusterCapacityProviders]
 $creadList :: ReadS [PutClusterCapacityProviders]
 readsPrec :: Int -&gt; ReadS PutClusterCapacityProviders
 $creadsPrec :: Int -&gt; ReadS PutClusterCapacityProviders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471871"><span id="local-6989586621679471873"><span id="local-6989586621679471875"><span class="annot"><span class="annottext">Int -&gt; PutClusterCapacityProviders -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471880"><span id="local-6989586621679471882"><span id="local-6989586621679471884"><span class="annot"><span class="annottext">Int -&gt; PutClusterCapacityProviders -&gt; ShowS
 [PutClusterCapacityProviders] -&gt; ShowS
 PutClusterCapacityProviders -&gt; String
 (Int -&gt; PutClusterCapacityProviders -&gt; ShowS)
@@ -222,8 +222,8 @@ PutClusterCapacityProviders -&gt; Rep PutClusterCapacityProviders x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span>
 </span><span id="line-160"></span><span id="newPutClusterCapacityProviders"><span class="annot"><span class="annottext">newPutClusterCapacityProviders :: Text -&gt; PutClusterCapacityProviders
-</span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProviders"><span class="hs-identifier hs-var hs-var">newPutClusterCapacityProviders</span></a></span></span><span> </span><span id="local-6989586621679471866"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679471866"><span class="hs-identifier hs-var">pCluster_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProviders"><span class="hs-identifier hs-var hs-var">newPutClusterCapacityProviders</span></a></span></span><span> </span><span id="local-6989586621679471875"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679471875"><span class="hs-identifier hs-var">pCluster_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">PutClusterCapacityProviders' :: Text
 -&gt; [Text]
 -&gt; [CapacityProviderStrategyItem]
@@ -231,7 +231,7 @@ PutClusterCapacityProviders -&gt; Rep PutClusterCapacityProviders x
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProviders' :: Text
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679471866"><span class="hs-identifier hs-var">pCluster_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679471875"><span class="hs-identifier hs-var">pCluster_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityProviders:PutClusterCapacityProviders' :: [Text]
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3AcapacityProviders%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -255,16 +255,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      PutClusterCapacityProviders PutClusterCapacityProviders Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471863"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471872"><span class="annot"><span class="annottext">Text
 cluster :: Text
 $sel:cluster:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; Text
-</span><a href="#local-6989586621679471863"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679471863"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471862"><span class="annot"><span class="annottext">s :: PutClusterCapacityProviders
-</span><a href="#local-6989586621679471862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471861"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679471861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProviders
-</span><a href="#local-6989586621679471862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProviders' :: Text
+</span><a href="#local-6989586621679471872"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679471872"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471871"><span class="annot"><span class="annottext">s :: PutClusterCapacityProviders
+</span><a href="#local-6989586621679471871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471870"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679471870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProviders
+</span><a href="#local-6989586621679471871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProviders' :: Text
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679471861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679471870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The name of one or more capacity providers to associate with the</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- cluster.</span><span>
@@ -289,16 +289,16 @@ $sel:cluster:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; T
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471860"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471869"><span class="annot"><span class="annottext">[Text]
 capacityProviders :: [Text]
 $sel:capacityProviders:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; [Text]
-</span><a href="#local-6989586621679471860"><span class="hs-identifier hs-var hs-var">capacityProviders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679471860"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471859"><span class="annot"><span class="annottext">s :: PutClusterCapacityProviders
-</span><a href="#local-6989586621679471859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471858"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679471858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProviders
-</span><a href="#local-6989586621679471859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProviders:PutClusterCapacityProviders' :: [Text]
+</span><a href="#local-6989586621679471869"><span class="hs-identifier hs-var hs-var">capacityProviders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679471869"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471868"><span class="annot"><span class="annottext">s :: PutClusterCapacityProviders
+</span><a href="#local-6989586621679471868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471867"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679471867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProviders
+</span><a href="#local-6989586621679471868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProviders:PutClusterCapacityProviders' :: [Text]
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3AcapacityProviders%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679471858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679471867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; PutClusterCapacityProviders -&gt; f PutClusterCapacityProviders)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -343,16 +343,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      [CapacityProviderStrategyItem]
      [CapacityProviderStrategyItem]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471855"><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471864"><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
 defaultCapacityProviderStrategy :: [CapacityProviderStrategyItem]
 $sel:defaultCapacityProviderStrategy:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; [CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679471855"><span class="hs-identifier hs-var hs-var">defaultCapacityProviderStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679471855"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471854"><span class="annot"><span class="annottext">s :: PutClusterCapacityProviders
-</span><a href="#local-6989586621679471854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471853"><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679471853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProviders
-</span><a href="#local-6989586621679471854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCapacityProviderStrategy:PutClusterCapacityProviders' :: [CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679471864"><span class="hs-identifier hs-var hs-var">defaultCapacityProviderStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679471864"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471863"><span class="annot"><span class="annottext">s :: PutClusterCapacityProviders
+</span><a href="#local-6989586621679471863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471862"><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679471862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProviders
+</span><a href="#local-6989586621679471863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultCapacityProviderStrategy:PutClusterCapacityProviders' :: [CapacityProviderStrategyItem]
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3AdefaultCapacityProviderStrategy%3APutClusterCapacityProviders%27"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679471853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CapacityProviderStrategyItem]
+</span><a href="#local-6989586621679471862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CapacityProviderStrategyItem]
   -&gt; f [CapacityProviderStrategyItem])
  -&gt; PutClusterCapacityProviders -&gt; f PutClusterCapacityProviders)
 -&gt; (([CapacityProviderStrategyItem]
@@ -375,14 +375,14 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-213"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-214"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679471849"><span class="annot"><span class="annottext">request :: PutClusterCapacityProviders -&gt; Request PutClusterCapacityProviders
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679471858"><span class="annot"><span class="annottext">request :: PutClusterCapacityProviders -&gt; Request PutClusterCapacityProviders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutClusterCapacityProviders
 -&gt; Request PutClusterCapacityProviders
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679471845"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679471854"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutClusterCapacityProviders
 -&gt; ClientResponse ClientBody
@@ -408,10 +408,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679471842"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679471842"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679471841"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679471841"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679471840"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679471840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679471851"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471851"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679471850"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679471850"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679471849"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679471849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; PutClusterCapacityProvidersResponse
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">PutClusterCapacityProvidersResponse'</span></a></span><span>
 </span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; PutClusterCapacityProvidersResponse)
@@ -419,7 +419,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutClusterCapacityProvidersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679471840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679471849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -432,15 +432,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679471842"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679471851"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471832"><span id="local-6989586621679471834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span></span></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471841"><span id="local-6989586621679471843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span></span></span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span></span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679471825"><span class="annot"><span class="annottext">toHeaders :: PutClusterCapacityProviders -&gt; ResponseHeaders
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679471834"><span class="annot"><span class="annottext">toHeaders :: PutClusterCapacityProviders -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutClusterCapacityProviders -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -467,9 +467,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-241"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471815"><span id="local-6989586621679471817"><span id="local-6989586621679471819"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-245"></span><span>  </span><span id="local-6989586621679471813"><span class="annot"><span class="annottext">toJSON :: PutClusterCapacityProviders -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471809"><span id="local-6989586621679471810"><span id="local-6989586621679471811"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471824"><span id="local-6989586621679471826"><span id="local-6989586621679471828"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679471822"><span class="annot"><span class="annottext">toJSON :: PutClusterCapacityProviders -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders%27"><span class="hs-identifier hs-type">PutClusterCapacityProviders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471818"><span id="local-6989586621679471819"><span id="local-6989586621679471820"><span class="annot"><span class="annottext">[Text]
 [CapacityProviderStrategyItem]
 Text
 defaultCapacityProviderStrategy :: [CapacityProviderStrategyItem]
@@ -478,7 +478,7 @@ cluster :: Text
 $sel:defaultCapacityProviderStrategy:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; [CapacityProviderStrategyItem]
 $sel:capacityProviders:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; [Text]
 $sel:cluster:PutClusterCapacityProviders' :: PutClusterCapacityProviders -&gt; Text
-</span><a href="#local-6989586621679471809"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679471818"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-247"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -490,7 +490,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679471811"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679471820"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -498,7 +498,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;capacityProviders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679471810"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679471819"><span class="hs-identifier hs-var">capacityProviders</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -507,20 +507,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-253"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [CapacityProviderStrategyItem] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[CapacityProviderStrategyItem]
-</span><a href="#local-6989586621679471809"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span>
+</span><a href="#local-6989586621679471818"><span class="hs-identifier hs-var">defaultCapacityProviderStrategy</span></a></span><span>
 </span><span id="line-254"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-256"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621679471803"><span class="annot"><span class="annottext">toPath :: PutClusterCapacityProviders -&gt; ByteString
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679471812"><span class="annot"><span class="annottext">toPath :: PutClusterCapacityProviders -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutClusterCapacityProviders -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProviders"><span class="hs-identifier hs-type">PutClusterCapacityProviders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679471799"><span class="annot"><span class="annottext">toQuery :: PutClusterCapacityProviders -&gt; QueryString
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679471808"><span class="annot"><span class="annottext">toQuery :: PutClusterCapacityProviders -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutClusterCapacityProviders -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -528,7 +528,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-263"></span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- | /See:/ 'newPutClusterCapacityProvidersResponse' smart constructor.</span><span>
-</span><span id="line-265"></span><span id="local-6989586621679471796"><span id="local-6989586621679471797"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutClusterCapacityProvidersResponse"><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-var">PutClusterCapacityProvidersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutClusterCapacityProvidersResponse%27"><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">PutClusterCapacityProvidersResponse'</span></a></span></span><span>
+</span><span id="line-265"></span><span id="local-6989586621679471805"><span id="local-6989586621679471806"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutClusterCapacityProvidersResponse"><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-var">PutClusterCapacityProvidersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutClusterCapacityProvidersResponse%27"><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">PutClusterCapacityProvidersResponse'</span></a></span></span><span>
 </span><span id="line-266"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the cluster.</span><span>
 </span><span id="line-267"></span><span>    </span><span id="%24sel%3Acluster%3APutClusterCapacityProvidersResponse%27"><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
@@ -536,7 +536,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-269"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutClusterCapacityProvidersResponse%27"><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse -&gt; Int
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3AhttpStatus%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-270"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-271"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679471790"><span id="local-6989586621679471792"><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse
+</span><span id="line-271"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679471799"><span id="local-6989586621679471801"><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse
 -&gt; PutClusterCapacityProvidersResponse -&gt; Bool
 (PutClusterCapacityProvidersResponse
  -&gt; PutClusterCapacityProvidersResponse -&gt; Bool)
@@ -552,7 +552,7 @@ $c/= :: PutClusterCapacityProvidersResponse
 -&gt; PutClusterCapacityProvidersResponse -&gt; Bool
 $c== :: PutClusterCapacityProvidersResponse
 -&gt; PutClusterCapacityProvidersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471782"><span id="local-6989586621679471784"><span id="local-6989586621679471786"><span id="local-6989586621679471788"><span class="annot"><span class="annottext">ReadPrec [PutClusterCapacityProvidersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471791"><span id="local-6989586621679471793"><span id="local-6989586621679471795"><span id="local-6989586621679471797"><span class="annot"><span class="annottext">ReadPrec [PutClusterCapacityProvidersResponse]
 ReadPrec PutClusterCapacityProvidersResponse
 Int -&gt; ReadS PutClusterCapacityProvidersResponse
 ReadS [PutClusterCapacityProvidersResponse]
@@ -572,7 +572,7 @@ readList :: ReadS [PutClusterCapacityProvidersResponse]
 $creadList :: ReadS [PutClusterCapacityProvidersResponse]
 readsPrec :: Int -&gt; ReadS PutClusterCapacityProvidersResponse
 $creadsPrec :: Int -&gt; ReadS PutClusterCapacityProvidersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471776"><span id="local-6989586621679471778"><span id="local-6989586621679471780"><span class="annot"><span class="annottext">Int -&gt; PutClusterCapacityProvidersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679471785"><span id="local-6989586621679471787"><span id="local-6989586621679471789"><span class="annot"><span class="annottext">Int -&gt; PutClusterCapacityProvidersResponse -&gt; ShowS
 [PutClusterCapacityProvidersResponse] -&gt; ShowS
 PutClusterCapacityProvidersResponse -&gt; String
 (Int -&gt; PutClusterCapacityProvidersResponse -&gt; ShowS)
@@ -626,8 +626,8 @@ PutClusterCapacityProvidersResponse
 </span><span id="line-286"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-287"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span>
 </span><span id="line-288"></span><span id="newPutClusterCapacityProvidersResponse"><span class="annot"><span class="annottext">newPutClusterCapacityProvidersResponse :: Int -&gt; PutClusterCapacityProvidersResponse
-</span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProvidersResponse"><span class="hs-identifier hs-var hs-var">newPutClusterCapacityProvidersResponse</span></a></span></span><span> </span><span id="local-6989586621679471773"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679471773"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#newPutClusterCapacityProvidersResponse"><span class="hs-identifier hs-var hs-var">newPutClusterCapacityProvidersResponse</span></a></span></span><span> </span><span id="local-6989586621679471782"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471782"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-289"></span><span>  </span><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse' :: Maybe Cluster -&gt; Int -&gt; PutClusterCapacityProvidersResponse
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span>
 </span><span id="line-290"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProvidersResponse' :: Maybe Cluster
@@ -637,7 +637,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutClusterCapacityProvidersResponse' :: Int
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3AhttpStatus%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679471773"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679471782"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-293"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-294"></span><span>
 </span><span id="line-295"></span><span class="hs-comment">-- | Details about the cluster.</span><span>
@@ -654,16 +654,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471772"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471781"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:PutClusterCapacityProvidersResponse' :: PutClusterCapacityProvidersResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679471772"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679471772"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471771"><span class="annot"><span class="annottext">s :: PutClusterCapacityProvidersResponse
-</span><a href="#local-6989586621679471771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471770"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679471770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse
-</span><a href="#local-6989586621679471771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProvidersResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679471781"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679471781"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471780"><span class="annot"><span class="annottext">s :: PutClusterCapacityProvidersResponse
+</span><a href="#local-6989586621679471780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471779"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679471779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse
+</span><a href="#local-6989586621679471780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PutClusterCapacityProvidersResponse' :: Maybe Cluster
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3Acluster%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679471770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679471779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-300"></span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#putClusterCapacityProvidersResponse_httpStatus"><span class="hs-identifier hs-type">putClusterCapacityProvidersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -679,18 +679,18 @@ $sel:cluster:PutClusterCapacityProvidersResponse' :: PutClusterCapacityProviders
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471769"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679471778"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutClusterCapacityProvidersResponse' :: PutClusterCapacityProvidersResponse -&gt; Int
-</span><a href="#local-6989586621679471769"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679471769"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471768"><span class="annot"><span class="annottext">s :: PutClusterCapacityProvidersResponse
-</span><a href="#local-6989586621679471768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471767"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679471767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse
-</span><a href="#local-6989586621679471768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutClusterCapacityProvidersResponse' :: Int
+</span><a href="#local-6989586621679471778"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471778"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679471777"><span class="annot"><span class="annottext">s :: PutClusterCapacityProvidersResponse
+</span><a href="#local-6989586621679471777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679471776"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679471776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutClusterCapacityProvidersResponse
+</span><a href="#local-6989586621679471777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutClusterCapacityProvidersResponse' :: Int
 </span><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#%24sel%3AhttpStatus%3APutClusterCapacityProvidersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679471767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679471776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-304"></span><span>  </span><span id="local-6989586621679471765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679471774"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-305"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.PutClusterCapacityProviders.html#PutClusterCapacityProvidersResponse"><span class="hs-identifier hs-type">PutClusterCapacityProvidersResponse</span></a></span></span><span>
 </span><span id="line-306"></span></pre></body></html>

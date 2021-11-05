@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Avail Blanking State</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679867470"><span id="local-6989586621679867471"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvailBlankingState"><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailBlankingState.html#AvailBlankingState"><span class="hs-identifier hs-var">AvailBlankingState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailBlankingState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailBlankingState.html#AvailBlankingState%27"><span class="hs-identifier hs-var">AvailBlankingState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679867479"><span id="local-6989586621679867480"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvailBlankingState"><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailBlankingState.html#AvailBlankingState"><span class="hs-identifier hs-var">AvailBlankingState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailBlankingState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailBlankingState.html#AvailBlankingState%27"><span class="hs-identifier hs-var">AvailBlankingState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvailBlankingState"><span class="annot"><span class="annottext">AvailBlankingState -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.AvailBlankingState.html#fromAvailBlankingState"><span class="hs-identifier hs-var hs-var">fromAvailBlankingState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679867462"><span id="local-6989586621679867464"><span id="local-6989586621679867466"><span class="annot"><span class="annottext">Int -&gt; AvailBlankingState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679867471"><span id="local-6989586621679867473"><span id="local-6989586621679867475"><span class="annot"><span class="annottext">Int -&gt; AvailBlankingState -&gt; ShowS
 [AvailBlankingState] -&gt; ShowS
 AvailBlankingState -&gt; String
 (Int -&gt; AvailBlankingState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AvailBlankingState -&gt; String
 showsPrec :: Int -&gt; AvailBlankingState -&gt; ShowS
 $cshowsPrec :: Int -&gt; AvailBlankingState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679867453"><span id="local-6989586621679867455"><span id="local-6989586621679867457"><span id="local-6989586621679867459"><span class="annot"><span class="annottext">ReadPrec [AvailBlankingState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679867462"><span id="local-6989586621679867464"><span id="local-6989586621679867466"><span id="local-6989586621679867468"><span class="annot"><span class="annottext">ReadPrec [AvailBlankingState]
 ReadPrec AvailBlankingState
 Int -&gt; ReadS AvailBlankingState
 ReadS [AvailBlankingState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AvailBlankingState]
 readsPrec :: Int -&gt; ReadS AvailBlankingState
 $creadsPrec :: Int -&gt; ReadS AvailBlankingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679867448"><span id="local-6989586621679867450"><span class="annot"><span class="annottext">AvailBlankingState -&gt; AvailBlankingState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679867457"><span id="local-6989586621679867459"><span class="annot"><span class="annottext">AvailBlankingState -&gt; AvailBlankingState -&gt; Bool
 (AvailBlankingState -&gt; AvailBlankingState -&gt; Bool)
 -&gt; (AvailBlankingState -&gt; AvailBlankingState -&gt; Bool)
 -&gt; Eq AvailBlankingState
@@ -83,7 +83,7 @@ $c/= :: AvailBlankingState -&gt; AvailBlankingState -&gt; Bool
 == :: AvailBlankingState -&gt; AvailBlankingState -&gt; Bool
 $c== :: AvailBlankingState -&gt; AvailBlankingState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679867432"><span id="local-6989586621679867434"><span id="local-6989586621679867436"><span id="local-6989586621679867438"><span id="local-6989586621679867440"><span id="local-6989586621679867442"><span id="local-6989586621679867444"><span class="annot"><span class="annottext">Eq AvailBlankingState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679867441"><span id="local-6989586621679867443"><span id="local-6989586621679867445"><span id="local-6989586621679867447"><span id="local-6989586621679867449"><span id="local-6989586621679867451"><span id="local-6989586621679867453"><span class="annot"><span class="annottext">Eq AvailBlankingState
 Eq AvailBlankingState
 -&gt; (AvailBlankingState -&gt; AvailBlankingState -&gt; Ordering)
 -&gt; (AvailBlankingState -&gt; AvailBlankingState -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AvailBlankingState -&gt; Rep AvailBlankingState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679867424"><span id="local-6989586621679867426"><span class="annot"><span class="annottext">Int -&gt; AvailBlankingState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679867433"><span id="local-6989586621679867435"><span class="annot"><span class="annottext">Int -&gt; AvailBlankingState -&gt; Int
 AvailBlankingState -&gt; Int
 (Int -&gt; AvailBlankingState -&gt; Int)
 -&gt; (AvailBlankingState -&gt; Int) -&gt; Hashable AvailBlankingState
@@ -144,53 +144,53 @@ $chash :: AvailBlankingState -&gt; Int
 hashWithSalt :: Int -&gt; AvailBlankingState -&gt; Int
 $chashWithSalt :: Int -&gt; AvailBlankingState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679867421"><span class="annot"><span class="annottext">AvailBlankingState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679867430"><span class="annot"><span class="annottext">AvailBlankingState -&gt; ()
 (AvailBlankingState -&gt; ()) -&gt; NFData AvailBlankingState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AvailBlankingState -&gt; ()
 $crnf :: AvailBlankingState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679867418"><span class="annot"><span class="annottext">Text -&gt; Either String AvailBlankingState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679867427"><span class="annot"><span class="annottext">Text -&gt; Either String AvailBlankingState
 (Text -&gt; Either String AvailBlankingState)
 -&gt; FromText AvailBlankingState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AvailBlankingState
 $cfromText :: Text -&gt; Either String AvailBlankingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679867415"><span class="annot"><span class="annottext">AvailBlankingState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679867424"><span class="annot"><span class="annottext">AvailBlankingState -&gt; Text
 (AvailBlankingState -&gt; Text) -&gt; ToText AvailBlankingState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AvailBlankingState -&gt; Text
 $ctoText :: AvailBlankingState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679867412"><span class="annot"><span class="annottext">AvailBlankingState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679867421"><span class="annot"><span class="annottext">AvailBlankingState -&gt; ByteString
 (AvailBlankingState -&gt; ByteString)
 -&gt; ToByteString AvailBlankingState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AvailBlankingState -&gt; ByteString
 $ctoBS :: AvailBlankingState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679867409"><span class="annot"><span class="annottext">AvailBlankingState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679867418"><span class="annot"><span class="annottext">AvailBlankingState -&gt; ByteStringBuilder
 (AvailBlankingState -&gt; ByteStringBuilder)
 -&gt; ToLog AvailBlankingState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AvailBlankingState -&gt; ByteStringBuilder
 $cbuild :: AvailBlankingState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679867406"><span class="annot"><span class="annottext">HeaderName -&gt; AvailBlankingState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679867415"><span class="annot"><span class="annottext">HeaderName -&gt; AvailBlankingState -&gt; [Header]
 (HeaderName -&gt; AvailBlankingState -&gt; [Header])
 -&gt; ToHeader AvailBlankingState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AvailBlankingState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AvailBlankingState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679867403"><span class="annot"><span class="annottext">AvailBlankingState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679867412"><span class="annot"><span class="annottext">AvailBlankingState -&gt; QueryString
 (AvailBlankingState -&gt; QueryString) -&gt; ToQuery AvailBlankingState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AvailBlankingState -&gt; QueryString
 $ctoQuery :: AvailBlankingState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679867398"><span id="local-6989586621679867400"><span class="annot"><span class="annottext">Value -&gt; Parser [AvailBlankingState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679867407"><span id="local-6989586621679867409"><span class="annot"><span class="annottext">Value -&gt; Parser [AvailBlankingState]
 Value -&gt; Parser AvailBlankingState
 (Value -&gt; Parser AvailBlankingState)
 -&gt; (Value -&gt; Parser [AvailBlankingState])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [AvailBlankingState]
 parseJSON :: Value -&gt; Parser AvailBlankingState
 $cparseJSON :: Value -&gt; Parser AvailBlankingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679867393"><span id="local-6989586621679867395"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvailBlankingState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679867402"><span id="local-6989586621679867404"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvailBlankingState]
 FromJSONKeyFunction AvailBlankingState
 FromJSONKeyFunction AvailBlankingState
 -&gt; FromJSONKeyFunction [AvailBlankingState]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AvailBlankingState]
 fromJSONKey :: FromJSONKeyFunction AvailBlankingState
 $cfromJSONKey :: FromJSONKeyFunction AvailBlankingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679867384"><span id="local-6989586621679867386"><span id="local-6989586621679867388"><span id="local-6989586621679867390"><span class="annot"><span class="annottext">[AvailBlankingState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679867393"><span id="local-6989586621679867395"><span id="local-6989586621679867397"><span id="local-6989586621679867399"><span class="annot"><span class="annottext">[AvailBlankingState] -&gt; Encoding
 [AvailBlankingState] -&gt; Value
 AvailBlankingState -&gt; Encoding
 AvailBlankingState -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: AvailBlankingState -&gt; Encoding
 toJSON :: AvailBlankingState -&gt; Value
 $ctoJSON :: AvailBlankingState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679867379"><span id="local-6989586621679867381"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvailBlankingState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679867388"><span id="local-6989586621679867390"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvailBlankingState]
 ToJSONKeyFunction AvailBlankingState
 ToJSONKeyFunction AvailBlankingState
 -&gt; ToJSONKeyFunction [AvailBlankingState]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AvailBlankingState]
 toJSONKey :: ToJSONKeyFunction AvailBlankingState
 $ctoJSONKey :: ToJSONKeyFunction AvailBlankingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679867376"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvailBlankingState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679867385"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvailBlankingState
 ([Node] -&gt; Either String AvailBlankingState)
 -&gt; FromXML AvailBlankingState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AvailBlankingState
 $cparseXML :: [Node] -&gt; Either String AvailBlankingState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679867373"><span class="annot"><span class="annottext">AvailBlankingState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679867382"><span class="annot"><span class="annottext">AvailBlankingState -&gt; XML
 (AvailBlankingState -&gt; XML) -&gt; ToXML AvailBlankingState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AvailBlankingState -&gt; XML

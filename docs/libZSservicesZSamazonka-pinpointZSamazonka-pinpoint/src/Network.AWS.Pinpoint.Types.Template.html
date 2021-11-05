@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- message.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTemplate' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679613753"><span id="local-6989586621679613754"></span></span><span class="hs-keyword">data</span><span> </span><span id="Template"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-var">Template</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Template%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-var">Template'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679613762"><span id="local-6989586621679613763"></span></span><span class="hs-keyword">data</span><span> </span><span id="Template"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-var">Template</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Template%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-var">Template'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the message template to use for the message. If specified,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- this value must match the name of an existing message template.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3ATemplate%27"><span class="annot"><span class="annottext">Template -&gt; Maybe Text
@@ -45,7 +45,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aversion%3ATemplate%27"><span class="annot"><span class="annottext">Template -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Template.html#%24sel%3Aversion%3ATemplate%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679613746"><span id="local-6989586621679613748"><span class="annot"><span class="annottext">Template -&gt; Template -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679613755"><span id="local-6989586621679613757"><span class="annot"><span class="annottext">Template -&gt; Template -&gt; Bool
 (Template -&gt; Template -&gt; Bool)
 -&gt; (Template -&gt; Template -&gt; Bool) -&gt; Eq Template
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Template -&gt; Template -&gt; Bool
 == :: Template -&gt; Template -&gt; Bool
 $c== :: Template -&gt; Template -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613737"><span id="local-6989586621679613739"><span id="local-6989586621679613741"><span id="local-6989586621679613743"><span class="annot"><span class="annottext">ReadPrec [Template]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613746"><span id="local-6989586621679613748"><span id="local-6989586621679613750"><span id="local-6989586621679613752"><span class="annot"><span class="annottext">ReadPrec [Template]
 ReadPrec Template
 Int -&gt; ReadS Template
 ReadS [Template]
@@ -73,7 +73,7 @@ readList :: ReadS [Template]
 $creadList :: ReadS [Template]
 readsPrec :: Int -&gt; ReadS Template
 $creadsPrec :: Int -&gt; ReadS Template
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613730"><span id="local-6989586621679613732"><span id="local-6989586621679613734"><span class="annot"><span class="annottext">Int -&gt; Template -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613739"><span id="local-6989586621679613741"><span id="local-6989586621679613743"><span class="annot"><span class="annottext">Int -&gt; Template -&gt; ShowS
 [Template] -&gt; ShowS
 Template -&gt; String
 (Int -&gt; Template -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; (Template -&gt; Maybe Text -&gt; Template)
 -&gt; Lens Template Template (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613721"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613730"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Template' :: Template -&gt; Maybe Text
-</span><a href="#local-6989586621679613721"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613721"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613720"><span class="annot"><span class="annottext">s :: Template
-</span><a href="#local-6989586621679613720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613719"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679613720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Template' :: Maybe Text
+</span><a href="#local-6989586621679613730"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679613730"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613729"><span class="annot"><span class="annottext">s :: Template
+</span><a href="#local-6989586621679613729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679613728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Template
+</span><a href="#local-6989586621679613729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Template' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Template.html#%24sel%3Aname%3ATemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679613728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The unique identifier for the version of the message template to use for</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- the message. If specified, this value must match the identifier for an</span><span>
@@ -168,34 +168,34 @@ $sel:name:Template' :: Template -&gt; Maybe Text
 -&gt; (Template -&gt; Maybe Text -&gt; Template)
 -&gt; Lens Template Template (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613717"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613726"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:Template' :: Template -&gt; Maybe Text
-</span><a href="#local-6989586621679613717"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613717"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613716"><span class="annot"><span class="annottext">s :: Template
-</span><a href="#local-6989586621679613716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613715"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679613716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Template' :: Maybe Text
+</span><a href="#local-6989586621679613726"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679613726"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613725"><span class="annot"><span class="annottext">s :: Template
+</span><a href="#local-6989586621679613725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613724"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679613724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Template
+</span><a href="#local-6989586621679613725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Template' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Template.html#%24sel%3Aversion%3ATemplate%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679613724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613712"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679613710"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Template
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613721"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679613719"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Template
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Template) -&gt; Value -&gt; Parser Template
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Template&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679613707"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679613716"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679613716"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Template
 </span><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-var">Template'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Template)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Template)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679613716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,24 +203,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Template
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679613716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613701"><span id="local-6989586621679613703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613710"><span id="local-6989586621679613712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613690"><span id="local-6989586621679613692"><span id="local-6989586621679613694"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679613688"><span class="annot"><span class="annottext">toJSON :: Template -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613685"><span id="local-6989586621679613686"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613699"><span id="local-6989586621679613701"><span id="local-6989586621679613703"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679613697"><span class="annot"><span class="annottext">toJSON :: Template -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Template.html#Template%27"><span class="hs-identifier hs-type">Template'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613694"><span id="local-6989586621679613695"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 name :: Maybe Text
 $sel:version:Template' :: Template -&gt; Maybe Text
 $sel:name:Template' :: Template -&gt; Maybe Text
-</span><a href="#local-6989586621679613685"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679613694"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -232,14 +232,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613686"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679613695"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613685"><span class="hs-identifier hs-var">version</span></a></span><span>
+</span><a href="#local-6989586621679613694"><span class="hs-identifier hs-var">version</span></a></span><span>
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span></pre></body></html>

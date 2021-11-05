@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newMp4Settings' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679991176"><span id="local-6989586621679991177"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mp4Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-var">Mp4Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp4Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-var">Mp4Settings'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679991185"><span id="local-6989586621679991186"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mp4Settings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-var">Mp4Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp4Settings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-var">Mp4Settings'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- beginning of the archive as required for progressive downloading.</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Otherwise it is placed normally at the end.</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AcslgAtom%3AMp4Settings%27"><span class="annot"><span class="annottext">Mp4Settings -&gt; Maybe Mp4CslgAtom
 </span><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#%24sel%3AcslgAtom%3AMp4Settings%27"><span class="hs-identifier hs-var hs-var">cslgAtom</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4CslgAtom.html#Mp4CslgAtom"><span class="hs-identifier hs-type">Mp4CslgAtom</span></a></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679991165"><span id="local-6989586621679991167"><span class="annot"><span class="annottext">Mp4Settings -&gt; Mp4Settings -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679991174"><span id="local-6989586621679991176"><span class="annot"><span class="annottext">Mp4Settings -&gt; Mp4Settings -&gt; Bool
 (Mp4Settings -&gt; Mp4Settings -&gt; Bool)
 -&gt; (Mp4Settings -&gt; Mp4Settings -&gt; Bool) -&gt; Eq Mp4Settings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Mp4Settings -&gt; Mp4Settings -&gt; Bool
 == :: Mp4Settings -&gt; Mp4Settings -&gt; Bool
 $c== :: Mp4Settings -&gt; Mp4Settings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679991156"><span id="local-6989586621679991158"><span id="local-6989586621679991160"><span id="local-6989586621679991162"><span class="annot"><span class="annottext">ReadPrec [Mp4Settings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679991165"><span id="local-6989586621679991167"><span id="local-6989586621679991169"><span id="local-6989586621679991171"><span class="annot"><span class="annottext">ReadPrec [Mp4Settings]
 ReadPrec Mp4Settings
 Int -&gt; ReadS Mp4Settings
 ReadS [Mp4Settings]
@@ -106,7 +106,7 @@ readList :: ReadS [Mp4Settings]
 $creadList :: ReadS [Mp4Settings]
 readsPrec :: Int -&gt; ReadS Mp4Settings
 $creadsPrec :: Int -&gt; ReadS Mp4Settings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679991149"><span id="local-6989586621679991151"><span id="local-6989586621679991153"><span class="annot"><span class="annottext">Int -&gt; Mp4Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679991158"><span id="local-6989586621679991160"><span id="local-6989586621679991162"><span class="annot"><span class="annottext">Int -&gt; Mp4Settings -&gt; ShowS
 [Mp4Settings] -&gt; ShowS
 Mp4Settings -&gt; String
 (Int -&gt; Mp4Settings -&gt; ShowS)
@@ -229,16 +229,16 @@ forall a. Maybe a
      (Maybe Mp4MoovPlacement)
      (Maybe Mp4MoovPlacement)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991140"><span class="annot"><span class="annottext">Maybe Mp4MoovPlacement
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991149"><span class="annot"><span class="annottext">Maybe Mp4MoovPlacement
 moovPlacement :: Maybe Mp4MoovPlacement
 $sel:moovPlacement:Mp4Settings' :: Mp4Settings -&gt; Maybe Mp4MoovPlacement
-</span><a href="#local-6989586621679991140"><span class="hs-identifier hs-var hs-var">moovPlacement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp4MoovPlacement
-</span><a href="#local-6989586621679991140"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991139"><span class="annot"><span class="annottext">s :: Mp4Settings
-</span><a href="#local-6989586621679991139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991138"><span class="annot"><span class="annottext">Maybe Mp4MoovPlacement
-</span><a href="#local-6989586621679991138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
-</span><a href="#local-6989586621679991139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moovPlacement:Mp4Settings' :: Maybe Mp4MoovPlacement
+</span><a href="#local-6989586621679991149"><span class="hs-identifier hs-var hs-var">moovPlacement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp4MoovPlacement
+</span><a href="#local-6989586621679991149"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991148"><span class="annot"><span class="annottext">s :: Mp4Settings
+</span><a href="#local-6989586621679991148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991147"><span class="annot"><span class="annottext">Maybe Mp4MoovPlacement
+</span><a href="#local-6989586621679991147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
+</span><a href="#local-6989586621679991148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moovPlacement:Mp4Settings' :: Maybe Mp4MoovPlacement
 </span><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#%24sel%3AmoovPlacement%3AMp4Settings%27"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp4MoovPlacement
-</span><a href="#local-6989586621679991138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679991147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | Ignore this setting unless compliance to the CTTS box version</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- specification matters in your workflow. Specify a value of 1 to set your</span><span>
@@ -254,16 +254,16 @@ $sel:moovPlacement:Mp4Settings' :: Mp4Settings -&gt; Maybe Mp4MoovPlacement
 -&gt; (Mp4Settings -&gt; Maybe Natural -&gt; Mp4Settings)
 -&gt; Lens Mp4Settings Mp4Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991136"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991145"><span class="annot"><span class="annottext">Maybe Natural
 cttsVersion :: Maybe Natural
 $sel:cttsVersion:Mp4Settings' :: Mp4Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679991136"><span class="hs-identifier hs-var hs-var">cttsVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679991136"><span class="hs-identifier hs-var">cttsVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991135"><span class="annot"><span class="annottext">s :: Mp4Settings
-</span><a href="#local-6989586621679991135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991134"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679991134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
-</span><a href="#local-6989586621679991135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cttsVersion:Mp4Settings' :: Maybe Natural
+</span><a href="#local-6989586621679991145"><span class="hs-identifier hs-var hs-var">cttsVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679991145"><span class="hs-identifier hs-var">cttsVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991144"><span class="annot"><span class="annottext">s :: Mp4Settings
+</span><a href="#local-6989586621679991144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991143"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679991143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
+</span><a href="#local-6989586621679991144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cttsVersion:Mp4Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#%24sel%3ActtsVersion%3AMp4Settings%27"><span class="hs-identifier hs-var">cttsVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679991134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679991143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Inserts a free-space box immediately after the moov box.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#mp4Settings_freeSpaceBox"><span class="hs-identifier hs-type">mp4Settings_freeSpaceBox</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4FreeSpaceBox.html#Mp4FreeSpaceBox"><span class="hs-identifier hs-type">Mp4FreeSpaceBox</span></a></span><span class="hs-special">)</span><span>
@@ -277,16 +277,16 @@ $sel:cttsVersion:Mp4Settings' :: Mp4Settings -&gt; Maybe Natural
      (Maybe Mp4FreeSpaceBox)
      (Maybe Mp4FreeSpaceBox)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991132"><span class="annot"><span class="annottext">Maybe Mp4FreeSpaceBox
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991141"><span class="annot"><span class="annottext">Maybe Mp4FreeSpaceBox
 freeSpaceBox :: Maybe Mp4FreeSpaceBox
 $sel:freeSpaceBox:Mp4Settings' :: Mp4Settings -&gt; Maybe Mp4FreeSpaceBox
-</span><a href="#local-6989586621679991132"><span class="hs-identifier hs-var hs-var">freeSpaceBox</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp4FreeSpaceBox
-</span><a href="#local-6989586621679991132"><span class="hs-identifier hs-var">freeSpaceBox</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991131"><span class="annot"><span class="annottext">s :: Mp4Settings
-</span><a href="#local-6989586621679991131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991130"><span class="annot"><span class="annottext">Maybe Mp4FreeSpaceBox
-</span><a href="#local-6989586621679991130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
-</span><a href="#local-6989586621679991131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:freeSpaceBox:Mp4Settings' :: Maybe Mp4FreeSpaceBox
+</span><a href="#local-6989586621679991141"><span class="hs-identifier hs-var hs-var">freeSpaceBox</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp4FreeSpaceBox
+</span><a href="#local-6989586621679991141"><span class="hs-identifier hs-var">freeSpaceBox</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991140"><span class="annot"><span class="annottext">s :: Mp4Settings
+</span><a href="#local-6989586621679991140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991139"><span class="annot"><span class="annottext">Maybe Mp4FreeSpaceBox
+</span><a href="#local-6989586621679991139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
+</span><a href="#local-6989586621679991140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:freeSpaceBox:Mp4Settings' :: Maybe Mp4FreeSpaceBox
 </span><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#%24sel%3AfreeSpaceBox%3AMp4Settings%27"><span class="hs-identifier hs-var">freeSpaceBox</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp4FreeSpaceBox
-</span><a href="#local-6989586621679991130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679991139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | Specify this setting only when your output will be consumed by a</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- downstream repackaging workflow that is sensitive to very small duration</span><span>
@@ -313,16 +313,16 @@ $sel:freeSpaceBox:Mp4Settings' :: Mp4Settings -&gt; Maybe Mp4FreeSpaceBox
      (Maybe CmfcAudioDuration)
      (Maybe CmfcAudioDuration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991128"><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991137"><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
 audioDuration :: Maybe CmfcAudioDuration
 $sel:audioDuration:Mp4Settings' :: Mp4Settings -&gt; Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679991128"><span class="hs-identifier hs-var hs-var">audioDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679991128"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991127"><span class="annot"><span class="annottext">s :: Mp4Settings
-</span><a href="#local-6989586621679991127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991126"><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679991126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
-</span><a href="#local-6989586621679991127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDuration:Mp4Settings' :: Maybe CmfcAudioDuration
+</span><a href="#local-6989586621679991137"><span class="hs-identifier hs-var hs-var">audioDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
+</span><a href="#local-6989586621679991137"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991136"><span class="annot"><span class="annottext">s :: Mp4Settings
+</span><a href="#local-6989586621679991136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991135"><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
+</span><a href="#local-6989586621679991135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
+</span><a href="#local-6989586621679991136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioDuration:Mp4Settings' :: Maybe CmfcAudioDuration
 </span><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#%24sel%3AaudioDuration%3AMp4Settings%27"><span class="hs-identifier hs-var">audioDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679991126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679991135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | Overrides the \&quot;Major Brand\&quot; field in the output file. Usually not</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- necessary to specify.</span><span>
@@ -332,16 +332,16 @@ $sel:audioDuration:Mp4Settings' :: Mp4Settings -&gt; Maybe CmfcAudioDuration
 -&gt; (Mp4Settings -&gt; Maybe Text -&gt; Mp4Settings)
 -&gt; Lens Mp4Settings Mp4Settings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991124"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991133"><span class="annot"><span class="annottext">Maybe Text
 mp4MajorBrand :: Maybe Text
 $sel:mp4MajorBrand:Mp4Settings' :: Mp4Settings -&gt; Maybe Text
-</span><a href="#local-6989586621679991124"><span class="hs-identifier hs-var hs-var">mp4MajorBrand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679991124"><span class="hs-identifier hs-var">mp4MajorBrand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991123"><span class="annot"><span class="annottext">s :: Mp4Settings
-</span><a href="#local-6989586621679991123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991122"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679991122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
-</span><a href="#local-6989586621679991123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mp4MajorBrand:Mp4Settings' :: Maybe Text
+</span><a href="#local-6989586621679991133"><span class="hs-identifier hs-var hs-var">mp4MajorBrand</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991133"><span class="hs-identifier hs-var">mp4MajorBrand</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991132"><span class="annot"><span class="annottext">s :: Mp4Settings
+</span><a href="#local-6989586621679991132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679991131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
+</span><a href="#local-6989586621679991132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mp4MajorBrand:Mp4Settings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#%24sel%3Amp4MajorBrand%3AMp4Settings%27"><span class="hs-identifier hs-var">mp4MajorBrand</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679991122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679991131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | When enabled, file composition times will start at zero, composition</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- times in the \'ctts\' (composition time to sample) box for B-frames will</span><span>
@@ -356,19 +356,19 @@ $sel:mp4MajorBrand:Mp4Settings' :: Mp4Settings -&gt; Maybe Text
 -&gt; Lens
      Mp4Settings Mp4Settings (Maybe Mp4CslgAtom) (Maybe Mp4CslgAtom)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991120"><span class="annot"><span class="annottext">Maybe Mp4CslgAtom
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991129"><span class="annot"><span class="annottext">Maybe Mp4CslgAtom
 cslgAtom :: Maybe Mp4CslgAtom
 $sel:cslgAtom:Mp4Settings' :: Mp4Settings -&gt; Maybe Mp4CslgAtom
-</span><a href="#local-6989586621679991120"><span class="hs-identifier hs-var hs-var">cslgAtom</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp4CslgAtom
-</span><a href="#local-6989586621679991120"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991119"><span class="annot"><span class="annottext">s :: Mp4Settings
-</span><a href="#local-6989586621679991119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991118"><span class="annot"><span class="annottext">Maybe Mp4CslgAtom
-</span><a href="#local-6989586621679991118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
-</span><a href="#local-6989586621679991119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cslgAtom:Mp4Settings' :: Maybe Mp4CslgAtom
+</span><a href="#local-6989586621679991129"><span class="hs-identifier hs-var hs-var">cslgAtom</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp4CslgAtom
+</span><a href="#local-6989586621679991129"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679991128"><span class="annot"><span class="annottext">s :: Mp4Settings
+</span><a href="#local-6989586621679991128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679991127"><span class="annot"><span class="annottext">Maybe Mp4CslgAtom
+</span><a href="#local-6989586621679991127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp4Settings
+</span><a href="#local-6989586621679991128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cslgAtom:Mp4Settings' :: Maybe Mp4CslgAtom
 </span><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#%24sel%3AcslgAtom%3AMp4Settings%27"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp4CslgAtom
-</span><a href="#local-6989586621679991118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679991127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679991115"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679991113"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mp4Settings
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679991124"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679991122"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mp4Settings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Mp4Settings) -&gt; Value -&gt; Parser Mp4Settings
@@ -376,8 +376,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Mp4Settings&quot;</span></span><span>
-</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679991110"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679991110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679991119"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679991119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">Maybe Mp4MoovPlacement
 -&gt; Maybe Natural
 -&gt; Maybe Mp4FreeSpaceBox
@@ -403,7 +403,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Mp4Settings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679991110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp4MoovPlacement)
+</span><a href="#local-6989586621679991119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp4MoovPlacement)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;moovPlacement&quot;</span></span><span class="hs-special">)</span><span>
@@ -423,7 +423,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mp4Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679991110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679991119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cttsVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -439,7 +439,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Mp4CslgAtom -&gt; Mp4Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679991110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp4FreeSpaceBox)
+</span><a href="#local-6989586621679991119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp4FreeSpaceBox)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;freeSpaceBox&quot;</span></span><span class="hs-special">)</span><span>
@@ -450,7 +450,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Mp4CslgAtom -&gt; Mp4Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679991110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcAudioDuration)
+</span><a href="#local-6989586621679991119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CmfcAudioDuration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioDuration&quot;</span></span><span class="hs-special">)</span><span>
@@ -458,7 +458,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Mp4CslgAtom -&gt; Mp4Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679991110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679991119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mp4MajorBrand&quot;</span></span><span class="hs-special">)</span><span>
@@ -466,19 +466,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Mp4CslgAtom) -&gt; Parser Mp4Settings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679991110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp4CslgAtom)
+</span><a href="#local-6989586621679991119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp4CslgAtom)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cslgAtom&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679991104"><span id="local-6989586621679991106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679991113"><span id="local-6989586621679991115"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span></span></span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679991101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679991110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span></span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679991093"><span id="local-6989586621679991095"><span id="local-6989586621679991097"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679991091"><span class="annot"><span class="annottext">toJSON :: Mp4Settings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991084"><span id="local-6989586621679991085"><span id="local-6989586621679991086"><span id="local-6989586621679991087"><span id="local-6989586621679991088"><span id="local-6989586621679991089"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679991102"><span id="local-6989586621679991104"><span id="local-6989586621679991106"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings"><span class="hs-identifier hs-type">Mp4Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679991100"><span class="annot"><span class="annottext">toJSON :: Mp4Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mp4Settings.html#Mp4Settings%27"><span class="hs-identifier hs-type">Mp4Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679991093"><span id="local-6989586621679991094"><span id="local-6989586621679991095"><span id="local-6989586621679991096"><span id="local-6989586621679991097"><span id="local-6989586621679991098"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe CmfcAudioDuration
 Maybe Mp4CslgAtom
@@ -496,7 +496,7 @@ $sel:audioDuration:Mp4Settings' :: Mp4Settings -&gt; Maybe CmfcAudioDuration
 $sel:freeSpaceBox:Mp4Settings' :: Mp4Settings -&gt; Maybe Mp4FreeSpaceBox
 $sel:cttsVersion:Mp4Settings' :: Mp4Settings -&gt; Maybe Natural
 $sel:moovPlacement:Mp4Settings' :: Mp4Settings -&gt; Maybe Mp4MoovPlacement
-</span><a href="#local-6989586621679991084"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679991093"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -508,21 +508,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mp4MoovPlacement -&gt; Pair) -&gt; Maybe Mp4MoovPlacement -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mp4MoovPlacement
-</span><a href="#local-6989586621679991089"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679991098"><span class="hs-identifier hs-var">moovPlacement</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cttsVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679991088"><span class="hs-identifier hs-var">cttsVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679991097"><span class="hs-identifier hs-var">cttsVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;freeSpaceBox&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mp4FreeSpaceBox -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mp4FreeSpaceBox -&gt; Pair) -&gt; Maybe Mp4FreeSpaceBox -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mp4FreeSpaceBox
-</span><a href="#local-6989586621679991087"><span class="hs-identifier hs-var">freeSpaceBox</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679991096"><span class="hs-identifier hs-var">freeSpaceBox</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmfcAudioDuration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -530,21 +530,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CmfcAudioDuration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmfcAudioDuration
-</span><a href="#local-6989586621679991086"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679991095"><span class="hs-identifier hs-var">audioDuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mp4MajorBrand&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679991085"><span class="hs-identifier hs-var">mp4MajorBrand</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679991094"><span class="hs-identifier hs-var">mp4MajorBrand</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cslgAtom&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mp4CslgAtom -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mp4CslgAtom -&gt; Pair) -&gt; Maybe Mp4CslgAtom -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mp4CslgAtom
-</span><a href="#local-6989586621679991084"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span>
+</span><a href="#local-6989586621679991093"><span class="hs-identifier hs-var">cslgAtom</span></a></span><span>
 </span><span id="line-212"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span></pre></body></html>

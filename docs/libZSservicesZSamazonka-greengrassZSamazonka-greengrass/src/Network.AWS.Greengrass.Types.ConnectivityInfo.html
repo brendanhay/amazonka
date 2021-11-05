@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a Greengrass core\'s connectivity.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newConnectivityInfo' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679341294"><span id="local-6989586621679341295"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectivityInfo"><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-var">ConnectivityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectivityInfo%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-var">ConnectivityInfo'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679341303"><span id="local-6989586621679341304"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectivityInfo"><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-var">ConnectivityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectivityInfo%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-var">ConnectivityInfo'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The port of the Greengrass core. Usually 8883.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AportNumber%3AConnectivityInfo%27"><span class="annot"><span class="annottext">ConnectivityInfo -&gt; Maybe Int
 </span><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#%24sel%3AportNumber%3AConnectivityInfo%27"><span class="hs-identifier hs-var hs-var">portNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AhostAddress%3AConnectivityInfo%27"><span class="annot"><span class="annottext">ConnectivityInfo -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#%24sel%3AhostAddress%3AConnectivityInfo%27"><span class="hs-identifier hs-var hs-var">hostAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341285"><span id="local-6989586621679341287"><span class="annot"><span class="annottext">ConnectivityInfo -&gt; ConnectivityInfo -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341294"><span id="local-6989586621679341296"><span class="annot"><span class="annottext">ConnectivityInfo -&gt; ConnectivityInfo -&gt; Bool
 (ConnectivityInfo -&gt; ConnectivityInfo -&gt; Bool)
 -&gt; (ConnectivityInfo -&gt; ConnectivityInfo -&gt; Bool)
 -&gt; Eq ConnectivityInfo
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConnectivityInfo -&gt; ConnectivityInfo -&gt; Bool
 == :: ConnectivityInfo -&gt; ConnectivityInfo -&gt; Bool
 $c== :: ConnectivityInfo -&gt; ConnectivityInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341276"><span id="local-6989586621679341278"><span id="local-6989586621679341280"><span id="local-6989586621679341282"><span class="annot"><span class="annottext">ReadPrec [ConnectivityInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341285"><span id="local-6989586621679341287"><span id="local-6989586621679341289"><span id="local-6989586621679341291"><span class="annot"><span class="annottext">ReadPrec [ConnectivityInfo]
 ReadPrec ConnectivityInfo
 Int -&gt; ReadS ConnectivityInfo
 ReadS [ConnectivityInfo]
@@ -69,7 +69,7 @@ readList :: ReadS [ConnectivityInfo]
 $creadList :: ReadS [ConnectivityInfo]
 readsPrec :: Int -&gt; ReadS ConnectivityInfo
 $creadsPrec :: Int -&gt; ReadS ConnectivityInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341269"><span id="local-6989586621679341271"><span id="local-6989586621679341273"><span class="annot"><span class="annottext">Int -&gt; ConnectivityInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341278"><span id="local-6989586621679341280"><span id="local-6989586621679341282"><span class="annot"><span class="annottext">Int -&gt; ConnectivityInfo -&gt; ShowS
 [ConnectivityInfo] -&gt; ShowS
 ConnectivityInfo -&gt; String
 (Int -&gt; ConnectivityInfo -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
 -&gt; (ConnectivityInfo -&gt; Maybe Int -&gt; ConnectivityInfo)
 -&gt; Lens ConnectivityInfo ConnectivityInfo (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341260"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341269"><span class="annot"><span class="annottext">Maybe Int
 portNumber :: Maybe Int
 $sel:portNumber:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Int
-</span><a href="#local-6989586621679341260"><span class="hs-identifier hs-var hs-var">portNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341260"><span class="hs-identifier hs-var">portNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341259"><span class="annot"><span class="annottext">s :: ConnectivityInfo
-</span><a href="#local-6989586621679341259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341258"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectivityInfo
-</span><a href="#local-6989586621679341259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portNumber:ConnectivityInfo' :: Maybe Int
+</span><a href="#local-6989586621679341269"><span class="hs-identifier hs-var hs-var">portNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341269"><span class="hs-identifier hs-var">portNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341268"><span class="annot"><span class="annottext">s :: ConnectivityInfo
+</span><a href="#local-6989586621679341268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341267"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectivityInfo
+</span><a href="#local-6989586621679341268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portNumber:ConnectivityInfo' :: Maybe Int
 </span><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#%24sel%3AportNumber%3AConnectivityInfo%27"><span class="hs-identifier hs-var">portNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The ID of the connectivity information.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#connectivityInfo_id"><span class="hs-identifier hs-type">connectivityInfo_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -162,16 +162,16 @@ $sel:portNumber:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Int
 -&gt; (ConnectivityInfo -&gt; Maybe Text -&gt; ConnectivityInfo)
 -&gt; Lens ConnectivityInfo ConnectivityInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341256"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341265"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679341256"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341256"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341255"><span class="annot"><span class="annottext">s :: ConnectivityInfo
-</span><a href="#local-6989586621679341255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341254"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectivityInfo
-</span><a href="#local-6989586621679341255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ConnectivityInfo' :: Maybe Text
+</span><a href="#local-6989586621679341265"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341265"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341264"><span class="annot"><span class="annottext">s :: ConnectivityInfo
+</span><a href="#local-6989586621679341264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341263"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectivityInfo
+</span><a href="#local-6989586621679341264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ConnectivityInfo' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#%24sel%3Aid%3AConnectivityInfo%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Metadata for this endpoint.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#connectivityInfo_metadata"><span class="hs-identifier hs-type">connectivityInfo_metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -181,16 +181,16 @@ $sel:id:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Text
 -&gt; (ConnectivityInfo -&gt; Maybe Text -&gt; ConnectivityInfo)
 -&gt; Lens ConnectivityInfo ConnectivityInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341252"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341261"><span class="annot"><span class="annottext">Maybe Text
 metadata :: Maybe Text
 $sel:metadata:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679341252"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341252"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341251"><span class="annot"><span class="annottext">s :: ConnectivityInfo
-</span><a href="#local-6989586621679341251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341250"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectivityInfo
-</span><a href="#local-6989586621679341251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:ConnectivityInfo' :: Maybe Text
+</span><a href="#local-6989586621679341261"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341261"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341260"><span class="annot"><span class="annottext">s :: ConnectivityInfo
+</span><a href="#local-6989586621679341260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341259"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectivityInfo
+</span><a href="#local-6989586621679341260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:ConnectivityInfo' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#%24sel%3Ametadata%3AConnectivityInfo%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The endpoint for the Greengrass core. Can be an IP address or DNS.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#connectivityInfo_hostAddress"><span class="hs-identifier hs-type">connectivityInfo_hostAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -200,19 +200,19 @@ $sel:metadata:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Text
 -&gt; (ConnectivityInfo -&gt; Maybe Text -&gt; ConnectivityInfo)
 -&gt; Lens ConnectivityInfo ConnectivityInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341248"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341257"><span class="annot"><span class="annottext">Maybe Text
 hostAddress :: Maybe Text
 $sel:hostAddress:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679341248"><span class="hs-identifier hs-var hs-var">hostAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341248"><span class="hs-identifier hs-var">hostAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341247"><span class="annot"><span class="annottext">s :: ConnectivityInfo
-</span><a href="#local-6989586621679341247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341246"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectivityInfo
-</span><a href="#local-6989586621679341247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostAddress:ConnectivityInfo' :: Maybe Text
+</span><a href="#local-6989586621679341257"><span class="hs-identifier hs-var hs-var">hostAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341257"><span class="hs-identifier hs-var">hostAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341256"><span class="annot"><span class="annottext">s :: ConnectivityInfo
+</span><a href="#local-6989586621679341256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341255"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectivityInfo
+</span><a href="#local-6989586621679341256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostAddress:ConnectivityInfo' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#%24sel%3AhostAddress%3AConnectivityInfo%27"><span class="hs-identifier hs-var">hostAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341243"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679341241"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectivityInfo
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341252"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679341250"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectivityInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConnectivityInfo)
@@ -222,8 +222,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConnectivityInfo&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341238"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341238"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341247"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341247"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ConnectivityInfo
 </span><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-var">ConnectivityInfo'</span></a></span><span>
@@ -234,7 +234,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ConnectivityInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679341247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PortNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,7 +243,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ConnectivityInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679341247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,7 +251,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ConnectivityInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679341247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Metadata&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,19 +259,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ConnectivityInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341238"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679341247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HostAddress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341232"><span id="local-6989586621679341234"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341241"><span id="local-6989586621679341243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341221"><span id="local-6989586621679341223"><span id="local-6989586621679341225"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679341219"><span class="annot"><span class="annottext">toJSON :: ConnectivityInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341214"><span id="local-6989586621679341215"><span id="local-6989586621679341216"><span id="local-6989586621679341217"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341230"><span id="local-6989586621679341232"><span id="local-6989586621679341234"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo"><span class="hs-identifier hs-type">ConnectivityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679341228"><span class="annot"><span class="annottext">toJSON :: ConnectivityInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ConnectivityInfo.html#ConnectivityInfo%27"><span class="hs-identifier hs-type">ConnectivityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341223"><span id="local-6989586621679341224"><span id="local-6989586621679341225"><span id="local-6989586621679341226"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 hostAddress :: Maybe Text
 metadata :: Maybe Text
@@ -281,7 +281,7 @@ $sel:hostAddress:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Text
 $sel:metadata:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Text
 $sel:id:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Text
 $sel:portNumber:ConnectivityInfo' :: ConnectivityInfo -&gt; Maybe Int
-</span><a href="#local-6989586621679341214"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679341223"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -293,28 +293,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341217"><span class="hs-identifier hs-var">portNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341226"><span class="hs-identifier hs-var">portNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341216"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341225"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Metadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341215"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341224"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HostAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341214"><span class="hs-identifier hs-var">hostAddress</span></a></span><span>
+</span><a href="#local-6989586621679341223"><span class="hs-identifier hs-var">hostAddress</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679309288"><span id="local-6989586621679309289"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceAction"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction"><span class="hs-identifier hs-var">InstanceAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAction%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction%27"><span class="hs-identifier hs-var">InstanceAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679309297"><span id="local-6989586621679309298"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceAction"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction"><span class="hs-identifier hs-var">InstanceAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAction%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#InstanceAction%27"><span class="hs-identifier hs-var">InstanceAction'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceAction"><span class="annot"><span class="annottext">InstanceAction -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.InstanceAction.html#fromInstanceAction"><span class="hs-identifier hs-var hs-var">fromInstanceAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309280"><span id="local-6989586621679309282"><span id="local-6989586621679309284"><span class="annot"><span class="annottext">Int -&gt; InstanceAction -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309289"><span id="local-6989586621679309291"><span id="local-6989586621679309293"><span class="annot"><span class="annottext">Int -&gt; InstanceAction -&gt; ShowS
 [InstanceAction] -&gt; ShowS
 InstanceAction -&gt; String
 (Int -&gt; InstanceAction -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: InstanceAction -&gt; String
 showsPrec :: Int -&gt; InstanceAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679309271"><span id="local-6989586621679309273"><span id="local-6989586621679309275"><span id="local-6989586621679309277"><span class="annot"><span class="annottext">ReadPrec [InstanceAction]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679309280"><span id="local-6989586621679309282"><span id="local-6989586621679309284"><span id="local-6989586621679309286"><span class="annot"><span class="annottext">ReadPrec [InstanceAction]
 ReadPrec InstanceAction
 Int -&gt; ReadS InstanceAction
 ReadS [InstanceAction]
@@ -72,7 +72,7 @@ $creadList :: ReadS [InstanceAction]
 readsPrec :: Int -&gt; ReadS InstanceAction
 $creadsPrec :: Int -&gt; ReadS InstanceAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679309266"><span id="local-6989586621679309268"><span class="annot"><span class="annottext">InstanceAction -&gt; InstanceAction -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679309275"><span id="local-6989586621679309277"><span class="annot"><span class="annottext">InstanceAction -&gt; InstanceAction -&gt; Bool
 (InstanceAction -&gt; InstanceAction -&gt; Bool)
 -&gt; (InstanceAction -&gt; InstanceAction -&gt; Bool) -&gt; Eq InstanceAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: InstanceAction -&gt; InstanceAction -&gt; Bool
 == :: InstanceAction -&gt; InstanceAction -&gt; Bool
 $c== :: InstanceAction -&gt; InstanceAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679309250"><span id="local-6989586621679309252"><span id="local-6989586621679309254"><span id="local-6989586621679309256"><span id="local-6989586621679309258"><span id="local-6989586621679309260"><span id="local-6989586621679309262"><span class="annot"><span class="annottext">Eq InstanceAction
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679309259"><span id="local-6989586621679309261"><span id="local-6989586621679309263"><span id="local-6989586621679309265"><span id="local-6989586621679309267"><span id="local-6989586621679309269"><span id="local-6989586621679309271"><span class="annot"><span class="annottext">Eq InstanceAction
 Eq InstanceAction
 -&gt; (InstanceAction -&gt; InstanceAction -&gt; Ordering)
 -&gt; (InstanceAction -&gt; InstanceAction -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. InstanceAction -&gt; Rep InstanceAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309242"><span id="local-6989586621679309244"><span class="annot"><span class="annottext">Int -&gt; InstanceAction -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309251"><span id="local-6989586621679309253"><span class="annot"><span class="annottext">Int -&gt; InstanceAction -&gt; Int
 InstanceAction -&gt; Int
 (Int -&gt; InstanceAction -&gt; Int)
 -&gt; (InstanceAction -&gt; Int) -&gt; Hashable InstanceAction
@@ -142,50 +142,50 @@ $chash :: InstanceAction -&gt; Int
 hashWithSalt :: Int -&gt; InstanceAction -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679309239"><span class="annot"><span class="annottext">InstanceAction -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679309248"><span class="annot"><span class="annottext">InstanceAction -&gt; ()
 (InstanceAction -&gt; ()) -&gt; NFData InstanceAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceAction -&gt; ()
 $crnf :: InstanceAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679309236"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceAction
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679309245"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceAction
 (Text -&gt; Either String InstanceAction) -&gt; FromText InstanceAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceAction
 $cfromText :: Text -&gt; Either String InstanceAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679309233"><span class="annot"><span class="annottext">InstanceAction -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679309242"><span class="annot"><span class="annottext">InstanceAction -&gt; Text
 (InstanceAction -&gt; Text) -&gt; ToText InstanceAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceAction -&gt; Text
 $ctoText :: InstanceAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679309230"><span class="annot"><span class="annottext">InstanceAction -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679309239"><span class="annot"><span class="annottext">InstanceAction -&gt; ByteString
 (InstanceAction -&gt; ByteString) -&gt; ToByteString InstanceAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceAction -&gt; ByteString
 $ctoBS :: InstanceAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679309227"><span class="annot"><span class="annottext">InstanceAction -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679309236"><span class="annot"><span class="annottext">InstanceAction -&gt; ByteStringBuilder
 (InstanceAction -&gt; ByteStringBuilder) -&gt; ToLog InstanceAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceAction -&gt; ByteStringBuilder
 $cbuild :: InstanceAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679309224"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceAction -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679309233"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceAction -&gt; [Header]
 (HeaderName -&gt; InstanceAction -&gt; [Header])
 -&gt; ToHeader InstanceAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679309221"><span class="annot"><span class="annottext">InstanceAction -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679309230"><span class="annot"><span class="annottext">InstanceAction -&gt; QueryString
 (InstanceAction -&gt; QueryString) -&gt; ToQuery InstanceAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceAction -&gt; QueryString
 $ctoQuery :: InstanceAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679309216"><span id="local-6989586621679309218"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceAction]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679309225"><span id="local-6989586621679309227"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceAction]
 Value -&gt; Parser InstanceAction
 (Value -&gt; Parser InstanceAction)
 -&gt; (Value -&gt; Parser [InstanceAction]) -&gt; FromJSON InstanceAction
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceAction]
 parseJSON :: Value -&gt; Parser InstanceAction
 $cparseJSON :: Value -&gt; Parser InstanceAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309211"><span id="local-6989586621679309213"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309220"><span id="local-6989586621679309222"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceAction]
 FromJSONKeyFunction InstanceAction
 FromJSONKeyFunction InstanceAction
 -&gt; FromJSONKeyFunction [InstanceAction]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceAction]
 fromJSONKey :: FromJSONKeyFunction InstanceAction
 $cfromJSONKey :: FromJSONKeyFunction InstanceAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309202"><span id="local-6989586621679309204"><span id="local-6989586621679309206"><span id="local-6989586621679309208"><span class="annot"><span class="annottext">[InstanceAction] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309211"><span id="local-6989586621679309213"><span id="local-6989586621679309215"><span id="local-6989586621679309217"><span class="annot"><span class="annottext">[InstanceAction] -&gt; Encoding
 [InstanceAction] -&gt; Value
 InstanceAction -&gt; Encoding
 InstanceAction -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: InstanceAction -&gt; Encoding
 toJSON :: InstanceAction -&gt; Value
 $ctoJSON :: InstanceAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309197"><span id="local-6989586621679309199"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309206"><span id="local-6989586621679309208"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceAction]
 ToJSONKeyFunction InstanceAction
 ToJSONKeyFunction InstanceAction
 -&gt; ToJSONKeyFunction [InstanceAction] -&gt; ToJSONKey InstanceAction
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceAction]
 toJSONKey :: ToJSONKeyFunction InstanceAction
 $ctoJSONKey :: ToJSONKeyFunction InstanceAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309194"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceAction
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309203"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceAction
 ([Node] -&gt; Either String InstanceAction) -&gt; FromXML InstanceAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceAction
 $cparseXML :: [Node] -&gt; Either String InstanceAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309191"><span class="annot"><span class="annottext">InstanceAction -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309200"><span class="annot"><span class="annottext">InstanceAction -&gt; XML
 (InstanceAction -&gt; XML) -&gt; ToXML InstanceAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceAction -&gt; XML

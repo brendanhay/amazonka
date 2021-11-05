@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679424816"><span id="local-6989586621679424817"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttributeDataType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeDataType.html#AttributeDataType"><span class="hs-identifier hs-var">AttributeDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeDataType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeDataType.html#AttributeDataType%27"><span class="hs-identifier hs-var">AttributeDataType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679424825"><span id="local-6989586621679424826"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttributeDataType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeDataType.html#AttributeDataType"><span class="hs-identifier hs-var">AttributeDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeDataType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeDataType.html#AttributeDataType%27"><span class="hs-identifier hs-var">AttributeDataType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAttributeDataType"><span class="annot"><span class="annottext">AttributeDataType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.AttributeDataType.html#fromAttributeDataType"><span class="hs-identifier hs-var hs-var">fromAttributeDataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424808"><span id="local-6989586621679424810"><span id="local-6989586621679424812"><span class="annot"><span class="annottext">Int -&gt; AttributeDataType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424817"><span id="local-6989586621679424819"><span id="local-6989586621679424821"><span class="annot"><span class="annottext">Int -&gt; AttributeDataType -&gt; ShowS
 [AttributeDataType] -&gt; ShowS
 AttributeDataType -&gt; String
 (Int -&gt; AttributeDataType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AttributeDataType -&gt; String
 showsPrec :: Int -&gt; AttributeDataType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AttributeDataType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679424799"><span id="local-6989586621679424801"><span id="local-6989586621679424803"><span id="local-6989586621679424805"><span class="annot"><span class="annottext">ReadPrec [AttributeDataType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679424808"><span id="local-6989586621679424810"><span id="local-6989586621679424812"><span id="local-6989586621679424814"><span class="annot"><span class="annottext">ReadPrec [AttributeDataType]
 ReadPrec AttributeDataType
 Int -&gt; ReadS AttributeDataType
 ReadS [AttributeDataType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AttributeDataType]
 readsPrec :: Int -&gt; ReadS AttributeDataType
 $creadsPrec :: Int -&gt; ReadS AttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679424794"><span id="local-6989586621679424796"><span class="annot"><span class="annottext">AttributeDataType -&gt; AttributeDataType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679424803"><span id="local-6989586621679424805"><span class="annot"><span class="annottext">AttributeDataType -&gt; AttributeDataType -&gt; Bool
 (AttributeDataType -&gt; AttributeDataType -&gt; Bool)
 -&gt; (AttributeDataType -&gt; AttributeDataType -&gt; Bool)
 -&gt; Eq AttributeDataType
@@ -84,7 +84,7 @@ $c/= :: AttributeDataType -&gt; AttributeDataType -&gt; Bool
 == :: AttributeDataType -&gt; AttributeDataType -&gt; Bool
 $c== :: AttributeDataType -&gt; AttributeDataType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679424778"><span id="local-6989586621679424780"><span id="local-6989586621679424782"><span id="local-6989586621679424784"><span id="local-6989586621679424786"><span id="local-6989586621679424788"><span id="local-6989586621679424790"><span class="annot"><span class="annottext">Eq AttributeDataType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679424787"><span id="local-6989586621679424789"><span id="local-6989586621679424791"><span id="local-6989586621679424793"><span id="local-6989586621679424795"><span id="local-6989586621679424797"><span id="local-6989586621679424799"><span class="annot"><span class="annottext">Eq AttributeDataType
 Eq AttributeDataType
 -&gt; (AttributeDataType -&gt; AttributeDataType -&gt; Ordering)
 -&gt; (AttributeDataType -&gt; AttributeDataType -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. AttributeDataType -&gt; Rep AttributeDataType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424770"><span id="local-6989586621679424772"><span class="annot"><span class="annottext">Int -&gt; AttributeDataType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424779"><span id="local-6989586621679424781"><span class="annot"><span class="annottext">Int -&gt; AttributeDataType -&gt; Int
 AttributeDataType -&gt; Int
 (Int -&gt; AttributeDataType -&gt; Int)
 -&gt; (AttributeDataType -&gt; Int) -&gt; Hashable AttributeDataType
@@ -145,51 +145,51 @@ $chash :: AttributeDataType -&gt; Int
 hashWithSalt :: Int -&gt; AttributeDataType -&gt; Int
 $chashWithSalt :: Int -&gt; AttributeDataType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679424767"><span class="annot"><span class="annottext">AttributeDataType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679424776"><span class="annot"><span class="annottext">AttributeDataType -&gt; ()
 (AttributeDataType -&gt; ()) -&gt; NFData AttributeDataType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AttributeDataType -&gt; ()
 $crnf :: AttributeDataType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424764"><span class="annot"><span class="annottext">Text -&gt; Either String AttributeDataType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424773"><span class="annot"><span class="annottext">Text -&gt; Either String AttributeDataType
 (Text -&gt; Either String AttributeDataType)
 -&gt; FromText AttributeDataType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AttributeDataType
 $cfromText :: Text -&gt; Either String AttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424761"><span class="annot"><span class="annottext">AttributeDataType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424770"><span class="annot"><span class="annottext">AttributeDataType -&gt; Text
 (AttributeDataType -&gt; Text) -&gt; ToText AttributeDataType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AttributeDataType -&gt; Text
 $ctoText :: AttributeDataType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424758"><span class="annot"><span class="annottext">AttributeDataType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424767"><span class="annot"><span class="annottext">AttributeDataType -&gt; ByteString
 (AttributeDataType -&gt; ByteString) -&gt; ToByteString AttributeDataType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AttributeDataType -&gt; ByteString
 $ctoBS :: AttributeDataType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679424755"><span class="annot"><span class="annottext">AttributeDataType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679424764"><span class="annot"><span class="annottext">AttributeDataType -&gt; ByteStringBuilder
 (AttributeDataType -&gt; ByteStringBuilder) -&gt; ToLog AttributeDataType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AttributeDataType -&gt; ByteStringBuilder
 $cbuild :: AttributeDataType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679424752"><span class="annot"><span class="annottext">HeaderName -&gt; AttributeDataType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679424761"><span class="annot"><span class="annottext">HeaderName -&gt; AttributeDataType -&gt; [Header]
 (HeaderName -&gt; AttributeDataType -&gt; [Header])
 -&gt; ToHeader AttributeDataType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AttributeDataType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AttributeDataType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679424749"><span class="annot"><span class="annottext">AttributeDataType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679424758"><span class="annot"><span class="annottext">AttributeDataType -&gt; QueryString
 (AttributeDataType -&gt; QueryString) -&gt; ToQuery AttributeDataType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AttributeDataType -&gt; QueryString
 $ctoQuery :: AttributeDataType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679424744"><span id="local-6989586621679424746"><span class="annot"><span class="annottext">Value -&gt; Parser [AttributeDataType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679424753"><span id="local-6989586621679424755"><span class="annot"><span class="annottext">Value -&gt; Parser [AttributeDataType]
 Value -&gt; Parser AttributeDataType
 (Value -&gt; Parser AttributeDataType)
 -&gt; (Value -&gt; Parser [AttributeDataType])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [AttributeDataType]
 parseJSON :: Value -&gt; Parser AttributeDataType
 $cparseJSON :: Value -&gt; Parser AttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424739"><span id="local-6989586621679424741"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttributeDataType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424748"><span id="local-6989586621679424750"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttributeDataType]
 FromJSONKeyFunction AttributeDataType
 FromJSONKeyFunction AttributeDataType
 -&gt; FromJSONKeyFunction [AttributeDataType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AttributeDataType]
 fromJSONKey :: FromJSONKeyFunction AttributeDataType
 $cfromJSONKey :: FromJSONKeyFunction AttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424730"><span id="local-6989586621679424732"><span id="local-6989586621679424734"><span id="local-6989586621679424736"><span class="annot"><span class="annottext">[AttributeDataType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424739"><span id="local-6989586621679424741"><span id="local-6989586621679424743"><span id="local-6989586621679424745"><span class="annot"><span class="annottext">[AttributeDataType] -&gt; Encoding
 [AttributeDataType] -&gt; Value
 AttributeDataType -&gt; Encoding
 AttributeDataType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: AttributeDataType -&gt; Encoding
 toJSON :: AttributeDataType -&gt; Value
 $ctoJSON :: AttributeDataType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424725"><span id="local-6989586621679424727"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttributeDataType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424734"><span id="local-6989586621679424736"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttributeDataType]
 ToJSONKeyFunction AttributeDataType
 ToJSONKeyFunction AttributeDataType
 -&gt; ToJSONKeyFunction [AttributeDataType]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AttributeDataType]
 toJSONKey :: ToJSONKeyFunction AttributeDataType
 $ctoJSONKey :: ToJSONKeyFunction AttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679424722"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttributeDataType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679424731"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttributeDataType
 ([Node] -&gt; Either String AttributeDataType)
 -&gt; FromXML AttributeDataType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AttributeDataType
 $cparseXML :: [Node] -&gt; Either String AttributeDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679424719"><span class="annot"><span class="annottext">AttributeDataType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679424728"><span class="annot"><span class="annottext">AttributeDataType -&gt; XML
 (AttributeDataType -&gt; XML) -&gt; ToXML AttributeDataType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AttributeDataType -&gt; XML

@@ -1,0 +1,837 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WellArchitected.UpdateAnswer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Update the answer to a specific question in a workload review.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WellArchitected.UpdateAnswer</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier">UpdateAnswer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#newUpdateAnswer"><span class="hs-identifier">newUpdateAnswer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_isApplicable"><span class="hs-identifier">updateAnswer_isApplicable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_selectedChoices"><span class="hs-identifier">updateAnswer_selectedChoices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_reason"><span class="hs-identifier">updateAnswer_reason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_notes"><span class="hs-identifier">updateAnswer_notes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_choiceUpdates"><span class="hs-identifier">updateAnswer_choiceUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_workloadId"><span class="hs-identifier">updateAnswer_workloadId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_lensAlias"><span class="hs-identifier">updateAnswer_lensAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_questionId"><span class="hs-identifier">updateAnswer_questionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier">UpdateAnswerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#newUpdateAnswerResponse"><span class="hs-identifier">newUpdateAnswerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_lensAlias"><span class="hs-identifier">updateAnswerResponse_lensAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_answer"><span class="hs-identifier">updateAnswerResponse_answer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_workloadId"><span class="hs-identifier">updateAnswerResponse_workloadId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_httpStatus"><span class="hs-identifier">updateAnswerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.html"><span class="hs-identifier">Network.AWS.WellArchitected.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Input to update answer.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newUpdateAnswer' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679252210"><span id="local-6989586621679252211"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAnswer"><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-var">UpdateAnswer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAnswer%27"><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-var">UpdateAnswer'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AisApplicable%3AUpdateAnswer%27"><span class="annot"><span class="annottext">UpdateAnswer -&gt; Maybe Bool
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AisApplicable%3AUpdateAnswer%27"><span class="hs-identifier hs-var hs-var">isApplicable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AselectedChoices%3AUpdateAnswer%27"><span class="annot"><span class="annottext">UpdateAnswer -&gt; Maybe [Text]
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AselectedChoices%3AUpdateAnswer%27"><span class="hs-identifier hs-var hs-var">selectedChoices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The reason why a question is not applicable to your workload.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Areason%3AUpdateAnswer%27"><span class="annot"><span class="annottext">UpdateAnswer -&gt; Maybe AnswerReason
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3Areason%3AUpdateAnswer%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-type">AnswerReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Anotes%3AUpdateAnswer%27"><span class="annot"><span class="annottext">UpdateAnswer -&gt; Maybe Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3Anotes%3AUpdateAnswer%27"><span class="hs-identifier hs-var hs-var">notes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A list of choices to update on a question in your workload. The String</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- key corresponds to the choice ID to be updated.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AchoiceUpdates%3AUpdateAnswer%27"><span class="annot"><span class="annottext">UpdateAnswer -&gt; Maybe (HashMap Text ChoiceUpdate)
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AchoiceUpdates%3AUpdateAnswer%27"><span class="hs-identifier hs-var hs-var">choiceUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.ChoiceUpdate.html#ChoiceUpdate"><span class="hs-identifier hs-type">ChoiceUpdate</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AworkloadId%3AUpdateAnswer%27"><span class="annot"><span class="annottext">UpdateAnswer -&gt; Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AworkloadId%3AUpdateAnswer%27"><span class="hs-identifier hs-var hs-var">workloadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AlensAlias%3AUpdateAnswer%27"><span class="annot"><span class="annottext">UpdateAnswer -&gt; Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AlensAlias%3AUpdateAnswer%27"><span class="hs-identifier hs-var hs-var">lensAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AquestionId%3AUpdateAnswer%27"><span class="annot"><span class="annottext">UpdateAnswer -&gt; Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AquestionId%3AUpdateAnswer%27"><span class="hs-identifier hs-var hs-var">questionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252197"><span id="local-6989586621679252199"><span class="annot"><span class="annottext">UpdateAnswer -&gt; UpdateAnswer -&gt; Bool
+(UpdateAnswer -&gt; UpdateAnswer -&gt; Bool)
+-&gt; (UpdateAnswer -&gt; UpdateAnswer -&gt; Bool) -&gt; Eq UpdateAnswer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAnswer -&gt; UpdateAnswer -&gt; Bool
+$c/= :: UpdateAnswer -&gt; UpdateAnswer -&gt; Bool
+== :: UpdateAnswer -&gt; UpdateAnswer -&gt; Bool
+$c== :: UpdateAnswer -&gt; UpdateAnswer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252188"><span id="local-6989586621679252190"><span id="local-6989586621679252192"><span id="local-6989586621679252194"><span class="annot"><span class="annottext">ReadPrec [UpdateAnswer]
+ReadPrec UpdateAnswer
+Int -&gt; ReadS UpdateAnswer
+ReadS [UpdateAnswer]
+(Int -&gt; ReadS UpdateAnswer)
+-&gt; ReadS [UpdateAnswer]
+-&gt; ReadPrec UpdateAnswer
+-&gt; ReadPrec [UpdateAnswer]
+-&gt; Read UpdateAnswer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAnswer]
+$creadListPrec :: ReadPrec [UpdateAnswer]
+readPrec :: ReadPrec UpdateAnswer
+$creadPrec :: ReadPrec UpdateAnswer
+readList :: ReadS [UpdateAnswer]
+$creadList :: ReadS [UpdateAnswer]
+readsPrec :: Int -&gt; ReadS UpdateAnswer
+$creadsPrec :: Int -&gt; ReadS UpdateAnswer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252181"><span id="local-6989586621679252183"><span id="local-6989586621679252185"><span class="annot"><span class="annottext">Int -&gt; UpdateAnswer -&gt; ShowS
+[UpdateAnswer] -&gt; ShowS
+UpdateAnswer -&gt; String
+(Int -&gt; UpdateAnswer -&gt; ShowS)
+-&gt; (UpdateAnswer -&gt; String)
+-&gt; ([UpdateAnswer] -&gt; ShowS)
+-&gt; Show UpdateAnswer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAnswer] -&gt; ShowS
+$cshowList :: [UpdateAnswer] -&gt; ShowS
+show :: UpdateAnswer -&gt; String
+$cshow :: UpdateAnswer -&gt; String
+showsPrec :: Int -&gt; UpdateAnswer -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAnswer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateAnswer -&gt; Rep UpdateAnswer x)
+-&gt; (forall x. Rep UpdateAnswer x -&gt; UpdateAnswer)
+-&gt; Generic UpdateAnswer
+forall x. Rep UpdateAnswer x -&gt; UpdateAnswer
+forall x. UpdateAnswer -&gt; Rep UpdateAnswer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateAnswer x -&gt; UpdateAnswer
+$cfrom :: forall x. UpdateAnswer -&gt; Rep UpdateAnswer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'UpdateAnswer' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'isApplicable', 'updateAnswer_isApplicable' - Undocumented member.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'selectedChoices', 'updateAnswer_selectedChoices' - Undocumented member.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'reason', 'updateAnswer_reason' - The reason why a question is not applicable to your workload.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'notes', 'updateAnswer_notes' - Undocumented member.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'choiceUpdates', 'updateAnswer_choiceUpdates' - A list of choices to update on a question in your workload. The String</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- key corresponds to the choice ID to be updated.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'workloadId', 'updateAnswer_workloadId' - Undocumented member.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'lensAlias', 'updateAnswer_lensAlias' - Undocumented member.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'questionId', 'updateAnswer_questionId' - Undocumented member.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#newUpdateAnswer"><span class="hs-identifier hs-type">newUpdateAnswer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'workloadId'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'lensAlias'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'questionId'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span>
+</span><span id="line-108"></span><span id="newUpdateAnswer"><span class="annot"><span class="annottext">newUpdateAnswer :: Text -&gt; Text -&gt; Text -&gt; UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#newUpdateAnswer"><span class="hs-identifier hs-var hs-var">newUpdateAnswer</span></a></span></span><span> </span><span id="local-6989586621679252176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252176"><span class="hs-identifier hs-var">pWorkloadId_</span></a></span></span><span> </span><span id="local-6989586621679252175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252175"><span class="hs-identifier hs-var">pLensAlias_</span></a></span></span><span> </span><span id="local-6989586621679252174"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252174"><span class="hs-identifier hs-var">pQuestionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">UpdateAnswer' :: Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe AnswerReason
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text ChoiceUpdate)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:isApplicable:UpdateAnswer' :: Maybe Bool
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AisApplicable%3AUpdateAnswer%27"><span class="hs-identifier hs-var">isApplicable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:selectedChoices:UpdateAnswer' :: Maybe [Text]
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AselectedChoices%3AUpdateAnswer%27"><span class="hs-identifier hs-var">selectedChoices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:reason:UpdateAnswer' :: Maybe AnswerReason
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3Areason%3AUpdateAnswer%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnswerReason
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:notes:UpdateAnswer' :: Maybe Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3Anotes%3AUpdateAnswer%27"><span class="hs-identifier hs-var">notes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:choiceUpdates:UpdateAnswer' :: Maybe (HashMap Text ChoiceUpdate)
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AchoiceUpdates%3AUpdateAnswer%27"><span class="hs-identifier hs-var">choiceUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ChoiceUpdate)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:workloadId:UpdateAnswer' :: Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AworkloadId%3AUpdateAnswer%27"><span class="hs-identifier hs-var">workloadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252176"><span class="hs-identifier hs-var">pWorkloadId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:lensAlias:UpdateAnswer' :: Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AlensAlias%3AUpdateAnswer%27"><span class="hs-identifier hs-var">lensAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252175"><span class="hs-identifier hs-var">pLensAlias_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:questionId:UpdateAnswer' :: Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AquestionId%3AUpdateAnswer%27"><span class="hs-identifier hs-var">questionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252174"><span class="hs-identifier hs-var">pQuestionId_</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_isApplicable"><span class="hs-identifier hs-type">updateAnswer_isApplicable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="updateAnswer_isApplicable"><span class="annot"><span class="annottext">updateAnswer_isApplicable :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateAnswer -&gt; f UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_isApplicable"><span class="hs-identifier hs-var hs-var">updateAnswer_isApplicable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswer -&gt; Maybe Bool)
+-&gt; (UpdateAnswer -&gt; Maybe Bool -&gt; UpdateAnswer)
+-&gt; Lens UpdateAnswer UpdateAnswer (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252171"><span class="annot"><span class="annottext">Maybe Bool
+isApplicable :: Maybe Bool
+$sel:isApplicable:UpdateAnswer' :: UpdateAnswer -&gt; Maybe Bool
+</span><a href="#local-6989586621679252171"><span class="hs-identifier hs-var hs-var">isApplicable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252171"><span class="hs-identifier hs-var">isApplicable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252170"><span class="annot"><span class="annottext">s :: UpdateAnswer
+</span><a href="#local-6989586621679252170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252169"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswer
+</span><a href="#local-6989586621679252170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isApplicable:UpdateAnswer' :: Maybe Bool
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AisApplicable%3AUpdateAnswer%27"><span class="hs-identifier hs-var">isApplicable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_selectedChoices"><span class="hs-identifier hs-type">updateAnswer_selectedChoices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="updateAnswer_selectedChoices"><span class="annot"><span class="annottext">updateAnswer_selectedChoices :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateAnswer -&gt; f UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_selectedChoices"><span class="hs-identifier hs-var hs-var">updateAnswer_selectedChoices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswer -&gt; Maybe [Text])
+-&gt; (UpdateAnswer -&gt; Maybe [Text] -&gt; UpdateAnswer)
+-&gt; Lens UpdateAnswer UpdateAnswer (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252168"><span class="annot"><span class="annottext">Maybe [Text]
+selectedChoices :: Maybe [Text]
+$sel:selectedChoices:UpdateAnswer' :: UpdateAnswer -&gt; Maybe [Text]
+</span><a href="#local-6989586621679252168"><span class="hs-identifier hs-var hs-var">selectedChoices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252168"><span class="hs-identifier hs-var">selectedChoices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252167"><span class="annot"><span class="annottext">s :: UpdateAnswer
+</span><a href="#local-6989586621679252167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252166"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswer
+</span><a href="#local-6989586621679252167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectedChoices:UpdateAnswer' :: Maybe [Text]
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AselectedChoices%3AUpdateAnswer%27"><span class="hs-identifier hs-var">selectedChoices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateAnswer -&gt; f UpdateAnswer)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateAnswer
+-&gt; f UpdateAnswer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The reason why a question is not applicable to your workload.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_reason"><span class="hs-identifier hs-type">updateAnswer_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.AnswerReason.html#AnswerReason"><span class="hs-identifier hs-type">AnswerReason</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="updateAnswer_reason"><span class="annot"><span class="annottext">updateAnswer_reason :: (Maybe AnswerReason -&gt; f (Maybe AnswerReason))
+-&gt; UpdateAnswer -&gt; f UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_reason"><span class="hs-identifier hs-var hs-var">updateAnswer_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswer -&gt; Maybe AnswerReason)
+-&gt; (UpdateAnswer -&gt; Maybe AnswerReason -&gt; UpdateAnswer)
+-&gt; Lens
+     UpdateAnswer UpdateAnswer (Maybe AnswerReason) (Maybe AnswerReason)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252162"><span class="annot"><span class="annottext">Maybe AnswerReason
+reason :: Maybe AnswerReason
+$sel:reason:UpdateAnswer' :: UpdateAnswer -&gt; Maybe AnswerReason
+</span><a href="#local-6989586621679252162"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnswerReason
+</span><a href="#local-6989586621679252162"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252161"><span class="annot"><span class="annottext">s :: UpdateAnswer
+</span><a href="#local-6989586621679252161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252160"><span class="annot"><span class="annottext">Maybe AnswerReason
+</span><a href="#local-6989586621679252160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswer
+</span><a href="#local-6989586621679252161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:UpdateAnswer' :: Maybe AnswerReason
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3Areason%3AUpdateAnswer%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnswerReason
+</span><a href="#local-6989586621679252160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_notes"><span class="hs-identifier hs-type">updateAnswer_notes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="updateAnswer_notes"><span class="annot"><span class="annottext">updateAnswer_notes :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateAnswer -&gt; f UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_notes"><span class="hs-identifier hs-var hs-var">updateAnswer_notes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswer -&gt; Maybe Text)
+-&gt; (UpdateAnswer -&gt; Maybe Text -&gt; UpdateAnswer)
+-&gt; Lens UpdateAnswer UpdateAnswer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252159"><span class="annot"><span class="annottext">Maybe Text
+notes :: Maybe Text
+$sel:notes:UpdateAnswer' :: UpdateAnswer -&gt; Maybe Text
+</span><a href="#local-6989586621679252159"><span class="hs-identifier hs-var hs-var">notes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252159"><span class="hs-identifier hs-var">notes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252158"><span class="annot"><span class="annottext">s :: UpdateAnswer
+</span><a href="#local-6989586621679252158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswer
+</span><a href="#local-6989586621679252158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notes:UpdateAnswer' :: Maybe Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3Anotes%3AUpdateAnswer%27"><span class="hs-identifier hs-var">notes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A list of choices to update on a question in your workload. The String</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- key corresponds to the choice ID to be updated.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_choiceUpdates"><span class="hs-identifier hs-type">updateAnswer_choiceUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.ChoiceUpdate.html#ChoiceUpdate"><span class="hs-identifier hs-type">ChoiceUpdate</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="updateAnswer_choiceUpdates"><span class="annot"><span class="annottext">updateAnswer_choiceUpdates :: (Maybe (HashMap Text ChoiceUpdate)
+ -&gt; f (Maybe (HashMap Text ChoiceUpdate)))
+-&gt; UpdateAnswer -&gt; f UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_choiceUpdates"><span class="hs-identifier hs-var hs-var">updateAnswer_choiceUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswer -&gt; Maybe (HashMap Text ChoiceUpdate))
+-&gt; (UpdateAnswer
+    -&gt; Maybe (HashMap Text ChoiceUpdate) -&gt; UpdateAnswer)
+-&gt; Lens
+     UpdateAnswer
+     UpdateAnswer
+     (Maybe (HashMap Text ChoiceUpdate))
+     (Maybe (HashMap Text ChoiceUpdate))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252156"><span class="annot"><span class="annottext">Maybe (HashMap Text ChoiceUpdate)
+choiceUpdates :: Maybe (HashMap Text ChoiceUpdate)
+$sel:choiceUpdates:UpdateAnswer' :: UpdateAnswer -&gt; Maybe (HashMap Text ChoiceUpdate)
+</span><a href="#local-6989586621679252156"><span class="hs-identifier hs-var hs-var">choiceUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ChoiceUpdate)
+</span><a href="#local-6989586621679252156"><span class="hs-identifier hs-var">choiceUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252155"><span class="annot"><span class="annottext">s :: UpdateAnswer
+</span><a href="#local-6989586621679252155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252154"><span class="annot"><span class="annottext">Maybe (HashMap Text ChoiceUpdate)
+</span><a href="#local-6989586621679252154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswer
+</span><a href="#local-6989586621679252155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:choiceUpdates:UpdateAnswer' :: Maybe (HashMap Text ChoiceUpdate)
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AchoiceUpdates%3AUpdateAnswer%27"><span class="hs-identifier hs-var">choiceUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ChoiceUpdate)
+</span><a href="#local-6989586621679252154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ChoiceUpdate)
+  -&gt; f (Maybe (HashMap Text ChoiceUpdate)))
+ -&gt; UpdateAnswer -&gt; f UpdateAnswer)
+-&gt; ((Maybe (HashMap Text ChoiceUpdate)
+     -&gt; f (Maybe (HashMap Text ChoiceUpdate)))
+    -&gt; Maybe (HashMap Text ChoiceUpdate)
+    -&gt; f (Maybe (HashMap Text ChoiceUpdate)))
+-&gt; (Maybe (HashMap Text ChoiceUpdate)
+    -&gt; f (Maybe (HashMap Text ChoiceUpdate)))
+-&gt; UpdateAnswer
+-&gt; f UpdateAnswer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ChoiceUpdate)
+  (HashMap Text ChoiceUpdate)
+  (HashMap Text ChoiceUpdate)
+  (HashMap Text ChoiceUpdate)
+-&gt; Iso
+     (Maybe (HashMap Text ChoiceUpdate))
+     (Maybe (HashMap Text ChoiceUpdate))
+     (Maybe (HashMap Text ChoiceUpdate))
+     (Maybe (HashMap Text ChoiceUpdate))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text ChoiceUpdate)
+  (HashMap Text ChoiceUpdate)
+  (HashMap Text ChoiceUpdate)
+  (HashMap Text ChoiceUpdate)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_workloadId"><span class="hs-identifier hs-type">updateAnswer_workloadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="updateAnswer_workloadId"><span class="annot"><span class="annottext">updateAnswer_workloadId :: (Text -&gt; f Text) -&gt; UpdateAnswer -&gt; f UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_workloadId"><span class="hs-identifier hs-var hs-var">updateAnswer_workloadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswer -&gt; Text)
+-&gt; (UpdateAnswer -&gt; Text -&gt; UpdateAnswer)
+-&gt; Lens UpdateAnswer UpdateAnswer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252153"><span class="annot"><span class="annottext">Text
+workloadId :: Text
+$sel:workloadId:UpdateAnswer' :: UpdateAnswer -&gt; Text
+</span><a href="#local-6989586621679252153"><span class="hs-identifier hs-var hs-var">workloadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252153"><span class="hs-identifier hs-var">workloadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252152"><span class="annot"><span class="annottext">s :: UpdateAnswer
+</span><a href="#local-6989586621679252152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswer
+</span><a href="#local-6989586621679252152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workloadId:UpdateAnswer' :: Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AworkloadId%3AUpdateAnswer%27"><span class="hs-identifier hs-var">workloadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_lensAlias"><span class="hs-identifier hs-type">updateAnswer_lensAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-147"></span><span id="updateAnswer_lensAlias"><span class="annot"><span class="annottext">updateAnswer_lensAlias :: (Text -&gt; f Text) -&gt; UpdateAnswer -&gt; f UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_lensAlias"><span class="hs-identifier hs-var hs-var">updateAnswer_lensAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswer -&gt; Text)
+-&gt; (UpdateAnswer -&gt; Text -&gt; UpdateAnswer)
+-&gt; Lens UpdateAnswer UpdateAnswer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252150"><span class="annot"><span class="annottext">Text
+lensAlias :: Text
+$sel:lensAlias:UpdateAnswer' :: UpdateAnswer -&gt; Text
+</span><a href="#local-6989586621679252150"><span class="hs-identifier hs-var hs-var">lensAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252150"><span class="hs-identifier hs-var">lensAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252149"><span class="annot"><span class="annottext">s :: UpdateAnswer
+</span><a href="#local-6989586621679252149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswer
+</span><a href="#local-6989586621679252149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lensAlias:UpdateAnswer' :: Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AlensAlias%3AUpdateAnswer%27"><span class="hs-identifier hs-var">lensAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_questionId"><span class="hs-identifier hs-type">updateAnswer_questionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-151"></span><span id="updateAnswer_questionId"><span class="annot"><span class="annottext">updateAnswer_questionId :: (Text -&gt; f Text) -&gt; UpdateAnswer -&gt; f UpdateAnswer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswer_questionId"><span class="hs-identifier hs-var hs-var">updateAnswer_questionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswer -&gt; Text)
+-&gt; (UpdateAnswer -&gt; Text -&gt; UpdateAnswer)
+-&gt; Lens UpdateAnswer UpdateAnswer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252147"><span class="annot"><span class="annottext">Text
+questionId :: Text
+$sel:questionId:UpdateAnswer' :: UpdateAnswer -&gt; Text
+</span><a href="#local-6989586621679252147"><span class="hs-identifier hs-var hs-var">questionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252147"><span class="hs-identifier hs-var">questionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252146"><span class="annot"><span class="annottext">s :: UpdateAnswer
+</span><a href="#local-6989586621679252146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252145"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswer
+</span><a href="#local-6989586621679252146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:questionId:UpdateAnswer' :: Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AquestionId%3AUpdateAnswer%27"><span class="hs-identifier hs-var">questionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679252141"><span class="annot"><span class="annottext">request :: UpdateAnswer -&gt; Request UpdateAnswer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateAnswer -&gt; Request UpdateAnswer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WellArchitected.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679252137"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateAnswer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateAnswer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateAnswer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateAnswer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateAnswer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252134"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252134"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679252133"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679252133"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679252132"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Answer -&gt; Maybe Text -&gt; Int -&gt; UpdateAnswerResponse
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-var">UpdateAnswerResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Answer -&gt; Maybe Text -&gt; Int -&gt; UpdateAnswerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Answer -&gt; Maybe Text -&gt; Int -&gt; UpdateAnswerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LensAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Answer -&gt; Maybe Text -&gt; Int -&gt; UpdateAnswerResponse)
+-&gt; Either String (Maybe Answer)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateAnswerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Answer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Answer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateAnswerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateAnswerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkloadId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateAnswerResponse)
+-&gt; Either String Int -&gt; Either String UpdateAnswerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252134"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252124"><span id="local-6989586621679252126"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679252117"><span class="annot"><span class="annottext">toHeaders :: UpdateAnswer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateAnswer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-177"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252107"><span id="local-6989586621679252109"><span id="local-6989586621679252111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679252105"><span class="annot"><span class="annottext">toJSON :: UpdateAnswer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252096"><span id="local-6989586621679252097"><span id="local-6989586621679252098"><span id="local-6989586621679252099"><span id="local-6989586621679252100"><span id="local-6989586621679252101"><span id="local-6989586621679252102"><span id="local-6989586621679252103"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe Text
+Maybe (HashMap Text ChoiceUpdate)
+Maybe AnswerReason
+Text
+questionId :: Text
+lensAlias :: Text
+workloadId :: Text
+choiceUpdates :: Maybe (HashMap Text ChoiceUpdate)
+notes :: Maybe Text
+reason :: Maybe AnswerReason
+selectedChoices :: Maybe [Text]
+isApplicable :: Maybe Bool
+$sel:questionId:UpdateAnswer' :: UpdateAnswer -&gt; Text
+$sel:lensAlias:UpdateAnswer' :: UpdateAnswer -&gt; Text
+$sel:workloadId:UpdateAnswer' :: UpdateAnswer -&gt; Text
+$sel:choiceUpdates:UpdateAnswer' :: UpdateAnswer -&gt; Maybe (HashMap Text ChoiceUpdate)
+$sel:notes:UpdateAnswer' :: UpdateAnswer -&gt; Maybe Text
+$sel:reason:UpdateAnswer' :: UpdateAnswer -&gt; Maybe AnswerReason
+$sel:selectedChoices:UpdateAnswer' :: UpdateAnswer -&gt; Maybe [Text]
+$sel:isApplicable:UpdateAnswer' :: UpdateAnswer -&gt; Maybe Bool
+</span><a href="#local-6989586621679252096"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsApplicable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252103"><span class="hs-identifier hs-var">isApplicable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SelectedChoices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679252102"><span class="hs-identifier hs-var">selectedChoices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Reason&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnswerReason -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AnswerReason -&gt; Pair) -&gt; Maybe AnswerReason -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AnswerReason
+</span><a href="#local-6989586621679252101"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Notes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252100"><span class="hs-identifier hs-var">notes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChoiceUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text ChoiceUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text ChoiceUpdate -&gt; Pair)
+-&gt; Maybe (HashMap Text ChoiceUpdate) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ChoiceUpdate)
+</span><a href="#local-6989586621679252099"><span class="hs-identifier hs-var">choiceUpdates</span></a></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679252090"><span class="annot"><span class="annottext">toPath :: UpdateAnswer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer%27"><span class="hs-identifier hs-type">UpdateAnswer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252081"><span id="local-6989586621679252082"><span id="local-6989586621679252083"><span id="local-6989586621679252084"><span id="local-6989586621679252085"><span id="local-6989586621679252086"><span id="local-6989586621679252087"><span id="local-6989586621679252088"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe Text
+Maybe (HashMap Text ChoiceUpdate)
+Maybe AnswerReason
+Text
+questionId :: Text
+lensAlias :: Text
+workloadId :: Text
+choiceUpdates :: Maybe (HashMap Text ChoiceUpdate)
+notes :: Maybe Text
+reason :: Maybe AnswerReason
+selectedChoices :: Maybe [Text]
+isApplicable :: Maybe Bool
+$sel:questionId:UpdateAnswer' :: UpdateAnswer -&gt; Text
+$sel:lensAlias:UpdateAnswer' :: UpdateAnswer -&gt; Text
+$sel:workloadId:UpdateAnswer' :: UpdateAnswer -&gt; Text
+$sel:choiceUpdates:UpdateAnswer' :: UpdateAnswer -&gt; Maybe (HashMap Text ChoiceUpdate)
+$sel:notes:UpdateAnswer' :: UpdateAnswer -&gt; Maybe Text
+$sel:reason:UpdateAnswer' :: UpdateAnswer -&gt; Maybe AnswerReason
+$sel:selectedChoices:UpdateAnswer' :: UpdateAnswer -&gt; Maybe [Text]
+$sel:isApplicable:UpdateAnswer' :: UpdateAnswer -&gt; Maybe Bool
+</span><a href="#local-6989586621679252081"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workloads/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252083"><span class="hs-identifier hs-var">workloadId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/lensReviews/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252082"><span class="hs-identifier hs-var">lensAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/answers/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252081"><span class="hs-identifier hs-var">questionId</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswer"><span class="hs-identifier hs-type">UpdateAnswer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679252077"><span class="annot"><span class="annottext">toQuery :: UpdateAnswer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAnswer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Output of a update answer call.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- /See:/ 'newUpdateAnswerResponse' smart constructor.</span><span>
+</span><span id="line-211"></span><span id="local-6989586621679252074"><span id="local-6989586621679252075"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAnswerResponse"><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-var">UpdateAnswerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAnswerResponse%27"><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-var">UpdateAnswerResponse'</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AlensAlias%3AUpdateAnswerResponse%27"><span class="annot"><span class="annottext">UpdateAnswerResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AlensAlias%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var hs-var">lensAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3Aanswer%3AUpdateAnswerResponse%27"><span class="annot"><span class="annottext">UpdateAnswerResponse -&gt; Maybe Answer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3Aanswer%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var hs-var">answer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AworkloadId%3AUpdateAnswerResponse%27"><span class="annot"><span class="annottext">UpdateAnswerResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AworkloadId%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var hs-var">workloadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateAnswerResponse%27"><span class="annot"><span class="annottext">UpdateAnswerResponse -&gt; Int
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AhttpStatus%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252066"><span id="local-6989586621679252068"><span class="annot"><span class="annottext">UpdateAnswerResponse -&gt; UpdateAnswerResponse -&gt; Bool
+(UpdateAnswerResponse -&gt; UpdateAnswerResponse -&gt; Bool)
+-&gt; (UpdateAnswerResponse -&gt; UpdateAnswerResponse -&gt; Bool)
+-&gt; Eq UpdateAnswerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAnswerResponse -&gt; UpdateAnswerResponse -&gt; Bool
+$c/= :: UpdateAnswerResponse -&gt; UpdateAnswerResponse -&gt; Bool
+== :: UpdateAnswerResponse -&gt; UpdateAnswerResponse -&gt; Bool
+$c== :: UpdateAnswerResponse -&gt; UpdateAnswerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252058"><span id="local-6989586621679252060"><span id="local-6989586621679252062"><span id="local-6989586621679252064"><span class="annot"><span class="annottext">ReadPrec [UpdateAnswerResponse]
+ReadPrec UpdateAnswerResponse
+Int -&gt; ReadS UpdateAnswerResponse
+ReadS [UpdateAnswerResponse]
+(Int -&gt; ReadS UpdateAnswerResponse)
+-&gt; ReadS [UpdateAnswerResponse]
+-&gt; ReadPrec UpdateAnswerResponse
+-&gt; ReadPrec [UpdateAnswerResponse]
+-&gt; Read UpdateAnswerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAnswerResponse]
+$creadListPrec :: ReadPrec [UpdateAnswerResponse]
+readPrec :: ReadPrec UpdateAnswerResponse
+$creadPrec :: ReadPrec UpdateAnswerResponse
+readList :: ReadS [UpdateAnswerResponse]
+$creadList :: ReadS [UpdateAnswerResponse]
+readsPrec :: Int -&gt; ReadS UpdateAnswerResponse
+$creadsPrec :: Int -&gt; ReadS UpdateAnswerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252052"><span id="local-6989586621679252054"><span id="local-6989586621679252056"><span class="annot"><span class="annottext">Int -&gt; UpdateAnswerResponse -&gt; ShowS
+[UpdateAnswerResponse] -&gt; ShowS
+UpdateAnswerResponse -&gt; String
+(Int -&gt; UpdateAnswerResponse -&gt; ShowS)
+-&gt; (UpdateAnswerResponse -&gt; String)
+-&gt; ([UpdateAnswerResponse] -&gt; ShowS)
+-&gt; Show UpdateAnswerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAnswerResponse] -&gt; ShowS
+$cshowList :: [UpdateAnswerResponse] -&gt; ShowS
+show :: UpdateAnswerResponse -&gt; String
+$cshow :: UpdateAnswerResponse -&gt; String
+showsPrec :: Int -&gt; UpdateAnswerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAnswerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateAnswerResponse -&gt; Rep UpdateAnswerResponse x)
+-&gt; (forall x. Rep UpdateAnswerResponse x -&gt; UpdateAnswerResponse)
+-&gt; Generic UpdateAnswerResponse
+forall x. Rep UpdateAnswerResponse x -&gt; UpdateAnswerResponse
+forall x. UpdateAnswerResponse -&gt; Rep UpdateAnswerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateAnswerResponse x -&gt; UpdateAnswerResponse
+$cfrom :: forall x. UpdateAnswerResponse -&gt; Rep UpdateAnswerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Create a value of 'UpdateAnswerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'lensAlias', 'updateAnswerResponse_lensAlias' - Undocumented member.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'answer', 'updateAnswerResponse_answer' - Undocumented member.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'workloadId', 'updateAnswerResponse_workloadId' - Undocumented member.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'httpStatus', 'updateAnswerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#newUpdateAnswerResponse"><span class="hs-identifier hs-type">newUpdateAnswerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span>
+</span><span id="line-239"></span><span id="newUpdateAnswerResponse"><span class="annot"><span class="annottext">newUpdateAnswerResponse :: Int -&gt; UpdateAnswerResponse
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#newUpdateAnswerResponse"><span class="hs-identifier hs-var hs-var">newUpdateAnswerResponse</span></a></span></span><span> </span><span id="local-6989586621679252049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">UpdateAnswerResponse' :: Maybe Text
+-&gt; Maybe Answer -&gt; Maybe Text -&gt; Int -&gt; UpdateAnswerResponse
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-type">UpdateAnswerResponse'</span></a></span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lensAlias:UpdateAnswerResponse' :: Maybe Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AlensAlias%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var">lensAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:answer:UpdateAnswerResponse' :: Maybe Answer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3Aanswer%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var">answer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Answer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:workloadId:UpdateAnswerResponse' :: Maybe Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AworkloadId%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var">workloadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAnswerResponse' :: Int
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AhttpStatus%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_lensAlias"><span class="hs-identifier hs-type">updateAnswerResponse_lensAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="updateAnswerResponse_lensAlias"><span class="annot"><span class="annottext">updateAnswerResponse_lensAlias :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateAnswerResponse -&gt; f UpdateAnswerResponse
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_lensAlias"><span class="hs-identifier hs-var hs-var">updateAnswerResponse_lensAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswerResponse -&gt; Maybe Text)
+-&gt; (UpdateAnswerResponse -&gt; Maybe Text -&gt; UpdateAnswerResponse)
+-&gt; Lens
+     UpdateAnswerResponse UpdateAnswerResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-type">UpdateAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252048"><span class="annot"><span class="annottext">Maybe Text
+lensAlias :: Maybe Text
+$sel:lensAlias:UpdateAnswerResponse' :: UpdateAnswerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679252048"><span class="hs-identifier hs-var hs-var">lensAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252048"><span class="hs-identifier hs-var">lensAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252047"><span class="annot"><span class="annottext">s :: UpdateAnswerResponse
+</span><a href="#local-6989586621679252047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-type">UpdateAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252046"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswerResponse
+</span><a href="#local-6989586621679252047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lensAlias:UpdateAnswerResponse' :: Maybe Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AlensAlias%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var">lensAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_answer"><span class="hs-identifier hs-type">updateAnswerResponse_answer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.Answer.html#Answer"><span class="hs-identifier hs-type">Answer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="updateAnswerResponse_answer"><span class="annot"><span class="annottext">updateAnswerResponse_answer :: (Maybe Answer -&gt; f (Maybe Answer))
+-&gt; UpdateAnswerResponse -&gt; f UpdateAnswerResponse
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_answer"><span class="hs-identifier hs-var hs-var">updateAnswerResponse_answer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswerResponse -&gt; Maybe Answer)
+-&gt; (UpdateAnswerResponse -&gt; Maybe Answer -&gt; UpdateAnswerResponse)
+-&gt; Lens
+     UpdateAnswerResponse
+     UpdateAnswerResponse
+     (Maybe Answer)
+     (Maybe Answer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-type">UpdateAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252045"><span class="annot"><span class="annottext">Maybe Answer
+answer :: Maybe Answer
+$sel:answer:UpdateAnswerResponse' :: UpdateAnswerResponse -&gt; Maybe Answer
+</span><a href="#local-6989586621679252045"><span class="hs-identifier hs-var hs-var">answer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Answer
+</span><a href="#local-6989586621679252045"><span class="hs-identifier hs-var">answer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252044"><span class="annot"><span class="annottext">s :: UpdateAnswerResponse
+</span><a href="#local-6989586621679252044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-type">UpdateAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252043"><span class="annot"><span class="annottext">Maybe Answer
+</span><a href="#local-6989586621679252043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswerResponse
+</span><a href="#local-6989586621679252044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:answer:UpdateAnswerResponse' :: Maybe Answer
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3Aanswer%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var">answer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Answer
+</span><a href="#local-6989586621679252043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_workloadId"><span class="hs-identifier hs-type">updateAnswerResponse_workloadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="updateAnswerResponse_workloadId"><span class="annot"><span class="annottext">updateAnswerResponse_workloadId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateAnswerResponse -&gt; f UpdateAnswerResponse
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_workloadId"><span class="hs-identifier hs-var hs-var">updateAnswerResponse_workloadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswerResponse -&gt; Maybe Text)
+-&gt; (UpdateAnswerResponse -&gt; Maybe Text -&gt; UpdateAnswerResponse)
+-&gt; Lens
+     UpdateAnswerResponse UpdateAnswerResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-type">UpdateAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252042"><span class="annot"><span class="annottext">Maybe Text
+workloadId :: Maybe Text
+$sel:workloadId:UpdateAnswerResponse' :: UpdateAnswerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679252042"><span class="hs-identifier hs-var hs-var">workloadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252042"><span class="hs-identifier hs-var">workloadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252041"><span class="annot"><span class="annottext">s :: UpdateAnswerResponse
+</span><a href="#local-6989586621679252041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-type">UpdateAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252040"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswerResponse
+</span><a href="#local-6989586621679252041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workloadId:UpdateAnswerResponse' :: Maybe Text
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AworkloadId%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var">workloadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_httpStatus"><span class="hs-identifier hs-type">updateAnswerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-261"></span><span id="updateAnswerResponse_httpStatus"><span class="annot"><span class="annottext">updateAnswerResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateAnswerResponse -&gt; f UpdateAnswerResponse
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#updateAnswerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateAnswerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnswerResponse -&gt; Int)
+-&gt; (UpdateAnswerResponse -&gt; Int -&gt; UpdateAnswerResponse)
+-&gt; Lens UpdateAnswerResponse UpdateAnswerResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-type">UpdateAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252039"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateAnswerResponse' :: UpdateAnswerResponse -&gt; Int
+</span><a href="#local-6989586621679252039"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252039"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252038"><span class="annot"><span class="annottext">s :: UpdateAnswerResponse
+</span><a href="#local-6989586621679252038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse%27"><span class="hs-identifier hs-type">UpdateAnswerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnswerResponse
+</span><a href="#local-6989586621679252038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAnswerResponse' :: Int
+</span><a href="Network.AWS.WellArchitected.UpdateAnswer.html#%24sel%3AhttpStatus%3AUpdateAnswerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.UpdateAnswer.html#UpdateAnswerResponse"><span class="hs-identifier hs-type">UpdateAnswerResponse</span></a></span></span><span>
+</span><span id="line-264"></span></pre></body></html>

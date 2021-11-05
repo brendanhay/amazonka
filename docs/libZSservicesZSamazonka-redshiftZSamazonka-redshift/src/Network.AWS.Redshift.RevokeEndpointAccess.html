@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newRevokeEndpointAccess' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679505568"><span id="local-6989586621679505569"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevokeEndpointAccess"><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-var">RevokeEndpointAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevokeEndpointAccess%27"><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-var">RevokeEndpointAccess'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679505577"><span id="local-6989586621679505578"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevokeEndpointAccess"><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-var">RevokeEndpointAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevokeEndpointAccess%27"><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-var">RevokeEndpointAccess'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether to force the revoke action. If true, the</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Redshift-managed VPC endpoints associated with the endpoint</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- authorization are also deleted.</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AvpcIds%3ARevokeEndpointAccess%27"><span class="annot"><span class="annottext">RevokeEndpointAccess -&gt; Maybe [Text]
 </span><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#%24sel%3AvpcIds%3ARevokeEndpointAccess%27"><span class="hs-identifier hs-var hs-var">vpcIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679505559"><span id="local-6989586621679505561"><span class="annot"><span class="annottext">RevokeEndpointAccess -&gt; RevokeEndpointAccess -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679505568"><span id="local-6989586621679505570"><span class="annot"><span class="annottext">RevokeEndpointAccess -&gt; RevokeEndpointAccess -&gt; Bool
 (RevokeEndpointAccess -&gt; RevokeEndpointAccess -&gt; Bool)
 -&gt; (RevokeEndpointAccess -&gt; RevokeEndpointAccess -&gt; Bool)
 -&gt; Eq RevokeEndpointAccess
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RevokeEndpointAccess -&gt; RevokeEndpointAccess -&gt; Bool
 == :: RevokeEndpointAccess -&gt; RevokeEndpointAccess -&gt; Bool
 $c== :: RevokeEndpointAccess -&gt; RevokeEndpointAccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679505550"><span id="local-6989586621679505552"><span id="local-6989586621679505554"><span id="local-6989586621679505556"><span class="annot"><span class="annottext">ReadPrec [RevokeEndpointAccess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679505559"><span id="local-6989586621679505561"><span id="local-6989586621679505563"><span id="local-6989586621679505565"><span class="annot"><span class="annottext">ReadPrec [RevokeEndpointAccess]
 ReadPrec RevokeEndpointAccess
 Int -&gt; ReadS RevokeEndpointAccess
 ReadS [RevokeEndpointAccess]
@@ -103,7 +103,7 @@ readList :: ReadS [RevokeEndpointAccess]
 $creadList :: ReadS [RevokeEndpointAccess]
 readsPrec :: Int -&gt; ReadS RevokeEndpointAccess
 $creadsPrec :: Int -&gt; ReadS RevokeEndpointAccess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679505543"><span id="local-6989586621679505545"><span id="local-6989586621679505547"><span class="annot"><span class="annottext">Int -&gt; RevokeEndpointAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679505552"><span id="local-6989586621679505554"><span id="local-6989586621679505556"><span class="annot"><span class="annottext">Int -&gt; RevokeEndpointAccess -&gt; ShowS
 [RevokeEndpointAccess] -&gt; ShowS
 RevokeEndpointAccess -&gt; String
 (Int -&gt; RevokeEndpointAccess -&gt; ShowS)
@@ -183,16 +183,16 @@ forall a. Maybe a
 -&gt; Lens
      RevokeEndpointAccess RevokeEndpointAccess (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505536"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505545"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe Bool
-</span><a href="#local-6989586621679505536"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679505536"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505535"><span class="annot"><span class="annottext">s :: RevokeEndpointAccess
-</span><a href="#local-6989586621679505535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679505534"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679505534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeEndpointAccess
-</span><a href="#local-6989586621679505535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:RevokeEndpointAccess' :: Maybe Bool
+</span><a href="#local-6989586621679505545"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679505545"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505544"><span class="annot"><span class="annottext">s :: RevokeEndpointAccess
+</span><a href="#local-6989586621679505544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679505543"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679505543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeEndpointAccess
+</span><a href="#local-6989586621679505544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:RevokeEndpointAccess' :: Maybe Bool
 </span><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#%24sel%3Aforce%3ARevokeEndpointAccess%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679505534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679505543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The cluster to revoke access from.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#revokeEndpointAccess_clusterIdentifier"><span class="hs-identifier hs-type">revokeEndpointAccess_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -203,16 +203,16 @@ $sel:force:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe Bool
 -&gt; Lens
      RevokeEndpointAccess RevokeEndpointAccess (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505533"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505542"><span class="annot"><span class="annottext">Maybe Text
 clusterIdentifier :: Maybe Text
 $sel:clusterIdentifier:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe Text
-</span><a href="#local-6989586621679505533"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679505533"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505532"><span class="annot"><span class="annottext">s :: RevokeEndpointAccess
-</span><a href="#local-6989586621679505532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679505531"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679505531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeEndpointAccess
-</span><a href="#local-6989586621679505532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:RevokeEndpointAccess' :: Maybe Text
+</span><a href="#local-6989586621679505542"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679505542"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505541"><span class="annot"><span class="annottext">s :: RevokeEndpointAccess
+</span><a href="#local-6989586621679505541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679505540"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679505540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeEndpointAccess
+</span><a href="#local-6989586621679505541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:RevokeEndpointAccess' :: Maybe Text
 </span><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#%24sel%3AclusterIdentifier%3ARevokeEndpointAccess%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679505531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679505540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Web Services account ID whose access is to be revoked.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#revokeEndpointAccess_account"><span class="hs-identifier hs-type">revokeEndpointAccess_account</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -223,16 +223,16 @@ $sel:clusterIdentifier:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe
 -&gt; Lens
      RevokeEndpointAccess RevokeEndpointAccess (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505530"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505539"><span class="annot"><span class="annottext">Maybe Text
 account :: Maybe Text
 $sel:account:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe Text
-</span><a href="#local-6989586621679505530"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679505530"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505529"><span class="annot"><span class="annottext">s :: RevokeEndpointAccess
-</span><a href="#local-6989586621679505529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679505528"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679505528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeEndpointAccess
-</span><a href="#local-6989586621679505529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:RevokeEndpointAccess' :: Maybe Text
+</span><a href="#local-6989586621679505539"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679505539"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505538"><span class="annot"><span class="annottext">s :: RevokeEndpointAccess
+</span><a href="#local-6989586621679505538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679505537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679505537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeEndpointAccess
+</span><a href="#local-6989586621679505538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:RevokeEndpointAccess' :: Maybe Text
 </span><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#%24sel%3Aaccount%3ARevokeEndpointAccess%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679505528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679505537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The virtual private cloud (VPC) identifiers for which access is to be</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- revoked.</span><span>
@@ -247,16 +247,16 @@ $sel:account:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe Text
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505527"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505536"><span class="annot"><span class="annottext">Maybe [Text]
 vpcIds :: Maybe [Text]
 $sel:vpcIds:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe [Text]
-</span><a href="#local-6989586621679505527"><span class="hs-identifier hs-var hs-var">vpcIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679505527"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505526"><span class="annot"><span class="annottext">s :: RevokeEndpointAccess
-</span><a href="#local-6989586621679505526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679505525"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679505525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeEndpointAccess
-</span><a href="#local-6989586621679505526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcIds:RevokeEndpointAccess' :: Maybe [Text]
+</span><a href="#local-6989586621679505536"><span class="hs-identifier hs-var hs-var">vpcIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679505536"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505535"><span class="annot"><span class="annottext">s :: RevokeEndpointAccess
+</span><a href="#local-6989586621679505535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679505534"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679505534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeEndpointAccess
+</span><a href="#local-6989586621679505535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcIds:RevokeEndpointAccess' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#%24sel%3AvpcIds%3ARevokeEndpointAccess%27"><span class="hs-identifier hs-var">vpcIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679505525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679505534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; RevokeEndpointAccess -&gt; f RevokeEndpointAccess)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -277,12 +277,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAuthorization.html#EndpointAuthorization"><span class="hs-identifier hs-type">EndpointAuthorization</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679505518"><span class="annot"><span class="annottext">request :: RevokeEndpointAccess -&gt; Request RevokeEndpointAccess
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679505527"><span class="annot"><span class="annottext">request :: RevokeEndpointAccess -&gt; Request RevokeEndpointAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RevokeEndpointAccess -&gt; Request RevokeEndpointAccess
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679505514"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679505523"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RevokeEndpointAccess
 -&gt; ClientResponse ClientBody
@@ -313,20 +313,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RevokeEndpointAccessResult&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505511"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679505511"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679505510"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679505510"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679505509"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679505509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointAuthorization
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679505520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679505520"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679505519"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679505519"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679505518"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679505518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointAuthorization
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679505509"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679505518"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679505504"><span id="local-6989586621679505506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679505513"><span id="local-6989586621679505515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679505501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679505510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679505497"><span class="annot"><span class="annottext">toHeaders :: RevokeEndpointAccess -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679505506"><span class="annot"><span class="annottext">toHeaders :: RevokeEndpointAccess -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RevokeEndpointAccess -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -334,15 +334,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679505492"><span class="annot"><span class="annottext">toPath :: RevokeEndpointAccess -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679505501"><span class="annot"><span class="annottext">toPath :: RevokeEndpointAccess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RevokeEndpointAccess -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess"><span class="hs-identifier hs-type">RevokeEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679505488"><span class="annot"><span class="annottext">toQuery :: RevokeEndpointAccess -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505483"><span id="local-6989586621679505484"><span id="local-6989586621679505485"><span id="local-6989586621679505486"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679505497"><span class="annot"><span class="annottext">toQuery :: RevokeEndpointAccess -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.RevokeEndpointAccess.html#RevokeEndpointAccess%27"><span class="hs-identifier hs-type">RevokeEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679505492"><span id="local-6989586621679505493"><span id="local-6989586621679505494"><span id="local-6989586621679505495"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
 vpcIds :: Maybe [Text]
@@ -353,7 +353,7 @@ $sel:vpcIds:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe [Text]
 $sel:account:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe Text
 $sel:clusterIdentifier:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe Text
 $sel:force:RevokeEndpointAccess' :: RevokeEndpointAccess -&gt; Maybe Bool
-</span><a href="#local-6989586621679505483"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679505492"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -373,17 +373,17 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Force&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679505486"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679505495"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679505485"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679505494"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Account&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679505484"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679505493"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VpcIds&quot;</span></span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -400,7 +400,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-155"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679505483"><span class="hs-identifier hs-var">vpcIds</span></a></span><span>
+</span><a href="#local-6989586621679505492"><span class="hs-identifier hs-var">vpcIds</span></a></span><span>
 </span><span id="line-156"></span><span>            </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679247356"><span id="local-6989586621679247357"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiCachingBehavior"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCachingBehavior.html#ApiCachingBehavior"><span class="hs-identifier hs-var">ApiCachingBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiCachingBehavior%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCachingBehavior.html#ApiCachingBehavior%27"><span class="hs-identifier hs-var">ApiCachingBehavior'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679247365"><span id="local-6989586621679247366"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiCachingBehavior"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCachingBehavior.html#ApiCachingBehavior"><span class="hs-identifier hs-var">ApiCachingBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiCachingBehavior%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCachingBehavior.html#ApiCachingBehavior%27"><span class="hs-identifier hs-var">ApiCachingBehavior'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApiCachingBehavior"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.ApiCachingBehavior.html#fromApiCachingBehavior"><span class="hs-identifier hs-var hs-var">fromApiCachingBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247348"><span id="local-6989586621679247350"><span id="local-6989586621679247352"><span class="annot"><span class="annottext">Int -&gt; ApiCachingBehavior -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247357"><span id="local-6989586621679247359"><span id="local-6989586621679247361"><span class="annot"><span class="annottext">Int -&gt; ApiCachingBehavior -&gt; ShowS
 [ApiCachingBehavior] -&gt; ShowS
 ApiCachingBehavior -&gt; String
 (Int -&gt; ApiCachingBehavior -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ApiCachingBehavior -&gt; String
 showsPrec :: Int -&gt; ApiCachingBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApiCachingBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679247339"><span id="local-6989586621679247341"><span id="local-6989586621679247343"><span id="local-6989586621679247345"><span class="annot"><span class="annottext">ReadPrec [ApiCachingBehavior]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679247348"><span id="local-6989586621679247350"><span id="local-6989586621679247352"><span id="local-6989586621679247354"><span class="annot"><span class="annottext">ReadPrec [ApiCachingBehavior]
 ReadPrec ApiCachingBehavior
 Int -&gt; ReadS ApiCachingBehavior
 ReadS [ApiCachingBehavior]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ApiCachingBehavior]
 readsPrec :: Int -&gt; ReadS ApiCachingBehavior
 $creadsPrec :: Int -&gt; ReadS ApiCachingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679247334"><span id="local-6989586621679247336"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; ApiCachingBehavior -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679247343"><span id="local-6989586621679247345"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; ApiCachingBehavior -&gt; Bool
 (ApiCachingBehavior -&gt; ApiCachingBehavior -&gt; Bool)
 -&gt; (ApiCachingBehavior -&gt; ApiCachingBehavior -&gt; Bool)
 -&gt; Eq ApiCachingBehavior
@@ -82,7 +82,7 @@ $c/= :: ApiCachingBehavior -&gt; ApiCachingBehavior -&gt; Bool
 == :: ApiCachingBehavior -&gt; ApiCachingBehavior -&gt; Bool
 $c== :: ApiCachingBehavior -&gt; ApiCachingBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679247318"><span id="local-6989586621679247320"><span id="local-6989586621679247322"><span id="local-6989586621679247324"><span id="local-6989586621679247326"><span id="local-6989586621679247328"><span id="local-6989586621679247330"><span class="annot"><span class="annottext">Eq ApiCachingBehavior
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679247327"><span id="local-6989586621679247329"><span id="local-6989586621679247331"><span id="local-6989586621679247333"><span id="local-6989586621679247335"><span id="local-6989586621679247337"><span id="local-6989586621679247339"><span class="annot"><span class="annottext">Eq ApiCachingBehavior
 Eq ApiCachingBehavior
 -&gt; (ApiCachingBehavior -&gt; ApiCachingBehavior -&gt; Ordering)
 -&gt; (ApiCachingBehavior -&gt; ApiCachingBehavior -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ApiCachingBehavior -&gt; Rep ApiCachingBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247310"><span id="local-6989586621679247312"><span class="annot"><span class="annottext">Int -&gt; ApiCachingBehavior -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247319"><span id="local-6989586621679247321"><span class="annot"><span class="annottext">Int -&gt; ApiCachingBehavior -&gt; Int
 ApiCachingBehavior -&gt; Int
 (Int -&gt; ApiCachingBehavior -&gt; Int)
 -&gt; (ApiCachingBehavior -&gt; Int) -&gt; Hashable ApiCachingBehavior
@@ -143,53 +143,53 @@ $chash :: ApiCachingBehavior -&gt; Int
 hashWithSalt :: Int -&gt; ApiCachingBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; ApiCachingBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679247307"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679247316"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; ()
 (ApiCachingBehavior -&gt; ()) -&gt; NFData ApiCachingBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApiCachingBehavior -&gt; ()
 $crnf :: ApiCachingBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679247304"><span class="annot"><span class="annottext">Text -&gt; Either String ApiCachingBehavior
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679247313"><span class="annot"><span class="annottext">Text -&gt; Either String ApiCachingBehavior
 (Text -&gt; Either String ApiCachingBehavior)
 -&gt; FromText ApiCachingBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApiCachingBehavior
 $cfromText :: Text -&gt; Either String ApiCachingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679247301"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679247310"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; Text
 (ApiCachingBehavior -&gt; Text) -&gt; ToText ApiCachingBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApiCachingBehavior -&gt; Text
 $ctoText :: ApiCachingBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247298"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679247307"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; ByteString
 (ApiCachingBehavior -&gt; ByteString)
 -&gt; ToByteString ApiCachingBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApiCachingBehavior -&gt; ByteString
 $ctoBS :: ApiCachingBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247295"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679247304"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; ByteStringBuilder
 (ApiCachingBehavior -&gt; ByteStringBuilder)
 -&gt; ToLog ApiCachingBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApiCachingBehavior -&gt; ByteStringBuilder
 $cbuild :: ApiCachingBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247292"><span class="annot"><span class="annottext">HeaderName -&gt; ApiCachingBehavior -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679247301"><span class="annot"><span class="annottext">HeaderName -&gt; ApiCachingBehavior -&gt; [Header]
 (HeaderName -&gt; ApiCachingBehavior -&gt; [Header])
 -&gt; ToHeader ApiCachingBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApiCachingBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApiCachingBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247289"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679247298"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; QueryString
 (ApiCachingBehavior -&gt; QueryString) -&gt; ToQuery ApiCachingBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApiCachingBehavior -&gt; QueryString
 $ctoQuery :: ApiCachingBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247284"><span id="local-6989586621679247286"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiCachingBehavior]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679247293"><span id="local-6989586621679247295"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiCachingBehavior]
 Value -&gt; Parser ApiCachingBehavior
 (Value -&gt; Parser ApiCachingBehavior)
 -&gt; (Value -&gt; Parser [ApiCachingBehavior])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [ApiCachingBehavior]
 parseJSON :: Value -&gt; Parser ApiCachingBehavior
 $cparseJSON :: Value -&gt; Parser ApiCachingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247279"><span id="local-6989586621679247281"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiCachingBehavior]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679247288"><span id="local-6989586621679247290"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiCachingBehavior]
 FromJSONKeyFunction ApiCachingBehavior
 FromJSONKeyFunction ApiCachingBehavior
 -&gt; FromJSONKeyFunction [ApiCachingBehavior]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApiCachingBehavior]
 fromJSONKey :: FromJSONKeyFunction ApiCachingBehavior
 $cfromJSONKey :: FromJSONKeyFunction ApiCachingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247270"><span id="local-6989586621679247272"><span id="local-6989586621679247274"><span id="local-6989586621679247276"><span class="annot"><span class="annottext">[ApiCachingBehavior] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679247279"><span id="local-6989586621679247281"><span id="local-6989586621679247283"><span id="local-6989586621679247285"><span class="annot"><span class="annottext">[ApiCachingBehavior] -&gt; Encoding
 [ApiCachingBehavior] -&gt; Value
 ApiCachingBehavior -&gt; Encoding
 ApiCachingBehavior -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: ApiCachingBehavior -&gt; Encoding
 toJSON :: ApiCachingBehavior -&gt; Value
 $ctoJSON :: ApiCachingBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247265"><span id="local-6989586621679247267"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiCachingBehavior]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679247274"><span id="local-6989586621679247276"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiCachingBehavior]
 ToJSONKeyFunction ApiCachingBehavior
 ToJSONKeyFunction ApiCachingBehavior
 -&gt; ToJSONKeyFunction [ApiCachingBehavior]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApiCachingBehavior]
 toJSONKey :: ToJSONKeyFunction ApiCachingBehavior
 $ctoJSONKey :: ToJSONKeyFunction ApiCachingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247262"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiCachingBehavior
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679247271"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiCachingBehavior
 ([Node] -&gt; Either String ApiCachingBehavior)
 -&gt; FromXML ApiCachingBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApiCachingBehavior
 $cparseXML :: [Node] -&gt; Either String ApiCachingBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247259"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679247268"><span class="annot"><span class="annottext">ApiCachingBehavior -&gt; XML
 (ApiCachingBehavior -&gt; XML) -&gt; ToXML ApiCachingBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApiCachingBehavior -&gt; XML

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679262222"><span id="local-6989586621679262223"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceSortType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourceSortType.html#ResourceSortType"><span class="hs-identifier hs-var">ResourceSortType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceSortType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourceSortType.html#ResourceSortType%27"><span class="hs-identifier hs-var">ResourceSortType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679262231"><span id="local-6989586621679262232"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceSortType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourceSortType.html#ResourceSortType"><span class="hs-identifier hs-var">ResourceSortType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceSortType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ResourceSortType.html#ResourceSortType%27"><span class="hs-identifier hs-var">ResourceSortType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceSortType"><span class="annot"><span class="annottext">ResourceSortType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.ResourceSortType.html#fromResourceSortType"><span class="hs-identifier hs-var hs-var">fromResourceSortType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262214"><span id="local-6989586621679262216"><span id="local-6989586621679262218"><span class="annot"><span class="annottext">Int -&gt; ResourceSortType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262223"><span id="local-6989586621679262225"><span id="local-6989586621679262227"><span class="annot"><span class="annottext">Int -&gt; ResourceSortType -&gt; ShowS
 [ResourceSortType] -&gt; ShowS
 ResourceSortType -&gt; String
 (Int -&gt; ResourceSortType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ResourceSortType -&gt; String
 showsPrec :: Int -&gt; ResourceSortType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ResourceSortType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679262205"><span id="local-6989586621679262207"><span id="local-6989586621679262209"><span id="local-6989586621679262211"><span class="annot"><span class="annottext">ReadPrec [ResourceSortType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679262214"><span id="local-6989586621679262216"><span id="local-6989586621679262218"><span id="local-6989586621679262220"><span class="annot"><span class="annottext">ReadPrec [ResourceSortType]
 ReadPrec ResourceSortType
 Int -&gt; ReadS ResourceSortType
 ReadS [ResourceSortType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ResourceSortType]
 readsPrec :: Int -&gt; ReadS ResourceSortType
 $creadsPrec :: Int -&gt; ReadS ResourceSortType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679262200"><span id="local-6989586621679262202"><span class="annot"><span class="annottext">ResourceSortType -&gt; ResourceSortType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679262209"><span id="local-6989586621679262211"><span class="annot"><span class="annottext">ResourceSortType -&gt; ResourceSortType -&gt; Bool
 (ResourceSortType -&gt; ResourceSortType -&gt; Bool)
 -&gt; (ResourceSortType -&gt; ResourceSortType -&gt; Bool)
 -&gt; Eq ResourceSortType
@@ -82,7 +82,7 @@ $c/= :: ResourceSortType -&gt; ResourceSortType -&gt; Bool
 == :: ResourceSortType -&gt; ResourceSortType -&gt; Bool
 $c== :: ResourceSortType -&gt; ResourceSortType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679262184"><span id="local-6989586621679262186"><span id="local-6989586621679262188"><span id="local-6989586621679262190"><span id="local-6989586621679262192"><span id="local-6989586621679262194"><span id="local-6989586621679262196"><span class="annot"><span class="annottext">Eq ResourceSortType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679262193"><span id="local-6989586621679262195"><span id="local-6989586621679262197"><span id="local-6989586621679262199"><span id="local-6989586621679262201"><span id="local-6989586621679262203"><span id="local-6989586621679262205"><span class="annot"><span class="annottext">Eq ResourceSortType
 Eq ResourceSortType
 -&gt; (ResourceSortType -&gt; ResourceSortType -&gt; Ordering)
 -&gt; (ResourceSortType -&gt; ResourceSortType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ResourceSortType -&gt; Rep ResourceSortType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262176"><span id="local-6989586621679262178"><span class="annot"><span class="annottext">Int -&gt; ResourceSortType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262185"><span id="local-6989586621679262187"><span class="annot"><span class="annottext">Int -&gt; ResourceSortType -&gt; Int
 ResourceSortType -&gt; Int
 (Int -&gt; ResourceSortType -&gt; Int)
 -&gt; (ResourceSortType -&gt; Int) -&gt; Hashable ResourceSortType
@@ -143,51 +143,51 @@ $chash :: ResourceSortType -&gt; Int
 hashWithSalt :: Int -&gt; ResourceSortType -&gt; Int
 $chashWithSalt :: Int -&gt; ResourceSortType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679262173"><span class="annot"><span class="annottext">ResourceSortType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679262182"><span class="annot"><span class="annottext">ResourceSortType -&gt; ()
 (ResourceSortType -&gt; ()) -&gt; NFData ResourceSortType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ResourceSortType -&gt; ()
 $crnf :: ResourceSortType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679262170"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceSortType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679262179"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceSortType
 (Text -&gt; Either String ResourceSortType)
 -&gt; FromText ResourceSortType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ResourceSortType
 $cfromText :: Text -&gt; Either String ResourceSortType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679262167"><span class="annot"><span class="annottext">ResourceSortType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679262176"><span class="annot"><span class="annottext">ResourceSortType -&gt; Text
 (ResourceSortType -&gt; Text) -&gt; ToText ResourceSortType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ResourceSortType -&gt; Text
 $ctoText :: ResourceSortType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679262164"><span class="annot"><span class="annottext">ResourceSortType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679262173"><span class="annot"><span class="annottext">ResourceSortType -&gt; ByteString
 (ResourceSortType -&gt; ByteString) -&gt; ToByteString ResourceSortType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ResourceSortType -&gt; ByteString
 $ctoBS :: ResourceSortType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679262161"><span class="annot"><span class="annottext">ResourceSortType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679262170"><span class="annot"><span class="annottext">ResourceSortType -&gt; ByteStringBuilder
 (ResourceSortType -&gt; ByteStringBuilder) -&gt; ToLog ResourceSortType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ResourceSortType -&gt; ByteStringBuilder
 $cbuild :: ResourceSortType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679262158"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceSortType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679262167"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceSortType -&gt; [Header]
 (HeaderName -&gt; ResourceSortType -&gt; [Header])
 -&gt; ToHeader ResourceSortType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ResourceSortType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ResourceSortType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262155"><span class="annot"><span class="annottext">ResourceSortType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262164"><span class="annot"><span class="annottext">ResourceSortType -&gt; QueryString
 (ResourceSortType -&gt; QueryString) -&gt; ToQuery ResourceSortType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ResourceSortType -&gt; QueryString
 $ctoQuery :: ResourceSortType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262150"><span id="local-6989586621679262152"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceSortType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262159"><span id="local-6989586621679262161"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceSortType]
 Value -&gt; Parser ResourceSortType
 (Value -&gt; Parser ResourceSortType)
 -&gt; (Value -&gt; Parser [ResourceSortType])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ResourceSortType]
 parseJSON :: Value -&gt; Parser ResourceSortType
 $cparseJSON :: Value -&gt; Parser ResourceSortType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262145"><span id="local-6989586621679262147"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceSortType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262154"><span id="local-6989586621679262156"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceSortType]
 FromJSONKeyFunction ResourceSortType
 FromJSONKeyFunction ResourceSortType
 -&gt; FromJSONKeyFunction [ResourceSortType]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ResourceSortType]
 fromJSONKey :: FromJSONKeyFunction ResourceSortType
 $cfromJSONKey :: FromJSONKeyFunction ResourceSortType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262136"><span id="local-6989586621679262138"><span id="local-6989586621679262140"><span id="local-6989586621679262142"><span class="annot"><span class="annottext">[ResourceSortType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262145"><span id="local-6989586621679262147"><span id="local-6989586621679262149"><span id="local-6989586621679262151"><span class="annot"><span class="annottext">[ResourceSortType] -&gt; Encoding
 [ResourceSortType] -&gt; Value
 ResourceSortType -&gt; Encoding
 ResourceSortType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ResourceSortType -&gt; Encoding
 toJSON :: ResourceSortType -&gt; Value
 $ctoJSON :: ResourceSortType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262131"><span id="local-6989586621679262133"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceSortType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262140"><span id="local-6989586621679262142"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceSortType]
 ToJSONKeyFunction ResourceSortType
 ToJSONKeyFunction ResourceSortType
 -&gt; ToJSONKeyFunction [ResourceSortType]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ResourceSortType]
 toJSONKey :: ToJSONKeyFunction ResourceSortType
 $ctoJSONKey :: ToJSONKeyFunction ResourceSortType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262128"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceSortType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262137"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceSortType
 ([Node] -&gt; Either String ResourceSortType)
 -&gt; FromXML ResourceSortType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ResourceSortType
 $cparseXML :: [Node] -&gt; Either String ResourceSortType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262125"><span class="annot"><span class="annottext">ResourceSortType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262134"><span class="annot"><span class="annottext">ResourceSortType -&gt; XML
 (ResourceSortType -&gt; XML) -&gt; ToXML ResourceSortType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ResourceSortType -&gt; XML

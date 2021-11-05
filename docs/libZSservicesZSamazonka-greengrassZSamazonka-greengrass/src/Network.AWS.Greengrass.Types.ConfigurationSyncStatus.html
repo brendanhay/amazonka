@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679341150"><span id="local-6989586621679341151"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigurationSyncStatus"><span class="annot"><a href="Network.AWS.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus"><span class="hs-identifier hs-var">ConfigurationSyncStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationSyncStatus%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus%27"><span class="hs-identifier hs-var">ConfigurationSyncStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679341159"><span id="local-6989586621679341160"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigurationSyncStatus"><span class="annot"><a href="Network.AWS.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus"><span class="hs-identifier hs-var">ConfigurationSyncStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationSyncStatus%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.ConfigurationSyncStatus.html#ConfigurationSyncStatus%27"><span class="hs-identifier hs-var">ConfigurationSyncStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfigurationSyncStatus"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.ConfigurationSyncStatus.html#fromConfigurationSyncStatus"><span class="hs-identifier hs-var hs-var">fromConfigurationSyncStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341142"><span id="local-6989586621679341144"><span id="local-6989586621679341146"><span class="annot"><span class="annottext">Int -&gt; ConfigurationSyncStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341151"><span id="local-6989586621679341153"><span id="local-6989586621679341155"><span class="annot"><span class="annottext">Int -&gt; ConfigurationSyncStatus -&gt; ShowS
 [ConfigurationSyncStatus] -&gt; ShowS
 ConfigurationSyncStatus -&gt; String
 (Int -&gt; ConfigurationSyncStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ConfigurationSyncStatus -&gt; String
 showsPrec :: Int -&gt; ConfigurationSyncStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConfigurationSyncStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679341133"><span id="local-6989586621679341135"><span id="local-6989586621679341137"><span id="local-6989586621679341139"><span class="annot"><span class="annottext">ReadPrec [ConfigurationSyncStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679341142"><span id="local-6989586621679341144"><span id="local-6989586621679341146"><span id="local-6989586621679341148"><span class="annot"><span class="annottext">ReadPrec [ConfigurationSyncStatus]
 ReadPrec ConfigurationSyncStatus
 Int -&gt; ReadS ConfigurationSyncStatus
 ReadS [ConfigurationSyncStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ConfigurationSyncStatus]
 readsPrec :: Int -&gt; ReadS ConfigurationSyncStatus
 $creadsPrec :: Int -&gt; ReadS ConfigurationSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679341128"><span id="local-6989586621679341130"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679341137"><span id="local-6989586621679341139"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
 (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool)
 -&gt; (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool)
 -&gt; Eq ConfigurationSyncStatus
@@ -82,7 +82,7 @@ $c/= :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
 == :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
 $c== :: ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679341112"><span id="local-6989586621679341114"><span id="local-6989586621679341116"><span id="local-6989586621679341118"><span id="local-6989586621679341120"><span id="local-6989586621679341122"><span id="local-6989586621679341124"><span class="annot"><span class="annottext">Eq ConfigurationSyncStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679341121"><span id="local-6989586621679341123"><span id="local-6989586621679341125"><span id="local-6989586621679341127"><span id="local-6989586621679341129"><span id="local-6989586621679341131"><span id="local-6989586621679341133"><span class="annot"><span class="annottext">Eq ConfigurationSyncStatus
 Eq ConfigurationSyncStatus
 -&gt; (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Ordering)
 -&gt; (ConfigurationSyncStatus -&gt; ConfigurationSyncStatus -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. ConfigurationSyncStatus -&gt; Rep ConfigurationSyncStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341104"><span id="local-6989586621679341106"><span class="annot"><span class="annottext">Int -&gt; ConfigurationSyncStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341113"><span id="local-6989586621679341115"><span class="annot"><span class="annottext">Int -&gt; ConfigurationSyncStatus -&gt; Int
 ConfigurationSyncStatus -&gt; Int
 (Int -&gt; ConfigurationSyncStatus -&gt; Int)
 -&gt; (ConfigurationSyncStatus -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: ConfigurationSyncStatus -&gt; Int
 hashWithSalt :: Int -&gt; ConfigurationSyncStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ConfigurationSyncStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679341101"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679341110"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ()
 (ConfigurationSyncStatus -&gt; ()) -&gt; NFData ConfigurationSyncStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConfigurationSyncStatus -&gt; ()
 $crnf :: ConfigurationSyncStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679341098"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigurationSyncStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679341107"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigurationSyncStatus
 (Text -&gt; Either String ConfigurationSyncStatus)
 -&gt; FromText ConfigurationSyncStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConfigurationSyncStatus
 $cfromText :: Text -&gt; Either String ConfigurationSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679341095"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679341104"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; Text
 (ConfigurationSyncStatus -&gt; Text) -&gt; ToText ConfigurationSyncStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConfigurationSyncStatus -&gt; Text
 $ctoText :: ConfigurationSyncStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679341092"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679341101"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ByteString
 (ConfigurationSyncStatus -&gt; ByteString)
 -&gt; ToByteString ConfigurationSyncStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConfigurationSyncStatus -&gt; ByteString
 $ctoBS :: ConfigurationSyncStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679341089"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679341098"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; ByteStringBuilder
 (ConfigurationSyncStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ConfigurationSyncStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConfigurationSyncStatus -&gt; ByteStringBuilder
 $cbuild :: ConfigurationSyncStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679341086"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigurationSyncStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679341095"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigurationSyncStatus -&gt; [Header]
 (HeaderName -&gt; ConfigurationSyncStatus -&gt; [Header])
 -&gt; ToHeader ConfigurationSyncStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConfigurationSyncStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConfigurationSyncStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679341083"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679341092"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; QueryString
 (ConfigurationSyncStatus -&gt; QueryString)
 -&gt; ToQuery ConfigurationSyncStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConfigurationSyncStatus -&gt; QueryString
 $ctoQuery :: ConfigurationSyncStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679341078"><span id="local-6989586621679341080"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigurationSyncStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679341087"><span id="local-6989586621679341089"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigurationSyncStatus]
 Value -&gt; Parser ConfigurationSyncStatus
 (Value -&gt; Parser ConfigurationSyncStatus)
 -&gt; (Value -&gt; Parser [ConfigurationSyncStatus])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [ConfigurationSyncStatus]
 parseJSON :: Value -&gt; Parser ConfigurationSyncStatus
 $cparseJSON :: Value -&gt; Parser ConfigurationSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679341073"><span id="local-6989586621679341075"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigurationSyncStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679341082"><span id="local-6989586621679341084"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigurationSyncStatus]
 FromJSONKeyFunction ConfigurationSyncStatus
 FromJSONKeyFunction ConfigurationSyncStatus
 -&gt; FromJSONKeyFunction [ConfigurationSyncStatus]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConfigurationSyncStatus]
 fromJSONKey :: FromJSONKeyFunction ConfigurationSyncStatus
 $cfromJSONKey :: FromJSONKeyFunction ConfigurationSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679341064"><span id="local-6989586621679341066"><span id="local-6989586621679341068"><span id="local-6989586621679341070"><span class="annot"><span class="annottext">[ConfigurationSyncStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679341073"><span id="local-6989586621679341075"><span id="local-6989586621679341077"><span id="local-6989586621679341079"><span class="annot"><span class="annottext">[ConfigurationSyncStatus] -&gt; Encoding
 [ConfigurationSyncStatus] -&gt; Value
 ConfigurationSyncStatus -&gt; Encoding
 ConfigurationSyncStatus -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: ConfigurationSyncStatus -&gt; Encoding
 toJSON :: ConfigurationSyncStatus -&gt; Value
 $ctoJSON :: ConfigurationSyncStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679341059"><span id="local-6989586621679341061"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigurationSyncStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679341068"><span id="local-6989586621679341070"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigurationSyncStatus]
 ToJSONKeyFunction ConfigurationSyncStatus
 ToJSONKeyFunction ConfigurationSyncStatus
 -&gt; ToJSONKeyFunction [ConfigurationSyncStatus]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConfigurationSyncStatus]
 toJSONKey :: ToJSONKeyFunction ConfigurationSyncStatus
 $ctoJSONKey :: ToJSONKeyFunction ConfigurationSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679341056"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigurationSyncStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679341065"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigurationSyncStatus
 ([Node] -&gt; Either String ConfigurationSyncStatus)
 -&gt; FromXML ConfigurationSyncStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConfigurationSyncStatus
 $cparseXML :: [Node] -&gt; Either String ConfigurationSyncStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679341053"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679341062"><span class="annot"><span class="annottext">ConfigurationSyncStatus -&gt; XML
 (ConfigurationSyncStatus -&gt; XML) -&gt; ToXML ConfigurationSyncStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConfigurationSyncStatus -&gt; XML

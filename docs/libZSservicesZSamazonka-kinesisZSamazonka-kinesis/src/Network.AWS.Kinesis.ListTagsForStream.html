@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Represents the input for @ListTagsForStream@.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListTagsForStream' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679201996"><span id="local-6989586621679201997"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForStream"><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-var">ListTagsForStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForStream%27"><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-var">ListTagsForStream'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679202005"><span id="local-6989586621679202006"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForStream"><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-var">ListTagsForStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForStream%27"><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-var">ListTagsForStream'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of tags to return. If this number is less than the total</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- number of tags associated with the stream, @HasMoreTags@ is set to</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AstreamName%3AListTagsForStream%27"><span class="annot"><span class="annottext">ListTagsForStream -&gt; Text
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AstreamName%3AListTagsForStream%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201988"><span id="local-6989586621679201990"><span class="annot"><span class="annottext">ListTagsForStream -&gt; ListTagsForStream -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201997"><span id="local-6989586621679201999"><span class="annot"><span class="annottext">ListTagsForStream -&gt; ListTagsForStream -&gt; Bool
 (ListTagsForStream -&gt; ListTagsForStream -&gt; Bool)
 -&gt; (ListTagsForStream -&gt; ListTagsForStream -&gt; Bool)
 -&gt; Eq ListTagsForStream
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForStream -&gt; ListTagsForStream -&gt; Bool
 == :: ListTagsForStream -&gt; ListTagsForStream -&gt; Bool
 $c== :: ListTagsForStream -&gt; ListTagsForStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201979"><span id="local-6989586621679201981"><span id="local-6989586621679201983"><span id="local-6989586621679201985"><span class="annot"><span class="annottext">ReadPrec [ListTagsForStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201988"><span id="local-6989586621679201990"><span id="local-6989586621679201992"><span id="local-6989586621679201994"><span class="annot"><span class="annottext">ReadPrec [ListTagsForStream]
 ReadPrec ListTagsForStream
 Int -&gt; ReadS ListTagsForStream
 ReadS [ListTagsForStream]
@@ -98,7 +98,7 @@ readList :: ReadS [ListTagsForStream]
 $creadList :: ReadS [ListTagsForStream]
 readsPrec :: Int -&gt; ReadS ListTagsForStream
 $creadsPrec :: Int -&gt; ReadS ListTagsForStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201972"><span id="local-6989586621679201974"><span id="local-6989586621679201976"><span class="annot"><span class="annottext">Int -&gt; ListTagsForStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201981"><span id="local-6989586621679201983"><span id="local-6989586621679201985"><span class="annot"><span class="annottext">Int -&gt; ListTagsForStream -&gt; ShowS
 [ListTagsForStream] -&gt; ShowS
 ListTagsForStream -&gt; String
 (Int -&gt; ListTagsForStream -&gt; ShowS)
@@ -147,8 +147,8 @@ $cfrom :: forall x. ListTagsForStream -&gt; Rep ListTagsForStream x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span>
 </span><span id="line-93"></span><span id="newListTagsForStream"><span class="annot"><span class="annottext">newListTagsForStream :: Text -&gt; ListTagsForStream
-</span><a href="Network.AWS.Kinesis.ListTagsForStream.html#newListTagsForStream"><span class="hs-identifier hs-var hs-var">newListTagsForStream</span></a></span></span><span> </span><span id="local-6989586621679201967"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201967"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.ListTagsForStream.html#newListTagsForStream"><span class="hs-identifier hs-var hs-var">newListTagsForStream</span></a></span></span><span> </span><span id="local-6989586621679201976"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201976"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForStream' :: Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; ListTagsForStream
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:limit:ListTagsForStream' :: Maybe Natural
@@ -161,7 +161,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamName:ListTagsForStream' :: Text
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AstreamName%3AListTagsForStream%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201967"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span>
+</span><a href="#local-6989586621679201976"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The number of tags to return. If this number is less than the total</span><span>
@@ -176,16 +176,16 @@ forall a. Maybe a
 -&gt; Lens
      ListTagsForStream ListTagsForStream (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201964"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201973"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListTagsForStream' :: ListTagsForStream -&gt; Maybe Natural
-</span><a href="#local-6989586621679201964"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679201964"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201963"><span class="annot"><span class="annottext">s :: ListTagsForStream
-</span><a href="#local-6989586621679201963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201962"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679201962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStream
-</span><a href="#local-6989586621679201963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListTagsForStream' :: Maybe Natural
+</span><a href="#local-6989586621679201973"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679201973"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201972"><span class="annot"><span class="annottext">s :: ListTagsForStream
+</span><a href="#local-6989586621679201972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201971"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679201971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStream
+</span><a href="#local-6989586621679201972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListTagsForStream' :: Maybe Natural
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3Alimit%3AListTagsForStream%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679201962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The key to use as the starting point for the list of tags. If this</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- parameter is set, @ListTagsForStream@ gets all tags that occur after</span><span>
@@ -198,16 +198,16 @@ $sel:limit:ListTagsForStream' :: ListTagsForStream -&gt; Maybe Natural
 -&gt; Lens
      ListTagsForStream ListTagsForStream (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201961"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201970"><span class="annot"><span class="annottext">Maybe Text
 exclusiveStartTagKey :: Maybe Text
 $sel:exclusiveStartTagKey:ListTagsForStream' :: ListTagsForStream -&gt; Maybe Text
-</span><a href="#local-6989586621679201961"><span class="hs-identifier hs-var hs-var">exclusiveStartTagKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201961"><span class="hs-identifier hs-var">exclusiveStartTagKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201960"><span class="annot"><span class="annottext">s :: ListTagsForStream
-</span><a href="#local-6989586621679201960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201959"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStream
-</span><a href="#local-6989586621679201960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartTagKey:ListTagsForStream' :: Maybe Text
+</span><a href="#local-6989586621679201970"><span class="hs-identifier hs-var hs-var">exclusiveStartTagKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201970"><span class="hs-identifier hs-var">exclusiveStartTagKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201969"><span class="annot"><span class="annottext">s :: ListTagsForStream
+</span><a href="#local-6989586621679201969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201968"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679201968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStream
+</span><a href="#local-6989586621679201969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartTagKey:ListTagsForStream' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AexclusiveStartTagKey%3AListTagsForStream%27"><span class="hs-identifier hs-var">exclusiveStartTagKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of the stream.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#listTagsForStream_streamName"><span class="hs-identifier hs-type">listTagsForStream_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -216,27 +216,27 @@ $sel:exclusiveStartTagKey:ListTagsForStream' :: ListTagsForStream -&gt; Maybe Te
 -&gt; (ListTagsForStream -&gt; Text -&gt; ListTagsForStream)
 -&gt; Lens ListTagsForStream ListTagsForStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201958"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201967"><span class="annot"><span class="annottext">Text
 streamName :: Text
 $sel:streamName:ListTagsForStream' :: ListTagsForStream -&gt; Text
-</span><a href="#local-6989586621679201958"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201958"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201957"><span class="annot"><span class="annottext">s :: ListTagsForStream
-</span><a href="#local-6989586621679201957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201956"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStream
-</span><a href="#local-6989586621679201957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:ListTagsForStream' :: Text
+</span><a href="#local-6989586621679201967"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201967"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201966"><span class="annot"><span class="annottext">s :: ListTagsForStream
+</span><a href="#local-6989586621679201966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201965"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStream
+</span><a href="#local-6989586621679201966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:ListTagsForStream' :: Text
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AstreamName%3AListTagsForStream%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679201952"><span class="annot"><span class="annottext">request :: ListTagsForStream -&gt; Request ListTagsForStream
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679201961"><span class="annot"><span class="annottext">request :: ListTagsForStream -&gt; Request ListTagsForStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTagsForStream -&gt; Request ListTagsForStream
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679201948"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679201957"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTagsForStream
 -&gt; ClientResponse ClientBody
@@ -262,10 +262,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201945"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201945"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679201944"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679201944"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679201943"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201943"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201954"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201954"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679201953"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679201953"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679201952"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201952"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [Tag] -&gt; Bool -&gt; ListTagsForStreamResponse
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-var">ListTagsForStreamResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [Tag] -&gt; Bool -&gt; ListTagsForStreamResponse)
@@ -277,13 +277,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201945"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201954"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Tag] -&gt; Bool -&gt; ListTagsForStreamResponse)
 -&gt; Either String [Tag]
 -&gt; Either String (Bool -&gt; ListTagsForStreamResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201943"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Tag])
+</span><a href="#local-6989586621679201952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Tag])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Tag]) -&gt; [Tag] -&gt; Either String [Tag]
@@ -295,18 +295,18 @@ forall a. Monoid a =&gt; a
 -&gt; Either String Bool -&gt; Either String ListTagsForStreamResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201943"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679201952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HasMoreTags&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201933"><span id="local-6989586621679201935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201942"><span id="local-6989586621679201944"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679201926"><span class="annot"><span class="annottext">toHeaders :: ListTagsForStream -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679201935"><span class="annot"><span class="annottext">toHeaders :: ListTagsForStream -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTagsForStream -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -333,9 +333,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201916"><span id="local-6989586621679201918"><span id="local-6989586621679201920"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679201914"><span class="annot"><span class="annottext">toJSON :: ListTagsForStream -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201910"><span id="local-6989586621679201911"><span id="local-6989586621679201912"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201925"><span id="local-6989586621679201927"><span id="local-6989586621679201929"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679201923"><span class="annot"><span class="annottext">toJSON :: ListTagsForStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream%27"><span class="hs-identifier hs-type">ListTagsForStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201919"><span id="local-6989586621679201920"><span id="local-6989586621679201921"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 streamName :: Text
@@ -344,7 +344,7 @@ limit :: Maybe Natural
 $sel:streamName:ListTagsForStream' :: ListTagsForStream -&gt; Text
 $sel:exclusiveStartTagKey:ListTagsForStream' :: ListTagsForStream -&gt; Maybe Text
 $sel:limit:ListTagsForStream' :: ListTagsForStream -&gt; Maybe Natural
-</span><a href="#local-6989586621679201910"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679201919"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -356,7 +356,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679201912"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201921"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExclusiveStartTagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -364,26 +364,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679201911"><span class="hs-identifier hs-var">exclusiveStartTagKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201920"><span class="hs-identifier hs-var">exclusiveStartTagKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679201910"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201919"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679201904"><span class="annot"><span class="annottext">toPath :: ListTagsForStream -&gt; ByteString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679201913"><span class="annot"><span class="annottext">toPath :: ListTagsForStream -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTagsForStream -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStream"><span class="hs-identifier hs-type">ListTagsForStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679201900"><span class="annot"><span class="annottext">toQuery :: ListTagsForStream -&gt; QueryString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679201909"><span class="annot"><span class="annottext">toQuery :: ListTagsForStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTagsForStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -393,7 +393,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-167"></span><span class="hs-comment">-- | Represents the output for @ListTagsForStream@.</span><span>
 </span><span id="line-168"></span><span class="hs-comment">--</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- /See:/ 'newListTagsForStreamResponse' smart constructor.</span><span>
-</span><span id="line-170"></span><span id="local-6989586621679201897"><span id="local-6989586621679201898"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForStreamResponse"><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-var">ListTagsForStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForStreamResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-var">ListTagsForStreamResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span id="local-6989586621679201906"><span id="local-6989586621679201907"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForStreamResponse"><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-var">ListTagsForStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForStreamResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-var">ListTagsForStreamResponse'</span></a></span></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTagsForStreamResponse%27"><span class="annot"><span class="annottext">ListTagsForStreamResponse -&gt; Int
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AhttpStatus%3AListTagsForStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -406,7 +406,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AhasMoreTags%3AListTagsForStreamResponse%27"><span class="annot"><span class="annottext">ListTagsForStreamResponse -&gt; Bool
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AhasMoreTags%3AListTagsForStreamResponse%27"><span class="hs-identifier hs-var hs-var">hasMoreTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201890"><span id="local-6989586621679201892"><span class="annot"><span class="annottext">ListTagsForStreamResponse -&gt; ListTagsForStreamResponse -&gt; Bool
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201899"><span id="local-6989586621679201901"><span class="annot"><span class="annottext">ListTagsForStreamResponse -&gt; ListTagsForStreamResponse -&gt; Bool
 (ListTagsForStreamResponse -&gt; ListTagsForStreamResponse -&gt; Bool)
 -&gt; (ListTagsForStreamResponse -&gt; ListTagsForStreamResponse -&gt; Bool)
 -&gt; Eq ListTagsForStreamResponse
@@ -415,7 +415,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForStreamResponse -&gt; ListTagsForStreamResponse -&gt; Bool
 == :: ListTagsForStreamResponse -&gt; ListTagsForStreamResponse -&gt; Bool
 $c== :: ListTagsForStreamResponse -&gt; ListTagsForStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201882"><span id="local-6989586621679201884"><span id="local-6989586621679201886"><span id="local-6989586621679201888"><span class="annot"><span class="annottext">ReadPrec [ListTagsForStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201891"><span id="local-6989586621679201893"><span id="local-6989586621679201895"><span id="local-6989586621679201897"><span class="annot"><span class="annottext">ReadPrec [ListTagsForStreamResponse]
 ReadPrec ListTagsForStreamResponse
 Int -&gt; ReadS ListTagsForStreamResponse
 ReadS [ListTagsForStreamResponse]
@@ -435,7 +435,7 @@ readList :: ReadS [ListTagsForStreamResponse]
 $creadList :: ReadS [ListTagsForStreamResponse]
 readsPrec :: Int -&gt; ReadS ListTagsForStreamResponse
 $creadsPrec :: Int -&gt; ReadS ListTagsForStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201876"><span id="local-6989586621679201878"><span id="local-6989586621679201880"><span class="annot"><span class="annottext">Int -&gt; ListTagsForStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201885"><span id="local-6989586621679201887"><span id="local-6989586621679201889"><span class="annot"><span class="annottext">Int -&gt; ListTagsForStreamResponse -&gt; ShowS
 [ListTagsForStreamResponse] -&gt; ShowS
 ListTagsForStreamResponse -&gt; String
 (Int -&gt; ListTagsForStreamResponse -&gt; ShowS)
@@ -490,23 +490,23 @@ ListTagsForStreamResponse -&gt; Rep ListTagsForStreamResponse x
 </span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span><span>
 </span><span id="line-203"></span><span id="newListTagsForStreamResponse"><span class="annot"><span class="annottext">newListTagsForStreamResponse :: Int -&gt; Bool -&gt; ListTagsForStreamResponse
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#newListTagsForStreamResponse"><span class="hs-identifier hs-var hs-var">newListTagsForStreamResponse</span></a></span></span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679201873"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679201872"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679201872"><span class="hs-identifier hs-var">pHasMoreTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679201882"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201882"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679201881"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679201881"><span class="hs-identifier hs-var">pHasMoreTags_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">ListTagsForStreamResponse' :: Int -&gt; [Tag] -&gt; Bool -&gt; ListTagsForStreamResponse
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForStreamResponse' :: Int
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AhttpStatus%3AListTagsForStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201882"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:ListTagsForStreamResponse' :: [Tag]
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3Atags%3AListTagsForStreamResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">$sel:hasMoreTags:ListTagsForStreamResponse' :: Bool
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AhasMoreTags%3AListTagsForStreamResponse%27"><span class="hs-identifier hs-var">hasMoreTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679201872"><span class="hs-identifier hs-var">pHasMoreTags_</span></a></span><span>
+</span><a href="#local-6989586621679201881"><span class="hs-identifier hs-var">pHasMoreTags_</span></a></span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -517,16 +517,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ListTagsForStreamResponse -&gt; Int -&gt; ListTagsForStreamResponse)
 -&gt; Lens ListTagsForStreamResponse ListTagsForStreamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201871"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201880"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTagsForStreamResponse' :: ListTagsForStreamResponse -&gt; Int
-</span><a href="#local-6989586621679201871"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201871"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201870"><span class="annot"><span class="annottext">s :: ListTagsForStreamResponse
-</span><a href="#local-6989586621679201870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201869"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStreamResponse
-</span><a href="#local-6989586621679201870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForStreamResponse' :: Int
+</span><a href="#local-6989586621679201880"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201880"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201879"><span class="annot"><span class="annottext">s :: ListTagsForStreamResponse
+</span><a href="#local-6989586621679201879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201878"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStreamResponse
+</span><a href="#local-6989586621679201879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForStreamResponse' :: Int
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AhttpStatus%3AListTagsForStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679201869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | A list of tags associated with @StreamName@, starting with the first tag</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- after @ExclusiveStartTagKey@ and up to the specified @Limit@.</span><span>
@@ -539,16 +539,16 @@ $sel:httpStatus:ListTagsForStreamResponse' :: ListTagsForStreamResponse -&gt; In
 -&gt; Lens
      ListTagsForStreamResponse ListTagsForStreamResponse [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201868"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201877"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:ListTagsForStreamResponse' :: ListTagsForStreamResponse -&gt; [Tag]
-</span><a href="#local-6989586621679201868"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679201868"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201867"><span class="annot"><span class="annottext">s :: ListTagsForStreamResponse
-</span><a href="#local-6989586621679201867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201866"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679201866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStreamResponse
-</span><a href="#local-6989586621679201867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsForStreamResponse' :: [Tag]
+</span><a href="#local-6989586621679201877"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679201877"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201876"><span class="annot"><span class="annottext">s :: ListTagsForStreamResponse
+</span><a href="#local-6989586621679201876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201875"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679201875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStreamResponse
+</span><a href="#local-6989586621679201876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsForStreamResponse' :: [Tag]
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3Atags%3AListTagsForStreamResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679201866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
+</span><a href="#local-6989586621679201875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
  -&gt; ListTagsForStreamResponse -&gt; f ListTagsForStreamResponse)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
@@ -569,16 +569,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListTagsForStreamResponse ListTagsForStreamResponse Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201863"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201872"><span class="annot"><span class="annottext">Bool
 hasMoreTags :: Bool
 $sel:hasMoreTags:ListTagsForStreamResponse' :: ListTagsForStreamResponse -&gt; Bool
-</span><a href="#local-6989586621679201863"><span class="hs-identifier hs-var hs-var">hasMoreTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679201863"><span class="hs-identifier hs-var">hasMoreTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201862"><span class="annot"><span class="annottext">s :: ListTagsForStreamResponse
-</span><a href="#local-6989586621679201862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201861"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679201861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStreamResponse
-</span><a href="#local-6989586621679201862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasMoreTags:ListTagsForStreamResponse' :: Bool
+</span><a href="#local-6989586621679201872"><span class="hs-identifier hs-var hs-var">hasMoreTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679201872"><span class="hs-identifier hs-var">hasMoreTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201871"><span class="annot"><span class="annottext">s :: ListTagsForStreamResponse
+</span><a href="#local-6989586621679201871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse%27"><span class="hs-identifier hs-type">ListTagsForStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201870"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679201870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForStreamResponse
+</span><a href="#local-6989586621679201871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasMoreTags:ListTagsForStreamResponse' :: Bool
 </span><a href="Network.AWS.Kinesis.ListTagsForStream.html#%24sel%3AhasMoreTags%3AListTagsForStreamResponse%27"><span class="hs-identifier hs-var">hasMoreTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679201861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListTagsForStream.html#ListTagsForStreamResponse"><span class="hs-identifier hs-type">ListTagsForStreamResponse</span></a></span></span><span>
 </span><span id="line-228"></span></pre></body></html>

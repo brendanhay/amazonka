@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListTaskDefinitionFamilies' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679473449"><span id="local-6989586621679473450"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTaskDefinitionFamilies"><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-var">ListTaskDefinitionFamilies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTaskDefinitionFamilies%27"><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-var">ListTaskDefinitionFamilies'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679473458"><span id="local-6989586621679473459"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTaskDefinitionFamilies"><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-var">ListTaskDefinitionFamilies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTaskDefinitionFamilies%27"><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-var">ListTaskDefinitionFamilies'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The task definition family status with which to filter the</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @ListTaskDefinitionFamilies@ results. By default, both @ACTIVE@ and</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @INACTIVE@ task definition families are listed. If this parameter is set</span><span>
@@ -100,7 +100,7 @@
 </span><span id="line-97"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTaskDefinitionFamilies%27"><span class="annot"><span class="annottext">ListTaskDefinitionFamilies -&gt; Maybe Int
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3AmaxResults%3AListTaskDefinitionFamilies%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679473440"><span id="local-6989586621679473442"><span class="annot"><span class="annottext">ListTaskDefinitionFamilies -&gt; ListTaskDefinitionFamilies -&gt; Bool
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679473449"><span id="local-6989586621679473451"><span class="annot"><span class="annottext">ListTaskDefinitionFamilies -&gt; ListTaskDefinitionFamilies -&gt; Bool
 (ListTaskDefinitionFamilies -&gt; ListTaskDefinitionFamilies -&gt; Bool)
 -&gt; (ListTaskDefinitionFamilies
     -&gt; ListTaskDefinitionFamilies -&gt; Bool)
@@ -110,7 +110,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTaskDefinitionFamilies -&gt; ListTaskDefinitionFamilies -&gt; Bool
 == :: ListTaskDefinitionFamilies -&gt; ListTaskDefinitionFamilies -&gt; Bool
 $c== :: ListTaskDefinitionFamilies -&gt; ListTaskDefinitionFamilies -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679473431"><span id="local-6989586621679473433"><span id="local-6989586621679473435"><span id="local-6989586621679473437"><span class="annot"><span class="annottext">ReadPrec [ListTaskDefinitionFamilies]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679473440"><span id="local-6989586621679473442"><span id="local-6989586621679473444"><span id="local-6989586621679473446"><span class="annot"><span class="annottext">ReadPrec [ListTaskDefinitionFamilies]
 ReadPrec ListTaskDefinitionFamilies
 Int -&gt; ReadS ListTaskDefinitionFamilies
 ReadS [ListTaskDefinitionFamilies]
@@ -130,7 +130,7 @@ readList :: ReadS [ListTaskDefinitionFamilies]
 $creadList :: ReadS [ListTaskDefinitionFamilies]
 readsPrec :: Int -&gt; ReadS ListTaskDefinitionFamilies
 $creadsPrec :: Int -&gt; ReadS ListTaskDefinitionFamilies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679473424"><span id="local-6989586621679473426"><span id="local-6989586621679473428"><span class="annot"><span class="annottext">Int -&gt; ListTaskDefinitionFamilies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679473433"><span id="local-6989586621679473435"><span id="local-6989586621679473437"><span class="annot"><span class="annottext">Int -&gt; ListTaskDefinitionFamilies -&gt; ShowS
 [ListTaskDefinitionFamilies] -&gt; ShowS
 ListTaskDefinitionFamilies -&gt; String
 (Int -&gt; ListTaskDefinitionFamilies -&gt; ShowS)
@@ -254,16 +254,16 @@ forall a. Maybe a
      (Maybe TaskDefinitionFamilyStatus)
      (Maybe TaskDefinitionFamilyStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473418"><span class="annot"><span class="annottext">Maybe TaskDefinitionFamilyStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473427"><span class="annot"><span class="annottext">Maybe TaskDefinitionFamilyStatus
 status :: Maybe TaskDefinitionFamilyStatus
 $sel:status:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; Maybe TaskDefinitionFamilyStatus
-</span><a href="#local-6989586621679473418"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinitionFamilyStatus
-</span><a href="#local-6989586621679473418"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473417"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473416"><span class="annot"><span class="annottext">Maybe TaskDefinitionFamilyStatus
-</span><a href="#local-6989586621679473416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListTaskDefinitionFamilies' :: Maybe TaskDefinitionFamilyStatus
+</span><a href="#local-6989586621679473427"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinitionFamilyStatus
+</span><a href="#local-6989586621679473427"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473426"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473425"><span class="annot"><span class="annottext">Maybe TaskDefinitionFamilyStatus
+</span><a href="#local-6989586621679473425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListTaskDefinitionFamilies' :: Maybe TaskDefinitionFamilyStatus
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3Astatus%3AListTaskDefinitionFamilies%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinitionFamilyStatus
-</span><a href="#local-6989586621679473416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679473425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The @familyPrefix@ is a string that is used to filter the results of</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- @ListTaskDefinitionFamilies@. If you specify a @familyPrefix@, only task</span><span>
@@ -281,16 +281,16 @@ $sel:status:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473415"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473424"><span class="annot"><span class="annottext">Maybe Text
 familyPrefix :: Maybe Text
 $sel:familyPrefix:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; Maybe Text
-</span><a href="#local-6989586621679473415"><span class="hs-identifier hs-var hs-var">familyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473415"><span class="hs-identifier hs-var">familyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473414"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473413"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:familyPrefix:ListTaskDefinitionFamilies' :: Maybe Text
+</span><a href="#local-6989586621679473424"><span class="hs-identifier hs-var hs-var">familyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679473424"><span class="hs-identifier hs-var">familyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473423"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473422"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679473422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:familyPrefix:ListTaskDefinitionFamilies' :: Maybe Text
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3AfamilyPrefix%3AListTaskDefinitionFamilies%27"><span class="hs-identifier hs-var">familyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679473422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The @nextToken@ value returned from a @ListTaskDefinitionFamilies@</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- request indicating that more results are available to fulfill the</span><span>
@@ -312,16 +312,16 @@ $sel:familyPrefix:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473412"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473421"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; Maybe Text
-</span><a href="#local-6989586621679473412"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473412"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473411"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473410"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTaskDefinitionFamilies' :: Maybe Text
+</span><a href="#local-6989586621679473421"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679473421"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473420"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679473419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTaskDefinitionFamilies' :: Maybe Text
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3AnextToken%3AListTaskDefinitionFamilies%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679473419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The maximum number of task definition family results returned by</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- @ListTaskDefinitionFamilies@ in paginated output. When this parameter is</span><span>
@@ -344,30 +344,30 @@ $sel:nextToken:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; M
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473409"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473418"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; Maybe Int
-</span><a href="#local-6989586621679473409"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679473409"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473408"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473407"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679473407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTaskDefinitionFamilies' :: Maybe Int
+</span><a href="#local-6989586621679473418"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679473418"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473417"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473416"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679473416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTaskDefinitionFamilies' :: Maybe Int
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3AmaxResults%3AListTaskDefinitionFamilies%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679473407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679473416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679473403"><span class="annot"><span class="annottext">page :: ListTaskDefinitionFamilies
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679473412"><span class="annot"><span class="annottext">page :: ListTaskDefinitionFamilies
 -&gt; AWSResponse ListTaskDefinitionFamilies
 -&gt; Maybe ListTaskDefinitionFamilies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679473401"><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473401"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679473400"><span class="annot"><span class="annottext">AWSResponse ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473400"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679473410"><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473410"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679473409"><span class="annot"><span class="annottext">AWSResponse ListTaskDefinitionFamilies
+</span><a href="#local-6989586621679473409"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-198"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTaskDefinitionFamilies
 ListTaskDefinitionFamiliesResponse
-</span><a href="#local-6989586621679473400"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679473409"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
 -&gt; Getting (First Text) ListTaskDefinitionFamiliesResponse Text
 -&gt; Maybe Text
@@ -397,7 +397,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-204"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTaskDefinitionFamilies
 ListTaskDefinitionFamiliesResponse
-</span><a href="#local-6989586621679473400"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679473409"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
 -&gt; Getting (First [Text]) ListTaskDefinitionFamiliesResponse [Text]
 -&gt; Maybe [Text]
@@ -431,7 +431,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
-</span><a href="#local-6989586621679473401"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679473410"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">ListTaskDefinitionFamilies
 -&gt; (ListTaskDefinitionFamilies -&gt; ListTaskDefinitionFamilies)
 -&gt; ListTaskDefinitionFamilies
@@ -454,7 +454,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTaskDefinitionFamilies
 ListTaskDefinitionFamiliesResponse
-</span><a href="#local-6989586621679473400"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679473409"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
 -&gt; Getting (First Text) ListTaskDefinitionFamiliesResponse Text
 -&gt; Maybe Text
@@ -480,13 +480,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-218"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-219"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679473390"><span class="annot"><span class="annottext">request :: ListTaskDefinitionFamilies -&gt; Request ListTaskDefinitionFamilies
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679473399"><span class="annot"><span class="annottext">request :: ListTaskDefinitionFamilies -&gt; Request ListTaskDefinitionFamilies
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListTaskDefinitionFamilies -&gt; Request ListTaskDefinitionFamilies
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679473386"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679473395"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTaskDefinitionFamilies
 -&gt; ClientResponse ClientBody
@@ -512,10 +512,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679473383"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679473383"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679473382"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679473382"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679473381"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679473381"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679473392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679473392"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679473391"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679473391"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679473390"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679473390"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text -&gt; Int -&gt; ListTaskDefinitionFamiliesResponse
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-var">ListTaskDefinitionFamiliesResponse'</span></a></span><span>
@@ -526,7 +526,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListTaskDefinitionFamiliesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679473381"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679473390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;families&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -541,7 +541,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListTaskDefinitionFamiliesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679473381"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679473390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -554,15 +554,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679473383"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679473392"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679473372"><span id="local-6989586621679473374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span></span></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679473381"><span id="local-6989586621679473383"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span></span></span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679473369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679473378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span></span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679473365"><span class="annot"><span class="annottext">toHeaders :: ListTaskDefinitionFamilies -&gt; ResponseHeaders
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679473374"><span class="annot"><span class="annottext">toHeaders :: ListTaskDefinitionFamilies -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTaskDefinitionFamilies -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -589,9 +589,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-247"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-248"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679473355"><span id="local-6989586621679473357"><span id="local-6989586621679473359"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-251"></span><span>  </span><span id="local-6989586621679473353"><span class="annot"><span class="annottext">toJSON :: ListTaskDefinitionFamilies -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473348"><span id="local-6989586621679473349"><span id="local-6989586621679473350"><span id="local-6989586621679473351"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679473364"><span id="local-6989586621679473366"><span id="local-6989586621679473368"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679473362"><span class="annot"><span class="annottext">toJSON :: ListTaskDefinitionFamilies -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473357"><span id="local-6989586621679473358"><span id="local-6989586621679473359"><span id="local-6989586621679473360"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe TaskDefinitionFamilyStatus
 maxResults :: Maybe Int
@@ -602,7 +602,7 @@ $sel:maxResults:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; 
 $sel:nextToken:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; Maybe Text
 $sel:familyPrefix:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; Maybe Text
 $sel:status:ListTaskDefinitionFamilies' :: ListTaskDefinitionFamilies -&gt; Maybe TaskDefinitionFamilyStatus
-</span><a href="#local-6989586621679473348"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679473357"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-253"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -615,40 +615,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TaskDefinitionFamilyStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinitionFamilyStatus
-</span><a href="#local-6989586621679473351"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679473360"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;familyPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473350"><span class="hs-identifier hs-var">familyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679473359"><span class="hs-identifier hs-var">familyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473349"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679473358"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679473348"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679473357"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-258"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679473342"><span class="annot"><span class="annottext">toPath :: ListTaskDefinitionFamilies -&gt; ByteString
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679473351"><span class="annot"><span class="annottext">toPath :: ListTaskDefinitionFamilies -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTaskDefinitionFamilies -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-263"></span><span>
 </span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamilies"><span class="hs-identifier hs-type">ListTaskDefinitionFamilies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-265"></span><span>  </span><span id="local-6989586621679473338"><span class="annot"><span class="annottext">toQuery :: ListTaskDefinitionFamilies -&gt; QueryString
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679473347"><span class="annot"><span class="annottext">toQuery :: ListTaskDefinitionFamilies -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTaskDefinitionFamilies -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -656,7 +656,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | /See:/ 'newListTaskDefinitionFamiliesResponse' smart constructor.</span><span>
-</span><span id="line-268"></span><span id="local-6989586621679473335"><span id="local-6989586621679473336"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTaskDefinitionFamiliesResponse"><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-var">ListTaskDefinitionFamiliesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTaskDefinitionFamiliesResponse%27"><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-var">ListTaskDefinitionFamiliesResponse'</span></a></span></span><span>
+</span><span id="line-268"></span><span id="local-6989586621679473344"><span id="local-6989586621679473345"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTaskDefinitionFamiliesResponse"><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-var">ListTaskDefinitionFamiliesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTaskDefinitionFamiliesResponse%27"><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-var">ListTaskDefinitionFamiliesResponse'</span></a></span></span><span>
 </span><span id="line-269"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of task definition family names that match the</span><span>
 </span><span id="line-270"></span><span>    </span><span class="hs-comment">-- @ListTaskDefinitionFamilies@ request.</span><span>
 </span><span id="line-271"></span><span>    </span><span id="%24sel%3Afamilies%3AListTaskDefinitionFamiliesResponse%27"><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse -&gt; Maybe [Text]
@@ -672,7 +672,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-279"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTaskDefinitionFamiliesResponse%27"><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse -&gt; Int
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3AhttpStatus%3AListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-280"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-281"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679473328"><span id="local-6989586621679473330"><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
+</span><span id="line-281"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679473337"><span id="local-6989586621679473339"><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
 -&gt; ListTaskDefinitionFamiliesResponse -&gt; Bool
 (ListTaskDefinitionFamiliesResponse
  -&gt; ListTaskDefinitionFamiliesResponse -&gt; Bool)
@@ -688,7 +688,7 @@ $c/= :: ListTaskDefinitionFamiliesResponse
 -&gt; ListTaskDefinitionFamiliesResponse -&gt; Bool
 $c== :: ListTaskDefinitionFamiliesResponse
 -&gt; ListTaskDefinitionFamiliesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679473320"><span id="local-6989586621679473322"><span id="local-6989586621679473324"><span id="local-6989586621679473326"><span class="annot"><span class="annottext">ReadPrec [ListTaskDefinitionFamiliesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679473329"><span id="local-6989586621679473331"><span id="local-6989586621679473333"><span id="local-6989586621679473335"><span class="annot"><span class="annottext">ReadPrec [ListTaskDefinitionFamiliesResponse]
 ReadPrec ListTaskDefinitionFamiliesResponse
 Int -&gt; ReadS ListTaskDefinitionFamiliesResponse
 ReadS [ListTaskDefinitionFamiliesResponse]
@@ -708,7 +708,7 @@ readList :: ReadS [ListTaskDefinitionFamiliesResponse]
 $creadList :: ReadS [ListTaskDefinitionFamiliesResponse]
 readsPrec :: Int -&gt; ReadS ListTaskDefinitionFamiliesResponse
 $creadsPrec :: Int -&gt; ReadS ListTaskDefinitionFamiliesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679473314"><span id="local-6989586621679473316"><span id="local-6989586621679473318"><span class="annot"><span class="annottext">Int -&gt; ListTaskDefinitionFamiliesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679473323"><span id="local-6989586621679473325"><span id="local-6989586621679473327"><span class="annot"><span class="annottext">Int -&gt; ListTaskDefinitionFamiliesResponse -&gt; ShowS
 [ListTaskDefinitionFamiliesResponse] -&gt; ShowS
 ListTaskDefinitionFamiliesResponse -&gt; String
 (Int -&gt; ListTaskDefinitionFamiliesResponse -&gt; ShowS)
@@ -769,8 +769,8 @@ ListTaskDefinitionFamiliesResponse
 </span><span id="line-303"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-304"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span><span>
 </span><span id="line-305"></span><span id="newListTaskDefinitionFamiliesResponse"><span class="annot"><span class="annottext">newListTaskDefinitionFamiliesResponse :: Int -&gt; ListTaskDefinitionFamiliesResponse
-</span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#newListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-var hs-var">newListTaskDefinitionFamiliesResponse</span></a></span></span><span> </span><span id="local-6989586621679473311"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679473311"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#newListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-var hs-var">newListTaskDefinitionFamiliesResponse</span></a></span></span><span> </span><span id="local-6989586621679473320"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679473320"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-306"></span><span>  </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse' :: Maybe [Text]
 -&gt; Maybe Text -&gt; Int -&gt; ListTaskDefinitionFamiliesResponse
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span>
@@ -785,7 +785,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-310"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTaskDefinitionFamiliesResponse' :: Int
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3AhttpStatus%3AListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679473311"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679473320"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-311"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- | The list of task definition family names that match the</span><span>
@@ -799,16 +799,16 @@ forall a. Maybe a
     -&gt; Maybe [Text] -&gt; ListTaskDefinitionFamiliesResponse)
 -&gt; Lens' ListTaskDefinitionFamiliesResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473310"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473319"><span class="annot"><span class="annottext">Maybe [Text]
 families :: Maybe [Text]
 $sel:families:ListTaskDefinitionFamiliesResponse' :: ListTaskDefinitionFamiliesResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679473310"><span class="hs-identifier hs-var hs-var">families</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679473310"><span class="hs-identifier hs-var">families</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473309"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamiliesResponse
-</span><a href="#local-6989586621679473309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473308"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679473308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
-</span><a href="#local-6989586621679473309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:families:ListTaskDefinitionFamiliesResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679473319"><span class="hs-identifier hs-var hs-var">families</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679473319"><span class="hs-identifier hs-var">families</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473318"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamiliesResponse
+</span><a href="#local-6989586621679473318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473317"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679473317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
+</span><a href="#local-6989586621679473318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:families:ListTaskDefinitionFamiliesResponse' :: Maybe [Text]
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3Afamilies%3AListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-var">families</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679473308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679473317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListTaskDefinitionFamiliesResponse
  -&gt; f ListTaskDefinitionFamiliesResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -840,16 +840,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListTaskDefinitionFamiliesResponse)
 -&gt; Lens' ListTaskDefinitionFamiliesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473305"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473314"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTaskDefinitionFamiliesResponse' :: ListTaskDefinitionFamiliesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679473305"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473305"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473304"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamiliesResponse
-</span><a href="#local-6989586621679473304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473303"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
-</span><a href="#local-6989586621679473304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTaskDefinitionFamiliesResponse' :: Maybe Text
+</span><a href="#local-6989586621679473314"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679473314"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473313"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamiliesResponse
+</span><a href="#local-6989586621679473313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473312"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679473312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
+</span><a href="#local-6989586621679473313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTaskDefinitionFamiliesResponse' :: Maybe Text
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3AnextToken%3AListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679473303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679473312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-327"></span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#listTaskDefinitionFamiliesResponse_httpStatus"><span class="hs-identifier hs-type">listTaskDefinitionFamiliesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -865,18 +865,18 @@ $sel:nextToken:ListTaskDefinitionFamiliesResponse' :: ListTaskDefinitionFamilies
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473302"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679473311"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTaskDefinitionFamiliesResponse' :: ListTaskDefinitionFamiliesResponse -&gt; Int
-</span><a href="#local-6989586621679473302"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679473302"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473301"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamiliesResponse
-</span><a href="#local-6989586621679473301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473300"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679473300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
-</span><a href="#local-6989586621679473301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTaskDefinitionFamiliesResponse' :: Int
+</span><a href="#local-6989586621679473311"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679473311"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679473310"><span class="annot"><span class="annottext">s :: ListTaskDefinitionFamiliesResponse
+</span><a href="#local-6989586621679473310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679473309"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679473309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTaskDefinitionFamiliesResponse
+</span><a href="#local-6989586621679473310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTaskDefinitionFamiliesResponse' :: Int
 </span><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#%24sel%3AhttpStatus%3AListTaskDefinitionFamiliesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679473300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679473309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-331"></span><span>  </span><span id="local-6989586621679473298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621679473307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-332"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.ListTaskDefinitionFamilies.html#ListTaskDefinitionFamiliesResponse"><span class="hs-identifier hs-type">ListTaskDefinitionFamiliesResponse</span></a></span></span><span>
 </span><span id="line-333"></span></pre></body></html>

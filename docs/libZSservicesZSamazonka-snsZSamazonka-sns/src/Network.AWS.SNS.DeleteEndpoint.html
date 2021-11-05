@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Input for DeleteEndpoint action.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newDeleteEndpoint' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679198915"><span id="local-6989586621679198916"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEndpoint"><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-var">DeleteEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEndpoint%27"><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint%27"><span class="hs-identifier hs-var">DeleteEndpoint'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679198924"><span id="local-6989586621679198925"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEndpoint"><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-var">DeleteEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEndpoint%27"><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint%27"><span class="hs-identifier hs-var">DeleteEndpoint'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | EndpointArn of endpoint to delete.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AendpointArn%3ADeleteEndpoint%27"><span class="annot"><span class="annottext">DeleteEndpoint -&gt; Text
 </span><a href="Network.AWS.SNS.DeleteEndpoint.html#%24sel%3AendpointArn%3ADeleteEndpoint%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198909"><span id="local-6989586621679198911"><span class="annot"><span class="annottext">DeleteEndpoint -&gt; DeleteEndpoint -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198918"><span id="local-6989586621679198920"><span class="annot"><span class="annottext">DeleteEndpoint -&gt; DeleteEndpoint -&gt; Bool
 (DeleteEndpoint -&gt; DeleteEndpoint -&gt; Bool)
 -&gt; (DeleteEndpoint -&gt; DeleteEndpoint -&gt; Bool) -&gt; Eq DeleteEndpoint
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteEndpoint -&gt; DeleteEndpoint -&gt; Bool
 == :: DeleteEndpoint -&gt; DeleteEndpoint -&gt; Bool
 $c== :: DeleteEndpoint -&gt; DeleteEndpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198900"><span id="local-6989586621679198902"><span id="local-6989586621679198904"><span id="local-6989586621679198906"><span class="annot"><span class="annottext">ReadPrec [DeleteEndpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198909"><span id="local-6989586621679198911"><span id="local-6989586621679198913"><span id="local-6989586621679198915"><span class="annot"><span class="annottext">ReadPrec [DeleteEndpoint]
 ReadPrec DeleteEndpoint
 Int -&gt; ReadS DeleteEndpoint
 ReadS [DeleteEndpoint]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteEndpoint]
 $creadList :: ReadS [DeleteEndpoint]
 readsPrec :: Int -&gt; ReadS DeleteEndpoint
 $creadsPrec :: Int -&gt; ReadS DeleteEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198893"><span id="local-6989586621679198895"><span id="local-6989586621679198897"><span class="annot"><span class="annottext">Int -&gt; DeleteEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198902"><span id="local-6989586621679198904"><span id="local-6989586621679198906"><span class="annot"><span class="annottext">Int -&gt; DeleteEndpoint -&gt; ShowS
 [DeleteEndpoint] -&gt; ShowS
 DeleteEndpoint -&gt; String
 (Int -&gt; DeleteEndpoint -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. DeleteEndpoint -&gt; Rep DeleteEndpoint x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteEndpoint"><span class="annot"><span class="annottext">newDeleteEndpoint :: Text -&gt; DeleteEndpoint
-</span><a href="Network.AWS.SNS.DeleteEndpoint.html#newDeleteEndpoint"><span class="hs-identifier hs-var hs-var">newDeleteEndpoint</span></a></span></span><span> </span><span id="local-6989586621679198888"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198888"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.DeleteEndpoint.html#newDeleteEndpoint"><span class="hs-identifier hs-var hs-var">newDeleteEndpoint</span></a></span></span><span> </span><span id="local-6989586621679198897"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198897"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteEndpoint' :: Text -&gt; DeleteEndpoint
 </span><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint%27"><span class="hs-identifier hs-type">DeleteEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:DeleteEndpoint' :: Text
 </span><a href="Network.AWS.SNS.DeleteEndpoint.html#%24sel%3AendpointArn%3ADeleteEndpoint%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198888"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679198897"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | EndpointArn of endpoint to delete.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#deleteEndpoint_endpointArn"><span class="hs-identifier hs-type">deleteEndpoint_endpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. DeleteEndpoint -&gt; Rep DeleteEndpoint x
 -&gt; (DeleteEndpoint -&gt; Text -&gt; DeleteEndpoint)
 -&gt; Lens DeleteEndpoint DeleteEndpoint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint%27"><span class="hs-identifier hs-type">DeleteEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198885"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint%27"><span class="hs-identifier hs-type">DeleteEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198894"><span class="annot"><span class="annottext">Text
 endpointArn :: Text
 $sel:endpointArn:DeleteEndpoint' :: DeleteEndpoint -&gt; Text
-</span><a href="#local-6989586621679198885"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198885"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198884"><span class="annot"><span class="annottext">s :: DeleteEndpoint
-</span><a href="#local-6989586621679198884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint%27"><span class="hs-identifier hs-type">DeleteEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198883"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEndpoint
-</span><a href="#local-6989586621679198884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:DeleteEndpoint' :: Text
+</span><a href="#local-6989586621679198894"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198894"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198893"><span class="annot"><span class="annottext">s :: DeleteEndpoint
+</span><a href="#local-6989586621679198893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint%27"><span class="hs-identifier hs-type">DeleteEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198892"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEndpoint
+</span><a href="#local-6989586621679198893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:DeleteEndpoint' :: Text
 </span><a href="Network.AWS.SNS.DeleteEndpoint.html#%24sel%3AendpointArn%3ADeleteEndpoint%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpointResponse"><span class="hs-identifier hs-type">DeleteEndpointResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679198879"><span class="annot"><span class="annottext">request :: DeleteEndpoint -&gt; Request DeleteEndpoint
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679198888"><span class="annot"><span class="annottext">request :: DeleteEndpoint -&gt; Request DeleteEndpoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteEndpoint -&gt; Request DeleteEndpoint
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679198875"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679198884"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteEndpoint
 -&gt; ClientResponse ClientBody
@@ -181,12 +181,12 @@ AWSResponse a
 DeleteEndpointResponse
 </span><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpointResponse%27"><span class="hs-identifier hs-var">DeleteEndpointResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198868"><span id="local-6989586621679198870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198877"><span id="local-6989586621679198879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679198861"><span class="annot"><span class="annottext">toHeaders :: DeleteEndpoint -&gt; [Header]
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679198870"><span class="annot"><span class="annottext">toHeaders :: DeleteEndpoint -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteEndpoint -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -194,18 +194,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679198856"><span class="annot"><span class="annottext">toPath :: DeleteEndpoint -&gt; ByteString
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679198865"><span class="annot"><span class="annottext">toPath :: DeleteEndpoint -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteEndpoint -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint"><span class="hs-identifier hs-type">DeleteEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679198852"><span class="annot"><span class="annottext">toQuery :: DeleteEndpoint -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint%27"><span class="hs-identifier hs-type">DeleteEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198850"><span class="annot"><span class="annottext">Text
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679198861"><span class="annot"><span class="annottext">toQuery :: DeleteEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpoint%27"><span class="hs-identifier hs-type">DeleteEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198859"><span class="annot"><span class="annottext">Text
 endpointArn :: Text
 $sel:endpointArn:DeleteEndpoint' :: DeleteEndpoint -&gt; Text
-</span><a href="#local-6989586621679198850"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679198859"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -225,14 +225,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198850"><span class="hs-identifier hs-var">endpointArn</span></a></span><span>
+</span><a href="#local-6989586621679198859"><span class="hs-identifier hs-var">endpointArn</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newDeleteEndpointResponse' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679198847"><span id="local-6989586621679198848"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEndpointResponse"><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpointResponse"><span class="hs-identifier hs-var">DeleteEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEndpointResponse%27"><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpointResponse%27"><span class="hs-identifier hs-var">DeleteEndpointResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679198856"><span id="local-6989586621679198857"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEndpointResponse"><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpointResponse"><span class="hs-identifier hs-var">DeleteEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEndpointResponse%27"><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpointResponse%27"><span class="hs-identifier hs-var">DeleteEndpointResponse'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198843"><span id="local-6989586621679198845"><span class="annot"><span class="annottext">DeleteEndpointResponse -&gt; DeleteEndpointResponse -&gt; Bool
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198852"><span id="local-6989586621679198854"><span class="annot"><span class="annottext">DeleteEndpointResponse -&gt; DeleteEndpointResponse -&gt; Bool
 (DeleteEndpointResponse -&gt; DeleteEndpointResponse -&gt; Bool)
 -&gt; (DeleteEndpointResponse -&gt; DeleteEndpointResponse -&gt; Bool)
 -&gt; Eq DeleteEndpointResponse
@@ -241,7 +241,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteEndpointResponse -&gt; DeleteEndpointResponse -&gt; Bool
 == :: DeleteEndpointResponse -&gt; DeleteEndpointResponse -&gt; Bool
 $c== :: DeleteEndpointResponse -&gt; DeleteEndpointResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198835"><span id="local-6989586621679198837"><span id="local-6989586621679198839"><span id="local-6989586621679198841"><span class="annot"><span class="annottext">ReadPrec [DeleteEndpointResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198844"><span id="local-6989586621679198846"><span id="local-6989586621679198848"><span id="local-6989586621679198850"><span class="annot"><span class="annottext">ReadPrec [DeleteEndpointResponse]
 ReadPrec DeleteEndpointResponse
 Int -&gt; ReadS DeleteEndpointResponse
 ReadS [DeleteEndpointResponse]
@@ -261,7 +261,7 @@ readList :: ReadS [DeleteEndpointResponse]
 $creadList :: ReadS [DeleteEndpointResponse]
 readsPrec :: Int -&gt; ReadS DeleteEndpointResponse
 $creadsPrec :: Int -&gt; ReadS DeleteEndpointResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198829"><span id="local-6989586621679198831"><span id="local-6989586621679198833"><span class="annot"><span class="annottext">Int -&gt; DeleteEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198838"><span id="local-6989586621679198840"><span id="local-6989586621679198842"><span class="annot"><span class="annottext">Int -&gt; DeleteEndpointResponse -&gt; ShowS
 [DeleteEndpointResponse] -&gt; ShowS
 DeleteEndpointResponse -&gt; String
 (Int -&gt; DeleteEndpointResponse -&gt; ShowS)
@@ -298,5 +298,5 @@ $cfrom :: forall x. DeleteEndpointResponse -&gt; Rep DeleteEndpointResponse x
 </span><a href="Network.AWS.SNS.DeleteEndpoint.html#newDeleteEndpointResponse"><span class="hs-identifier hs-var hs-var">newDeleteEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteEndpointResponse
 </span><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpointResponse%27"><span class="hs-identifier hs-var">DeleteEndpointResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpointResponse"><span class="hs-identifier hs-type">DeleteEndpointResponse</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteEndpoint.html#DeleteEndpointResponse"><span class="hs-identifier hs-type">DeleteEndpointResponse</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

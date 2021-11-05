@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains the details for the read\/write capacity mode.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBillingModeSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679370017"><span id="local-6989586621679370018"></span></span><span class="hs-keyword">data</span><span> </span><span id="BillingModeSummary"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-var">BillingModeSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BillingModeSummary%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-var">BillingModeSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679370026"><span id="local-6989586621679370027"></span></span><span class="hs-keyword">data</span><span> </span><span id="BillingModeSummary"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-var">BillingModeSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BillingModeSummary%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-var">BillingModeSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the time when @PAY_PER_REQUEST@ was last set as the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- read\/write capacity mode.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AlastUpdateToPayPerRequestDateTime%3ABillingModeSummary%27"><span class="annot"><span class="annottext">BillingModeSummary -&gt; Maybe POSIX
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AbillingMode%3ABillingModeSummary%27"><span class="annot"><span class="annottext">BillingModeSummary -&gt; Maybe BillingMode
 </span><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#%24sel%3AbillingMode%3ABillingModeSummary%27"><span class="hs-identifier hs-var hs-var">billingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingMode.html#BillingMode"><span class="hs-identifier hs-type">BillingMode</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370010"><span id="local-6989586621679370012"><span class="annot"><span class="annottext">BillingModeSummary -&gt; BillingModeSummary -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370019"><span id="local-6989586621679370021"><span class="annot"><span class="annottext">BillingModeSummary -&gt; BillingModeSummary -&gt; Bool
 (BillingModeSummary -&gt; BillingModeSummary -&gt; Bool)
 -&gt; (BillingModeSummary -&gt; BillingModeSummary -&gt; Bool)
 -&gt; Eq BillingModeSummary
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BillingModeSummary -&gt; BillingModeSummary -&gt; Bool
 == :: BillingModeSummary -&gt; BillingModeSummary -&gt; Bool
 $c== :: BillingModeSummary -&gt; BillingModeSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370001"><span id="local-6989586621679370003"><span id="local-6989586621679370005"><span id="local-6989586621679370007"><span class="annot"><span class="annottext">ReadPrec [BillingModeSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370010"><span id="local-6989586621679370012"><span id="local-6989586621679370014"><span id="local-6989586621679370016"><span class="annot"><span class="annottext">ReadPrec [BillingModeSummary]
 ReadPrec BillingModeSummary
 Int -&gt; ReadS BillingModeSummary
 ReadS [BillingModeSummary]
@@ -73,7 +73,7 @@ readList :: ReadS [BillingModeSummary]
 $creadList :: ReadS [BillingModeSummary]
 readsPrec :: Int -&gt; ReadS BillingModeSummary
 $creadsPrec :: Int -&gt; ReadS BillingModeSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369994"><span id="local-6989586621679369996"><span id="local-6989586621679369998"><span class="annot"><span class="annottext">Int -&gt; BillingModeSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370003"><span id="local-6989586621679370005"><span id="local-6989586621679370007"><span class="annot"><span class="annottext">Int -&gt; BillingModeSummary -&gt; ShowS
 [BillingModeSummary] -&gt; ShowS
 BillingModeSummary -&gt; String
 (Int -&gt; BillingModeSummary -&gt; ShowS)
@@ -146,16 +146,16 @@ forall a. Maybe a
 -&gt; Lens
      BillingModeSummary BillingModeSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-type">BillingModeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369985"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-type">BillingModeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369994"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdateToPayPerRequestDateTime :: Maybe POSIX
 $sel:lastUpdateToPayPerRequestDateTime:BillingModeSummary' :: BillingModeSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679369985"><span class="hs-identifier hs-var hs-var">lastUpdateToPayPerRequestDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369985"><span class="hs-identifier hs-var">lastUpdateToPayPerRequestDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369984"><span class="annot"><span class="annottext">s :: BillingModeSummary
-</span><a href="#local-6989586621679369984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-type">BillingModeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369983"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BillingModeSummary
-</span><a href="#local-6989586621679369984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateToPayPerRequestDateTime:BillingModeSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679369994"><span class="hs-identifier hs-var hs-var">lastUpdateToPayPerRequestDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369994"><span class="hs-identifier hs-var">lastUpdateToPayPerRequestDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369993"><span class="annot"><span class="annottext">s :: BillingModeSummary
+</span><a href="#local-6989586621679369993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-type">BillingModeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369992"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BillingModeSummary
+</span><a href="#local-6989586621679369993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateToPayPerRequestDateTime:BillingModeSummary' :: Maybe POSIX
 </span><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#%24sel%3AlastUpdateToPayPerRequestDateTime%3ABillingModeSummary%27"><span class="hs-identifier hs-var">lastUpdateToPayPerRequestDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679369983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679369992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; BillingModeSummary -&gt; f BillingModeSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -192,19 +192,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe BillingMode)
      (Maybe BillingMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-type">BillingModeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369978"><span class="annot"><span class="annottext">Maybe BillingMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-type">BillingModeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369987"><span class="annot"><span class="annottext">Maybe BillingMode
 billingMode :: Maybe BillingMode
 $sel:billingMode:BillingModeSummary' :: BillingModeSummary -&gt; Maybe BillingMode
-</span><a href="#local-6989586621679369978"><span class="hs-identifier hs-var hs-var">billingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
-</span><a href="#local-6989586621679369978"><span class="hs-identifier hs-var">billingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369977"><span class="annot"><span class="annottext">s :: BillingModeSummary
-</span><a href="#local-6989586621679369977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-type">BillingModeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369976"><span class="annot"><span class="annottext">Maybe BillingMode
-</span><a href="#local-6989586621679369976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BillingModeSummary
-</span><a href="#local-6989586621679369977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingMode:BillingModeSummary' :: Maybe BillingMode
+</span><a href="#local-6989586621679369987"><span class="hs-identifier hs-var hs-var">billingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679369987"><span class="hs-identifier hs-var">billingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369986"><span class="annot"><span class="annottext">s :: BillingModeSummary
+</span><a href="#local-6989586621679369986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-type">BillingModeSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369985"><span class="annot"><span class="annottext">Maybe BillingMode
+</span><a href="#local-6989586621679369985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BillingModeSummary
+</span><a href="#local-6989586621679369986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingMode:BillingModeSummary' :: Maybe BillingMode
 </span><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#%24sel%3AbillingMode%3ABillingModeSummary%27"><span class="hs-identifier hs-var">billingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BillingMode
-</span><a href="#local-6989586621679369976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369973"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679369971"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BillingModeSummary
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369982"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679369980"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BillingModeSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BillingModeSummary)
@@ -214,8 +214,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BillingModeSummary&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369968"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369968"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369977"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe BillingMode -&gt; BillingModeSummary
 </span><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary%27"><span class="hs-identifier hs-var">BillingModeSummary'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe BillingMode -&gt; BillingModeSummary)
@@ -223,7 +223,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe BillingMode -&gt; BillingModeSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679369977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastUpdateToPayPerRequestDateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,13 +231,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe BillingMode) -&gt; Parser BillingModeSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BillingMode)
+</span><a href="#local-6989586621679369977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BillingMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BillingMode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369962"><span id="local-6989586621679369964"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369971"><span id="local-6989586621679369973"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BillingModeSummary.html#BillingModeSummary"><span class="hs-identifier hs-type">BillingModeSummary</span></a></span></span><span>
 </span><span id="line-106"></span></pre></body></html>

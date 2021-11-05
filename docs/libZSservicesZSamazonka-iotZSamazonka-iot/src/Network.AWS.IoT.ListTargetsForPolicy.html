@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListTargetsForPolicy' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679819992"><span id="local-6989586621679819993"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTargetsForPolicy"><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-var">ListTargetsForPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTargetsForPolicy%27"><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-var">ListTargetsForPolicy'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679820001"><span id="local-6989586621679820002"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTargetsForPolicy"><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-var">ListTargetsForPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTargetsForPolicy%27"><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-var">ListTargetsForPolicy'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A marker used to get the next set of results.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Amarker%3AListTargetsForPolicy%27"><span class="annot"><span class="annottext">ListTargetsForPolicy -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3Amarker%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3ApolicyName%3AListTargetsForPolicy%27"><span class="annot"><span class="annottext">ListTargetsForPolicy -&gt; Text
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3ApolicyName%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679819984"><span id="local-6989586621679819986"><span class="annot"><span class="annottext">ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679819993"><span id="local-6989586621679819995"><span class="annot"><span class="annottext">ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
 (ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool)
 -&gt; (ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool)
 -&gt; Eq ListTargetsForPolicy
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
 == :: ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
 $c== :: ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819975"><span id="local-6989586621679819977"><span id="local-6989586621679819979"><span id="local-6989586621679819981"><span class="annot"><span class="annottext">ReadPrec [ListTargetsForPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819984"><span id="local-6989586621679819986"><span id="local-6989586621679819988"><span id="local-6989586621679819990"><span class="annot"><span class="annottext">ReadPrec [ListTargetsForPolicy]
 ReadPrec ListTargetsForPolicy
 Int -&gt; ReadS ListTargetsForPolicy
 ReadS [ListTargetsForPolicy]
@@ -96,7 +96,7 @@ readList :: ReadS [ListTargetsForPolicy]
 $creadList :: ReadS [ListTargetsForPolicy]
 readsPrec :: Int -&gt; ReadS ListTargetsForPolicy
 $creadsPrec :: Int -&gt; ReadS ListTargetsForPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819968"><span id="local-6989586621679819970"><span id="local-6989586621679819972"><span class="annot"><span class="annottext">Int -&gt; ListTargetsForPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819977"><span id="local-6989586621679819979"><span id="local-6989586621679819981"><span class="annot"><span class="annottext">Int -&gt; ListTargetsForPolicy -&gt; ShowS
 [ListTargetsForPolicy] -&gt; ShowS
 ListTargetsForPolicy -&gt; String
 (Int -&gt; ListTargetsForPolicy -&gt; ShowS)
@@ -140,8 +140,8 @@ $cfrom :: forall x. ListTargetsForPolicy -&gt; Rep ListTargetsForPolicy x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span>
 </span><span id="line-86"></span><span id="newListTargetsForPolicy"><span class="annot"><span class="annottext">newListTargetsForPolicy :: Text -&gt; ListTargetsForPolicy
-</span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#newListTargetsForPolicy"><span class="hs-identifier hs-var hs-var">newListTargetsForPolicy</span></a></span></span><span> </span><span id="local-6989586621679819963"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679819963"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#newListTargetsForPolicy"><span class="hs-identifier hs-var hs-var">newListTargetsForPolicy</span></a></span></span><span> </span><span id="local-6989586621679819972"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679819972"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ListTargetsForPolicy' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListTargetsForPolicy
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListTargetsForPolicy' :: Maybe Text
@@ -154,7 +154,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:ListTargetsForPolicy' :: Text
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3ApolicyName%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679819963"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
+</span><a href="#local-6989586621679819972"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | A marker used to get the next set of results.</span><span>
@@ -166,16 +166,16 @@ forall a. Maybe a
 -&gt; Lens
      ListTargetsForPolicy ListTargetsForPolicy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819961"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819970"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679819961"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679819961"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819960"><span class="annot"><span class="annottext">s :: ListTargetsForPolicy
-</span><a href="#local-6989586621679819960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819959"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679819959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicy
-</span><a href="#local-6989586621679819960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListTargetsForPolicy' :: Maybe Text
+</span><a href="#local-6989586621679819970"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819970"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819969"><span class="annot"><span class="annottext">s :: ListTargetsForPolicy
+</span><a href="#local-6989586621679819969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819968"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicy
+</span><a href="#local-6989586621679819969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListTargetsForPolicy' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3Amarker%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679819959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679819968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_pageSize"><span class="hs-identifier hs-type">listTargetsForPolicy_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -189,16 +189,16 @@ $sel:marker:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819958"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819967"><span class="annot"><span class="annottext">Maybe Natural
 pageSize :: Maybe Natural
 $sel:pageSize:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Natural
-</span><a href="#local-6989586621679819958"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679819958"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819957"><span class="annot"><span class="annottext">s :: ListTargetsForPolicy
-</span><a href="#local-6989586621679819957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819956"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679819956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicy
-</span><a href="#local-6989586621679819957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListTargetsForPolicy' :: Maybe Natural
+</span><a href="#local-6989586621679819967"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679819967"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819966"><span class="annot"><span class="annottext">s :: ListTargetsForPolicy
+</span><a href="#local-6989586621679819966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819965"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679819965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicy
+</span><a href="#local-6989586621679819966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListTargetsForPolicy' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3ApageSize%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679819956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679819965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The policy name.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_policyName"><span class="hs-identifier hs-type">listTargetsForPolicy_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -207,29 +207,29 @@ $sel:pageSize:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Natural
 -&gt; (ListTargetsForPolicy -&gt; Text -&gt; ListTargetsForPolicy)
 -&gt; Lens ListTargetsForPolicy ListTargetsForPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819955"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819964"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Text
-</span><a href="#local-6989586621679819955"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679819955"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819954"><span class="annot"><span class="annottext">s :: ListTargetsForPolicy
-</span><a href="#local-6989586621679819954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819953"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679819953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicy
-</span><a href="#local-6989586621679819954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:ListTargetsForPolicy' :: Text
+</span><a href="#local-6989586621679819964"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679819964"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819963"><span class="annot"><span class="annottext">s :: ListTargetsForPolicy
+</span><a href="#local-6989586621679819963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819962"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679819962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicy
+</span><a href="#local-6989586621679819963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:ListTargetsForPolicy' :: Text
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3ApolicyName%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679819953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679819962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679819949"><span class="annot"><span class="annottext">page :: ListTargetsForPolicy
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679819958"><span class="annot"><span class="annottext">page :: ListTargetsForPolicy
 -&gt; AWSResponse ListTargetsForPolicy -&gt; Maybe ListTargetsForPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679819947"><span class="annot"><span class="annottext">ListTargetsForPolicy
-</span><a href="#local-6989586621679819947"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679819946"><span class="annot"><span class="annottext">AWSResponse ListTargetsForPolicy
-</span><a href="#local-6989586621679819946"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679819956"><span class="annot"><span class="annottext">ListTargetsForPolicy
+</span><a href="#local-6989586621679819956"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679819955"><span class="annot"><span class="annottext">AWSResponse ListTargetsForPolicy
+</span><a href="#local-6989586621679819955"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTargetsForPolicy
 ListTargetsForPolicyResponse
-</span><a href="#local-6989586621679819946"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679819955"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
 -&gt; Getting (First Text) ListTargetsForPolicyResponse Text
 -&gt; Maybe Text
@@ -259,7 +259,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTargetsForPolicy
 ListTargetsForPolicyResponse
-</span><a href="#local-6989586621679819946"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679819955"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
 -&gt; Getting (First [Text]) ListTargetsForPolicyResponse [Text]
 -&gt; Maybe [Text]
@@ -293,7 +293,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ListTargetsForPolicy
-</span><a href="#local-6989586621679819947"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679819956"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListTargetsForPolicy
 -&gt; (ListTargetsForPolicy -&gt; ListTargetsForPolicy)
 -&gt; ListTargetsForPolicy
@@ -309,7 +309,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTargetsForPolicy
 ListTargetsForPolicyResponse
-</span><a href="#local-6989586621679819946"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679819955"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
 -&gt; Getting (First Text) ListTargetsForPolicyResponse Text
 -&gt; Maybe Text
@@ -335,12 +335,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679819936"><span class="annot"><span class="annottext">request :: ListTargetsForPolicy -&gt; Request ListTargetsForPolicy
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679819945"><span class="annot"><span class="annottext">request :: ListTargetsForPolicy -&gt; Request ListTargetsForPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTargetsForPolicy -&gt; Request ListTargetsForPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679819932"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679819941"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTargetsForPolicy
 -&gt; ClientResponse ClientBody
@@ -366,10 +366,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679819929"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679819929"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679819928"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679819928"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679819927"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679819927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679819938"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819938"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679819937"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679819937"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679819936"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679819936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListTargetsForPolicyResponse
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">ListTargetsForPolicyResponse'</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListTargetsForPolicyResponse)
@@ -378,7 +378,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListTargetsForPolicyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679819927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679819936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListTargetsForPolicyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679819927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679819936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -404,23 +404,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679819929"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679819938"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819918"><span id="local-6989586621679819920"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819927"><span id="local-6989586621679819929"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679819911"><span class="annot"><span class="annottext">toHeaders :: ListTargetsForPolicy -&gt; ResponseHeaders
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679819920"><span class="annot"><span class="annottext">toHeaders :: ListTargetsForPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTargetsForPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819902"><span id="local-6989586621679819904"><span id="local-6989586621679819906"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679819900"><span class="annot"><span class="annottext">toJSON :: ListTargetsForPolicy -&gt; Value
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819911"><span id="local-6989586621679819913"><span id="local-6989586621679819915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679819909"><span class="annot"><span class="annottext">toJSON :: ListTargetsForPolicy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; ListTargetsForPolicy -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -429,8 +429,8 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679819895"><span class="annot"><span class="annottext">toPath :: ListTargetsForPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819891"><span id="local-6989586621679819892"><span id="local-6989586621679819893"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679819904"><span class="annot"><span class="annottext">toPath :: ListTargetsForPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819900"><span id="local-6989586621679819901"><span id="local-6989586621679819902"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 policyName :: Text
@@ -439,7 +439,7 @@ marker :: Maybe Text
 $sel:policyName:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Text
 $sel:pageSize:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Natural
 $sel:marker:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679819891"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679819900"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -447,11 +447,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/policy-targets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679819891"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679819900"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679819887"><span class="annot"><span class="annottext">toQuery :: ListTargetsForPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819883"><span id="local-6989586621679819884"><span id="local-6989586621679819885"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679819896"><span class="annot"><span class="annottext">toQuery :: ListTargetsForPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819892"><span id="local-6989586621679819893"><span id="local-6989586621679819894"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 policyName :: Text
@@ -460,7 +460,7 @@ marker :: Maybe Text
 $sel:policyName:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Text
 $sel:pageSize:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Natural
 $sel:marker:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Text
-</span><a href="#local-6989586621679819883"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679819892"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -468,16 +468,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679819885"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679819894"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;pageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679819884"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><a href="#local-6989586621679819893"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newListTargetsForPolicyResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679819880"><span id="local-6989586621679819881"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTargetsForPolicyResponse"><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-var">ListTargetsForPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTargetsForPolicyResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">ListTargetsForPolicyResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679819889"><span id="local-6989586621679819890"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTargetsForPolicyResponse"><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-var">ListTargetsForPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTargetsForPolicyResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">ListTargetsForPolicyResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy targets.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3Atargets%3AListTargetsForPolicyResponse%27"><span class="annot"><span class="annottext">ListTargetsForPolicyResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3Atargets%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -488,7 +488,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTargetsForPolicyResponse%27"><span class="annot"><span class="annottext">ListTargetsForPolicyResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3AhttpStatus%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679819873"><span id="local-6989586621679819875"><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679819882"><span id="local-6989586621679819884"><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
 -&gt; ListTargetsForPolicyResponse -&gt; Bool
 (ListTargetsForPolicyResponse
  -&gt; ListTargetsForPolicyResponse -&gt; Bool)
@@ -504,7 +504,7 @@ $c/= :: ListTargetsForPolicyResponse
 -&gt; ListTargetsForPolicyResponse -&gt; Bool
 $c== :: ListTargetsForPolicyResponse
 -&gt; ListTargetsForPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819865"><span id="local-6989586621679819867"><span id="local-6989586621679819869"><span id="local-6989586621679819871"><span class="annot"><span class="annottext">ReadPrec [ListTargetsForPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819874"><span id="local-6989586621679819876"><span id="local-6989586621679819878"><span id="local-6989586621679819880"><span class="annot"><span class="annottext">ReadPrec [ListTargetsForPolicyResponse]
 ReadPrec ListTargetsForPolicyResponse
 Int -&gt; ReadS ListTargetsForPolicyResponse
 ReadS [ListTargetsForPolicyResponse]
@@ -524,7 +524,7 @@ readList :: ReadS [ListTargetsForPolicyResponse]
 $creadList :: ReadS [ListTargetsForPolicyResponse]
 readsPrec :: Int -&gt; ReadS ListTargetsForPolicyResponse
 $creadsPrec :: Int -&gt; ReadS ListTargetsForPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819859"><span id="local-6989586621679819861"><span id="local-6989586621679819863"><span class="annot"><span class="annottext">Int -&gt; ListTargetsForPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819868"><span id="local-6989586621679819870"><span id="local-6989586621679819872"><span class="annot"><span class="annottext">Int -&gt; ListTargetsForPolicyResponse -&gt; ShowS
 [ListTargetsForPolicyResponse] -&gt; ShowS
 ListTargetsForPolicyResponse -&gt; String
 (Int -&gt; ListTargetsForPolicyResponse -&gt; ShowS)
@@ -574,8 +574,8 @@ ListTargetsForPolicyResponse -&gt; Rep ListTargetsForPolicyResponse x
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span>
 </span><span id="line-191"></span><span id="newListTargetsForPolicyResponse"><span class="annot"><span class="annottext">newListTargetsForPolicyResponse :: Int -&gt; ListTargetsForPolicyResponse
-</span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#newListTargetsForPolicyResponse"><span class="hs-identifier hs-var hs-var">newListTargetsForPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679819856"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679819856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#newListTargetsForPolicyResponse"><span class="hs-identifier hs-var hs-var">newListTargetsForPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679819865"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819865"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListTargetsForPolicyResponse
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targets:ListTargetsForPolicyResponse' :: Maybe [Text]
@@ -589,7 +589,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTargetsForPolicyResponse' :: Int
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3AhttpStatus%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679819856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679819865"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The policy targets.</span><span>
@@ -601,16 +601,16 @@ forall a. Maybe a
     -&gt; Maybe [Text] -&gt; ListTargetsForPolicyResponse)
 -&gt; Lens' ListTargetsForPolicyResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819855"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819864"><span class="annot"><span class="annottext">Maybe [Text]
 targets :: Maybe [Text]
 $sel:targets:ListTargetsForPolicyResponse' :: ListTargetsForPolicyResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679819855"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679819855"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819854"><span class="annot"><span class="annottext">s :: ListTargetsForPolicyResponse
-</span><a href="#local-6989586621679819854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819853"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679819853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
-</span><a href="#local-6989586621679819854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:ListTargetsForPolicyResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679819864"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679819864"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819863"><span class="annot"><span class="annottext">s :: ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819862"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679819862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:ListTargetsForPolicyResponse' :: Maybe [Text]
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3Atargets%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679819853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679819862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListTargetsForPolicyResponse -&gt; f ListTargetsForPolicyResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -636,16 +636,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListTargetsForPolicyResponse)
 -&gt; Lens' ListTargetsForPolicyResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819850"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819859"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListTargetsForPolicyResponse' :: ListTargetsForPolicyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679819850"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679819850"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819849"><span class="annot"><span class="annottext">s :: ListTargetsForPolicyResponse
-</span><a href="#local-6989586621679819849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819848"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679819848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
-</span><a href="#local-6989586621679819849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListTargetsForPolicyResponse' :: Maybe Text
+</span><a href="#local-6989586621679819859"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819859"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819858"><span class="annot"><span class="annottext">s :: ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819857"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListTargetsForPolicyResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3AnextMarker%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679819848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679819857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_httpStatus"><span class="hs-identifier hs-type">listTargetsForPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -657,16 +657,16 @@ $sel:nextMarker:ListTargetsForPolicyResponse' :: ListTargetsForPolicyResponse -&
 -&gt; Lens
      ListTargetsForPolicyResponse ListTargetsForPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819847"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819856"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTargetsForPolicyResponse' :: ListTargetsForPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679819847"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679819847"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819846"><span class="annot"><span class="annottext">s :: ListTargetsForPolicyResponse
-</span><a href="#local-6989586621679819846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819845"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679819845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
-</span><a href="#local-6989586621679819846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTargetsForPolicyResponse' :: Int
+</span><a href="#local-6989586621679819856"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819856"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819855"><span class="annot"><span class="annottext">s :: ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819854"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTargetsForPolicyResponse' :: Int
 </span><a href="Network.AWS.IoT.ListTargetsForPolicy.html#%24sel%3AhttpStatus%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679819845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679819854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819843"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span></span><span>
 </span><span id="line-212"></span></pre></body></html>

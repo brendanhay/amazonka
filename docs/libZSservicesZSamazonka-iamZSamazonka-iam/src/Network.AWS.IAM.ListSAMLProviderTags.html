@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListSAMLProviderTags' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679441367"><span id="local-6989586621679441368"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSAMLProviderTags"><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-var">ListSAMLProviderTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSAMLProviderTags%27"><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-var">ListSAMLProviderTags'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679441376"><span id="local-6989586621679441377"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSAMLProviderTags"><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-var">ListSAMLProviderTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSAMLProviderTags%27"><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-var">ListSAMLProviderTags'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AsAMLProviderArn%3AListSAMLProviderTags%27"><span class="annot"><span class="annottext">ListSAMLProviderTags -&gt; Text
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3AsAMLProviderArn%3AListSAMLProviderTags%27"><span class="hs-identifier hs-var hs-var">sAMLProviderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441359"><span id="local-6989586621679441361"><span class="annot"><span class="annottext">ListSAMLProviderTags -&gt; ListSAMLProviderTags -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441368"><span id="local-6989586621679441370"><span class="annot"><span class="annottext">ListSAMLProviderTags -&gt; ListSAMLProviderTags -&gt; Bool
 (ListSAMLProviderTags -&gt; ListSAMLProviderTags -&gt; Bool)
 -&gt; (ListSAMLProviderTags -&gt; ListSAMLProviderTags -&gt; Bool)
 -&gt; Eq ListSAMLProviderTags
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListSAMLProviderTags -&gt; ListSAMLProviderTags -&gt; Bool
 == :: ListSAMLProviderTags -&gt; ListSAMLProviderTags -&gt; Bool
 $c== :: ListSAMLProviderTags -&gt; ListSAMLProviderTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441350"><span id="local-6989586621679441352"><span id="local-6989586621679441354"><span id="local-6989586621679441356"><span class="annot"><span class="annottext">ReadPrec [ListSAMLProviderTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441359"><span id="local-6989586621679441361"><span id="local-6989586621679441363"><span id="local-6989586621679441365"><span class="annot"><span class="annottext">ReadPrec [ListSAMLProviderTags]
 ReadPrec ListSAMLProviderTags
 Int -&gt; ReadS ListSAMLProviderTags
 ReadS [ListSAMLProviderTags]
@@ -115,7 +115,7 @@ readList :: ReadS [ListSAMLProviderTags]
 $creadList :: ReadS [ListSAMLProviderTags]
 readsPrec :: Int -&gt; ReadS ListSAMLProviderTags
 $creadsPrec :: Int -&gt; ReadS ListSAMLProviderTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441343"><span id="local-6989586621679441345"><span id="local-6989586621679441347"><span class="annot"><span class="annottext">Int -&gt; ListSAMLProviderTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441352"><span id="local-6989586621679441354"><span id="local-6989586621679441356"><span class="annot"><span class="annottext">Int -&gt; ListSAMLProviderTags -&gt; ShowS
 [ListSAMLProviderTags] -&gt; ShowS
 ListSAMLProviderTags -&gt; String
 (Int -&gt; ListSAMLProviderTags -&gt; ShowS)
@@ -176,8 +176,8 @@ $cfrom :: forall x. ListSAMLProviderTags -&gt; Rep ListSAMLProviderTags x
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span>
 </span><span id="line-122"></span><span id="newListSAMLProviderTags"><span class="annot"><span class="annottext">newListSAMLProviderTags :: Text -&gt; ListSAMLProviderTags
-</span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#newListSAMLProviderTags"><span class="hs-identifier hs-var hs-var">newListSAMLProviderTags</span></a></span></span><span> </span><span id="local-6989586621679441338"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441338"><span class="hs-identifier hs-var">pSAMLProviderArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#newListSAMLProviderTags"><span class="hs-identifier hs-var hs-var">newListSAMLProviderTags</span></a></span></span><span> </span><span id="local-6989586621679441347"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441347"><span class="hs-identifier hs-var">pSAMLProviderArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">ListSAMLProviderTags' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListSAMLProviderTags
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListSAMLProviderTags' :: Maybe Text
@@ -190,7 +190,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:ListSAMLProviderTags' :: Text
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3AsAMLProviderArn%3AListSAMLProviderTags%27"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441338"><span class="hs-identifier hs-var">pSAMLProviderArn_</span></a></span><span>
+</span><a href="#local-6989586621679441347"><span class="hs-identifier hs-var">pSAMLProviderArn_</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
 -&gt; Lens
      ListSAMLProviderTags ListSAMLProviderTags (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441335"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441344"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListSAMLProviderTags' :: ListSAMLProviderTags -&gt; Maybe Text
-</span><a href="#local-6989586621679441335"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441335"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441334"><span class="annot"><span class="annottext">s :: ListSAMLProviderTags
-</span><a href="#local-6989586621679441334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441333"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTags
-</span><a href="#local-6989586621679441334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListSAMLProviderTags' :: Maybe Text
+</span><a href="#local-6989586621679441344"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441344"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441343"><span class="annot"><span class="annottext">s :: ListSAMLProviderTags
+</span><a href="#local-6989586621679441343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTags
+</span><a href="#local-6989586621679441343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListSAMLProviderTags' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3Amarker%3AListSAMLProviderTags%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
@@ -236,16 +236,16 @@ $sel:marker:ListSAMLProviderTags' :: ListSAMLProviderTags -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441332"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441341"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListSAMLProviderTags' :: ListSAMLProviderTags -&gt; Maybe Natural
-</span><a href="#local-6989586621679441332"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679441332"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441331"><span class="annot"><span class="annottext">s :: ListSAMLProviderTags
-</span><a href="#local-6989586621679441331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441330"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679441330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTags
-</span><a href="#local-6989586621679441331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListSAMLProviderTags' :: Maybe Natural
+</span><a href="#local-6989586621679441341"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679441341"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441340"><span class="annot"><span class="annottext">s :: ListSAMLProviderTags
+</span><a href="#local-6989586621679441340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441339"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679441339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTags
+</span><a href="#local-6989586621679441340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListSAMLProviderTags' :: Maybe Natural
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3AmaxItems%3AListSAMLProviderTags%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679441330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The ARN of the Security Assertion Markup Language (SAML) identity</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- provider whose tags you want to see.</span><span>
@@ -260,27 +260,27 @@ $sel:maxItems:ListSAMLProviderTags' :: ListSAMLProviderTags -&gt; Maybe Natural
 -&gt; (ListSAMLProviderTags -&gt; Text -&gt; ListSAMLProviderTags)
 -&gt; Lens ListSAMLProviderTags ListSAMLProviderTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441329"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441338"><span class="annot"><span class="annottext">Text
 sAMLProviderArn :: Text
 $sel:sAMLProviderArn:ListSAMLProviderTags' :: ListSAMLProviderTags -&gt; Text
-</span><a href="#local-6989586621679441329"><span class="hs-identifier hs-var hs-var">sAMLProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441329"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441328"><span class="annot"><span class="annottext">s :: ListSAMLProviderTags
-</span><a href="#local-6989586621679441328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441327"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTags
-</span><a href="#local-6989586621679441328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:ListSAMLProviderTags' :: Text
+</span><a href="#local-6989586621679441338"><span class="hs-identifier hs-var hs-var">sAMLProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441338"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441337"><span class="annot"><span class="annottext">s :: ListSAMLProviderTags
+</span><a href="#local-6989586621679441337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441336"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTags
+</span><a href="#local-6989586621679441337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sAMLProviderArn:ListSAMLProviderTags' :: Text
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3AsAMLProviderArn%3AListSAMLProviderTags%27"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-160"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679441323"><span class="annot"><span class="annottext">request :: ListSAMLProviderTags -&gt; Request ListSAMLProviderTags
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679441332"><span class="annot"><span class="annottext">request :: ListSAMLProviderTags -&gt; Request ListSAMLProviderTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListSAMLProviderTags -&gt; Request ListSAMLProviderTags
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679441319"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679441328"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListSAMLProviderTags
 -&gt; ClientResponse ClientBody
@@ -311,10 +311,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListSAMLProviderTagsResult&quot;</span></span><span>
-</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679441316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679441316"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679441315"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679441315"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679441314"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679441314"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679441325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679441325"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679441324"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679441324"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679441323"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679441323"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Bool -&gt; Int -&gt; [Tag] -&gt; ListSAMLProviderTagsResponse
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var">ListSAMLProviderTagsResponse'</span></a></span><span>
@@ -325,7 +325,7 @@ Text
      String (Maybe Bool -&gt; Int -&gt; [Tag] -&gt; ListSAMLProviderTagsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679441314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679441323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; [Tag] -&gt; ListSAMLProviderTagsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679441314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679441323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -348,13 +348,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679441316"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441325"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Tag] -&gt; ListSAMLProviderTagsResponse)
 -&gt; Either String [Tag]
 -&gt; Either String ListSAMLProviderTagsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679441314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679441323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -372,12 +372,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-173"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441304"><span id="local-6989586621679441306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441313"><span id="local-6989586621679441315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679441297"><span class="annot"><span class="annottext">toHeaders :: ListSAMLProviderTags -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679441306"><span class="annot"><span class="annottext">toHeaders :: ListSAMLProviderTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSAMLProviderTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -385,15 +385,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679441292"><span class="annot"><span class="annottext">toPath :: ListSAMLProviderTags -&gt; ByteString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679441301"><span class="annot"><span class="annottext">toPath :: ListSAMLProviderTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListSAMLProviderTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags"><span class="hs-identifier hs-type">ListSAMLProviderTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679441288"><span class="annot"><span class="annottext">toQuery :: ListSAMLProviderTags -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441284"><span id="local-6989586621679441285"><span id="local-6989586621679441286"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679441297"><span class="annot"><span class="annottext">toQuery :: ListSAMLProviderTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTags%27"><span class="hs-identifier hs-type">ListSAMLProviderTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441293"><span id="local-6989586621679441294"><span id="local-6989586621679441295"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 sAMLProviderArn :: Text
@@ -402,7 +402,7 @@ marker :: Maybe Text
 $sel:sAMLProviderArn:ListSAMLProviderTags' :: ListSAMLProviderTags -&gt; Text
 $sel:maxItems:ListSAMLProviderTags' :: ListSAMLProviderTags -&gt; Maybe Natural
 $sel:marker:ListSAMLProviderTags' :: ListSAMLProviderTags -&gt; Maybe Text
-</span><a href="#local-6989586621679441284"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679441293"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -422,21 +422,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441286"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441295"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679441285"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441294"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SAMLProviderArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441284"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span>
+</span><a href="#local-6989586621679441293"><span class="hs-identifier hs-var">sAMLProviderArn</span></a></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | /See:/ 'newListSAMLProviderTagsResponse' smart constructor.</span><span>
-</span><span id="line-199"></span><span id="local-6989586621679441281"><span id="local-6989586621679441282"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSAMLProviderTagsResponse"><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-var">ListSAMLProviderTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSAMLProviderTagsResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var">ListSAMLProviderTagsResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span id="local-6989586621679441290"><span id="local-6989586621679441291"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSAMLProviderTagsResponse"><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-var">ListSAMLProviderTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSAMLProviderTagsResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var">ListSAMLProviderTagsResponse'</span></a></span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-comment">-- request.</span><span>
@@ -461,7 +461,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-218"></span><span>    </span><span id="%24sel%3Atags%3AListSAMLProviderTagsResponse%27"><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse -&gt; [Tag]
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3Atags%3AListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-219"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441273"><span id="local-6989586621679441275"><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
+</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441282"><span id="local-6989586621679441284"><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
 -&gt; ListSAMLProviderTagsResponse -&gt; Bool
 (ListSAMLProviderTagsResponse
  -&gt; ListSAMLProviderTagsResponse -&gt; Bool)
@@ -477,7 +477,7 @@ $c/= :: ListSAMLProviderTagsResponse
 -&gt; ListSAMLProviderTagsResponse -&gt; Bool
 $c== :: ListSAMLProviderTagsResponse
 -&gt; ListSAMLProviderTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441265"><span id="local-6989586621679441267"><span id="local-6989586621679441269"><span id="local-6989586621679441271"><span class="annot"><span class="annottext">ReadPrec [ListSAMLProviderTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441274"><span id="local-6989586621679441276"><span id="local-6989586621679441278"><span id="local-6989586621679441280"><span class="annot"><span class="annottext">ReadPrec [ListSAMLProviderTagsResponse]
 ReadPrec ListSAMLProviderTagsResponse
 Int -&gt; ReadS ListSAMLProviderTagsResponse
 ReadS [ListSAMLProviderTagsResponse]
@@ -497,7 +497,7 @@ readList :: ReadS [ListSAMLProviderTagsResponse]
 $creadList :: ReadS [ListSAMLProviderTagsResponse]
 readsPrec :: Int -&gt; ReadS ListSAMLProviderTagsResponse
 $creadsPrec :: Int -&gt; ReadS ListSAMLProviderTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441259"><span id="local-6989586621679441261"><span id="local-6989586621679441263"><span class="annot"><span class="annottext">Int -&gt; ListSAMLProviderTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441268"><span id="local-6989586621679441270"><span id="local-6989586621679441272"><span class="annot"><span class="annottext">Int -&gt; ListSAMLProviderTagsResponse -&gt; ShowS
 [ListSAMLProviderTagsResponse] -&gt; ShowS
 ListSAMLProviderTagsResponse -&gt; String
 (Int -&gt; ListSAMLProviderTagsResponse -&gt; ShowS)
@@ -560,8 +560,8 @@ ListSAMLProviderTagsResponse -&gt; Rep ListSAMLProviderTagsResponse x
 </span><span id="line-250"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-251"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span>
 </span><span id="line-252"></span><span id="newListSAMLProviderTagsResponse"><span class="annot"><span class="annottext">newListSAMLProviderTagsResponse :: Int -&gt; ListSAMLProviderTagsResponse
-</span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#newListSAMLProviderTagsResponse"><span class="hs-identifier hs-var hs-var">newListSAMLProviderTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679441256"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679441256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#newListSAMLProviderTagsResponse"><span class="hs-identifier hs-var hs-var">newListSAMLProviderTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679441265"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679441265"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse' :: Maybe Text
 -&gt; Maybe Bool -&gt; Int -&gt; [Tag] -&gt; ListSAMLProviderTagsResponse
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span>
@@ -576,7 +576,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSAMLProviderTagsResponse' :: Int
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3AhttpStatus%3AListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679441256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441265"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ListSAMLProviderTagsResponse' :: [Tag]
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3Atags%3AListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -598,16 +598,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441255"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441264"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListSAMLProviderTagsResponse' :: ListSAMLProviderTagsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679441255"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441255"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441254"><span class="annot"><span class="annottext">s :: ListSAMLProviderTagsResponse
-</span><a href="#local-6989586621679441254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441253"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
-</span><a href="#local-6989586621679441254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListSAMLProviderTagsResponse' :: Maybe Text
+</span><a href="#local-6989586621679441264"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441264"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441263"><span class="annot"><span class="annottext">s :: ListSAMLProviderTagsResponse
+</span><a href="#local-6989586621679441263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441262"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
+</span><a href="#local-6989586621679441263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListSAMLProviderTagsResponse' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3Amarker%3AListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
@@ -628,16 +628,16 @@ $sel:marker:ListSAMLProviderTagsResponse' :: ListSAMLProviderTagsResponse -&gt; 
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441252"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441261"><span class="annot"><span class="annottext">Maybe Bool
 isTruncated :: Maybe Bool
 $sel:isTruncated:ListSAMLProviderTagsResponse' :: ListSAMLProviderTagsResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679441252"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679441252"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441251"><span class="annot"><span class="annottext">s :: ListSAMLProviderTagsResponse
-</span><a href="#local-6989586621679441251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441250"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679441250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
-</span><a href="#local-6989586621679441251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListSAMLProviderTagsResponse' :: Maybe Bool
+</span><a href="#local-6989586621679441261"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679441261"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441260"><span class="annot"><span class="annottext">s :: ListSAMLProviderTagsResponse
+</span><a href="#local-6989586621679441260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441259"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679441259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
+</span><a href="#local-6989586621679441260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListSAMLProviderTagsResponse' :: Maybe Bool
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3AisTruncated%3AListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679441250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-278"></span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#listSAMLProviderTagsResponse_httpStatus"><span class="hs-identifier hs-type">listSAMLProviderTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -649,16 +649,16 @@ $sel:isTruncated:ListSAMLProviderTagsResponse' :: ListSAMLProviderTagsResponse -
 -&gt; Lens
      ListSAMLProviderTagsResponse ListSAMLProviderTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441249"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441258"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListSAMLProviderTagsResponse' :: ListSAMLProviderTagsResponse -&gt; Int
-</span><a href="#local-6989586621679441249"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679441249"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441248"><span class="annot"><span class="annottext">s :: ListSAMLProviderTagsResponse
-</span><a href="#local-6989586621679441248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441247"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679441247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
-</span><a href="#local-6989586621679441248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSAMLProviderTagsResponse' :: Int
+</span><a href="#local-6989586621679441258"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679441258"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441257"><span class="annot"><span class="annottext">s :: ListSAMLProviderTagsResponse
+</span><a href="#local-6989586621679441257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441256"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679441256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
+</span><a href="#local-6989586621679441257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSAMLProviderTagsResponse' :: Int
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3AhttpStatus%3AListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679441247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | The list of tags that are currently attached to the Security Assertion</span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- Markup Language (SAML) identity provider. Each tag consists of a key</span><span>
@@ -676,16 +676,16 @@ $sel:httpStatus:ListSAMLProviderTagsResponse' :: ListSAMLProviderTagsResponse -&
      [Tag]
      [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441246"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441255"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:ListSAMLProviderTagsResponse' :: ListSAMLProviderTagsResponse -&gt; [Tag]
-</span><a href="#local-6989586621679441246"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679441246"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441245"><span class="annot"><span class="annottext">s :: ListSAMLProviderTagsResponse
-</span><a href="#local-6989586621679441245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441244"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679441244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
-</span><a href="#local-6989586621679441245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListSAMLProviderTagsResponse' :: [Tag]
+</span><a href="#local-6989586621679441255"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679441255"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441254"><span class="annot"><span class="annottext">s :: ListSAMLProviderTagsResponse
+</span><a href="#local-6989586621679441254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441253"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679441253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSAMLProviderTagsResponse
+</span><a href="#local-6989586621679441254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListSAMLProviderTagsResponse' :: [Tag]
 </span><a href="Network.AWS.IAM.ListSAMLProviderTags.html#%24sel%3Atags%3AListSAMLProviderTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679441244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
+</span><a href="#local-6989586621679441253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
  -&gt; ListSAMLProviderTagsResponse -&gt; f ListSAMLProviderTagsResponse)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
@@ -696,5 +696,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-287"></span><span>
-</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441240"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListSAMLProviderTags.html#ListSAMLProviderTagsResponse"><span class="hs-identifier hs-type">ListSAMLProviderTagsResponse</span></a></span></span><span>
 </span><span id="line-289"></span></pre></body></html>

@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span id="local-6989586621679416984"><span id="local-6989586621679416985"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HandlerErrorCode"><span class="annot"><a href="Network.AWS.CloudFormation.Types.HandlerErrorCode.html#HandlerErrorCode"><span class="hs-identifier hs-var">HandlerErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandlerErrorCode%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.HandlerErrorCode.html#HandlerErrorCode%27"><span class="hs-identifier hs-var">HandlerErrorCode'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679416993"><span id="local-6989586621679416994"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HandlerErrorCode"><span class="annot"><a href="Network.AWS.CloudFormation.Types.HandlerErrorCode.html#HandlerErrorCode"><span class="hs-identifier hs-var">HandlerErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandlerErrorCode%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.HandlerErrorCode.html#HandlerErrorCode%27"><span class="hs-identifier hs-var">HandlerErrorCode'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHandlerErrorCode"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.HandlerErrorCode.html#fromHandlerErrorCode"><span class="hs-identifier hs-var hs-var">fromHandlerErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679416976"><span id="local-6989586621679416978"><span id="local-6989586621679416980"><span class="annot"><span class="annottext">Int -&gt; HandlerErrorCode -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679416985"><span id="local-6989586621679416987"><span id="local-6989586621679416989"><span class="annot"><span class="annottext">Int -&gt; HandlerErrorCode -&gt; ShowS
 [HandlerErrorCode] -&gt; ShowS
 HandlerErrorCode -&gt; String
 (Int -&gt; HandlerErrorCode -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: HandlerErrorCode -&gt; String
 showsPrec :: Int -&gt; HandlerErrorCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; HandlerErrorCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679416967"><span id="local-6989586621679416969"><span id="local-6989586621679416971"><span id="local-6989586621679416973"><span class="annot"><span class="annottext">ReadPrec [HandlerErrorCode]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679416976"><span id="local-6989586621679416978"><span id="local-6989586621679416980"><span id="local-6989586621679416982"><span class="annot"><span class="annottext">ReadPrec [HandlerErrorCode]
 ReadPrec HandlerErrorCode
 Int -&gt; ReadS HandlerErrorCode
 ReadS [HandlerErrorCode]
@@ -85,7 +85,7 @@ $creadList :: ReadS [HandlerErrorCode]
 readsPrec :: Int -&gt; ReadS HandlerErrorCode
 $creadsPrec :: Int -&gt; ReadS HandlerErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679416962"><span id="local-6989586621679416964"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; HandlerErrorCode -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679416971"><span id="local-6989586621679416973"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; HandlerErrorCode -&gt; Bool
 (HandlerErrorCode -&gt; HandlerErrorCode -&gt; Bool)
 -&gt; (HandlerErrorCode -&gt; HandlerErrorCode -&gt; Bool)
 -&gt; Eq HandlerErrorCode
@@ -95,7 +95,7 @@ $c/= :: HandlerErrorCode -&gt; HandlerErrorCode -&gt; Bool
 == :: HandlerErrorCode -&gt; HandlerErrorCode -&gt; Bool
 $c== :: HandlerErrorCode -&gt; HandlerErrorCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679416946"><span id="local-6989586621679416948"><span id="local-6989586621679416950"><span id="local-6989586621679416952"><span id="local-6989586621679416954"><span id="local-6989586621679416956"><span id="local-6989586621679416958"><span class="annot"><span class="annottext">Eq HandlerErrorCode
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679416955"><span id="local-6989586621679416957"><span id="local-6989586621679416959"><span id="local-6989586621679416961"><span id="local-6989586621679416963"><span id="local-6989586621679416965"><span id="local-6989586621679416967"><span class="annot"><span class="annottext">Eq HandlerErrorCode
 Eq HandlerErrorCode
 -&gt; (HandlerErrorCode -&gt; HandlerErrorCode -&gt; Ordering)
 -&gt; (HandlerErrorCode -&gt; HandlerErrorCode -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. HandlerErrorCode -&gt; Rep HandlerErrorCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679416938"><span id="local-6989586621679416940"><span class="annot"><span class="annottext">Int -&gt; HandlerErrorCode -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679416947"><span id="local-6989586621679416949"><span class="annot"><span class="annottext">Int -&gt; HandlerErrorCode -&gt; Int
 HandlerErrorCode -&gt; Int
 (Int -&gt; HandlerErrorCode -&gt; Int)
 -&gt; (HandlerErrorCode -&gt; Int) -&gt; Hashable HandlerErrorCode
@@ -156,51 +156,51 @@ $chash :: HandlerErrorCode -&gt; Int
 hashWithSalt :: Int -&gt; HandlerErrorCode -&gt; Int
 $chashWithSalt :: Int -&gt; HandlerErrorCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679416935"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679416944"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; ()
 (HandlerErrorCode -&gt; ()) -&gt; NFData HandlerErrorCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HandlerErrorCode -&gt; ()
 $crnf :: HandlerErrorCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679416932"><span class="annot"><span class="annottext">Text -&gt; Either String HandlerErrorCode
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679416941"><span class="annot"><span class="annottext">Text -&gt; Either String HandlerErrorCode
 (Text -&gt; Either String HandlerErrorCode)
 -&gt; FromText HandlerErrorCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HandlerErrorCode
 $cfromText :: Text -&gt; Either String HandlerErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679416929"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679416938"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; Text
 (HandlerErrorCode -&gt; Text) -&gt; ToText HandlerErrorCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HandlerErrorCode -&gt; Text
 $ctoText :: HandlerErrorCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679416926"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679416935"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; ByteString
 (HandlerErrorCode -&gt; ByteString) -&gt; ToByteString HandlerErrorCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HandlerErrorCode -&gt; ByteString
 $ctoBS :: HandlerErrorCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679416923"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679416932"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; ByteStringBuilder
 (HandlerErrorCode -&gt; ByteStringBuilder) -&gt; ToLog HandlerErrorCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HandlerErrorCode -&gt; ByteStringBuilder
 $cbuild :: HandlerErrorCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679416920"><span class="annot"><span class="annottext">HeaderName -&gt; HandlerErrorCode -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679416929"><span class="annot"><span class="annottext">HeaderName -&gt; HandlerErrorCode -&gt; [Header]
 (HeaderName -&gt; HandlerErrorCode -&gt; [Header])
 -&gt; ToHeader HandlerErrorCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HandlerErrorCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HandlerErrorCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679416917"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679416926"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; QueryString
 (HandlerErrorCode -&gt; QueryString) -&gt; ToQuery HandlerErrorCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HandlerErrorCode -&gt; QueryString
 $ctoQuery :: HandlerErrorCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679416912"><span id="local-6989586621679416914"><span class="annot"><span class="annottext">Value -&gt; Parser [HandlerErrorCode]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679416921"><span id="local-6989586621679416923"><span class="annot"><span class="annottext">Value -&gt; Parser [HandlerErrorCode]
 Value -&gt; Parser HandlerErrorCode
 (Value -&gt; Parser HandlerErrorCode)
 -&gt; (Value -&gt; Parser [HandlerErrorCode])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [HandlerErrorCode]
 parseJSON :: Value -&gt; Parser HandlerErrorCode
 $cparseJSON :: Value -&gt; Parser HandlerErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679416907"><span id="local-6989586621679416909"><span class="annot"><span class="annottext">FromJSONKeyFunction [HandlerErrorCode]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679416916"><span id="local-6989586621679416918"><span class="annot"><span class="annottext">FromJSONKeyFunction [HandlerErrorCode]
 FromJSONKeyFunction HandlerErrorCode
 FromJSONKeyFunction HandlerErrorCode
 -&gt; FromJSONKeyFunction [HandlerErrorCode]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HandlerErrorCode]
 fromJSONKey :: FromJSONKeyFunction HandlerErrorCode
 $cfromJSONKey :: FromJSONKeyFunction HandlerErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679416898"><span id="local-6989586621679416900"><span id="local-6989586621679416902"><span id="local-6989586621679416904"><span class="annot"><span class="annottext">[HandlerErrorCode] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679416907"><span id="local-6989586621679416909"><span id="local-6989586621679416911"><span id="local-6989586621679416913"><span class="annot"><span class="annottext">[HandlerErrorCode] -&gt; Encoding
 [HandlerErrorCode] -&gt; Value
 HandlerErrorCode -&gt; Encoding
 HandlerErrorCode -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: HandlerErrorCode -&gt; Encoding
 toJSON :: HandlerErrorCode -&gt; Value
 $ctoJSON :: HandlerErrorCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679416893"><span id="local-6989586621679416895"><span class="annot"><span class="annottext">ToJSONKeyFunction [HandlerErrorCode]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679416902"><span id="local-6989586621679416904"><span class="annot"><span class="annottext">ToJSONKeyFunction [HandlerErrorCode]
 ToJSONKeyFunction HandlerErrorCode
 ToJSONKeyFunction HandlerErrorCode
 -&gt; ToJSONKeyFunction [HandlerErrorCode]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HandlerErrorCode]
 toJSONKey :: ToJSONKeyFunction HandlerErrorCode
 $ctoJSONKey :: ToJSONKeyFunction HandlerErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679416890"><span class="annot"><span class="annottext">[Node] -&gt; Either String HandlerErrorCode
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679416899"><span class="annot"><span class="annottext">[Node] -&gt; Either String HandlerErrorCode
 ([Node] -&gt; Either String HandlerErrorCode)
 -&gt; FromXML HandlerErrorCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HandlerErrorCode
 $cparseXML :: [Node] -&gt; Either String HandlerErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679416887"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679416896"><span class="annot"><span class="annottext">HandlerErrorCode -&gt; XML
 (HandlerErrorCode -&gt; XML) -&gt; ToXML HandlerErrorCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HandlerErrorCode -&gt; XML

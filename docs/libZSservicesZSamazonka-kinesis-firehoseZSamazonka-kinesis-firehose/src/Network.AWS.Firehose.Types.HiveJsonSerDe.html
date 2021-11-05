@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- functionality you need. The other option is the OpenX SerDe.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newHiveJsonSerDe' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679271134"><span id="local-6989586621679271135"></span></span><span class="hs-keyword">data</span><span> </span><span id="HiveJsonSerDe"><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-var">HiveJsonSerDe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HiveJsonSerDe%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe%27"><span class="hs-identifier hs-var">HiveJsonSerDe'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679271143"><span id="local-6989586621679271144"></span></span><span class="hs-keyword">data</span><span> </span><span id="HiveJsonSerDe"><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-var">HiveJsonSerDe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HiveJsonSerDe%27"><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe%27"><span class="hs-identifier hs-var">HiveJsonSerDe'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates how you want Kinesis Data Firehose to parse the date and</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- timestamps that may be present in your input data JSON. To specify these</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- format strings, follow the pattern syntax of JodaTime\'s DateTimeFormat</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AtimestampFormats%3AHiveJsonSerDe%27"><span class="annot"><span class="annottext">HiveJsonSerDe -&gt; Maybe [Text]
 </span><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#%24sel%3AtimestampFormats%3AHiveJsonSerDe%27"><span class="hs-identifier hs-var hs-var">timestampFormats</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271128"><span id="local-6989586621679271130"><span class="annot"><span class="annottext">HiveJsonSerDe -&gt; HiveJsonSerDe -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271137"><span id="local-6989586621679271139"><span class="annot"><span class="annottext">HiveJsonSerDe -&gt; HiveJsonSerDe -&gt; Bool
 (HiveJsonSerDe -&gt; HiveJsonSerDe -&gt; Bool)
 -&gt; (HiveJsonSerDe -&gt; HiveJsonSerDe -&gt; Bool) -&gt; Eq HiveJsonSerDe
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HiveJsonSerDe -&gt; HiveJsonSerDe -&gt; Bool
 == :: HiveJsonSerDe -&gt; HiveJsonSerDe -&gt; Bool
 $c== :: HiveJsonSerDe -&gt; HiveJsonSerDe -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271119"><span id="local-6989586621679271121"><span id="local-6989586621679271123"><span id="local-6989586621679271125"><span class="annot"><span class="annottext">ReadPrec [HiveJsonSerDe]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271128"><span id="local-6989586621679271130"><span id="local-6989586621679271132"><span id="local-6989586621679271134"><span class="annot"><span class="annottext">ReadPrec [HiveJsonSerDe]
 ReadPrec HiveJsonSerDe
 Int -&gt; ReadS HiveJsonSerDe
 ReadS [HiveJsonSerDe]
@@ -70,7 +70,7 @@ readList :: ReadS [HiveJsonSerDe]
 $creadList :: ReadS [HiveJsonSerDe]
 readsPrec :: Int -&gt; ReadS HiveJsonSerDe
 $creadsPrec :: Int -&gt; ReadS HiveJsonSerDe
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271112"><span id="local-6989586621679271114"><span id="local-6989586621679271116"><span class="annot"><span class="annottext">Int -&gt; HiveJsonSerDe -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271121"><span id="local-6989586621679271123"><span id="local-6989586621679271125"><span class="annot"><span class="annottext">Int -&gt; HiveJsonSerDe -&gt; ShowS
 [HiveJsonSerDe] -&gt; ShowS
 HiveJsonSerDe -&gt; String
 (Int -&gt; HiveJsonSerDe -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
 -&gt; (HiveJsonSerDe -&gt; Maybe [Text] -&gt; HiveJsonSerDe)
 -&gt; Lens HiveJsonSerDe HiveJsonSerDe (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe%27"><span class="hs-identifier hs-type">HiveJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271103"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe%27"><span class="hs-identifier hs-type">HiveJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271112"><span class="annot"><span class="annottext">Maybe [Text]
 timestampFormats :: Maybe [Text]
 $sel:timestampFormats:HiveJsonSerDe' :: HiveJsonSerDe -&gt; Maybe [Text]
-</span><a href="#local-6989586621679271103"><span class="hs-identifier hs-var hs-var">timestampFormats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679271103"><span class="hs-identifier hs-var">timestampFormats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271102"><span class="annot"><span class="annottext">s :: HiveJsonSerDe
-</span><a href="#local-6989586621679271102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe%27"><span class="hs-identifier hs-type">HiveJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271101"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679271101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HiveJsonSerDe
-</span><a href="#local-6989586621679271102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestampFormats:HiveJsonSerDe' :: Maybe [Text]
+</span><a href="#local-6989586621679271112"><span class="hs-identifier hs-var hs-var">timestampFormats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679271112"><span class="hs-identifier hs-var">timestampFormats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271111"><span class="annot"><span class="annottext">s :: HiveJsonSerDe
+</span><a href="#local-6989586621679271111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe%27"><span class="hs-identifier hs-type">HiveJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271110"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679271110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HiveJsonSerDe
+</span><a href="#local-6989586621679271111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestampFormats:HiveJsonSerDe' :: Maybe [Text]
 </span><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#%24sel%3AtimestampFormats%3AHiveJsonSerDe%27"><span class="hs-identifier hs-var">timestampFormats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679271101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679271110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; HiveJsonSerDe -&gt; f HiveJsonSerDe)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -163,8 +163,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271095"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679271093"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HiveJsonSerDe
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271104"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679271102"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HiveJsonSerDe
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HiveJsonSerDe)
@@ -174,15 +174,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HiveJsonSerDe&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271090"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271090"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271099"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271099"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; HiveJsonSerDe
 </span><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe%27"><span class="hs-identifier hs-var">HiveJsonSerDe'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; HiveJsonSerDe)
 -&gt; Parser (Maybe [Text]) -&gt; Parser HiveJsonSerDe
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679271099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TimestampFormats&quot;</span></span><span>
@@ -195,16 +195,16 @@ forall a. Monoid a =&gt; a
 </span><span id="line-86"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271083"><span id="local-6989586621679271085"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271092"><span id="local-6989586621679271094"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271072"><span id="local-6989586621679271074"><span id="local-6989586621679271076"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679271070"><span class="annot"><span class="annottext">toJSON :: HiveJsonSerDe -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe%27"><span class="hs-identifier hs-type">HiveJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271068"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271081"><span id="local-6989586621679271083"><span id="local-6989586621679271085"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe"><span class="hs-identifier hs-type">HiveJsonSerDe</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679271079"><span class="annot"><span class="annottext">toJSON :: HiveJsonSerDe -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HiveJsonSerDe.html#HiveJsonSerDe%27"><span class="hs-identifier hs-type">HiveJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271077"><span class="annot"><span class="annottext">Maybe [Text]
 timestampFormats :: Maybe [Text]
 $sel:timestampFormats:HiveJsonSerDe' :: HiveJsonSerDe -&gt; Maybe [Text]
-</span><a href="#local-6989586621679271068"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271077"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -217,7 +217,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679271068"><span class="hs-identifier hs-var">timestampFormats</span></a></span><span>
+</span><a href="#local-6989586621679271077"><span class="hs-identifier hs-var">timestampFormats</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

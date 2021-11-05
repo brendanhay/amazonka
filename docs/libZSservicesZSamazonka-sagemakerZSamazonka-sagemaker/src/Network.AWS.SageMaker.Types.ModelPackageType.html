@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621680319531"><span id="local-6989586621680319532"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelPackageType"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageType.html#ModelPackageType"><span class="hs-identifier hs-var">ModelPackageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelPackageType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageType.html#ModelPackageType%27"><span class="hs-identifier hs-var">ModelPackageType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680319540"><span id="local-6989586621680319541"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelPackageType"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageType.html#ModelPackageType"><span class="hs-identifier hs-var">ModelPackageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelPackageType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageType.html#ModelPackageType%27"><span class="hs-identifier hs-var">ModelPackageType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelPackageType"><span class="annot"><span class="annottext">ModelPackageType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageType.html#fromModelPackageType"><span class="hs-identifier hs-var hs-var">fromModelPackageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680319523"><span id="local-6989586621680319525"><span id="local-6989586621680319527"><span class="annot"><span class="annottext">Int -&gt; ModelPackageType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680319532"><span id="local-6989586621680319534"><span id="local-6989586621680319536"><span class="annot"><span class="annottext">Int -&gt; ModelPackageType -&gt; ShowS
 [ModelPackageType] -&gt; ShowS
 ModelPackageType -&gt; String
 (Int -&gt; ModelPackageType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ModelPackageType -&gt; String
 showsPrec :: Int -&gt; ModelPackageType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ModelPackageType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680319514"><span id="local-6989586621680319516"><span id="local-6989586621680319518"><span id="local-6989586621680319520"><span class="annot"><span class="annottext">ReadPrec [ModelPackageType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680319523"><span id="local-6989586621680319525"><span id="local-6989586621680319527"><span id="local-6989586621680319529"><span class="annot"><span class="annottext">ReadPrec [ModelPackageType]
 ReadPrec ModelPackageType
 Int -&gt; ReadS ModelPackageType
 ReadS [ModelPackageType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ModelPackageType]
 readsPrec :: Int -&gt; ReadS ModelPackageType
 $creadsPrec :: Int -&gt; ReadS ModelPackageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680319509"><span id="local-6989586621680319511"><span class="annot"><span class="annottext">ModelPackageType -&gt; ModelPackageType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680319518"><span id="local-6989586621680319520"><span class="annot"><span class="annottext">ModelPackageType -&gt; ModelPackageType -&gt; Bool
 (ModelPackageType -&gt; ModelPackageType -&gt; Bool)
 -&gt; (ModelPackageType -&gt; ModelPackageType -&gt; Bool)
 -&gt; Eq ModelPackageType
@@ -83,7 +83,7 @@ $c/= :: ModelPackageType -&gt; ModelPackageType -&gt; Bool
 == :: ModelPackageType -&gt; ModelPackageType -&gt; Bool
 $c== :: ModelPackageType -&gt; ModelPackageType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680319493"><span id="local-6989586621680319495"><span id="local-6989586621680319497"><span id="local-6989586621680319499"><span id="local-6989586621680319501"><span id="local-6989586621680319503"><span id="local-6989586621680319505"><span class="annot"><span class="annottext">Eq ModelPackageType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680319502"><span id="local-6989586621680319504"><span id="local-6989586621680319506"><span id="local-6989586621680319508"><span id="local-6989586621680319510"><span id="local-6989586621680319512"><span id="local-6989586621680319514"><span class="annot"><span class="annottext">Eq ModelPackageType
 Eq ModelPackageType
 -&gt; (ModelPackageType -&gt; ModelPackageType -&gt; Ordering)
 -&gt; (ModelPackageType -&gt; ModelPackageType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ModelPackageType -&gt; Rep ModelPackageType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680319485"><span id="local-6989586621680319487"><span class="annot"><span class="annottext">Int -&gt; ModelPackageType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680319494"><span id="local-6989586621680319496"><span class="annot"><span class="annottext">Int -&gt; ModelPackageType -&gt; Int
 ModelPackageType -&gt; Int
 (Int -&gt; ModelPackageType -&gt; Int)
 -&gt; (ModelPackageType -&gt; Int) -&gt; Hashable ModelPackageType
@@ -144,51 +144,51 @@ $chash :: ModelPackageType -&gt; Int
 hashWithSalt :: Int -&gt; ModelPackageType -&gt; Int
 $chashWithSalt :: Int -&gt; ModelPackageType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680319482"><span class="annot"><span class="annottext">ModelPackageType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680319491"><span class="annot"><span class="annottext">ModelPackageType -&gt; ()
 (ModelPackageType -&gt; ()) -&gt; NFData ModelPackageType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ModelPackageType -&gt; ()
 $crnf :: ModelPackageType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680319479"><span class="annot"><span class="annottext">Text -&gt; Either String ModelPackageType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680319488"><span class="annot"><span class="annottext">Text -&gt; Either String ModelPackageType
 (Text -&gt; Either String ModelPackageType)
 -&gt; FromText ModelPackageType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ModelPackageType
 $cfromText :: Text -&gt; Either String ModelPackageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680319476"><span class="annot"><span class="annottext">ModelPackageType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680319485"><span class="annot"><span class="annottext">ModelPackageType -&gt; Text
 (ModelPackageType -&gt; Text) -&gt; ToText ModelPackageType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ModelPackageType -&gt; Text
 $ctoText :: ModelPackageType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680319473"><span class="annot"><span class="annottext">ModelPackageType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680319482"><span class="annot"><span class="annottext">ModelPackageType -&gt; ByteString
 (ModelPackageType -&gt; ByteString) -&gt; ToByteString ModelPackageType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ModelPackageType -&gt; ByteString
 $ctoBS :: ModelPackageType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680319470"><span class="annot"><span class="annottext">ModelPackageType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680319479"><span class="annot"><span class="annottext">ModelPackageType -&gt; ByteStringBuilder
 (ModelPackageType -&gt; ByteStringBuilder) -&gt; ToLog ModelPackageType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ModelPackageType -&gt; ByteStringBuilder
 $cbuild :: ModelPackageType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680319467"><span class="annot"><span class="annottext">HeaderName -&gt; ModelPackageType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680319476"><span class="annot"><span class="annottext">HeaderName -&gt; ModelPackageType -&gt; [Header]
 (HeaderName -&gt; ModelPackageType -&gt; [Header])
 -&gt; ToHeader ModelPackageType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ModelPackageType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ModelPackageType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680319464"><span class="annot"><span class="annottext">ModelPackageType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680319473"><span class="annot"><span class="annottext">ModelPackageType -&gt; QueryString
 (ModelPackageType -&gt; QueryString) -&gt; ToQuery ModelPackageType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ModelPackageType -&gt; QueryString
 $ctoQuery :: ModelPackageType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680319459"><span id="local-6989586621680319461"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelPackageType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680319468"><span id="local-6989586621680319470"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelPackageType]
 Value -&gt; Parser ModelPackageType
 (Value -&gt; Parser ModelPackageType)
 -&gt; (Value -&gt; Parser [ModelPackageType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ModelPackageType]
 parseJSON :: Value -&gt; Parser ModelPackageType
 $cparseJSON :: Value -&gt; Parser ModelPackageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680319454"><span id="local-6989586621680319456"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelPackageType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680319463"><span id="local-6989586621680319465"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelPackageType]
 FromJSONKeyFunction ModelPackageType
 FromJSONKeyFunction ModelPackageType
 -&gt; FromJSONKeyFunction [ModelPackageType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ModelPackageType]
 fromJSONKey :: FromJSONKeyFunction ModelPackageType
 $cfromJSONKey :: FromJSONKeyFunction ModelPackageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680319445"><span id="local-6989586621680319447"><span id="local-6989586621680319449"><span id="local-6989586621680319451"><span class="annot"><span class="annottext">[ModelPackageType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680319454"><span id="local-6989586621680319456"><span id="local-6989586621680319458"><span id="local-6989586621680319460"><span class="annot"><span class="annottext">[ModelPackageType] -&gt; Encoding
 [ModelPackageType] -&gt; Value
 ModelPackageType -&gt; Encoding
 ModelPackageType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ModelPackageType -&gt; Encoding
 toJSON :: ModelPackageType -&gt; Value
 $ctoJSON :: ModelPackageType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680319440"><span id="local-6989586621680319442"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelPackageType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680319449"><span id="local-6989586621680319451"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelPackageType]
 ToJSONKeyFunction ModelPackageType
 ToJSONKeyFunction ModelPackageType
 -&gt; ToJSONKeyFunction [ModelPackageType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ModelPackageType]
 toJSONKey :: ToJSONKeyFunction ModelPackageType
 $ctoJSONKey :: ToJSONKeyFunction ModelPackageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680319437"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelPackageType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680319446"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelPackageType
 ([Node] -&gt; Either String ModelPackageType)
 -&gt; FromXML ModelPackageType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ModelPackageType
 $cparseXML :: [Node] -&gt; Either String ModelPackageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680319434"><span class="annot"><span class="annottext">ModelPackageType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680319443"><span class="annot"><span class="annottext">ModelPackageType -&gt; XML
 (ModelPackageType -&gt; XML) -&gt; ToXML ModelPackageType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ModelPackageType -&gt; XML

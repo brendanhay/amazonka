@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679295649"><span id="local-6989586621679295650"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FunctionResponseType"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionResponseType.html#FunctionResponseType"><span class="hs-identifier hs-var">FunctionResponseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionResponseType%27"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionResponseType.html#FunctionResponseType%27"><span class="hs-identifier hs-var">FunctionResponseType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679295658"><span id="local-6989586621679295659"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FunctionResponseType"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionResponseType.html#FunctionResponseType"><span class="hs-identifier hs-var">FunctionResponseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionResponseType%27"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionResponseType.html#FunctionResponseType%27"><span class="hs-identifier hs-var">FunctionResponseType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFunctionResponseType"><span class="annot"><span class="annottext">FunctionResponseType -&gt; Text
 </span><a href="Network.AWS.Lambda.Types.FunctionResponseType.html#fromFunctionResponseType"><span class="hs-identifier hs-var hs-var">fromFunctionResponseType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295641"><span id="local-6989586621679295643"><span id="local-6989586621679295645"><span class="annot"><span class="annottext">Int -&gt; FunctionResponseType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295650"><span id="local-6989586621679295652"><span id="local-6989586621679295654"><span class="annot"><span class="annottext">Int -&gt; FunctionResponseType -&gt; ShowS
 [FunctionResponseType] -&gt; ShowS
 FunctionResponseType -&gt; String
 (Int -&gt; FunctionResponseType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: FunctionResponseType -&gt; String
 showsPrec :: Int -&gt; FunctionResponseType -&gt; ShowS
 $cshowsPrec :: Int -&gt; FunctionResponseType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679295632"><span id="local-6989586621679295634"><span id="local-6989586621679295636"><span id="local-6989586621679295638"><span class="annot"><span class="annottext">ReadPrec [FunctionResponseType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679295641"><span id="local-6989586621679295643"><span id="local-6989586621679295645"><span id="local-6989586621679295647"><span class="annot"><span class="annottext">ReadPrec [FunctionResponseType]
 ReadPrec FunctionResponseType
 Int -&gt; ReadS FunctionResponseType
 ReadS [FunctionResponseType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [FunctionResponseType]
 readsPrec :: Int -&gt; ReadS FunctionResponseType
 $creadsPrec :: Int -&gt; ReadS FunctionResponseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295627"><span id="local-6989586621679295629"><span class="annot"><span class="annottext">FunctionResponseType -&gt; FunctionResponseType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295636"><span id="local-6989586621679295638"><span class="annot"><span class="annottext">FunctionResponseType -&gt; FunctionResponseType -&gt; Bool
 (FunctionResponseType -&gt; FunctionResponseType -&gt; Bool)
 -&gt; (FunctionResponseType -&gt; FunctionResponseType -&gt; Bool)
 -&gt; Eq FunctionResponseType
@@ -81,7 +81,7 @@ $c/= :: FunctionResponseType -&gt; FunctionResponseType -&gt; Bool
 == :: FunctionResponseType -&gt; FunctionResponseType -&gt; Bool
 $c== :: FunctionResponseType -&gt; FunctionResponseType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295611"><span id="local-6989586621679295613"><span id="local-6989586621679295615"><span id="local-6989586621679295617"><span id="local-6989586621679295619"><span id="local-6989586621679295621"><span id="local-6989586621679295623"><span class="annot"><span class="annottext">Eq FunctionResponseType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295620"><span id="local-6989586621679295622"><span id="local-6989586621679295624"><span id="local-6989586621679295626"><span id="local-6989586621679295628"><span id="local-6989586621679295630"><span id="local-6989586621679295632"><span class="annot"><span class="annottext">Eq FunctionResponseType
 Eq FunctionResponseType
 -&gt; (FunctionResponseType -&gt; FunctionResponseType -&gt; Ordering)
 -&gt; (FunctionResponseType -&gt; FunctionResponseType -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. FunctionResponseType -&gt; Rep FunctionResponseType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295603"><span id="local-6989586621679295605"><span class="annot"><span class="annottext">Int -&gt; FunctionResponseType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295612"><span id="local-6989586621679295614"><span class="annot"><span class="annottext">Int -&gt; FunctionResponseType -&gt; Int
 FunctionResponseType -&gt; Int
 (Int -&gt; FunctionResponseType -&gt; Int)
 -&gt; (FunctionResponseType -&gt; Int) -&gt; Hashable FunctionResponseType
@@ -149,54 +149,54 @@ $chash :: FunctionResponseType -&gt; Int
 hashWithSalt :: Int -&gt; FunctionResponseType -&gt; Int
 $chashWithSalt :: Int -&gt; FunctionResponseType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679295600"><span class="annot"><span class="annottext">FunctionResponseType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679295609"><span class="annot"><span class="annottext">FunctionResponseType -&gt; ()
 (FunctionResponseType -&gt; ()) -&gt; NFData FunctionResponseType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FunctionResponseType -&gt; ()
 $crnf :: FunctionResponseType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295597"><span class="annot"><span class="annottext">Text -&gt; Either String FunctionResponseType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295606"><span class="annot"><span class="annottext">Text -&gt; Either String FunctionResponseType
 (Text -&gt; Either String FunctionResponseType)
 -&gt; FromText FunctionResponseType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FunctionResponseType
 $cfromText :: Text -&gt; Either String FunctionResponseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295594"><span class="annot"><span class="annottext">FunctionResponseType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295603"><span class="annot"><span class="annottext">FunctionResponseType -&gt; Text
 (FunctionResponseType -&gt; Text) -&gt; ToText FunctionResponseType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FunctionResponseType -&gt; Text
 $ctoText :: FunctionResponseType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295591"><span class="annot"><span class="annottext">FunctionResponseType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295600"><span class="annot"><span class="annottext">FunctionResponseType -&gt; ByteString
 (FunctionResponseType -&gt; ByteString)
 -&gt; ToByteString FunctionResponseType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FunctionResponseType -&gt; ByteString
 $ctoBS :: FunctionResponseType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295588"><span class="annot"><span class="annottext">FunctionResponseType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295597"><span class="annot"><span class="annottext">FunctionResponseType -&gt; ByteStringBuilder
 (FunctionResponseType -&gt; ByteStringBuilder)
 -&gt; ToLog FunctionResponseType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FunctionResponseType -&gt; ByteStringBuilder
 $cbuild :: FunctionResponseType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295585"><span class="annot"><span class="annottext">HeaderName -&gt; FunctionResponseType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295594"><span class="annot"><span class="annottext">HeaderName -&gt; FunctionResponseType -&gt; [Header]
 (HeaderName -&gt; FunctionResponseType -&gt; [Header])
 -&gt; ToHeader FunctionResponseType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FunctionResponseType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FunctionResponseType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295582"><span class="annot"><span class="annottext">FunctionResponseType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295591"><span class="annot"><span class="annottext">FunctionResponseType -&gt; QueryString
 (FunctionResponseType -&gt; QueryString)
 -&gt; ToQuery FunctionResponseType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FunctionResponseType -&gt; QueryString
 $ctoQuery :: FunctionResponseType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295577"><span id="local-6989586621679295579"><span class="annot"><span class="annottext">Value -&gt; Parser [FunctionResponseType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295586"><span id="local-6989586621679295588"><span class="annot"><span class="annottext">Value -&gt; Parser [FunctionResponseType]
 Value -&gt; Parser FunctionResponseType
 (Value -&gt; Parser FunctionResponseType)
 -&gt; (Value -&gt; Parser [FunctionResponseType])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [FunctionResponseType]
 parseJSON :: Value -&gt; Parser FunctionResponseType
 $cparseJSON :: Value -&gt; Parser FunctionResponseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295572"><span id="local-6989586621679295574"><span class="annot"><span class="annottext">FromJSONKeyFunction [FunctionResponseType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295581"><span id="local-6989586621679295583"><span class="annot"><span class="annottext">FromJSONKeyFunction [FunctionResponseType]
 FromJSONKeyFunction FunctionResponseType
 FromJSONKeyFunction FunctionResponseType
 -&gt; FromJSONKeyFunction [FunctionResponseType]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FunctionResponseType]
 fromJSONKey :: FromJSONKeyFunction FunctionResponseType
 $cfromJSONKey :: FromJSONKeyFunction FunctionResponseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295563"><span id="local-6989586621679295565"><span id="local-6989586621679295567"><span id="local-6989586621679295569"><span class="annot"><span class="annottext">[FunctionResponseType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295572"><span id="local-6989586621679295574"><span id="local-6989586621679295576"><span id="local-6989586621679295578"><span class="annot"><span class="annottext">[FunctionResponseType] -&gt; Encoding
 [FunctionResponseType] -&gt; Value
 FunctionResponseType -&gt; Encoding
 FunctionResponseType -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: FunctionResponseType -&gt; Encoding
 toJSON :: FunctionResponseType -&gt; Value
 $ctoJSON :: FunctionResponseType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295558"><span id="local-6989586621679295560"><span class="annot"><span class="annottext">ToJSONKeyFunction [FunctionResponseType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295567"><span id="local-6989586621679295569"><span class="annot"><span class="annottext">ToJSONKeyFunction [FunctionResponseType]
 ToJSONKeyFunction FunctionResponseType
 ToJSONKeyFunction FunctionResponseType
 -&gt; ToJSONKeyFunction [FunctionResponseType]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FunctionResponseType]
 toJSONKey :: ToJSONKeyFunction FunctionResponseType
 $ctoJSONKey :: ToJSONKeyFunction FunctionResponseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295555"><span class="annot"><span class="annottext">[Node] -&gt; Either String FunctionResponseType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295564"><span class="annot"><span class="annottext">[Node] -&gt; Either String FunctionResponseType
 ([Node] -&gt; Either String FunctionResponseType)
 -&gt; FromXML FunctionResponseType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FunctionResponseType
 $cparseXML :: [Node] -&gt; Either String FunctionResponseType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295552"><span class="annot"><span class="annottext">FunctionResponseType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295561"><span class="annot"><span class="annottext">FunctionResponseType -&gt; XML
 (FunctionResponseType -&gt; XML) -&gt; ToXML FunctionResponseType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FunctionResponseType -&gt; XML

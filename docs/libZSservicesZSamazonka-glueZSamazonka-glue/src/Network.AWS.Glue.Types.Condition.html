@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Defines a condition under which a trigger fires.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCondition' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679690626"><span id="local-6989586621679690627"></span></span><span class="hs-keyword">data</span><span> </span><span id="Condition"><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-var">Condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Condition%27"><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679690635"><span id="local-6989586621679690636"></span></span><span class="hs-keyword">data</span><span> </span><span id="Condition"><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-var">Condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Condition%27"><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the crawler to which this condition applies.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AcrawlState%3ACondition%27"><span class="annot"><span class="annottext">Condition -&gt; Maybe CrawlState
 </span><a href="Network.AWS.Glue.Types.Condition.html#%24sel%3AcrawlState%3ACondition%27"><span class="hs-identifier hs-var hs-var">crawlState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlState.html#CrawlState"><span class="hs-identifier hs-type">CrawlState</span></a></span><span class="hs-special">,</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AcrawlerName%3ACondition%27"><span class="annot"><span class="annottext">Condition -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.Condition.html#%24sel%3AcrawlerName%3ACondition%27"><span class="hs-identifier hs-var hs-var">crawlerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679690616"><span id="local-6989586621679690618"><span class="annot"><span class="annottext">Condition -&gt; Condition -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679690625"><span id="local-6989586621679690627"><span class="annot"><span class="annottext">Condition -&gt; Condition -&gt; Bool
 (Condition -&gt; Condition -&gt; Bool)
 -&gt; (Condition -&gt; Condition -&gt; Bool) -&gt; Eq Condition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Condition -&gt; Condition -&gt; Bool
 == :: Condition -&gt; Condition -&gt; Bool
 $c== :: Condition -&gt; Condition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679690607"><span id="local-6989586621679690609"><span id="local-6989586621679690611"><span id="local-6989586621679690613"><span class="annot"><span class="annottext">ReadPrec [Condition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679690616"><span id="local-6989586621679690618"><span id="local-6989586621679690620"><span id="local-6989586621679690622"><span class="annot"><span class="annottext">ReadPrec [Condition]
 ReadPrec Condition
 Int -&gt; ReadS Condition
 ReadS [Condition]
@@ -78,7 +78,7 @@ readList :: ReadS [Condition]
 $creadList :: ReadS [Condition]
 readsPrec :: Int -&gt; ReadS Condition
 $creadsPrec :: Int -&gt; ReadS Condition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679690600"><span id="local-6989586621679690602"><span id="local-6989586621679690604"><span class="annot"><span class="annottext">Int -&gt; Condition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679690609"><span id="local-6989586621679690611"><span id="local-6989586621679690613"><span class="annot"><span class="annottext">Int -&gt; Condition -&gt; ShowS
 [Condition] -&gt; ShowS
 Condition -&gt; String
 (Int -&gt; Condition -&gt; ShowS)
@@ -165,16 +165,16 @@ forall a. Maybe a
 -&gt; (Condition -&gt; Maybe CrawlState -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe CrawlState) (Maybe CrawlState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690591"><span class="annot"><span class="annottext">Maybe CrawlState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690600"><span class="annot"><span class="annottext">Maybe CrawlState
 crawlState :: Maybe CrawlState
 $sel:crawlState:Condition' :: Condition -&gt; Maybe CrawlState
-</span><a href="#local-6989586621679690591"><span class="hs-identifier hs-var hs-var">crawlState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CrawlState
-</span><a href="#local-6989586621679690591"><span class="hs-identifier hs-var">crawlState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690590"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679690590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690589"><span class="annot"><span class="annottext">Maybe CrawlState
-</span><a href="#local-6989586621679690589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679690590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlState:Condition' :: Maybe CrawlState
+</span><a href="#local-6989586621679690600"><span class="hs-identifier hs-var hs-var">crawlState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CrawlState
+</span><a href="#local-6989586621679690600"><span class="hs-identifier hs-var">crawlState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690599"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679690599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690598"><span class="annot"><span class="annottext">Maybe CrawlState
+</span><a href="#local-6989586621679690598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679690599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlState:Condition' :: Maybe CrawlState
 </span><a href="Network.AWS.Glue.Types.Condition.html#%24sel%3AcrawlState%3ACondition%27"><span class="hs-identifier hs-var">crawlState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CrawlState
-</span><a href="#local-6989586621679690589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679690598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The condition state. Currently, the only job states that a trigger can</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- listen for are @SUCCEEDED@, @STOPPED@, @FAILED@, and @TIMEOUT@. The only</span><span>
@@ -187,16 +187,16 @@ $sel:crawlState:Condition' :: Condition -&gt; Maybe CrawlState
 -&gt; (Condition -&gt; Maybe JobRunState -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe JobRunState) (Maybe JobRunState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690587"><span class="annot"><span class="annottext">Maybe JobRunState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690596"><span class="annot"><span class="annottext">Maybe JobRunState
 state :: Maybe JobRunState
 $sel:state:Condition' :: Condition -&gt; Maybe JobRunState
-</span><a href="#local-6989586621679690587"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobRunState
-</span><a href="#local-6989586621679690587"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690586"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679690586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690585"><span class="annot"><span class="annottext">Maybe JobRunState
-</span><a href="#local-6989586621679690585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679690586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Condition' :: Maybe JobRunState
+</span><a href="#local-6989586621679690596"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobRunState
+</span><a href="#local-6989586621679690596"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690595"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679690595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690594"><span class="annot"><span class="annottext">Maybe JobRunState
+</span><a href="#local-6989586621679690594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679690595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Condition' :: Maybe JobRunState
 </span><a href="Network.AWS.Glue.Types.Condition.html#%24sel%3Astate%3ACondition%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobRunState
-</span><a href="#local-6989586621679690585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679690594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The name of the job whose @JobRuns@ this condition applies to, and on</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- which this trigger waits.</span><span>
@@ -206,16 +206,16 @@ $sel:state:Condition' :: Condition -&gt; Maybe JobRunState
 -&gt; (Condition -&gt; Maybe Text -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690583"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690592"><span class="annot"><span class="annottext">Maybe Text
 jobName :: Maybe Text
 $sel:jobName:Condition' :: Condition -&gt; Maybe Text
-</span><a href="#local-6989586621679690583"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690583"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690582"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679690582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690581"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679690582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:Condition' :: Maybe Text
+</span><a href="#local-6989586621679690592"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679690592"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690591"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679690591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690590"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679690590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679690591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:Condition' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Condition.html#%24sel%3AjobName%3ACondition%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679690590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A logical operator.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#condition_logicalOperator"><span class="hs-identifier hs-type">condition_logicalOperator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.LogicalOperator.html#LogicalOperator"><span class="hs-identifier hs-type">LogicalOperator</span></a></span><span class="hs-special">)</span><span>
@@ -226,16 +226,16 @@ $sel:jobName:Condition' :: Condition -&gt; Maybe Text
 -&gt; Lens
      Condition Condition (Maybe LogicalOperator) (Maybe LogicalOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690579"><span class="annot"><span class="annottext">Maybe LogicalOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690588"><span class="annot"><span class="annottext">Maybe LogicalOperator
 logicalOperator :: Maybe LogicalOperator
 $sel:logicalOperator:Condition' :: Condition -&gt; Maybe LogicalOperator
-</span><a href="#local-6989586621679690579"><span class="hs-identifier hs-var hs-var">logicalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogicalOperator
-</span><a href="#local-6989586621679690579"><span class="hs-identifier hs-var">logicalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690578"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679690578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690577"><span class="annot"><span class="annottext">Maybe LogicalOperator
-</span><a href="#local-6989586621679690577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679690578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalOperator:Condition' :: Maybe LogicalOperator
+</span><a href="#local-6989586621679690588"><span class="hs-identifier hs-var hs-var">logicalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogicalOperator
+</span><a href="#local-6989586621679690588"><span class="hs-identifier hs-var">logicalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690587"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679690587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690586"><span class="annot"><span class="annottext">Maybe LogicalOperator
+</span><a href="#local-6989586621679690586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679690587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalOperator:Condition' :: Maybe LogicalOperator
 </span><a href="Network.AWS.Glue.Types.Condition.html#%24sel%3AlogicalOperator%3ACondition%27"><span class="hs-identifier hs-var">logicalOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogicalOperator
-</span><a href="#local-6989586621679690577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679690586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The name of the crawler to which this condition applies.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#condition_crawlerName"><span class="hs-identifier hs-type">condition_crawlerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -244,27 +244,27 @@ $sel:logicalOperator:Condition' :: Condition -&gt; Maybe LogicalOperator
 -&gt; (Condition -&gt; Maybe Text -&gt; Condition)
 -&gt; Lens Condition Condition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690575"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690584"><span class="annot"><span class="annottext">Maybe Text
 crawlerName :: Maybe Text
 $sel:crawlerName:Condition' :: Condition -&gt; Maybe Text
-</span><a href="#local-6989586621679690575"><span class="hs-identifier hs-var hs-var">crawlerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690575"><span class="hs-identifier hs-var">crawlerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690574"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679690574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690573"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679690574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlerName:Condition' :: Maybe Text
+</span><a href="#local-6989586621679690584"><span class="hs-identifier hs-var hs-var">crawlerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679690584"><span class="hs-identifier hs-var">crawlerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690583"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679690583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690582"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679690582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679690583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlerName:Condition' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Condition.html#%24sel%3AcrawlerName%3ACondition%27"><span class="hs-identifier hs-var">crawlerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679690582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690570"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679690568"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Condition
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690579"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679690577"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Condition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Condition) -&gt; Value -&gt; Parser Condition
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Condition&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679690565"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690565"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679690574"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679690574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe CrawlState
 -&gt; Maybe JobRunState
 -&gt; Maybe Text
@@ -284,7 +284,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe LogicalOperator -&gt; Maybe Text -&gt; Condition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CrawlState)
+</span><a href="#local-6989586621679690574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CrawlState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrawlState&quot;</span></span><span class="hs-special">)</span><span>
@@ -296,7 +296,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe LogicalOperator -&gt; Maybe Text -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobRunState)
+</span><a href="#local-6989586621679690574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobRunState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
@@ -306,7 +306,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe LogicalOperator -&gt; Maybe Text -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679690574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobName&quot;</span></span><span class="hs-special">)</span><span>
@@ -315,7 +315,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Condition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogicalOperator)
+</span><a href="#local-6989586621679690574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogicalOperator)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogicalOperator&quot;</span></span><span class="hs-special">)</span><span>
@@ -323,19 +323,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Condition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679690574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrawlerName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690559"><span id="local-6989586621679690561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690568"><span id="local-6989586621679690570"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690548"><span id="local-6989586621679690550"><span id="local-6989586621679690552"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679690546"><span class="annot"><span class="annottext">toJSON :: Condition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690540"><span id="local-6989586621679690541"><span id="local-6989586621679690542"><span id="local-6989586621679690543"><span id="local-6989586621679690544"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690557"><span id="local-6989586621679690559"><span id="local-6989586621679690561"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679690555"><span class="annot"><span class="annottext">toJSON :: Condition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690549"><span id="local-6989586621679690550"><span id="local-6989586621679690551"><span id="local-6989586621679690552"><span id="local-6989586621679690553"><span class="annot"><span class="annottext">Maybe Text
 Maybe CrawlState
 Maybe JobRunState
 Maybe LogicalOperator
@@ -349,7 +349,7 @@ $sel:logicalOperator:Condition' :: Condition -&gt; Maybe LogicalOperator
 $sel:jobName:Condition' :: Condition -&gt; Maybe Text
 $sel:state:Condition' :: Condition -&gt; Maybe JobRunState
 $sel:crawlState:Condition' :: Condition -&gt; Maybe CrawlState
-</span><a href="#local-6989586621679690540"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679690549"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -361,21 +361,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CrawlState -&gt; Pair) -&gt; Maybe CrawlState -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CrawlState
-</span><a href="#local-6989586621679690544"><span class="hs-identifier hs-var">crawlState</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679690553"><span class="hs-identifier hs-var">crawlState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JobRunState -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(JobRunState -&gt; Pair) -&gt; Maybe JobRunState -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobRunState
-</span><a href="#local-6989586621679690543"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679690552"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690542"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679690551"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogicalOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogicalOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -383,14 +383,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(LogicalOperator -&gt; Pair) -&gt; Maybe LogicalOperator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogicalOperator
-</span><a href="#local-6989586621679690541"><span class="hs-identifier hs-var">logicalOperator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679690550"><span class="hs-identifier hs-var">logicalOperator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrawlerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690540"><span class="hs-identifier hs-var">crawlerName</span></a></span><span>
+</span><a href="#local-6989586621679690549"><span class="hs-identifier hs-var">crawlerName</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span></pre></body></html>

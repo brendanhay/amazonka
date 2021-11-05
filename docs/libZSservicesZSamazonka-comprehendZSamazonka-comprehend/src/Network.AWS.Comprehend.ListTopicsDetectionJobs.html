@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListTopicsDetectionJobs' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679357036"><span id="local-6989586621679357037"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTopicsDetectionJobs"><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-var">ListTopicsDetectionJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTopicsDetectionJobs%27"><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-var">ListTopicsDetectionJobs'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679357045"><span id="local-6989586621679357046"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTopicsDetectionJobs"><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-var">ListTopicsDetectionJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTopicsDetectionJobs%27"><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-var">ListTopicsDetectionJobs'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListTopicsDetectionJobs%27"><span class="annot"><span class="annottext">ListTopicsDetectionJobs -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AnextToken%3AListTopicsDetectionJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTopicsDetectionJobs%27"><span class="annot"><span class="annottext">ListTopicsDetectionJobs -&gt; Maybe Natural
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AmaxResults%3AListTopicsDetectionJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357028"><span id="local-6989586621679357030"><span class="annot"><span class="annottext">ListTopicsDetectionJobs -&gt; ListTopicsDetectionJobs -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679357037"><span id="local-6989586621679357039"><span class="annot"><span class="annottext">ListTopicsDetectionJobs -&gt; ListTopicsDetectionJobs -&gt; Bool
 (ListTopicsDetectionJobs -&gt; ListTopicsDetectionJobs -&gt; Bool)
 -&gt; (ListTopicsDetectionJobs -&gt; ListTopicsDetectionJobs -&gt; Bool)
 -&gt; Eq ListTopicsDetectionJobs
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTopicsDetectionJobs -&gt; ListTopicsDetectionJobs -&gt; Bool
 == :: ListTopicsDetectionJobs -&gt; ListTopicsDetectionJobs -&gt; Bool
 $c== :: ListTopicsDetectionJobs -&gt; ListTopicsDetectionJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357019"><span id="local-6989586621679357021"><span id="local-6989586621679357023"><span id="local-6989586621679357025"><span class="annot"><span class="annottext">ReadPrec [ListTopicsDetectionJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357028"><span id="local-6989586621679357030"><span id="local-6989586621679357032"><span id="local-6989586621679357034"><span class="annot"><span class="annottext">ReadPrec [ListTopicsDetectionJobs]
 ReadPrec ListTopicsDetectionJobs
 Int -&gt; ReadS ListTopicsDetectionJobs
 ReadS [ListTopicsDetectionJobs]
@@ -95,7 +95,7 @@ readList :: ReadS [ListTopicsDetectionJobs]
 $creadList :: ReadS [ListTopicsDetectionJobs]
 readsPrec :: Int -&gt; ReadS ListTopicsDetectionJobs
 $creadsPrec :: Int -&gt; ReadS ListTopicsDetectionJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357012"><span id="local-6989586621679357014"><span id="local-6989586621679357016"><span class="annot"><span class="annottext">Int -&gt; ListTopicsDetectionJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679357021"><span id="local-6989586621679357023"><span id="local-6989586621679357025"><span class="annot"><span class="annottext">Int -&gt; ListTopicsDetectionJobs -&gt; ShowS
 [ListTopicsDetectionJobs] -&gt; ShowS
 ListTopicsDetectionJobs -&gt; String
 (Int -&gt; ListTopicsDetectionJobs -&gt; ShowS)
@@ -176,16 +176,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357006"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357015"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTopicsDetectionJobs' :: ListTopicsDetectionJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679357006"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357006"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357005"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobs
-</span><a href="#local-6989586621679357005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357004"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobs
-</span><a href="#local-6989586621679357005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTopicsDetectionJobs' :: Maybe Text
+</span><a href="#local-6989586621679357015"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357015"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357014"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobs
+</span><a href="#local-6989586621679357014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357013"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679357013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobs
+</span><a href="#local-6989586621679357014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTopicsDetectionJobs' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AnextToken%3AListTopicsDetectionJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679357004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Filters the jobs that are returned. Jobs can be filtered on their name,</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- status, or the date and time that they were submitted. You can set only</span><span>
@@ -203,16 +203,16 @@ $sel:nextToken:ListTopicsDetectionJobs' :: ListTopicsDetectionJobs -&gt; Maybe T
      (Maybe TopicsDetectionJobFilter)
      (Maybe TopicsDetectionJobFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357003"><span class="annot"><span class="annottext">Maybe TopicsDetectionJobFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357012"><span class="annot"><span class="annottext">Maybe TopicsDetectionJobFilter
 filter' :: Maybe TopicsDetectionJobFilter
 $sel:filter':ListTopicsDetectionJobs' :: ListTopicsDetectionJobs -&gt; Maybe TopicsDetectionJobFilter
-</span><a href="#local-6989586621679357003"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TopicsDetectionJobFilter
-</span><a href="#local-6989586621679357003"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357002"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobs
-</span><a href="#local-6989586621679357002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357001"><span class="annot"><span class="annottext">Maybe TopicsDetectionJobFilter
-</span><a href="#local-6989586621679357001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobs
-</span><a href="#local-6989586621679357002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListTopicsDetectionJobs' :: Maybe TopicsDetectionJobFilter
+</span><a href="#local-6989586621679357012"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TopicsDetectionJobFilter
+</span><a href="#local-6989586621679357012"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357011"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobs
+</span><a href="#local-6989586621679357011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357010"><span class="annot"><span class="annottext">Maybe TopicsDetectionJobFilter
+</span><a href="#local-6989586621679357010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobs
+</span><a href="#local-6989586621679357011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':ListTopicsDetectionJobs' :: Maybe TopicsDetectionJobFilter
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3Afilter%27%3AListTopicsDetectionJobs%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TopicsDetectionJobFilter
-</span><a href="#local-6989586621679357001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of results to return in each page. The default is</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- 100.</span><span>
@@ -228,30 +228,30 @@ $sel:filter':ListTopicsDetectionJobs' :: ListTopicsDetectionJobs -&gt; Maybe Top
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357000"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679357009"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListTopicsDetectionJobs' :: ListTopicsDetectionJobs -&gt; Maybe Natural
-</span><a href="#local-6989586621679357000"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679357000"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356999"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobs
-</span><a href="#local-6989586621679356999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356998"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679356998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobs
-</span><a href="#local-6989586621679356999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTopicsDetectionJobs' :: Maybe Natural
+</span><a href="#local-6989586621679357009"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679357009"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679357008"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobs
+</span><a href="#local-6989586621679357008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679357007"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679357007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobs
+</span><a href="#local-6989586621679357008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTopicsDetectionJobs' :: Maybe Natural
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AmaxResults%3AListTopicsDetectionJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679356998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679357007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679356994"><span class="annot"><span class="annottext">page :: ListTopicsDetectionJobs
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679357003"><span class="annot"><span class="annottext">page :: ListTopicsDetectionJobs
 -&gt; AWSResponse ListTopicsDetectionJobs
 -&gt; Maybe ListTopicsDetectionJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679356992"><span class="annot"><span class="annottext">ListTopicsDetectionJobs
-</span><a href="#local-6989586621679356992"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679356991"><span class="annot"><span class="annottext">AWSResponse ListTopicsDetectionJobs
-</span><a href="#local-6989586621679356991"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679357001"><span class="annot"><span class="annottext">ListTopicsDetectionJobs
+</span><a href="#local-6989586621679357001"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679357000"><span class="annot"><span class="annottext">AWSResponse ListTopicsDetectionJobs
+</span><a href="#local-6989586621679357000"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTopicsDetectionJobs
 ListTopicsDetectionJobsResponse
-</span><a href="#local-6989586621679356991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679357000"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
 -&gt; Getting (First Text) ListTopicsDetectionJobsResponse Text
 -&gt; Maybe Text
@@ -281,7 +281,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTopicsDetectionJobs
 ListTopicsDetectionJobsResponse
-</span><a href="#local-6989586621679356991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679357000"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
 -&gt; Getting
      (First [TopicsDetectionJobProperties])
@@ -345,7 +345,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ListTopicsDetectionJobs
-</span><a href="#local-6989586621679356992"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679357001"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ListTopicsDetectionJobs
 -&gt; (ListTopicsDetectionJobs -&gt; ListTopicsDetectionJobs)
 -&gt; ListTopicsDetectionJobs
@@ -364,7 +364,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTopicsDetectionJobs
 ListTopicsDetectionJobsResponse
-</span><a href="#local-6989586621679356991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679357000"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
 -&gt; Getting (First Text) ListTopicsDetectionJobsResponse Text
 -&gt; Maybe Text
@@ -390,13 +390,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679356981"><span class="annot"><span class="annottext">request :: ListTopicsDetectionJobs -&gt; Request ListTopicsDetectionJobs
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679356990"><span class="annot"><span class="annottext">request :: ListTopicsDetectionJobs -&gt; Request ListTopicsDetectionJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListTopicsDetectionJobs -&gt; Request ListTopicsDetectionJobs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679356977"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679356986"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTopicsDetectionJobs
 -&gt; ClientResponse ClientBody
@@ -422,10 +422,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679356974"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356974"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679356973"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679356973"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679356972"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679356972"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679356983"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356983"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679356982"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679356982"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679356981"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [TopicsDetectionJobProperties]
 -&gt; Int
@@ -442,7 +442,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListTopicsDetectionJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679356972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679356981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -454,7 +454,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListTopicsDetectionJobsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679356972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [TopicsDetectionJobProperties]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -477,15 +477,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356974"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679356983"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356963"><span id="local-6989586621679356965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356972"><span id="local-6989586621679356974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679356956"><span class="annot"><span class="annottext">toHeaders :: ListTopicsDetectionJobs -&gt; ResponseHeaders
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679356965"><span class="annot"><span class="annottext">toHeaders :: ListTopicsDetectionJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTopicsDetectionJobs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -512,9 +512,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356946"><span id="local-6989586621679356948"><span id="local-6989586621679356950"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679356944"><span class="annot"><span class="annottext">toJSON :: ListTopicsDetectionJobs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356940"><span id="local-6989586621679356941"><span id="local-6989586621679356942"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679356955"><span id="local-6989586621679356957"><span id="local-6989586621679356959"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679356953"><span class="annot"><span class="annottext">toJSON :: ListTopicsDetectionJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356949"><span id="local-6989586621679356950"><span id="local-6989586621679356951"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe TopicsDetectionJobFilter
 maxResults :: Maybe Natural
@@ -523,7 +523,7 @@ nextToken :: Maybe Text
 $sel:maxResults:ListTopicsDetectionJobs' :: ListTopicsDetectionJobs -&gt; Maybe Natural
 $sel:filter':ListTopicsDetectionJobs' :: ListTopicsDetectionJobs -&gt; Maybe TopicsDetectionJobFilter
 $sel:nextToken:ListTopicsDetectionJobs' :: ListTopicsDetectionJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679356940"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679356949"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -535,7 +535,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679356942"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679356951"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TopicsDetectionJobFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -543,26 +543,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TopicsDetectionJobFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TopicsDetectionJobFilter
-</span><a href="#local-6989586621679356941"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679356950"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679356940"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679356949"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679356934"><span class="annot"><span class="annottext">toPath :: ListTopicsDetectionJobs -&gt; ByteString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679356943"><span class="annot"><span class="annottext">toPath :: ListTopicsDetectionJobs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTopicsDetectionJobs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobs"><span class="hs-identifier hs-type">ListTopicsDetectionJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679356930"><span class="annot"><span class="annottext">toQuery :: ListTopicsDetectionJobs -&gt; QueryString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679356939"><span class="annot"><span class="annottext">toQuery :: ListTopicsDetectionJobs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTopicsDetectionJobs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -570,7 +570,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newListTopicsDetectionJobsResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679356927"><span id="local-6989586621679356928"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTopicsDetectionJobsResponse"><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-var">ListTopicsDetectionJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTopicsDetectionJobsResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-var">ListTopicsDetectionJobsResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679356936"><span id="local-6989586621679356937"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTopicsDetectionJobsResponse"><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-var">ListTopicsDetectionJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTopicsDetectionJobsResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-var">ListTopicsDetectionJobsResponse'</span></a></span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AnextToken%3AListTopicsDetectionJobsResponse%27"><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AnextToken%3AListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -582,7 +582,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTopicsDetectionJobsResponse%27"><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AhttpStatus%3AListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679356920"><span id="local-6989586621679356922"><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679356929"><span id="local-6989586621679356931"><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
 -&gt; ListTopicsDetectionJobsResponse -&gt; Bool
 (ListTopicsDetectionJobsResponse
  -&gt; ListTopicsDetectionJobsResponse -&gt; Bool)
@@ -598,7 +598,7 @@ $c/= :: ListTopicsDetectionJobsResponse
 -&gt; ListTopicsDetectionJobsResponse -&gt; Bool
 $c== :: ListTopicsDetectionJobsResponse
 -&gt; ListTopicsDetectionJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356912"><span id="local-6989586621679356914"><span id="local-6989586621679356916"><span id="local-6989586621679356918"><span class="annot"><span class="annottext">ReadPrec [ListTopicsDetectionJobsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356921"><span id="local-6989586621679356923"><span id="local-6989586621679356925"><span id="local-6989586621679356927"><span class="annot"><span class="annottext">ReadPrec [ListTopicsDetectionJobsResponse]
 ReadPrec ListTopicsDetectionJobsResponse
 Int -&gt; ReadS ListTopicsDetectionJobsResponse
 ReadS [ListTopicsDetectionJobsResponse]
@@ -618,7 +618,7 @@ readList :: ReadS [ListTopicsDetectionJobsResponse]
 $creadList :: ReadS [ListTopicsDetectionJobsResponse]
 readsPrec :: Int -&gt; ReadS ListTopicsDetectionJobsResponse
 $creadsPrec :: Int -&gt; ReadS ListTopicsDetectionJobsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356906"><span id="local-6989586621679356908"><span id="local-6989586621679356910"><span class="annot"><span class="annottext">Int -&gt; ListTopicsDetectionJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356915"><span id="local-6989586621679356917"><span id="local-6989586621679356919"><span class="annot"><span class="annottext">Int -&gt; ListTopicsDetectionJobsResponse -&gt; ShowS
 [ListTopicsDetectionJobsResponse] -&gt; ShowS
 ListTopicsDetectionJobsResponse -&gt; String
 (Int -&gt; ListTopicsDetectionJobsResponse -&gt; ShowS)
@@ -674,8 +674,8 @@ ListTopicsDetectionJobsResponse
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span><span>
 </span><span id="line-210"></span><span id="newListTopicsDetectionJobsResponse"><span class="annot"><span class="annottext">newListTopicsDetectionJobsResponse :: Int -&gt; ListTopicsDetectionJobsResponse
-</span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#newListTopicsDetectionJobsResponse"><span class="hs-identifier hs-var hs-var">newListTopicsDetectionJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679356903"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#newListTopicsDetectionJobsResponse"><span class="hs-identifier hs-var hs-var">newListTopicsDetectionJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679356912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse' :: Maybe Text
 -&gt; Maybe [TopicsDetectionJobProperties]
 -&gt; Int
@@ -693,7 +693,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTopicsDetectionJobsResponse' :: Int
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AhttpStatus%3AListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679356912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | Identifies the next page of results to return.</span><span>
@@ -706,16 +706,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListTopicsDetectionJobsResponse)
 -&gt; Lens' ListTopicsDetectionJobsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356902"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356911"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTopicsDetectionJobsResponse' :: ListTopicsDetectionJobsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679356902"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679356902"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356901"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobsResponse
-</span><a href="#local-6989586621679356901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356900"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679356900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
-</span><a href="#local-6989586621679356901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTopicsDetectionJobsResponse' :: Maybe Text
+</span><a href="#local-6989586621679356911"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356911"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356910"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobsResponse
+</span><a href="#local-6989586621679356910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679356909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
+</span><a href="#local-6989586621679356910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTopicsDetectionJobsResponse' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AnextToken%3AListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679356900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679356909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | A list containing the properties of each job that is returned.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList"><span class="hs-identifier hs-type">listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.TopicsDetectionJobProperties.html#TopicsDetectionJobProperties"><span class="hs-identifier hs-type">TopicsDetectionJobProperties</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -732,17 +732,17 @@ $sel:nextToken:ListTopicsDetectionJobsResponse' :: ListTopicsDetectionJobsRespon
      ListTopicsDetectionJobsResponse
      (Maybe [TopicsDetectionJobProperties])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356899"><span class="annot"><span class="annottext">Maybe [TopicsDetectionJobProperties]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356908"><span class="annot"><span class="annottext">Maybe [TopicsDetectionJobProperties]
 topicsDetectionJobPropertiesList :: Maybe [TopicsDetectionJobProperties]
 $sel:topicsDetectionJobPropertiesList:ListTopicsDetectionJobsResponse' :: ListTopicsDetectionJobsResponse
 -&gt; Maybe [TopicsDetectionJobProperties]
-</span><a href="#local-6989586621679356899"><span class="hs-identifier hs-var hs-var">topicsDetectionJobPropertiesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TopicsDetectionJobProperties]
-</span><a href="#local-6989586621679356899"><span class="hs-identifier hs-var">topicsDetectionJobPropertiesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356898"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobsResponse
-</span><a href="#local-6989586621679356898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356897"><span class="annot"><span class="annottext">Maybe [TopicsDetectionJobProperties]
-</span><a href="#local-6989586621679356897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
-</span><a href="#local-6989586621679356898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicsDetectionJobPropertiesList:ListTopicsDetectionJobsResponse' :: Maybe [TopicsDetectionJobProperties]
+</span><a href="#local-6989586621679356908"><span class="hs-identifier hs-var hs-var">topicsDetectionJobPropertiesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TopicsDetectionJobProperties]
+</span><a href="#local-6989586621679356908"><span class="hs-identifier hs-var">topicsDetectionJobPropertiesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356907"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobsResponse
+</span><a href="#local-6989586621679356907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356906"><span class="annot"><span class="annottext">Maybe [TopicsDetectionJobProperties]
+</span><a href="#local-6989586621679356906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
+</span><a href="#local-6989586621679356907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicsDetectionJobPropertiesList:ListTopicsDetectionJobsResponse' :: Maybe [TopicsDetectionJobProperties]
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AtopicsDetectionJobPropertiesList%3AListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-var">topicsDetectionJobPropertiesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TopicsDetectionJobProperties]
-</span><a href="#local-6989586621679356897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TopicsDetectionJobProperties]
+</span><a href="#local-6989586621679356906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TopicsDetectionJobProperties]
   -&gt; f (Maybe [TopicsDetectionJobProperties]))
  -&gt; ListTopicsDetectionJobsResponse
  -&gt; f ListTopicsDetectionJobsResponse)
@@ -790,18 +790,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356894"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356903"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTopicsDetectionJobsResponse' :: ListTopicsDetectionJobsResponse -&gt; Int
-</span><a href="#local-6989586621679356894"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356894"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356893"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobsResponse
-</span><a href="#local-6989586621679356893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356892"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
-</span><a href="#local-6989586621679356893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTopicsDetectionJobsResponse' :: Int
+</span><a href="#local-6989586621679356903"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356903"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356902"><span class="annot"><span class="annottext">s :: ListTopicsDetectionJobsResponse
+</span><a href="#local-6989586621679356902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679356901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTopicsDetectionJobsResponse
+</span><a href="#local-6989586621679356902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTopicsDetectionJobsResponse' :: Int
 </span><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#%24sel%3AhttpStatus%3AListTopicsDetectionJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679356892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679356901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679356890"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679356899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ListTopicsDetectionJobs.html#ListTopicsDetectionJobsResponse"><span class="hs-identifier hs-type">ListTopicsDetectionJobsResponse</span></a></span></span><span>
 </span><span id="line-234"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- container.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLogConfiguration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679265065"><span id="local-6989586621679265066"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogConfiguration"><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-var">LogConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogConfiguration%27"><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-var">LogConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679265074"><span id="local-6989586621679265075"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogConfiguration"><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-var">LogConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogConfiguration%27"><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-var">LogConfiguration'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration options to send to the log driver. This parameter</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- requires version 1.19 of the Docker Remote API or greater on your</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- container instance. To check the Docker Remote API version on your</span><span>
@@ -112,7 +112,7 @@
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AlogDriver%3ALogConfiguration%27"><span class="annot"><span class="annottext">LogConfiguration -&gt; LogDriver
 </span><a href="Network.AWS.Batch.Types.LogConfiguration.html#%24sel%3AlogDriver%3ALogConfiguration%27"><span class="hs-identifier hs-var hs-var">logDriver</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogDriver.html#LogDriver"><span class="hs-identifier hs-type">LogDriver</span></a></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265057"><span id="local-6989586621679265059"><span class="annot"><span class="annottext">LogConfiguration -&gt; LogConfiguration -&gt; Bool
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265066"><span id="local-6989586621679265068"><span class="annot"><span class="annottext">LogConfiguration -&gt; LogConfiguration -&gt; Bool
 (LogConfiguration -&gt; LogConfiguration -&gt; Bool)
 -&gt; (LogConfiguration -&gt; LogConfiguration -&gt; Bool)
 -&gt; Eq LogConfiguration
@@ -121,7 +121,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LogConfiguration -&gt; LogConfiguration -&gt; Bool
 == :: LogConfiguration -&gt; LogConfiguration -&gt; Bool
 $c== :: LogConfiguration -&gt; LogConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265048"><span id="local-6989586621679265050"><span id="local-6989586621679265052"><span id="local-6989586621679265054"><span class="annot"><span class="annottext">ReadPrec [LogConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265057"><span id="local-6989586621679265059"><span id="local-6989586621679265061"><span id="local-6989586621679265063"><span class="annot"><span class="annottext">ReadPrec [LogConfiguration]
 ReadPrec LogConfiguration
 Int -&gt; ReadS LogConfiguration
 ReadS [LogConfiguration]
@@ -141,7 +141,7 @@ readList :: ReadS [LogConfiguration]
 $creadList :: ReadS [LogConfiguration]
 readsPrec :: Int -&gt; ReadS LogConfiguration
 $creadsPrec :: Int -&gt; ReadS LogConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265041"><span id="local-6989586621679265043"><span id="local-6989586621679265045"><span class="annot"><span class="annottext">Int -&gt; LogConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265050"><span id="local-6989586621679265052"><span id="local-6989586621679265054"><span class="annot"><span class="annottext">Int -&gt; LogConfiguration -&gt; ShowS
 [LogConfiguration] -&gt; ShowS
 LogConfiguration -&gt; String
 (Int -&gt; LogConfiguration -&gt; ShowS)
@@ -257,8 +257,8 @@ $cfrom :: forall x. LogConfiguration -&gt; Rep LogConfiguration x
 </span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.LogDriver.html#LogDriver"><span class="hs-identifier hs-type">LogDriver</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span><span>
 </span><span id="line-203"></span><span id="newLogConfiguration"><span class="annot"><span class="annottext">newLogConfiguration :: LogDriver -&gt; LogConfiguration
-</span><a href="Network.AWS.Batch.Types.LogConfiguration.html#newLogConfiguration"><span class="hs-identifier hs-var hs-var">newLogConfiguration</span></a></span></span><span> </span><span id="local-6989586621679265035"><span class="annot"><span class="annottext">LogDriver
-</span><a href="#local-6989586621679265035"><span class="hs-identifier hs-var">pLogDriver_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Batch.Types.LogConfiguration.html#newLogConfiguration"><span class="hs-identifier hs-var hs-var">newLogConfiguration</span></a></span></span><span> </span><span id="local-6989586621679265044"><span class="annot"><span class="annottext">LogDriver
+</span><a href="#local-6989586621679265044"><span class="hs-identifier hs-var">pLogDriver_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">LogConfiguration' :: Maybe (HashMap Text Text)
 -&gt; Maybe [Secret] -&gt; LogDriver -&gt; LogConfiguration
 </span><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span>
@@ -272,7 +272,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:logDriver:LogConfiguration' :: LogDriver
 </span><a href="Network.AWS.Batch.Types.LogConfiguration.html#%24sel%3AlogDriver%3ALogConfiguration%27"><span class="hs-identifier hs-var">logDriver</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogDriver
-</span><a href="#local-6989586621679265035"><span class="hs-identifier hs-var">pLogDriver_</span></a></span><span>
+</span><a href="#local-6989586621679265044"><span class="hs-identifier hs-var">pLogDriver_</span></a></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The configuration options to send to the log driver. This parameter</span><span>
@@ -292,16 +292,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265031"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265040"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 options :: Maybe (HashMap Text Text)
 $sel:options:LogConfiguration' :: LogConfiguration -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265031"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265031"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265030"><span class="annot"><span class="annottext">s :: LogConfiguration
-</span><a href="#local-6989586621679265030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265029"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfiguration
-</span><a href="#local-6989586621679265030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:LogConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265040"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265040"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265039"><span class="annot"><span class="annottext">s :: LogConfiguration
+</span><a href="#local-6989586621679265039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265038"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfiguration
+</span><a href="#local-6989586621679265039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:LogConfiguration' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Batch.Types.LogConfiguration.html#%24sel%3Aoptions%3ALogConfiguration%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679265038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; LogConfiguration -&gt; f LogConfiguration)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -341,16 +341,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      LogConfiguration LogConfiguration (Maybe [Secret]) (Maybe [Secret])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265024"><span class="annot"><span class="annottext">Maybe [Secret]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265033"><span class="annot"><span class="annottext">Maybe [Secret]
 secretOptions :: Maybe [Secret]
 $sel:secretOptions:LogConfiguration' :: LogConfiguration -&gt; Maybe [Secret]
-</span><a href="#local-6989586621679265024"><span class="hs-identifier hs-var hs-var">secretOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Secret]
-</span><a href="#local-6989586621679265024"><span class="hs-identifier hs-var">secretOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265023"><span class="annot"><span class="annottext">s :: LogConfiguration
-</span><a href="#local-6989586621679265023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265022"><span class="annot"><span class="annottext">Maybe [Secret]
-</span><a href="#local-6989586621679265022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfiguration
-</span><a href="#local-6989586621679265023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretOptions:LogConfiguration' :: Maybe [Secret]
+</span><a href="#local-6989586621679265033"><span class="hs-identifier hs-var hs-var">secretOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Secret]
+</span><a href="#local-6989586621679265033"><span class="hs-identifier hs-var">secretOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265032"><span class="annot"><span class="annottext">s :: LogConfiguration
+</span><a href="#local-6989586621679265032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265031"><span class="annot"><span class="annottext">Maybe [Secret]
+</span><a href="#local-6989586621679265031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfiguration
+</span><a href="#local-6989586621679265032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretOptions:LogConfiguration' :: Maybe [Secret]
 </span><a href="Network.AWS.Batch.Types.LogConfiguration.html#%24sel%3AsecretOptions%3ALogConfiguration%27"><span class="hs-identifier hs-var">secretOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Secret]
-</span><a href="#local-6989586621679265022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Secret] -&gt; f (Maybe [Secret]))
+</span><a href="#local-6989586621679265031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Secret] -&gt; f (Maybe [Secret]))
  -&gt; LogConfiguration -&gt; f LogConfiguration)
 -&gt; ((Maybe [Secret] -&gt; f (Maybe [Secret]))
     -&gt; Maybe [Secret] -&gt; f (Maybe [Secret]))
@@ -442,19 +442,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (LogConfiguration -&gt; LogDriver -&gt; LogConfiguration)
 -&gt; Lens LogConfiguration LogConfiguration LogDriver LogDriver
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265020"><span class="annot"><span class="annottext">LogDriver
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265029"><span class="annot"><span class="annottext">LogDriver
 logDriver :: LogDriver
 $sel:logDriver:LogConfiguration' :: LogConfiguration -&gt; LogDriver
-</span><a href="#local-6989586621679265020"><span class="hs-identifier hs-var hs-var">logDriver</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDriver
-</span><a href="#local-6989586621679265020"><span class="hs-identifier hs-var">logDriver</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265019"><span class="annot"><span class="annottext">s :: LogConfiguration
-</span><a href="#local-6989586621679265019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265018"><span class="annot"><span class="annottext">LogDriver
-</span><a href="#local-6989586621679265018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfiguration
-</span><a href="#local-6989586621679265019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDriver:LogConfiguration' :: LogDriver
+</span><a href="#local-6989586621679265029"><span class="hs-identifier hs-var hs-var">logDriver</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDriver
+</span><a href="#local-6989586621679265029"><span class="hs-identifier hs-var">logDriver</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265028"><span class="annot"><span class="annottext">s :: LogConfiguration
+</span><a href="#local-6989586621679265028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265027"><span class="annot"><span class="annottext">LogDriver
+</span><a href="#local-6989586621679265027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogConfiguration
+</span><a href="#local-6989586621679265028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDriver:LogConfiguration' :: LogDriver
 </span><a href="Network.AWS.Batch.Types.LogConfiguration.html#%24sel%3AlogDriver%3ALogConfiguration%27"><span class="hs-identifier hs-var">logDriver</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogDriver
-</span><a href="#local-6989586621679265018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
-</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265015"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-295"></span><span>  </span><span id="local-6989586621679265013"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogConfiguration
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265024"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-295"></span><span>  </span><span id="local-6989586621679265022"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-296"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LogConfiguration)
@@ -464,8 +464,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LogConfiguration&quot;</span></span><span>
-</span><span id="line-298"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265010"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265010"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-298"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265019"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265019"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-299"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; Maybe [Secret] -&gt; LogDriver -&gt; LogConfiguration
 </span><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-var">LogConfiguration'</span></a></span><span>
@@ -475,7 +475,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Secret] -&gt; LogDriver -&gt; LogConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679265019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;options&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -489,7 +489,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (LogDriver -&gt; LogConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Secret]))
+</span><a href="#local-6989586621679265019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Secret]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;secretOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Secret]))
@@ -502,19 +502,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser LogDriver -&gt; Parser LogConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser LogDriver
+</span><a href="#local-6989586621679265019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser LogDriver
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logDriver&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-303"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
-</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265002"><span id="local-6989586621679265004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span></span></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265011"><span id="local-6989586621679265013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span></span></span><span>
 </span><span id="line-306"></span><span>
-</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span></span><span>
 </span><span id="line-308"></span><span>
-</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264991"><span id="local-6989586621679264993"><span id="local-6989586621679264995"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-310"></span><span>  </span><span id="local-6989586621679264989"><span class="annot"><span class="annottext">toJSON :: LogConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264985"><span id="local-6989586621679264986"><span id="local-6989586621679264987"><span class="annot"><span class="annottext">Maybe [Secret]
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265000"><span id="local-6989586621679265002"><span id="local-6989586621679265004"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration"><span class="hs-identifier hs-type">LogConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-310"></span><span>  </span><span id="local-6989586621679264998"><span class="annot"><span class="annottext">toJSON :: LogConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.LogConfiguration.html#LogConfiguration%27"><span class="hs-identifier hs-type">LogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264994"><span id="local-6989586621679264995"><span id="local-6989586621679264996"><span class="annot"><span class="annottext">Maybe [Secret]
 Maybe (HashMap Text Text)
 LogDriver
 logDriver :: LogDriver
@@ -523,7 +523,7 @@ options :: Maybe (HashMap Text Text)
 $sel:logDriver:LogConfiguration' :: LogConfiguration -&gt; LogDriver
 $sel:secretOptions:LogConfiguration' :: LogConfiguration -&gt; Maybe [Secret]
 $sel:options:LogConfiguration' :: LogConfiguration -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679264985"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679264994"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-311"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-312"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -536,21 +536,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679264987"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679264996"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-314"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;secretOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Secret] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Secret] -&gt; Pair) -&gt; Maybe [Secret] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Secret]
-</span><a href="#local-6989586621679264986"><span class="hs-identifier hs-var">secretOptions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679264995"><span class="hs-identifier hs-var">secretOptions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logDriver&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogDriver -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LogDriver
-</span><a href="#local-6989586621679264985"><span class="hs-identifier hs-var">logDriver</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264994"><span class="hs-identifier hs-var">logDriver</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-316"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-317"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-318"></span></pre></body></html>

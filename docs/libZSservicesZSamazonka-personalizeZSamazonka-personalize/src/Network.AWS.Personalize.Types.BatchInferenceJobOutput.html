@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.Types.BatchInferenceJobOutput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.Types.BatchInferenceJobOutput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.S3DataConfig.html"><span class="hs-identifier">Network.AWS.Personalize.Types.S3DataConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The output configuration parameters of a batch inference job.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchInferenceJobOutput' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679273226"><span id="local-6989586621679273227"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchInferenceJobOutput"><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-var">BatchInferenceJobOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchInferenceJobOutput%27"><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput%27"><span class="hs-identifier hs-var">BatchInferenceJobOutput'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information on the Amazon S3 bucket in which the batch inference job\'s</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- output is stored.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3As3DataDestination%3ABatchInferenceJobOutput%27"><span class="annot"><span class="annottext">BatchInferenceJobOutput -&gt; S3DataConfig
+</span><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#%24sel%3As3DataDestination%3ABatchInferenceJobOutput%27"><span class="hs-identifier hs-var hs-var">s3DataDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.S3DataConfig.html#S3DataConfig"><span class="hs-identifier hs-type">S3DataConfig</span></a></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273220"><span id="local-6989586621679273222"><span class="annot"><span class="annottext">BatchInferenceJobOutput -&gt; BatchInferenceJobOutput -&gt; Bool
+(BatchInferenceJobOutput -&gt; BatchInferenceJobOutput -&gt; Bool)
+-&gt; (BatchInferenceJobOutput -&gt; BatchInferenceJobOutput -&gt; Bool)
+-&gt; Eq BatchInferenceJobOutput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchInferenceJobOutput -&gt; BatchInferenceJobOutput -&gt; Bool
+$c/= :: BatchInferenceJobOutput -&gt; BatchInferenceJobOutput -&gt; Bool
+== :: BatchInferenceJobOutput -&gt; BatchInferenceJobOutput -&gt; Bool
+$c== :: BatchInferenceJobOutput -&gt; BatchInferenceJobOutput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273211"><span id="local-6989586621679273213"><span id="local-6989586621679273215"><span id="local-6989586621679273217"><span class="annot"><span class="annottext">ReadPrec [BatchInferenceJobOutput]
+ReadPrec BatchInferenceJobOutput
+Int -&gt; ReadS BatchInferenceJobOutput
+ReadS [BatchInferenceJobOutput]
+(Int -&gt; ReadS BatchInferenceJobOutput)
+-&gt; ReadS [BatchInferenceJobOutput]
+-&gt; ReadPrec BatchInferenceJobOutput
+-&gt; ReadPrec [BatchInferenceJobOutput]
+-&gt; Read BatchInferenceJobOutput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchInferenceJobOutput]
+$creadListPrec :: ReadPrec [BatchInferenceJobOutput]
+readPrec :: ReadPrec BatchInferenceJobOutput
+$creadPrec :: ReadPrec BatchInferenceJobOutput
+readList :: ReadS [BatchInferenceJobOutput]
+$creadList :: ReadS [BatchInferenceJobOutput]
+readsPrec :: Int -&gt; ReadS BatchInferenceJobOutput
+$creadsPrec :: Int -&gt; ReadS BatchInferenceJobOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273204"><span id="local-6989586621679273206"><span id="local-6989586621679273208"><span class="annot"><span class="annottext">Int -&gt; BatchInferenceJobOutput -&gt; ShowS
+[BatchInferenceJobOutput] -&gt; ShowS
+BatchInferenceJobOutput -&gt; String
+(Int -&gt; BatchInferenceJobOutput -&gt; ShowS)
+-&gt; (BatchInferenceJobOutput -&gt; String)
+-&gt; ([BatchInferenceJobOutput] -&gt; ShowS)
+-&gt; Show BatchInferenceJobOutput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchInferenceJobOutput] -&gt; ShowS
+$cshowList :: [BatchInferenceJobOutput] -&gt; ShowS
+show :: BatchInferenceJobOutput -&gt; String
+$cshow :: BatchInferenceJobOutput -&gt; String
+showsPrec :: Int -&gt; BatchInferenceJobOutput -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchInferenceJobOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchInferenceJobOutput -&gt; Rep BatchInferenceJobOutput x)
+-&gt; (forall x.
+    Rep BatchInferenceJobOutput x -&gt; BatchInferenceJobOutput)
+-&gt; Generic BatchInferenceJobOutput
+forall x. Rep BatchInferenceJobOutput x -&gt; BatchInferenceJobOutput
+forall x. BatchInferenceJobOutput -&gt; Rep BatchInferenceJobOutput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchInferenceJobOutput x -&gt; BatchInferenceJobOutput
+$cfrom :: forall x. BatchInferenceJobOutput -&gt; Rep BatchInferenceJobOutput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'BatchInferenceJobOutput' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 's3DataDestination', 'batchInferenceJobOutput_s3DataDestination' - Information on the Amazon S3 bucket in which the batch inference job\'s</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- output is stored.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#newBatchInferenceJobOutput"><span class="hs-identifier hs-type">newBatchInferenceJobOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-comment">-- | 's3DataDestination'</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.Types.S3DataConfig.html#S3DataConfig"><span class="hs-identifier hs-type">S3DataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-type">BatchInferenceJobOutput</span></a></span><span>
+</span><span id="line-51"></span><span id="newBatchInferenceJobOutput"><span class="annot"><span class="annottext">newBatchInferenceJobOutput :: S3DataConfig -&gt; BatchInferenceJobOutput
+</span><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#newBatchInferenceJobOutput"><span class="hs-identifier hs-var hs-var">newBatchInferenceJobOutput</span></a></span></span><span> </span><span id="local-6989586621679273198"><span class="annot"><span class="annottext">S3DataConfig
+</span><a href="#local-6989586621679273198"><span class="hs-identifier hs-var">pS3DataDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">BatchInferenceJobOutput' :: S3DataConfig -&gt; BatchInferenceJobOutput
+</span><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput%27"><span class="hs-identifier hs-type">BatchInferenceJobOutput'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3DataDestination:BatchInferenceJobOutput' :: S3DataConfig
+</span><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#%24sel%3As3DataDestination%3ABatchInferenceJobOutput%27"><span class="hs-identifier hs-var">s3DataDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">S3DataConfig
+</span><a href="#local-6989586621679273198"><span class="hs-identifier hs-var">pS3DataDestination_</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | Information on the Amazon S3 bucket in which the batch inference job\'s</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- output is stored.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#batchInferenceJobOutput_s3DataDestination"><span class="hs-identifier hs-type">batchInferenceJobOutput_s3DataDestination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-type">BatchInferenceJobOutput</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.S3DataConfig.html#S3DataConfig"><span class="hs-identifier hs-type">S3DataConfig</span></a></span><span>
+</span><span id="line-60"></span><span id="batchInferenceJobOutput_s3DataDestination"><span class="annot"><span class="annottext">batchInferenceJobOutput_s3DataDestination :: (S3DataConfig -&gt; f S3DataConfig)
+-&gt; BatchInferenceJobOutput -&gt; f BatchInferenceJobOutput
+</span><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#batchInferenceJobOutput_s3DataDestination"><span class="hs-identifier hs-var hs-var">batchInferenceJobOutput_s3DataDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchInferenceJobOutput -&gt; S3DataConfig)
+-&gt; (BatchInferenceJobOutput
+    -&gt; S3DataConfig -&gt; BatchInferenceJobOutput)
+-&gt; Lens
+     BatchInferenceJobOutput
+     BatchInferenceJobOutput
+     S3DataConfig
+     S3DataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput%27"><span class="hs-identifier hs-type">BatchInferenceJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273194"><span class="annot"><span class="annottext">S3DataConfig
+s3DataDestination :: S3DataConfig
+$sel:s3DataDestination:BatchInferenceJobOutput' :: BatchInferenceJobOutput -&gt; S3DataConfig
+</span><a href="#local-6989586621679273194"><span class="hs-identifier hs-var hs-var">s3DataDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataConfig
+</span><a href="#local-6989586621679273194"><span class="hs-identifier hs-var">s3DataDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273193"><span class="annot"><span class="annottext">s :: BatchInferenceJobOutput
+</span><a href="#local-6989586621679273193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput%27"><span class="hs-identifier hs-type">BatchInferenceJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273192"><span class="annot"><span class="annottext">S3DataConfig
+</span><a href="#local-6989586621679273192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchInferenceJobOutput
+</span><a href="#local-6989586621679273193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataDestination:BatchInferenceJobOutput' :: S3DataConfig
+</span><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#%24sel%3As3DataDestination%3ABatchInferenceJobOutput%27"><span class="hs-identifier hs-var">s3DataDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DataConfig
+</span><a href="#local-6989586621679273192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-type">BatchInferenceJobOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273189"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-type">BatchInferenceJobOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679273187"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchInferenceJobOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchInferenceJobOutput)
+-&gt; Value
+-&gt; Parser BatchInferenceJobOutput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchInferenceJobOutput&quot;</span></span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273184"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">S3DataConfig -&gt; BatchInferenceJobOutput
+</span><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput%27"><span class="hs-identifier hs-var">BatchInferenceJobOutput'</span></a></span><span>
+</span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">(S3DataConfig -&gt; BatchInferenceJobOutput)
+-&gt; Parser S3DataConfig -&gt; Parser BatchInferenceJobOutput
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3DataConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3DataDestination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273178"><span id="local-6989586621679273180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-type">BatchInferenceJobOutput</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-type">BatchInferenceJobOutput</span></a></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273167"><span id="local-6989586621679273169"><span id="local-6989586621679273171"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput"><span class="hs-identifier hs-type">BatchInferenceJobOutput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679273165"><span class="annot"><span class="annottext">toJSON :: BatchInferenceJobOutput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.BatchInferenceJobOutput.html#BatchInferenceJobOutput%27"><span class="hs-identifier hs-type">BatchInferenceJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273163"><span class="annot"><span class="annottext">S3DataConfig
+s3DataDestination :: S3DataConfig
+$sel:s3DataDestination:BatchInferenceJobOutput' :: BatchInferenceJobOutput -&gt; S3DataConfig
+</span><a href="#local-6989586621679273163"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-79"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-80"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3DataDestination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3DataConfig
+</span><a href="#local-6989586621679273163"><span class="hs-identifier hs-var">s3DataDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span></pre></body></html>

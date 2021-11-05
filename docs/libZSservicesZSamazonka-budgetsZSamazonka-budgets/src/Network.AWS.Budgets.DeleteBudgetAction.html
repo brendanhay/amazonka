@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteBudgetAction' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679213692"><span id="local-6989586621679213693"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBudgetAction"><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-var">DeleteBudgetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBudgetAction%27"><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-var">DeleteBudgetAction'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679213701"><span id="local-6989586621679213702"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBudgetAction"><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-var">DeleteBudgetAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBudgetAction%27"><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-var">DeleteBudgetAction'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AaccountId%3ADeleteBudgetAction%27"><span class="annot"><span class="annottext">DeleteBudgetAction -&gt; Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AaccountId%3ADeleteBudgetAction%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AbudgetName%3ADeleteBudgetAction%27"><span class="annot"><span class="annottext">DeleteBudgetAction -&gt; Text
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AactionId%3ADeleteBudgetAction%27"><span class="annot"><span class="annottext">DeleteBudgetAction -&gt; Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AactionId%3ADeleteBudgetAction%27"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213684"><span id="local-6989586621679213686"><span class="annot"><span class="annottext">DeleteBudgetAction -&gt; DeleteBudgetAction -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213693"><span id="local-6989586621679213695"><span class="annot"><span class="annottext">DeleteBudgetAction -&gt; DeleteBudgetAction -&gt; Bool
 (DeleteBudgetAction -&gt; DeleteBudgetAction -&gt; Bool)
 -&gt; (DeleteBudgetAction -&gt; DeleteBudgetAction -&gt; Bool)
 -&gt; Eq DeleteBudgetAction
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBudgetAction -&gt; DeleteBudgetAction -&gt; Bool
 == :: DeleteBudgetAction -&gt; DeleteBudgetAction -&gt; Bool
 $c== :: DeleteBudgetAction -&gt; DeleteBudgetAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213675"><span id="local-6989586621679213677"><span id="local-6989586621679213679"><span id="local-6989586621679213681"><span class="annot"><span class="annottext">ReadPrec [DeleteBudgetAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213684"><span id="local-6989586621679213686"><span id="local-6989586621679213688"><span id="local-6989586621679213690"><span class="annot"><span class="annottext">ReadPrec [DeleteBudgetAction]
 ReadPrec DeleteBudgetAction
 Int -&gt; ReadS DeleteBudgetAction
 ReadS [DeleteBudgetAction]
@@ -89,7 +89,7 @@ readList :: ReadS [DeleteBudgetAction]
 $creadList :: ReadS [DeleteBudgetAction]
 readsPrec :: Int -&gt; ReadS DeleteBudgetAction
 $creadsPrec :: Int -&gt; ReadS DeleteBudgetAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213668"><span id="local-6989586621679213670"><span id="local-6989586621679213672"><span class="annot"><span class="annottext">Int -&gt; DeleteBudgetAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213677"><span id="local-6989586621679213679"><span id="local-6989586621679213681"><span class="annot"><span class="annottext">Int -&gt; DeleteBudgetAction -&gt; ShowS
 [DeleteBudgetAction] -&gt; ShowS
 DeleteBudgetAction -&gt; String
 (Int -&gt; DeleteBudgetAction -&gt; ShowS)
@@ -138,23 +138,23 @@ $cfrom :: forall x. DeleteBudgetAction -&gt; Rep DeleteBudgetAction x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span>
 </span><span id="line-83"></span><span id="newDeleteBudgetAction"><span class="annot"><span class="annottext">newDeleteBudgetAction :: Text -&gt; Text -&gt; Text -&gt; DeleteBudgetAction
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#newDeleteBudgetAction"><span class="hs-identifier hs-var hs-var">newDeleteBudgetAction</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679213663"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213663"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679213662"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213662"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679213661"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213661"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679213672"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213672"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679213671"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213671"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679213670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213670"><span class="hs-identifier hs-var">pActionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">DeleteBudgetAction' :: Text -&gt; Text -&gt; Text -&gt; DeleteBudgetAction
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DeleteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AaccountId%3ADeleteBudgetAction%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213663"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213672"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:budgetName:DeleteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AbudgetName%3ADeleteBudgetAction%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213662"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213671"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:actionId:DeleteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AactionId%3ADeleteBudgetAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213661"><span class="hs-identifier hs-var">pActionId_</span></a></span><span>
+</span><a href="#local-6989586621679213670"><span class="hs-identifier hs-var">pActionId_</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -164,16 +164,16 @@ $cfrom :: forall x. DeleteBudgetAction -&gt; Rep DeleteBudgetAction x
 -&gt; (DeleteBudgetAction -&gt; Text -&gt; DeleteBudgetAction)
 -&gt; Lens DeleteBudgetAction DeleteBudgetAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213658"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213667"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:DeleteBudgetAction' :: DeleteBudgetAction -&gt; Text
-</span><a href="#local-6989586621679213658"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213658"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213657"><span class="annot"><span class="annottext">s :: DeleteBudgetAction
-</span><a href="#local-6989586621679213657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213656"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetAction
-</span><a href="#local-6989586621679213657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteBudgetAction' :: Text
+</span><a href="#local-6989586621679213667"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213667"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213666"><span class="annot"><span class="annottext">s :: DeleteBudgetAction
+</span><a href="#local-6989586621679213666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetAction
+</span><a href="#local-6989586621679213666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AaccountId%3ADeleteBudgetAction%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#deleteBudgetAction_budgetName"><span class="hs-identifier hs-type">deleteBudgetAction_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -182,16 +182,16 @@ $sel:accountId:DeleteBudgetAction' :: DeleteBudgetAction -&gt; Text
 -&gt; (DeleteBudgetAction -&gt; Text -&gt; DeleteBudgetAction)
 -&gt; Lens DeleteBudgetAction DeleteBudgetAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213655"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213664"><span class="annot"><span class="annottext">Text
 budgetName :: Text
 $sel:budgetName:DeleteBudgetAction' :: DeleteBudgetAction -&gt; Text
-</span><a href="#local-6989586621679213655"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213655"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213654"><span class="annot"><span class="annottext">s :: DeleteBudgetAction
-</span><a href="#local-6989586621679213654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213653"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetAction
-</span><a href="#local-6989586621679213654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:DeleteBudgetAction' :: Text
+</span><a href="#local-6989586621679213664"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213664"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213663"><span class="annot"><span class="annottext">s :: DeleteBudgetAction
+</span><a href="#local-6989586621679213663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetAction
+</span><a href="#local-6989586621679213663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:DeleteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AbudgetName%3ADeleteBudgetAction%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | A system-generated universally unique identifier (UUID) for the action.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#deleteBudgetAction_actionId"><span class="hs-identifier hs-type">deleteBudgetAction_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -200,27 +200,27 @@ $sel:budgetName:DeleteBudgetAction' :: DeleteBudgetAction -&gt; Text
 -&gt; (DeleteBudgetAction -&gt; Text -&gt; DeleteBudgetAction)
 -&gt; Lens DeleteBudgetAction DeleteBudgetAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213652"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213661"><span class="annot"><span class="annottext">Text
 actionId :: Text
 $sel:actionId:DeleteBudgetAction' :: DeleteBudgetAction -&gt; Text
-</span><a href="#local-6989586621679213652"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213652"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213651"><span class="annot"><span class="annottext">s :: DeleteBudgetAction
-</span><a href="#local-6989586621679213651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213650"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetAction
-</span><a href="#local-6989586621679213651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:DeleteBudgetAction' :: Text
+</span><a href="#local-6989586621679213661"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213661"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213660"><span class="annot"><span class="annottext">s :: DeleteBudgetAction
+</span><a href="#local-6989586621679213660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetAction
+</span><a href="#local-6989586621679213660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:DeleteBudgetAction' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AactionId%3ADeleteBudgetAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679213646"><span class="annot"><span class="annottext">request :: DeleteBudgetAction -&gt; Request DeleteBudgetAction
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679213655"><span class="annot"><span class="annottext">request :: DeleteBudgetAction -&gt; Request DeleteBudgetAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBudgetAction -&gt; Request DeleteBudgetAction
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Budgets.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679213642"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679213651"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBudgetAction
 -&gt; ClientResponse ClientBody
@@ -246,10 +246,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213639"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213639"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679213638"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679213638"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679213637"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213637"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213648"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213648"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679213647"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679213647"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679213646"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213646"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; Action -&gt; DeleteBudgetActionResponse
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">DeleteBudgetActionResponse'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; Action -&gt; DeleteBudgetActionResponse)
@@ -262,14 +262,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213639"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213648"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Text -&gt; Text -&gt; Action -&gt; DeleteBudgetActionResponse)
 -&gt; Either String Text
 -&gt; Either String (Text -&gt; Action -&gt; DeleteBudgetActionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679213646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
@@ -278,7 +278,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String (Action -&gt; DeleteBudgetActionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679213646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BudgetName&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,18 +286,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Action -&gt; Either String DeleteBudgetActionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679213637"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Action
+</span><a href="#local-6989586621679213646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Action
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Action&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213629"><span id="local-6989586621679213631"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213638"><span id="local-6989586621679213640"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679213622"><span class="annot"><span class="annottext">toHeaders :: DeleteBudgetAction -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679213631"><span class="annot"><span class="annottext">toHeaders :: DeleteBudgetAction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBudgetAction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -324,16 +324,16 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213612"><span id="local-6989586621679213614"><span id="local-6989586621679213616"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679213610"><span class="annot"><span class="annottext">toJSON :: DeleteBudgetAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213606"><span id="local-6989586621679213607"><span id="local-6989586621679213608"><span class="annot"><span class="annottext">Text
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213621"><span id="local-6989586621679213623"><span id="local-6989586621679213625"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679213619"><span class="annot"><span class="annottext">toJSON :: DeleteBudgetAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction%27"><span class="hs-identifier hs-type">DeleteBudgetAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213615"><span id="local-6989586621679213616"><span id="local-6989586621679213617"><span class="annot"><span class="annottext">Text
 actionId :: Text
 budgetName :: Text
 accountId :: Text
 $sel:actionId:DeleteBudgetAction' :: DeleteBudgetAction -&gt; Text
 $sel:budgetName:DeleteBudgetAction' :: DeleteBudgetAction -&gt; Text
 $sel:accountId:DeleteBudgetAction' :: DeleteBudgetAction -&gt; Text
-</span><a href="#local-6989586621679213606"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679213615"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -345,33 +345,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213608"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213617"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BudgetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213607"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213616"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213606"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213615"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679213600"><span class="annot"><span class="annottext">toPath :: DeleteBudgetAction -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679213609"><span class="annot"><span class="annottext">toPath :: DeleteBudgetAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteBudgetAction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetAction"><span class="hs-identifier hs-type">DeleteBudgetAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679213596"><span class="annot"><span class="annottext">toQuery :: DeleteBudgetAction -&gt; QueryString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679213605"><span class="annot"><span class="annottext">toQuery :: DeleteBudgetAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBudgetAction -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -379,7 +379,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newDeleteBudgetActionResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679213593"><span id="local-6989586621679213594"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBudgetActionResponse"><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-var">DeleteBudgetActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBudgetActionResponse%27"><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">DeleteBudgetActionResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679213602"><span id="local-6989586621679213603"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBudgetActionResponse"><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-var">DeleteBudgetActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBudgetActionResponse%27"><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">DeleteBudgetActionResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBudgetActionResponse%27"><span class="annot"><span class="annottext">DeleteBudgetActionResponse -&gt; Int
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AhttpStatus%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -390,7 +390,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3Aaction%3ADeleteBudgetActionResponse%27"><span class="annot"><span class="annottext">DeleteBudgetActionResponse -&gt; Action
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3Aaction%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213585"><span id="local-6989586621679213587"><span class="annot"><span class="annottext">DeleteBudgetActionResponse -&gt; DeleteBudgetActionResponse -&gt; Bool
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213594"><span id="local-6989586621679213596"><span class="annot"><span class="annottext">DeleteBudgetActionResponse -&gt; DeleteBudgetActionResponse -&gt; Bool
 (DeleteBudgetActionResponse -&gt; DeleteBudgetActionResponse -&gt; Bool)
 -&gt; (DeleteBudgetActionResponse
     -&gt; DeleteBudgetActionResponse -&gt; Bool)
@@ -400,7 +400,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBudgetActionResponse -&gt; DeleteBudgetActionResponse -&gt; Bool
 == :: DeleteBudgetActionResponse -&gt; DeleteBudgetActionResponse -&gt; Bool
 $c== :: DeleteBudgetActionResponse -&gt; DeleteBudgetActionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213579"><span id="local-6989586621679213581"><span id="local-6989586621679213583"><span class="annot"><span class="annottext">Int -&gt; DeleteBudgetActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213588"><span id="local-6989586621679213590"><span id="local-6989586621679213592"><span class="annot"><span class="annottext">Int -&gt; DeleteBudgetActionResponse -&gt; ShowS
 [DeleteBudgetActionResponse] -&gt; ShowS
 DeleteBudgetActionResponse -&gt; String
 (Int -&gt; DeleteBudgetActionResponse -&gt; ShowS)
@@ -459,29 +459,29 @@ DeleteBudgetActionResponse -&gt; Rep DeleteBudgetActionResponse x
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newDeleteBudgetActionResponse"><span class="annot"><span class="annottext">newDeleteBudgetActionResponse :: Int -&gt; Text -&gt; Text -&gt; Action -&gt; DeleteBudgetActionResponse
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#newDeleteBudgetActionResponse"><span class="hs-identifier hs-var hs-var">newDeleteBudgetActionResponse</span></a></span></span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679213576"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213576"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679213575"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213575"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679213574"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213574"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679213573"><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679213573"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679213585"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213585"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679213584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213584"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679213583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213583"><span class="hs-identifier hs-var">pBudgetName_</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679213582"><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679213582"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">DeleteBudgetActionResponse' :: Int -&gt; Text -&gt; Text -&gt; Action -&gt; DeleteBudgetActionResponse
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBudgetActionResponse' :: Int
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AhttpStatus%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213576"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213585"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountId:DeleteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AaccountId%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213575"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213584"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:budgetName:DeleteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AbudgetName%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213574"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213583"><span class="hs-identifier hs-var">pBudgetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:action:DeleteBudgetActionResponse' :: Action
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3Aaction%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679213573"><span class="hs-identifier hs-var">pAction_</span></a></span><span>
+</span><a href="#local-6989586621679213582"><span class="hs-identifier hs-var">pAction_</span></a></span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -494,16 +494,16 @@ DeleteBudgetActionResponse -&gt; Rep DeleteBudgetActionResponse x
 -&gt; Lens
      DeleteBudgetActionResponse DeleteBudgetActionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213572"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213581"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteBudgetActionResponse' :: DeleteBudgetActionResponse -&gt; Int
-</span><a href="#local-6989586621679213572"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213572"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213571"><span class="annot"><span class="annottext">s :: DeleteBudgetActionResponse
-</span><a href="#local-6989586621679213571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213570"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetActionResponse
-</span><a href="#local-6989586621679213571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBudgetActionResponse' :: Int
+</span><a href="#local-6989586621679213581"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213581"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213580"><span class="annot"><span class="annottext">s :: DeleteBudgetActionResponse
+</span><a href="#local-6989586621679213580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679213579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetActionResponse
+</span><a href="#local-6989586621679213580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBudgetActionResponse' :: Int
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AhttpStatus%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679213570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#deleteBudgetActionResponse_accountId"><span class="hs-identifier hs-type">deleteBudgetActionResponse_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -515,16 +515,16 @@ $sel:httpStatus:DeleteBudgetActionResponse' :: DeleteBudgetActionResponse -&gt; 
 -&gt; Lens
      DeleteBudgetActionResponse DeleteBudgetActionResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213569"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213578"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:DeleteBudgetActionResponse' :: DeleteBudgetActionResponse -&gt; Text
-</span><a href="#local-6989586621679213569"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213569"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213568"><span class="annot"><span class="annottext">s :: DeleteBudgetActionResponse
-</span><a href="#local-6989586621679213568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213567"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetActionResponse
-</span><a href="#local-6989586621679213568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteBudgetActionResponse' :: Text
+</span><a href="#local-6989586621679213578"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213578"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213577"><span class="annot"><span class="annottext">s :: DeleteBudgetActionResponse
+</span><a href="#local-6989586621679213577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213576"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetActionResponse
+</span><a href="#local-6989586621679213577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AaccountId%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#deleteBudgetActionResponse_budgetName"><span class="hs-identifier hs-type">deleteBudgetActionResponse_budgetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -536,16 +536,16 @@ $sel:accountId:DeleteBudgetActionResponse' :: DeleteBudgetActionResponse -&gt; T
 -&gt; Lens
      DeleteBudgetActionResponse DeleteBudgetActionResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213566"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213575"><span class="annot"><span class="annottext">Text
 budgetName :: Text
 $sel:budgetName:DeleteBudgetActionResponse' :: DeleteBudgetActionResponse -&gt; Text
-</span><a href="#local-6989586621679213566"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213566"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213565"><span class="annot"><span class="annottext">s :: DeleteBudgetActionResponse
-</span><a href="#local-6989586621679213565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213564"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetActionResponse
-</span><a href="#local-6989586621679213565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:DeleteBudgetActionResponse' :: Text
+</span><a href="#local-6989586621679213575"><span class="hs-identifier hs-var hs-var">budgetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213575"><span class="hs-identifier hs-var">budgetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213574"><span class="annot"><span class="annottext">s :: DeleteBudgetActionResponse
+</span><a href="#local-6989586621679213574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213573"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679213573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetActionResponse
+</span><a href="#local-6989586621679213574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:budgetName:DeleteBudgetActionResponse' :: Text
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3AbudgetName%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">budgetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679213564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#deleteBudgetActionResponse_action"><span class="hs-identifier hs-type">deleteBudgetActionResponse_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span>
@@ -557,16 +557,16 @@ $sel:budgetName:DeleteBudgetActionResponse' :: DeleteBudgetActionResponse -&gt; 
 -&gt; Lens
      DeleteBudgetActionResponse DeleteBudgetActionResponse Action Action
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213563"><span class="annot"><span class="annottext">Action
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213572"><span class="annot"><span class="annottext">Action
 action :: Action
 $sel:action:DeleteBudgetActionResponse' :: DeleteBudgetActionResponse -&gt; Action
-</span><a href="#local-6989586621679213563"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679213563"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213562"><span class="annot"><span class="annottext">s :: DeleteBudgetActionResponse
-</span><a href="#local-6989586621679213562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213561"><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679213561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetActionResponse
-</span><a href="#local-6989586621679213562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:DeleteBudgetActionResponse' :: Action
+</span><a href="#local-6989586621679213572"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679213572"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213571"><span class="annot"><span class="annottext">s :: DeleteBudgetActionResponse
+</span><a href="#local-6989586621679213571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse%27"><span class="hs-identifier hs-type">DeleteBudgetActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213570"><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679213570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBudgetActionResponse
+</span><a href="#local-6989586621679213571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:DeleteBudgetActionResponse' :: Action
 </span><a href="Network.AWS.Budgets.DeleteBudgetAction.html#%24sel%3Aaction%3ADeleteBudgetActionResponse%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679213561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.DeleteBudgetAction.html#DeleteBudgetActionResponse"><span class="hs-identifier hs-type">DeleteBudgetActionResponse</span></a></span></span><span>
 </span><span id="line-220"></span></pre></body></html>

@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteKeyGroup' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679418649"><span id="local-6989586621679418650"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyGroup"><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-var">DeleteKeyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyGroup%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-var">DeleteKeyGroup'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679418658"><span id="local-6989586621679418659"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyGroup"><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-var">DeleteKeyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyGroup%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-var">DeleteKeyGroup'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the key group that you are deleting. The version is the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- key group&#8217;s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- @GetKeyGroupConfig@.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Aid%3ADeleteKeyGroup%27"><span class="annot"><span class="annottext">DeleteKeyGroup -&gt; Text
 </span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#%24sel%3Aid%3ADeleteKeyGroup%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418642"><span id="local-6989586621679418644"><span class="annot"><span class="annottext">DeleteKeyGroup -&gt; DeleteKeyGroup -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418651"><span id="local-6989586621679418653"><span class="annot"><span class="annottext">DeleteKeyGroup -&gt; DeleteKeyGroup -&gt; Bool
 (DeleteKeyGroup -&gt; DeleteKeyGroup -&gt; Bool)
 -&gt; (DeleteKeyGroup -&gt; DeleteKeyGroup -&gt; Bool) -&gt; Eq DeleteKeyGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteKeyGroup -&gt; DeleteKeyGroup -&gt; Bool
 == :: DeleteKeyGroup -&gt; DeleteKeyGroup -&gt; Bool
 $c== :: DeleteKeyGroup -&gt; DeleteKeyGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418633"><span id="local-6989586621679418635"><span id="local-6989586621679418637"><span id="local-6989586621679418639"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418642"><span id="local-6989586621679418644"><span id="local-6989586621679418646"><span id="local-6989586621679418648"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyGroup]
 ReadPrec DeleteKeyGroup
 Int -&gt; ReadS DeleteKeyGroup
 ReadS [DeleteKeyGroup]
@@ -91,7 +91,7 @@ readList :: ReadS [DeleteKeyGroup]
 $creadList :: ReadS [DeleteKeyGroup]
 readsPrec :: Int -&gt; ReadS DeleteKeyGroup
 $creadsPrec :: Int -&gt; ReadS DeleteKeyGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418626"><span id="local-6989586621679418628"><span id="local-6989586621679418630"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418635"><span id="local-6989586621679418637"><span id="local-6989586621679418639"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyGroup -&gt; ShowS
 [DeleteKeyGroup] -&gt; ShowS
 DeleteKeyGroup -&gt; String
 (Int -&gt; DeleteKeyGroup -&gt; ShowS)
@@ -136,8 +136,8 @@ $cfrom :: forall x. DeleteKeyGroup -&gt; Rep DeleteKeyGroup x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span>
 </span><span id="line-84"></span><span id="newDeleteKeyGroup"><span class="annot"><span class="annottext">newDeleteKeyGroup :: Text -&gt; DeleteKeyGroup
-</span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#newDeleteKeyGroup"><span class="hs-identifier hs-var hs-var">newDeleteKeyGroup</span></a></span></span><span> </span><span id="local-6989586621679418621"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418621"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#newDeleteKeyGroup"><span class="hs-identifier hs-var hs-var">newDeleteKeyGroup</span></a></span></span><span> </span><span id="local-6989586621679418630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418630"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DeleteKeyGroup' :: Maybe Text -&gt; Text -&gt; DeleteKeyGroup
 </span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ifMatch:DeleteKeyGroup' :: Maybe Text
@@ -146,7 +146,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DeleteKeyGroup' :: Text
 </span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#%24sel%3Aid%3ADeleteKeyGroup%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418621"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><a href="#local-6989586621679418630"><span class="hs-identifier hs-var">pId_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The version of the key group that you are deleting. The version is the</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (DeleteKeyGroup -&gt; Maybe Text -&gt; DeleteKeyGroup)
 -&gt; Lens DeleteKeyGroup DeleteKeyGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418618"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418627"><span class="annot"><span class="annottext">Maybe Text
 ifMatch :: Maybe Text
 $sel:ifMatch:DeleteKeyGroup' :: DeleteKeyGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679418618"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679418618"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418617"><span class="annot"><span class="annottext">s :: DeleteKeyGroup
-</span><a href="#local-6989586621679418617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418616"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679418616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyGroup
-</span><a href="#local-6989586621679418617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:DeleteKeyGroup' :: Maybe Text
+</span><a href="#local-6989586621679418627"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418627"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418626"><span class="annot"><span class="annottext">s :: DeleteKeyGroup
+</span><a href="#local-6989586621679418626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418625"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyGroup
+</span><a href="#local-6989586621679418626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:DeleteKeyGroup' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#%24sel%3AifMatch%3ADeleteKeyGroup%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679418616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The identifier of the key group that you are deleting. To get the</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- identifier, use @ListKeyGroups@.</span><span>
@@ -178,27 +178,27 @@ $sel:ifMatch:DeleteKeyGroup' :: DeleteKeyGroup -&gt; Maybe Text
 -&gt; (DeleteKeyGroup -&gt; Text -&gt; DeleteKeyGroup)
 -&gt; Lens DeleteKeyGroup DeleteKeyGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418615"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418624"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteKeyGroup' :: DeleteKeyGroup -&gt; Text
-</span><a href="#local-6989586621679418615"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418615"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418614"><span class="annot"><span class="annottext">s :: DeleteKeyGroup
-</span><a href="#local-6989586621679418614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418613"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyGroup
-</span><a href="#local-6989586621679418614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteKeyGroup' :: Text
+</span><a href="#local-6989586621679418624"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418624"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418623"><span class="annot"><span class="annottext">s :: DeleteKeyGroup
+</span><a href="#local-6989586621679418623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418622"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyGroup
+</span><a href="#local-6989586621679418623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteKeyGroup' :: Text
 </span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#%24sel%3Aid%3ADeleteKeyGroup%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroupResponse"><span class="hs-identifier hs-type">DeleteKeyGroupResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679418609"><span class="annot"><span class="annottext">request :: DeleteKeyGroup -&gt; Request DeleteKeyGroup
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679418618"><span class="annot"><span class="annottext">request :: DeleteKeyGroup -&gt; Request DeleteKeyGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteKeyGroup -&gt; Request DeleteKeyGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679418605"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679418614"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteKeyGroup
 -&gt; ClientResponse ClientBody
@@ -222,36 +222,36 @@ AWSResponse a
 DeleteKeyGroupResponse
 </span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroupResponse%27"><span class="hs-identifier hs-var">DeleteKeyGroupResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418598"><span id="local-6989586621679418600"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418607"><span id="local-6989586621679418609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679418591"><span class="annot"><span class="annottext">toHeaders :: DeleteKeyGroup -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418588"><span id="local-6989586621679418589"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679418600"><span class="annot"><span class="annottext">toHeaders :: DeleteKeyGroup -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418597"><span id="local-6989586621679418598"><span class="annot"><span class="annottext">Maybe Text
 Text
 id :: Text
 ifMatch :: Maybe Text
 $sel:id:DeleteKeyGroup' :: DeleteKeyGroup -&gt; Text
 $sel:ifMatch:DeleteKeyGroup' :: DeleteKeyGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679418588"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679418597"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;If-Match&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679418589"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679418598"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679418584"><span class="annot"><span class="annottext">toPath :: DeleteKeyGroup -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418581"><span id="local-6989586621679418582"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679418593"><span class="annot"><span class="annottext">toPath :: DeleteKeyGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup%27"><span class="hs-identifier hs-type">DeleteKeyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418590"><span id="local-6989586621679418591"><span class="annot"><span class="annottext">Maybe Text
 Text
 id :: Text
 ifMatch :: Maybe Text
 $sel:id:DeleteKeyGroup' :: DeleteKeyGroup -&gt; Text
 $sel:ifMatch:DeleteKeyGroup' :: DeleteKeyGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679418581"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679418590"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -259,10 +259,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2020-05-31/key-group/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418581"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679418590"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroup"><span class="hs-identifier hs-type">DeleteKeyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679418577"><span class="annot"><span class="annottext">toQuery :: DeleteKeyGroup -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679418586"><span class="annot"><span class="annottext">toQuery :: DeleteKeyGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteKeyGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -270,10 +270,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newDeleteKeyGroupResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679418573"><span id="local-6989586621679418574"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyGroupResponse"><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroupResponse"><span class="hs-identifier hs-var">DeleteKeyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroupResponse%27"><span class="hs-identifier hs-var">DeleteKeyGroupResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679418582"><span id="local-6989586621679418583"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyGroupResponse"><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroupResponse"><span class="hs-identifier hs-var">DeleteKeyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroupResponse%27"><span class="hs-identifier hs-var">DeleteKeyGroupResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418569"><span id="local-6989586621679418571"><span class="annot"><span class="annottext">DeleteKeyGroupResponse -&gt; DeleteKeyGroupResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418578"><span id="local-6989586621679418580"><span class="annot"><span class="annottext">DeleteKeyGroupResponse -&gt; DeleteKeyGroupResponse -&gt; Bool
 (DeleteKeyGroupResponse -&gt; DeleteKeyGroupResponse -&gt; Bool)
 -&gt; (DeleteKeyGroupResponse -&gt; DeleteKeyGroupResponse -&gt; Bool)
 -&gt; Eq DeleteKeyGroupResponse
@@ -282,7 +282,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteKeyGroupResponse -&gt; DeleteKeyGroupResponse -&gt; Bool
 == :: DeleteKeyGroupResponse -&gt; DeleteKeyGroupResponse -&gt; Bool
 $c== :: DeleteKeyGroupResponse -&gt; DeleteKeyGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418561"><span id="local-6989586621679418563"><span id="local-6989586621679418565"><span id="local-6989586621679418567"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418570"><span id="local-6989586621679418572"><span id="local-6989586621679418574"><span id="local-6989586621679418576"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyGroupResponse]
 ReadPrec DeleteKeyGroupResponse
 Int -&gt; ReadS DeleteKeyGroupResponse
 ReadS [DeleteKeyGroupResponse]
@@ -302,7 +302,7 @@ readList :: ReadS [DeleteKeyGroupResponse]
 $creadList :: ReadS [DeleteKeyGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteKeyGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteKeyGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418555"><span id="local-6989586621679418557"><span id="local-6989586621679418559"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418564"><span id="local-6989586621679418566"><span id="local-6989586621679418568"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyGroupResponse -&gt; ShowS
 [DeleteKeyGroupResponse] -&gt; ShowS
 DeleteKeyGroupResponse -&gt; String
 (Int -&gt; DeleteKeyGroupResponse -&gt; ShowS)
@@ -339,5 +339,5 @@ $cfrom :: forall x. DeleteKeyGroupResponse -&gt; Rep DeleteKeyGroupResponse x
 </span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#newDeleteKeyGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteKeyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteKeyGroupResponse
 </span><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroupResponse%27"><span class="hs-identifier hs-var">DeleteKeyGroupResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroupResponse"><span class="hs-identifier hs-type">DeleteKeyGroupResponse</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteKeyGroup.html#DeleteKeyGroupResponse"><span class="hs-identifier hs-type">DeleteKeyGroupResponse</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

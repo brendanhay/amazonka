@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | An Firewall Manager policy.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPolicy' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679249229"><span id="local-6989586621679249230"></span></span><span class="hs-keyword">data</span><span> </span><span id="Policy"><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-var">Policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Policy%27"><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-var">Policy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679249238"><span id="local-6989586621679249239"></span></span><span class="hs-keyword">data</span><span> </span><span id="Policy"><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-var">Policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Policy%27"><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-var">Policy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Firewall Manager policy.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3ApolicyId%3APolicy%27"><span class="annot"><span class="annottext">Policy -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3ApolicyId%3APolicy%27"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -144,7 +144,7 @@
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AremediationEnabled%3APolicy%27"><span class="annot"><span class="annottext">Policy -&gt; Bool
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AremediationEnabled%3APolicy%27"><span class="hs-identifier hs-var hs-var">remediationEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249212"><span id="local-6989586621679249214"><span class="annot"><span class="annottext">Policy -&gt; Policy -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249221"><span id="local-6989586621679249223"><span class="annot"><span class="annottext">Policy -&gt; Policy -&gt; Bool
 (Policy -&gt; Policy -&gt; Bool)
 -&gt; (Policy -&gt; Policy -&gt; Bool) -&gt; Eq Policy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -152,7 +152,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Policy -&gt; Policy -&gt; Bool
 == :: Policy -&gt; Policy -&gt; Bool
 $c== :: Policy -&gt; Policy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249203"><span id="local-6989586621679249205"><span id="local-6989586621679249207"><span id="local-6989586621679249209"><span class="annot"><span class="annottext">ReadPrec [Policy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249212"><span id="local-6989586621679249214"><span id="local-6989586621679249216"><span id="local-6989586621679249218"><span class="annot"><span class="annottext">ReadPrec [Policy]
 ReadPrec Policy
 Int -&gt; ReadS Policy
 ReadS [Policy]
@@ -172,7 +172,7 @@ readList :: ReadS [Policy]
 $creadList :: ReadS [Policy]
 readsPrec :: Int -&gt; ReadS Policy
 $creadsPrec :: Int -&gt; ReadS Policy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249196"><span id="local-6989586621679249198"><span id="local-6989586621679249200"><span class="annot"><span class="annottext">Int -&gt; Policy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249205"><span id="local-6989586621679249207"><span id="local-6989586621679249209"><span class="annot"><span class="annottext">Int -&gt; Policy -&gt; ShowS
 [Policy] -&gt; ShowS
 Policy -&gt; String
 (Int -&gt; Policy -&gt; ShowS)
@@ -317,16 +317,16 @@ $cfrom :: forall x. Policy -&gt; Rep Policy x
 </span><span id="line-256"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span>
 </span><span id="line-257"></span><span id="newPolicy"><span class="annot"><span class="annottext">newPolicy :: Text -&gt; SecurityServicePolicyData -&gt; Text -&gt; Bool -&gt; Bool -&gt; Policy
 </span><a href="Network.AWS.FMS.Types.Policy.html#newPolicy"><span class="hs-identifier hs-var hs-var">newPolicy</span></a></span></span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679249190"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249190"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621679249189"><span class="annot"><span class="annottext">SecurityServicePolicyData
-</span><a href="#local-6989586621679249189"><span class="hs-identifier hs-var">pSecurityServicePolicyData_</span></a></span></span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679249188"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249188"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679249187"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249187"><span class="hs-identifier hs-var">pExcludeResourceTags_</span></a></span></span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679249186"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249186"><span class="hs-identifier hs-var">pRemediationEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679249199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249199"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679249198"><span class="annot"><span class="annottext">SecurityServicePolicyData
+</span><a href="#local-6989586621679249198"><span class="hs-identifier hs-var">pSecurityServicePolicyData_</span></a></span></span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679249197"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249197"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679249196"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679249196"><span class="hs-identifier hs-var">pExcludeResourceTags_</span></a></span></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679249195"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679249195"><span class="hs-identifier hs-var">pRemediationEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-263"></span><span>    </span><span class="annot"><span class="annottext">Policy' :: Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe [ResourceTag]
@@ -371,20 +371,20 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyName:Policy' :: Text
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3ApolicyName%3APolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249190"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249199"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">$sel:securityServicePolicyData:Policy' :: SecurityServicePolicyData
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AsecurityServicePolicyData%3APolicy%27"><span class="hs-identifier hs-var">securityServicePolicyData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">SecurityServicePolicyData
-</span><a href="#local-6989586621679249189"><span class="hs-identifier hs-var">pSecurityServicePolicyData_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249198"><span class="hs-identifier hs-var">pSecurityServicePolicyData_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:Policy' :: Text
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AresourceType%3APolicy%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249188"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249197"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">$sel:excludeResourceTags:Policy' :: Bool
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AexcludeResourceTags%3APolicy%27"><span class="hs-identifier hs-var">excludeResourceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249187"><span class="hs-identifier hs-var">pExcludeResourceTags_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249196"><span class="hs-identifier hs-var">pExcludeResourceTags_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">$sel:remediationEnabled:Policy' :: Bool
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AremediationEnabled%3APolicy%27"><span class="hs-identifier hs-var">remediationEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249186"><span class="hs-identifier hs-var">pRemediationEnabled_</span></a></span><span>
+</span><a href="#local-6989586621679249195"><span class="hs-identifier hs-var">pRemediationEnabled_</span></a></span><span>
 </span><span id="line-277"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- | The ID of the Firewall Manager policy.</span><span>
@@ -394,16 +394,16 @@ forall a. Maybe a
 -&gt; (Policy -&gt; Maybe Text -&gt; Policy)
 -&gt; Lens Policy Policy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249182"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249191"><span class="annot"><span class="annottext">Maybe Text
 policyId :: Maybe Text
 $sel:policyId:Policy' :: Policy -&gt; Maybe Text
-</span><a href="#local-6989586621679249182"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249182"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249181"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249180"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:Policy' :: Maybe Text
+</span><a href="#local-6989586621679249191"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249191"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249190"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249189"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:Policy' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3ApolicyId%3APolicy%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | An array of @ResourceType@ objects. Use this only to specify multiple</span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- resource types. To specify a single resource type, use @ResourceType@.</span><span>
@@ -413,16 +413,16 @@ $sel:policyId:Policy' :: Policy -&gt; Maybe Text
 -&gt; (Policy -&gt; Maybe [Text] -&gt; Policy)
 -&gt; Lens Policy Policy (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249178"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249187"><span class="annot"><span class="annottext">Maybe [Text]
 resourceTypeList :: Maybe [Text]
 $sel:resourceTypeList:Policy' :: Policy -&gt; Maybe [Text]
-</span><a href="#local-6989586621679249178"><span class="hs-identifier hs-var hs-var">resourceTypeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249178"><span class="hs-identifier hs-var">resourceTypeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249177"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249176"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypeList:Policy' :: Maybe [Text]
+</span><a href="#local-6989586621679249187"><span class="hs-identifier hs-var hs-var">resourceTypeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249187"><span class="hs-identifier hs-var">resourceTypeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249186"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249185"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679249185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypeList:Policy' :: Maybe [Text]
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AresourceTypeList%3APolicy%27"><span class="hs-identifier hs-var">resourceTypeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Policy -&gt; f Policy)
+</span><a href="#local-6989586621679249185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Policy -&gt; f Policy)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -446,16 +446,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Policy -&gt; Maybe [ResourceTag] -&gt; Policy)
 -&gt; Lens Policy Policy (Maybe [ResourceTag]) (Maybe [ResourceTag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249171"><span class="annot"><span class="annottext">Maybe [ResourceTag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249180"><span class="annot"><span class="annottext">Maybe [ResourceTag]
 resourceTags :: Maybe [ResourceTag]
 $sel:resourceTags:Policy' :: Policy -&gt; Maybe [ResourceTag]
-</span><a href="#local-6989586621679249171"><span class="hs-identifier hs-var hs-var">resourceTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceTag]
-</span><a href="#local-6989586621679249171"><span class="hs-identifier hs-var">resourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249170"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249169"><span class="annot"><span class="annottext">Maybe [ResourceTag]
-</span><a href="#local-6989586621679249169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTags:Policy' :: Maybe [ResourceTag]
+</span><a href="#local-6989586621679249180"><span class="hs-identifier hs-var hs-var">resourceTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceTag]
+</span><a href="#local-6989586621679249180"><span class="hs-identifier hs-var">resourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249179"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249178"><span class="annot"><span class="annottext">Maybe [ResourceTag]
+</span><a href="#local-6989586621679249178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTags:Policy' :: Maybe [ResourceTag]
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AresourceTags%3APolicy%27"><span class="hs-identifier hs-var">resourceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceTag]
-</span><a href="#local-6989586621679249169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceTag] -&gt; f (Maybe [ResourceTag]))
+</span><a href="#local-6989586621679249178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceTag] -&gt; f (Maybe [ResourceTag]))
  -&gt; Policy -&gt; f Policy)
 -&gt; ((Maybe [ResourceTag] -&gt; f (Maybe [ResourceTag]))
     -&gt; Maybe [ResourceTag] -&gt; f (Maybe [ResourceTag]))
@@ -487,16 +487,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Policy -&gt; Maybe Text -&gt; Policy)
 -&gt; Lens Policy Policy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249167"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249176"><span class="annot"><span class="annottext">Maybe Text
 policyUpdateToken :: Maybe Text
 $sel:policyUpdateToken:Policy' :: Policy -&gt; Maybe Text
-</span><a href="#local-6989586621679249167"><span class="hs-identifier hs-var hs-var">policyUpdateToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249167"><span class="hs-identifier hs-var">policyUpdateToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249166"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249165"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyUpdateToken:Policy' :: Maybe Text
+</span><a href="#local-6989586621679249176"><span class="hs-identifier hs-var hs-var">policyUpdateToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249176"><span class="hs-identifier hs-var">policyUpdateToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249175"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyUpdateToken:Policy' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3ApolicyUpdateToken%3APolicy%27"><span class="hs-identifier hs-var">policyUpdateToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- | Indicates whether Firewall Manager should delete Firewall Manager</span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- managed resources, such as web ACLs and security groups, when they are</span><span>
@@ -509,16 +509,16 @@ $sel:policyUpdateToken:Policy' :: Policy -&gt; Maybe Text
 -&gt; (Policy -&gt; Maybe Bool -&gt; Policy)
 -&gt; Lens Policy Policy (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249163"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249172"><span class="annot"><span class="annottext">Maybe Bool
 deleteUnusedFMManagedResources :: Maybe Bool
 $sel:deleteUnusedFMManagedResources:Policy' :: Policy -&gt; Maybe Bool
-</span><a href="#local-6989586621679249163"><span class="hs-identifier hs-var hs-var">deleteUnusedFMManagedResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679249163"><span class="hs-identifier hs-var">deleteUnusedFMManagedResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249162"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249161"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679249161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteUnusedFMManagedResources:Policy' :: Maybe Bool
+</span><a href="#local-6989586621679249172"><span class="hs-identifier hs-var hs-var">deleteUnusedFMManagedResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249172"><span class="hs-identifier hs-var">deleteUnusedFMManagedResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249171"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249170"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteUnusedFMManagedResources:Policy' :: Maybe Bool
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AdeleteUnusedFMManagedResources%3APolicy%27"><span class="hs-identifier hs-var">deleteUnusedFMManagedResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679249161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | Specifies the Amazon Web Services account IDs and Organizations</span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- organizational units (OUs) to exclude from the policy. Specifying an OU</span><span>
@@ -558,16 +558,16 @@ $sel:deleteUnusedFMManagedResources:Policy' :: Policy -&gt; Maybe Bool
      (Maybe (HashMap CustomerPolicyScopeIdType [Text]))
      (Maybe (HashMap CustomerPolicyScopeIdType [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249159"><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249168"><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
 excludeMap :: Maybe (HashMap CustomerPolicyScopeIdType [Text])
 $sel:excludeMap:Policy' :: Policy -&gt; Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249159"><span class="hs-identifier hs-var hs-var">excludeMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249159"><span class="hs-identifier hs-var">excludeMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249158"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249157"><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeMap:Policy' :: Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><a href="#local-6989586621679249168"><span class="hs-identifier hs-var hs-var">excludeMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><a href="#local-6989586621679249168"><span class="hs-identifier hs-var">excludeMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249167"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249166"><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><a href="#local-6989586621679249166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeMap:Policy' :: Maybe (HashMap CustomerPolicyScopeIdType [Text])
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AexcludeMap%3APolicy%27"><span class="hs-identifier hs-var">excludeMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><a href="#local-6989586621679249166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap CustomerPolicyScopeIdType [Text])
   -&gt; f (Maybe (HashMap CustomerPolicyScopeIdType [Text])))
  -&gt; Policy -&gt; f Policy)
 -&gt; ((Maybe (HashMap CustomerPolicyScopeIdType [Text])
@@ -638,16 +638,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap CustomerPolicyScopeIdType [Text]))
      (Maybe (HashMap CustomerPolicyScopeIdType [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249155"><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249164"><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
 includeMap :: Maybe (HashMap CustomerPolicyScopeIdType [Text])
 $sel:includeMap:Policy' :: Policy -&gt; Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249155"><span class="hs-identifier hs-var hs-var">includeMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249155"><span class="hs-identifier hs-var">includeMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249154"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249153"><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeMap:Policy' :: Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><a href="#local-6989586621679249164"><span class="hs-identifier hs-var hs-var">includeMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><a href="#local-6989586621679249164"><span class="hs-identifier hs-var">includeMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249163"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249162"><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><a href="#local-6989586621679249162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeMap:Policy' :: Maybe (HashMap CustomerPolicyScopeIdType [Text])
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AincludeMap%3APolicy%27"><span class="hs-identifier hs-var">includeMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap CustomerPolicyScopeIdType [Text])
+</span><a href="#local-6989586621679249162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap CustomerPolicyScopeIdType [Text])
   -&gt; f (Maybe (HashMap CustomerPolicyScopeIdType [Text])))
  -&gt; Policy -&gt; f Policy)
 -&gt; ((Maybe (HashMap CustomerPolicyScopeIdType [Text])
@@ -686,16 +686,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><a href="Network.AWS.FMS.Types.Policy.html#policy_policyName"><span class="hs-identifier hs-var hs-var">policy_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Policy -&gt; Text)
 -&gt; (Policy -&gt; Text -&gt; Policy) -&gt; Lens Policy Policy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249151"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249160"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:Policy' :: Policy -&gt; Text
-</span><a href="#local-6989586621679249151"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249151"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249150"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249149"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:Policy' :: Text
+</span><a href="#local-6989586621679249160"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249160"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249159"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:Policy' :: Text
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3ApolicyName%3APolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-367"></span><span>
 </span><span id="line-368"></span><span class="hs-comment">-- | Details about the security service that is being used to protect the</span><span>
 </span><span id="line-369"></span><span class="hs-comment">-- resources.</span><span>
@@ -707,16 +707,16 @@ $sel:policyName:Policy' :: Policy -&gt; Text
 -&gt; Lens
      Policy Policy SecurityServicePolicyData SecurityServicePolicyData
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249147"><span class="annot"><span class="annottext">SecurityServicePolicyData
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249156"><span class="annot"><span class="annottext">SecurityServicePolicyData
 securityServicePolicyData :: SecurityServicePolicyData
 $sel:securityServicePolicyData:Policy' :: Policy -&gt; SecurityServicePolicyData
-</span><a href="#local-6989586621679249147"><span class="hs-identifier hs-var hs-var">securityServicePolicyData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityServicePolicyData
-</span><a href="#local-6989586621679249147"><span class="hs-identifier hs-var">securityServicePolicyData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249146"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249145"><span class="annot"><span class="annottext">SecurityServicePolicyData
-</span><a href="#local-6989586621679249145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityServicePolicyData:Policy' :: SecurityServicePolicyData
+</span><a href="#local-6989586621679249156"><span class="hs-identifier hs-var hs-var">securityServicePolicyData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityServicePolicyData
+</span><a href="#local-6989586621679249156"><span class="hs-identifier hs-var">securityServicePolicyData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249155"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249154"><span class="annot"><span class="annottext">SecurityServicePolicyData
+</span><a href="#local-6989586621679249154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityServicePolicyData:Policy' :: SecurityServicePolicyData
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AsecurityServicePolicyData%3APolicy%27"><span class="hs-identifier hs-var">securityServicePolicyData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SecurityServicePolicyData
-</span><a href="#local-6989586621679249145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-372"></span><span>
 </span><span id="line-373"></span><span class="hs-comment">-- | The type of resource protected by or in scope of the policy. This is in</span><span>
 </span><span id="line-374"></span><span class="hs-comment">-- the format shown in the</span><span>
@@ -739,16 +739,16 @@ $sel:securityServicePolicyData:Policy' :: Policy -&gt; SecurityServicePolicyData
 </span><a href="Network.AWS.FMS.Types.Policy.html#policy_resourceType"><span class="hs-identifier hs-var hs-var">policy_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Policy -&gt; Text)
 -&gt; (Policy -&gt; Text -&gt; Policy) -&gt; Lens Policy Policy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249143"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249152"><span class="annot"><span class="annottext">Text
 resourceType :: Text
 $sel:resourceType:Policy' :: Policy -&gt; Text
-</span><a href="#local-6989586621679249143"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249143"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249142"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249141"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:Policy' :: Text
+</span><a href="#local-6989586621679249152"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249152"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249151"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:Policy' :: Text
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AresourceType%3APolicy%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-391"></span><span>
 </span><span id="line-392"></span><span class="hs-comment">-- | If set to @True@, resources with the tags that are specified in the</span><span>
 </span><span id="line-393"></span><span class="hs-comment">-- @ResourceTag@ array are not in scope of the policy. If set to @False@,</span><span>
@@ -759,16 +759,16 @@ $sel:resourceType:Policy' :: Policy -&gt; Text
 </span><a href="Network.AWS.FMS.Types.Policy.html#policy_excludeResourceTags"><span class="hs-identifier hs-var hs-var">policy_excludeResourceTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Policy -&gt; Bool)
 -&gt; (Policy -&gt; Bool -&gt; Policy) -&gt; Lens Policy Policy Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249139"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249148"><span class="annot"><span class="annottext">Bool
 excludeResourceTags :: Bool
 $sel:excludeResourceTags:Policy' :: Policy -&gt; Bool
-</span><a href="#local-6989586621679249139"><span class="hs-identifier hs-var hs-var">excludeResourceTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249139"><span class="hs-identifier hs-var">excludeResourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249138"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249137"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeResourceTags:Policy' :: Bool
+</span><a href="#local-6989586621679249148"><span class="hs-identifier hs-var hs-var">excludeResourceTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679249148"><span class="hs-identifier hs-var">excludeResourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249147"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249146"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679249146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeResourceTags:Policy' :: Bool
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AexcludeResourceTags%3APolicy%27"><span class="hs-identifier hs-var">excludeResourceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-398"></span><span>
 </span><span id="line-399"></span><span class="hs-comment">-- | Indicates if the policy should be automatically applied to new</span><span>
 </span><span id="line-400"></span><span class="hs-comment">-- resources.</span><span>
@@ -777,27 +777,27 @@ $sel:excludeResourceTags:Policy' :: Policy -&gt; Bool
 </span><a href="Network.AWS.FMS.Types.Policy.html#policy_remediationEnabled"><span class="hs-identifier hs-var hs-var">policy_remediationEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Policy -&gt; Bool)
 -&gt; (Policy -&gt; Bool -&gt; Policy) -&gt; Lens Policy Policy Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249135"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249144"><span class="annot"><span class="annottext">Bool
 remediationEnabled :: Bool
 $sel:remediationEnabled:Policy' :: Policy -&gt; Bool
-</span><a href="#local-6989586621679249135"><span class="hs-identifier hs-var hs-var">remediationEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249135"><span class="hs-identifier hs-var">remediationEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249134"><span class="annot"><span class="annottext">s :: Policy
-</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249133"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
-</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remediationEnabled:Policy' :: Bool
+</span><a href="#local-6989586621679249144"><span class="hs-identifier hs-var hs-var">remediationEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679249144"><span class="hs-identifier hs-var">remediationEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249143"><span class="annot"><span class="annottext">s :: Policy
+</span><a href="#local-6989586621679249143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249142"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679249142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Policy
+</span><a href="#local-6989586621679249143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remediationEnabled:Policy' :: Bool
 </span><a href="Network.AWS.FMS.Types.Policy.html#%24sel%3AremediationEnabled%3APolicy%27"><span class="hs-identifier hs-var">remediationEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-403"></span><span>
-</span><span id="line-404"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249130"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-405"></span><span>  </span><span id="local-6989586621679249128"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Policy
+</span><span id="line-404"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249139"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-405"></span><span>  </span><span id="local-6989586621679249137"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Policy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-406"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Policy) -&gt; Value -&gt; Parser Policy
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-407"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span>
-</span><span id="line-408"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249125"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-408"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249134"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-409"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe [ResourceTag]
@@ -841,7 +841,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Policy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -873,7 +873,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceTypeList&quot;</span></span><span>
@@ -910,7 +910,7 @@ forall a. Monoid a =&gt; a
       -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceTag]))
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceTag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ResourceTag]))
@@ -943,7 +943,7 @@ forall a. Monoid a =&gt; a
       -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyUpdateToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -969,7 +969,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteUnusedFMManagedResources&quot;</span></span><span class="hs-special">)</span><span>
@@ -993,7 +993,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser
      (Maybe (Maybe (HashMap CustomerPolicyScopeIdType [Text])))
@@ -1020,7 +1020,7 @@ forall a. Monoid a =&gt; a
       -&gt; SecurityServicePolicyData -&gt; Text -&gt; Bool -&gt; Bool -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser
      (Maybe (Maybe (HashMap CustomerPolicyScopeIdType [Text])))
@@ -1041,7 +1041,7 @@ forall a. Monoid a =&gt; a
      (SecurityServicePolicyData -&gt; Text -&gt; Bool -&gt; Bool -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span class="hs-special">)</span><span>
@@ -1051,7 +1051,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; Bool -&gt; Bool -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SecurityServicePolicyData
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SecurityServicePolicyData
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityServicePolicyData&quot;</span></span><span class="hs-special">)</span><span>
@@ -1059,7 +1059,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Bool -&gt; Bool -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -1067,26 +1067,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Bool -&gt; Parser (Bool -&gt; Policy)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExcludeResourceTags&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-423"></span><span>            </span><span class="annot"><span class="annottext">Parser (Bool -&gt; Policy) -&gt; Parser Bool -&gt; Parser Policy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679249134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RemediationEnabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-424"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-425"></span><span>
-</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249117"><span id="local-6989586621679249119"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span></span><span>
+</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249126"><span id="local-6989586621679249128"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span></span><span>
 </span><span id="line-427"></span><span>
-</span><span id="line-428"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249114"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span><span>
+</span><span id="line-428"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249123"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span><span>
 </span><span id="line-429"></span><span>
-</span><span id="line-430"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249106"><span id="local-6989586621679249108"><span id="local-6989586621679249110"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-431"></span><span>  </span><span id="local-6989586621679249104"><span class="annot"><span class="annottext">toJSON :: Policy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249091"><span id="local-6989586621679249092"><span id="local-6989586621679249093"><span id="local-6989586621679249094"><span id="local-6989586621679249095"><span id="local-6989586621679249096"><span id="local-6989586621679249097"><span id="local-6989586621679249098"><span id="local-6989586621679249099"><span id="local-6989586621679249100"><span id="local-6989586621679249101"><span id="local-6989586621679249102"><span class="annot"><span class="annottext">Bool
+</span><span id="line-430"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249115"><span id="local-6989586621679249117"><span id="local-6989586621679249119"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-431"></span><span>  </span><span id="local-6989586621679249113"><span class="annot"><span class="annottext">toJSON :: Policy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.Policy.html#Policy%27"><span class="hs-identifier hs-type">Policy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249100"><span id="local-6989586621679249101"><span id="local-6989586621679249102"><span id="local-6989586621679249103"><span id="local-6989586621679249104"><span id="local-6989586621679249105"><span id="local-6989586621679249106"><span id="local-6989586621679249107"><span id="local-6989586621679249108"><span id="local-6989586621679249109"><span id="local-6989586621679249110"><span id="local-6989586621679249111"><span class="annot"><span class="annottext">Bool
 Maybe Bool
 Maybe [Text]
 Maybe [ResourceTag]
@@ -1118,7 +1118,7 @@ $sel:policyUpdateToken:Policy' :: Policy -&gt; Maybe Text
 $sel:resourceTags:Policy' :: Policy -&gt; Maybe [ResourceTag]
 $sel:resourceTypeList:Policy' :: Policy -&gt; Maybe [Text]
 $sel:policyId:Policy' :: Policy -&gt; Maybe Text
-</span><a href="#local-6989586621679249091"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249100"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-432"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-433"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1130,7 +1130,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249102"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249111"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-435"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceTypeList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1138,14 +1138,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-436"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var">resourceTypeList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249110"><span class="hs-identifier hs-var">resourceTypeList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-437"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ResourceTag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ResourceTag] -&gt; Pair) -&gt; Maybe [ResourceTag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceTag]
-</span><a href="#local-6989586621679249100"><span class="hs-identifier hs-var">resourceTags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249109"><span class="hs-identifier hs-var">resourceTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-438"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyUpdateToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1153,7 +1153,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-439"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249099"><span class="hs-identifier hs-var">policyUpdateToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249108"><span class="hs-identifier hs-var">policyUpdateToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-440"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteUnusedFMManagedResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1161,7 +1161,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-441"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679249098"><span class="hs-identifier hs-var">deleteUnusedFMManagedResources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249107"><span class="hs-identifier hs-var">deleteUnusedFMManagedResources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-442"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExcludeMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap CustomerPolicyScopeIdType [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1169,7 +1169,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap CustomerPolicyScopeIdType [Text]) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249097"><span class="hs-identifier hs-var">excludeMap</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249106"><span class="hs-identifier hs-var">excludeMap</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-443"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap CustomerPolicyScopeIdType [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1177,14 +1177,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap CustomerPolicyScopeIdType [Text]) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap CustomerPolicyScopeIdType [Text])
-</span><a href="#local-6989586621679249096"><span class="hs-identifier hs-var">includeMap</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249105"><span class="hs-identifier hs-var">includeMap</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-444"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249095"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249104"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-445"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1193,7 +1193,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-447"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; SecurityServicePolicyData -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SecurityServicePolicyData
-</span><a href="#local-6989586621679249094"><span class="hs-identifier hs-var">securityServicePolicyData</span></a></span><span>
+</span><a href="#local-6989586621679249103"><span class="hs-identifier hs-var">securityServicePolicyData</span></a></span><span>
 </span><span id="line-448"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-449"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -1201,7 +1201,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679249093"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249102"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-450"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1209,7 +1209,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ExcludeResourceTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249092"><span class="hs-identifier hs-var">excludeResourceTags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249101"><span class="hs-identifier hs-var">excludeResourceTags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-452"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1217,7 +1217,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RemediationEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679249091"><span class="hs-identifier hs-var">remediationEnabled</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249100"><span class="hs-identifier hs-var">remediationEnabled</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-454"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-455"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-456"></span></pre></body></html>

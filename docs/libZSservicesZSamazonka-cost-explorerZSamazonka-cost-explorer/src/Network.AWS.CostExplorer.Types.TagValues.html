@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- on resources without the given tag key.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newTagValues' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679338577"><span id="local-6989586621679338578"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagValues"><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-var">TagValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagValues%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-var">TagValues'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679338586"><span id="local-6989586621679338587"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagValues"><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-var">TagValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagValues%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-var">TagValues'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specific value of the tag.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Avalues%3ATagValues%27"><span class="annot"><span class="annottext">TagValues -&gt; Maybe [Text]
 </span><a href="Network.AWS.CostExplorer.Types.TagValues.html#%24sel%3Avalues%3ATagValues%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AmatchOptions%3ATagValues%27"><span class="annot"><span class="annottext">TagValues -&gt; Maybe [MatchOption]
 </span><a href="Network.AWS.CostExplorer.Types.TagValues.html#%24sel%3AmatchOptions%3ATagValues%27"><span class="hs-identifier hs-var hs-var">matchOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.MatchOption.html#MatchOption"><span class="hs-identifier hs-type">MatchOption</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338569"><span id="local-6989586621679338571"><span class="annot"><span class="annottext">TagValues -&gt; TagValues -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338578"><span id="local-6989586621679338580"><span class="annot"><span class="annottext">TagValues -&gt; TagValues -&gt; Bool
 (TagValues -&gt; TagValues -&gt; Bool)
 -&gt; (TagValues -&gt; TagValues -&gt; Bool) -&gt; Eq TagValues
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagValues -&gt; TagValues -&gt; Bool
 == :: TagValues -&gt; TagValues -&gt; Bool
 $c== :: TagValues -&gt; TagValues -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338560"><span id="local-6989586621679338562"><span id="local-6989586621679338564"><span id="local-6989586621679338566"><span class="annot"><span class="annottext">ReadPrec [TagValues]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338569"><span id="local-6989586621679338571"><span id="local-6989586621679338573"><span id="local-6989586621679338575"><span class="annot"><span class="annottext">ReadPrec [TagValues]
 ReadPrec TagValues
 Int -&gt; ReadS TagValues
 ReadS [TagValues]
@@ -75,7 +75,7 @@ readList :: ReadS [TagValues]
 $creadList :: ReadS [TagValues]
 readsPrec :: Int -&gt; ReadS TagValues
 $creadsPrec :: Int -&gt; ReadS TagValues
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338553"><span id="local-6989586621679338555"><span id="local-6989586621679338557"><span class="annot"><span class="annottext">Int -&gt; TagValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338562"><span id="local-6989586621679338564"><span id="local-6989586621679338566"><span class="annot"><span class="annottext">Int -&gt; TagValues -&gt; ShowS
 [TagValues] -&gt; ShowS
 TagValues -&gt; String
 (Int -&gt; TagValues -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
 -&gt; (TagValues -&gt; Maybe [Text] -&gt; TagValues)
 -&gt; Lens TagValues TagValues (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338544"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338553"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:TagValues' :: TagValues -&gt; Maybe [Text]
-</span><a href="#local-6989586621679338544"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679338544"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338543"><span class="annot"><span class="annottext">s :: TagValues
-</span><a href="#local-6989586621679338543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338542"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679338542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagValues
-</span><a href="#local-6989586621679338543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:TagValues' :: Maybe [Text]
+</span><a href="#local-6989586621679338553"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679338553"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338552"><span class="annot"><span class="annottext">s :: TagValues
+</span><a href="#local-6989586621679338552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338551"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679338551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagValues
+</span><a href="#local-6989586621679338552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:TagValues' :: Maybe [Text]
 </span><a href="Network.AWS.CostExplorer.Types.TagValues.html#%24sel%3Avalues%3ATagValues%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679338542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagValues -&gt; f TagValues)
+</span><a href="#local-6989586621679338551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagValues -&gt; f TagValues)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -174,16 +174,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (TagValues -&gt; Maybe Text -&gt; TagValues)
 -&gt; Lens TagValues TagValues (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338537"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338546"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:TagValues' :: TagValues -&gt; Maybe Text
-</span><a href="#local-6989586621679338537"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338537"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338536"><span class="annot"><span class="annottext">s :: TagValues
-</span><a href="#local-6989586621679338536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338535"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagValues
-</span><a href="#local-6989586621679338536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagValues' :: Maybe Text
+</span><a href="#local-6989586621679338546"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338546"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338545"><span class="annot"><span class="annottext">s :: TagValues
+</span><a href="#local-6989586621679338545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338544"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagValues
+</span><a href="#local-6989586621679338545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagValues' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.TagValues.html#%24sel%3Akey%3ATagValues%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The match options that you can use to filter your results.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- @MatchOptions@ is only applicable for actions related to Cost Category.</span><span>
@@ -196,16 +196,16 @@ $sel:key:TagValues' :: TagValues -&gt; Maybe Text
 -&gt; Lens
      TagValues TagValues (Maybe [MatchOption]) (Maybe [MatchOption])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338533"><span class="annot"><span class="annottext">Maybe [MatchOption]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338542"><span class="annot"><span class="annottext">Maybe [MatchOption]
 matchOptions :: Maybe [MatchOption]
 $sel:matchOptions:TagValues' :: TagValues -&gt; Maybe [MatchOption]
-</span><a href="#local-6989586621679338533"><span class="hs-identifier hs-var hs-var">matchOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchOption]
-</span><a href="#local-6989586621679338533"><span class="hs-identifier hs-var">matchOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338532"><span class="annot"><span class="annottext">s :: TagValues
-</span><a href="#local-6989586621679338532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338531"><span class="annot"><span class="annottext">Maybe [MatchOption]
-</span><a href="#local-6989586621679338531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagValues
-</span><a href="#local-6989586621679338532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchOptions:TagValues' :: Maybe [MatchOption]
+</span><a href="#local-6989586621679338542"><span class="hs-identifier hs-var hs-var">matchOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchOption]
+</span><a href="#local-6989586621679338542"><span class="hs-identifier hs-var">matchOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338541"><span class="annot"><span class="annottext">s :: TagValues
+</span><a href="#local-6989586621679338541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338540"><span class="annot"><span class="annottext">Maybe [MatchOption]
+</span><a href="#local-6989586621679338540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagValues
+</span><a href="#local-6989586621679338541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchOptions:TagValues' :: Maybe [MatchOption]
 </span><a href="Network.AWS.CostExplorer.Types.TagValues.html#%24sel%3AmatchOptions%3ATagValues%27"><span class="hs-identifier hs-var">matchOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchOption]
-</span><a href="#local-6989586621679338531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MatchOption] -&gt; f (Maybe [MatchOption]))
+</span><a href="#local-6989586621679338540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MatchOption] -&gt; f (Maybe [MatchOption]))
  -&gt; TagValues -&gt; f TagValues)
 -&gt; ((Maybe [MatchOption] -&gt; f (Maybe [MatchOption]))
     -&gt; Maybe [MatchOption] -&gt; f (Maybe [MatchOption]))
@@ -226,16 +226,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338528"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679338526"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TagValues
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338537"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679338535"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TagValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser TagValues) -&gt; Value -&gt; Parser TagValues
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TagValues&quot;</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338523"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338523"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338532"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Maybe [MatchOption] -&gt; TagValues
 </span><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-var">TagValues'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Maybe [MatchOption] -&gt; TagValues)
@@ -243,7 +243,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe [MatchOption] -&gt; TagValues)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338523"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679338532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -256,7 +256,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [MatchOption] -&gt; TagValues)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338523"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679338532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,7 +264,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [MatchOption]) -&gt; Parser TagValues
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338523"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MatchOption]))
+</span><a href="#local-6989586621679338532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MatchOption]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MatchOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MatchOption]))
@@ -275,13 +275,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338516"><span id="local-6989586621679338518"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338525"><span id="local-6989586621679338527"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338505"><span id="local-6989586621679338507"><span id="local-6989586621679338509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679338503"><span class="annot"><span class="annottext">toJSON :: TagValues -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338499"><span id="local-6989586621679338500"><span id="local-6989586621679338501"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338514"><span id="local-6989586621679338516"><span id="local-6989586621679338518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues"><span class="hs-identifier hs-type">TagValues</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679338512"><span class="annot"><span class="annottext">toJSON :: TagValues -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TagValues.html#TagValues%27"><span class="hs-identifier hs-type">TagValues'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338508"><span id="local-6989586621679338509"><span id="local-6989586621679338510"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [MatchOption]
 Maybe Text
 matchOptions :: Maybe [MatchOption]
@@ -290,7 +290,7 @@ values :: Maybe [Text]
 $sel:matchOptions:TagValues' :: TagValues -&gt; Maybe [MatchOption]
 $sel:key:TagValues' :: TagValues -&gt; Maybe Text
 $sel:values:TagValues' :: TagValues -&gt; Maybe [Text]
-</span><a href="#local-6989586621679338499"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679338508"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -302,21 +302,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679338501"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338510"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338500"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338509"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MatchOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MatchOption] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([MatchOption] -&gt; Pair) -&gt; Maybe [MatchOption] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MatchOption]
-</span><a href="#local-6989586621679338499"><span class="hs-identifier hs-var">matchOptions</span></a></span><span>
+</span><a href="#local-6989586621679338508"><span class="hs-identifier hs-var">matchOptions</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span></pre></body></html>

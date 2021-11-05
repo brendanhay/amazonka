@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newPutFileSystemPolicy' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679189494"><span id="local-6989586621679189495"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFileSystemPolicy"><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-var">PutFileSystemPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFileSystemPolicy%27"><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-var">PutFileSystemPolicy'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679189503"><span id="local-6989586621679189504"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutFileSystemPolicy"><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-var">PutFileSystemPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutFileSystemPolicy%27"><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-var">PutFileSystemPolicy'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) A flag to indicate whether to bypass the @FileSystemPolicy@</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- lockout safety check. The policy lockout safety check determines whether</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the policy in the request will prevent the principal making the request</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-83"></span><span>    </span><span id="%24sel%3Apolicy%3APutFileSystemPolicy%27"><span class="annot"><span class="annottext">PutFileSystemPolicy -&gt; Text
 </span><a href="Network.AWS.EFS.PutFileSystemPolicy.html#%24sel%3Apolicy%3APutFileSystemPolicy%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189486"><span id="local-6989586621679189488"><span class="annot"><span class="annottext">PutFileSystemPolicy -&gt; PutFileSystemPolicy -&gt; Bool
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189495"><span id="local-6989586621679189497"><span class="annot"><span class="annottext">PutFileSystemPolicy -&gt; PutFileSystemPolicy -&gt; Bool
 (PutFileSystemPolicy -&gt; PutFileSystemPolicy -&gt; Bool)
 -&gt; (PutFileSystemPolicy -&gt; PutFileSystemPolicy -&gt; Bool)
 -&gt; Eq PutFileSystemPolicy
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutFileSystemPolicy -&gt; PutFileSystemPolicy -&gt; Bool
 == :: PutFileSystemPolicy -&gt; PutFileSystemPolicy -&gt; Bool
 $c== :: PutFileSystemPolicy -&gt; PutFileSystemPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189477"><span id="local-6989586621679189479"><span id="local-6989586621679189481"><span id="local-6989586621679189483"><span class="annot"><span class="annottext">ReadPrec [PutFileSystemPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189486"><span id="local-6989586621679189488"><span id="local-6989586621679189490"><span id="local-6989586621679189492"><span class="annot"><span class="annottext">ReadPrec [PutFileSystemPolicy]
 ReadPrec PutFileSystemPolicy
 Int -&gt; ReadS PutFileSystemPolicy
 ReadS [PutFileSystemPolicy]
@@ -114,7 +114,7 @@ readList :: ReadS [PutFileSystemPolicy]
 $creadList :: ReadS [PutFileSystemPolicy]
 readsPrec :: Int -&gt; ReadS PutFileSystemPolicy
 $creadsPrec :: Int -&gt; ReadS PutFileSystemPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189470"><span id="local-6989586621679189472"><span id="local-6989586621679189474"><span class="annot"><span class="annottext">Int -&gt; PutFileSystemPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189479"><span id="local-6989586621679189481"><span id="local-6989586621679189483"><span class="annot"><span class="annottext">Int -&gt; PutFileSystemPolicy -&gt; ShowS
 [PutFileSystemPolicy] -&gt; ShowS
 PutFileSystemPolicy -&gt; String
 (Int -&gt; PutFileSystemPolicy -&gt; ShowS)
@@ -172,9 +172,9 @@ $cfrom :: forall x. PutFileSystemPolicy -&gt; Rep PutFileSystemPolicy x
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span>
 </span><span id="line-118"></span><span id="newPutFileSystemPolicy"><span class="annot"><span class="annottext">newPutFileSystemPolicy :: Text -&gt; Text -&gt; PutFileSystemPolicy
-</span><a href="Network.AWS.EFS.PutFileSystemPolicy.html#newPutFileSystemPolicy"><span class="hs-identifier hs-var hs-var">newPutFileSystemPolicy</span></a></span></span><span> </span><span id="local-6989586621679189465"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189465"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span></span><span> </span><span id="local-6989586621679189464"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189464"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EFS.PutFileSystemPolicy.html#newPutFileSystemPolicy"><span class="hs-identifier hs-var hs-var">newPutFileSystemPolicy</span></a></span></span><span> </span><span id="local-6989586621679189474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189474"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span></span><span> </span><span id="local-6989586621679189473"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189473"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">PutFileSystemPolicy' :: Maybe Bool -&gt; Text -&gt; Text -&gt; PutFileSystemPolicy
 </span><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:PutFileSystemPolicy' :: Maybe Bool
@@ -184,10 +184,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:fileSystemId:PutFileSystemPolicy' :: Text
 </span><a href="Network.AWS.EFS.PutFileSystemPolicy.html#%24sel%3AfileSystemId%3APutFileSystemPolicy%27"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189465"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679189474"><span class="hs-identifier hs-var">pFileSystemId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:PutFileSystemPolicy' :: Text
 </span><a href="Network.AWS.EFS.PutFileSystemPolicy.html#%24sel%3Apolicy%3APutFileSystemPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189464"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679189473"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | (Optional) A flag to indicate whether to bypass the @FileSystemPolicy@</span><span>
@@ -206,16 +206,16 @@ forall a. Maybe a
 -&gt; Lens
      PutFileSystemPolicy PutFileSystemPolicy (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189461"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189470"><span class="annot"><span class="annottext">Maybe Bool
 bypassPolicyLockoutSafetyCheck :: Maybe Bool
 $sel:bypassPolicyLockoutSafetyCheck:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Maybe Bool
-</span><a href="#local-6989586621679189461"><span class="hs-identifier hs-var hs-var">bypassPolicyLockoutSafetyCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679189461"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189460"><span class="annot"><span class="annottext">s :: PutFileSystemPolicy
-</span><a href="#local-6989586621679189460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189459"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679189459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileSystemPolicy
-</span><a href="#local-6989586621679189460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:PutFileSystemPolicy' :: Maybe Bool
+</span><a href="#local-6989586621679189470"><span class="hs-identifier hs-var hs-var">bypassPolicyLockoutSafetyCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679189470"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189469"><span class="annot"><span class="annottext">s :: PutFileSystemPolicy
+</span><a href="#local-6989586621679189469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189468"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679189468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileSystemPolicy
+</span><a href="#local-6989586621679189469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:PutFileSystemPolicy' :: Maybe Bool
 </span><a href="Network.AWS.EFS.PutFileSystemPolicy.html#%24sel%3AbypassPolicyLockoutSafetyCheck%3APutFileSystemPolicy%27"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679189459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679189468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The ID of the EFS file system that you want to create or update the</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- @FileSystemPolicy@ for.</span><span>
@@ -225,16 +225,16 @@ $sel:bypassPolicyLockoutSafetyCheck:PutFileSystemPolicy' :: PutFileSystemPolicy 
 -&gt; (PutFileSystemPolicy -&gt; Text -&gt; PutFileSystemPolicy)
 -&gt; Lens PutFileSystemPolicy PutFileSystemPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189458"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189467"><span class="annot"><span class="annottext">Text
 fileSystemId :: Text
 $sel:fileSystemId:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Text
-</span><a href="#local-6989586621679189458"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189458"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189457"><span class="annot"><span class="annottext">s :: PutFileSystemPolicy
-</span><a href="#local-6989586621679189457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189456"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileSystemPolicy
-</span><a href="#local-6989586621679189457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemId:PutFileSystemPolicy' :: Text
+</span><a href="#local-6989586621679189467"><span class="hs-identifier hs-var hs-var">fileSystemId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189467"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189466"><span class="annot"><span class="annottext">s :: PutFileSystemPolicy
+</span><a href="#local-6989586621679189466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileSystemPolicy
+</span><a href="#local-6989586621679189466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileSystemId:PutFileSystemPolicy' :: Text
 </span><a href="Network.AWS.EFS.PutFileSystemPolicy.html#%24sel%3AfileSystemId%3APutFileSystemPolicy%27"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679189465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The @FileSystemPolicy@ that you\'re creating. Accepts a JSON formatted</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- policy definition. EFS file system policies have a 20,000 character</span><span>
@@ -247,27 +247,27 @@ $sel:fileSystemId:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Text
 -&gt; (PutFileSystemPolicy -&gt; Text -&gt; PutFileSystemPolicy)
 -&gt; Lens PutFileSystemPolicy PutFileSystemPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189455"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189464"><span class="annot"><span class="annottext">Text
 policy :: Text
 $sel:policy:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Text
-</span><a href="#local-6989586621679189455"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189455"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189454"><span class="annot"><span class="annottext">s :: PutFileSystemPolicy
-</span><a href="#local-6989586621679189454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189453"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileSystemPolicy
-</span><a href="#local-6989586621679189454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutFileSystemPolicy' :: Text
+</span><a href="#local-6989586621679189464"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189464"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189463"><span class="annot"><span class="annottext">s :: PutFileSystemPolicy
+</span><a href="#local-6989586621679189463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutFileSystemPolicy
+</span><a href="#local-6989586621679189463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutFileSystemPolicy' :: Text
 </span><a href="Network.AWS.EFS.PutFileSystemPolicy.html#%24sel%3Apolicy%3APutFileSystemPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679189462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><a href="Network.AWS.EFS.Types.FileSystemPolicyDescription.html#FileSystemPolicyDescription"><span class="hs-identifier hs-type">FileSystemPolicyDescription</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679189449"><span class="annot"><span class="annottext">request :: PutFileSystemPolicy -&gt; Request PutFileSystemPolicy
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679189458"><span class="annot"><span class="annottext">request :: PutFileSystemPolicy -&gt; Request PutFileSystemPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutFileSystemPolicy -&gt; Request PutFileSystemPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EFS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679189445"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679189454"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutFileSystemPolicy
 -&gt; ClientResponse ClientBody
@@ -293,29 +293,29 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189442"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189442"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189441"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679189441"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189440"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679189440"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String FileSystemPolicyDescription
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189451"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189450"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679189450"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189449"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189449"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String FileSystemPolicyDescription
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679189440"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679189449"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189435"><span id="local-6989586621679189437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189444"><span id="local-6989586621679189446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679189428"><span class="annot"><span class="annottext">toHeaders :: PutFileSystemPolicy -&gt; ResponseHeaders
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679189437"><span class="annot"><span class="annottext">toHeaders :: PutFileSystemPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutFileSystemPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189419"><span id="local-6989586621679189421"><span id="local-6989586621679189423"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679189417"><span class="annot"><span class="annottext">toJSON :: PutFileSystemPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189413"><span id="local-6989586621679189414"><span id="local-6989586621679189415"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189428"><span id="local-6989586621679189430"><span id="local-6989586621679189432"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679189426"><span class="annot"><span class="annottext">toJSON :: PutFileSystemPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189422"><span id="local-6989586621679189423"><span id="local-6989586621679189424"><span class="annot"><span class="annottext">Maybe Bool
 Text
 policy :: Text
 fileSystemId :: Text
@@ -323,7 +323,7 @@ bypassPolicyLockoutSafetyCheck :: Maybe Bool
 $sel:policy:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Text
 $sel:fileSystemId:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Text
 $sel:bypassPolicyLockoutSafetyCheck:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Maybe Bool
-</span><a href="#local-6989586621679189413"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679189422"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -336,20 +336,20 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679189415"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679189424"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189413"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679189422"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679189406"><span class="annot"><span class="annottext">toPath :: PutFileSystemPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189402"><span id="local-6989586621679189403"><span id="local-6989586621679189404"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679189415"><span class="annot"><span class="annottext">toPath :: PutFileSystemPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy%27"><span class="hs-identifier hs-type">PutFileSystemPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189411"><span id="local-6989586621679189412"><span id="local-6989586621679189413"><span class="annot"><span class="annottext">Maybe Bool
 Text
 policy :: Text
 fileSystemId :: Text
@@ -357,7 +357,7 @@ bypassPolicyLockoutSafetyCheck :: Maybe Bool
 $sel:policy:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Text
 $sel:fileSystemId:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Text
 $sel:bypassPolicyLockoutSafetyCheck:PutFileSystemPolicy' :: PutFileSystemPolicy -&gt; Maybe Bool
-</span><a href="#local-6989586621679189402"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679189411"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -366,13 +366,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679189403"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679189412"><span class="hs-identifier hs-var">fileSystemId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/policy&quot;</span></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutFileSystemPolicy.html#PutFileSystemPolicy"><span class="hs-identifier hs-type">PutFileSystemPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679189398"><span class="annot"><span class="annottext">toQuery :: PutFileSystemPolicy -&gt; QueryString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679189407"><span class="annot"><span class="annottext">toQuery :: PutFileSystemPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutFileSystemPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

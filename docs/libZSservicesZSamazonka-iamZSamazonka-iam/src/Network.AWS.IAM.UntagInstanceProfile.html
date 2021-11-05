@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUntagInstanceProfile' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679461872"><span id="local-6989586621679461873"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagInstanceProfile"><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-var">UntagInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagInstanceProfile%27"><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-var">UntagInstanceProfile'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679461881"><span id="local-6989586621679461882"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagInstanceProfile"><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-var">UntagInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagInstanceProfile%27"><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-var">UntagInstanceProfile'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM instance profile from which you want to remove tags.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AtagKeys%3AUntagInstanceProfile%27"><span class="annot"><span class="annottext">UntagInstanceProfile -&gt; [Text]
 </span><a href="Network.AWS.IAM.UntagInstanceProfile.html#%24sel%3AtagKeys%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461865"><span id="local-6989586621679461867"><span class="annot"><span class="annottext">UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461874"><span id="local-6989586621679461876"><span class="annot"><span class="annottext">UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
 (UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool)
 -&gt; (UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool)
 -&gt; Eq UntagInstanceProfile
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
 == :: UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
 $c== :: UntagInstanceProfile -&gt; UntagInstanceProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461856"><span id="local-6989586621679461858"><span id="local-6989586621679461860"><span id="local-6989586621679461862"><span class="annot"><span class="annottext">ReadPrec [UntagInstanceProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461865"><span id="local-6989586621679461867"><span id="local-6989586621679461869"><span id="local-6989586621679461871"><span class="annot"><span class="annottext">ReadPrec [UntagInstanceProfile]
 ReadPrec UntagInstanceProfile
 Int -&gt; ReadS UntagInstanceProfile
 ReadS [UntagInstanceProfile]
@@ -90,7 +90,7 @@ readList :: ReadS [UntagInstanceProfile]
 $creadList :: ReadS [UntagInstanceProfile]
 readsPrec :: Int -&gt; ReadS UntagInstanceProfile
 $creadsPrec :: Int -&gt; ReadS UntagInstanceProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461849"><span id="local-6989586621679461851"><span id="local-6989586621679461853"><span class="annot"><span class="annottext">Int -&gt; UntagInstanceProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461858"><span id="local-6989586621679461860"><span id="local-6989586621679461862"><span class="annot"><span class="annottext">Int -&gt; UntagInstanceProfile -&gt; ShowS
 [UntagInstanceProfile] -&gt; ShowS
 UntagInstanceProfile -&gt; String
 (Int -&gt; UntagInstanceProfile -&gt; ShowS)
@@ -138,14 +138,14 @@ $cfrom :: forall x. UntagInstanceProfile -&gt; Rep UntagInstanceProfile x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span>
 </span><span id="line-85"></span><span id="newUntagInstanceProfile"><span class="annot"><span class="annottext">newUntagInstanceProfile :: Text -&gt; UntagInstanceProfile
-</span><a href="Network.AWS.IAM.UntagInstanceProfile.html#newUntagInstanceProfile"><span class="hs-identifier hs-var hs-var">newUntagInstanceProfile</span></a></span></span><span> </span><span id="local-6989586621679461844"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679461844"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.UntagInstanceProfile.html#newUntagInstanceProfile"><span class="hs-identifier hs-var hs-var">newUntagInstanceProfile</span></a></span></span><span> </span><span id="local-6989586621679461853"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461853"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">UntagInstanceProfile' :: Text -&gt; [Text] -&gt; UntagInstanceProfile
 </span><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceProfileName:UntagInstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.UntagInstanceProfile.html#%24sel%3AinstanceProfileName%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679461844"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679461853"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:UntagInstanceProfile' :: [Text]
 </span><a href="Network.AWS.IAM.UntagInstanceProfile.html#%24sel%3AtagKeys%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -164,16 +164,16 @@ forall a. Monoid a =&gt; a
 -&gt; (UntagInstanceProfile -&gt; Text -&gt; UntagInstanceProfile)
 -&gt; Lens UntagInstanceProfile UntagInstanceProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461841"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461850"><span class="annot"><span class="annottext">Text
 instanceProfileName :: Text
 $sel:instanceProfileName:UntagInstanceProfile' :: UntagInstanceProfile -&gt; Text
-</span><a href="#local-6989586621679461841"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679461841"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461840"><span class="annot"><span class="annottext">s :: UntagInstanceProfile
-</span><a href="#local-6989586621679461840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461839"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679461839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagInstanceProfile
-</span><a href="#local-6989586621679461840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:UntagInstanceProfile' :: Text
+</span><a href="#local-6989586621679461850"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461850"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461849"><span class="annot"><span class="annottext">s :: UntagInstanceProfile
+</span><a href="#local-6989586621679461849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagInstanceProfile
+</span><a href="#local-6989586621679461849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:UntagInstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.UntagInstanceProfile.html#%24sel%3AinstanceProfileName%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679461839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | A list of key names as a simple array of strings. The tags with matching</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- keys are removed from the specified instance profile.</span><span>
@@ -184,16 +184,16 @@ $sel:instanceProfileName:UntagInstanceProfile' :: UntagInstanceProfile -&gt; Tex
 -&gt; (UntagInstanceProfile -&gt; [Text] -&gt; UntagInstanceProfile)
 -&gt; Lens UntagInstanceProfile UntagInstanceProfile [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461838"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461847"><span class="annot"><span class="annottext">[Text]
 tagKeys :: [Text]
 $sel:tagKeys:UntagInstanceProfile' :: UntagInstanceProfile -&gt; [Text]
-</span><a href="#local-6989586621679461838"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679461838"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461837"><span class="annot"><span class="annottext">s :: UntagInstanceProfile
-</span><a href="#local-6989586621679461837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461836"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679461836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagInstanceProfile
-</span><a href="#local-6989586621679461837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagInstanceProfile' :: [Text]
+</span><a href="#local-6989586621679461847"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679461847"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461846"><span class="annot"><span class="annottext">s :: UntagInstanceProfile
+</span><a href="#local-6989586621679461846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461845"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679461845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagInstanceProfile
+</span><a href="#local-6989586621679461846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagInstanceProfile' :: [Text]
 </span><a href="Network.AWS.IAM.UntagInstanceProfile.html#%24sel%3AtagKeys%3AUntagInstanceProfile%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679461836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679461845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; UntagInstanceProfile -&gt; f UntagInstanceProfile)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -208,12 +208,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier hs-type">UntagInstanceProfileResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679461830"><span class="annot"><span class="annottext">request :: UntagInstanceProfile -&gt; Request UntagInstanceProfile
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679461839"><span class="annot"><span class="annottext">request :: UntagInstanceProfile -&gt; Request UntagInstanceProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagInstanceProfile -&gt; Request UntagInstanceProfile
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679461826"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679461835"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UntagInstanceProfile
 -&gt; ClientResponse ClientBody
@@ -239,12 +239,12 @@ AWSResponse a
 UntagInstanceProfileResponse
 </span><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse%27"><span class="hs-identifier hs-var">UntagInstanceProfileResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461819"><span id="local-6989586621679461821"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461828"><span id="local-6989586621679461830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679461812"><span class="annot"><span class="annottext">toHeaders :: UntagInstanceProfile -&gt; [Header]
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679461821"><span class="annot"><span class="annottext">toHeaders :: UntagInstanceProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UntagInstanceProfile -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -252,21 +252,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679461807"><span class="annot"><span class="annottext">toPath :: UntagInstanceProfile -&gt; ByteString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679461816"><span class="annot"><span class="annottext">toPath :: UntagInstanceProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagInstanceProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile"><span class="hs-identifier hs-type">UntagInstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679461803"><span class="annot"><span class="annottext">toQuery :: UntagInstanceProfile -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461800"><span id="local-6989586621679461801"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679461812"><span class="annot"><span class="annottext">toQuery :: UntagInstanceProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfile%27"><span class="hs-identifier hs-type">UntagInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461809"><span id="local-6989586621679461810"><span class="annot"><span class="annottext">[Text]
 Text
 tagKeys :: [Text]
 instanceProfileName :: Text
 $sel:tagKeys:UntagInstanceProfile' :: UntagInstanceProfile -&gt; [Text]
 $sel:instanceProfileName:UntagInstanceProfile' :: UntagInstanceProfile -&gt; Text
-</span><a href="#local-6989586621679461800"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679461809"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -286,7 +286,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;InstanceProfileName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679461801"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679461810"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -296,14 +296,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679461800"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
+</span><a href="#local-6989586621679461809"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newUntagInstanceProfileResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679461796"><span id="local-6989586621679461797"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagInstanceProfileResponse"><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier hs-var">UntagInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse%27"><span class="hs-identifier hs-var">UntagInstanceProfileResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679461805"><span id="local-6989586621679461806"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagInstanceProfileResponse"><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier hs-var">UntagInstanceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagInstanceProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse%27"><span class="hs-identifier hs-var">UntagInstanceProfileResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461792"><span id="local-6989586621679461794"><span class="annot"><span class="annottext">UntagInstanceProfileResponse
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461801"><span id="local-6989586621679461803"><span class="annot"><span class="annottext">UntagInstanceProfileResponse
 -&gt; UntagInstanceProfileResponse -&gt; Bool
 (UntagInstanceProfileResponse
  -&gt; UntagInstanceProfileResponse -&gt; Bool)
@@ -319,7 +319,7 @@ $c/= :: UntagInstanceProfileResponse
 -&gt; UntagInstanceProfileResponse -&gt; Bool
 $c== :: UntagInstanceProfileResponse
 -&gt; UntagInstanceProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461784"><span id="local-6989586621679461786"><span id="local-6989586621679461788"><span id="local-6989586621679461790"><span class="annot"><span class="annottext">ReadPrec [UntagInstanceProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461793"><span id="local-6989586621679461795"><span id="local-6989586621679461797"><span id="local-6989586621679461799"><span class="annot"><span class="annottext">ReadPrec [UntagInstanceProfileResponse]
 ReadPrec UntagInstanceProfileResponse
 Int -&gt; ReadS UntagInstanceProfileResponse
 ReadS [UntagInstanceProfileResponse]
@@ -339,7 +339,7 @@ readList :: ReadS [UntagInstanceProfileResponse]
 $creadList :: ReadS [UntagInstanceProfileResponse]
 readsPrec :: Int -&gt; ReadS UntagInstanceProfileResponse
 $creadsPrec :: Int -&gt; ReadS UntagInstanceProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461778"><span id="local-6989586621679461780"><span id="local-6989586621679461782"><span class="annot"><span class="annottext">Int -&gt; UntagInstanceProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461787"><span id="local-6989586621679461789"><span id="local-6989586621679461791"><span class="annot"><span class="annottext">Int -&gt; UntagInstanceProfileResponse -&gt; ShowS
 [UntagInstanceProfileResponse] -&gt; ShowS
 UntagInstanceProfileResponse -&gt; String
 (Int -&gt; UntagInstanceProfileResponse -&gt; ShowS)
@@ -382,5 +382,5 @@ UntagInstanceProfileResponse -&gt; Rep UntagInstanceProfileResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">UntagInstanceProfileResponse
 </span><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse%27"><span class="hs-identifier hs-var">UntagInstanceProfileResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461774"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier hs-type">UntagInstanceProfileResponse</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.UntagInstanceProfile.html#UntagInstanceProfileResponse"><span class="hs-identifier hs-type">UntagInstanceProfileResponse</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

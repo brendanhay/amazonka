@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteThreatIntelSet' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679311603"><span id="local-6989586621679311604"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteThreatIntelSet"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-var">DeleteThreatIntelSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteThreatIntelSet%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-var">DeleteThreatIntelSet'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679311612"><span id="local-6989586621679311613"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteThreatIntelSet"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-var">DeleteThreatIntelSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteThreatIntelSet%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-var">DeleteThreatIntelSet'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector that the threatIntelSet is associated</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- with.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdetectorId%3ADeleteThreatIntelSet%27"><span class="annot"><span class="annottext">DeleteThreatIntelSet -&gt; Text
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AthreatIntelSetId%3ADeleteThreatIntelSet%27"><span class="annot"><span class="annottext">DeleteThreatIntelSet -&gt; Text
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#%24sel%3AthreatIntelSetId%3ADeleteThreatIntelSet%27"><span class="hs-identifier hs-var hs-var">threatIntelSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311596"><span id="local-6989586621679311598"><span class="annot"><span class="annottext">DeleteThreatIntelSet -&gt; DeleteThreatIntelSet -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311605"><span id="local-6989586621679311607"><span class="annot"><span class="annottext">DeleteThreatIntelSet -&gt; DeleteThreatIntelSet -&gt; Bool
 (DeleteThreatIntelSet -&gt; DeleteThreatIntelSet -&gt; Bool)
 -&gt; (DeleteThreatIntelSet -&gt; DeleteThreatIntelSet -&gt; Bool)
 -&gt; Eq DeleteThreatIntelSet
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteThreatIntelSet -&gt; DeleteThreatIntelSet -&gt; Bool
 == :: DeleteThreatIntelSet -&gt; DeleteThreatIntelSet -&gt; Bool
 $c== :: DeleteThreatIntelSet -&gt; DeleteThreatIntelSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311587"><span id="local-6989586621679311589"><span id="local-6989586621679311591"><span id="local-6989586621679311593"><span class="annot"><span class="annottext">ReadPrec [DeleteThreatIntelSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311596"><span id="local-6989586621679311598"><span id="local-6989586621679311600"><span id="local-6989586621679311602"><span class="annot"><span class="annottext">ReadPrec [DeleteThreatIntelSet]
 ReadPrec DeleteThreatIntelSet
 Int -&gt; ReadS DeleteThreatIntelSet
 ReadS [DeleteThreatIntelSet]
@@ -85,7 +85,7 @@ readList :: ReadS [DeleteThreatIntelSet]
 $creadList :: ReadS [DeleteThreatIntelSet]
 readsPrec :: Int -&gt; ReadS DeleteThreatIntelSet
 $creadsPrec :: Int -&gt; ReadS DeleteThreatIntelSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311580"><span id="local-6989586621679311582"><span id="local-6989586621679311584"><span class="annot"><span class="annottext">Int -&gt; DeleteThreatIntelSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311589"><span id="local-6989586621679311591"><span id="local-6989586621679311593"><span class="annot"><span class="annottext">Int -&gt; DeleteThreatIntelSet -&gt; ShowS
 [DeleteThreatIntelSet] -&gt; ShowS
 DeleteThreatIntelSet -&gt; String
 (Int -&gt; DeleteThreatIntelSet -&gt; ShowS)
@@ -131,18 +131,18 @@ $cfrom :: forall x. DeleteThreatIntelSet -&gt; Rep DeleteThreatIntelSet x
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span>
 </span><span id="line-77"></span><span id="newDeleteThreatIntelSet"><span class="annot"><span class="annottext">newDeleteThreatIntelSet :: Text -&gt; Text -&gt; DeleteThreatIntelSet
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#newDeleteThreatIntelSet"><span class="hs-identifier hs-var hs-var">newDeleteThreatIntelSet</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679311575"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311575"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679311574"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311574"><span class="hs-identifier hs-var">pThreatIntelSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679311584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311584"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679311583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311583"><span class="hs-identifier hs-var">pThreatIntelSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">DeleteThreatIntelSet' :: Text -&gt; Text -&gt; DeleteThreatIntelSet
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:DeleteThreatIntelSet' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#%24sel%3AdetectorId%3ADeleteThreatIntelSet%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311575"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311584"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:threatIntelSetId:DeleteThreatIntelSet' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#%24sel%3AthreatIntelSetId%3ADeleteThreatIntelSet%27"><span class="hs-identifier hs-var">threatIntelSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311574"><span class="hs-identifier hs-var">pThreatIntelSetId_</span></a></span><span>
+</span><a href="#local-6989586621679311583"><span class="hs-identifier hs-var">pThreatIntelSetId_</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The unique ID of the detector that the threatIntelSet is associated</span><span>
@@ -153,16 +153,16 @@ $cfrom :: forall x. DeleteThreatIntelSet -&gt; Rep DeleteThreatIntelSet x
 -&gt; (DeleteThreatIntelSet -&gt; Text -&gt; DeleteThreatIntelSet)
 -&gt; Lens DeleteThreatIntelSet DeleteThreatIntelSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311571"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311580"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:DeleteThreatIntelSet' :: DeleteThreatIntelSet -&gt; Text
-</span><a href="#local-6989586621679311571"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311571"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311570"><span class="annot"><span class="annottext">s :: DeleteThreatIntelSet
-</span><a href="#local-6989586621679311570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311569"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThreatIntelSet
-</span><a href="#local-6989586621679311570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:DeleteThreatIntelSet' :: Text
+</span><a href="#local-6989586621679311580"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311580"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311579"><span class="annot"><span class="annottext">s :: DeleteThreatIntelSet
+</span><a href="#local-6989586621679311579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThreatIntelSet
+</span><a href="#local-6989586621679311579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:DeleteThreatIntelSet' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#%24sel%3AdetectorId%3ADeleteThreatIntelSet%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The unique ID of the threatIntelSet that you want to delete.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#deleteThreatIntelSet_threatIntelSetId"><span class="hs-identifier hs-type">deleteThreatIntelSet_threatIntelSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -171,27 +171,27 @@ $sel:detectorId:DeleteThreatIntelSet' :: DeleteThreatIntelSet -&gt; Text
 -&gt; (DeleteThreatIntelSet -&gt; Text -&gt; DeleteThreatIntelSet)
 -&gt; Lens DeleteThreatIntelSet DeleteThreatIntelSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311568"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311577"><span class="annot"><span class="annottext">Text
 threatIntelSetId :: Text
 $sel:threatIntelSetId:DeleteThreatIntelSet' :: DeleteThreatIntelSet -&gt; Text
-</span><a href="#local-6989586621679311568"><span class="hs-identifier hs-var hs-var">threatIntelSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311568"><span class="hs-identifier hs-var">threatIntelSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311567"><span class="annot"><span class="annottext">s :: DeleteThreatIntelSet
-</span><a href="#local-6989586621679311567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311566"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThreatIntelSet
-</span><a href="#local-6989586621679311567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatIntelSetId:DeleteThreatIntelSet' :: Text
+</span><a href="#local-6989586621679311577"><span class="hs-identifier hs-var hs-var">threatIntelSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311577"><span class="hs-identifier hs-var">threatIntelSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311576"><span class="annot"><span class="annottext">s :: DeleteThreatIntelSet
+</span><a href="#local-6989586621679311576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311575"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThreatIntelSet
+</span><a href="#local-6989586621679311576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatIntelSetId:DeleteThreatIntelSet' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#%24sel%3AthreatIntelSetId%3ADeleteThreatIntelSet%27"><span class="hs-identifier hs-var">threatIntelSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679311562"><span class="annot"><span class="annottext">request :: DeleteThreatIntelSet -&gt; Request DeleteThreatIntelSet
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679311571"><span class="annot"><span class="annottext">request :: DeleteThreatIntelSet -&gt; Request DeleteThreatIntelSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteThreatIntelSet -&gt; Request DeleteThreatIntelSet
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679311558"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679311567"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteThreatIntelSet
 -&gt; ClientResponse ClientBody
@@ -217,10 +217,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311555"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311555"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311554"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311554"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311553"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679311553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311564"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311564"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311563"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311563"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311562"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679311562"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteThreatIntelSetResponse
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-var">DeleteThreatIntelSetResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteThreatIntelSetResponse)
@@ -231,15 +231,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311555"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311564"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311546"><span id="local-6989586621679311548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311555"><span id="local-6989586621679311557"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311552"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679311539"><span class="annot"><span class="annottext">toHeaders :: DeleteThreatIntelSet -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679311548"><span class="annot"><span class="annottext">toHeaders :: DeleteThreatIntelSet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteThreatIntelSet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -259,13 +259,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679311533"><span class="annot"><span class="annottext">toPath :: DeleteThreatIntelSet -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311530"><span id="local-6989586621679311531"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679311542"><span class="annot"><span class="annottext">toPath :: DeleteThreatIntelSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet%27"><span class="hs-identifier hs-type">DeleteThreatIntelSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311539"><span id="local-6989586621679311540"><span class="annot"><span class="annottext">Text
 threatIntelSetId :: Text
 detectorId :: Text
 $sel:threatIntelSetId:DeleteThreatIntelSet' :: DeleteThreatIntelSet -&gt; Text
 $sel:detectorId:DeleteThreatIntelSet' :: DeleteThreatIntelSet -&gt; Text
-</span><a href="#local-6989586621679311530"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311539"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -274,17 +274,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311531"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311540"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/threatintelset/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311530"><span class="hs-identifier hs-var">threatIntelSetId</span></a></span><span>
+</span><a href="#local-6989586621679311539"><span class="hs-identifier hs-var">threatIntelSetId</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSet"><span class="hs-identifier hs-type">DeleteThreatIntelSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679311526"><span class="annot"><span class="annottext">toQuery :: DeleteThreatIntelSet -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679311535"><span class="annot"><span class="annottext">toQuery :: DeleteThreatIntelSet -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteThreatIntelSet -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -292,12 +292,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newDeleteThreatIntelSetResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679311523"><span id="local-6989586621679311524"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteThreatIntelSetResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse"><span class="hs-identifier hs-var">DeleteThreatIntelSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteThreatIntelSetResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-var">DeleteThreatIntelSetResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679311532"><span id="local-6989586621679311533"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteThreatIntelSetResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse"><span class="hs-identifier hs-var">DeleteThreatIntelSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteThreatIntelSetResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-var">DeleteThreatIntelSetResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteThreatIntelSetResponse%27"><span class="annot"><span class="annottext">DeleteThreatIntelSetResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#%24sel%3AhttpStatus%3ADeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311518"><span id="local-6989586621679311520"><span class="annot"><span class="annottext">DeleteThreatIntelSetResponse
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311527"><span id="local-6989586621679311529"><span class="annot"><span class="annottext">DeleteThreatIntelSetResponse
 -&gt; DeleteThreatIntelSetResponse -&gt; Bool
 (DeleteThreatIntelSetResponse
  -&gt; DeleteThreatIntelSetResponse -&gt; Bool)
@@ -313,7 +313,7 @@ $c/= :: DeleteThreatIntelSetResponse
 -&gt; DeleteThreatIntelSetResponse -&gt; Bool
 $c== :: DeleteThreatIntelSetResponse
 -&gt; DeleteThreatIntelSetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311510"><span id="local-6989586621679311512"><span id="local-6989586621679311514"><span id="local-6989586621679311516"><span class="annot"><span class="annottext">ReadPrec [DeleteThreatIntelSetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311519"><span id="local-6989586621679311521"><span id="local-6989586621679311523"><span id="local-6989586621679311525"><span class="annot"><span class="annottext">ReadPrec [DeleteThreatIntelSetResponse]
 ReadPrec DeleteThreatIntelSetResponse
 Int -&gt; ReadS DeleteThreatIntelSetResponse
 ReadS [DeleteThreatIntelSetResponse]
@@ -333,7 +333,7 @@ readList :: ReadS [DeleteThreatIntelSetResponse]
 $creadList :: ReadS [DeleteThreatIntelSetResponse]
 readsPrec :: Int -&gt; ReadS DeleteThreatIntelSetResponse
 $creadsPrec :: Int -&gt; ReadS DeleteThreatIntelSetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311504"><span id="local-6989586621679311506"><span id="local-6989586621679311508"><span class="annot"><span class="annottext">Int -&gt; DeleteThreatIntelSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311513"><span id="local-6989586621679311515"><span id="local-6989586621679311517"><span class="annot"><span class="annottext">Int -&gt; DeleteThreatIntelSetResponse -&gt; ShowS
 [DeleteThreatIntelSetResponse] -&gt; ShowS
 DeleteThreatIntelSetResponse -&gt; String
 (Int -&gt; DeleteThreatIntelSetResponse -&gt; ShowS)
@@ -379,14 +379,14 @@ DeleteThreatIntelSetResponse -&gt; Rep DeleteThreatIntelSetResponse x
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse</span></a></span><span>
 </span><span id="line-153"></span><span id="newDeleteThreatIntelSetResponse"><span class="annot"><span class="annottext">newDeleteThreatIntelSetResponse :: Int -&gt; DeleteThreatIntelSetResponse
-</span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#newDeleteThreatIntelSetResponse"><span class="hs-identifier hs-var hs-var">newDeleteThreatIntelSetResponse</span></a></span></span><span> </span><span id="local-6989586621679311501"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#newDeleteThreatIntelSetResponse"><span class="hs-identifier hs-var hs-var">newDeleteThreatIntelSetResponse</span></a></span></span><span> </span><span id="local-6989586621679311510"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">DeleteThreatIntelSetResponse' :: Int -&gt; DeleteThreatIntelSetResponse
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteThreatIntelSetResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#%24sel%3AhttpStatus%3ADeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679311510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -399,16 +399,16 @@ DeleteThreatIntelSetResponse -&gt; Rep DeleteThreatIntelSetResponse x
 -&gt; Lens
      DeleteThreatIntelSetResponse DeleteThreatIntelSetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311500"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311509"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteThreatIntelSetResponse' :: DeleteThreatIntelSetResponse -&gt; Int
-</span><a href="#local-6989586621679311500"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311500"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311499"><span class="annot"><span class="annottext">s :: DeleteThreatIntelSetResponse
-</span><a href="#local-6989586621679311499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311498"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThreatIntelSetResponse
-</span><a href="#local-6989586621679311499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteThreatIntelSetResponse' :: Int
+</span><a href="#local-6989586621679311509"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311509"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311508"><span class="annot"><span class="annottext">s :: DeleteThreatIntelSetResponse
+</span><a href="#local-6989586621679311508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311507"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteThreatIntelSetResponse
+</span><a href="#local-6989586621679311508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteThreatIntelSetResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#%24sel%3AhttpStatus%3ADeleteThreatIntelSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteThreatIntelSet.html#DeleteThreatIntelSetResponse"><span class="hs-identifier hs-type">DeleteThreatIntelSetResponse</span></a></span></span><span>
 </span><span id="line-164"></span></pre></body></html>

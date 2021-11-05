@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- origin.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStatusCodes' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679402957"><span id="local-6989586621679402958"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatusCodes"><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-var">StatusCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusCodes%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-var">StatusCodes'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679402966"><span id="local-6989586621679402967"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatusCodes"><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-var">StatusCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusCodes%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-var">StatusCodes'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of status codes.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aquantity%3AStatusCodes%27"><span class="annot"><span class="annottext">StatusCodes -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#%24sel%3Aquantity%3AStatusCodes%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aitems%3AStatusCodes%27"><span class="annot"><span class="annottext">StatusCodes -&gt; NonEmpty Int
 </span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#%24sel%3Aitems%3AStatusCodes%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402950"><span id="local-6989586621679402952"><span class="annot"><span class="annottext">StatusCodes -&gt; StatusCodes -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402959"><span id="local-6989586621679402961"><span class="annot"><span class="annottext">StatusCodes -&gt; StatusCodes -&gt; Bool
 (StatusCodes -&gt; StatusCodes -&gt; Bool)
 -&gt; (StatusCodes -&gt; StatusCodes -&gt; Bool) -&gt; Eq StatusCodes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StatusCodes -&gt; StatusCodes -&gt; Bool
 == :: StatusCodes -&gt; StatusCodes -&gt; Bool
 $c== :: StatusCodes -&gt; StatusCodes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402941"><span id="local-6989586621679402943"><span id="local-6989586621679402945"><span id="local-6989586621679402947"><span class="annot"><span class="annottext">ReadPrec [StatusCodes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402950"><span id="local-6989586621679402952"><span id="local-6989586621679402954"><span id="local-6989586621679402956"><span class="annot"><span class="annottext">ReadPrec [StatusCodes]
 ReadPrec StatusCodes
 Int -&gt; ReadS StatusCodes
 ReadS [StatusCodes]
@@ -64,7 +64,7 @@ readList :: ReadS [StatusCodes]
 $creadList :: ReadS [StatusCodes]
 readsPrec :: Int -&gt; ReadS StatusCodes
 $creadsPrec :: Int -&gt; ReadS StatusCodes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402934"><span id="local-6989586621679402936"><span id="local-6989586621679402938"><span class="annot"><span class="annottext">Int -&gt; StatusCodes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402943"><span id="local-6989586621679402945"><span id="local-6989586621679402947"><span class="annot"><span class="annottext">Int -&gt; StatusCodes -&gt; ShowS
 [StatusCodes] -&gt; ShowS
 StatusCodes -&gt; String
 (Int -&gt; StatusCodes -&gt; ShowS)
@@ -108,14 +108,14 @@ $cfrom :: forall x. StatusCodes -&gt; Rep StatusCodes x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span>
 </span><span id="line-56"></span><span id="newStatusCodes"><span class="annot"><span class="annottext">newStatusCodes :: Int -&gt; NonEmpty Int -&gt; StatusCodes
-</span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#newStatusCodes"><span class="hs-identifier hs-var hs-var">newStatusCodes</span></a></span></span><span> </span><span id="local-6989586621679402928"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402928"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span id="local-6989586621679402927"><span class="annot"><span class="annottext">NonEmpty Int
-</span><a href="#local-6989586621679402927"><span class="hs-identifier hs-var">pItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#newStatusCodes"><span class="hs-identifier hs-var hs-var">newStatusCodes</span></a></span></span><span> </span><span id="local-6989586621679402937"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402937"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span id="local-6989586621679402936"><span class="annot"><span class="annottext">NonEmpty Int
+</span><a href="#local-6989586621679402936"><span class="hs-identifier hs-var">pItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">StatusCodes' :: Int -&gt; NonEmpty Int -&gt; StatusCodes
 </span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:quantity:StatusCodes' :: Int
 </span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#%24sel%3Aquantity%3AStatusCodes%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402928"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402937"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:items:StatusCodes' :: NonEmpty Int
 </span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#%24sel%3Aitems%3AStatusCodes%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Int) (Identity (NonEmpty Int))
 -&gt; Tagged (NonEmpty Int) (Identity (NonEmpty Int))
@@ -125,7 +125,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Int -&gt; NonEmpty Int
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Int
-</span><a href="#local-6989586621679402927"><span class="hs-identifier hs-var">pItems_</span></a></span><span>
+</span><a href="#local-6989586621679402936"><span class="hs-identifier hs-var">pItems_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The number of status codes.</span><span>
@@ -135,16 +135,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (StatusCodes -&gt; Int -&gt; StatusCodes)
 -&gt; Lens StatusCodes StatusCodes Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402921"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402930"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:StatusCodes' :: StatusCodes -&gt; Int
-</span><a href="#local-6989586621679402921"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402921"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402920"><span class="annot"><span class="annottext">s :: StatusCodes
-</span><a href="#local-6989586621679402920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402919"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
-</span><a href="#local-6989586621679402920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:StatusCodes' :: Int
+</span><a href="#local-6989586621679402930"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402930"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402929"><span class="annot"><span class="annottext">s :: StatusCodes
+</span><a href="#local-6989586621679402929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402928"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
+</span><a href="#local-6989586621679402929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:StatusCodes' :: Int
 </span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#%24sel%3Aquantity%3AStatusCodes%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The items (status codes) for an origin group.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#statusCodes_items"><span class="hs-identifier hs-type">statusCodes_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -153,16 +153,16 @@ $sel:quantity:StatusCodes' :: StatusCodes -&gt; Int
 -&gt; (StatusCodes -&gt; NonEmpty Int -&gt; StatusCodes)
 -&gt; Lens StatusCodes StatusCodes (NonEmpty Int) (NonEmpty Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402917"><span class="annot"><span class="annottext">NonEmpty Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402926"><span class="annot"><span class="annottext">NonEmpty Int
 items :: NonEmpty Int
 $sel:items:StatusCodes' :: StatusCodes -&gt; NonEmpty Int
-</span><a href="#local-6989586621679402917"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Int
-</span><a href="#local-6989586621679402917"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402916"><span class="annot"><span class="annottext">s :: StatusCodes
-</span><a href="#local-6989586621679402916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402915"><span class="annot"><span class="annottext">NonEmpty Int
-</span><a href="#local-6989586621679402915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
-</span><a href="#local-6989586621679402916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:StatusCodes' :: NonEmpty Int
+</span><a href="#local-6989586621679402926"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Int
+</span><a href="#local-6989586621679402926"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402925"><span class="annot"><span class="annottext">s :: StatusCodes
+</span><a href="#local-6989586621679402925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402924"><span class="annot"><span class="annottext">NonEmpty Int
+</span><a href="#local-6989586621679402924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusCodes
+</span><a href="#local-6989586621679402925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:StatusCodes' :: NonEmpty Int
 </span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#%24sel%3Aitems%3AStatusCodes%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Int
-</span><a href="#local-6989586621679402915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Int -&gt; f (NonEmpty Int))
+</span><a href="#local-6989586621679402924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Int -&gt; f (NonEmpty Int))
  -&gt; StatusCodes -&gt; f StatusCodes)
 -&gt; ((NonEmpty Int -&gt; f (NonEmpty Int))
     -&gt; NonEmpty Int -&gt; f (NonEmpty Int))
@@ -176,16 +176,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679402911"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StatusCodes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402909"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402909"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679402920"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StatusCodes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402918"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402918"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">Int -&gt; NonEmpty Int -&gt; StatusCodes
 </span><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-var">StatusCodes'</span></a></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">(Int -&gt; NonEmpty Int -&gt; StatusCodes)
 -&gt; Either String Int -&gt; Either String (NonEmpty Int -&gt; StatusCodes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402909"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679402918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
@@ -193,7 +193,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (NonEmpty Int) -&gt; Either String StatusCodes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402909"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679402918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -211,19 +211,19 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String (NonEmpty a)
 </span><span class="hs-string">&quot;StatusCode&quot;</span></span><span>
 </span><span id="line-76"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402900"><span id="local-6989586621679402902"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402909"><span id="local-6989586621679402911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes"><span class="hs-identifier hs-type">StatusCodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679402893"><span class="annot"><span class="annottext">toXML :: StatusCodes -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402890"><span id="local-6989586621679402891"><span class="annot"><span class="annottext">Int
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679402902"><span class="annot"><span class="annottext">toXML :: StatusCodes -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StatusCodes.html#StatusCodes%27"><span class="hs-identifier hs-type">StatusCodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402899"><span id="local-6989586621679402900"><span class="annot"><span class="annottext">Int
 NonEmpty Int
 items :: NonEmpty Int
 quantity :: Int
 $sel:items:StatusCodes' :: StatusCodes -&gt; NonEmpty Int
 $sel:quantity:StatusCodes' :: StatusCodes -&gt; Int
-</span><a href="#local-6989586621679402890"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679402899"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -231,7 +231,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402891"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402900"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
@@ -239,6 +239,6 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;StatusCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Int
-</span><a href="#local-6989586621679402890"><span class="hs-identifier hs-var">items</span></a></span><span>
+</span><a href="#local-6989586621679402899"><span class="hs-identifier hs-var">items</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span></pre></body></html>

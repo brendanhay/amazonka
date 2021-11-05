@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679337965"><span id="local-6989586621679337966"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubscriberType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SubscriberType.html#SubscriberType"><span class="hs-identifier hs-var">SubscriberType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscriberType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SubscriberType.html#SubscriberType%27"><span class="hs-identifier hs-var">SubscriberType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679337974"><span id="local-6989586621679337975"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubscriberType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SubscriberType.html#SubscriberType"><span class="hs-identifier hs-var">SubscriberType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscriberType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SubscriberType.html#SubscriberType%27"><span class="hs-identifier hs-var">SubscriberType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSubscriberType"><span class="annot"><span class="annottext">SubscriberType -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.SubscriberType.html#fromSubscriberType"><span class="hs-identifier hs-var hs-var">fromSubscriberType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679337957"><span id="local-6989586621679337959"><span id="local-6989586621679337961"><span class="annot"><span class="annottext">Int -&gt; SubscriberType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679337966"><span id="local-6989586621679337968"><span id="local-6989586621679337970"><span class="annot"><span class="annottext">Int -&gt; SubscriberType -&gt; ShowS
 [SubscriberType] -&gt; ShowS
 SubscriberType -&gt; String
 (Int -&gt; SubscriberType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SubscriberType -&gt; String
 showsPrec :: Int -&gt; SubscriberType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SubscriberType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679337948"><span id="local-6989586621679337950"><span id="local-6989586621679337952"><span id="local-6989586621679337954"><span class="annot"><span class="annottext">ReadPrec [SubscriberType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679337957"><span id="local-6989586621679337959"><span id="local-6989586621679337961"><span id="local-6989586621679337963"><span class="annot"><span class="annottext">ReadPrec [SubscriberType]
 ReadPrec SubscriberType
 Int -&gt; ReadS SubscriberType
 ReadS [SubscriberType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SubscriberType]
 readsPrec :: Int -&gt; ReadS SubscriberType
 $creadsPrec :: Int -&gt; ReadS SubscriberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679337943"><span id="local-6989586621679337945"><span class="annot"><span class="annottext">SubscriberType -&gt; SubscriberType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679337952"><span id="local-6989586621679337954"><span class="annot"><span class="annottext">SubscriberType -&gt; SubscriberType -&gt; Bool
 (SubscriberType -&gt; SubscriberType -&gt; Bool)
 -&gt; (SubscriberType -&gt; SubscriberType -&gt; Bool) -&gt; Eq SubscriberType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: SubscriberType -&gt; SubscriberType -&gt; Bool
 == :: SubscriberType -&gt; SubscriberType -&gt; Bool
 $c== :: SubscriberType -&gt; SubscriberType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679337927"><span id="local-6989586621679337929"><span id="local-6989586621679337931"><span id="local-6989586621679337933"><span id="local-6989586621679337935"><span id="local-6989586621679337937"><span id="local-6989586621679337939"><span class="annot"><span class="annottext">Eq SubscriberType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679337936"><span id="local-6989586621679337938"><span id="local-6989586621679337940"><span id="local-6989586621679337942"><span id="local-6989586621679337944"><span id="local-6989586621679337946"><span id="local-6989586621679337948"><span class="annot"><span class="annottext">Eq SubscriberType
 Eq SubscriberType
 -&gt; (SubscriberType -&gt; SubscriberType -&gt; Ordering)
 -&gt; (SubscriberType -&gt; SubscriberType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. SubscriberType -&gt; Rep SubscriberType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679337919"><span id="local-6989586621679337921"><span class="annot"><span class="annottext">Int -&gt; SubscriberType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679337928"><span id="local-6989586621679337930"><span class="annot"><span class="annottext">Int -&gt; SubscriberType -&gt; Int
 SubscriberType -&gt; Int
 (Int -&gt; SubscriberType -&gt; Int)
 -&gt; (SubscriberType -&gt; Int) -&gt; Hashable SubscriberType
@@ -142,50 +142,50 @@ $chash :: SubscriberType -&gt; Int
 hashWithSalt :: Int -&gt; SubscriberType -&gt; Int
 $chashWithSalt :: Int -&gt; SubscriberType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679337916"><span class="annot"><span class="annottext">SubscriberType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679337925"><span class="annot"><span class="annottext">SubscriberType -&gt; ()
 (SubscriberType -&gt; ()) -&gt; NFData SubscriberType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SubscriberType -&gt; ()
 $crnf :: SubscriberType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679337913"><span class="annot"><span class="annottext">Text -&gt; Either String SubscriberType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679337922"><span class="annot"><span class="annottext">Text -&gt; Either String SubscriberType
 (Text -&gt; Either String SubscriberType) -&gt; FromText SubscriberType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SubscriberType
 $cfromText :: Text -&gt; Either String SubscriberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679337910"><span class="annot"><span class="annottext">SubscriberType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679337919"><span class="annot"><span class="annottext">SubscriberType -&gt; Text
 (SubscriberType -&gt; Text) -&gt; ToText SubscriberType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SubscriberType -&gt; Text
 $ctoText :: SubscriberType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679337907"><span class="annot"><span class="annottext">SubscriberType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679337916"><span class="annot"><span class="annottext">SubscriberType -&gt; ByteString
 (SubscriberType -&gt; ByteString) -&gt; ToByteString SubscriberType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SubscriberType -&gt; ByteString
 $ctoBS :: SubscriberType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679337904"><span class="annot"><span class="annottext">SubscriberType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679337913"><span class="annot"><span class="annottext">SubscriberType -&gt; ByteStringBuilder
 (SubscriberType -&gt; ByteStringBuilder) -&gt; ToLog SubscriberType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SubscriberType -&gt; ByteStringBuilder
 $cbuild :: SubscriberType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679337901"><span class="annot"><span class="annottext">HeaderName -&gt; SubscriberType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679337910"><span class="annot"><span class="annottext">HeaderName -&gt; SubscriberType -&gt; [Header]
 (HeaderName -&gt; SubscriberType -&gt; [Header])
 -&gt; ToHeader SubscriberType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SubscriberType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SubscriberType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679337898"><span class="annot"><span class="annottext">SubscriberType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679337907"><span class="annot"><span class="annottext">SubscriberType -&gt; QueryString
 (SubscriberType -&gt; QueryString) -&gt; ToQuery SubscriberType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SubscriberType -&gt; QueryString
 $ctoQuery :: SubscriberType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679337893"><span id="local-6989586621679337895"><span class="annot"><span class="annottext">Value -&gt; Parser [SubscriberType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679337902"><span id="local-6989586621679337904"><span class="annot"><span class="annottext">Value -&gt; Parser [SubscriberType]
 Value -&gt; Parser SubscriberType
 (Value -&gt; Parser SubscriberType)
 -&gt; (Value -&gt; Parser [SubscriberType]) -&gt; FromJSON SubscriberType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [SubscriberType]
 parseJSON :: Value -&gt; Parser SubscriberType
 $cparseJSON :: Value -&gt; Parser SubscriberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679337888"><span id="local-6989586621679337890"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubscriberType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679337897"><span id="local-6989586621679337899"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubscriberType]
 FromJSONKeyFunction SubscriberType
 FromJSONKeyFunction SubscriberType
 -&gt; FromJSONKeyFunction [SubscriberType]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SubscriberType]
 fromJSONKey :: FromJSONKeyFunction SubscriberType
 $cfromJSONKey :: FromJSONKeyFunction SubscriberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679337879"><span id="local-6989586621679337881"><span id="local-6989586621679337883"><span id="local-6989586621679337885"><span class="annot"><span class="annottext">[SubscriberType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679337888"><span id="local-6989586621679337890"><span id="local-6989586621679337892"><span id="local-6989586621679337894"><span class="annot"><span class="annottext">[SubscriberType] -&gt; Encoding
 [SubscriberType] -&gt; Value
 SubscriberType -&gt; Encoding
 SubscriberType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: SubscriberType -&gt; Encoding
 toJSON :: SubscriberType -&gt; Value
 $ctoJSON :: SubscriberType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679337874"><span id="local-6989586621679337876"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubscriberType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679337883"><span id="local-6989586621679337885"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubscriberType]
 ToJSONKeyFunction SubscriberType
 ToJSONKeyFunction SubscriberType
 -&gt; ToJSONKeyFunction [SubscriberType] -&gt; ToJSONKey SubscriberType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SubscriberType]
 toJSONKey :: ToJSONKeyFunction SubscriberType
 $ctoJSONKey :: ToJSONKeyFunction SubscriberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679337871"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubscriberType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679337880"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubscriberType
 ([Node] -&gt; Either String SubscriberType) -&gt; FromXML SubscriberType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SubscriberType
 $cparseXML :: [Node] -&gt; Either String SubscriberType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679337868"><span class="annot"><span class="annottext">SubscriberType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679337877"><span class="annot"><span class="annottext">SubscriberType -&gt; XML
 (SubscriberType -&gt; XML) -&gt; ToXML SubscriberType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SubscriberType -&gt; XML

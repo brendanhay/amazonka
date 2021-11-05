@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- | The different types of inputs that AWS Elemental MediaLive supports.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679897921"><span id="local-6989586621679897922"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputType"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputType.html#InputType"><span class="hs-identifier hs-var">InputType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputType.html#InputType%27"><span class="hs-identifier hs-var">InputType'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679897930"><span id="local-6989586621679897931"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputType"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputType.html#InputType"><span class="hs-identifier hs-var">InputType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputType.html#InputType%27"><span class="hs-identifier hs-var">InputType'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputType"><span class="annot"><span class="annottext">InputType -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.InputType.html#fromInputType"><span class="hs-identifier hs-var hs-var">fromInputType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679897913"><span id="local-6989586621679897915"><span id="local-6989586621679897917"><span class="annot"><span class="annottext">Int -&gt; InputType -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679897922"><span id="local-6989586621679897924"><span id="local-6989586621679897926"><span class="annot"><span class="annottext">Int -&gt; InputType -&gt; ShowS
 [InputType] -&gt; ShowS
 InputType -&gt; String
 (Int -&gt; InputType -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: InputType -&gt; String
 showsPrec :: Int -&gt; InputType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InputType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679897904"><span id="local-6989586621679897906"><span id="local-6989586621679897908"><span id="local-6989586621679897910"><span class="annot"><span class="annottext">ReadPrec [InputType]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679897913"><span id="local-6989586621679897915"><span id="local-6989586621679897917"><span id="local-6989586621679897919"><span class="annot"><span class="annottext">ReadPrec [InputType]
 ReadPrec InputType
 Int -&gt; ReadS InputType
 ReadS [InputType]
@@ -81,7 +81,7 @@ $creadList :: ReadS [InputType]
 readsPrec :: Int -&gt; ReadS InputType
 $creadsPrec :: Int -&gt; ReadS InputType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679897899"><span id="local-6989586621679897901"><span class="annot"><span class="annottext">InputType -&gt; InputType -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679897908"><span id="local-6989586621679897910"><span class="annot"><span class="annottext">InputType -&gt; InputType -&gt; Bool
 (InputType -&gt; InputType -&gt; Bool)
 -&gt; (InputType -&gt; InputType -&gt; Bool) -&gt; Eq InputType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ $c/= :: InputType -&gt; InputType -&gt; Bool
 == :: InputType -&gt; InputType -&gt; Bool
 $c== :: InputType -&gt; InputType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679897883"><span id="local-6989586621679897885"><span id="local-6989586621679897887"><span id="local-6989586621679897889"><span id="local-6989586621679897891"><span id="local-6989586621679897893"><span id="local-6989586621679897895"><span class="annot"><span class="annottext">Eq InputType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679897892"><span id="local-6989586621679897894"><span id="local-6989586621679897896"><span id="local-6989586621679897898"><span id="local-6989586621679897900"><span id="local-6989586621679897902"><span id="local-6989586621679897904"><span class="annot"><span class="annottext">Eq InputType
 Eq InputType
 -&gt; (InputType -&gt; InputType -&gt; Ordering)
 -&gt; (InputType -&gt; InputType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. InputType -&gt; Rep InputType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679897875"><span id="local-6989586621679897877"><span class="annot"><span class="annottext">Int -&gt; InputType -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679897884"><span id="local-6989586621679897886"><span class="annot"><span class="annottext">Int -&gt; InputType -&gt; Int
 InputType -&gt; Int
 (Int -&gt; InputType -&gt; Int)
 -&gt; (InputType -&gt; Int) -&gt; Hashable InputType
@@ -150,49 +150,49 @@ $chash :: InputType -&gt; Int
 hashWithSalt :: Int -&gt; InputType -&gt; Int
 $chashWithSalt :: Int -&gt; InputType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679897872"><span class="annot"><span class="annottext">InputType -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679897881"><span class="annot"><span class="annottext">InputType -&gt; ()
 (InputType -&gt; ()) -&gt; NFData InputType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InputType -&gt; ()
 $crnf :: InputType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679897869"><span class="annot"><span class="annottext">Text -&gt; Either String InputType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679897878"><span class="annot"><span class="annottext">Text -&gt; Either String InputType
 (Text -&gt; Either String InputType) -&gt; FromText InputType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InputType
 $cfromText :: Text -&gt; Either String InputType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679897866"><span class="annot"><span class="annottext">InputType -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679897875"><span class="annot"><span class="annottext">InputType -&gt; Text
 (InputType -&gt; Text) -&gt; ToText InputType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InputType -&gt; Text
 $ctoText :: InputType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679897863"><span class="annot"><span class="annottext">InputType -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679897872"><span class="annot"><span class="annottext">InputType -&gt; ByteString
 (InputType -&gt; ByteString) -&gt; ToByteString InputType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InputType -&gt; ByteString
 $ctoBS :: InputType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679897860"><span class="annot"><span class="annottext">InputType -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679897869"><span class="annot"><span class="annottext">InputType -&gt; ByteStringBuilder
 (InputType -&gt; ByteStringBuilder) -&gt; ToLog InputType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InputType -&gt; ByteStringBuilder
 $cbuild :: InputType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679897857"><span class="annot"><span class="annottext">HeaderName -&gt; InputType -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679897866"><span class="annot"><span class="annottext">HeaderName -&gt; InputType -&gt; [Header]
 (HeaderName -&gt; InputType -&gt; [Header]) -&gt; ToHeader InputType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InputType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InputType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679897854"><span class="annot"><span class="annottext">InputType -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679897863"><span class="annot"><span class="annottext">InputType -&gt; QueryString
 (InputType -&gt; QueryString) -&gt; ToQuery InputType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InputType -&gt; QueryString
 $ctoQuery :: InputType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679897849"><span id="local-6989586621679897851"><span class="annot"><span class="annottext">Value -&gt; Parser [InputType]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679897858"><span id="local-6989586621679897860"><span class="annot"><span class="annottext">Value -&gt; Parser [InputType]
 Value -&gt; Parser InputType
 (Value -&gt; Parser InputType)
 -&gt; (Value -&gt; Parser [InputType]) -&gt; FromJSON InputType
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [InputType]
 parseJSON :: Value -&gt; Parser InputType
 $cparseJSON :: Value -&gt; Parser InputType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679897844"><span id="local-6989586621679897846"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679897853"><span id="local-6989586621679897855"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputType]
 FromJSONKeyFunction InputType
 FromJSONKeyFunction InputType
 -&gt; FromJSONKeyFunction [InputType] -&gt; FromJSONKey InputType
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InputType]
 fromJSONKey :: FromJSONKeyFunction InputType
 $cfromJSONKey :: FromJSONKeyFunction InputType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679897835"><span id="local-6989586621679897837"><span id="local-6989586621679897839"><span id="local-6989586621679897841"><span class="annot"><span class="annottext">[InputType] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679897844"><span id="local-6989586621679897846"><span id="local-6989586621679897848"><span id="local-6989586621679897850"><span class="annot"><span class="annottext">[InputType] -&gt; Encoding
 [InputType] -&gt; Value
 InputType -&gt; Encoding
 InputType -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: InputType -&gt; Encoding
 toJSON :: InputType -&gt; Value
 $ctoJSON :: InputType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679897830"><span id="local-6989586621679897832"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputType]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679897839"><span id="local-6989586621679897841"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputType]
 ToJSONKeyFunction InputType
 ToJSONKeyFunction InputType
 -&gt; ToJSONKeyFunction [InputType] -&gt; ToJSONKey InputType
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InputType]
 toJSONKey :: ToJSONKeyFunction InputType
 $ctoJSONKey :: ToJSONKeyFunction InputType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679897827"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputType
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679897836"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputType
 ([Node] -&gt; Either String InputType) -&gt; FromXML InputType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InputType
 $cparseXML :: [Node] -&gt; Either String InputType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679897824"><span class="annot"><span class="annottext">InputType -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679897833"><span class="annot"><span class="annottext">InputType -&gt; XML
 (InputType -&gt; XML) -&gt; ToXML InputType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InputType -&gt; XML

@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.GetControl</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a control from Audit Manager.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.GetControl</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier">GetControl</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#newGetControl"><span class="hs-identifier">newGetControl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#getControl_controlId"><span class="hs-identifier">getControl_controlId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse"><span class="hs-identifier">GetControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#newGetControlResponse"><span class="hs-identifier">newGetControlResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#getControlResponse_control"><span class="hs-identifier">getControlResponse_control</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#getControlResponse_httpStatus"><span class="hs-identifier">getControlResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.html"><span class="hs-identifier">Network.AWS.AuditManager.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetControl' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679303023"><span id="local-6989586621679303024"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetControl"><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-var">GetControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetControl%27"><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl%27"><span class="hs-identifier hs-var">GetControl'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the specified control.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcontrolId%3AGetControl%27"><span class="annot"><span class="annottext">GetControl -&gt; Text
+</span><a href="Network.AWS.AuditManager.GetControl.html#%24sel%3AcontrolId%3AGetControl%27"><span class="hs-identifier hs-var hs-var">controlId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303017"><span id="local-6989586621679303019"><span class="annot"><span class="annottext">GetControl -&gt; GetControl -&gt; Bool
+(GetControl -&gt; GetControl -&gt; Bool)
+-&gt; (GetControl -&gt; GetControl -&gt; Bool) -&gt; Eq GetControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetControl -&gt; GetControl -&gt; Bool
+$c/= :: GetControl -&gt; GetControl -&gt; Bool
+== :: GetControl -&gt; GetControl -&gt; Bool
+$c== :: GetControl -&gt; GetControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303008"><span id="local-6989586621679303010"><span id="local-6989586621679303012"><span id="local-6989586621679303014"><span class="annot"><span class="annottext">ReadPrec [GetControl]
+ReadPrec GetControl
+Int -&gt; ReadS GetControl
+ReadS [GetControl]
+(Int -&gt; ReadS GetControl)
+-&gt; ReadS [GetControl]
+-&gt; ReadPrec GetControl
+-&gt; ReadPrec [GetControl]
+-&gt; Read GetControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetControl]
+$creadListPrec :: ReadPrec [GetControl]
+readPrec :: ReadPrec GetControl
+$creadPrec :: ReadPrec GetControl
+readList :: ReadS [GetControl]
+$creadList :: ReadS [GetControl]
+readsPrec :: Int -&gt; ReadS GetControl
+$creadsPrec :: Int -&gt; ReadS GetControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303001"><span id="local-6989586621679303003"><span id="local-6989586621679303005"><span class="annot"><span class="annottext">Int -&gt; GetControl -&gt; ShowS
+[GetControl] -&gt; ShowS
+GetControl -&gt; String
+(Int -&gt; GetControl -&gt; ShowS)
+-&gt; (GetControl -&gt; String)
+-&gt; ([GetControl] -&gt; ShowS)
+-&gt; Show GetControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetControl] -&gt; ShowS
+$cshowList :: [GetControl] -&gt; ShowS
+show :: GetControl -&gt; String
+$cshow :: GetControl -&gt; String
+showsPrec :: Int -&gt; GetControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetControl -&gt; Rep GetControl x)
+-&gt; (forall x. Rep GetControl x -&gt; GetControl) -&gt; Generic GetControl
+forall x. Rep GetControl x -&gt; GetControl
+forall x. GetControl -&gt; Rep GetControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetControl x -&gt; GetControl
+$cfrom :: forall x. GetControl -&gt; Rep GetControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetControl' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'controlId', 'getControl_controlId' - The identifier for the specified control.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#newGetControl"><span class="hs-identifier hs-type">newGetControl</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'controlId'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetControl"><span class="annot"><span class="annottext">newGetControl :: Text -&gt; GetControl
+</span><a href="Network.AWS.AuditManager.GetControl.html#newGetControl"><span class="hs-identifier hs-var hs-var">newGetControl</span></a></span></span><span> </span><span id="local-6989586621679302996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">pControlId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetControl' :: Text -&gt; GetControl
+</span><a href="Network.AWS.AuditManager.GetControl.html#GetControl%27"><span class="hs-identifier hs-type">GetControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlId:GetControl' :: Text
+</span><a href="Network.AWS.AuditManager.GetControl.html#%24sel%3AcontrolId%3AGetControl%27"><span class="hs-identifier hs-var">controlId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302996"><span class="hs-identifier hs-var">pControlId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The identifier for the specified control.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#getControl_controlId"><span class="hs-identifier hs-type">getControl_controlId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="getControl_controlId"><span class="annot"><span class="annottext">getControl_controlId :: (Text -&gt; f Text) -&gt; GetControl -&gt; f GetControl
+</span><a href="Network.AWS.AuditManager.GetControl.html#getControl_controlId"><span class="hs-identifier hs-var hs-var">getControl_controlId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetControl -&gt; Text)
+-&gt; (GetControl -&gt; Text -&gt; GetControl)
+-&gt; Lens GetControl GetControl Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl%27"><span class="hs-identifier hs-type">GetControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302993"><span class="annot"><span class="annottext">Text
+controlId :: Text
+$sel:controlId:GetControl' :: GetControl -&gt; Text
+</span><a href="#local-6989586621679302993"><span class="hs-identifier hs-var hs-var">controlId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302993"><span class="hs-identifier hs-var">controlId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302992"><span class="annot"><span class="annottext">s :: GetControl
+</span><a href="#local-6989586621679302992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl%27"><span class="hs-identifier hs-type">GetControl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302991"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetControl
+</span><a href="#local-6989586621679302992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:controlId:GetControl' :: Text
+</span><a href="Network.AWS.AuditManager.GetControl.html#%24sel%3AcontrolId%3AGetControl%27"><span class="hs-identifier hs-var">controlId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse"><span class="hs-identifier hs-type">GetControlResponse</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679302987"><span class="annot"><span class="annottext">request :: GetControl -&gt; Request GetControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetControl -&gt; Request GetControl
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679302983"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetControl)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetControl))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetControl
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetControl)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302980"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302980"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302979"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302979"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302978"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302978"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Control -&gt; Int -&gt; GetControlResponse
+</span><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse%27"><span class="hs-identifier hs-var">GetControlResponse'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Control -&gt; Int -&gt; GetControlResponse)
+-&gt; Either String (Maybe Control)
+-&gt; Either String (Int -&gt; GetControlResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Control)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;control&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetControlResponse)
+-&gt; Either String Int -&gt; Either String GetControlResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302980"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302970"><span id="local-6989586621679302972"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679302963"><span class="annot"><span class="annottext">toHeaders :: GetControl -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetControl -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679302957"><span class="annot"><span class="annottext">toPath :: GetControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl%27"><span class="hs-identifier hs-type">GetControl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302955"><span class="annot"><span class="annottext">Text
+controlId :: Text
+$sel:controlId:GetControl' :: GetControl -&gt; Text
+</span><a href="#local-6989586621679302955"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/controls/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302955"><span class="hs-identifier hs-var">controlId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControl"><span class="hs-identifier hs-type">GetControl</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679302951"><span class="annot"><span class="annottext">toQuery :: GetControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetControl -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newGetControlResponse' smart constructor.</span><span>
+</span><span id="line-110"></span><span id="local-6989586621679302948"><span id="local-6989586621679302949"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetControlResponse"><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse"><span class="hs-identifier hs-var">GetControlResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetControlResponse%27"><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse%27"><span class="hs-identifier hs-var">GetControlResponse'</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the control returned by the @GetControl@ API.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3Acontrol%3AGetControlResponse%27"><span class="annot"><span class="annottext">GetControlResponse -&gt; Maybe Control
+</span><a href="Network.AWS.AuditManager.GetControl.html#%24sel%3Acontrol%3AGetControlResponse%27"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Control.html#Control"><span class="hs-identifier hs-type">Control</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetControlResponse%27"><span class="annot"><span class="annottext">GetControlResponse -&gt; Int
+</span><a href="Network.AWS.AuditManager.GetControl.html#%24sel%3AhttpStatus%3AGetControlResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302942"><span id="local-6989586621679302944"><span class="annot"><span class="annottext">GetControlResponse -&gt; GetControlResponse -&gt; Bool
+(GetControlResponse -&gt; GetControlResponse -&gt; Bool)
+-&gt; (GetControlResponse -&gt; GetControlResponse -&gt; Bool)
+-&gt; Eq GetControlResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetControlResponse -&gt; GetControlResponse -&gt; Bool
+$c/= :: GetControlResponse -&gt; GetControlResponse -&gt; Bool
+== :: GetControlResponse -&gt; GetControlResponse -&gt; Bool
+$c== :: GetControlResponse -&gt; GetControlResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302934"><span id="local-6989586621679302936"><span id="local-6989586621679302938"><span id="local-6989586621679302940"><span class="annot"><span class="annottext">ReadPrec [GetControlResponse]
+ReadPrec GetControlResponse
+Int -&gt; ReadS GetControlResponse
+ReadS [GetControlResponse]
+(Int -&gt; ReadS GetControlResponse)
+-&gt; ReadS [GetControlResponse]
+-&gt; ReadPrec GetControlResponse
+-&gt; ReadPrec [GetControlResponse]
+-&gt; Read GetControlResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetControlResponse]
+$creadListPrec :: ReadPrec [GetControlResponse]
+readPrec :: ReadPrec GetControlResponse
+$creadPrec :: ReadPrec GetControlResponse
+readList :: ReadS [GetControlResponse]
+$creadList :: ReadS [GetControlResponse]
+readsPrec :: Int -&gt; ReadS GetControlResponse
+$creadsPrec :: Int -&gt; ReadS GetControlResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302928"><span id="local-6989586621679302930"><span id="local-6989586621679302932"><span class="annot"><span class="annottext">Int -&gt; GetControlResponse -&gt; ShowS
+[GetControlResponse] -&gt; ShowS
+GetControlResponse -&gt; String
+(Int -&gt; GetControlResponse -&gt; ShowS)
+-&gt; (GetControlResponse -&gt; String)
+-&gt; ([GetControlResponse] -&gt; ShowS)
+-&gt; Show GetControlResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetControlResponse] -&gt; ShowS
+$cshowList :: [GetControlResponse] -&gt; ShowS
+show :: GetControlResponse -&gt; String
+$cshow :: GetControlResponse -&gt; String
+showsPrec :: Int -&gt; GetControlResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetControlResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetControlResponse -&gt; Rep GetControlResponse x)
+-&gt; (forall x. Rep GetControlResponse x -&gt; GetControlResponse)
+-&gt; Generic GetControlResponse
+forall x. Rep GetControlResponse x -&gt; GetControlResponse
+forall x. GetControlResponse -&gt; Rep GetControlResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetControlResponse x -&gt; GetControlResponse
+$cfrom :: forall x. GetControlResponse -&gt; Rep GetControlResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'GetControlResponse' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'control', 'getControlResponse_control' - The name of the control returned by the @GetControl@ API.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'httpStatus', 'getControlResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#newGetControlResponse"><span class="hs-identifier hs-type">newGetControlResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse"><span class="hs-identifier hs-type">GetControlResponse</span></a></span><span>
+</span><span id="line-133"></span><span id="newGetControlResponse"><span class="annot"><span class="annottext">newGetControlResponse :: Int -&gt; GetControlResponse
+</span><a href="Network.AWS.AuditManager.GetControl.html#newGetControlResponse"><span class="hs-identifier hs-var hs-var">newGetControlResponse</span></a></span></span><span> </span><span id="local-6989586621679302925"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302925"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">GetControlResponse' :: Maybe Control -&gt; Int -&gt; GetControlResponse
+</span><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse%27"><span class="hs-identifier hs-type">GetControlResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:control:GetControlResponse' :: Maybe Control
+</span><a href="Network.AWS.AuditManager.GetControl.html#%24sel%3Acontrol%3AGetControlResponse%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Control
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetControlResponse' :: Int
+</span><a href="Network.AWS.AuditManager.GetControl.html#%24sel%3AhttpStatus%3AGetControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302925"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The name of the control returned by the @GetControl@ API.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#getControlResponse_control"><span class="hs-identifier hs-type">getControlResponse_control</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse"><span class="hs-identifier hs-type">GetControlResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.Control.html#Control"><span class="hs-identifier hs-type">Control</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="getControlResponse_control"><span class="annot"><span class="annottext">getControlResponse_control :: (Maybe Control -&gt; f (Maybe Control))
+-&gt; GetControlResponse -&gt; f GetControlResponse
+</span><a href="Network.AWS.AuditManager.GetControl.html#getControlResponse_control"><span class="hs-identifier hs-var hs-var">getControlResponse_control</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetControlResponse -&gt; Maybe Control)
+-&gt; (GetControlResponse -&gt; Maybe Control -&gt; GetControlResponse)
+-&gt; Lens
+     GetControlResponse
+     GetControlResponse
+     (Maybe Control)
+     (Maybe Control)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse%27"><span class="hs-identifier hs-type">GetControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302924"><span class="annot"><span class="annottext">Maybe Control
+control :: Maybe Control
+$sel:control:GetControlResponse' :: GetControlResponse -&gt; Maybe Control
+</span><a href="#local-6989586621679302924"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Control
+</span><a href="#local-6989586621679302924"><span class="hs-identifier hs-var">control</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302923"><span class="annot"><span class="annottext">s :: GetControlResponse
+</span><a href="#local-6989586621679302923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse%27"><span class="hs-identifier hs-type">GetControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302922"><span class="annot"><span class="annottext">Maybe Control
+</span><a href="#local-6989586621679302922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetControlResponse
+</span><a href="#local-6989586621679302923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:control:GetControlResponse' :: Maybe Control
+</span><a href="Network.AWS.AuditManager.GetControl.html#%24sel%3Acontrol%3AGetControlResponse%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Control
+</span><a href="#local-6989586621679302922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse"><span class="hs-identifier hs-type">GetControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#getControlResponse_httpStatus"><span class="hs-identifier hs-type">getControlResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse"><span class="hs-identifier hs-type">GetControlResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span id="getControlResponse_httpStatus"><span class="annot"><span class="annottext">getControlResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetControlResponse -&gt; f GetControlResponse
+</span><a href="Network.AWS.AuditManager.GetControl.html#getControlResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getControlResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetControlResponse -&gt; Int)
+-&gt; (GetControlResponse -&gt; Int -&gt; GetControlResponse)
+-&gt; Lens GetControlResponse GetControlResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse%27"><span class="hs-identifier hs-type">GetControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302921"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetControlResponse' :: GetControlResponse -&gt; Int
+</span><a href="#local-6989586621679302921"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302921"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302920"><span class="annot"><span class="annottext">s :: GetControlResponse
+</span><a href="#local-6989586621679302920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse%27"><span class="hs-identifier hs-type">GetControlResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302919"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetControlResponse
+</span><a href="#local-6989586621679302920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetControlResponse' :: Int
+</span><a href="Network.AWS.AuditManager.GetControl.html#%24sel%3AhttpStatus%3AGetControlResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse"><span class="hs-identifier hs-type">GetControlResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.GetControl.html#GetControlResponse"><span class="hs-identifier hs-type">GetControlResponse</span></a></span></span><span>
+</span><span id="line-148"></span></pre></body></html>

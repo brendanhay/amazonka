@@ -1,0 +1,754 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AppRunner.DescribeCustomDomains</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Return a description of custom domain names that are associated with an</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- App Runner service.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppRunner.DescribeCustomDomains</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier">DescribeCustomDomains</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#newDescribeCustomDomains"><span class="hs-identifier">newDescribeCustomDomains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomains_nextToken"><span class="hs-identifier">describeCustomDomains_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomains_maxResults"><span class="hs-identifier">describeCustomDomains_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomains_serviceArn"><span class="hs-identifier">describeCustomDomains_serviceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier">DescribeCustomDomainsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#newDescribeCustomDomainsResponse"><span class="hs-identifier">newDescribeCustomDomainsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_nextToken"><span class="hs-identifier">describeCustomDomainsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_httpStatus"><span class="hs-identifier">describeCustomDomainsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_dNSTarget"><span class="hs-identifier">describeCustomDomainsResponse_dNSTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_serviceArn"><span class="hs-identifier">describeCustomDomainsResponse_serviceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_customDomains"><span class="hs-identifier">describeCustomDomainsResponse_customDomains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.Types.html"><span class="hs-identifier">Network.AWS.AppRunner.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeCustomDomains' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679210412"><span id="local-6989586621679210413"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCustomDomains"><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-var">DescribeCustomDomains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCustomDomains%27"><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains%27"><span class="hs-identifier hs-var">DescribeCustomDomains'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token from a previous result page. It\'s used for a paginated request.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- The request retrieves the next result page. All other parameter values</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- must be identical to the ones that are specified in the initial request.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- If you don\'t specify @NextToken@, the request retrieves the first</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- result page.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeCustomDomains%27"><span class="annot"><span class="annottext">DescribeCustomDomains -&gt; Maybe Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AnextToken%3ADescribeCustomDomains%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of results that each response (result page) can</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- include. It\'s used for a paginated request.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- If you don\'t specify @MaxResults@, the request retrieves all available</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- results in a single response.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeCustomDomains%27"><span class="annot"><span class="annottext">DescribeCustomDomains -&gt; Maybe Natural
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AmaxResults%3ADescribeCustomDomains%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the App Runner service that you want</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- associated custom domain names to be described for.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AserviceArn%3ADescribeCustomDomains%27"><span class="annot"><span class="annottext">DescribeCustomDomains -&gt; Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AserviceArn%3ADescribeCustomDomains%27"><span class="hs-identifier hs-var hs-var">serviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210404"><span id="local-6989586621679210406"><span class="annot"><span class="annottext">DescribeCustomDomains -&gt; DescribeCustomDomains -&gt; Bool
+(DescribeCustomDomains -&gt; DescribeCustomDomains -&gt; Bool)
+-&gt; (DescribeCustomDomains -&gt; DescribeCustomDomains -&gt; Bool)
+-&gt; Eq DescribeCustomDomains
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeCustomDomains -&gt; DescribeCustomDomains -&gt; Bool
+$c/= :: DescribeCustomDomains -&gt; DescribeCustomDomains -&gt; Bool
+== :: DescribeCustomDomains -&gt; DescribeCustomDomains -&gt; Bool
+$c== :: DescribeCustomDomains -&gt; DescribeCustomDomains -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210395"><span id="local-6989586621679210397"><span id="local-6989586621679210399"><span id="local-6989586621679210401"><span class="annot"><span class="annottext">ReadPrec [DescribeCustomDomains]
+ReadPrec DescribeCustomDomains
+Int -&gt; ReadS DescribeCustomDomains
+ReadS [DescribeCustomDomains]
+(Int -&gt; ReadS DescribeCustomDomains)
+-&gt; ReadS [DescribeCustomDomains]
+-&gt; ReadPrec DescribeCustomDomains
+-&gt; ReadPrec [DescribeCustomDomains]
+-&gt; Read DescribeCustomDomains
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeCustomDomains]
+$creadListPrec :: ReadPrec [DescribeCustomDomains]
+readPrec :: ReadPrec DescribeCustomDomains
+$creadPrec :: ReadPrec DescribeCustomDomains
+readList :: ReadS [DescribeCustomDomains]
+$creadList :: ReadS [DescribeCustomDomains]
+readsPrec :: Int -&gt; ReadS DescribeCustomDomains
+$creadsPrec :: Int -&gt; ReadS DescribeCustomDomains
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210388"><span id="local-6989586621679210390"><span id="local-6989586621679210392"><span class="annot"><span class="annottext">Int -&gt; DescribeCustomDomains -&gt; ShowS
+[DescribeCustomDomains] -&gt; ShowS
+DescribeCustomDomains -&gt; String
+(Int -&gt; DescribeCustomDomains -&gt; ShowS)
+-&gt; (DescribeCustomDomains -&gt; String)
+-&gt; ([DescribeCustomDomains] -&gt; ShowS)
+-&gt; Show DescribeCustomDomains
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeCustomDomains] -&gt; ShowS
+$cshowList :: [DescribeCustomDomains] -&gt; ShowS
+show :: DescribeCustomDomains -&gt; String
+$cshow :: DescribeCustomDomains -&gt; String
+showsPrec :: Int -&gt; DescribeCustomDomains -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeCustomDomains -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeCustomDomains -&gt; Rep DescribeCustomDomains x)
+-&gt; (forall x. Rep DescribeCustomDomains x -&gt; DescribeCustomDomains)
+-&gt; Generic DescribeCustomDomains
+forall x. Rep DescribeCustomDomains x -&gt; DescribeCustomDomains
+forall x. DescribeCustomDomains -&gt; Rep DescribeCustomDomains x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeCustomDomains x -&gt; DescribeCustomDomains
+$cfrom :: forall x. DescribeCustomDomains -&gt; Rep DescribeCustomDomains x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'DescribeCustomDomains' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'nextToken', 'describeCustomDomains_nextToken' - A token from a previous result page. It\'s used for a paginated request.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The request retrieves the next result page. All other parameter values</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- must be identical to the ones that are specified in the initial request.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- If you don\'t specify @NextToken@, the request retrieves the first</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- result page.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'maxResults', 'describeCustomDomains_maxResults' - The maximum number of results that each response (result page) can</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- include. It\'s used for a paginated request.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- If you don\'t specify @MaxResults@, the request retrieves all available</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- results in a single response.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'serviceArn', 'describeCustomDomains_serviceArn' - The Amazon Resource Name (ARN) of the App Runner service that you want</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- associated custom domain names to be described for.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#newDescribeCustomDomains"><span class="hs-identifier hs-type">newDescribeCustomDomains</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'serviceArn'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span>
+</span><span id="line-103"></span><span id="newDescribeCustomDomains"><span class="annot"><span class="annottext">newDescribeCustomDomains :: Text -&gt; DescribeCustomDomains
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#newDescribeCustomDomains"><span class="hs-identifier hs-var hs-var">newDescribeCustomDomains</span></a></span></span><span> </span><span id="local-6989586621679210383"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210383"><span class="hs-identifier hs-var">pServiceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">DescribeCustomDomains' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; DescribeCustomDomains
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains%27"><span class="hs-identifier hs-type">DescribeCustomDomains'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCustomDomains' :: Maybe Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AnextToken%3ADescribeCustomDomains%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeCustomDomains' :: Maybe Natural
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AmaxResults%3ADescribeCustomDomains%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceArn:DescribeCustomDomains' :: Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AserviceArn%3ADescribeCustomDomains%27"><span class="hs-identifier hs-var">serviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210383"><span class="hs-identifier hs-var">pServiceArn_</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | A token from a previous result page. It\'s used for a paginated request.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The request retrieves the next result page. All other parameter values</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- must be identical to the ones that are specified in the initial request.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- If you don\'t specify @NextToken@, the request retrieves the first</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- result page.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomains_nextToken"><span class="hs-identifier hs-type">describeCustomDomains_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="describeCustomDomains_nextToken"><span class="annot"><span class="annottext">describeCustomDomains_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeCustomDomains -&gt; f DescribeCustomDomains
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomains_nextToken"><span class="hs-identifier hs-var hs-var">describeCustomDomains_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomDomains -&gt; Maybe Text)
+-&gt; (DescribeCustomDomains -&gt; Maybe Text -&gt; DescribeCustomDomains)
+-&gt; Lens
+     DescribeCustomDomains
+     DescribeCustomDomains
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains%27"><span class="hs-identifier hs-type">DescribeCustomDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210380"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeCustomDomains' :: DescribeCustomDomains -&gt; Maybe Text
+</span><a href="#local-6989586621679210380"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210380"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210379"><span class="annot"><span class="annottext">s :: DescribeCustomDomains
+</span><a href="#local-6989586621679210379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains%27"><span class="hs-identifier hs-type">DescribeCustomDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210378"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomDomains
+</span><a href="#local-6989586621679210379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCustomDomains' :: Maybe Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AnextToken%3ADescribeCustomDomains%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The maximum number of results that each response (result page) can</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- include. It\'s used for a paginated request.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- If you don\'t specify @MaxResults@, the request retrieves all available</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- results in a single response.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomains_maxResults"><span class="hs-identifier hs-type">describeCustomDomains_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="describeCustomDomains_maxResults"><span class="annot"><span class="annottext">describeCustomDomains_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeCustomDomains -&gt; f DescribeCustomDomains
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomains_maxResults"><span class="hs-identifier hs-var hs-var">describeCustomDomains_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomDomains -&gt; Maybe Natural)
+-&gt; (DescribeCustomDomains
+    -&gt; Maybe Natural -&gt; DescribeCustomDomains)
+-&gt; Lens
+     DescribeCustomDomains
+     DescribeCustomDomains
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains%27"><span class="hs-identifier hs-type">DescribeCustomDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210377"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeCustomDomains' :: DescribeCustomDomains -&gt; Maybe Natural
+</span><a href="#local-6989586621679210377"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679210377"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210376"><span class="annot"><span class="annottext">s :: DescribeCustomDomains
+</span><a href="#local-6989586621679210376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains%27"><span class="hs-identifier hs-type">DescribeCustomDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210375"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679210375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomDomains
+</span><a href="#local-6989586621679210376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeCustomDomains' :: Maybe Natural
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AmaxResults%3ADescribeCustomDomains%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679210375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the App Runner service that you want</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- associated custom domain names to be described for.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomains_serviceArn"><span class="hs-identifier hs-type">describeCustomDomains_serviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="describeCustomDomains_serviceArn"><span class="annot"><span class="annottext">describeCustomDomains_serviceArn :: (Text -&gt; f Text)
+-&gt; DescribeCustomDomains -&gt; f DescribeCustomDomains
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomains_serviceArn"><span class="hs-identifier hs-var hs-var">describeCustomDomains_serviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomDomains -&gt; Text)
+-&gt; (DescribeCustomDomains -&gt; Text -&gt; DescribeCustomDomains)
+-&gt; Lens DescribeCustomDomains DescribeCustomDomains Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains%27"><span class="hs-identifier hs-type">DescribeCustomDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210374"><span class="annot"><span class="annottext">Text
+serviceArn :: Text
+$sel:serviceArn:DescribeCustomDomains' :: DescribeCustomDomains -&gt; Text
+</span><a href="#local-6989586621679210374"><span class="hs-identifier hs-var hs-var">serviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210374"><span class="hs-identifier hs-var">serviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210373"><span class="annot"><span class="annottext">s :: DescribeCustomDomains
+</span><a href="#local-6989586621679210373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains%27"><span class="hs-identifier hs-type">DescribeCustomDomains'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomDomains
+</span><a href="#local-6989586621679210373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceArn:DescribeCustomDomains' :: Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AserviceArn%3ADescribeCustomDomains%27"><span class="hs-identifier hs-var">serviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679210368"><span class="annot"><span class="annottext">request :: DescribeCustomDomains -&gt; Request DescribeCustomDomains
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeCustomDomains -&gt; Request DescribeCustomDomains
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AppRunner.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679210364"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeCustomDomains
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeCustomDomains)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeCustomDomains))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeCustomDomains
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeCustomDomains)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210361"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210361"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210360"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679210360"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210359"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210359"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; [CustomDomain]
+-&gt; DescribeCustomDomainsResponse
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">DescribeCustomDomainsResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; [CustomDomain]
+ -&gt; DescribeCustomDomainsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Int
+      -&gt; Text -&gt; Text -&gt; [CustomDomain] -&gt; DescribeCustomDomainsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Text -&gt; Text -&gt; [CustomDomain] -&gt; DescribeCustomDomainsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text -&gt; Text -&gt; [CustomDomain] -&gt; DescribeCustomDomainsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210361"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text -&gt; Text -&gt; [CustomDomain] -&gt; DescribeCustomDomainsResponse)
+-&gt; Either String Text
+-&gt; Either
+     String (Text -&gt; [CustomDomain] -&gt; DescribeCustomDomainsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DNSTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; [CustomDomain] -&gt; DescribeCustomDomainsResponse)
+-&gt; Either String Text
+-&gt; Either String ([CustomDomain] -&gt; DescribeCustomDomainsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String ([CustomDomain] -&gt; DescribeCustomDomainsResponse)
+-&gt; Either String [CustomDomain]
+-&gt; Either String DescribeCustomDomainsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [CustomDomain])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomDomains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [CustomDomain])
+-&gt; [CustomDomain] -&gt; Either String [CustomDomain]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[CustomDomain]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210349"><span id="local-6989586621679210351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679210342"><span class="annot"><span class="annottext">toHeaders :: DescribeCustomDomains -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeCustomDomains -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AppRunner.DescribeCustomDomains&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-163"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210332"><span id="local-6989586621679210334"><span id="local-6989586621679210336"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679210330"><span class="annot"><span class="annottext">toJSON :: DescribeCustomDomains -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains%27"><span class="hs-identifier hs-type">DescribeCustomDomains'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210326"><span id="local-6989586621679210327"><span id="local-6989586621679210328"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+serviceArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:serviceArn:DescribeCustomDomains' :: DescribeCustomDomains -&gt; Text
+$sel:maxResults:DescribeCustomDomains' :: DescribeCustomDomains -&gt; Maybe Natural
+$sel:nextToken:DescribeCustomDomains' :: DescribeCustomDomains -&gt; Maybe Text
+</span><a href="#local-6989586621679210326"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210328"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679210327"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210326"><span class="hs-identifier hs-var">serviceArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679210320"><span class="annot"><span class="annottext">toPath :: DescribeCustomDomains -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeCustomDomains -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomains"><span class="hs-identifier hs-type">DescribeCustomDomains</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679210316"><span class="annot"><span class="annottext">toQuery :: DescribeCustomDomains -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeCustomDomains -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newDescribeCustomDomainsResponse' smart constructor.</span><span>
+</span><span id="line-184"></span><span id="local-6989586621679210313"><span id="local-6989586621679210314"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCustomDomainsResponse"><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-var">DescribeCustomDomainsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCustomDomainsResponse%27"><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">DescribeCustomDomainsResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that you can pass in a subsequent request to get the next</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- result page. It\'s returned in a paginated request.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeCustomDomainsResponse%27"><span class="annot"><span class="annottext">DescribeCustomDomainsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AnextToken%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCustomDomainsResponse%27"><span class="annot"><span class="annottext">DescribeCustomDomainsResponse -&gt; Int
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AhttpStatus%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The App Runner subdomain of the App Runner service. The associated</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- custom domain names are mapped to this target name.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AdNSTarget%3ADescribeCustomDomainsResponse%27"><span class="annot"><span class="annottext">DescribeCustomDomainsResponse -&gt; Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AdNSTarget%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var hs-var">dNSTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the App Runner service whose</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- associated custom domain names you want to describe.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AserviceArn%3ADescribeCustomDomainsResponse%27"><span class="annot"><span class="annottext">DescribeCustomDomainsResponse -&gt; Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AserviceArn%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var hs-var">serviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | A list of descriptions of custom domain names that are associated with</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- the service. In a paginated request, the request returns up to</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- @MaxResults@ records per call.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AcustomDomains%3ADescribeCustomDomainsResponse%27"><span class="annot"><span class="annottext">DescribeCustomDomainsResponse -&gt; [CustomDomain]
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AcustomDomains%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var hs-var">customDomains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppRunner.Types.CustomDomain.html#CustomDomain"><span class="hs-identifier hs-type">CustomDomain</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210304"><span id="local-6989586621679210306"><span class="annot"><span class="annottext">DescribeCustomDomainsResponse
+-&gt; DescribeCustomDomainsResponse -&gt; Bool
+(DescribeCustomDomainsResponse
+ -&gt; DescribeCustomDomainsResponse -&gt; Bool)
+-&gt; (DescribeCustomDomainsResponse
+    -&gt; DescribeCustomDomainsResponse -&gt; Bool)
+-&gt; Eq DescribeCustomDomainsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeCustomDomainsResponse
+-&gt; DescribeCustomDomainsResponse -&gt; Bool
+$c/= :: DescribeCustomDomainsResponse
+-&gt; DescribeCustomDomainsResponse -&gt; Bool
+== :: DescribeCustomDomainsResponse
+-&gt; DescribeCustomDomainsResponse -&gt; Bool
+$c== :: DescribeCustomDomainsResponse
+-&gt; DescribeCustomDomainsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210296"><span id="local-6989586621679210298"><span id="local-6989586621679210300"><span id="local-6989586621679210302"><span class="annot"><span class="annottext">ReadPrec [DescribeCustomDomainsResponse]
+ReadPrec DescribeCustomDomainsResponse
+Int -&gt; ReadS DescribeCustomDomainsResponse
+ReadS [DescribeCustomDomainsResponse]
+(Int -&gt; ReadS DescribeCustomDomainsResponse)
+-&gt; ReadS [DescribeCustomDomainsResponse]
+-&gt; ReadPrec DescribeCustomDomainsResponse
+-&gt; ReadPrec [DescribeCustomDomainsResponse]
+-&gt; Read DescribeCustomDomainsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeCustomDomainsResponse]
+$creadListPrec :: ReadPrec [DescribeCustomDomainsResponse]
+readPrec :: ReadPrec DescribeCustomDomainsResponse
+$creadPrec :: ReadPrec DescribeCustomDomainsResponse
+readList :: ReadS [DescribeCustomDomainsResponse]
+$creadList :: ReadS [DescribeCustomDomainsResponse]
+readsPrec :: Int -&gt; ReadS DescribeCustomDomainsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeCustomDomainsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210290"><span id="local-6989586621679210292"><span id="local-6989586621679210294"><span class="annot"><span class="annottext">Int -&gt; DescribeCustomDomainsResponse -&gt; ShowS
+[DescribeCustomDomainsResponse] -&gt; ShowS
+DescribeCustomDomainsResponse -&gt; String
+(Int -&gt; DescribeCustomDomainsResponse -&gt; ShowS)
+-&gt; (DescribeCustomDomainsResponse -&gt; String)
+-&gt; ([DescribeCustomDomainsResponse] -&gt; ShowS)
+-&gt; Show DescribeCustomDomainsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeCustomDomainsResponse] -&gt; ShowS
+$cshowList :: [DescribeCustomDomainsResponse] -&gt; ShowS
+show :: DescribeCustomDomainsResponse -&gt; String
+$cshow :: DescribeCustomDomainsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeCustomDomainsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeCustomDomainsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeCustomDomainsResponse
+ -&gt; Rep DescribeCustomDomainsResponse x)
+-&gt; (forall x.
+    Rep DescribeCustomDomainsResponse x
+    -&gt; DescribeCustomDomainsResponse)
+-&gt; Generic DescribeCustomDomainsResponse
+forall x.
+Rep DescribeCustomDomainsResponse x
+-&gt; DescribeCustomDomainsResponse
+forall x.
+DescribeCustomDomainsResponse
+-&gt; Rep DescribeCustomDomainsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeCustomDomainsResponse x
+-&gt; DescribeCustomDomainsResponse
+$cfrom :: forall x.
+DescribeCustomDomainsResponse
+-&gt; Rep DescribeCustomDomainsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Create a value of 'DescribeCustomDomainsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'nextToken', 'describeCustomDomainsResponse_nextToken' - The token that you can pass in a subsequent request to get the next</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- result page. It\'s returned in a paginated request.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'httpStatus', 'describeCustomDomainsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'dNSTarget', 'describeCustomDomainsResponse_dNSTarget' - The App Runner subdomain of the App Runner service. The associated</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- custom domain names are mapped to this target name.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'serviceArn', 'describeCustomDomainsResponse_serviceArn' - The Amazon Resource Name (ARN) of the App Runner service whose</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- associated custom domain names you want to describe.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'customDomains', 'describeCustomDomainsResponse_customDomains' - A list of descriptions of custom domain names that are associated with</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- the service. In a paginated request, the request returns up to</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- @MaxResults@ records per call.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#newDescribeCustomDomainsResponse"><span class="hs-identifier hs-type">newDescribeCustomDomainsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-comment">-- | 'dNSTarget'</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'serviceArn'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newDescribeCustomDomainsResponse"><span class="annot"><span class="annottext">newDescribeCustomDomainsResponse :: Int -&gt; Text -&gt; Text -&gt; DescribeCustomDomainsResponse
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#newDescribeCustomDomainsResponse"><span class="hs-identifier hs-var hs-var">newDescribeCustomDomainsResponse</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679210287"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679210286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210286"><span class="hs-identifier hs-var">pDNSTarget_</span></a></span></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679210285"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210285"><span class="hs-identifier hs-var">pServiceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">DescribeCustomDomainsResponse' :: Maybe Text
+-&gt; Int
+-&gt; Text
+-&gt; Text
+-&gt; [CustomDomain]
+-&gt; DescribeCustomDomainsResponse
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCustomDomainsResponse' :: Maybe Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AnextToken%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCustomDomainsResponse' :: Int
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AhttpStatus%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">$sel:dNSTarget:DescribeCustomDomainsResponse' :: Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AdNSTarget%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">dNSTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210286"><span class="hs-identifier hs-var">pDNSTarget_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceArn:DescribeCustomDomainsResponse' :: Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AserviceArn%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">serviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210285"><span class="hs-identifier hs-var">pServiceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">$sel:customDomains:DescribeCustomDomainsResponse' :: [CustomDomain]
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AcustomDomains%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">customDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CustomDomain]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The token that you can pass in a subsequent request to get the next</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- result page. It\'s returned in a paginated request.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_nextToken"><span class="hs-identifier hs-type">describeCustomDomainsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="describeCustomDomainsResponse_nextToken"><span class="annot"><span class="annottext">describeCustomDomainsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeCustomDomainsResponse -&gt; f DescribeCustomDomainsResponse
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeCustomDomainsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomDomainsResponse -&gt; Maybe Text)
+-&gt; (DescribeCustomDomainsResponse
+    -&gt; Maybe Text -&gt; DescribeCustomDomainsResponse)
+-&gt; Lens
+     DescribeCustomDomainsResponse
+     DescribeCustomDomainsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210284"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeCustomDomainsResponse' :: DescribeCustomDomainsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679210284"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210284"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210283"><span class="annot"><span class="annottext">s :: DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210282"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCustomDomainsResponse' :: Maybe Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AnextToken%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_httpStatus"><span class="hs-identifier hs-type">describeCustomDomainsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-253"></span><span id="describeCustomDomainsResponse_httpStatus"><span class="annot"><span class="annottext">describeCustomDomainsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeCustomDomainsResponse -&gt; f DescribeCustomDomainsResponse
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeCustomDomainsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomDomainsResponse -&gt; Int)
+-&gt; (DescribeCustomDomainsResponse
+    -&gt; Int -&gt; DescribeCustomDomainsResponse)
+-&gt; Lens
+     DescribeCustomDomainsResponse DescribeCustomDomainsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210281"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeCustomDomainsResponse' :: DescribeCustomDomainsResponse -&gt; Int
+</span><a href="#local-6989586621679210281"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210281"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210280"><span class="annot"><span class="annottext">s :: DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210279"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCustomDomainsResponse' :: Int
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AhttpStatus%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The App Runner subdomain of the App Runner service. The associated</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- custom domain names are mapped to this target name.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_dNSTarget"><span class="hs-identifier hs-type">describeCustomDomainsResponse_dNSTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-258"></span><span id="describeCustomDomainsResponse_dNSTarget"><span class="annot"><span class="annottext">describeCustomDomainsResponse_dNSTarget :: (Text -&gt; f Text)
+-&gt; DescribeCustomDomainsResponse -&gt; f DescribeCustomDomainsResponse
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_dNSTarget"><span class="hs-identifier hs-var hs-var">describeCustomDomainsResponse_dNSTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomDomainsResponse -&gt; Text)
+-&gt; (DescribeCustomDomainsResponse
+    -&gt; Text -&gt; DescribeCustomDomainsResponse)
+-&gt; Lens
+     DescribeCustomDomainsResponse
+     DescribeCustomDomainsResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210278"><span class="annot"><span class="annottext">Text
+dNSTarget :: Text
+$sel:dNSTarget:DescribeCustomDomainsResponse' :: DescribeCustomDomainsResponse -&gt; Text
+</span><a href="#local-6989586621679210278"><span class="hs-identifier hs-var hs-var">dNSTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210278"><span class="hs-identifier hs-var">dNSTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210277"><span class="annot"><span class="annottext">s :: DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210276"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dNSTarget:DescribeCustomDomainsResponse' :: Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AdNSTarget%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">dNSTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the App Runner service whose</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- associated custom domain names you want to describe.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_serviceArn"><span class="hs-identifier hs-type">describeCustomDomainsResponse_serviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-263"></span><span id="describeCustomDomainsResponse_serviceArn"><span class="annot"><span class="annottext">describeCustomDomainsResponse_serviceArn :: (Text -&gt; f Text)
+-&gt; DescribeCustomDomainsResponse -&gt; f DescribeCustomDomainsResponse
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_serviceArn"><span class="hs-identifier hs-var hs-var">describeCustomDomainsResponse_serviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomDomainsResponse -&gt; Text)
+-&gt; (DescribeCustomDomainsResponse
+    -&gt; Text -&gt; DescribeCustomDomainsResponse)
+-&gt; Lens
+     DescribeCustomDomainsResponse
+     DescribeCustomDomainsResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210275"><span class="annot"><span class="annottext">Text
+serviceArn :: Text
+$sel:serviceArn:DescribeCustomDomainsResponse' :: DescribeCustomDomainsResponse -&gt; Text
+</span><a href="#local-6989586621679210275"><span class="hs-identifier hs-var hs-var">serviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210275"><span class="hs-identifier hs-var">serviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210274"><span class="annot"><span class="annottext">s :: DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210273"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceArn:DescribeCustomDomainsResponse' :: Text
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AserviceArn%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">serviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | A list of descriptions of custom domain names that are associated with</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- the service. In a paginated request, the request returns up to</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- @MaxResults@ records per call.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_customDomains"><span class="hs-identifier hs-type">describeCustomDomainsResponse_customDomains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppRunner.Types.CustomDomain.html#CustomDomain"><span class="hs-identifier hs-type">CustomDomain</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-269"></span><span id="describeCustomDomainsResponse_customDomains"><span class="annot"><span class="annottext">describeCustomDomainsResponse_customDomains :: ([CustomDomain] -&gt; f [CustomDomain])
+-&gt; DescribeCustomDomainsResponse -&gt; f DescribeCustomDomainsResponse
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#describeCustomDomainsResponse_customDomains"><span class="hs-identifier hs-var hs-var">describeCustomDomainsResponse_customDomains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCustomDomainsResponse -&gt; [CustomDomain])
+-&gt; (DescribeCustomDomainsResponse
+    -&gt; [CustomDomain] -&gt; DescribeCustomDomainsResponse)
+-&gt; Lens
+     DescribeCustomDomainsResponse
+     DescribeCustomDomainsResponse
+     [CustomDomain]
+     [CustomDomain]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210272"><span class="annot"><span class="annottext">[CustomDomain]
+customDomains :: [CustomDomain]
+$sel:customDomains:DescribeCustomDomainsResponse' :: DescribeCustomDomainsResponse -&gt; [CustomDomain]
+</span><a href="#local-6989586621679210272"><span class="hs-identifier hs-var hs-var">customDomains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CustomDomain]
+</span><a href="#local-6989586621679210272"><span class="hs-identifier hs-var">customDomains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210271"><span class="annot"><span class="annottext">s :: DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse%27"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210270"><span class="annot"><span class="annottext">[CustomDomain]
+</span><a href="#local-6989586621679210270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCustomDomainsResponse
+</span><a href="#local-6989586621679210271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customDomains:DescribeCustomDomainsResponse' :: [CustomDomain]
+</span><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#%24sel%3AcustomDomains%3ADescribeCustomDomainsResponse%27"><span class="hs-identifier hs-var">customDomains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CustomDomain]
+</span><a href="#local-6989586621679210270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CustomDomain] -&gt; f [CustomDomain])
+ -&gt; DescribeCustomDomainsResponse
+ -&gt; f DescribeCustomDomainsResponse)
+-&gt; (([CustomDomain] -&gt; f [CustomDomain])
+    -&gt; [CustomDomain] -&gt; f [CustomDomain])
+-&gt; ([CustomDomain] -&gt; f [CustomDomain])
+-&gt; DescribeCustomDomainsResponse
+-&gt; f DescribeCustomDomainsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([CustomDomain] -&gt; f [CustomDomain])
+-&gt; [CustomDomain] -&gt; f [CustomDomain]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppRunner.DescribeCustomDomains.html#DescribeCustomDomainsResponse"><span class="hs-identifier hs-type">DescribeCustomDomainsResponse</span></a></span></span><span>
+</span><span id="line-272"></span></pre></body></html>

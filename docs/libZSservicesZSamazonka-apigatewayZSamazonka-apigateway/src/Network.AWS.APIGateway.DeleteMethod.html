@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- | Request to delete an existing Method resource.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newDeleteMethod' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679388201"><span id="local-6989586621679388202"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMethod"><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-var">DeleteMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMethod%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-var">DeleteMethod'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679388210"><span id="local-6989586621679388211"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMethod"><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-var">DeleteMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMethod%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-var">DeleteMethod'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3ArestApiId%3ADeleteMethod%27"><span class="annot"><span class="annottext">DeleteMethod -&gt; Text
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#%24sel%3ArestApiId%3ADeleteMethod%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AhttpMethod%3ADeleteMethod%27"><span class="annot"><span class="annottext">DeleteMethod -&gt; Text
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#%24sel%3AhttpMethod%3ADeleteMethod%27"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388193"><span id="local-6989586621679388195"><span class="annot"><span class="annottext">DeleteMethod -&gt; DeleteMethod -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388202"><span id="local-6989586621679388204"><span class="annot"><span class="annottext">DeleteMethod -&gt; DeleteMethod -&gt; Bool
 (DeleteMethod -&gt; DeleteMethod -&gt; Bool)
 -&gt; (DeleteMethod -&gt; DeleteMethod -&gt; Bool) -&gt; Eq DeleteMethod
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMethod -&gt; DeleteMethod -&gt; Bool
 == :: DeleteMethod -&gt; DeleteMethod -&gt; Bool
 $c== :: DeleteMethod -&gt; DeleteMethod -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388184"><span id="local-6989586621679388186"><span id="local-6989586621679388188"><span id="local-6989586621679388190"><span class="annot"><span class="annottext">ReadPrec [DeleteMethod]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388193"><span id="local-6989586621679388195"><span id="local-6989586621679388197"><span id="local-6989586621679388199"><span class="annot"><span class="annottext">ReadPrec [DeleteMethod]
 ReadPrec DeleteMethod
 Int -&gt; ReadS DeleteMethod
 ReadS [DeleteMethod]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteMethod]
 $creadList :: ReadS [DeleteMethod]
 readsPrec :: Int -&gt; ReadS DeleteMethod
 $creadsPrec :: Int -&gt; ReadS DeleteMethod
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388177"><span id="local-6989586621679388179"><span id="local-6989586621679388181"><span class="annot"><span class="annottext">Int -&gt; DeleteMethod -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388186"><span id="local-6989586621679388188"><span id="local-6989586621679388190"><span class="annot"><span class="annottext">Int -&gt; DeleteMethod -&gt; ShowS
 [DeleteMethod] -&gt; ShowS
 DeleteMethod -&gt; String
 (Int -&gt; DeleteMethod -&gt; ShowS)
@@ -134,21 +134,21 @@ $cfrom :: forall x. DeleteMethod -&gt; Rep DeleteMethod x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span>
 </span><span id="line-81"></span><span id="newDeleteMethod"><span class="annot"><span class="annottext">newDeleteMethod :: Text -&gt; Text -&gt; Text -&gt; DeleteMethod
-</span><a href="Network.AWS.APIGateway.DeleteMethod.html#newDeleteMethod"><span class="hs-identifier hs-var hs-var">newDeleteMethod</span></a></span></span><span> </span><span id="local-6989586621679388172"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388172"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679388171"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388171"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679388170"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388170"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.DeleteMethod.html#newDeleteMethod"><span class="hs-identifier hs-var hs-var">newDeleteMethod</span></a></span></span><span> </span><span id="local-6989586621679388181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388181"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679388180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388180"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span id="local-6989586621679388179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388179"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteMethod' :: Text -&gt; Text -&gt; Text -&gt; DeleteMethod
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:restApiId:DeleteMethod' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#%24sel%3ArestApiId%3ADeleteMethod%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388172"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388181"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:DeleteMethod' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#%24sel%3AresourceId%3ADeleteMethod%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388171"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388180"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpMethod:DeleteMethod' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#%24sel%3AhttpMethod%3ADeleteMethod%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388170"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span>
+</span><a href="#local-6989586621679388179"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
@@ -158,16 +158,16 @@ $cfrom :: forall x. DeleteMethod -&gt; Rep DeleteMethod x
 -&gt; (DeleteMethod -&gt; Text -&gt; DeleteMethod)
 -&gt; Lens DeleteMethod DeleteMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388167"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388176"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:DeleteMethod' :: DeleteMethod -&gt; Text
-</span><a href="#local-6989586621679388167"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388167"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388166"><span class="annot"><span class="annottext">s :: DeleteMethod
-</span><a href="#local-6989586621679388166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388165"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMethod
-</span><a href="#local-6989586621679388166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:DeleteMethod' :: Text
+</span><a href="#local-6989586621679388176"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388176"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388175"><span class="annot"><span class="annottext">s :: DeleteMethod
+</span><a href="#local-6989586621679388175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388174"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMethod
+</span><a href="#local-6989586621679388175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:DeleteMethod' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#%24sel%3ArestApiId%3ADeleteMethod%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | [Required] The Resource identifier for the Method resource.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#deleteMethod_resourceId"><span class="hs-identifier hs-type">deleteMethod_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -176,16 +176,16 @@ $sel:restApiId:DeleteMethod' :: DeleteMethod -&gt; Text
 -&gt; (DeleteMethod -&gt; Text -&gt; DeleteMethod)
 -&gt; Lens DeleteMethod DeleteMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388164"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388173"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:DeleteMethod' :: DeleteMethod -&gt; Text
-</span><a href="#local-6989586621679388164"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388164"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388163"><span class="annot"><span class="annottext">s :: DeleteMethod
-</span><a href="#local-6989586621679388163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388162"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMethod
-</span><a href="#local-6989586621679388163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteMethod' :: Text
+</span><a href="#local-6989586621679388173"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388173"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388172"><span class="annot"><span class="annottext">s :: DeleteMethod
+</span><a href="#local-6989586621679388172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388171"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMethod
+</span><a href="#local-6989586621679388172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteMethod' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#%24sel%3AresourceId%3ADeleteMethod%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | [Required] The HTTP verb of the Method resource.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#deleteMethod_httpMethod"><span class="hs-identifier hs-type">deleteMethod_httpMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -194,25 +194,25 @@ $sel:resourceId:DeleteMethod' :: DeleteMethod -&gt; Text
 -&gt; (DeleteMethod -&gt; Text -&gt; DeleteMethod)
 -&gt; Lens DeleteMethod DeleteMethod Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388161"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388170"><span class="annot"><span class="annottext">Text
 httpMethod :: Text
 $sel:httpMethod:DeleteMethod' :: DeleteMethod -&gt; Text
-</span><a href="#local-6989586621679388161"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388161"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388160"><span class="annot"><span class="annottext">s :: DeleteMethod
-</span><a href="#local-6989586621679388160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388159"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMethod
-</span><a href="#local-6989586621679388160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:DeleteMethod' :: Text
+</span><a href="#local-6989586621679388170"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388170"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388169"><span class="annot"><span class="annottext">s :: DeleteMethod
+</span><a href="#local-6989586621679388169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMethod
+</span><a href="#local-6989586621679388169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:DeleteMethod' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#%24sel%3AhttpMethod%3ADeleteMethod%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethodResponse%27"><span class="hs-identifier hs-type">DeleteMethodResponse'</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679388155"><span class="annot"><span class="annottext">request :: DeleteMethod -&gt; Request DeleteMethod
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679388164"><span class="annot"><span class="annottext">request :: DeleteMethod -&gt; Request DeleteMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteMethod -&gt; Request DeleteMethod
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679388151"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679388160"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteMethod
 -&gt; ClientResponse ClientBody
@@ -236,12 +236,12 @@ AWSResponse a
 DeleteMethodResponse'
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethodResponse%27%27"><span class="hs-identifier hs-var">DeleteMethodResponse''</span></a></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388144"><span id="local-6989586621679388146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388153"><span id="local-6989586621679388155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679388137"><span class="annot"><span class="annottext">toHeaders :: DeleteMethod -&gt; [Header]
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679388146"><span class="annot"><span class="annottext">toHeaders :: DeleteMethod -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteMethod -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -259,15 +259,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679388131"><span class="annot"><span class="annottext">toPath :: DeleteMethod -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388127"><span id="local-6989586621679388128"><span id="local-6989586621679388129"><span class="annot"><span class="annottext">Text
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679388140"><span class="annot"><span class="annottext">toPath :: DeleteMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod%27"><span class="hs-identifier hs-type">DeleteMethod'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388136"><span id="local-6989586621679388137"><span id="local-6989586621679388138"><span class="annot"><span class="annottext">Text
 httpMethod :: Text
 resourceId :: Text
 restApiId :: Text
 $sel:httpMethod:DeleteMethod' :: DeleteMethod -&gt; Text
 $sel:resourceId:DeleteMethod' :: DeleteMethod -&gt; Text
 $sel:restApiId:DeleteMethod' :: DeleteMethod -&gt; Text
-</span><a href="#local-6989586621679388127"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388136"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -276,23 +276,23 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388129"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388138"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/resources/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388128"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388137"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/methods/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388127"><span class="hs-identifier hs-var">httpMethod</span></a></span><span>
+</span><a href="#local-6989586621679388136"><span class="hs-identifier hs-var">httpMethod</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethod"><span class="hs-identifier hs-type">DeleteMethod</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679388123"><span class="annot"><span class="annottext">toQuery :: DeleteMethod -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679388132"><span class="annot"><span class="annottext">toQuery :: DeleteMethod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteMethod -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -300,10 +300,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newDeleteMethodResponse'' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679388120"><span id="local-6989586621679388121"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMethodResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethodResponse%27"><span class="hs-identifier hs-var">DeleteMethodResponse'</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMethodResponse%27%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethodResponse%27%27"><span class="hs-identifier hs-var">DeleteMethodResponse''</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679388129"><span id="local-6989586621679388130"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMethodResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethodResponse%27"><span class="hs-identifier hs-var">DeleteMethodResponse'</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMethodResponse%27%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethodResponse%27%27"><span class="hs-identifier hs-var">DeleteMethodResponse''</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388116"><span id="local-6989586621679388118"><span class="annot"><span class="annottext">DeleteMethodResponse' -&gt; DeleteMethodResponse' -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388125"><span id="local-6989586621679388127"><span class="annot"><span class="annottext">DeleteMethodResponse' -&gt; DeleteMethodResponse' -&gt; Bool
 (DeleteMethodResponse' -&gt; DeleteMethodResponse' -&gt; Bool)
 -&gt; (DeleteMethodResponse' -&gt; DeleteMethodResponse' -&gt; Bool)
 -&gt; Eq DeleteMethodResponse'
@@ -312,7 +312,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMethodResponse' -&gt; DeleteMethodResponse' -&gt; Bool
 == :: DeleteMethodResponse' -&gt; DeleteMethodResponse' -&gt; Bool
 $c== :: DeleteMethodResponse' -&gt; DeleteMethodResponse' -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388108"><span id="local-6989586621679388110"><span id="local-6989586621679388112"><span id="local-6989586621679388114"><span class="annot"><span class="annottext">ReadPrec [DeleteMethodResponse']
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388117"><span id="local-6989586621679388119"><span id="local-6989586621679388121"><span id="local-6989586621679388123"><span class="annot"><span class="annottext">ReadPrec [DeleteMethodResponse']
 ReadPrec DeleteMethodResponse'
 Int -&gt; ReadS DeleteMethodResponse'
 ReadS [DeleteMethodResponse']
@@ -332,7 +332,7 @@ readList :: ReadS [DeleteMethodResponse']
 $creadList :: ReadS [DeleteMethodResponse']
 readsPrec :: Int -&gt; ReadS DeleteMethodResponse'
 $creadsPrec :: Int -&gt; ReadS DeleteMethodResponse'
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388102"><span id="local-6989586621679388104"><span id="local-6989586621679388106"><span class="annot"><span class="annottext">Int -&gt; DeleteMethodResponse' -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388111"><span id="local-6989586621679388113"><span id="local-6989586621679388115"><span class="annot"><span class="annottext">Int -&gt; DeleteMethodResponse' -&gt; ShowS
 [DeleteMethodResponse'] -&gt; ShowS
 DeleteMethodResponse' -&gt; String
 (Int -&gt; DeleteMethodResponse' -&gt; ShowS)
@@ -368,5 +368,5 @@ $cfrom :: forall x. DeleteMethodResponse' -&gt; Rep DeleteMethodResponse' x
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#newDeleteMethodResponse%27"><span class="hs-identifier hs-var hs-var">newDeleteMethodResponse'</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteMethodResponse'
 </span><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethodResponse%27%27"><span class="hs-identifier hs-var">DeleteMethodResponse''</span></a></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethodResponse%27"><span class="hs-identifier hs-type">DeleteMethodResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteMethod.html#DeleteMethodResponse%27"><span class="hs-identifier hs-type">DeleteMethodResponse'</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

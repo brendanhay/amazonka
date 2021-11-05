@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListDeviceInstances' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679380841"><span id="local-6989586621679380842"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeviceInstances"><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-var">ListDeviceInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeviceInstances%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-var">ListDeviceInstances'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679380850"><span id="local-6989586621679380851"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeviceInstances"><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-var">ListDeviceInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeviceInstances%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-var">ListDeviceInstances'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that was returned from the previous call to this</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- operation, which can be used to return the next set of items in the</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- list.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDeviceInstances%27"><span class="annot"><span class="annottext">ListDeviceInstances -&gt; Maybe Int
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#%24sel%3AmaxResults%3AListDeviceInstances%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380834"><span id="local-6989586621679380836"><span class="annot"><span class="annottext">ListDeviceInstances -&gt; ListDeviceInstances -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380843"><span id="local-6989586621679380845"><span class="annot"><span class="annottext">ListDeviceInstances -&gt; ListDeviceInstances -&gt; Bool
 (ListDeviceInstances -&gt; ListDeviceInstances -&gt; Bool)
 -&gt; (ListDeviceInstances -&gt; ListDeviceInstances -&gt; Bool)
 -&gt; Eq ListDeviceInstances
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDeviceInstances -&gt; ListDeviceInstances -&gt; Bool
 == :: ListDeviceInstances -&gt; ListDeviceInstances -&gt; Bool
 $c== :: ListDeviceInstances -&gt; ListDeviceInstances -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380825"><span id="local-6989586621679380827"><span id="local-6989586621679380829"><span id="local-6989586621679380831"><span class="annot"><span class="annottext">ReadPrec [ListDeviceInstances]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380834"><span id="local-6989586621679380836"><span id="local-6989586621679380838"><span id="local-6989586621679380840"><span class="annot"><span class="annottext">ReadPrec [ListDeviceInstances]
 ReadPrec ListDeviceInstances
 Int -&gt; ReadS ListDeviceInstances
 ReadS [ListDeviceInstances]
@@ -92,7 +92,7 @@ readList :: ReadS [ListDeviceInstances]
 $creadList :: ReadS [ListDeviceInstances]
 readsPrec :: Int -&gt; ReadS ListDeviceInstances
 $creadsPrec :: Int -&gt; ReadS ListDeviceInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380818"><span id="local-6989586621679380820"><span id="local-6989586621679380822"><span class="annot"><span class="annottext">Int -&gt; ListDeviceInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380827"><span id="local-6989586621679380829"><span id="local-6989586621679380831"><span class="annot"><span class="annottext">Int -&gt; ListDeviceInstances -&gt; ShowS
 [ListDeviceInstances] -&gt; ShowS
 ListDeviceInstances -&gt; String
 (Int -&gt; ListDeviceInstances -&gt; ShowS)
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; Lens
      ListDeviceInstances ListDeviceInstances (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380812"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380821"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDeviceInstances' :: ListDeviceInstances -&gt; Maybe Text
-</span><a href="#local-6989586621679380812"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380812"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380811"><span class="annot"><span class="annottext">s :: ListDeviceInstances
-</span><a href="#local-6989586621679380811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380810"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstances
-</span><a href="#local-6989586621679380811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeviceInstances' :: Maybe Text
+</span><a href="#local-6989586621679380821"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380821"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380820"><span class="annot"><span class="annottext">s :: ListDeviceInstances
+</span><a href="#local-6989586621679380820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380819"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstances
+</span><a href="#local-6989586621679380820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeviceInstances' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#%24sel%3AnextToken%3AListDeviceInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | An integer that specifies the maximum number of items you want to return</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- in the API response.</span><span>
@@ -180,29 +180,29 @@ $sel:nextToken:ListDeviceInstances' :: ListDeviceInstances -&gt; Maybe Text
 -&gt; Lens
      ListDeviceInstances ListDeviceInstances (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380809"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380818"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:ListDeviceInstances' :: ListDeviceInstances -&gt; Maybe Int
-</span><a href="#local-6989586621679380809"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679380809"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380808"><span class="annot"><span class="annottext">s :: ListDeviceInstances
-</span><a href="#local-6989586621679380808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380807"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679380807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstances
-</span><a href="#local-6989586621679380808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDeviceInstances' :: Maybe Int
+</span><a href="#local-6989586621679380818"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679380818"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380817"><span class="annot"><span class="annottext">s :: ListDeviceInstances
+</span><a href="#local-6989586621679380817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380816"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679380816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstances
+</span><a href="#local-6989586621679380817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDeviceInstances' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#%24sel%3AmaxResults%3AListDeviceInstances%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679380807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679380803"><span class="annot"><span class="annottext">page :: ListDeviceInstances
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679380812"><span class="annot"><span class="annottext">page :: ListDeviceInstances
 -&gt; AWSResponse ListDeviceInstances -&gt; Maybe ListDeviceInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679380801"><span class="annot"><span class="annottext">ListDeviceInstances
-</span><a href="#local-6989586621679380801"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679380800"><span class="annot"><span class="annottext">AWSResponse ListDeviceInstances
-</span><a href="#local-6989586621679380800"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679380810"><span class="annot"><span class="annottext">ListDeviceInstances
+</span><a href="#local-6989586621679380810"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679380809"><span class="annot"><span class="annottext">AWSResponse ListDeviceInstances
+</span><a href="#local-6989586621679380809"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeviceInstances
 ListDeviceInstancesResponse
-</span><a href="#local-6989586621679380800"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679380809"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse
 -&gt; Getting (First Text) ListDeviceInstancesResponse Text
 -&gt; Maybe Text
@@ -232,7 +232,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeviceInstances
 ListDeviceInstancesResponse
-</span><a href="#local-6989586621679380800"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679380809"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse
 -&gt; Getting
      (First [DeviceInstance])
@@ -278,7 +278,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ListDeviceInstances
-</span><a href="#local-6989586621679380801"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679380810"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">ListDeviceInstances
 -&gt; (ListDeviceInstances -&gt; ListDeviceInstances)
 -&gt; ListDeviceInstances
@@ -294,7 +294,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeviceInstances
 ListDeviceInstancesResponse
-</span><a href="#local-6989586621679380800"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679380809"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse
 -&gt; Getting (First Text) ListDeviceInstancesResponse Text
 -&gt; Maybe Text
@@ -320,12 +320,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679380790"><span class="annot"><span class="annottext">request :: ListDeviceInstances -&gt; Request ListDeviceInstances
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679380799"><span class="annot"><span class="annottext">request :: ListDeviceInstances -&gt; Request ListDeviceInstances
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDeviceInstances -&gt; Request ListDeviceInstances
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679380786"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679380795"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDeviceInstances
 -&gt; ClientResponse ClientBody
@@ -351,10 +351,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679380783"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380783"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679380782"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679380782"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679380781"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679380781"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679380792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380792"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679380791"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679380791"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679380790"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679380790"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [DeviceInstance] -&gt; Int -&gt; ListDeviceInstancesResponse
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-var">ListDeviceInstancesResponse'</span></a></span><span>
@@ -366,7 +366,7 @@ MonadResource m =&gt;
      (Maybe [DeviceInstance] -&gt; Int -&gt; ListDeviceInstancesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679380781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679380790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -377,7 +377,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListDeviceInstancesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679380781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DeviceInstance]))
+</span><a href="#local-6989586621679380790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DeviceInstance]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deviceInstances&quot;</span></span><span>
@@ -396,15 +396,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380783"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380792"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380772"><span id="local-6989586621679380774"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380781"><span id="local-6989586621679380783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679380765"><span class="annot"><span class="annottext">toHeaders :: ListDeviceInstances -&gt; ResponseHeaders
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679380774"><span class="annot"><span class="annottext">toHeaders :: ListDeviceInstances -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDeviceInstances -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -431,15 +431,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380755"><span id="local-6989586621679380757"><span id="local-6989586621679380759"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679380753"><span class="annot"><span class="annottext">toJSON :: ListDeviceInstances -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380750"><span id="local-6989586621679380751"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380764"><span id="local-6989586621679380766"><span id="local-6989586621679380768"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679380762"><span class="annot"><span class="annottext">toJSON :: ListDeviceInstances -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances%27"><span class="hs-identifier hs-type">ListDeviceInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380759"><span id="local-6989586621679380760"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 maxResults :: Maybe Int
 nextToken :: Maybe Text
 $sel:maxResults:ListDeviceInstances' :: ListDeviceInstances -&gt; Maybe Int
 $sel:nextToken:ListDeviceInstances' :: ListDeviceInstances -&gt; Maybe Text
-</span><a href="#local-6989586621679380750"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679380759"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -451,26 +451,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380751"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679380760"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679380750"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679380759"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679380744"><span class="annot"><span class="annottext">toPath :: ListDeviceInstances -&gt; ByteString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679380753"><span class="annot"><span class="annottext">toPath :: ListDeviceInstances -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDeviceInstances -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstances"><span class="hs-identifier hs-type">ListDeviceInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679380740"><span class="annot"><span class="annottext">toQuery :: ListDeviceInstances -&gt; QueryString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679380749"><span class="annot"><span class="annottext">toQuery :: ListDeviceInstances -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDeviceInstances -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -478,7 +478,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newListDeviceInstancesResponse' smart constructor.</span><span>
-</span><span id="line-172"></span><span id="local-6989586621679380737"><span id="local-6989586621679380738"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeviceInstancesResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-var">ListDeviceInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeviceInstancesResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-var">ListDeviceInstancesResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span id="local-6989586621679380746"><span id="local-6989586621679380747"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeviceInstancesResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-var">ListDeviceInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeviceInstancesResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-var">ListDeviceInstancesResponse'</span></a></span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier that can be used in the next call to this operation to</span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-comment">-- return the next set of items in the list.</span><span>
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3AnextToken%3AListDeviceInstancesResponse%27"><span class="annot"><span class="annottext">ListDeviceInstancesResponse -&gt; Maybe Text
@@ -490,7 +490,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDeviceInstancesResponse%27"><span class="annot"><span class="annottext">ListDeviceInstancesResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#%24sel%3AhttpStatus%3AListDeviceInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380730"><span id="local-6989586621679380732"><span class="annot"><span class="annottext">ListDeviceInstancesResponse -&gt; ListDeviceInstancesResponse -&gt; Bool
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380739"><span id="local-6989586621679380741"><span class="annot"><span class="annottext">ListDeviceInstancesResponse -&gt; ListDeviceInstancesResponse -&gt; Bool
 (ListDeviceInstancesResponse
  -&gt; ListDeviceInstancesResponse -&gt; Bool)
 -&gt; (ListDeviceInstancesResponse
@@ -501,7 +501,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDeviceInstancesResponse -&gt; ListDeviceInstancesResponse -&gt; Bool
 == :: ListDeviceInstancesResponse -&gt; ListDeviceInstancesResponse -&gt; Bool
 $c== :: ListDeviceInstancesResponse -&gt; ListDeviceInstancesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380722"><span id="local-6989586621679380724"><span id="local-6989586621679380726"><span id="local-6989586621679380728"><span class="annot"><span class="annottext">ReadPrec [ListDeviceInstancesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380731"><span id="local-6989586621679380733"><span id="local-6989586621679380735"><span id="local-6989586621679380737"><span class="annot"><span class="annottext">ReadPrec [ListDeviceInstancesResponse]
 ReadPrec ListDeviceInstancesResponse
 Int -&gt; ReadS ListDeviceInstancesResponse
 ReadS [ListDeviceInstancesResponse]
@@ -521,7 +521,7 @@ readList :: ReadS [ListDeviceInstancesResponse]
 $creadList :: ReadS [ListDeviceInstancesResponse]
 readsPrec :: Int -&gt; ReadS ListDeviceInstancesResponse
 $creadsPrec :: Int -&gt; ReadS ListDeviceInstancesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380716"><span id="local-6989586621679380718"><span id="local-6989586621679380720"><span class="annot"><span class="annottext">Int -&gt; ListDeviceInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380725"><span id="local-6989586621679380727"><span id="local-6989586621679380729"><span class="annot"><span class="annottext">Int -&gt; ListDeviceInstancesResponse -&gt; ShowS
 [ListDeviceInstancesResponse] -&gt; ShowS
 ListDeviceInstancesResponse -&gt; String
 (Int -&gt; ListDeviceInstancesResponse -&gt; ShowS)
@@ -572,8 +572,8 @@ ListDeviceInstancesResponse -&gt; Rep ListDeviceInstancesResponse x
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span><span>
 </span><span id="line-201"></span><span id="newListDeviceInstancesResponse"><span class="annot"><span class="annottext">newListDeviceInstancesResponse :: Int -&gt; ListDeviceInstancesResponse
-</span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#newListDeviceInstancesResponse"><span class="hs-identifier hs-var hs-var">newListDeviceInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621679380713"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380713"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#newListDeviceInstancesResponse"><span class="hs-identifier hs-var hs-var">newListDeviceInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621679380722"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380722"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse' :: Maybe Text
 -&gt; Maybe [DeviceInstance] -&gt; Int -&gt; ListDeviceInstancesResponse
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span>
@@ -588,7 +588,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeviceInstancesResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#%24sel%3AhttpStatus%3AListDeviceInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380713"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679380722"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | An identifier that can be used in the next call to this operation to</span><span>
@@ -601,16 +601,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListDeviceInstancesResponse)
 -&gt; Lens' ListDeviceInstancesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380712"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380721"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDeviceInstancesResponse' :: ListDeviceInstancesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679380712"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380712"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380711"><span class="annot"><span class="annottext">s :: ListDeviceInstancesResponse
-</span><a href="#local-6989586621679380711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380710"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse
-</span><a href="#local-6989586621679380711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeviceInstancesResponse' :: Maybe Text
+</span><a href="#local-6989586621679380721"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380721"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380720"><span class="annot"><span class="annottext">s :: ListDeviceInstancesResponse
+</span><a href="#local-6989586621679380720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380719"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse
+</span><a href="#local-6989586621679380720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeviceInstancesResponse' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#%24sel%3AnextToken%3AListDeviceInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679380710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | An object that contains information about your device instances.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#listDeviceInstancesResponse_deviceInstances"><span class="hs-identifier hs-type">listDeviceInstancesResponse_deviceInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceInstance.html#DeviceInstance"><span class="hs-identifier hs-type">DeviceInstance</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -621,16 +621,16 @@ $sel:nextToken:ListDeviceInstancesResponse' :: ListDeviceInstancesResponse -&gt;
     -&gt; Maybe [DeviceInstance] -&gt; ListDeviceInstancesResponse)
 -&gt; Lens' ListDeviceInstancesResponse (Maybe [DeviceInstance])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380709"><span class="annot"><span class="annottext">Maybe [DeviceInstance]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380718"><span class="annot"><span class="annottext">Maybe [DeviceInstance]
 deviceInstances :: Maybe [DeviceInstance]
 $sel:deviceInstances:ListDeviceInstancesResponse' :: ListDeviceInstancesResponse -&gt; Maybe [DeviceInstance]
-</span><a href="#local-6989586621679380709"><span class="hs-identifier hs-var hs-var">deviceInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceInstance]
-</span><a href="#local-6989586621679380709"><span class="hs-identifier hs-var">deviceInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380708"><span class="annot"><span class="annottext">s :: ListDeviceInstancesResponse
-</span><a href="#local-6989586621679380708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380707"><span class="annot"><span class="annottext">Maybe [DeviceInstance]
-</span><a href="#local-6989586621679380707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse
-</span><a href="#local-6989586621679380708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceInstances:ListDeviceInstancesResponse' :: Maybe [DeviceInstance]
+</span><a href="#local-6989586621679380718"><span class="hs-identifier hs-var hs-var">deviceInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceInstance]
+</span><a href="#local-6989586621679380718"><span class="hs-identifier hs-var">deviceInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380717"><span class="annot"><span class="annottext">s :: ListDeviceInstancesResponse
+</span><a href="#local-6989586621679380717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380716"><span class="annot"><span class="annottext">Maybe [DeviceInstance]
+</span><a href="#local-6989586621679380716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse
+</span><a href="#local-6989586621679380717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceInstances:ListDeviceInstancesResponse' :: Maybe [DeviceInstance]
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#%24sel%3AdeviceInstances%3AListDeviceInstancesResponse%27"><span class="hs-identifier hs-var">deviceInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceInstance]
-</span><a href="#local-6989586621679380707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeviceInstance] -&gt; f (Maybe [DeviceInstance]))
+</span><a href="#local-6989586621679380716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeviceInstance] -&gt; f (Maybe [DeviceInstance]))
  -&gt; ListDeviceInstancesResponse -&gt; f ListDeviceInstancesResponse)
 -&gt; ((Maybe [DeviceInstance] -&gt; f (Maybe [DeviceInstance]))
     -&gt; Maybe [DeviceInstance] -&gt; f (Maybe [DeviceInstance]))
@@ -663,16 +663,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListDeviceInstancesResponse ListDeviceInstancesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380704"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380713"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDeviceInstancesResponse' :: ListDeviceInstancesResponse -&gt; Int
-</span><a href="#local-6989586621679380704"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380704"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380703"><span class="annot"><span class="annottext">s :: ListDeviceInstancesResponse
-</span><a href="#local-6989586621679380703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380702"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse
-</span><a href="#local-6989586621679380703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeviceInstancesResponse' :: Int
+</span><a href="#local-6989586621679380713"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380713"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380712"><span class="annot"><span class="annottext">s :: ListDeviceInstancesResponse
+</span><a href="#local-6989586621679380712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse%27"><span class="hs-identifier hs-type">ListDeviceInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380711"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeviceInstancesResponse
+</span><a href="#local-6989586621679380712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeviceInstancesResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#%24sel%3AhttpStatus%3AListDeviceInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679380702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.ListDeviceInstances.html#ListDeviceInstancesResponse"><span class="hs-identifier hs-type">ListDeviceInstancesResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

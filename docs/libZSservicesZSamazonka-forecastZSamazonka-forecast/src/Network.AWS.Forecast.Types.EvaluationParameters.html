@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Forecast.Types.EvaluationParameters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Forecast.Types.EvaluationParameters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Parameters that define how to split a dataset into training data and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- testing data, and the number of iterations to perform. These parameters</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- are specified in the predefined algorithms but you can override them in</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- the CreatePredictor request.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEvaluationParameters' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679246559"><span id="local-6989586621679246560"></span></span><span class="hs-keyword">data</span><span> </span><span id="EvaluationParameters"><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-var">EvaluationParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationParameters%27"><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters%27"><span class="hs-identifier hs-var">EvaluationParameters'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The point from the end of the dataset where you want to split the data</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- for model training and testing (evaluation). Specify the value as the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- number of data points. The default is the value of the forecast horizon.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @BackTestWindowOffset@ can be used to mimic a past virtual forecast</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- start date. This value must be greater than or equal to the forecast</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- horizon and less than half of the TARGET_TIME_SERIES dataset length.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @ForecastHorizon@ \&lt;= @BackTestWindowOffset@ \&lt; 1\/2 *</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- TARGET_TIME_SERIES dataset length</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AbackTestWindowOffset%3AEvaluationParameters%27"><span class="annot"><span class="annottext">EvaluationParameters -&gt; Maybe Int
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#%24sel%3AbackTestWindowOffset%3AEvaluationParameters%27"><span class="hs-identifier hs-var hs-var">backTestWindowOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of times to split the input data. The default is 1. Valid</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- values are 1 through 5.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AnumberOfBacktestWindows%3AEvaluationParameters%27"><span class="annot"><span class="annottext">EvaluationParameters -&gt; Maybe Int
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#%24sel%3AnumberOfBacktestWindows%3AEvaluationParameters%27"><span class="hs-identifier hs-var hs-var">numberOfBacktestWindows</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246552"><span id="local-6989586621679246554"><span class="annot"><span class="annottext">EvaluationParameters -&gt; EvaluationParameters -&gt; Bool
+(EvaluationParameters -&gt; EvaluationParameters -&gt; Bool)
+-&gt; (EvaluationParameters -&gt; EvaluationParameters -&gt; Bool)
+-&gt; Eq EvaluationParameters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EvaluationParameters -&gt; EvaluationParameters -&gt; Bool
+$c/= :: EvaluationParameters -&gt; EvaluationParameters -&gt; Bool
+== :: EvaluationParameters -&gt; EvaluationParameters -&gt; Bool
+$c== :: EvaluationParameters -&gt; EvaluationParameters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246543"><span id="local-6989586621679246545"><span id="local-6989586621679246547"><span id="local-6989586621679246549"><span class="annot"><span class="annottext">ReadPrec [EvaluationParameters]
+ReadPrec EvaluationParameters
+Int -&gt; ReadS EvaluationParameters
+ReadS [EvaluationParameters]
+(Int -&gt; ReadS EvaluationParameters)
+-&gt; ReadS [EvaluationParameters]
+-&gt; ReadPrec EvaluationParameters
+-&gt; ReadPrec [EvaluationParameters]
+-&gt; Read EvaluationParameters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EvaluationParameters]
+$creadListPrec :: ReadPrec [EvaluationParameters]
+readPrec :: ReadPrec EvaluationParameters
+$creadPrec :: ReadPrec EvaluationParameters
+readList :: ReadS [EvaluationParameters]
+$creadList :: ReadS [EvaluationParameters]
+readsPrec :: Int -&gt; ReadS EvaluationParameters
+$creadsPrec :: Int -&gt; ReadS EvaluationParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246536"><span id="local-6989586621679246538"><span id="local-6989586621679246540"><span class="annot"><span class="annottext">Int -&gt; EvaluationParameters -&gt; ShowS
+[EvaluationParameters] -&gt; ShowS
+EvaluationParameters -&gt; String
+(Int -&gt; EvaluationParameters -&gt; ShowS)
+-&gt; (EvaluationParameters -&gt; String)
+-&gt; ([EvaluationParameters] -&gt; ShowS)
+-&gt; Show EvaluationParameters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EvaluationParameters] -&gt; ShowS
+$cshowList :: [EvaluationParameters] -&gt; ShowS
+show :: EvaluationParameters -&gt; String
+$cshow :: EvaluationParameters -&gt; String
+showsPrec :: Int -&gt; EvaluationParameters -&gt; ShowS
+$cshowsPrec :: Int -&gt; EvaluationParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EvaluationParameters -&gt; Rep EvaluationParameters x)
+-&gt; (forall x. Rep EvaluationParameters x -&gt; EvaluationParameters)
+-&gt; Generic EvaluationParameters
+forall x. Rep EvaluationParameters x -&gt; EvaluationParameters
+forall x. EvaluationParameters -&gt; Rep EvaluationParameters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EvaluationParameters x -&gt; EvaluationParameters
+$cfrom :: forall x. EvaluationParameters -&gt; Rep EvaluationParameters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'EvaluationParameters' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'backTestWindowOffset', 'evaluationParameters_backTestWindowOffset' - The point from the end of the dataset where you want to split the data</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for model training and testing (evaluation). Specify the value as the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- number of data points. The default is the value of the forecast horizon.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- @BackTestWindowOffset@ can be used to mimic a past virtual forecast</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- start date. This value must be greater than or equal to the forecast</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- horizon and less than half of the TARGET_TIME_SERIES dataset length.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- @ForecastHorizon@ \&lt;= @BackTestWindowOffset@ \&lt; 1\/2 *</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- TARGET_TIME_SERIES dataset length</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'numberOfBacktestWindows', 'evaluationParameters_numberOfBacktestWindows' - The number of times to split the input data. The default is 1. Valid</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- values are 1 through 5.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#newEvaluationParameters"><span class="hs-identifier hs-type">newEvaluationParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-type">EvaluationParameters</span></a></span><span>
+</span><span id="line-71"></span><span id="newEvaluationParameters"><span class="annot"><span class="annottext">newEvaluationParameters :: EvaluationParameters
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#newEvaluationParameters"><span class="hs-identifier hs-var hs-var">newEvaluationParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">EvaluationParameters' :: Maybe Int -&gt; Maybe Int -&gt; EvaluationParameters
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters%27"><span class="hs-identifier hs-type">EvaluationParameters'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backTestWindowOffset:EvaluationParameters' :: Maybe Int
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#%24sel%3AbackTestWindowOffset%3AEvaluationParameters%27"><span class="hs-identifier hs-var">backTestWindowOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:numberOfBacktestWindows:EvaluationParameters' :: Maybe Int
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#%24sel%3AnumberOfBacktestWindows%3AEvaluationParameters%27"><span class="hs-identifier hs-var">numberOfBacktestWindows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The point from the end of the dataset where you want to split the data</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for model training and testing (evaluation). Specify the value as the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- number of data points. The default is the value of the forecast horizon.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @BackTestWindowOffset@ can be used to mimic a past virtual forecast</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- start date. This value must be greater than or equal to the forecast</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- horizon and less than half of the TARGET_TIME_SERIES dataset length.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @ForecastHorizon@ \&lt;= @BackTestWindowOffset@ \&lt; 1\/2 *</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- TARGET_TIME_SERIES dataset length</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#evaluationParameters_backTestWindowOffset"><span class="hs-identifier hs-type">evaluationParameters_backTestWindowOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-type">EvaluationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="evaluationParameters_backTestWindowOffset"><span class="annot"><span class="annottext">evaluationParameters_backTestWindowOffset :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; EvaluationParameters -&gt; f EvaluationParameters
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#evaluationParameters_backTestWindowOffset"><span class="hs-identifier hs-var hs-var">evaluationParameters_backTestWindowOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluationParameters -&gt; Maybe Int)
+-&gt; (EvaluationParameters -&gt; Maybe Int -&gt; EvaluationParameters)
+-&gt; Lens
+     EvaluationParameters EvaluationParameters (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters%27"><span class="hs-identifier hs-type">EvaluationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246527"><span class="annot"><span class="annottext">Maybe Int
+backTestWindowOffset :: Maybe Int
+$sel:backTestWindowOffset:EvaluationParameters' :: EvaluationParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679246527"><span class="hs-identifier hs-var hs-var">backTestWindowOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679246527"><span class="hs-identifier hs-var">backTestWindowOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246526"><span class="annot"><span class="annottext">s :: EvaluationParameters
+</span><a href="#local-6989586621679246526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters%27"><span class="hs-identifier hs-type">EvaluationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246525"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679246525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationParameters
+</span><a href="#local-6989586621679246526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backTestWindowOffset:EvaluationParameters' :: Maybe Int
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#%24sel%3AbackTestWindowOffset%3AEvaluationParameters%27"><span class="hs-identifier hs-var">backTestWindowOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679246525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-type">EvaluationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The number of times to split the input data. The default is 1. Valid</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- values are 1 through 5.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#evaluationParameters_numberOfBacktestWindows"><span class="hs-identifier hs-type">evaluationParameters_numberOfBacktestWindows</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-type">EvaluationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="evaluationParameters_numberOfBacktestWindows"><span class="annot"><span class="annottext">evaluationParameters_numberOfBacktestWindows :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; EvaluationParameters -&gt; f EvaluationParameters
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#evaluationParameters_numberOfBacktestWindows"><span class="hs-identifier hs-var hs-var">evaluationParameters_numberOfBacktestWindows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EvaluationParameters -&gt; Maybe Int)
+-&gt; (EvaluationParameters -&gt; Maybe Int -&gt; EvaluationParameters)
+-&gt; Lens
+     EvaluationParameters EvaluationParameters (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters%27"><span class="hs-identifier hs-type">EvaluationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246523"><span class="annot"><span class="annottext">Maybe Int
+numberOfBacktestWindows :: Maybe Int
+$sel:numberOfBacktestWindows:EvaluationParameters' :: EvaluationParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679246523"><span class="hs-identifier hs-var hs-var">numberOfBacktestWindows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679246523"><span class="hs-identifier hs-var">numberOfBacktestWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246522"><span class="annot"><span class="annottext">s :: EvaluationParameters
+</span><a href="#local-6989586621679246522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters%27"><span class="hs-identifier hs-type">EvaluationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246521"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679246521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationParameters
+</span><a href="#local-6989586621679246522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfBacktestWindows:EvaluationParameters' :: Maybe Int
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#%24sel%3AnumberOfBacktestWindows%3AEvaluationParameters%27"><span class="hs-identifier hs-var">numberOfBacktestWindows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679246521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-type">EvaluationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246518"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-type">EvaluationParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679246516"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EvaluationParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser EvaluationParameters)
+-&gt; Value
+-&gt; Parser EvaluationParameters
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;EvaluationParameters&quot;</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246513"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246513"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; EvaluationParameters
+</span><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters%27"><span class="hs-identifier hs-var">EvaluationParameters'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; EvaluationParameters)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; EvaluationParameters)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackTestWindowOffset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; EvaluationParameters)
+-&gt; Parser (Maybe Int) -&gt; Parser EvaluationParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfBacktestWindows&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246507"><span id="local-6989586621679246509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-type">EvaluationParameters</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-type">EvaluationParameters</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246496"><span id="local-6989586621679246498"><span id="local-6989586621679246500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters"><span class="hs-identifier hs-type">EvaluationParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679246494"><span class="annot"><span class="annottext">toJSON :: EvaluationParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.EvaluationParameters.html#EvaluationParameters%27"><span class="hs-identifier hs-type">EvaluationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246491"><span id="local-6989586621679246492"><span class="annot"><span class="annottext">Maybe Int
+numberOfBacktestWindows :: Maybe Int
+backTestWindowOffset :: Maybe Int
+$sel:numberOfBacktestWindows:EvaluationParameters' :: EvaluationParameters -&gt; Maybe Int
+$sel:backTestWindowOffset:EvaluationParameters' :: EvaluationParameters -&gt; Maybe Int
+</span><a href="#local-6989586621679246491"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackTestWindowOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679246492"><span class="hs-identifier hs-var">backTestWindowOffset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfBacktestWindows&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679246491"><span class="hs-identifier hs-var">numberOfBacktestWindows</span></a></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span></pre></body></html>

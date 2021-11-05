@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679218693"><span id="local-6989586621679218694"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StatementType"><span class="annot"><a href="Network.AWS.Athena.Types.StatementType.html#StatementType"><span class="hs-identifier hs-var">StatementType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatementType%27"><span class="annot"><a href="Network.AWS.Athena.Types.StatementType.html#StatementType%27"><span class="hs-identifier hs-var">StatementType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679218702"><span id="local-6989586621679218703"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StatementType"><span class="annot"><a href="Network.AWS.Athena.Types.StatementType.html#StatementType"><span class="hs-identifier hs-var">StatementType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatementType%27"><span class="annot"><a href="Network.AWS.Athena.Types.StatementType.html#StatementType%27"><span class="hs-identifier hs-var">StatementType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStatementType"><span class="annot"><span class="annottext">StatementType -&gt; Text
 </span><a href="Network.AWS.Athena.Types.StatementType.html#fromStatementType"><span class="hs-identifier hs-var hs-var">fromStatementType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218685"><span id="local-6989586621679218687"><span id="local-6989586621679218689"><span class="annot"><span class="annottext">Int -&gt; StatementType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218694"><span id="local-6989586621679218696"><span id="local-6989586621679218698"><span class="annot"><span class="annottext">Int -&gt; StatementType -&gt; ShowS
 [StatementType] -&gt; ShowS
 StatementType -&gt; String
 (Int -&gt; StatementType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: StatementType -&gt; String
 showsPrec :: Int -&gt; StatementType -&gt; ShowS
 $cshowsPrec :: Int -&gt; StatementType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679218676"><span id="local-6989586621679218678"><span id="local-6989586621679218680"><span id="local-6989586621679218682"><span class="annot"><span class="annottext">ReadPrec [StatementType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679218685"><span id="local-6989586621679218687"><span id="local-6989586621679218689"><span id="local-6989586621679218691"><span class="annot"><span class="annottext">ReadPrec [StatementType]
 ReadPrec StatementType
 Int -&gt; ReadS StatementType
 ReadS [StatementType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [StatementType]
 readsPrec :: Int -&gt; ReadS StatementType
 $creadsPrec :: Int -&gt; ReadS StatementType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679218671"><span id="local-6989586621679218673"><span class="annot"><span class="annottext">StatementType -&gt; StatementType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679218680"><span id="local-6989586621679218682"><span class="annot"><span class="annottext">StatementType -&gt; StatementType -&gt; Bool
 (StatementType -&gt; StatementType -&gt; Bool)
 -&gt; (StatementType -&gt; StatementType -&gt; Bool) -&gt; Eq StatementType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: StatementType -&gt; StatementType -&gt; Bool
 == :: StatementType -&gt; StatementType -&gt; Bool
 $c== :: StatementType -&gt; StatementType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679218655"><span id="local-6989586621679218657"><span id="local-6989586621679218659"><span id="local-6989586621679218661"><span id="local-6989586621679218663"><span id="local-6989586621679218665"><span id="local-6989586621679218667"><span class="annot"><span class="annottext">Eq StatementType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679218664"><span id="local-6989586621679218666"><span id="local-6989586621679218668"><span id="local-6989586621679218670"><span id="local-6989586621679218672"><span id="local-6989586621679218674"><span id="local-6989586621679218676"><span class="annot"><span class="annottext">Eq StatementType
 Eq StatementType
 -&gt; (StatementType -&gt; StatementType -&gt; Ordering)
 -&gt; (StatementType -&gt; StatementType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. StatementType -&gt; Rep StatementType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218647"><span id="local-6989586621679218649"><span class="annot"><span class="annottext">Int -&gt; StatementType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218656"><span id="local-6989586621679218658"><span class="annot"><span class="annottext">Int -&gt; StatementType -&gt; Int
 StatementType -&gt; Int
 (Int -&gt; StatementType -&gt; Int)
 -&gt; (StatementType -&gt; Int) -&gt; Hashable StatementType
@@ -143,49 +143,49 @@ $chash :: StatementType -&gt; Int
 hashWithSalt :: Int -&gt; StatementType -&gt; Int
 $chashWithSalt :: Int -&gt; StatementType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679218644"><span class="annot"><span class="annottext">StatementType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679218653"><span class="annot"><span class="annottext">StatementType -&gt; ()
 (StatementType -&gt; ()) -&gt; NFData StatementType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StatementType -&gt; ()
 $crnf :: StatementType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679218641"><span class="annot"><span class="annottext">Text -&gt; Either String StatementType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679218650"><span class="annot"><span class="annottext">Text -&gt; Either String StatementType
 (Text -&gt; Either String StatementType) -&gt; FromText StatementType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StatementType
 $cfromText :: Text -&gt; Either String StatementType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679218638"><span class="annot"><span class="annottext">StatementType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679218647"><span class="annot"><span class="annottext">StatementType -&gt; Text
 (StatementType -&gt; Text) -&gt; ToText StatementType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StatementType -&gt; Text
 $ctoText :: StatementType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679218635"><span class="annot"><span class="annottext">StatementType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679218644"><span class="annot"><span class="annottext">StatementType -&gt; ByteString
 (StatementType -&gt; ByteString) -&gt; ToByteString StatementType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StatementType -&gt; ByteString
 $ctoBS :: StatementType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679218632"><span class="annot"><span class="annottext">StatementType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679218641"><span class="annot"><span class="annottext">StatementType -&gt; ByteStringBuilder
 (StatementType -&gt; ByteStringBuilder) -&gt; ToLog StatementType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StatementType -&gt; ByteStringBuilder
 $cbuild :: StatementType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679218629"><span class="annot"><span class="annottext">HeaderName -&gt; StatementType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679218638"><span class="annot"><span class="annottext">HeaderName -&gt; StatementType -&gt; [Header]
 (HeaderName -&gt; StatementType -&gt; [Header]) -&gt; ToHeader StatementType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StatementType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StatementType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679218626"><span class="annot"><span class="annottext">StatementType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679218635"><span class="annot"><span class="annottext">StatementType -&gt; QueryString
 (StatementType -&gt; QueryString) -&gt; ToQuery StatementType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StatementType -&gt; QueryString
 $ctoQuery :: StatementType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679218621"><span id="local-6989586621679218623"><span class="annot"><span class="annottext">Value -&gt; Parser [StatementType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679218630"><span id="local-6989586621679218632"><span class="annot"><span class="annottext">Value -&gt; Parser [StatementType]
 Value -&gt; Parser StatementType
 (Value -&gt; Parser StatementType)
 -&gt; (Value -&gt; Parser [StatementType]) -&gt; FromJSON StatementType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [StatementType]
 parseJSON :: Value -&gt; Parser StatementType
 $cparseJSON :: Value -&gt; Parser StatementType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679218616"><span id="local-6989586621679218618"><span class="annot"><span class="annottext">FromJSONKeyFunction [StatementType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679218625"><span id="local-6989586621679218627"><span class="annot"><span class="annottext">FromJSONKeyFunction [StatementType]
 FromJSONKeyFunction StatementType
 FromJSONKeyFunction StatementType
 -&gt; FromJSONKeyFunction [StatementType] -&gt; FromJSONKey StatementType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StatementType]
 fromJSONKey :: FromJSONKeyFunction StatementType
 $cfromJSONKey :: FromJSONKeyFunction StatementType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679218607"><span id="local-6989586621679218609"><span id="local-6989586621679218611"><span id="local-6989586621679218613"><span class="annot"><span class="annottext">[StatementType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679218616"><span id="local-6989586621679218618"><span id="local-6989586621679218620"><span id="local-6989586621679218622"><span class="annot"><span class="annottext">[StatementType] -&gt; Encoding
 [StatementType] -&gt; Value
 StatementType -&gt; Encoding
 StatementType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: StatementType -&gt; Encoding
 toJSON :: StatementType -&gt; Value
 $ctoJSON :: StatementType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679218602"><span id="local-6989586621679218604"><span class="annot"><span class="annottext">ToJSONKeyFunction [StatementType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679218611"><span id="local-6989586621679218613"><span class="annot"><span class="annottext">ToJSONKeyFunction [StatementType]
 ToJSONKeyFunction StatementType
 ToJSONKeyFunction StatementType
 -&gt; ToJSONKeyFunction [StatementType] -&gt; ToJSONKey StatementType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StatementType]
 toJSONKey :: ToJSONKeyFunction StatementType
 $ctoJSONKey :: ToJSONKeyFunction StatementType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679218599"><span class="annot"><span class="annottext">[Node] -&gt; Either String StatementType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679218608"><span class="annot"><span class="annottext">[Node] -&gt; Either String StatementType
 ([Node] -&gt; Either String StatementType) -&gt; FromXML StatementType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StatementType
 $cparseXML :: [Node] -&gt; Either String StatementType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679218596"><span class="annot"><span class="annottext">StatementType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679218605"><span class="annot"><span class="annottext">StatementType -&gt; XML
 (StatementType -&gt; XML) -&gt; ToXML StatementType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StatementType -&gt; XML

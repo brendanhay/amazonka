@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- deduplicated to prevent double charges.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newUsageRecord' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679145477"><span id="local-6989586621679145478"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageRecord"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-var">UsageRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageRecord%27"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-var">UsageRecord'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679145486"><span id="local-6989586621679145487"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageRecord"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-var">UsageRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageRecord%27"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-var">UsageRecord'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The quantity of usage consumed by the customer for the given dimension</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- and time. Defaults to @0@ if not specified.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aquantity%3AUsageRecord%27"><span class="annot"><span class="annottext">UsageRecord -&gt; Maybe Natural
@@ -56,7 +56,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Adimension%3AUsageRecord%27"><span class="annot"><span class="annottext">UsageRecord -&gt; Text
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Adimension%3AUsageRecord%27"><span class="hs-identifier hs-var hs-var">dimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679145467"><span id="local-6989586621679145469"><span class="annot"><span class="annottext">UsageRecord -&gt; UsageRecord -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679145476"><span id="local-6989586621679145478"><span class="annot"><span class="annottext">UsageRecord -&gt; UsageRecord -&gt; Bool
 (UsageRecord -&gt; UsageRecord -&gt; Bool)
 -&gt; (UsageRecord -&gt; UsageRecord -&gt; Bool) -&gt; Eq UsageRecord
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UsageRecord -&gt; UsageRecord -&gt; Bool
 == :: UsageRecord -&gt; UsageRecord -&gt; Bool
 $c== :: UsageRecord -&gt; UsageRecord -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145458"><span id="local-6989586621679145460"><span id="local-6989586621679145462"><span id="local-6989586621679145464"><span class="annot"><span class="annottext">ReadPrec [UsageRecord]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145467"><span id="local-6989586621679145469"><span id="local-6989586621679145471"><span id="local-6989586621679145473"><span class="annot"><span class="annottext">ReadPrec [UsageRecord]
 ReadPrec UsageRecord
 Int -&gt; ReadS UsageRecord
 ReadS [UsageRecord]
@@ -84,7 +84,7 @@ readList :: ReadS [UsageRecord]
 $creadList :: ReadS [UsageRecord]
 readsPrec :: Int -&gt; ReadS UsageRecord
 $creadsPrec :: Int -&gt; ReadS UsageRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145451"><span id="local-6989586621679145453"><span id="local-6989586621679145455"><span class="annot"><span class="annottext">Int -&gt; UsageRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145460"><span id="local-6989586621679145462"><span id="local-6989586621679145464"><span class="annot"><span class="annottext">Int -&gt; UsageRecord -&gt; ShowS
 [UsageRecord] -&gt; ShowS
 UsageRecord -&gt; String
 (Int -&gt; UsageRecord -&gt; ShowS)
@@ -145,12 +145,12 @@ $cfrom :: forall x. UsageRecord -&gt; Rep UsageRecord x
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span>
 </span><span id="line-89"></span><span id="newUsageRecord"><span class="annot"><span class="annottext">newUsageRecord :: UTCTime -&gt; Text -&gt; Text -&gt; UsageRecord
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#newUsageRecord"><span class="hs-identifier hs-var hs-var">newUsageRecord</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679145445"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679145445"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679145444"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145444"><span class="hs-identifier hs-var">pCustomerIdentifier_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679145443"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145443"><span class="hs-identifier hs-var">pDimension_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679145454"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679145454"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679145453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145453"><span class="hs-identifier hs-var">pCustomerIdentifier_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679145452"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145452"><span class="hs-identifier hs-var">pDimension_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">UsageRecord' :: Maybe Natural
 -&gt; Maybe (NonEmpty UsageAllocation)
 -&gt; POSIX
@@ -174,13 +174,13 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679145445"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679145454"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:customerIdentifier:UsageRecord' :: Text
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#%24sel%3AcustomerIdentifier%3AUsageRecord%27"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145444"><span class="hs-identifier hs-var">pCustomerIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679145453"><span class="hs-identifier hs-var">pCustomerIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:dimension:UsageRecord' :: Text
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Adimension%3AUsageRecord%27"><span class="hs-identifier hs-var">dimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145443"><span class="hs-identifier hs-var">pDimension_</span></a></span><span>
+</span><a href="#local-6989586621679145452"><span class="hs-identifier hs-var">pDimension_</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The quantity of usage consumed by the customer for the given dimension</span><span>
@@ -192,16 +192,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (UsageRecord -&gt; Maybe Natural -&gt; UsageRecord)
 -&gt; Lens UsageRecord UsageRecord (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145437"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145446"><span class="annot"><span class="annottext">Maybe Natural
 quantity :: Maybe Natural
 $sel:quantity:UsageRecord' :: UsageRecord -&gt; Maybe Natural
-</span><a href="#local-6989586621679145437"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679145437"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145436"><span class="annot"><span class="annottext">s :: UsageRecord
-</span><a href="#local-6989586621679145436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145435"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679145435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
-</span><a href="#local-6989586621679145436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:UsageRecord' :: Maybe Natural
+</span><a href="#local-6989586621679145446"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679145446"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145445"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145444"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679145444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:UsageRecord' :: Maybe Natural
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Aquantity%3AUsageRecord%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679145435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679145444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The set of UsageAllocations to submit. The sum of all UsageAllocation</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- quantities must equal the Quantity of the UsageRecord.</span><span>
@@ -217,16 +217,16 @@ $sel:quantity:UsageRecord' :: UsageRecord -&gt; Maybe Natural
      (Maybe (NonEmpty UsageAllocation))
      (Maybe (NonEmpty UsageAllocation))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145433"><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145442"><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
 usageAllocations :: Maybe (NonEmpty UsageAllocation)
 $sel:usageAllocations:UsageRecord' :: UsageRecord -&gt; Maybe (NonEmpty UsageAllocation)
-</span><a href="#local-6989586621679145433"><span class="hs-identifier hs-var hs-var">usageAllocations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
-</span><a href="#local-6989586621679145433"><span class="hs-identifier hs-var">usageAllocations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145432"><span class="annot"><span class="annottext">s :: UsageRecord
-</span><a href="#local-6989586621679145432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145431"><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
-</span><a href="#local-6989586621679145431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
-</span><a href="#local-6989586621679145432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageAllocations:UsageRecord' :: Maybe (NonEmpty UsageAllocation)
+</span><a href="#local-6989586621679145442"><span class="hs-identifier hs-var hs-var">usageAllocations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
+</span><a href="#local-6989586621679145442"><span class="hs-identifier hs-var">usageAllocations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145441"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145440"><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
+</span><a href="#local-6989586621679145440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageAllocations:UsageRecord' :: Maybe (NonEmpty UsageAllocation)
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#%24sel%3AusageAllocations%3AUsageRecord%27"><span class="hs-identifier hs-var">usageAllocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
-</span><a href="#local-6989586621679145431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty UsageAllocation)
+</span><a href="#local-6989586621679145440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty UsageAllocation)
   -&gt; f (Maybe (NonEmpty UsageAllocation)))
  -&gt; UsageRecord -&gt; f UsageRecord)
 -&gt; ((Maybe (NonEmpty UsageAllocation)
@@ -269,16 +269,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UsageRecord -&gt; POSIX -&gt; UsageRecord)
 -&gt; Lens UsageRecord UsageRecord POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145426"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145435"><span class="annot"><span class="annottext">POSIX
 timestamp :: POSIX
 $sel:timestamp:UsageRecord' :: UsageRecord -&gt; POSIX
-</span><a href="#local-6989586621679145426"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679145426"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145425"><span class="annot"><span class="annottext">s :: UsageRecord
-</span><a href="#local-6989586621679145425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145424"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679145424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
-</span><a href="#local-6989586621679145425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:UsageRecord' :: POSIX
+</span><a href="#local-6989586621679145435"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679145435"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145434"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145433"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679145433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:UsageRecord' :: POSIX
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Atimestamp%3AUsageRecord%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679145424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; UsageRecord -&gt; f UsageRecord)
+</span><a href="#local-6989586621679145433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; UsageRecord -&gt; f UsageRecord)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; UsageRecord
@@ -296,16 +296,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (UsageRecord -&gt; Text -&gt; UsageRecord)
 -&gt; Lens UsageRecord UsageRecord Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145422"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145431"><span class="annot"><span class="annottext">Text
 customerIdentifier :: Text
 $sel:customerIdentifier:UsageRecord' :: UsageRecord -&gt; Text
-</span><a href="#local-6989586621679145422"><span class="hs-identifier hs-var hs-var">customerIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145422"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145421"><span class="annot"><span class="annottext">s :: UsageRecord
-</span><a href="#local-6989586621679145421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145420"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
-</span><a href="#local-6989586621679145421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerIdentifier:UsageRecord' :: Text
+</span><a href="#local-6989586621679145431"><span class="hs-identifier hs-var hs-var">customerIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145431"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145430"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerIdentifier:UsageRecord' :: Text
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#%24sel%3AcustomerIdentifier%3AUsageRecord%27"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679145429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | During the process of registering a product on AWS Marketplace, up to</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- eight dimensions are specified. These represent different units of value</span><span>
@@ -316,19 +316,19 @@ $sel:customerIdentifier:UsageRecord' :: UsageRecord -&gt; Text
 -&gt; (UsageRecord -&gt; Text -&gt; UsageRecord)
 -&gt; Lens UsageRecord UsageRecord Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145418"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145427"><span class="annot"><span class="annottext">Text
 dimension :: Text
 $sel:dimension:UsageRecord' :: UsageRecord -&gt; Text
-</span><a href="#local-6989586621679145418"><span class="hs-identifier hs-var hs-var">dimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145418"><span class="hs-identifier hs-var">dimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145417"><span class="annot"><span class="annottext">s :: UsageRecord
-</span><a href="#local-6989586621679145417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145416"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
-</span><a href="#local-6989586621679145417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimension:UsageRecord' :: Text
+</span><a href="#local-6989586621679145427"><span class="hs-identifier hs-var hs-var">dimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145427"><span class="hs-identifier hs-var">dimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145426"><span class="annot"><span class="annottext">s :: UsageRecord
+</span><a href="#local-6989586621679145426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679145425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageRecord
+</span><a href="#local-6989586621679145426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimension:UsageRecord' :: Text
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#%24sel%3Adimension%3AUsageRecord%27"><span class="hs-identifier hs-var">dimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679145425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145413"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679145411"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UsageRecord
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145422"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679145420"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UsageRecord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UsageRecord) -&gt; Value -&gt; Parser UsageRecord
@@ -336,8 +336,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UsageRecord&quot;</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679145408"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679145408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679145417"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679145417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe (NonEmpty UsageAllocation)
 -&gt; POSIX
@@ -357,7 +357,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; POSIX -&gt; Text -&gt; Text -&gt; UsageRecord)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679145408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679145417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
@@ -368,7 +368,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (POSIX -&gt; Text -&gt; Text -&gt; UsageRecord)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679145408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty UsageAllocation))
+</span><a href="#local-6989586621679145417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty UsageAllocation))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UsageAllocations&quot;</span></span><span class="hs-special">)</span><span>
@@ -376,7 +376,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser POSIX -&gt; Parser (Text -&gt; Text -&gt; UsageRecord)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679145408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679145417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
@@ -384,26 +384,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; UsageRecord)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679145408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679145417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomerIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; UsageRecord) -&gt; Parser Text -&gt; Parser UsageRecord
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679145408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679145417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dimension&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145401"><span id="local-6989586621679145403"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145410"><span id="local-6989586621679145412"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145407"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145390"><span id="local-6989586621679145392"><span id="local-6989586621679145394"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679145388"><span class="annot"><span class="annottext">toJSON :: UsageRecord -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145382"><span id="local-6989586621679145383"><span id="local-6989586621679145384"><span id="local-6989586621679145385"><span id="local-6989586621679145386"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145399"><span id="local-6989586621679145401"><span id="local-6989586621679145403"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord"><span class="hs-identifier hs-type">UsageRecord</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679145397"><span class="annot"><span class="annottext">toJSON :: UsageRecord -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageRecord.html#UsageRecord%27"><span class="hs-identifier hs-type">UsageRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145391"><span id="local-6989586621679145392"><span id="local-6989586621679145393"><span id="local-6989586621679145394"><span id="local-6989586621679145395"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (NonEmpty UsageAllocation)
 Text
 POSIX
@@ -417,7 +417,7 @@ $sel:customerIdentifier:UsageRecord' :: UsageRecord -&gt; Text
 $sel:timestamp:UsageRecord' :: UsageRecord -&gt; POSIX
 $sel:usageAllocations:UsageRecord' :: UsageRecord -&gt; Maybe (NonEmpty UsageAllocation)
 $sel:quantity:UsageRecord' :: UsageRecord -&gt; Maybe Natural
-</span><a href="#local-6989586621679145382"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679145391"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -429,7 +429,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679145386"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679145395"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UsageAllocations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty UsageAllocation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -438,14 +438,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (NonEmpty UsageAllocation) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty UsageAllocation)
-</span><a href="#local-6989586621679145385"><span class="hs-identifier hs-var">usageAllocations</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679145394"><span class="hs-identifier hs-var">usageAllocations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679145384"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679145393"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -453,14 +453,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CustomerIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145383"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679145392"><span class="hs-identifier hs-var">customerIdentifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dimension&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679145382"><span class="hs-identifier hs-var">dimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679145391"><span class="hs-identifier hs-var">dimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span></pre></body></html>

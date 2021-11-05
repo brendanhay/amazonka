@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679397838"><span id="local-6989586621679397839"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccessStatus"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus"><span class="hs-identifier hs-var">AccessStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessStatus%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus%27"><span class="hs-identifier hs-var">AccessStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679397847"><span id="local-6989586621679397848"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccessStatus"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus"><span class="hs-identifier hs-var">AccessStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessStatus%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#AccessStatus%27"><span class="hs-identifier hs-var">AccessStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccessStatus"><span class="annot"><span class="annottext">AccessStatus -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.AccessStatus.html#fromAccessStatus"><span class="hs-identifier hs-var hs-var">fromAccessStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397830"><span id="local-6989586621679397832"><span id="local-6989586621679397834"><span class="annot"><span class="annottext">Int -&gt; AccessStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397839"><span id="local-6989586621679397841"><span id="local-6989586621679397843"><span class="annot"><span class="annottext">Int -&gt; AccessStatus -&gt; ShowS
 [AccessStatus] -&gt; ShowS
 AccessStatus -&gt; String
 (Int -&gt; AccessStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AccessStatus -&gt; String
 showsPrec :: Int -&gt; AccessStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AccessStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679397821"><span id="local-6989586621679397823"><span id="local-6989586621679397825"><span id="local-6989586621679397827"><span class="annot"><span class="annottext">ReadPrec [AccessStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679397830"><span id="local-6989586621679397832"><span id="local-6989586621679397834"><span id="local-6989586621679397836"><span class="annot"><span class="annottext">ReadPrec [AccessStatus]
 ReadPrec AccessStatus
 Int -&gt; ReadS AccessStatus
 ReadS [AccessStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AccessStatus]
 readsPrec :: Int -&gt; ReadS AccessStatus
 $creadsPrec :: Int -&gt; ReadS AccessStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679397816"><span id="local-6989586621679397818"><span class="annot"><span class="annottext">AccessStatus -&gt; AccessStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679397825"><span id="local-6989586621679397827"><span class="annot"><span class="annottext">AccessStatus -&gt; AccessStatus -&gt; Bool
 (AccessStatus -&gt; AccessStatus -&gt; Bool)
 -&gt; (AccessStatus -&gt; AccessStatus -&gt; Bool) -&gt; Eq AccessStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: AccessStatus -&gt; AccessStatus -&gt; Bool
 == :: AccessStatus -&gt; AccessStatus -&gt; Bool
 $c== :: AccessStatus -&gt; AccessStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679397800"><span id="local-6989586621679397802"><span id="local-6989586621679397804"><span id="local-6989586621679397806"><span id="local-6989586621679397808"><span id="local-6989586621679397810"><span id="local-6989586621679397812"><span class="annot"><span class="annottext">Eq AccessStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679397809"><span id="local-6989586621679397811"><span id="local-6989586621679397813"><span id="local-6989586621679397815"><span id="local-6989586621679397817"><span id="local-6989586621679397819"><span id="local-6989586621679397821"><span class="annot"><span class="annottext">Eq AccessStatus
 Eq AccessStatus
 -&gt; (AccessStatus -&gt; AccessStatus -&gt; Ordering)
 -&gt; (AccessStatus -&gt; AccessStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AccessStatus -&gt; Rep AccessStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397792"><span id="local-6989586621679397794"><span class="annot"><span class="annottext">Int -&gt; AccessStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397801"><span id="local-6989586621679397803"><span class="annot"><span class="annottext">Int -&gt; AccessStatus -&gt; Int
 AccessStatus -&gt; Int
 (Int -&gt; AccessStatus -&gt; Int)
 -&gt; (AccessStatus -&gt; Int) -&gt; Hashable AccessStatus
@@ -143,49 +143,49 @@ $chash :: AccessStatus -&gt; Int
 hashWithSalt :: Int -&gt; AccessStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AccessStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679397789"><span class="annot"><span class="annottext">AccessStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679397798"><span class="annot"><span class="annottext">AccessStatus -&gt; ()
 (AccessStatus -&gt; ()) -&gt; NFData AccessStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AccessStatus -&gt; ()
 $crnf :: AccessStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679397786"><span class="annot"><span class="annottext">Text -&gt; Either String AccessStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679397795"><span class="annot"><span class="annottext">Text -&gt; Either String AccessStatus
 (Text -&gt; Either String AccessStatus) -&gt; FromText AccessStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AccessStatus
 $cfromText :: Text -&gt; Either String AccessStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679397783"><span class="annot"><span class="annottext">AccessStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679397792"><span class="annot"><span class="annottext">AccessStatus -&gt; Text
 (AccessStatus -&gt; Text) -&gt; ToText AccessStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AccessStatus -&gt; Text
 $ctoText :: AccessStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679397780"><span class="annot"><span class="annottext">AccessStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679397789"><span class="annot"><span class="annottext">AccessStatus -&gt; ByteString
 (AccessStatus -&gt; ByteString) -&gt; ToByteString AccessStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AccessStatus -&gt; ByteString
 $ctoBS :: AccessStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397777"><span class="annot"><span class="annottext">AccessStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397786"><span class="annot"><span class="annottext">AccessStatus -&gt; ByteStringBuilder
 (AccessStatus -&gt; ByteStringBuilder) -&gt; ToLog AccessStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AccessStatus -&gt; ByteStringBuilder
 $cbuild :: AccessStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397774"><span class="annot"><span class="annottext">HeaderName -&gt; AccessStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397783"><span class="annot"><span class="annottext">HeaderName -&gt; AccessStatus -&gt; [Header]
 (HeaderName -&gt; AccessStatus -&gt; [Header]) -&gt; ToHeader AccessStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AccessStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AccessStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397771"><span class="annot"><span class="annottext">AccessStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397780"><span class="annot"><span class="annottext">AccessStatus -&gt; QueryString
 (AccessStatus -&gt; QueryString) -&gt; ToQuery AccessStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AccessStatus -&gt; QueryString
 $ctoQuery :: AccessStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397766"><span id="local-6989586621679397768"><span class="annot"><span class="annottext">Value -&gt; Parser [AccessStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397775"><span id="local-6989586621679397777"><span class="annot"><span class="annottext">Value -&gt; Parser [AccessStatus]
 Value -&gt; Parser AccessStatus
 (Value -&gt; Parser AccessStatus)
 -&gt; (Value -&gt; Parser [AccessStatus]) -&gt; FromJSON AccessStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [AccessStatus]
 parseJSON :: Value -&gt; Parser AccessStatus
 $cparseJSON :: Value -&gt; Parser AccessStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397761"><span id="local-6989586621679397763"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccessStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397770"><span id="local-6989586621679397772"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccessStatus]
 FromJSONKeyFunction AccessStatus
 FromJSONKeyFunction AccessStatus
 -&gt; FromJSONKeyFunction [AccessStatus] -&gt; FromJSONKey AccessStatus
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AccessStatus]
 fromJSONKey :: FromJSONKeyFunction AccessStatus
 $cfromJSONKey :: FromJSONKeyFunction AccessStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397752"><span id="local-6989586621679397754"><span id="local-6989586621679397756"><span id="local-6989586621679397758"><span class="annot"><span class="annottext">[AccessStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397761"><span id="local-6989586621679397763"><span id="local-6989586621679397765"><span id="local-6989586621679397767"><span class="annot"><span class="annottext">[AccessStatus] -&gt; Encoding
 [AccessStatus] -&gt; Value
 AccessStatus -&gt; Encoding
 AccessStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: AccessStatus -&gt; Encoding
 toJSON :: AccessStatus -&gt; Value
 $ctoJSON :: AccessStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397747"><span id="local-6989586621679397749"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccessStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397756"><span id="local-6989586621679397758"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccessStatus]
 ToJSONKeyFunction AccessStatus
 ToJSONKeyFunction AccessStatus
 -&gt; ToJSONKeyFunction [AccessStatus] -&gt; ToJSONKey AccessStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AccessStatus]
 toJSONKey :: ToJSONKeyFunction AccessStatus
 $ctoJSONKey :: ToJSONKeyFunction AccessStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397744"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccessStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397753"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccessStatus
 ([Node] -&gt; Either String AccessStatus) -&gt; FromXML AccessStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AccessStatus
 $cparseXML :: [Node] -&gt; Either String AccessStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397741"><span class="annot"><span class="annottext">AccessStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397750"><span class="annot"><span class="annottext">AccessStatus -&gt; XML
 (AccessStatus -&gt; XML) -&gt; ToXML AccessStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AccessStatus -&gt; XML

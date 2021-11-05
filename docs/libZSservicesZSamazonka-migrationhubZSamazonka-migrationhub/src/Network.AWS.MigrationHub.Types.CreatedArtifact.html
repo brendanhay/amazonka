@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- AMI, EC2 instance, RDS instance, etc.).</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCreatedArtifact' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679169448"><span id="local-6989586621679169449"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatedArtifact"><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-var">CreatedArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatedArtifact%27"><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-var">CreatedArtifact'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679169457"><span id="local-6989586621679169458"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatedArtifact"><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-var">CreatedArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatedArtifact%27"><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-var">CreatedArtifact'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description that can be free-form text to record additional detail</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- about the artifact for clarity or for later reference.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Adescription%3ACreatedArtifact%27"><span class="annot"><span class="annottext">CreatedArtifact -&gt; Maybe Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3ACreatedArtifact%27"><span class="annot"><span class="annottext">CreatedArtifact -&gt; Text
 </span><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#%24sel%3Aname%3ACreatedArtifact%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679169441"><span id="local-6989586621679169443"><span class="annot"><span class="annottext">CreatedArtifact -&gt; CreatedArtifact -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679169450"><span id="local-6989586621679169452"><span class="annot"><span class="annottext">CreatedArtifact -&gt; CreatedArtifact -&gt; Bool
 (CreatedArtifact -&gt; CreatedArtifact -&gt; Bool)
 -&gt; (CreatedArtifact -&gt; CreatedArtifact -&gt; Bool)
 -&gt; Eq CreatedArtifact
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatedArtifact -&gt; CreatedArtifact -&gt; Bool
 == :: CreatedArtifact -&gt; CreatedArtifact -&gt; Bool
 $c== :: CreatedArtifact -&gt; CreatedArtifact -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169432"><span id="local-6989586621679169434"><span id="local-6989586621679169436"><span id="local-6989586621679169438"><span class="annot"><span class="annottext">ReadPrec [CreatedArtifact]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169441"><span id="local-6989586621679169443"><span id="local-6989586621679169445"><span id="local-6989586621679169447"><span class="annot"><span class="annottext">ReadPrec [CreatedArtifact]
 ReadPrec CreatedArtifact
 Int -&gt; ReadS CreatedArtifact
 ReadS [CreatedArtifact]
@@ -65,7 +65,7 @@ readList :: ReadS [CreatedArtifact]
 $creadList :: ReadS [CreatedArtifact]
 readsPrec :: Int -&gt; ReadS CreatedArtifact
 $creadsPrec :: Int -&gt; ReadS CreatedArtifact
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169425"><span id="local-6989586621679169427"><span id="local-6989586621679169429"><span class="annot"><span class="annottext">Int -&gt; CreatedArtifact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679169434"><span id="local-6989586621679169436"><span id="local-6989586621679169438"><span class="annot"><span class="annottext">Int -&gt; CreatedArtifact -&gt; ShowS
 [CreatedArtifact] -&gt; ShowS
 CreatedArtifact -&gt; String
 (Int -&gt; CreatedArtifact -&gt; ShowS)
@@ -108,8 +108,8 @@ $cfrom :: forall x. CreatedArtifact -&gt; Rep CreatedArtifact x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span><span>
 </span><span id="line-55"></span><span id="newCreatedArtifact"><span class="annot"><span class="annottext">newCreatedArtifact :: Text -&gt; CreatedArtifact
-</span><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#newCreatedArtifact"><span class="hs-identifier hs-var hs-var">newCreatedArtifact</span></a></span></span><span> </span><span id="local-6989586621679169419"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169419"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#newCreatedArtifact"><span class="hs-identifier hs-var hs-var">newCreatedArtifact</span></a></span></span><span> </span><span id="local-6989586621679169428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679169428"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">CreatedArtifact' :: Maybe Text -&gt; Text -&gt; CreatedArtifact
 </span><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CreatedArtifact' :: Maybe Text
@@ -118,7 +118,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreatedArtifact' :: Text
 </span><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#%24sel%3Aname%3ACreatedArtifact%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169419"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679169428"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | A description that can be free-form text to record additional detail</span><span>
@@ -130,16 +130,16 @@ forall a. Maybe a
 -&gt; (CreatedArtifact -&gt; Maybe Text -&gt; CreatedArtifact)
 -&gt; Lens CreatedArtifact CreatedArtifact (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169415"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169424"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreatedArtifact' :: CreatedArtifact -&gt; Maybe Text
-</span><a href="#local-6989586621679169415"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679169415"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169414"><span class="annot"><span class="annottext">s :: CreatedArtifact
-</span><a href="#local-6989586621679169414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169413"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679169413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatedArtifact
-</span><a href="#local-6989586621679169414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatedArtifact' :: Maybe Text
+</span><a href="#local-6989586621679169424"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169424"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169423"><span class="annot"><span class="annottext">s :: CreatedArtifact
+</span><a href="#local-6989586621679169423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169422"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679169422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatedArtifact
+</span><a href="#local-6989586621679169423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatedArtifact' :: Maybe Text
 </span><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#%24sel%3Adescription%3ACreatedArtifact%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679169413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679169422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | An ARN that uniquely identifies the result of a migration task.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#createdArtifact_name"><span class="hs-identifier hs-type">createdArtifact_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -148,19 +148,19 @@ $sel:description:CreatedArtifact' :: CreatedArtifact -&gt; Maybe Text
 -&gt; (CreatedArtifact -&gt; Text -&gt; CreatedArtifact)
 -&gt; Lens CreatedArtifact CreatedArtifact Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169411"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169420"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreatedArtifact' :: CreatedArtifact -&gt; Text
-</span><a href="#local-6989586621679169411"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169411"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169410"><span class="annot"><span class="annottext">s :: CreatedArtifact
-</span><a href="#local-6989586621679169410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169409"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatedArtifact
-</span><a href="#local-6989586621679169410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreatedArtifact' :: Text
+</span><a href="#local-6989586621679169420"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679169420"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679169419"><span class="annot"><span class="annottext">s :: CreatedArtifact
+</span><a href="#local-6989586621679169419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679169418"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679169418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatedArtifact
+</span><a href="#local-6989586621679169419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreatedArtifact' :: Text
 </span><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#%24sel%3Aname%3ACreatedArtifact%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679169418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169406"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679169404"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CreatedArtifact
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169415"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679169413"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CreatedArtifact
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CreatedArtifact)
@@ -170,15 +170,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CreatedArtifact&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679169401"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679169401"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679169410"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679169410"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; CreatedArtifact
 </span><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-var">CreatedArtifact'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; CreatedArtifact)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; CreatedArtifact)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679169401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679169410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,25 +186,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser CreatedArtifact
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679169401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679169410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169394"><span id="local-6989586621679169396"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169403"><span id="local-6989586621679169405"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169391"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169400"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169383"><span id="local-6989586621679169385"><span id="local-6989586621679169387"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679169381"><span class="annot"><span class="annottext">toJSON :: CreatedArtifact -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169378"><span id="local-6989586621679169379"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679169392"><span id="local-6989586621679169394"><span id="local-6989586621679169396"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact"><span class="hs-identifier hs-type">CreatedArtifact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679169390"><span class="annot"><span class="annottext">toJSON :: CreatedArtifact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.CreatedArtifact.html#CreatedArtifact%27"><span class="hs-identifier hs-type">CreatedArtifact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679169387"><span id="local-6989586621679169388"><span class="annot"><span class="annottext">Maybe Text
 Text
 name :: Text
 description :: Maybe Text
 $sel:name:CreatedArtifact' :: CreatedArtifact -&gt; Text
 $sel:description:CreatedArtifact' :: CreatedArtifact -&gt; Maybe Text
-</span><a href="#local-6989586621679169378"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679169387"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -216,14 +216,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679169379"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679169388"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679169378"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679169387"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

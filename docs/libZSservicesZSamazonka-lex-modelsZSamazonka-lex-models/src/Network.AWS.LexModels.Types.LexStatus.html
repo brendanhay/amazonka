@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679311667"><span id="local-6989586621679311668"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LexStatus"><span class="annot"><a href="Network.AWS.LexModels.Types.LexStatus.html#LexStatus"><span class="hs-identifier hs-var">LexStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LexStatus%27"><span class="annot"><a href="Network.AWS.LexModels.Types.LexStatus.html#LexStatus%27"><span class="hs-identifier hs-var">LexStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679311676"><span id="local-6989586621679311677"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LexStatus"><span class="annot"><a href="Network.AWS.LexModels.Types.LexStatus.html#LexStatus"><span class="hs-identifier hs-var">LexStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LexStatus%27"><span class="annot"><a href="Network.AWS.LexModels.Types.LexStatus.html#LexStatus%27"><span class="hs-identifier hs-var">LexStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLexStatus"><span class="annot"><span class="annottext">LexStatus -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.LexStatus.html#fromLexStatus"><span class="hs-identifier hs-var hs-var">fromLexStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679311659"><span id="local-6989586621679311661"><span id="local-6989586621679311663"><span class="annot"><span class="annottext">Int -&gt; LexStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679311668"><span id="local-6989586621679311670"><span id="local-6989586621679311672"><span class="annot"><span class="annottext">Int -&gt; LexStatus -&gt; ShowS
 [LexStatus] -&gt; ShowS
 LexStatus -&gt; String
 (Int -&gt; LexStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: LexStatus -&gt; String
 showsPrec :: Int -&gt; LexStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; LexStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679311650"><span id="local-6989586621679311652"><span id="local-6989586621679311654"><span id="local-6989586621679311656"><span class="annot"><span class="annottext">ReadPrec [LexStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679311659"><span id="local-6989586621679311661"><span id="local-6989586621679311663"><span id="local-6989586621679311665"><span class="annot"><span class="annottext">ReadPrec [LexStatus]
 ReadPrec LexStatus
 Int -&gt; ReadS LexStatus
 ReadS [LexStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [LexStatus]
 readsPrec :: Int -&gt; ReadS LexStatus
 $creadsPrec :: Int -&gt; ReadS LexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679311645"><span id="local-6989586621679311647"><span class="annot"><span class="annottext">LexStatus -&gt; LexStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679311654"><span id="local-6989586621679311656"><span class="annot"><span class="annottext">LexStatus -&gt; LexStatus -&gt; Bool
 (LexStatus -&gt; LexStatus -&gt; Bool)
 -&gt; (LexStatus -&gt; LexStatus -&gt; Bool) -&gt; Eq LexStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: LexStatus -&gt; LexStatus -&gt; Bool
 == :: LexStatus -&gt; LexStatus -&gt; Bool
 $c== :: LexStatus -&gt; LexStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679311629"><span id="local-6989586621679311631"><span id="local-6989586621679311633"><span id="local-6989586621679311635"><span id="local-6989586621679311637"><span id="local-6989586621679311639"><span id="local-6989586621679311641"><span class="annot"><span class="annottext">Eq LexStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679311638"><span id="local-6989586621679311640"><span id="local-6989586621679311642"><span id="local-6989586621679311644"><span id="local-6989586621679311646"><span id="local-6989586621679311648"><span id="local-6989586621679311650"><span class="annot"><span class="annottext">Eq LexStatus
 Eq LexStatus
 -&gt; (LexStatus -&gt; LexStatus -&gt; Ordering)
 -&gt; (LexStatus -&gt; LexStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. LexStatus -&gt; Rep LexStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679311621"><span id="local-6989586621679311623"><span class="annot"><span class="annottext">Int -&gt; LexStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679311630"><span id="local-6989586621679311632"><span class="annot"><span class="annottext">Int -&gt; LexStatus -&gt; Int
 LexStatus -&gt; Int
 (Int -&gt; LexStatus -&gt; Int)
 -&gt; (LexStatus -&gt; Int) -&gt; Hashable LexStatus
@@ -144,49 +144,49 @@ $chash :: LexStatus -&gt; Int
 hashWithSalt :: Int -&gt; LexStatus -&gt; Int
 $chashWithSalt :: Int -&gt; LexStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679311618"><span class="annot"><span class="annottext">LexStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679311627"><span class="annot"><span class="annottext">LexStatus -&gt; ()
 (LexStatus -&gt; ()) -&gt; NFData LexStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LexStatus -&gt; ()
 $crnf :: LexStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679311615"><span class="annot"><span class="annottext">Text -&gt; Either String LexStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679311624"><span class="annot"><span class="annottext">Text -&gt; Either String LexStatus
 (Text -&gt; Either String LexStatus) -&gt; FromText LexStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LexStatus
 $cfromText :: Text -&gt; Either String LexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679311612"><span class="annot"><span class="annottext">LexStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679311621"><span class="annot"><span class="annottext">LexStatus -&gt; Text
 (LexStatus -&gt; Text) -&gt; ToText LexStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LexStatus -&gt; Text
 $ctoText :: LexStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679311609"><span class="annot"><span class="annottext">LexStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679311618"><span class="annot"><span class="annottext">LexStatus -&gt; ByteString
 (LexStatus -&gt; ByteString) -&gt; ToByteString LexStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LexStatus -&gt; ByteString
 $ctoBS :: LexStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679311606"><span class="annot"><span class="annottext">LexStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679311615"><span class="annot"><span class="annottext">LexStatus -&gt; ByteStringBuilder
 (LexStatus -&gt; ByteStringBuilder) -&gt; ToLog LexStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LexStatus -&gt; ByteStringBuilder
 $cbuild :: LexStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679311603"><span class="annot"><span class="annottext">HeaderName -&gt; LexStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679311612"><span class="annot"><span class="annottext">HeaderName -&gt; LexStatus -&gt; [Header]
 (HeaderName -&gt; LexStatus -&gt; [Header]) -&gt; ToHeader LexStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LexStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LexStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679311600"><span class="annot"><span class="annottext">LexStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679311609"><span class="annot"><span class="annottext">LexStatus -&gt; QueryString
 (LexStatus -&gt; QueryString) -&gt; ToQuery LexStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LexStatus -&gt; QueryString
 $ctoQuery :: LexStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679311595"><span id="local-6989586621679311597"><span class="annot"><span class="annottext">Value -&gt; Parser [LexStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679311604"><span id="local-6989586621679311606"><span class="annot"><span class="annottext">Value -&gt; Parser [LexStatus]
 Value -&gt; Parser LexStatus
 (Value -&gt; Parser LexStatus)
 -&gt; (Value -&gt; Parser [LexStatus]) -&gt; FromJSON LexStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [LexStatus]
 parseJSON :: Value -&gt; Parser LexStatus
 $cparseJSON :: Value -&gt; Parser LexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679311590"><span id="local-6989586621679311592"><span class="annot"><span class="annottext">FromJSONKeyFunction [LexStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679311599"><span id="local-6989586621679311601"><span class="annot"><span class="annottext">FromJSONKeyFunction [LexStatus]
 FromJSONKeyFunction LexStatus
 FromJSONKeyFunction LexStatus
 -&gt; FromJSONKeyFunction [LexStatus] -&gt; FromJSONKey LexStatus
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LexStatus]
 fromJSONKey :: FromJSONKeyFunction LexStatus
 $cfromJSONKey :: FromJSONKeyFunction LexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679311581"><span id="local-6989586621679311583"><span id="local-6989586621679311585"><span id="local-6989586621679311587"><span class="annot"><span class="annottext">[LexStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679311590"><span id="local-6989586621679311592"><span id="local-6989586621679311594"><span id="local-6989586621679311596"><span class="annot"><span class="annottext">[LexStatus] -&gt; Encoding
 [LexStatus] -&gt; Value
 LexStatus -&gt; Encoding
 LexStatus -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: LexStatus -&gt; Encoding
 toJSON :: LexStatus -&gt; Value
 $ctoJSON :: LexStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679311576"><span id="local-6989586621679311578"><span class="annot"><span class="annottext">ToJSONKeyFunction [LexStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679311585"><span id="local-6989586621679311587"><span class="annot"><span class="annottext">ToJSONKeyFunction [LexStatus]
 ToJSONKeyFunction LexStatus
 ToJSONKeyFunction LexStatus
 -&gt; ToJSONKeyFunction [LexStatus] -&gt; ToJSONKey LexStatus
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LexStatus]
 toJSONKey :: ToJSONKeyFunction LexStatus
 $ctoJSONKey :: ToJSONKeyFunction LexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679311573"><span class="annot"><span class="annottext">[Node] -&gt; Either String LexStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679311582"><span class="annot"><span class="annottext">[Node] -&gt; Either String LexStatus
 ([Node] -&gt; Either String LexStatus) -&gt; FromXML LexStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LexStatus
 $cparseXML :: [Node] -&gt; Either String LexStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679311570"><span class="annot"><span class="annottext">LexStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679311579"><span class="annot"><span class="annottext">LexStatus -&gt; XML
 (LexStatus -&gt; XML) -&gt; ToXML LexStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LexStatus -&gt; XML

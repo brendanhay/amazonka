@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeInsightRules' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679265008"><span id="local-6989586621679265009"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInsightRules"><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-var">DescribeInsightRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInsightRules%27"><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-var">DescribeInsightRules'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679265017"><span id="local-6989586621679265018"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInsightRules"><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-var">DescribeInsightRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInsightRules%27"><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-var">DescribeInsightRules'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Include this value, if it was returned by the previous operation, to get</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the next set of rules.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInsightRules%27"><span class="annot"><span class="annottext">DescribeInsightRules -&gt; Maybe Text
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeInsightRules%27"><span class="annot"><span class="annottext">DescribeInsightRules -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#%24sel%3AmaxResults%3ADescribeInsightRules%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265001"><span id="local-6989586621679265003"><span class="annot"><span class="annottext">DescribeInsightRules -&gt; DescribeInsightRules -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265010"><span id="local-6989586621679265012"><span class="annot"><span class="annottext">DescribeInsightRules -&gt; DescribeInsightRules -&gt; Bool
 (DescribeInsightRules -&gt; DescribeInsightRules -&gt; Bool)
 -&gt; (DescribeInsightRules -&gt; DescribeInsightRules -&gt; Bool)
 -&gt; Eq DescribeInsightRules
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeInsightRules -&gt; DescribeInsightRules -&gt; Bool
 == :: DescribeInsightRules -&gt; DescribeInsightRules -&gt; Bool
 $c== :: DescribeInsightRules -&gt; DescribeInsightRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264992"><span id="local-6989586621679264994"><span id="local-6989586621679264996"><span id="local-6989586621679264998"><span class="annot"><span class="annottext">ReadPrec [DescribeInsightRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265001"><span id="local-6989586621679265003"><span id="local-6989586621679265005"><span id="local-6989586621679265007"><span class="annot"><span class="annottext">ReadPrec [DescribeInsightRules]
 ReadPrec DescribeInsightRules
 Int -&gt; ReadS DescribeInsightRules
 ReadS [DescribeInsightRules]
@@ -91,7 +91,7 @@ readList :: ReadS [DescribeInsightRules]
 $creadList :: ReadS [DescribeInsightRules]
 readsPrec :: Int -&gt; ReadS DescribeInsightRules
 $creadsPrec :: Int -&gt; ReadS DescribeInsightRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264985"><span id="local-6989586621679264987"><span id="local-6989586621679264989"><span class="annot"><span class="annottext">Int -&gt; DescribeInsightRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264994"><span id="local-6989586621679264996"><span id="local-6989586621679264998"><span class="annot"><span class="annottext">Int -&gt; DescribeInsightRules -&gt; ShowS
 [DescribeInsightRules] -&gt; ShowS
 DescribeInsightRules -&gt; String
 (Int -&gt; DescribeInsightRules -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; Lens
      DescribeInsightRules DescribeInsightRules (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264978"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264987"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInsightRules' :: DescribeInsightRules -&gt; Maybe Text
-</span><a href="#local-6989586621679264978"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264978"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264977"><span class="annot"><span class="annottext">s :: DescribeInsightRules
-</span><a href="#local-6989586621679264977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264976"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRules
-</span><a href="#local-6989586621679264977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInsightRules' :: Maybe Text
+</span><a href="#local-6989586621679264987"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264987"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264986"><span class="annot"><span class="annottext">s :: DescribeInsightRules
+</span><a href="#local-6989586621679264986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264985"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRules
+</span><a href="#local-6989586621679264986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInsightRules' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#%24sel%3AnextToken%3ADescribeInsightRules%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The maximum number of results to return in one operation. If you omit</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- this parameter, the default of 500 is used.</span><span>
@@ -180,27 +180,27 @@ $sel:nextToken:DescribeInsightRules' :: DescribeInsightRules -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264975"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264984"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeInsightRules' :: DescribeInsightRules -&gt; Maybe Natural
-</span><a href="#local-6989586621679264975"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264975"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264974"><span class="annot"><span class="annottext">s :: DescribeInsightRules
-</span><a href="#local-6989586621679264974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264973"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRules
-</span><a href="#local-6989586621679264974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInsightRules' :: Maybe Natural
+</span><a href="#local-6989586621679264984"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264984"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264983"><span class="annot"><span class="annottext">s :: DescribeInsightRules
+</span><a href="#local-6989586621679264983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264982"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRules
+</span><a href="#local-6989586621679264983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInsightRules' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#%24sel%3AmaxResults%3ADescribeInsightRules%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679264969"><span class="annot"><span class="annottext">request :: DescribeInsightRules -&gt; Request DescribeInsightRules
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679264978"><span class="annot"><span class="annottext">request :: DescribeInsightRules -&gt; Request DescribeInsightRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeInsightRules -&gt; Request DescribeInsightRules
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679264965"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679264974"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeInsightRules
 -&gt; ClientResponse ClientBody
@@ -231,10 +231,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeInsightRulesResult&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264962"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264962"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679264961"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679264961"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679264960"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679264960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264971"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264971"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679264970"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679264970"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679264969"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679264969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [InsightRule] -&gt; Int -&gt; DescribeInsightRulesResponse
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-var">DescribeInsightRulesResponse'</span></a></span><span>
@@ -245,7 +245,7 @@ Text
      String (Maybe [InsightRule] -&gt; Int -&gt; DescribeInsightRulesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679264960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679264969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -255,7 +255,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeInsightRulesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679264960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679264969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InsightRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -285,15 +285,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264962"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264971"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264949"><span id="local-6989586621679264951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264958"><span id="local-6989586621679264960"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679264942"><span class="annot"><span class="annottext">toHeaders :: DescribeInsightRules -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679264951"><span class="annot"><span class="annottext">toHeaders :: DescribeInsightRules -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeInsightRules -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -301,21 +301,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679264937"><span class="annot"><span class="annottext">toPath :: DescribeInsightRules -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679264946"><span class="annot"><span class="annottext">toPath :: DescribeInsightRules -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeInsightRules -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules"><span class="hs-identifier hs-type">DescribeInsightRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679264933"><span class="annot"><span class="annottext">toQuery :: DescribeInsightRules -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264930"><span id="local-6989586621679264931"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679264942"><span class="annot"><span class="annottext">toQuery :: DescribeInsightRules -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRules%27"><span class="hs-identifier hs-type">DescribeInsightRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264939"><span id="local-6989586621679264940"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:DescribeInsightRules' :: DescribeInsightRules -&gt; Maybe Natural
 $sel:nextToken:DescribeInsightRules' :: DescribeInsightRules -&gt; Maybe Text
-</span><a href="#local-6989586621679264930"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679264939"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -335,16 +335,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264931"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679264940"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264930"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679264939"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDescribeInsightRulesResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679264927"><span id="local-6989586621679264928"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInsightRulesResponse"><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-var">DescribeInsightRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInsightRulesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-var">DescribeInsightRulesResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679264936"><span id="local-6989586621679264937"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInsightRulesResponse"><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-var">DescribeInsightRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInsightRulesResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-var">DescribeInsightRulesResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If this parameter is present, it is a token that marks the start of the</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- next batch of returned results.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInsightRulesResponse%27"><span class="annot"><span class="annottext">DescribeInsightRulesResponse -&gt; Maybe Text
@@ -356,7 +356,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInsightRulesResponse%27"><span class="annot"><span class="annottext">DescribeInsightRulesResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#%24sel%3AhttpStatus%3ADescribeInsightRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264920"><span id="local-6989586621679264922"><span class="annot"><span class="annottext">DescribeInsightRulesResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264929"><span id="local-6989586621679264931"><span class="annot"><span class="annottext">DescribeInsightRulesResponse
 -&gt; DescribeInsightRulesResponse -&gt; Bool
 (DescribeInsightRulesResponse
  -&gt; DescribeInsightRulesResponse -&gt; Bool)
@@ -372,7 +372,7 @@ $c/= :: DescribeInsightRulesResponse
 -&gt; DescribeInsightRulesResponse -&gt; Bool
 $c== :: DescribeInsightRulesResponse
 -&gt; DescribeInsightRulesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264912"><span id="local-6989586621679264914"><span id="local-6989586621679264916"><span id="local-6989586621679264918"><span class="annot"><span class="annottext">ReadPrec [DescribeInsightRulesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264921"><span id="local-6989586621679264923"><span id="local-6989586621679264925"><span id="local-6989586621679264927"><span class="annot"><span class="annottext">ReadPrec [DescribeInsightRulesResponse]
 ReadPrec DescribeInsightRulesResponse
 Int -&gt; ReadS DescribeInsightRulesResponse
 ReadS [DescribeInsightRulesResponse]
@@ -392,7 +392,7 @@ readList :: ReadS [DescribeInsightRulesResponse]
 $creadList :: ReadS [DescribeInsightRulesResponse]
 readsPrec :: Int -&gt; ReadS DescribeInsightRulesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeInsightRulesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264906"><span id="local-6989586621679264908"><span id="local-6989586621679264910"><span class="annot"><span class="annottext">Int -&gt; DescribeInsightRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264915"><span id="local-6989586621679264917"><span id="local-6989586621679264919"><span class="annot"><span class="annottext">Int -&gt; DescribeInsightRulesResponse -&gt; ShowS
 [DescribeInsightRulesResponse] -&gt; ShowS
 DescribeInsightRulesResponse -&gt; String
 (Int -&gt; DescribeInsightRulesResponse -&gt; ShowS)
@@ -443,8 +443,8 @@ DescribeInsightRulesResponse -&gt; Rep DescribeInsightRulesResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newDescribeInsightRulesResponse"><span class="annot"><span class="annottext">newDescribeInsightRulesResponse :: Int -&gt; DescribeInsightRulesResponse
-</span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#newDescribeInsightRulesResponse"><span class="hs-identifier hs-var hs-var">newDescribeInsightRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679264903"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#newDescribeInsightRulesResponse"><span class="hs-identifier hs-var hs-var">newDescribeInsightRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679264912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">DescribeInsightRulesResponse' :: Maybe Text
 -&gt; Maybe [InsightRule] -&gt; Int -&gt; DescribeInsightRulesResponse
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span>
@@ -459,7 +459,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInsightRulesResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#%24sel%3AhttpStatus%3ADescribeInsightRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679264912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | If this parameter is present, it is a token that marks the start of the</span><span>
@@ -476,16 +476,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264902"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264911"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInsightRulesResponse' :: DescribeInsightRulesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679264902"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264902"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264901"><span class="annot"><span class="annottext">s :: DescribeInsightRulesResponse
-</span><a href="#local-6989586621679264901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264900"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRulesResponse
-</span><a href="#local-6989586621679264901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInsightRulesResponse' :: Maybe Text
+</span><a href="#local-6989586621679264911"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264911"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264910"><span class="annot"><span class="annottext">s :: DescribeInsightRulesResponse
+</span><a href="#local-6989586621679264910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679264909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRulesResponse
+</span><a href="#local-6989586621679264910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInsightRulesResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#%24sel%3AnextToken%3ADescribeInsightRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The rules returned by the operation.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#describeInsightRulesResponse_insightRules"><span class="hs-identifier hs-type">describeInsightRulesResponse_insightRules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.InsightRule.html#InsightRule"><span class="hs-identifier hs-type">InsightRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -500,16 +500,16 @@ $sel:nextToken:DescribeInsightRulesResponse' :: DescribeInsightRulesResponse -&g
      (Maybe [InsightRule])
      (Maybe [InsightRule])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264899"><span class="annot"><span class="annottext">Maybe [InsightRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264908"><span class="annot"><span class="annottext">Maybe [InsightRule]
 insightRules :: Maybe [InsightRule]
 $sel:insightRules:DescribeInsightRulesResponse' :: DescribeInsightRulesResponse -&gt; Maybe [InsightRule]
-</span><a href="#local-6989586621679264899"><span class="hs-identifier hs-var hs-var">insightRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightRule]
-</span><a href="#local-6989586621679264899"><span class="hs-identifier hs-var">insightRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264898"><span class="annot"><span class="annottext">s :: DescribeInsightRulesResponse
-</span><a href="#local-6989586621679264898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264897"><span class="annot"><span class="annottext">Maybe [InsightRule]
-</span><a href="#local-6989586621679264897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRulesResponse
-</span><a href="#local-6989586621679264898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightRules:DescribeInsightRulesResponse' :: Maybe [InsightRule]
+</span><a href="#local-6989586621679264908"><span class="hs-identifier hs-var hs-var">insightRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightRule]
+</span><a href="#local-6989586621679264908"><span class="hs-identifier hs-var">insightRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264907"><span class="annot"><span class="annottext">s :: DescribeInsightRulesResponse
+</span><a href="#local-6989586621679264907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264906"><span class="annot"><span class="annottext">Maybe [InsightRule]
+</span><a href="#local-6989586621679264906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRulesResponse
+</span><a href="#local-6989586621679264907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightRules:DescribeInsightRulesResponse' :: Maybe [InsightRule]
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#%24sel%3AinsightRules%3ADescribeInsightRulesResponse%27"><span class="hs-identifier hs-var">insightRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InsightRule]
-</span><a href="#local-6989586621679264897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsightRule] -&gt; f (Maybe [InsightRule]))
+</span><a href="#local-6989586621679264906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InsightRule] -&gt; f (Maybe [InsightRule]))
  -&gt; DescribeInsightRulesResponse -&gt; f DescribeInsightRulesResponse)
 -&gt; ((Maybe [InsightRule] -&gt; f (Maybe [InsightRule]))
     -&gt; Maybe [InsightRule] -&gt; f (Maybe [InsightRule]))
@@ -540,16 +540,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeInsightRulesResponse DescribeInsightRulesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264893"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264902"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeInsightRulesResponse' :: DescribeInsightRulesResponse -&gt; Int
-</span><a href="#local-6989586621679264893"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264893"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264892"><span class="annot"><span class="annottext">s :: DescribeInsightRulesResponse
-</span><a href="#local-6989586621679264892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264891"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRulesResponse
-</span><a href="#local-6989586621679264892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInsightRulesResponse' :: Int
+</span><a href="#local-6989586621679264902"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264902"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264901"><span class="annot"><span class="annottext">s :: DescribeInsightRulesResponse
+</span><a href="#local-6989586621679264901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse%27"><span class="hs-identifier hs-type">DescribeInsightRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264900"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInsightRulesResponse
+</span><a href="#local-6989586621679264901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInsightRulesResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#%24sel%3AhttpStatus%3ADescribeInsightRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.DescribeInsightRules.html#DescribeInsightRulesResponse"><span class="hs-identifier hs-type">DescribeInsightRulesResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

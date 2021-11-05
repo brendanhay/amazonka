@@ -1,0 +1,1116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ApiGatewayV2.Types.Api</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types.Api</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Cors.html"><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types.Cors</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ProtocolType.html"><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types.ProtocolType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents an API.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newApi' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679408920"><span id="local-6989586621679408921"></span></span><span class="hs-keyword">data</span><span> </span><span id="Api"><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-var">Api</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Api%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-var">Api'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The API ID.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AapiId%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiId%3AApi%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies whether clients can invoke your API by using the default</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- execute-api endpoint. By default, clients can invoke your API with the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- To require that clients use a custom domain name to invoke your API,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- disable the default endpoint.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdisableExecuteApiEndpoint%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AdisableExecuteApiEndpoint%3AApi%27"><span class="hs-identifier hs-var hs-var">disableExecuteApiEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The URI of the API, of the form</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- appended to this URI to form a complete path to a deployed API stage.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AapiEndpoint%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiEndpoint%3AApi%27"><span class="hs-identifier hs-var hs-var">apiEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The warning messages reported when failonwarnings is turned on during</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- API import.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Awarnings%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Awarnings%3AApi%27"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The timestamp when the API was created.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcreatedDate%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe POSIX
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AcreatedDate%3AApi%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | A version identifier for the API.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aversion%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Aversion%3AApi%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Specifies whether an API is managed by API Gateway. You can\'t update or</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- delete a managed API by using API Gateway. A managed API can be deleted</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- only through the tooling or service that created it.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AapiGatewayManaged%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiGatewayManaged%3AApi%27"><span class="hs-identifier hs-var hs-var">apiGatewayManaged</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | An API key selection expression. Supported only for WebSocket APIs. See</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions API Key Selection Expressions&gt;.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AapiKeySelectionExpression%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiKeySelectionExpression%3AApi%27"><span class="hs-identifier hs-var hs-var">apiKeySelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A CORS configuration. Supported only for HTTP APIs.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AcorsConfiguration%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe Cors
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AcorsConfiguration%3AApi%27"><span class="hs-identifier hs-var hs-var">corsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Cors.html#Cors"><span class="hs-identifier hs-type">Cors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The validation information during API import. This may include</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- particular properties of your OpenAPI definition which are ignored</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- during import. Supported only for HTTP APIs.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AimportInfo%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AimportInfo%3AApi%27"><span class="hs-identifier hs-var hs-var">importInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Avoid validating models when creating a deployment. Supported only for</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- WebSocket APIs.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdisableSchemaValidation%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AdisableSchemaValidation%3AApi%27"><span class="hs-identifier hs-var hs-var">disableSchemaValidation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The description of the API.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Adescription%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Adescription%3AApi%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A collection of tags associated with the API.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Atags%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Atags%3AApi%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The route selection expression for the API. For HTTP APIs, the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- routeSelectionExpression must be ${request.method} ${request.path}. If</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- not provided, this will be the default for HTTP APIs. This property is</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- required for WebSocket APIs.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3ArouteSelectionExpression%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3ArouteSelectionExpression%3AApi%27"><span class="hs-identifier hs-var hs-var">routeSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the API.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aname%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Aname%3AApi%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The API protocol.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AprotocolType%3AApi%27"><span class="annot"><span class="annottext">Api -&gt; ProtocolType
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AprotocolType%3AApi%27"><span class="hs-identifier hs-var hs-var">protocolType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ProtocolType.html#ProtocolType"><span class="hs-identifier hs-type">ProtocolType</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408899"><span id="local-6989586621679408901"><span class="annot"><span class="annottext">Api -&gt; Api -&gt; Bool
+(Api -&gt; Api -&gt; Bool) -&gt; (Api -&gt; Api -&gt; Bool) -&gt; Eq Api
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Api -&gt; Api -&gt; Bool
+$c/= :: Api -&gt; Api -&gt; Bool
+== :: Api -&gt; Api -&gt; Bool
+$c== :: Api -&gt; Api -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408890"><span id="local-6989586621679408892"><span id="local-6989586621679408894"><span id="local-6989586621679408896"><span class="annot"><span class="annottext">ReadPrec [Api]
+ReadPrec Api
+Int -&gt; ReadS Api
+ReadS [Api]
+(Int -&gt; ReadS Api)
+-&gt; ReadS [Api] -&gt; ReadPrec Api -&gt; ReadPrec [Api] -&gt; Read Api
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Api]
+$creadListPrec :: ReadPrec [Api]
+readPrec :: ReadPrec Api
+$creadPrec :: ReadPrec Api
+readList :: ReadS [Api]
+$creadList :: ReadS [Api]
+readsPrec :: Int -&gt; ReadS Api
+$creadsPrec :: Int -&gt; ReadS Api
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408883"><span id="local-6989586621679408885"><span id="local-6989586621679408887"><span class="annot"><span class="annottext">Int -&gt; Api -&gt; ShowS
+[Api] -&gt; ShowS
+Api -&gt; String
+(Int -&gt; Api -&gt; ShowS)
+-&gt; (Api -&gt; String) -&gt; ([Api] -&gt; ShowS) -&gt; Show Api
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Api] -&gt; ShowS
+$cshowList :: [Api] -&gt; ShowS
+show :: Api -&gt; String
+$cshow :: Api -&gt; String
+showsPrec :: Int -&gt; Api -&gt; ShowS
+$cshowsPrec :: Int -&gt; Api -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Api -&gt; Rep Api x)
+-&gt; (forall x. Rep Api x -&gt; Api) -&gt; Generic Api
+forall x. Rep Api x -&gt; Api
+forall x. Api -&gt; Rep Api x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Api x -&gt; Api
+$cfrom :: forall x. Api -&gt; Rep Api x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'Api' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'apiId', 'api_apiId' - The API ID.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'disableExecuteApiEndpoint', 'api_disableExecuteApiEndpoint' - Specifies whether clients can invoke your API by using the default</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- execute-api endpoint. By default, clients can invoke your API with the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- To require that clients use a custom domain name to invoke your API,</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- disable the default endpoint.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'apiEndpoint', 'api_apiEndpoint' - The URI of the API, of the form</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- appended to this URI to form a complete path to a deployed API stage.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'warnings', 'api_warnings' - The warning messages reported when failonwarnings is turned on during</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- API import.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'createdDate', 'api_createdDate' - The timestamp when the API was created.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'version', 'api_version' - A version identifier for the API.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'apiGatewayManaged', 'api_apiGatewayManaged' - Specifies whether an API is managed by API Gateway. You can\'t update or</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- delete a managed API by using API Gateway. A managed API can be deleted</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- only through the tooling or service that created it.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'apiKeySelectionExpression', 'api_apiKeySelectionExpression' - An API key selection expression. Supported only for WebSocket APIs. See</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions API Key Selection Expressions&gt;.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'corsConfiguration', 'api_corsConfiguration' - A CORS configuration. Supported only for HTTP APIs.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'importInfo', 'api_importInfo' - The validation information during API import. This may include</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- particular properties of your OpenAPI definition which are ignored</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- during import. Supported only for HTTP APIs.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'disableSchemaValidation', 'api_disableSchemaValidation' - Avoid validating models when creating a deployment. Supported only for</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- WebSocket APIs.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'description', 'api_description' - The description of the API.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'tags', 'api_tags' - A collection of tags associated with the API.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'routeSelectionExpression', 'api_routeSelectionExpression' - The route selection expression for the API. For HTTP APIs, the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- routeSelectionExpression must be ${request.method} ${request.path}. If</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- not provided, this will be the default for HTTP APIs. This property is</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- required for WebSocket APIs.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'name', 'api_name' - The name of the API.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'protocolType', 'api_protocolType' - The API protocol.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#newApi"><span class="hs-identifier hs-type">newApi</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'routeSelectionExpression'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'protocolType'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ProtocolType.html#ProtocolType"><span class="hs-identifier hs-type">ProtocolType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span>
+</span><span id="line-146"></span><span id="newApi"><span class="annot"><span class="annottext">newApi :: Text -&gt; Text -&gt; ProtocolType -&gt; Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#newApi"><span class="hs-identifier hs-var hs-var">newApi</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679408877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408877"><span class="hs-identifier hs-var">pRouteSelectionExpression_</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679408876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408876"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679408875"><span class="annot"><span class="annottext">ProtocolType
+</span><a href="#local-6989586621679408875"><span class="hs-identifier hs-var">pProtocolType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">Api' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Cors
+-&gt; Maybe [Text]
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; ProtocolType
+-&gt; Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:apiId:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiId%3AApi%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:disableExecuteApiEndpoint:Api' :: Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AdisableExecuteApiEndpoint%3AApi%27"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:apiEndpoint:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiEndpoint%3AApi%27"><span class="hs-identifier hs-var">apiEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">$sel:warnings:Api' :: Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Awarnings%3AApi%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdDate:Api' :: Maybe POSIX
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AcreatedDate%3AApi%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Aversion%3AApi%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:apiGatewayManaged:Api' :: Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiGatewayManaged%3AApi%27"><span class="hs-identifier hs-var">apiGatewayManaged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:apiKeySelectionExpression:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiKeySelectionExpression%3AApi%27"><span class="hs-identifier hs-var">apiKeySelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:corsConfiguration:Api' :: Maybe Cors
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AcorsConfiguration%3AApi%27"><span class="hs-identifier hs-var">corsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cors
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:importInfo:Api' :: Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AimportInfo%3AApi%27"><span class="hs-identifier hs-var">importInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:disableSchemaValidation:Api' :: Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AdisableSchemaValidation%3AApi%27"><span class="hs-identifier hs-var">disableSchemaValidation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Adescription%3AApi%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:Api' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Atags%3AApi%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:routeSelectionExpression:Api' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3ArouteSelectionExpression%3AApi%27"><span class="hs-identifier hs-var">routeSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408877"><span class="hs-identifier hs-var">pRouteSelectionExpression_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:Api' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Aname%3AApi%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408876"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:protocolType:Api' :: ProtocolType
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AprotocolType%3AApi%27"><span class="hs-identifier hs-var">protocolType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtocolType
+</span><a href="#local-6989586621679408875"><span class="hs-identifier hs-var">pProtocolType_</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The API ID.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_apiId"><span class="hs-identifier hs-type">api_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="api_apiId"><span class="annot"><span class="annottext">api_apiId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_apiId"><span class="hs-identifier hs-var hs-var">api_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe Text)
+-&gt; (Api -&gt; Maybe Text -&gt; Api)
+-&gt; Lens Api Api (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408871"><span class="annot"><span class="annottext">Maybe Text
+apiId :: Maybe Text
+$sel:apiId:Api' :: Api -&gt; Maybe Text
+</span><a href="#local-6989586621679408871"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408871"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408870"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408869"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiId%3AApi%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | Specifies whether clients can invoke your API by using the default</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- execute-api endpoint. By default, clients can invoke your API with the</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- To require that clients use a custom domain name to invoke your API,</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- disable the default endpoint.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_disableExecuteApiEndpoint"><span class="hs-identifier hs-type">api_disableExecuteApiEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="api_disableExecuteApiEndpoint"><span class="annot"><span class="annottext">api_disableExecuteApiEndpoint :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_disableExecuteApiEndpoint"><span class="hs-identifier hs-var hs-var">api_disableExecuteApiEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe Bool)
+-&gt; (Api -&gt; Maybe Bool -&gt; Api)
+-&gt; Lens Api Api (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408867"><span class="annot"><span class="annottext">Maybe Bool
+disableExecuteApiEndpoint :: Maybe Bool
+$sel:disableExecuteApiEndpoint:Api' :: Api -&gt; Maybe Bool
+</span><a href="#local-6989586621679408867"><span class="hs-identifier hs-var hs-var">disableExecuteApiEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408867"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408866"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408865"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableExecuteApiEndpoint:Api' :: Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AdisableExecuteApiEndpoint%3AApi%27"><span class="hs-identifier hs-var">disableExecuteApiEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The URI of the API, of the form</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- appended to this URI to form a complete path to a deployed API stage.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_apiEndpoint"><span class="hs-identifier hs-type">api_apiEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="api_apiEndpoint"><span class="annot"><span class="annottext">api_apiEndpoint :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_apiEndpoint"><span class="hs-identifier hs-var hs-var">api_apiEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe Text)
+-&gt; (Api -&gt; Maybe Text -&gt; Api)
+-&gt; Lens Api Api (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408863"><span class="annot"><span class="annottext">Maybe Text
+apiEndpoint :: Maybe Text
+$sel:apiEndpoint:Api' :: Api -&gt; Maybe Text
+</span><a href="#local-6989586621679408863"><span class="hs-identifier hs-var hs-var">apiEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408863"><span class="hs-identifier hs-var">apiEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408862"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408861"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiEndpoint:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiEndpoint%3AApi%27"><span class="hs-identifier hs-var">apiEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The warning messages reported when failonwarnings is turned on during</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- API import.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_warnings"><span class="hs-identifier hs-type">api_warnings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="api_warnings"><span class="annot"><span class="annottext">api_warnings :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_warnings"><span class="hs-identifier hs-var hs-var">api_warnings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe [Text])
+-&gt; (Api -&gt; Maybe [Text] -&gt; Api)
+-&gt; Lens Api Api (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408859"><span class="annot"><span class="annottext">Maybe [Text]
+warnings :: Maybe [Text]
+$sel:warnings:Api' :: Api -&gt; Maybe [Text]
+</span><a href="#local-6989586621679408859"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408859"><span class="hs-identifier hs-var">warnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408858"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408857"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warnings:Api' :: Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Awarnings%3AApi%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Api -&gt; f Api)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Api
+-&gt; f Api
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The timestamp when the API was created.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_createdDate"><span class="hs-identifier hs-type">api_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="api_createdDate"><span class="annot"><span class="annottext">api_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_createdDate"><span class="hs-identifier hs-var hs-var">api_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe POSIX)
+-&gt; (Api -&gt; Maybe POSIX -&gt; Api)
+-&gt; Lens Api Api (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408852"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:Api' :: Api -&gt; Maybe POSIX
+</span><a href="#local-6989586621679408852"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679408852"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408851"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408850"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679408850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:Api' :: Maybe POSIX
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AcreatedDate%3AApi%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679408850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Api -&gt; f Api)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Api
+-&gt; f Api
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | A version identifier for the API.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_version"><span class="hs-identifier hs-type">api_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="api_version"><span class="annot"><span class="annottext">api_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_version"><span class="hs-identifier hs-var hs-var">api_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe Text)
+-&gt; (Api -&gt; Maybe Text -&gt; Api)
+-&gt; Lens Api Api (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408847"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:Api' :: Api -&gt; Maybe Text
+</span><a href="#local-6989586621679408847"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408847"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408846"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408845"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Aversion%3AApi%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Specifies whether an API is managed by API Gateway. You can\'t update or</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- delete a managed API by using API Gateway. A managed API can be deleted</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- only through the tooling or service that created it.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_apiGatewayManaged"><span class="hs-identifier hs-type">api_apiGatewayManaged</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="api_apiGatewayManaged"><span class="annot"><span class="annottext">api_apiGatewayManaged :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_apiGatewayManaged"><span class="hs-identifier hs-var hs-var">api_apiGatewayManaged</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe Bool)
+-&gt; (Api -&gt; Maybe Bool -&gt; Api)
+-&gt; Lens Api Api (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408843"><span class="annot"><span class="annottext">Maybe Bool
+apiGatewayManaged :: Maybe Bool
+$sel:apiGatewayManaged:Api' :: Api -&gt; Maybe Bool
+</span><a href="#local-6989586621679408843"><span class="hs-identifier hs-var hs-var">apiGatewayManaged</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408843"><span class="hs-identifier hs-var">apiGatewayManaged</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408842"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408841"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiGatewayManaged:Api' :: Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiGatewayManaged%3AApi%27"><span class="hs-identifier hs-var">apiGatewayManaged</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | An API key selection expression. Supported only for WebSocket APIs. See</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions API Key Selection Expressions&gt;.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_apiKeySelectionExpression"><span class="hs-identifier hs-type">api_apiKeySelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="api_apiKeySelectionExpression"><span class="annot"><span class="annottext">api_apiKeySelectionExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_apiKeySelectionExpression"><span class="hs-identifier hs-var hs-var">api_apiKeySelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe Text)
+-&gt; (Api -&gt; Maybe Text -&gt; Api)
+-&gt; Lens Api Api (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408839"><span class="annot"><span class="annottext">Maybe Text
+apiKeySelectionExpression :: Maybe Text
+$sel:apiKeySelectionExpression:Api' :: Api -&gt; Maybe Text
+</span><a href="#local-6989586621679408839"><span class="hs-identifier hs-var hs-var">apiKeySelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408839"><span class="hs-identifier hs-var">apiKeySelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408838"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeySelectionExpression:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AapiKeySelectionExpression%3AApi%27"><span class="hs-identifier hs-var">apiKeySelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | A CORS configuration. Supported only for HTTP APIs.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_corsConfiguration"><span class="hs-identifier hs-type">api_corsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Cors.html#Cors"><span class="hs-identifier hs-type">Cors</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="api_corsConfiguration"><span class="annot"><span class="annottext">api_corsConfiguration :: (Maybe Cors -&gt; f (Maybe Cors)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_corsConfiguration"><span class="hs-identifier hs-var hs-var">api_corsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe Cors)
+-&gt; (Api -&gt; Maybe Cors -&gt; Api)
+-&gt; Lens Api Api (Maybe Cors) (Maybe Cors)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408835"><span class="annot"><span class="annottext">Maybe Cors
+corsConfiguration :: Maybe Cors
+$sel:corsConfiguration:Api' :: Api -&gt; Maybe Cors
+</span><a href="#local-6989586621679408835"><span class="hs-identifier hs-var hs-var">corsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cors
+</span><a href="#local-6989586621679408835"><span class="hs-identifier hs-var">corsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408834"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408833"><span class="annot"><span class="annottext">Maybe Cors
+</span><a href="#local-6989586621679408833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:corsConfiguration:Api' :: Maybe Cors
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AcorsConfiguration%3AApi%27"><span class="hs-identifier hs-var">corsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cors
+</span><a href="#local-6989586621679408833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The validation information during API import. This may include</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- particular properties of your OpenAPI definition which are ignored</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- during import. Supported only for HTTP APIs.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_importInfo"><span class="hs-identifier hs-type">api_importInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="api_importInfo"><span class="annot"><span class="annottext">api_importInfo :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_importInfo"><span class="hs-identifier hs-var hs-var">api_importInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe [Text])
+-&gt; (Api -&gt; Maybe [Text] -&gt; Api)
+-&gt; Lens Api Api (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408831"><span class="annot"><span class="annottext">Maybe [Text]
+importInfo :: Maybe [Text]
+$sel:importInfo:Api' :: Api -&gt; Maybe [Text]
+</span><a href="#local-6989586621679408831"><span class="hs-identifier hs-var hs-var">importInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408831"><span class="hs-identifier hs-var">importInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408830"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408829"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importInfo:Api' :: Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AimportInfo%3AApi%27"><span class="hs-identifier hs-var">importInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679408829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Api -&gt; f Api)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Api
+-&gt; f Api
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | Avoid validating models when creating a deployment. Supported only for</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- WebSocket APIs.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_disableSchemaValidation"><span class="hs-identifier hs-type">api_disableSchemaValidation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="api_disableSchemaValidation"><span class="annot"><span class="annottext">api_disableSchemaValidation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_disableSchemaValidation"><span class="hs-identifier hs-var hs-var">api_disableSchemaValidation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe Bool)
+-&gt; (Api -&gt; Maybe Bool -&gt; Api)
+-&gt; Lens Api Api (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408827"><span class="annot"><span class="annottext">Maybe Bool
+disableSchemaValidation :: Maybe Bool
+$sel:disableSchemaValidation:Api' :: Api -&gt; Maybe Bool
+</span><a href="#local-6989586621679408827"><span class="hs-identifier hs-var hs-var">disableSchemaValidation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408827"><span class="hs-identifier hs-var">disableSchemaValidation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408826"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408825"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disableSchemaValidation:Api' :: Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AdisableSchemaValidation%3AApi%27"><span class="hs-identifier hs-var">disableSchemaValidation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679408825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The description of the API.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_description"><span class="hs-identifier hs-type">api_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="api_description"><span class="annot"><span class="annottext">api_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_description"><span class="hs-identifier hs-var hs-var">api_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe Text)
+-&gt; (Api -&gt; Maybe Text -&gt; Api)
+-&gt; Lens Api Api (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408823"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Api' :: Api -&gt; Maybe Text
+</span><a href="#local-6989586621679408823"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408823"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408822"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Api' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Adescription%3AApi%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679408821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | A collection of tags associated with the API.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_tags"><span class="hs-identifier hs-type">api_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="api_tags"><span class="annot"><span class="annottext">api_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_tags"><span class="hs-identifier hs-var hs-var">api_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Maybe (HashMap Text Text))
+-&gt; (Api -&gt; Maybe (HashMap Text Text) -&gt; Api)
+-&gt; Lens
+     Api Api (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408819"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:Api' :: Api -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679408819"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679408819"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408818"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408817"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679408817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Api' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Atags%3AApi%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679408817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Api -&gt; f Api)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Api
+-&gt; f Api
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The route selection expression for the API. For HTTP APIs, the</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- routeSelectionExpression must be ${request.method} ${request.path}. If</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- not provided, this will be the default for HTTP APIs. This property is</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- required for WebSocket APIs.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_routeSelectionExpression"><span class="hs-identifier hs-type">api_routeSelectionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-240"></span><span id="api_routeSelectionExpression"><span class="annot"><span class="annottext">api_routeSelectionExpression :: (Text -&gt; f Text) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_routeSelectionExpression"><span class="hs-identifier hs-var hs-var">api_routeSelectionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Text) -&gt; (Api -&gt; Text -&gt; Api) -&gt; Lens Api Api Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408815"><span class="annot"><span class="annottext">Text
+routeSelectionExpression :: Text
+$sel:routeSelectionExpression:Api' :: Api -&gt; Text
+</span><a href="#local-6989586621679408815"><span class="hs-identifier hs-var hs-var">routeSelectionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408815"><span class="hs-identifier hs-var">routeSelectionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408814"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408813"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeSelectionExpression:Api' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3ArouteSelectionExpression%3AApi%27"><span class="hs-identifier hs-var">routeSelectionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The name of the API.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_name"><span class="hs-identifier hs-type">api_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-244"></span><span id="api_name"><span class="annot"><span class="annottext">api_name :: (Text -&gt; f Text) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_name"><span class="hs-identifier hs-var hs-var">api_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; Text) -&gt; (Api -&gt; Text -&gt; Api) -&gt; Lens Api Api Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408811"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:Api' :: Api -&gt; Text
+</span><a href="#local-6989586621679408811"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408811"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408810"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408809"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Api' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3Aname%3AApi%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The API protocol.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_protocolType"><span class="hs-identifier hs-type">api_protocolType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.ProtocolType.html#ProtocolType"><span class="hs-identifier hs-type">ProtocolType</span></a></span><span>
+</span><span id="line-248"></span><span id="api_protocolType"><span class="annot"><span class="annottext">api_protocolType :: (ProtocolType -&gt; f ProtocolType) -&gt; Api -&gt; f Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#api_protocolType"><span class="hs-identifier hs-var hs-var">api_protocolType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Api -&gt; ProtocolType)
+-&gt; (Api -&gt; ProtocolType -&gt; Api)
+-&gt; Lens Api Api ProtocolType ProtocolType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408807"><span class="annot"><span class="annottext">ProtocolType
+protocolType :: ProtocolType
+$sel:protocolType:Api' :: Api -&gt; ProtocolType
+</span><a href="#local-6989586621679408807"><span class="hs-identifier hs-var hs-var">protocolType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtocolType
+</span><a href="#local-6989586621679408807"><span class="hs-identifier hs-var">protocolType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408806"><span class="annot"><span class="annottext">s :: Api
+</span><a href="#local-6989586621679408806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-type">Api'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408805"><span class="annot"><span class="annottext">ProtocolType
+</span><a href="#local-6989586621679408805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Api
+</span><a href="#local-6989586621679408806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocolType:Api' :: ProtocolType
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#%24sel%3AprotocolType%3AApi%27"><span class="hs-identifier hs-var">protocolType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtocolType
+</span><a href="#local-6989586621679408805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408802"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679408800"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Api
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Api) -&gt; Value -&gt; Parser Api
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Api&quot;</span></span><span>
+</span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408797"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-255"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Cors
+-&gt; Maybe [Text]
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; ProtocolType
+-&gt; Api
+</span><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api%27"><span class="hs-identifier hs-var">Api'</span></a></span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Cors
+ -&gt; Maybe [Text]
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Text
+ -&gt; Text
+ -&gt; ProtocolType
+ -&gt; Api)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Cors
+      -&gt; Maybe [Text]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Cors
+   -&gt; Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Cors
+      -&gt; Maybe [Text]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;disableExecuteApiEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Cors
+   -&gt; Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Cors
+      -&gt; Maybe [Text]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Cors
+   -&gt; Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Cors
+      -&gt; Maybe [Text]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;warnings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Cors
+   -&gt; Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Cors
+      -&gt; Maybe [Text]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Cors
+   -&gt; Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Cors
+      -&gt; Maybe [Text]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Cors
+   -&gt; Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Cors
+      -&gt; Maybe [Text]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiGatewayManaged&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Cors
+   -&gt; Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Cors
+      -&gt; Maybe [Text]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;apiKeySelectionExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Cors
+   -&gt; Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe Cors)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Cors)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;corsConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;importInfo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; ProtocolType
+      -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;disableSchemaValidation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; ProtocolType
+   -&gt; Api)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text) -&gt; Text -&gt; Text -&gt; ProtocolType -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text) -&gt; Text -&gt; Text -&gt; ProtocolType -&gt; Api)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Text -&gt; Text -&gt; ProtocolType -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ProtocolType -&gt; Api)
+-&gt; Parser Text -&gt; Parser (Text -&gt; ProtocolType -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;routeSelectionExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ProtocolType -&gt; Api)
+-&gt; Parser Text -&gt; Parser (ProtocolType -&gt; Api)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Parser (ProtocolType -&gt; Api) -&gt; Parser ProtocolType -&gt; Parser Api
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679408797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProtocolType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocolType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408789"><span id="local-6989586621679408791"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span></span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.Api.html#Api"><span class="hs-identifier hs-type">Api</span></a></span></span><span>
+</span><span id="line-277"></span></pre></body></html>

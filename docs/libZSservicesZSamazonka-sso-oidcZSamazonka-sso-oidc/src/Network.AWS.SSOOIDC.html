@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Network.AWS.SSOOIDC</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2019-06-10@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- AWS Single Sign-On (SSO) OpenID Connect (OIDC) is a web service that</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- enables a client (such as AWS CLI or a native application) to register</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- with AWS SSO. The service also enables the client to fetch the user&#8217;s</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- access token upon successful authentication and authorization with AWS</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- SSO. This service conforms with the OAuth 2.0 based implementation of</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- the device authorization grant standard</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- (&lt;https://tools.ietf.org/html/rfc8628&gt;).</span><span>
+</span><span id="line-21"></span><span class="hs-comment">--</span><span>
+</span><span id="line-22"></span><span class="hs-comment">-- For general information about AWS SSO, see</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html What is AWS Single Sign-On?&gt;</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- in the /AWS SSO User Guide/.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This API reference guide describes the AWS SSO OIDC operations that you</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- can call programatically and includes detailed information on data types</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- and errors.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- AWS provides SDKs that consist of libraries and sample code for various</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- programming languages and platforms such as Java, Ruby, .Net, iOS, and</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Android. The SDKs provide a convenient way to create programmatic access</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- to AWS SSO and other AWS services. For more information about the AWS</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- SDKs, including how to download and install them, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/tools/ Tools for Amazon Web Services&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSOOIDC</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** AccessDeniedException</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidRequestException</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_InvalidRequestException"><span class="hs-identifier">_InvalidRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidScopeException</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_InvalidScopeException"><span class="hs-identifier">_InvalidScopeException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UnsupportedGrantTypeException</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_UnsupportedGrantTypeException"><span class="hs-identifier">_UnsupportedGrantTypeException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidClientException</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_InvalidClientException"><span class="hs-identifier">_InvalidClientException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidClientMetadataException</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_InvalidClientMetadataException"><span class="hs-identifier">_InvalidClientMetadataException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UnauthorizedClientException</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_UnauthorizedClientException"><span class="hs-identifier">_UnauthorizedClientException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SlowDownException</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_SlowDownException"><span class="hs-identifier">_SlowDownException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InternalServerException</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidGrantException</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_InvalidGrantException"><span class="hs-identifier">_InvalidGrantException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** AuthorizationPendingException</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_AuthorizationPendingException"><span class="hs-identifier">_AuthorizationPendingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ExpiredTokenException</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html#_ExpiredTokenException"><span class="hs-identifier">_ExpiredTokenException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StartDeviceAuthorization</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization"><span class="hs-identifier">StartDeviceAuthorization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorization%27"><span class="hs-identifier">StartDeviceAuthorization'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.StartDeviceAuthorization.html#newStartDeviceAuthorization"><span class="hs-identifier">newStartDeviceAuthorization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse"><span class="hs-identifier">StartDeviceAuthorizationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.SSOOIDC.StartDeviceAuthorization.html#StartDeviceAuthorizationResponse%27"><span class="hs-identifier">StartDeviceAuthorizationResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.StartDeviceAuthorization.html#newStartDeviceAuthorizationResponse"><span class="hs-identifier">newStartDeviceAuthorizationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateToken</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.CreateToken.html#CreateToken"><span class="hs-identifier">CreateToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.SSOOIDC.CreateToken.html#CreateToken%27"><span class="hs-identifier">CreateToken'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.CreateToken.html#newCreateToken"><span class="hs-identifier">newCreateToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.CreateToken.html#CreateTokenResponse"><span class="hs-identifier">CreateTokenResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.SSOOIDC.CreateToken.html#CreateTokenResponse%27"><span class="hs-identifier">CreateTokenResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.CreateToken.html#newCreateTokenResponse"><span class="hs-identifier">newCreateTokenResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** RegisterClient</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.RegisterClient.html#RegisterClient"><span class="hs-identifier">RegisterClient</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.SSOOIDC.RegisterClient.html#RegisterClient%27"><span class="hs-identifier">RegisterClient'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.RegisterClient.html#newRegisterClient"><span class="hs-identifier">newRegisterClient</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.RegisterClient.html#RegisterClientResponse"><span class="hs-identifier">RegisterClientResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.SSOOIDC.RegisterClient.html#RegisterClientResponse%27"><span class="hs-identifier">RegisterClientResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.SSOOIDC.RegisterClient.html#newRegisterClientResponse"><span class="hs-identifier">newRegisterClientResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSOOIDC.CreateToken.html"><span class="hs-identifier">Network.AWS.SSOOIDC.CreateToken</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSOOIDC.Lens.html"><span class="hs-identifier">Network.AWS.SSOOIDC.Lens</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSOOIDC.RegisterClient.html"><span class="hs-identifier">Network.AWS.SSOOIDC.RegisterClient</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSOOIDC.StartDeviceAuthorization.html"><span class="hs-identifier">Network.AWS.SSOOIDC.StartDeviceAuthorization</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSOOIDC.Types.html"><span class="hs-identifier">Network.AWS.SSOOIDC.Types</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSOOIDC.Waiters.html"><span class="hs-identifier">Network.AWS.SSOOIDC.Waiters</span></a></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- by 'SSOOIDC'.</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-140"></span></pre></body></html>

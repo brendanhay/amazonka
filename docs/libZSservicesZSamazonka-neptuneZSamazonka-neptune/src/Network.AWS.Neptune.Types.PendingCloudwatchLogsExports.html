@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Neptune.Types.PendingCloudwatchLogsExports</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Neptune.Types.PendingCloudwatchLogsExports</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A list of the log types whose configuration is still pending. In other</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- words, these log types are in the process of being activated or</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- deactivated.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPendingCloudwatchLogsExports' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679397736"><span id="local-6989586621679397737"></span></span><span class="hs-keyword">data</span><span> </span><span id="PendingCloudwatchLogsExports"><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-var">PendingCloudwatchLogsExports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PendingCloudwatchLogsExports%27"><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">PendingCloudwatchLogsExports'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Log types that are in the process of being deactivated. After they are</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- deactivated, these log types aren\'t exported to CloudWatch Logs.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlogTypesToEnable%3APendingCloudwatchLogsExports%27"><span class="annot"><span class="annottext">PendingCloudwatchLogsExports -&gt; Maybe [Text]
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#%24sel%3AlogTypesToEnable%3APendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var hs-var">logTypesToEnable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Log types that are in the process of being enabled. After they are</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- enabled, these log types are exported to CloudWatch Logs.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlogTypesToDisable%3APendingCloudwatchLogsExports%27"><span class="annot"><span class="annottext">PendingCloudwatchLogsExports -&gt; Maybe [Text]
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#%24sel%3AlogTypesToDisable%3APendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var hs-var">logTypesToDisable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397729"><span id="local-6989586621679397731"><span class="annot"><span class="annottext">PendingCloudwatchLogsExports
+-&gt; PendingCloudwatchLogsExports -&gt; Bool
+(PendingCloudwatchLogsExports
+ -&gt; PendingCloudwatchLogsExports -&gt; Bool)
+-&gt; (PendingCloudwatchLogsExports
+    -&gt; PendingCloudwatchLogsExports -&gt; Bool)
+-&gt; Eq PendingCloudwatchLogsExports
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PendingCloudwatchLogsExports
+-&gt; PendingCloudwatchLogsExports -&gt; Bool
+$c/= :: PendingCloudwatchLogsExports
+-&gt; PendingCloudwatchLogsExports -&gt; Bool
+== :: PendingCloudwatchLogsExports
+-&gt; PendingCloudwatchLogsExports -&gt; Bool
+$c== :: PendingCloudwatchLogsExports
+-&gt; PendingCloudwatchLogsExports -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397720"><span id="local-6989586621679397722"><span id="local-6989586621679397724"><span id="local-6989586621679397726"><span class="annot"><span class="annottext">ReadPrec [PendingCloudwatchLogsExports]
+ReadPrec PendingCloudwatchLogsExports
+Int -&gt; ReadS PendingCloudwatchLogsExports
+ReadS [PendingCloudwatchLogsExports]
+(Int -&gt; ReadS PendingCloudwatchLogsExports)
+-&gt; ReadS [PendingCloudwatchLogsExports]
+-&gt; ReadPrec PendingCloudwatchLogsExports
+-&gt; ReadPrec [PendingCloudwatchLogsExports]
+-&gt; Read PendingCloudwatchLogsExports
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PendingCloudwatchLogsExports]
+$creadListPrec :: ReadPrec [PendingCloudwatchLogsExports]
+readPrec :: ReadPrec PendingCloudwatchLogsExports
+$creadPrec :: ReadPrec PendingCloudwatchLogsExports
+readList :: ReadS [PendingCloudwatchLogsExports]
+$creadList :: ReadS [PendingCloudwatchLogsExports]
+readsPrec :: Int -&gt; ReadS PendingCloudwatchLogsExports
+$creadsPrec :: Int -&gt; ReadS PendingCloudwatchLogsExports
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397713"><span id="local-6989586621679397715"><span id="local-6989586621679397717"><span class="annot"><span class="annottext">Int -&gt; PendingCloudwatchLogsExports -&gt; ShowS
+[PendingCloudwatchLogsExports] -&gt; ShowS
+PendingCloudwatchLogsExports -&gt; String
+(Int -&gt; PendingCloudwatchLogsExports -&gt; ShowS)
+-&gt; (PendingCloudwatchLogsExports -&gt; String)
+-&gt; ([PendingCloudwatchLogsExports] -&gt; ShowS)
+-&gt; Show PendingCloudwatchLogsExports
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PendingCloudwatchLogsExports] -&gt; ShowS
+$cshowList :: [PendingCloudwatchLogsExports] -&gt; ShowS
+show :: PendingCloudwatchLogsExports -&gt; String
+$cshow :: PendingCloudwatchLogsExports -&gt; String
+showsPrec :: Int -&gt; PendingCloudwatchLogsExports -&gt; ShowS
+$cshowsPrec :: Int -&gt; PendingCloudwatchLogsExports -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PendingCloudwatchLogsExports -&gt; Rep PendingCloudwatchLogsExports x)
+-&gt; (forall x.
+    Rep PendingCloudwatchLogsExports x -&gt; PendingCloudwatchLogsExports)
+-&gt; Generic PendingCloudwatchLogsExports
+forall x.
+Rep PendingCloudwatchLogsExports x -&gt; PendingCloudwatchLogsExports
+forall x.
+PendingCloudwatchLogsExports -&gt; Rep PendingCloudwatchLogsExports x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PendingCloudwatchLogsExports x -&gt; PendingCloudwatchLogsExports
+$cfrom :: forall x.
+PendingCloudwatchLogsExports -&gt; Rep PendingCloudwatchLogsExports x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'PendingCloudwatchLogsExports' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'logTypesToEnable', 'pendingCloudwatchLogsExports_logTypesToEnable' - Log types that are in the process of being deactivated. After they are</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- deactivated, these log types aren\'t exported to CloudWatch Logs.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'logTypesToDisable', 'pendingCloudwatchLogsExports_logTypesToDisable' - Log types that are in the process of being enabled. After they are</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- enabled, these log types are exported to CloudWatch Logs.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#newPendingCloudwatchLogsExports"><span class="hs-identifier hs-type">newPendingCloudwatchLogsExports</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span>
+</span><span id="line-56"></span><span id="newPendingCloudwatchLogsExports"><span class="annot"><span class="annottext">newPendingCloudwatchLogsExports :: PendingCloudwatchLogsExports
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#newPendingCloudwatchLogsExports"><span class="hs-identifier hs-var hs-var">newPendingCloudwatchLogsExports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">PendingCloudwatchLogsExports' :: Maybe [Text] -&gt; Maybe [Text] -&gt; PendingCloudwatchLogsExports
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logTypesToEnable:PendingCloudwatchLogsExports' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#%24sel%3AlogTypesToEnable%3APendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">logTypesToEnable</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:logTypesToDisable:PendingCloudwatchLogsExports' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#%24sel%3AlogTypesToDisable%3APendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">logTypesToDisable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Log types that are in the process of being deactivated. After they are</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- deactivated, these log types aren\'t exported to CloudWatch Logs.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#pendingCloudwatchLogsExports_logTypesToEnable"><span class="hs-identifier hs-type">pendingCloudwatchLogsExports_logTypesToEnable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="pendingCloudwatchLogsExports_logTypesToEnable"><span class="annot"><span class="annottext">pendingCloudwatchLogsExports_logTypesToEnable :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PendingCloudwatchLogsExports -&gt; f PendingCloudwatchLogsExports
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#pendingCloudwatchLogsExports_logTypesToEnable"><span class="hs-identifier hs-var hs-var">pendingCloudwatchLogsExports_logTypesToEnable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingCloudwatchLogsExports -&gt; Maybe [Text])
+-&gt; (PendingCloudwatchLogsExports
+    -&gt; Maybe [Text] -&gt; PendingCloudwatchLogsExports)
+-&gt; Lens
+     PendingCloudwatchLogsExports
+     PendingCloudwatchLogsExports
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397704"><span class="annot"><span class="annottext">Maybe [Text]
+logTypesToEnable :: Maybe [Text]
+$sel:logTypesToEnable:PendingCloudwatchLogsExports' :: PendingCloudwatchLogsExports -&gt; Maybe [Text]
+</span><a href="#local-6989586621679397704"><span class="hs-identifier hs-var hs-var">logTypesToEnable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397704"><span class="hs-identifier hs-var">logTypesToEnable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397703"><span class="annot"><span class="annottext">s :: PendingCloudwatchLogsExports
+</span><a href="#local-6989586621679397703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397702"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingCloudwatchLogsExports
+</span><a href="#local-6989586621679397703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTypesToEnable:PendingCloudwatchLogsExports' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#%24sel%3AlogTypesToEnable%3APendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">logTypesToEnable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PendingCloudwatchLogsExports -&gt; f PendingCloudwatchLogsExports)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PendingCloudwatchLogsExports
+-&gt; f PendingCloudwatchLogsExports
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Log types that are in the process of being enabled. After they are</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- enabled, these log types are exported to CloudWatch Logs.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#pendingCloudwatchLogsExports_logTypesToDisable"><span class="hs-identifier hs-type">pendingCloudwatchLogsExports_logTypesToDisable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="pendingCloudwatchLogsExports_logTypesToDisable"><span class="annot"><span class="annottext">pendingCloudwatchLogsExports_logTypesToDisable :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PendingCloudwatchLogsExports -&gt; f PendingCloudwatchLogsExports
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#pendingCloudwatchLogsExports_logTypesToDisable"><span class="hs-identifier hs-var hs-var">pendingCloudwatchLogsExports_logTypesToDisable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PendingCloudwatchLogsExports -&gt; Maybe [Text])
+-&gt; (PendingCloudwatchLogsExports
+    -&gt; Maybe [Text] -&gt; PendingCloudwatchLogsExports)
+-&gt; Lens
+     PendingCloudwatchLogsExports
+     PendingCloudwatchLogsExports
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397697"><span class="annot"><span class="annottext">Maybe [Text]
+logTypesToDisable :: Maybe [Text]
+$sel:logTypesToDisable:PendingCloudwatchLogsExports' :: PendingCloudwatchLogsExports -&gt; Maybe [Text]
+</span><a href="#local-6989586621679397697"><span class="hs-identifier hs-var hs-var">logTypesToDisable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397697"><span class="hs-identifier hs-var">logTypesToDisable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397696"><span class="annot"><span class="annottext">s :: PendingCloudwatchLogsExports
+</span><a href="#local-6989586621679397696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397695"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PendingCloudwatchLogsExports
+</span><a href="#local-6989586621679397696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTypesToDisable:PendingCloudwatchLogsExports' :: Maybe [Text]
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#%24sel%3AlogTypesToDisable%3APendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">logTypesToDisable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; PendingCloudwatchLogsExports -&gt; f PendingCloudwatchLogsExports)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; PendingCloudwatchLogsExports
+-&gt; f PendingCloudwatchLogsExports
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679397692"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PendingCloudwatchLogsExports
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397690"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679397690"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Text] -&gt; PendingCloudwatchLogsExports
+</span><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports%27"><span class="hs-identifier hs-var">PendingCloudwatchLogsExports'</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe [Text] -&gt; PendingCloudwatchLogsExports)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe [Text] -&gt; PendingCloudwatchLogsExports)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679397690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogTypesToEnable&quot;</span></span><span>
+</span><span id="line-77"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-78"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; PendingCloudwatchLogsExports)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String PendingCloudwatchLogsExports
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679397690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogTypesToDisable&quot;</span></span><span>
+</span><span id="line-81"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679397681"><span id="local-6989586621679397683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.PendingCloudwatchLogsExports.html#PendingCloudwatchLogsExports"><span class="hs-identifier hs-type">PendingCloudwatchLogsExports</span></a></span></span><span>
+</span><span id="line-90"></span></pre></body></html>

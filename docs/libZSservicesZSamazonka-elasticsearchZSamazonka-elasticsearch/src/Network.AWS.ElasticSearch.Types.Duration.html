@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- for more information.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDuration' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679303125"><span id="local-6989586621679303126"></span></span><span class="hs-keyword">data</span><span> </span><span id="Duration"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-var">Duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Duration%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-var">Duration'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679303134"><span id="local-6989586621679303135"></span></span><span class="hs-keyword">data</span><span> </span><span id="Duration"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-var">Duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Duration%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-var">Duration'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Integer to specify the value of a maintenance schedule duration. See the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide&gt;</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for more information.</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Aunit%3ADuration%27"><span class="annot"><span class="annottext">Duration -&gt; Maybe TimeUnit
 </span><a href="Network.AWS.ElasticSearch.Types.Duration.html#%24sel%3Aunit%3ADuration%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.TimeUnit.html#TimeUnit"><span class="hs-identifier hs-type">TimeUnit</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303118"><span id="local-6989586621679303120"><span class="annot"><span class="annottext">Duration -&gt; Duration -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303127"><span id="local-6989586621679303129"><span class="annot"><span class="annottext">Duration -&gt; Duration -&gt; Bool
 (Duration -&gt; Duration -&gt; Bool)
 -&gt; (Duration -&gt; Duration -&gt; Bool) -&gt; Eq Duration
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Duration -&gt; Duration -&gt; Bool
 == :: Duration -&gt; Duration -&gt; Bool
 $c== :: Duration -&gt; Duration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303109"><span id="local-6989586621679303111"><span id="local-6989586621679303113"><span id="local-6989586621679303115"><span class="annot"><span class="annottext">ReadPrec [Duration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303118"><span id="local-6989586621679303120"><span id="local-6989586621679303122"><span id="local-6989586621679303124"><span class="annot"><span class="annottext">ReadPrec [Duration]
 ReadPrec Duration
 Int -&gt; ReadS Duration
 ReadS [Duration]
@@ -71,7 +71,7 @@ readList :: ReadS [Duration]
 $creadList :: ReadS [Duration]
 readsPrec :: Int -&gt; ReadS Duration
 $creadsPrec :: Int -&gt; ReadS Duration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303102"><span id="local-6989586621679303104"><span id="local-6989586621679303106"><span class="annot"><span class="annottext">Int -&gt; Duration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303111"><span id="local-6989586621679303113"><span id="local-6989586621679303115"><span class="annot"><span class="annottext">Int -&gt; Duration -&gt; ShowS
 [Duration] -&gt; ShowS
 Duration -&gt; String
 (Int -&gt; Duration -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; (Duration -&gt; Maybe Natural -&gt; Duration)
 -&gt; Lens Duration Duration (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303093"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303102"><span class="annot"><span class="annottext">Maybe Natural
 value :: Maybe Natural
 $sel:value:Duration' :: Duration -&gt; Maybe Natural
-</span><a href="#local-6989586621679303093"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679303093"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303092"><span class="annot"><span class="annottext">s :: Duration
-</span><a href="#local-6989586621679303092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303091"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679303091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Duration
-</span><a href="#local-6989586621679303092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Duration' :: Maybe Natural
+</span><a href="#local-6989586621679303102"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679303102"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303101"><span class="annot"><span class="annottext">s :: Duration
+</span><a href="#local-6989586621679303101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303100"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679303100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Duration
+</span><a href="#local-6989586621679303101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Duration' :: Maybe Natural
 </span><a href="Network.AWS.ElasticSearch.Types.Duration.html#%24sel%3Avalue%3ADuration%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679303091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Specifies the unit of a maintenance schedule duration. Valid value is</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- HOURS. See the</span><span>
@@ -156,59 +156,59 @@ $sel:value:Duration' :: Duration -&gt; Maybe Natural
 -&gt; (Duration -&gt; Maybe TimeUnit -&gt; Duration)
 -&gt; Lens Duration Duration (Maybe TimeUnit) (Maybe TimeUnit)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303089"><span class="annot"><span class="annottext">Maybe TimeUnit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303098"><span class="annot"><span class="annottext">Maybe TimeUnit
 unit :: Maybe TimeUnit
 $sel:unit:Duration' :: Duration -&gt; Maybe TimeUnit
-</span><a href="#local-6989586621679303089"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnit
-</span><a href="#local-6989586621679303089"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303088"><span class="annot"><span class="annottext">s :: Duration
-</span><a href="#local-6989586621679303088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303087"><span class="annot"><span class="annottext">Maybe TimeUnit
-</span><a href="#local-6989586621679303087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Duration
-</span><a href="#local-6989586621679303088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:Duration' :: Maybe TimeUnit
+</span><a href="#local-6989586621679303098"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnit
+</span><a href="#local-6989586621679303098"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303097"><span class="annot"><span class="annottext">s :: Duration
+</span><a href="#local-6989586621679303097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303096"><span class="annot"><span class="annottext">Maybe TimeUnit
+</span><a href="#local-6989586621679303096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Duration
+</span><a href="#local-6989586621679303097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:Duration' :: Maybe TimeUnit
 </span><a href="Network.AWS.ElasticSearch.Types.Duration.html#%24sel%3Aunit%3ADuration%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnit
-</span><a href="#local-6989586621679303087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303084"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679303082"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Duration
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303093"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679303091"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Duration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Duration) -&gt; Value -&gt; Parser Duration
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Duration&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303079"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303088"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe TimeUnit -&gt; Duration
 </span><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-var">Duration'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe TimeUnit -&gt; Duration)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe TimeUnit -&gt; Duration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679303088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe TimeUnit -&gt; Duration)
 -&gt; Parser (Maybe TimeUnit) -&gt; Parser Duration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnit)
+</span><a href="#local-6989586621679303088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnit)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Unit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303073"><span id="local-6989586621679303075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303082"><span id="local-6989586621679303084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303062"><span id="local-6989586621679303064"><span id="local-6989586621679303066"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679303060"><span class="annot"><span class="annottext">toJSON :: Duration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303057"><span id="local-6989586621679303058"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303071"><span id="local-6989586621679303073"><span id="local-6989586621679303075"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration"><span class="hs-identifier hs-type">Duration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679303069"><span class="annot"><span class="annottext">toJSON :: Duration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.Duration.html#Duration%27"><span class="hs-identifier hs-type">Duration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303066"><span id="local-6989586621679303067"><span class="annot"><span class="annottext">Maybe Natural
 Maybe TimeUnit
 unit :: Maybe TimeUnit
 value :: Maybe Natural
 $sel:unit:Duration' :: Duration -&gt; Maybe TimeUnit
 $sel:value:Duration' :: Duration -&gt; Maybe Natural
-</span><a href="#local-6989586621679303057"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303066"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,14 +220,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679303058"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303067"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimeUnit -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimeUnit -&gt; Pair) -&gt; Maybe TimeUnit -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnit
-</span><a href="#local-6989586621679303057"><span class="hs-keyword hs-var">unit</span></a></span><span>
+</span><a href="#local-6989586621679303066"><span class="hs-keyword hs-var">unit</span></a></span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

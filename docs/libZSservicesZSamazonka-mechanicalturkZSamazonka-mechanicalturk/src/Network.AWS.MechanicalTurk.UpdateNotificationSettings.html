@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newUpdateNotificationSettings' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679256183"><span id="local-6989586621679256184"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNotificationSettings"><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-var">UpdateNotificationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNotificationSettings%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-var">UpdateNotificationSettings'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679256192"><span id="local-6989586621679256193"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNotificationSettings"><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-var">UpdateNotificationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNotificationSettings%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-var">UpdateNotificationSettings'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The notification specification for the HIT type.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Anotification%3AUpdateNotificationSettings%27"><span class="annot"><span class="annottext">UpdateNotificationSettings -&gt; Maybe NotificationSpecification
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#%24sel%3Anotification%3AUpdateNotificationSettings%27"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.NotificationSpecification.html#NotificationSpecification"><span class="hs-identifier hs-type">NotificationSpecification</span></a></span><span class="hs-special">,</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AhITTypeId%3AUpdateNotificationSettings%27"><span class="annot"><span class="annottext">UpdateNotificationSettings -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#%24sel%3AhITTypeId%3AUpdateNotificationSettings%27"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256175"><span id="local-6989586621679256177"><span class="annot"><span class="annottext">UpdateNotificationSettings -&gt; UpdateNotificationSettings -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256184"><span id="local-6989586621679256186"><span class="annot"><span class="annottext">UpdateNotificationSettings -&gt; UpdateNotificationSettings -&gt; Bool
 (UpdateNotificationSettings -&gt; UpdateNotificationSettings -&gt; Bool)
 -&gt; (UpdateNotificationSettings
     -&gt; UpdateNotificationSettings -&gt; Bool)
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateNotificationSettings -&gt; UpdateNotificationSettings -&gt; Bool
 == :: UpdateNotificationSettings -&gt; UpdateNotificationSettings -&gt; Bool
 $c== :: UpdateNotificationSettings -&gt; UpdateNotificationSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256166"><span id="local-6989586621679256168"><span id="local-6989586621679256170"><span id="local-6989586621679256172"><span class="annot"><span class="annottext">ReadPrec [UpdateNotificationSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256175"><span id="local-6989586621679256177"><span id="local-6989586621679256179"><span id="local-6989586621679256181"><span class="annot"><span class="annottext">ReadPrec [UpdateNotificationSettings]
 ReadPrec UpdateNotificationSettings
 Int -&gt; ReadS UpdateNotificationSettings
 ReadS [UpdateNotificationSettings]
@@ -103,7 +103,7 @@ readList :: ReadS [UpdateNotificationSettings]
 $creadList :: ReadS [UpdateNotificationSettings]
 readsPrec :: Int -&gt; ReadS UpdateNotificationSettings
 $creadsPrec :: Int -&gt; ReadS UpdateNotificationSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256159"><span id="local-6989586621679256161"><span id="local-6989586621679256163"><span class="annot"><span class="annottext">Int -&gt; UpdateNotificationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256168"><span id="local-6989586621679256170"><span id="local-6989586621679256172"><span class="annot"><span class="annottext">Int -&gt; UpdateNotificationSettings -&gt; ShowS
 [UpdateNotificationSettings] -&gt; ShowS
 UpdateNotificationSettings -&gt; String
 (Int -&gt; UpdateNotificationSettings -&gt; ShowS)
@@ -157,8 +157,8 @@ UpdateNotificationSettings -&gt; Rep UpdateNotificationSettings x
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span>
 </span><span id="line-96"></span><span id="newUpdateNotificationSettings"><span class="annot"><span class="annottext">newUpdateNotificationSettings :: Text -&gt; UpdateNotificationSettings
-</span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#newUpdateNotificationSettings"><span class="hs-identifier hs-var hs-var">newUpdateNotificationSettings</span></a></span></span><span> </span><span id="local-6989586621679256154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256154"><span class="hs-identifier hs-var">pHITTypeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#newUpdateNotificationSettings"><span class="hs-identifier hs-var hs-var">newUpdateNotificationSettings</span></a></span></span><span> </span><span id="local-6989586621679256163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256163"><span class="hs-identifier hs-var">pHITTypeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">UpdateNotificationSettings' :: Maybe NotificationSpecification
 -&gt; Maybe Bool -&gt; Text -&gt; UpdateNotificationSettings
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span>
@@ -173,7 +173,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:hITTypeId:UpdateNotificationSettings' :: Text
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#%24sel%3AhITTypeId%3AUpdateNotificationSettings%27"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256154"><span class="hs-identifier hs-var">pHITTypeId_</span></a></span><span>
+</span><a href="#local-6989586621679256163"><span class="hs-identifier hs-var">pHITTypeId_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The notification specification for the HIT type.</span><span>
@@ -190,16 +190,16 @@ forall a. Maybe a
      (Maybe NotificationSpecification)
      (Maybe NotificationSpecification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256151"><span class="annot"><span class="annottext">Maybe NotificationSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256160"><span class="annot"><span class="annottext">Maybe NotificationSpecification
 notification :: Maybe NotificationSpecification
 $sel:notification:UpdateNotificationSettings' :: UpdateNotificationSettings -&gt; Maybe NotificationSpecification
-</span><a href="#local-6989586621679256151"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationSpecification
-</span><a href="#local-6989586621679256151"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256150"><span class="annot"><span class="annottext">s :: UpdateNotificationSettings
-</span><a href="#local-6989586621679256150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256149"><span class="annot"><span class="annottext">Maybe NotificationSpecification
-</span><a href="#local-6989586621679256149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotificationSettings
-</span><a href="#local-6989586621679256150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notification:UpdateNotificationSettings' :: Maybe NotificationSpecification
+</span><a href="#local-6989586621679256160"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationSpecification
+</span><a href="#local-6989586621679256160"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256159"><span class="annot"><span class="annottext">s :: UpdateNotificationSettings
+</span><a href="#local-6989586621679256159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256158"><span class="annot"><span class="annottext">Maybe NotificationSpecification
+</span><a href="#local-6989586621679256158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotificationSettings
+</span><a href="#local-6989586621679256159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notification:UpdateNotificationSettings' :: Maybe NotificationSpecification
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#%24sel%3Anotification%3AUpdateNotificationSettings%27"><span class="hs-identifier hs-var">notification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationSpecification
-</span><a href="#local-6989586621679256149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Specifies whether notifications are sent for HITs of this HIT type,</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- according to the notification specification. You must specify either the</span><span>
@@ -217,16 +217,16 @@ $sel:notification:UpdateNotificationSettings' :: UpdateNotificationSettings -&gt
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256148"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256157"><span class="annot"><span class="annottext">Maybe Bool
 active :: Maybe Bool
 $sel:active:UpdateNotificationSettings' :: UpdateNotificationSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679256148"><span class="hs-identifier hs-var hs-var">active</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679256148"><span class="hs-identifier hs-var">active</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256147"><span class="annot"><span class="annottext">s :: UpdateNotificationSettings
-</span><a href="#local-6989586621679256147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256146"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679256146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotificationSettings
-</span><a href="#local-6989586621679256147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:active:UpdateNotificationSettings' :: Maybe Bool
+</span><a href="#local-6989586621679256157"><span class="hs-identifier hs-var hs-var">active</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679256157"><span class="hs-identifier hs-var">active</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256156"><span class="annot"><span class="annottext">s :: UpdateNotificationSettings
+</span><a href="#local-6989586621679256156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256155"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679256155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotificationSettings
+</span><a href="#local-6989586621679256156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:active:UpdateNotificationSettings' :: Maybe Bool
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#%24sel%3Aactive%3AUpdateNotificationSettings%27"><span class="hs-identifier hs-var">active</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679256146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The ID of the HIT type whose notification specification is being</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- updated.</span><span>
@@ -239,28 +239,28 @@ $sel:active:UpdateNotificationSettings' :: UpdateNotificationSettings -&gt; Mayb
 -&gt; Lens
      UpdateNotificationSettings UpdateNotificationSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256145"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256154"><span class="annot"><span class="annottext">Text
 hITTypeId :: Text
 $sel:hITTypeId:UpdateNotificationSettings' :: UpdateNotificationSettings -&gt; Text
-</span><a href="#local-6989586621679256145"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256145"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256144"><span class="annot"><span class="annottext">s :: UpdateNotificationSettings
-</span><a href="#local-6989586621679256144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256143"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotificationSettings
-</span><a href="#local-6989586621679256144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITTypeId:UpdateNotificationSettings' :: Text
+</span><a href="#local-6989586621679256154"><span class="hs-identifier hs-var hs-var">hITTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256154"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256153"><span class="annot"><span class="annottext">s :: UpdateNotificationSettings
+</span><a href="#local-6989586621679256153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256152"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotificationSettings
+</span><a href="#local-6989586621679256153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hITTypeId:UpdateNotificationSettings' :: Text
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#%24sel%3AhITTypeId%3AUpdateNotificationSettings%27"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679256139"><span class="annot"><span class="annottext">request :: UpdateNotificationSettings -&gt; Request UpdateNotificationSettings
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679256148"><span class="annot"><span class="annottext">request :: UpdateNotificationSettings -&gt; Request UpdateNotificationSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateNotificationSettings -&gt; Request UpdateNotificationSettings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679256135"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679256144"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateNotificationSettings
 -&gt; ClientResponse ClientBody
@@ -286,10 +286,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256132"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256132"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256131"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679256131"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256130"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679256130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256141"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256141"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256140"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256140"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256139"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679256139"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateNotificationSettingsResponse
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-var">UpdateNotificationSettingsResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateNotificationSettingsResponse)
@@ -301,15 +301,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256132"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256141"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256123"><span id="local-6989586621679256125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256132"><span id="local-6989586621679256134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679256116"><span class="annot"><span class="annottext">toHeaders :: UpdateNotificationSettings -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679256125"><span class="annot"><span class="annottext">toHeaders :: UpdateNotificationSettings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateNotificationSettings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -336,9 +336,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256106"><span id="local-6989586621679256108"><span id="local-6989586621679256110"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679256104"><span class="annot"><span class="annottext">toJSON :: UpdateNotificationSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256100"><span id="local-6989586621679256101"><span id="local-6989586621679256102"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256115"><span id="local-6989586621679256117"><span id="local-6989586621679256119"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679256113"><span class="annot"><span class="annottext">toJSON :: UpdateNotificationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings%27"><span class="hs-identifier hs-type">UpdateNotificationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256109"><span id="local-6989586621679256110"><span id="local-6989586621679256111"><span class="annot"><span class="annottext">Maybe Bool
 Maybe NotificationSpecification
 Text
 hITTypeId :: Text
@@ -347,7 +347,7 @@ notification :: Maybe NotificationSpecification
 $sel:hITTypeId:UpdateNotificationSettings' :: UpdateNotificationSettings -&gt; Text
 $sel:active:UpdateNotificationSettings' :: UpdateNotificationSettings -&gt; Maybe Bool
 $sel:notification:UpdateNotificationSettings' :: UpdateNotificationSettings -&gt; Maybe NotificationSpecification
-</span><a href="#local-6989586621679256100"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256109"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -360,33 +360,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NotificationSpecification -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationSpecification
-</span><a href="#local-6989586621679256102"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256111"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Active&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679256101"><span class="hs-identifier hs-var">active</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256110"><span class="hs-identifier hs-var">active</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HITTypeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256100"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256109"><span class="hs-identifier hs-var">hITTypeId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679256094"><span class="annot"><span class="annottext">toPath :: UpdateNotificationSettings -&gt; ByteString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679256103"><span class="annot"><span class="annottext">toPath :: UpdateNotificationSettings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateNotificationSettings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettings"><span class="hs-identifier hs-type">UpdateNotificationSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679256090"><span class="annot"><span class="annottext">toQuery :: UpdateNotificationSettings -&gt; QueryString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679256099"><span class="annot"><span class="annottext">toQuery :: UpdateNotificationSettings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateNotificationSettings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -394,12 +394,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newUpdateNotificationSettingsResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621679256087"><span id="local-6989586621679256088"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNotificationSettingsResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse"><span class="hs-identifier hs-var">UpdateNotificationSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNotificationSettingsResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-var">UpdateNotificationSettingsResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621679256096"><span id="local-6989586621679256097"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateNotificationSettingsResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse"><span class="hs-identifier hs-var">UpdateNotificationSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateNotificationSettingsResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-var">UpdateNotificationSettingsResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateNotificationSettingsResponse%27"><span class="annot"><span class="annottext">UpdateNotificationSettingsResponse -&gt; Int
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#%24sel%3AhttpStatus%3AUpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256082"><span id="local-6989586621679256084"><span class="annot"><span class="annottext">UpdateNotificationSettingsResponse
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256091"><span id="local-6989586621679256093"><span class="annot"><span class="annottext">UpdateNotificationSettingsResponse
 -&gt; UpdateNotificationSettingsResponse -&gt; Bool
 (UpdateNotificationSettingsResponse
  -&gt; UpdateNotificationSettingsResponse -&gt; Bool)
@@ -415,7 +415,7 @@ $c/= :: UpdateNotificationSettingsResponse
 -&gt; UpdateNotificationSettingsResponse -&gt; Bool
 $c== :: UpdateNotificationSettingsResponse
 -&gt; UpdateNotificationSettingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256074"><span id="local-6989586621679256076"><span id="local-6989586621679256078"><span id="local-6989586621679256080"><span class="annot"><span class="annottext">ReadPrec [UpdateNotificationSettingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256083"><span id="local-6989586621679256085"><span id="local-6989586621679256087"><span id="local-6989586621679256089"><span class="annot"><span class="annottext">ReadPrec [UpdateNotificationSettingsResponse]
 ReadPrec UpdateNotificationSettingsResponse
 Int -&gt; ReadS UpdateNotificationSettingsResponse
 ReadS [UpdateNotificationSettingsResponse]
@@ -435,7 +435,7 @@ readList :: ReadS [UpdateNotificationSettingsResponse]
 $creadList :: ReadS [UpdateNotificationSettingsResponse]
 readsPrec :: Int -&gt; ReadS UpdateNotificationSettingsResponse
 $creadsPrec :: Int -&gt; ReadS UpdateNotificationSettingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256068"><span id="local-6989586621679256070"><span id="local-6989586621679256072"><span class="annot"><span class="annottext">Int -&gt; UpdateNotificationSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256077"><span id="local-6989586621679256079"><span id="local-6989586621679256081"><span class="annot"><span class="annottext">Int -&gt; UpdateNotificationSettingsResponse -&gt; ShowS
 [UpdateNotificationSettingsResponse] -&gt; ShowS
 UpdateNotificationSettingsResponse -&gt; String
 (Int -&gt; UpdateNotificationSettingsResponse -&gt; ShowS)
@@ -487,14 +487,14 @@ UpdateNotificationSettingsResponse
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse</span></a></span><span>
 </span><span id="line-187"></span><span id="newUpdateNotificationSettingsResponse"><span class="annot"><span class="annottext">newUpdateNotificationSettingsResponse :: Int -&gt; UpdateNotificationSettingsResponse
-</span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#newUpdateNotificationSettingsResponse"><span class="hs-identifier hs-var hs-var">newUpdateNotificationSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679256065"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#newUpdateNotificationSettingsResponse"><span class="hs-identifier hs-var hs-var">newUpdateNotificationSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679256074"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256074"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">UpdateNotificationSettingsResponse' :: Int -&gt; UpdateNotificationSettingsResponse
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse'</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNotificationSettingsResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#%24sel%3AhttpStatus%3AUpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679256074"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -511,18 +511,18 @@ UpdateNotificationSettingsResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256064"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256073"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateNotificationSettingsResponse' :: UpdateNotificationSettingsResponse -&gt; Int
-</span><a href="#local-6989586621679256064"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256064"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256063"><span class="annot"><span class="annottext">s :: UpdateNotificationSettingsResponse
-</span><a href="#local-6989586621679256063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256062"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotificationSettingsResponse
-</span><a href="#local-6989586621679256063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNotificationSettingsResponse' :: Int
+</span><a href="#local-6989586621679256073"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256073"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256072"><span class="annot"><span class="annottext">s :: UpdateNotificationSettingsResponse
+</span><a href="#local-6989586621679256072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256071"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateNotificationSettingsResponse
+</span><a href="#local-6989586621679256072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateNotificationSettingsResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#%24sel%3AhttpStatus%3AUpdateNotificationSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679256060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679256069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.UpdateNotificationSettings.html#UpdateNotificationSettingsResponse"><span class="hs-identifier hs-type">UpdateNotificationSettingsResponse</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

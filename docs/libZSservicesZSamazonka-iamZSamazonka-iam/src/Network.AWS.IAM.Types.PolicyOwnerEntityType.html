@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679427270"><span id="local-6989586621679427271"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyOwnerEntityType"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyOwnerEntityType.html#PolicyOwnerEntityType"><span class="hs-identifier hs-var">PolicyOwnerEntityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyOwnerEntityType%27"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyOwnerEntityType.html#PolicyOwnerEntityType%27"><span class="hs-identifier hs-var">PolicyOwnerEntityType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679427279"><span id="local-6989586621679427280"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyOwnerEntityType"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyOwnerEntityType.html#PolicyOwnerEntityType"><span class="hs-identifier hs-var">PolicyOwnerEntityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyOwnerEntityType%27"><span class="annot"><a href="Network.AWS.IAM.Types.PolicyOwnerEntityType.html#PolicyOwnerEntityType%27"><span class="hs-identifier hs-var">PolicyOwnerEntityType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPolicyOwnerEntityType"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; Text
 </span><a href="Network.AWS.IAM.Types.PolicyOwnerEntityType.html#fromPolicyOwnerEntityType"><span class="hs-identifier hs-var hs-var">fromPolicyOwnerEntityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427262"><span id="local-6989586621679427264"><span id="local-6989586621679427266"><span class="annot"><span class="annottext">Int -&gt; PolicyOwnerEntityType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427271"><span id="local-6989586621679427273"><span id="local-6989586621679427275"><span class="annot"><span class="annottext">Int -&gt; PolicyOwnerEntityType -&gt; ShowS
 [PolicyOwnerEntityType] -&gt; ShowS
 PolicyOwnerEntityType -&gt; String
 (Int -&gt; PolicyOwnerEntityType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: PolicyOwnerEntityType -&gt; String
 showsPrec :: Int -&gt; PolicyOwnerEntityType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PolicyOwnerEntityType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427253"><span id="local-6989586621679427255"><span id="local-6989586621679427257"><span id="local-6989586621679427259"><span class="annot"><span class="annottext">ReadPrec [PolicyOwnerEntityType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427262"><span id="local-6989586621679427264"><span id="local-6989586621679427266"><span id="local-6989586621679427268"><span class="annot"><span class="annottext">ReadPrec [PolicyOwnerEntityType]
 ReadPrec PolicyOwnerEntityType
 Int -&gt; ReadS PolicyOwnerEntityType
 ReadS [PolicyOwnerEntityType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [PolicyOwnerEntityType]
 readsPrec :: Int -&gt; ReadS PolicyOwnerEntityType
 $creadsPrec :: Int -&gt; ReadS PolicyOwnerEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427248"><span id="local-6989586621679427250"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; PolicyOwnerEntityType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427257"><span id="local-6989586621679427259"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; PolicyOwnerEntityType -&gt; Bool
 (PolicyOwnerEntityType -&gt; PolicyOwnerEntityType -&gt; Bool)
 -&gt; (PolicyOwnerEntityType -&gt; PolicyOwnerEntityType -&gt; Bool)
 -&gt; Eq PolicyOwnerEntityType
@@ -83,7 +83,7 @@ $c/= :: PolicyOwnerEntityType -&gt; PolicyOwnerEntityType -&gt; Bool
 == :: PolicyOwnerEntityType -&gt; PolicyOwnerEntityType -&gt; Bool
 $c== :: PolicyOwnerEntityType -&gt; PolicyOwnerEntityType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679427232"><span id="local-6989586621679427234"><span id="local-6989586621679427236"><span id="local-6989586621679427238"><span id="local-6989586621679427240"><span id="local-6989586621679427242"><span id="local-6989586621679427244"><span class="annot"><span class="annottext">Eq PolicyOwnerEntityType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679427241"><span id="local-6989586621679427243"><span id="local-6989586621679427245"><span id="local-6989586621679427247"><span id="local-6989586621679427249"><span id="local-6989586621679427251"><span id="local-6989586621679427253"><span class="annot"><span class="annottext">Eq PolicyOwnerEntityType
 Eq PolicyOwnerEntityType
 -&gt; (PolicyOwnerEntityType -&gt; PolicyOwnerEntityType -&gt; Ordering)
 -&gt; (PolicyOwnerEntityType -&gt; PolicyOwnerEntityType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. PolicyOwnerEntityType -&gt; Rep PolicyOwnerEntityType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427224"><span id="local-6989586621679427226"><span class="annot"><span class="annottext">Int -&gt; PolicyOwnerEntityType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427233"><span id="local-6989586621679427235"><span class="annot"><span class="annottext">Int -&gt; PolicyOwnerEntityType -&gt; Int
 PolicyOwnerEntityType -&gt; Int
 (Int -&gt; PolicyOwnerEntityType -&gt; Int)
 -&gt; (PolicyOwnerEntityType -&gt; Int) -&gt; Hashable PolicyOwnerEntityType
@@ -151,54 +151,54 @@ $chash :: PolicyOwnerEntityType -&gt; Int
 hashWithSalt :: Int -&gt; PolicyOwnerEntityType -&gt; Int
 $chashWithSalt :: Int -&gt; PolicyOwnerEntityType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427221"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427230"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; ()
 (PolicyOwnerEntityType -&gt; ()) -&gt; NFData PolicyOwnerEntityType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PolicyOwnerEntityType -&gt; ()
 $crnf :: PolicyOwnerEntityType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427218"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyOwnerEntityType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427227"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyOwnerEntityType
 (Text -&gt; Either String PolicyOwnerEntityType)
 -&gt; FromText PolicyOwnerEntityType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PolicyOwnerEntityType
 $cfromText :: Text -&gt; Either String PolicyOwnerEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427215"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427224"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; Text
 (PolicyOwnerEntityType -&gt; Text) -&gt; ToText PolicyOwnerEntityType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PolicyOwnerEntityType -&gt; Text
 $ctoText :: PolicyOwnerEntityType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427212"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427221"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; ByteString
 (PolicyOwnerEntityType -&gt; ByteString)
 -&gt; ToByteString PolicyOwnerEntityType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PolicyOwnerEntityType -&gt; ByteString
 $ctoBS :: PolicyOwnerEntityType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427209"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427218"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; ByteStringBuilder
 (PolicyOwnerEntityType -&gt; ByteStringBuilder)
 -&gt; ToLog PolicyOwnerEntityType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PolicyOwnerEntityType -&gt; ByteStringBuilder
 $cbuild :: PolicyOwnerEntityType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427206"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyOwnerEntityType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427215"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyOwnerEntityType -&gt; [Header]
 (HeaderName -&gt; PolicyOwnerEntityType -&gt; [Header])
 -&gt; ToHeader PolicyOwnerEntityType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PolicyOwnerEntityType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PolicyOwnerEntityType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427203"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427212"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; QueryString
 (PolicyOwnerEntityType -&gt; QueryString)
 -&gt; ToQuery PolicyOwnerEntityType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PolicyOwnerEntityType -&gt; QueryString
 $ctoQuery :: PolicyOwnerEntityType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427198"><span id="local-6989586621679427200"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyOwnerEntityType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427207"><span id="local-6989586621679427209"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyOwnerEntityType]
 Value -&gt; Parser PolicyOwnerEntityType
 (Value -&gt; Parser PolicyOwnerEntityType)
 -&gt; (Value -&gt; Parser [PolicyOwnerEntityType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [PolicyOwnerEntityType]
 parseJSON :: Value -&gt; Parser PolicyOwnerEntityType
 $cparseJSON :: Value -&gt; Parser PolicyOwnerEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427193"><span id="local-6989586621679427195"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyOwnerEntityType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427202"><span id="local-6989586621679427204"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyOwnerEntityType]
 FromJSONKeyFunction PolicyOwnerEntityType
 FromJSONKeyFunction PolicyOwnerEntityType
 -&gt; FromJSONKeyFunction [PolicyOwnerEntityType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PolicyOwnerEntityType]
 fromJSONKey :: FromJSONKeyFunction PolicyOwnerEntityType
 $cfromJSONKey :: FromJSONKeyFunction PolicyOwnerEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427184"><span id="local-6989586621679427186"><span id="local-6989586621679427188"><span id="local-6989586621679427190"><span class="annot"><span class="annottext">[PolicyOwnerEntityType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427193"><span id="local-6989586621679427195"><span id="local-6989586621679427197"><span id="local-6989586621679427199"><span class="annot"><span class="annottext">[PolicyOwnerEntityType] -&gt; Encoding
 [PolicyOwnerEntityType] -&gt; Value
 PolicyOwnerEntityType -&gt; Encoding
 PolicyOwnerEntityType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: PolicyOwnerEntityType -&gt; Encoding
 toJSON :: PolicyOwnerEntityType -&gt; Value
 $ctoJSON :: PolicyOwnerEntityType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427179"><span id="local-6989586621679427181"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyOwnerEntityType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427188"><span id="local-6989586621679427190"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyOwnerEntityType]
 ToJSONKeyFunction PolicyOwnerEntityType
 ToJSONKeyFunction PolicyOwnerEntityType
 -&gt; ToJSONKeyFunction [PolicyOwnerEntityType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PolicyOwnerEntityType]
 toJSONKey :: ToJSONKeyFunction PolicyOwnerEntityType
 $ctoJSONKey :: ToJSONKeyFunction PolicyOwnerEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427176"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyOwnerEntityType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427185"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyOwnerEntityType
 ([Node] -&gt; Either String PolicyOwnerEntityType)
 -&gt; FromXML PolicyOwnerEntityType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PolicyOwnerEntityType
 $cparseXML :: [Node] -&gt; Either String PolicyOwnerEntityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679427173"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679427182"><span class="annot"><span class="annottext">PolicyOwnerEntityType -&gt; XML
 (PolicyOwnerEntityType -&gt; XML) -&gt; ToXML PolicyOwnerEntityType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PolicyOwnerEntityType -&gt; XML

@@ -1,0 +1,1328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-8"></span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Module      : Network.AWS.Proton.Waiters</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-16"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Proton.Waiters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-17"></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetEnvironment.html"><span class="hs-identifier">Network.AWS.Proton.GetEnvironment</span></a></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetEnvironmentTemplateVersion.html"><span class="hs-identifier">Network.AWS.Proton.GetEnvironmentTemplateVersion</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetService.html"><span class="hs-identifier">Network.AWS.Proton.GetService</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html"><span class="hs-identifier">Network.AWS.Proton.GetServiceInstance</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceTemplateVersion.html"><span class="hs-identifier">Network.AWS.Proton.GetServiceTemplateVersion</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Lens.html"><span class="hs-identifier">Network.AWS.Proton.Lens</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.html"><span class="hs-identifier">Network.AWS.Proton.Types</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Polls 'Network.AWS.Proton.GetEnvironment' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.</span><span>
+</span><span id="line-30"></span><span class="annot"><a href="Network.AWS.Proton.Waiters.html#newEnvironmentDeployed"><span class="hs-identifier hs-type">newEnvironmentDeployed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span><span>
+</span><span id="line-31"></span><span id="newEnvironmentDeployed"><span class="annot"><span class="annottext">newEnvironmentDeployed :: Wait GetEnvironment
+</span><a href="Network.AWS.Proton.Waiters.html#newEnvironmentDeployed"><span class="hs-identifier hs-var hs-var">newEnvironmentDeployed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-32"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentDeployed&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">999</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetEnvironment]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-37"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetEnvironment) (CI Text)
+-&gt; Acceptor GetEnvironment
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-38"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-39"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-40"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Environment -&gt; f Environment)
+-&gt; GetEnvironmentResponse -&gt; f GetEnvironmentResponse
+Lens' GetEnvironmentResponse Environment
+</span><a href="Network.AWS.Proton.GetEnvironment.html#getEnvironmentResponse_environment"><span class="hs-identifier hs-var">getEnvironmentResponse_environment</span></a></span><span>
+</span><span id="line-41"></span><span>                </span><span class="annot"><span class="annottext">((Environment -&gt; f Environment)
+ -&gt; GetEnvironmentResponse -&gt; f GetEnvironmentResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Environment -&gt; f Environment)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetEnvironmentResponse
+-&gt; f GetEnvironmentResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; Environment -&gt; f Environment
+Lens' Environment DeploymentStatus
+</span><a href="Network.AWS.Proton.Types.Environment.html#environment_deploymentStatus"><span class="hs-identifier hs-var">environment_deploymentStatus</span></a></span><span>
+</span><span id="line-42"></span><span>                </span><span class="annot"><span class="annottext">((DeploymentStatus -&gt; f DeploymentStatus)
+ -&gt; Environment -&gt; f Environment)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Environment
+-&gt; f Environment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DeploymentStatus
+-&gt; f DeploymentStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">DeploymentStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-43"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetEnvironment) (CI Text)
+-&gt; Acceptor GetEnvironment
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-45"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-46"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-47"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Environment -&gt; f Environment)
+-&gt; GetEnvironmentResponse -&gt; f GetEnvironmentResponse
+Lens' GetEnvironmentResponse Environment
+</span><a href="Network.AWS.Proton.GetEnvironment.html#getEnvironmentResponse_environment"><span class="hs-identifier hs-var">getEnvironmentResponse_environment</span></a></span><span>
+</span><span id="line-48"></span><span>                </span><span class="annot"><span class="annottext">((Environment -&gt; f Environment)
+ -&gt; GetEnvironmentResponse -&gt; f GetEnvironmentResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Environment -&gt; f Environment)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetEnvironmentResponse
+-&gt; f GetEnvironmentResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; Environment -&gt; f Environment
+Lens' Environment DeploymentStatus
+</span><a href="Network.AWS.Proton.Types.Environment.html#environment_deploymentStatus"><span class="hs-identifier hs-var">environment_deploymentStatus</span></a></span><span>
+</span><span id="line-49"></span><span>                </span><span class="annot"><span class="annottext">((DeploymentStatus -&gt; f DeploymentStatus)
+ -&gt; Environment -&gt; f Environment)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Environment
+-&gt; f Environment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DeploymentStatus
+-&gt; f DeploymentStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">DeploymentStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-50"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | Polls 'Network.AWS.Proton.GetServiceTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.Proton.Waiters.html#newServiceTemplateVersionRegistered"><span class="hs-identifier hs-type">newServiceTemplateVersionRegistered</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceTemplateVersion.html#GetServiceTemplateVersion"><span class="hs-identifier hs-type">GetServiceTemplateVersion</span></a></span><span>
+</span><span id="line-56"></span><span id="newServiceTemplateVersionRegistered"><span class="annot"><span class="annottext">newServiceTemplateVersionRegistered :: Wait GetServiceTemplateVersion
+</span><a href="Network.AWS.Proton.Waiters.html#newServiceTemplateVersionRegistered"><span class="hs-identifier hs-var hs-var">newServiceTemplateVersionRegistered</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceTemplateVersionRegistered&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">150</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetServiceTemplateVersion]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetServiceTemplateVersion) (CI Text)
+-&gt; Acceptor GetServiceTemplateVersion
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DRAFT&quot;</span></span><span>
+</span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-66"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+-&gt; GetServiceTemplateVersionResponse
+-&gt; f GetServiceTemplateVersionResponse
+Lens' GetServiceTemplateVersionResponse ServiceTemplateVersion
+</span><a href="Network.AWS.Proton.GetServiceTemplateVersion.html#getServiceTemplateVersionResponse_serviceTemplateVersion"><span class="hs-identifier hs-var">getServiceTemplateVersionResponse_serviceTemplateVersion</span></a></span><span>
+</span><span id="line-67"></span><span>                </span><span class="annot"><span class="annottext">((ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+ -&gt; GetServiceTemplateVersionResponse
+ -&gt; f GetServiceTemplateVersionResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceTemplateVersionResponse
+-&gt; f GetServiceTemplateVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; ServiceTemplateVersion -&gt; f ServiceTemplateVersion
+Lens' ServiceTemplateVersion TemplateVersionStatus
+</span><a href="Network.AWS.Proton.Types.ServiceTemplateVersion.html#serviceTemplateVersion_status"><span class="hs-identifier hs-var">serviceTemplateVersion_status</span></a></span><span>
+</span><span id="line-68"></span><span>                </span><span class="annot"><span class="annottext">((TemplateVersionStatus -&gt; f TemplateVersionStatus)
+ -&gt; ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ServiceTemplateVersion
+-&gt; f ServiceTemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; TemplateVersionStatus
+-&gt; f TemplateVersionStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">TemplateVersionStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-69"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetServiceTemplateVersion) (CI Text)
+-&gt; Acceptor GetServiceTemplateVersion
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;PUBLISHED&quot;</span></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-73"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+-&gt; GetServiceTemplateVersionResponse
+-&gt; f GetServiceTemplateVersionResponse
+Lens' GetServiceTemplateVersionResponse ServiceTemplateVersion
+</span><a href="Network.AWS.Proton.GetServiceTemplateVersion.html#getServiceTemplateVersionResponse_serviceTemplateVersion"><span class="hs-identifier hs-var">getServiceTemplateVersionResponse_serviceTemplateVersion</span></a></span><span>
+</span><span id="line-74"></span><span>                </span><span class="annot"><span class="annottext">((ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+ -&gt; GetServiceTemplateVersionResponse
+ -&gt; f GetServiceTemplateVersionResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceTemplateVersionResponse
+-&gt; f GetServiceTemplateVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; ServiceTemplateVersion -&gt; f ServiceTemplateVersion
+Lens' ServiceTemplateVersion TemplateVersionStatus
+</span><a href="Network.AWS.Proton.Types.ServiceTemplateVersion.html#serviceTemplateVersion_status"><span class="hs-identifier hs-var">serviceTemplateVersion_status</span></a></span><span>
+</span><span id="line-75"></span><span>                </span><span class="annot"><span class="annottext">((TemplateVersionStatus -&gt; f TemplateVersionStatus)
+ -&gt; ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ServiceTemplateVersion
+-&gt; f ServiceTemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; TemplateVersionStatus
+-&gt; f TemplateVersionStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">TemplateVersionStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-76"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetServiceTemplateVersion) (CI Text)
+-&gt; Acceptor GetServiceTemplateVersion
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;REGISTRATION_FAILED&quot;</span></span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-80"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+-&gt; GetServiceTemplateVersionResponse
+-&gt; f GetServiceTemplateVersionResponse
+Lens' GetServiceTemplateVersionResponse ServiceTemplateVersion
+</span><a href="Network.AWS.Proton.GetServiceTemplateVersion.html#getServiceTemplateVersionResponse_serviceTemplateVersion"><span class="hs-identifier hs-var">getServiceTemplateVersionResponse_serviceTemplateVersion</span></a></span><span>
+</span><span id="line-81"></span><span>                </span><span class="annot"><span class="annottext">((ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+ -&gt; GetServiceTemplateVersionResponse
+ -&gt; f GetServiceTemplateVersionResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceTemplateVersionResponse
+-&gt; f GetServiceTemplateVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; ServiceTemplateVersion -&gt; f ServiceTemplateVersion
+Lens' ServiceTemplateVersion TemplateVersionStatus
+</span><a href="Network.AWS.Proton.Types.ServiceTemplateVersion.html#serviceTemplateVersion_status"><span class="hs-identifier hs-var">serviceTemplateVersion_status</span></a></span><span>
+</span><span id="line-82"></span><span>                </span><span class="annot"><span class="annottext">((TemplateVersionStatus -&gt; f TemplateVersionStatus)
+ -&gt; ServiceTemplateVersion -&gt; f ServiceTemplateVersion)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ServiceTemplateVersion
+-&gt; f ServiceTemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; TemplateVersionStatus
+-&gt; f TemplateVersionStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">TemplateVersionStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-83"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Polls 'Network.AWS.Proton.GetEnvironmentTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Proton.Waiters.html#newEnvironmentTemplateVersionRegistered"><span class="hs-identifier hs-type">newEnvironmentTemplateVersionRegistered</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetEnvironmentTemplateVersion.html#GetEnvironmentTemplateVersion"><span class="hs-identifier hs-type">GetEnvironmentTemplateVersion</span></a></span><span>
+</span><span id="line-89"></span><span id="newEnvironmentTemplateVersionRegistered"><span class="annot"><span class="annottext">newEnvironmentTemplateVersionRegistered :: Wait GetEnvironmentTemplateVersion
+</span><a href="Network.AWS.Proton.Waiters.html#newEnvironmentTemplateVersionRegistered"><span class="hs-identifier hs-var hs-var">newEnvironmentTemplateVersionRegistered</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentTemplateVersionRegistered&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">150</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetEnvironmentTemplateVersion]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetEnvironmentTemplateVersion) (CI Text)
+-&gt; Acceptor GetEnvironmentTemplateVersion
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DRAFT&quot;</span></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+-&gt; GetEnvironmentTemplateVersionResponse
+-&gt; f GetEnvironmentTemplateVersionResponse
+Lens'
+  GetEnvironmentTemplateVersionResponse EnvironmentTemplateVersion
+</span><a href="Network.AWS.Proton.GetEnvironmentTemplateVersion.html#getEnvironmentTemplateVersionResponse_environmentTemplateVersion"><span class="hs-identifier hs-var">getEnvironmentTemplateVersionResponse_environmentTemplateVersion</span></a></span><span>
+</span><span id="line-100"></span><span>                </span><span class="annot"><span class="annottext">((EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+ -&gt; GetEnvironmentTemplateVersionResponse
+ -&gt; f GetEnvironmentTemplateVersionResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetEnvironmentTemplateVersionResponse
+-&gt; f GetEnvironmentTemplateVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion
+Lens' EnvironmentTemplateVersion TemplateVersionStatus
+</span><a href="Network.AWS.Proton.Types.EnvironmentTemplateVersion.html#environmentTemplateVersion_status"><span class="hs-identifier hs-var">environmentTemplateVersion_status</span></a></span><span>
+</span><span id="line-101"></span><span>                </span><span class="annot"><span class="annottext">((TemplateVersionStatus -&gt; f TemplateVersionStatus)
+ -&gt; EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; EnvironmentTemplateVersion
+-&gt; f EnvironmentTemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; TemplateVersionStatus
+-&gt; f TemplateVersionStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">TemplateVersionStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetEnvironmentTemplateVersion) (CI Text)
+-&gt; Acceptor GetEnvironmentTemplateVersion
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;PUBLISHED&quot;</span></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+-&gt; GetEnvironmentTemplateVersionResponse
+-&gt; f GetEnvironmentTemplateVersionResponse
+Lens'
+  GetEnvironmentTemplateVersionResponse EnvironmentTemplateVersion
+</span><a href="Network.AWS.Proton.GetEnvironmentTemplateVersion.html#getEnvironmentTemplateVersionResponse_environmentTemplateVersion"><span class="hs-identifier hs-var">getEnvironmentTemplateVersionResponse_environmentTemplateVersion</span></a></span><span>
+</span><span id="line-107"></span><span>                </span><span class="annot"><span class="annottext">((EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+ -&gt; GetEnvironmentTemplateVersionResponse
+ -&gt; f GetEnvironmentTemplateVersionResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetEnvironmentTemplateVersionResponse
+-&gt; f GetEnvironmentTemplateVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion
+Lens' EnvironmentTemplateVersion TemplateVersionStatus
+</span><a href="Network.AWS.Proton.Types.EnvironmentTemplateVersion.html#environmentTemplateVersion_status"><span class="hs-identifier hs-var">environmentTemplateVersion_status</span></a></span><span>
+</span><span id="line-108"></span><span>                </span><span class="annot"><span class="annottext">((TemplateVersionStatus -&gt; f TemplateVersionStatus)
+ -&gt; EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; EnvironmentTemplateVersion
+-&gt; f EnvironmentTemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; TemplateVersionStatus
+-&gt; f TemplateVersionStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">TemplateVersionStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetEnvironmentTemplateVersion) (CI Text)
+-&gt; Acceptor GetEnvironmentTemplateVersion
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;REGISTRATION_FAILED&quot;</span></span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+-&gt; GetEnvironmentTemplateVersionResponse
+-&gt; f GetEnvironmentTemplateVersionResponse
+Lens'
+  GetEnvironmentTemplateVersionResponse EnvironmentTemplateVersion
+</span><a href="Network.AWS.Proton.GetEnvironmentTemplateVersion.html#getEnvironmentTemplateVersionResponse_environmentTemplateVersion"><span class="hs-identifier hs-var">getEnvironmentTemplateVersionResponse_environmentTemplateVersion</span></a></span><span>
+</span><span id="line-114"></span><span>                </span><span class="annot"><span class="annottext">((EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+ -&gt; GetEnvironmentTemplateVersionResponse
+ -&gt; f GetEnvironmentTemplateVersionResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetEnvironmentTemplateVersionResponse
+-&gt; f GetEnvironmentTemplateVersionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion
+Lens' EnvironmentTemplateVersion TemplateVersionStatus
+</span><a href="Network.AWS.Proton.Types.EnvironmentTemplateVersion.html#environmentTemplateVersion_status"><span class="hs-identifier hs-var">environmentTemplateVersion_status</span></a></span><span>
+</span><span id="line-115"></span><span>                </span><span class="annot"><span class="annottext">((TemplateVersionStatus -&gt; f TemplateVersionStatus)
+ -&gt; EnvironmentTemplateVersion -&gt; f EnvironmentTemplateVersion)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; TemplateVersionStatus -&gt; f TemplateVersionStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; EnvironmentTemplateVersion
+-&gt; f EnvironmentTemplateVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(TemplateVersionStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; TemplateVersionStatus
+-&gt; f TemplateVersionStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">TemplateVersionStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Polls 'Network.AWS.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Proton.Waiters.html#newServiceUpdated"><span class="hs-identifier hs-type">newServiceUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span>
+</span><span id="line-122"></span><span id="newServiceUpdated"><span class="annot"><span class="annottext">newServiceUpdated :: Wait GetService
+</span><a href="Network.AWS.Proton.Waiters.html#newServiceUpdated"><span class="hs-identifier hs-var hs-var">newServiceUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceUpdated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">999</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetService]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-132"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-133"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;UPDATE_FAILED_CLEANUP_COMPLETE&quot;</span></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-139"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-140"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;UPDATE_FAILED_CLEANUP_FAILED&quot;</span></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-146"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-147"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;UPDATE_FAILED&quot;</span></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-153"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-154"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;UPDATE_COMPLETE_CLEANUP_FAILED&quot;</span></span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-160"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-161"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Polls 'Network.AWS.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Proton.Waiters.html#newServiceDeleted"><span class="hs-identifier hs-type">newServiceDeleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span>
+</span><span id="line-168"></span><span id="newServiceDeleted"><span class="annot"><span class="annottext">newServiceDeleted :: Wait GetService
+</span><a href="Network.AWS.Proton.Waiters.html#newServiceDeleted"><span class="hs-identifier hs-var hs-var">newServiceDeleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceDeleted&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">999</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetService]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Accept -&gt; Acceptor GetService
+forall a. ErrorCode -&gt; Accept -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchError</span></span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-181"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-182"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Polls 'Network.AWS.Proton.GetServiceInstance' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Proton.Waiters.html#newServiceInstanceDeployed"><span class="hs-identifier hs-type">newServiceInstanceDeployed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetServiceInstance.html#GetServiceInstance"><span class="hs-identifier hs-type">GetServiceInstance</span></a></span><span>
+</span><span id="line-189"></span><span id="newServiceInstanceDeployed"><span class="annot"><span class="annottext">newServiceInstanceDeployed :: Wait GetServiceInstance
+</span><a href="Network.AWS.Proton.Waiters.html#newServiceInstanceDeployed"><span class="hs-identifier hs-var hs-var">newServiceInstanceDeployed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceInstanceDeployed&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">999</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetServiceInstance]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetServiceInstance) (CI Text)
+-&gt; Acceptor GetServiceInstance
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(ServiceInstance -&gt; f ServiceInstance)
+-&gt; GetServiceInstanceResponse -&gt; f GetServiceInstanceResponse
+Lens' GetServiceInstanceResponse ServiceInstance
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstanceResponse_serviceInstance"><span class="hs-identifier hs-var">getServiceInstanceResponse_serviceInstance</span></a></span><span>
+</span><span id="line-200"></span><span>                </span><span class="annot"><span class="annottext">((ServiceInstance -&gt; f ServiceInstance)
+ -&gt; GetServiceInstanceResponse -&gt; f GetServiceInstanceResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; ServiceInstance -&gt; f ServiceInstance)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceInstanceResponse
+-&gt; f GetServiceInstanceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; ServiceInstance -&gt; f ServiceInstance
+Lens' ServiceInstance DeploymentStatus
+</span><a href="Network.AWS.Proton.Types.ServiceInstance.html#serviceInstance_deploymentStatus"><span class="hs-identifier hs-var">serviceInstance_deploymentStatus</span></a></span><span>
+</span><span id="line-201"></span><span>                </span><span class="annot"><span class="annottext">((DeploymentStatus -&gt; f DeploymentStatus)
+ -&gt; ServiceInstance -&gt; f ServiceInstance)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ServiceInstance
+-&gt; f ServiceInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DeploymentStatus
+-&gt; f DeploymentStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">DeploymentStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetServiceInstance) (CI Text)
+-&gt; Acceptor GetServiceInstance
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(ServiceInstance -&gt; f ServiceInstance)
+-&gt; GetServiceInstanceResponse -&gt; f GetServiceInstanceResponse
+Lens' GetServiceInstanceResponse ServiceInstance
+</span><a href="Network.AWS.Proton.GetServiceInstance.html#getServiceInstanceResponse_serviceInstance"><span class="hs-identifier hs-var">getServiceInstanceResponse_serviceInstance</span></a></span><span>
+</span><span id="line-207"></span><span>                </span><span class="annot"><span class="annottext">((ServiceInstance -&gt; f ServiceInstance)
+ -&gt; GetServiceInstanceResponse -&gt; f GetServiceInstanceResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; ServiceInstance -&gt; f ServiceInstance)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceInstanceResponse
+-&gt; f GetServiceInstanceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; ServiceInstance -&gt; f ServiceInstance
+Lens' ServiceInstance DeploymentStatus
+</span><a href="Network.AWS.Proton.Types.ServiceInstance.html#serviceInstance_deploymentStatus"><span class="hs-identifier hs-var">serviceInstance_deploymentStatus</span></a></span><span>
+</span><span id="line-208"></span><span>                </span><span class="annot"><span class="annottext">((DeploymentStatus -&gt; f DeploymentStatus)
+ -&gt; ServiceInstance -&gt; f ServiceInstance)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ServiceInstance
+-&gt; f ServiceInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DeploymentStatus
+-&gt; f DeploymentStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">DeploymentStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Polls 'Network.AWS.Proton.GetService' every 10 seconds until a successful state is reached. An error is returned after 360 failed checks.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Proton.Waiters.html#newServicePipelineDeployed"><span class="hs-identifier hs-type">newServicePipelineDeployed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span>
+</span><span id="line-215"></span><span id="newServicePipelineDeployed"><span class="annot"><span class="annottext">newServicePipelineDeployed :: Wait GetService
+</span><a href="Network.AWS.Proton.Waiters.html#newServicePipelineDeployed"><span class="hs-identifier hs-var hs-var">newServicePipelineDeployed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServicePipelineDeployed&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">360</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">10</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetService]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-225"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-226"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe ServicePipeline -&gt; f (Maybe ServicePipeline))
+-&gt; Service -&gt; f Service
+Lens' Service (Maybe ServicePipeline)
+</span><a href="Network.AWS.Proton.Types.Service.html#service_pipeline"><span class="hs-identifier hs-var">service_pipeline</span></a></span><span>
+</span><span id="line-227"></span><span>                </span><span class="annot"><span class="annottext">((Maybe ServicePipeline -&gt; f (Maybe ServicePipeline))
+ -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ServicePipeline -&gt; f (Maybe ServicePipeline))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServicePipeline -&gt; f ServicePipeline)
+-&gt; Maybe ServicePipeline -&gt; f (Maybe ServicePipeline)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-228"></span><span>                </span><span class="annot"><span class="annottext">((ServicePipeline -&gt; f ServicePipeline)
+ -&gt; Maybe ServicePipeline -&gt; f (Maybe ServicePipeline))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; ServicePipeline -&gt; f ServicePipeline)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ServicePipeline
+-&gt; f (Maybe ServicePipeline)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; ServicePipeline -&gt; f ServicePipeline
+Lens' ServicePipeline DeploymentStatus
+</span><a href="Network.AWS.Proton.Types.ServicePipeline.html#servicePipeline_deploymentStatus"><span class="hs-identifier hs-var">servicePipeline_deploymentStatus</span></a></span><span>
+</span><span id="line-229"></span><span>                </span><span class="annot"><span class="annottext">((DeploymentStatus -&gt; f DeploymentStatus)
+ -&gt; ServicePipeline -&gt; f ServicePipeline)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ServicePipeline
+-&gt; f ServicePipeline
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DeploymentStatus
+-&gt; f DeploymentStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">DeploymentStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-230"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-235"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe ServicePipeline -&gt; f (Maybe ServicePipeline))
+-&gt; Service -&gt; f Service
+Lens' Service (Maybe ServicePipeline)
+</span><a href="Network.AWS.Proton.Types.Service.html#service_pipeline"><span class="hs-identifier hs-var">service_pipeline</span></a></span><span>
+</span><span id="line-236"></span><span>                </span><span class="annot"><span class="annottext">((Maybe ServicePipeline -&gt; f (Maybe ServicePipeline))
+ -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ServicePipeline -&gt; f (Maybe ServicePipeline))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServicePipeline -&gt; f ServicePipeline)
+-&gt; Maybe ServicePipeline -&gt; f (Maybe ServicePipeline)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-237"></span><span>                </span><span class="annot"><span class="annottext">((ServicePipeline -&gt; f ServicePipeline)
+ -&gt; Maybe ServicePipeline -&gt; f (Maybe ServicePipeline))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; ServicePipeline -&gt; f ServicePipeline)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ServicePipeline
+-&gt; f (Maybe ServicePipeline)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; ServicePipeline -&gt; f ServicePipeline
+Lens' ServicePipeline DeploymentStatus
+</span><a href="Network.AWS.Proton.Types.ServicePipeline.html#servicePipeline_deploymentStatus"><span class="hs-identifier hs-var">servicePipeline_deploymentStatus</span></a></span><span>
+</span><span id="line-238"></span><span>                </span><span class="annot"><span class="annottext">((DeploymentStatus -&gt; f DeploymentStatus)
+ -&gt; ServicePipeline -&gt; f ServicePipeline)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; DeploymentStatus -&gt; f DeploymentStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ServicePipeline
+-&gt; f ServicePipeline
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(DeploymentStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; DeploymentStatus
+-&gt; f DeploymentStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">DeploymentStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-239"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | Polls 'Network.AWS.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.Proton.Waiters.html#newServiceCreated"><span class="hs-identifier hs-type">newServiceCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Proton.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span>
+</span><span id="line-245"></span><span id="newServiceCreated"><span class="annot"><span class="annottext">newServiceCreated :: Wait GetService
+</span><a href="Network.AWS.Proton.Waiters.html#newServiceCreated"><span class="hs-identifier hs-var hs-var">newServiceCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceCreated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">999</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetService]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-255"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-256"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;CREATE_FAILED_CLEANUP_COMPLETE&quot;</span></span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-262"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-263"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;CREATE_FAILED_CLEANUP_FAILED&quot;</span></span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-269"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-270"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-271"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetService) (CI Text)
+-&gt; Acceptor GetService
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe Service -&gt; f (Maybe Service))
+-&gt; GetServiceResponse -&gt; f GetServiceResponse
+Lens' GetServiceResponse (Maybe Service)
+</span><a href="Network.AWS.Proton.GetService.html#getServiceResponse_service"><span class="hs-identifier hs-var">getServiceResponse_service</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Service -&gt; f (Maybe Service))
+ -&gt; GetServiceResponse -&gt; f GetServiceResponse)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetServiceResponse
+-&gt; f GetServiceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-276"></span><span>                </span><span class="annot"><span class="annottext">((Service -&gt; f Service) -&gt; Maybe Service -&gt; f (Maybe Service))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; Service -&gt; f Service)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe Service
+-&gt; f (Maybe Service)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service
+Lens' Service ServiceStatus
+</span><a href="Network.AWS.Proton.Types.Service.html#service_status"><span class="hs-identifier hs-var">service_status</span></a></span><span>
+</span><span id="line-277"></span><span>                </span><span class="annot"><span class="annottext">((ServiceStatus -&gt; f ServiceStatus) -&gt; Service -&gt; f Service)
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Service
+-&gt; f Service
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ServiceStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; ServiceStatus -&gt; f ServiceStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">ServiceStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-281"></span></pre></body></html>

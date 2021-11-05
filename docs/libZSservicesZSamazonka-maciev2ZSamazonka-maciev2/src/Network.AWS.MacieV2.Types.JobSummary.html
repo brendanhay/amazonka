@@ -1,0 +1,758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.JobSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.JobSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobStatus.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.JobStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobType.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.JobType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.LastRunErrorStatus.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.LastRunErrorStatus</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketCriteriaForJob.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.S3BucketCriteriaForJob</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketDefinitionForJob.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.S3BucketDefinitionForJob</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UserPausedDetails.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.UserPausedDetails</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Provides information about a classification job, including the current</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- status of the job.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newJobSummary' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679403748"><span id="local-6989586621679403749"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobSummary"><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-var">JobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobSummary%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-var">JobSummary'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether any account- or bucket-level access errors occurred</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- when the job ran. For a recurring job, this value indicates the error</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- status of the job\'s most recent run.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastRunErrorStatus%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe LastRunErrorStatus
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AlastRunErrorStatus%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">lastRunErrorStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.LastRunErrorStatus.html#LastRunErrorStatus"><span class="hs-identifier hs-type">LastRunErrorStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The schedule for running the job. Possible values are:</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   ONE_TIME - The job runs only once.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   SCHEDULED - The job runs on a daily, weekly, or monthly basis.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AjobType%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe JobType
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AjobType%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the job.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AjobId%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AjobId%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The date and time, in UTC and extended ISO 8601 format, when the job was</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcreatedAt%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AcreatedAt%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | If the current status of the job is USER_PAUSED, specifies when the job</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- was paused and when the job or job run will expire and be cancelled if</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- it isn\'t resumed. This value is present only if the value for jobStatus</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- is USER_PAUSED.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AuserPausedDetails%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe UserPausedDetails
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AuserPausedDetails%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">userPausedDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UserPausedDetails.html#UserPausedDetails"><span class="hs-identifier hs-type">UserPausedDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The property- and tag-based conditions that determine which S3 buckets</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- are included or excluded from the job\'s analysis. Each time the job</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- runs, the job uses these criteria to determine which buckets to analyze.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- A job\'s definition can contain a bucketCriteria object or a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- bucketDefinitions array, not both.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AbucketCriteria%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe S3BucketCriteriaForJob
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AbucketCriteria%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">bucketCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketCriteriaForJob.html#S3BucketCriteriaForJob"><span class="hs-identifier hs-type">S3BucketCriteriaForJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The custom name of the job.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aname%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3Aname%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | An array of objects, one for each Amazon Web Services account that owns</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- specific S3 buckets for the job to analyze. Each object specifies the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- account ID for an account and one or more buckets to analyze for that</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- account. A job\'s definition can contain a bucketDefinitions array or a</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- bucketCriteria object, not both.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AbucketDefinitions%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe [S3BucketDefinitionForJob]
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AbucketDefinitions%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">bucketDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketDefinitionForJob.html#S3BucketDefinitionForJob"><span class="hs-identifier hs-type">S3BucketDefinitionForJob</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The current status of the job. Possible values are:</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   CANCELLED - You cancelled the job or, if it\'s a one-time job, you</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     paused the job and didn\'t resume it within 30 days.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   COMPLETE - For a one-time job, Amazon Macie finished processing the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     data specified for the job. This value doesn\'t apply to recurring</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     jobs.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   IDLE - For a recurring job, the previous scheduled run is complete</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     and the next scheduled run is pending. This value doesn\'t apply to</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     one-time jobs.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- -   PAUSED - Macie started running the job but additional processing</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     would exceed the monthly sensitive data discovery quota for your</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     account or one or more member accounts that the job analyzes data</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     for.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   RUNNING - For a one-time job, the job is in progress. For a</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     recurring job, a scheduled run is in progress.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   USER_PAUSED - You paused the job. If you paused the job while it had</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     a status of RUNNING and you don\'t resume it within 30 days of</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     pausing it, the job or job run will expire and be cancelled,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     depending on the job\'s type. To check the expiration date, refer to</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     the UserPausedDetails.jobExpiresAt property.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AjobStatus%3AJobSummary%27"><span class="annot"><span class="annottext">JobSummary -&gt; Maybe JobStatus
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AjobStatus%3AJobSummary%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403734"><span id="local-6989586621679403736"><span class="annot"><span class="annottext">JobSummary -&gt; JobSummary -&gt; Bool
+(JobSummary -&gt; JobSummary -&gt; Bool)
+-&gt; (JobSummary -&gt; JobSummary -&gt; Bool) -&gt; Eq JobSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobSummary -&gt; JobSummary -&gt; Bool
+$c/= :: JobSummary -&gt; JobSummary -&gt; Bool
+== :: JobSummary -&gt; JobSummary -&gt; Bool
+$c== :: JobSummary -&gt; JobSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403725"><span id="local-6989586621679403727"><span id="local-6989586621679403729"><span id="local-6989586621679403731"><span class="annot"><span class="annottext">ReadPrec [JobSummary]
+ReadPrec JobSummary
+Int -&gt; ReadS JobSummary
+ReadS [JobSummary]
+(Int -&gt; ReadS JobSummary)
+-&gt; ReadS [JobSummary]
+-&gt; ReadPrec JobSummary
+-&gt; ReadPrec [JobSummary]
+-&gt; Read JobSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobSummary]
+$creadListPrec :: ReadPrec [JobSummary]
+readPrec :: ReadPrec JobSummary
+$creadPrec :: ReadPrec JobSummary
+readList :: ReadS [JobSummary]
+$creadList :: ReadS [JobSummary]
+readsPrec :: Int -&gt; ReadS JobSummary
+$creadsPrec :: Int -&gt; ReadS JobSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403718"><span id="local-6989586621679403720"><span id="local-6989586621679403722"><span class="annot"><span class="annottext">Int -&gt; JobSummary -&gt; ShowS
+[JobSummary] -&gt; ShowS
+JobSummary -&gt; String
+(Int -&gt; JobSummary -&gt; ShowS)
+-&gt; (JobSummary -&gt; String)
+-&gt; ([JobSummary] -&gt; ShowS)
+-&gt; Show JobSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobSummary] -&gt; ShowS
+$cshowList :: [JobSummary] -&gt; ShowS
+show :: JobSummary -&gt; String
+$cshow :: JobSummary -&gt; String
+showsPrec :: Int -&gt; JobSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. JobSummary -&gt; Rep JobSummary x)
+-&gt; (forall x. Rep JobSummary x -&gt; JobSummary) -&gt; Generic JobSummary
+forall x. Rep JobSummary x -&gt; JobSummary
+forall x. JobSummary -&gt; Rep JobSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobSummary x -&gt; JobSummary
+$cfrom :: forall x. JobSummary -&gt; Rep JobSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'JobSummary' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'lastRunErrorStatus', 'jobSummary_lastRunErrorStatus' - Specifies whether any account- or bucket-level access errors occurred</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- when the job ran. For a recurring job, this value indicates the error</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- status of the job\'s most recent run.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'jobType', 'jobSummary_jobType' - The schedule for running the job. Possible values are:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   ONE_TIME - The job runs only once.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   SCHEDULED - The job runs on a daily, weekly, or monthly basis.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'jobId', 'jobSummary_jobId' - The unique identifier for the job.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'createdAt', 'jobSummary_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the job was</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'userPausedDetails', 'jobSummary_userPausedDetails' - If the current status of the job is USER_PAUSED, specifies when the job</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- was paused and when the job or job run will expire and be cancelled if</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- it isn\'t resumed. This value is present only if the value for jobStatus</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- is USER_PAUSED.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'bucketCriteria', 'jobSummary_bucketCriteria' - The property- and tag-based conditions that determine which S3 buckets</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- are included or excluded from the job\'s analysis. Each time the job</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- runs, the job uses these criteria to determine which buckets to analyze.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- A job\'s definition can contain a bucketCriteria object or a</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- bucketDefinitions array, not both.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'name', 'jobSummary_name' - The custom name of the job.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'bucketDefinitions', 'jobSummary_bucketDefinitions' - An array of objects, one for each Amazon Web Services account that owns</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- specific S3 buckets for the job to analyze. Each object specifies the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- account ID for an account and one or more buckets to analyze for that</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- account. A job\'s definition can contain a bucketDefinitions array or a</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- bucketCriteria object, not both.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'jobStatus', 'jobSummary_jobStatus' - The current status of the job. Possible values are:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   CANCELLED - You cancelled the job or, if it\'s a one-time job, you</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     paused the job and didn\'t resume it within 30 days.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   COMPLETE - For a one-time job, Amazon Macie finished processing the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     data specified for the job. This value doesn\'t apply to recurring</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     jobs.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   IDLE - For a recurring job, the previous scheduled run is complete</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     and the next scheduled run is pending. This value doesn\'t apply to</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     one-time jobs.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   PAUSED - Macie started running the job but additional processing</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     would exceed the monthly sensitive data discovery quota for your</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     account or one or more member accounts that the job analyzes data</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     for.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -   RUNNING - For a one-time job, the job is in progress. For a</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     recurring job, a scheduled run is in progress.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   USER_PAUSED - You paused the job. If you paused the job while it had</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     a status of RUNNING and you don\'t resume it within 30 days of</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     pausing it, the job or job run will expire and be cancelled,</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     depending on the job\'s type. To check the expiration date, refer to</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     the UserPausedDetails.jobExpiresAt property.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#newJobSummary"><span class="hs-identifier hs-type">newJobSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span>
+</span><span id="line-171"></span><span id="newJobSummary"><span class="annot"><span class="annottext">newJobSummary :: JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#newJobSummary"><span class="hs-identifier hs-var hs-var">newJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">JobSummary' :: Maybe LastRunErrorStatus
+-&gt; Maybe JobType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe UserPausedDetails
+-&gt; Maybe S3BucketCriteriaForJob
+-&gt; Maybe Text
+-&gt; Maybe [S3BucketDefinitionForJob]
+-&gt; Maybe JobStatus
+-&gt; JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastRunErrorStatus:JobSummary' :: Maybe LastRunErrorStatus
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AlastRunErrorStatus%3AJobSummary%27"><span class="hs-identifier hs-var">lastRunErrorStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LastRunErrorStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobType:JobSummary' :: Maybe JobType
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AjobType%3AJobSummary%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AjobId%3AJobSummary%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:JobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AcreatedAt%3AJobSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPausedDetails:JobSummary' :: Maybe UserPausedDetails
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AuserPausedDetails%3AJobSummary%27"><span class="hs-identifier hs-var">userPausedDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPausedDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketCriteria:JobSummary' :: Maybe S3BucketCriteriaForJob
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AbucketCriteria%3AJobSummary%27"><span class="hs-identifier hs-var">bucketCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3Aname%3AJobSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketDefinitions:JobSummary' :: Maybe [S3BucketDefinitionForJob]
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AbucketDefinitions%3AJobSummary%27"><span class="hs-identifier hs-var">bucketDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:JobSummary' :: Maybe JobStatus
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AjobStatus%3AJobSummary%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Specifies whether any account- or bucket-level access errors occurred</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- when the job ran. For a recurring job, this value indicates the error</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- status of the job\'s most recent run.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_lastRunErrorStatus"><span class="hs-identifier hs-type">jobSummary_lastRunErrorStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.LastRunErrorStatus.html#LastRunErrorStatus"><span class="hs-identifier hs-type">LastRunErrorStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="jobSummary_lastRunErrorStatus"><span class="annot"><span class="annottext">jobSummary_lastRunErrorStatus :: (Maybe LastRunErrorStatus -&gt; f (Maybe LastRunErrorStatus))
+-&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_lastRunErrorStatus"><span class="hs-identifier hs-var hs-var">jobSummary_lastRunErrorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe LastRunErrorStatus)
+-&gt; (JobSummary -&gt; Maybe LastRunErrorStatus -&gt; JobSummary)
+-&gt; Lens
+     JobSummary
+     JobSummary
+     (Maybe LastRunErrorStatus)
+     (Maybe LastRunErrorStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403709"><span class="annot"><span class="annottext">Maybe LastRunErrorStatus
+lastRunErrorStatus :: Maybe LastRunErrorStatus
+$sel:lastRunErrorStatus:JobSummary' :: JobSummary -&gt; Maybe LastRunErrorStatus
+</span><a href="#local-6989586621679403709"><span class="hs-identifier hs-var hs-var">lastRunErrorStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LastRunErrorStatus
+</span><a href="#local-6989586621679403709"><span class="hs-identifier hs-var">lastRunErrorStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403708"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679403708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403707"><span class="annot"><span class="annottext">Maybe LastRunErrorStatus
+</span><a href="#local-6989586621679403707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679403708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastRunErrorStatus:JobSummary' :: Maybe LastRunErrorStatus
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AlastRunErrorStatus%3AJobSummary%27"><span class="hs-identifier hs-var">lastRunErrorStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LastRunErrorStatus
+</span><a href="#local-6989586621679403707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The schedule for running the job. Possible values are:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   ONE_TIME - The job runs only once.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- -   SCHEDULED - The job runs on a daily, weekly, or monthly basis.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_jobType"><span class="hs-identifier hs-type">jobSummary_jobType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="jobSummary_jobType"><span class="annot"><span class="annottext">jobSummary_jobType :: (Maybe JobType -&gt; f (Maybe JobType)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_jobType"><span class="hs-identifier hs-var hs-var">jobSummary_jobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe JobType)
+-&gt; (JobSummary -&gt; Maybe JobType -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe JobType) (Maybe JobType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403705"><span class="annot"><span class="annottext">Maybe JobType
+jobType :: Maybe JobType
+$sel:jobType:JobSummary' :: JobSummary -&gt; Maybe JobType
+</span><a href="#local-6989586621679403705"><span class="hs-identifier hs-var hs-var">jobType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679403705"><span class="hs-identifier hs-var">jobType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403704"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679403704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403703"><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679403703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679403704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobType:JobSummary' :: Maybe JobType
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AjobType%3AJobSummary%27"><span class="hs-identifier hs-var">jobType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679403703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The unique identifier for the job.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_jobId"><span class="hs-identifier hs-type">jobSummary_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="jobSummary_jobId"><span class="annot"><span class="annottext">jobSummary_jobId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_jobId"><span class="hs-identifier hs-var hs-var">jobSummary_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe Text)
+-&gt; (JobSummary -&gt; Maybe Text -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403701"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:JobSummary' :: JobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679403701"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403701"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403700"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679403700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403699"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679403700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AjobId%3AJobSummary%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The date and time, in UTC and extended ISO 8601 format, when the job was</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_createdAt"><span class="hs-identifier hs-type">jobSummary_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="jobSummary_createdAt"><span class="annot"><span class="annottext">jobSummary_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_createdAt"><span class="hs-identifier hs-var hs-var">jobSummary_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe POSIX)
+-&gt; (JobSummary -&gt; Maybe POSIX -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403697"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:JobSummary' :: JobSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679403697"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679403697"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403696"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679403696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403695"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679403695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679403696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:JobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AcreatedAt%3AJobSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679403695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; JobSummary -&gt; f JobSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; JobSummary
+-&gt; f JobSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | If the current status of the job is USER_PAUSED, specifies when the job</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- was paused and when the job or job run will expire and be cancelled if</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- it isn\'t resumed. This value is present only if the value for jobStatus</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- is USER_PAUSED.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_userPausedDetails"><span class="hs-identifier hs-type">jobSummary_userPausedDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.UserPausedDetails.html#UserPausedDetails"><span class="hs-identifier hs-type">UserPausedDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="jobSummary_userPausedDetails"><span class="annot"><span class="annottext">jobSummary_userPausedDetails :: (Maybe UserPausedDetails -&gt; f (Maybe UserPausedDetails))
+-&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_userPausedDetails"><span class="hs-identifier hs-var hs-var">jobSummary_userPausedDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe UserPausedDetails)
+-&gt; (JobSummary -&gt; Maybe UserPausedDetails -&gt; JobSummary)
+-&gt; Lens
+     JobSummary
+     JobSummary
+     (Maybe UserPausedDetails)
+     (Maybe UserPausedDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403690"><span class="annot"><span class="annottext">Maybe UserPausedDetails
+userPausedDetails :: Maybe UserPausedDetails
+$sel:userPausedDetails:JobSummary' :: JobSummary -&gt; Maybe UserPausedDetails
+</span><a href="#local-6989586621679403690"><span class="hs-identifier hs-var hs-var">userPausedDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPausedDetails
+</span><a href="#local-6989586621679403690"><span class="hs-identifier hs-var">userPausedDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403689"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679403689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403688"><span class="annot"><span class="annottext">Maybe UserPausedDetails
+</span><a href="#local-6989586621679403688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679403689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPausedDetails:JobSummary' :: Maybe UserPausedDetails
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AuserPausedDetails%3AJobSummary%27"><span class="hs-identifier hs-var">userPausedDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPausedDetails
+</span><a href="#local-6989586621679403688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The property- and tag-based conditions that determine which S3 buckets</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- are included or excluded from the job\'s analysis. Each time the job</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- runs, the job uses these criteria to determine which buckets to analyze.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- A job\'s definition can contain a bucketCriteria object or a</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- bucketDefinitions array, not both.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_bucketCriteria"><span class="hs-identifier hs-type">jobSummary_bucketCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketCriteriaForJob.html#S3BucketCriteriaForJob"><span class="hs-identifier hs-type">S3BucketCriteriaForJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="jobSummary_bucketCriteria"><span class="annot"><span class="annottext">jobSummary_bucketCriteria :: (Maybe S3BucketCriteriaForJob -&gt; f (Maybe S3BucketCriteriaForJob))
+-&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_bucketCriteria"><span class="hs-identifier hs-var hs-var">jobSummary_bucketCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe S3BucketCriteriaForJob)
+-&gt; (JobSummary -&gt; Maybe S3BucketCriteriaForJob -&gt; JobSummary)
+-&gt; Lens
+     JobSummary
+     JobSummary
+     (Maybe S3BucketCriteriaForJob)
+     (Maybe S3BucketCriteriaForJob)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403686"><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+bucketCriteria :: Maybe S3BucketCriteriaForJob
+$sel:bucketCriteria:JobSummary' :: JobSummary -&gt; Maybe S3BucketCriteriaForJob
+</span><a href="#local-6989586621679403686"><span class="hs-identifier hs-var hs-var">bucketCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+</span><a href="#local-6989586621679403686"><span class="hs-identifier hs-var">bucketCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403685"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679403685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403684"><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+</span><a href="#local-6989586621679403684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679403685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketCriteria:JobSummary' :: Maybe S3BucketCriteriaForJob
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AbucketCriteria%3AJobSummary%27"><span class="hs-identifier hs-var">bucketCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketCriteriaForJob
+</span><a href="#local-6989586621679403684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The custom name of the job.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_name"><span class="hs-identifier hs-type">jobSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="jobSummary_name"><span class="annot"><span class="annottext">jobSummary_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_name"><span class="hs-identifier hs-var hs-var">jobSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe Text)
+-&gt; (JobSummary -&gt; Maybe Text -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403682"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:JobSummary' :: JobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679403682"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403682"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403681"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679403681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403680"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679403681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:JobSummary' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3Aname%3AJobSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | An array of objects, one for each Amazon Web Services account that owns</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- specific S3 buckets for the job to analyze. Each object specifies the</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- account ID for an account and one or more buckets to analyze for that</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- account. A job\'s definition can contain a bucketDefinitions array or a</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- bucketCriteria object, not both.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_bucketDefinitions"><span class="hs-identifier hs-type">jobSummary_bucketDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.S3BucketDefinitionForJob.html#S3BucketDefinitionForJob"><span class="hs-identifier hs-type">S3BucketDefinitionForJob</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="jobSummary_bucketDefinitions"><span class="annot"><span class="annottext">jobSummary_bucketDefinitions :: (Maybe [S3BucketDefinitionForJob]
+ -&gt; f (Maybe [S3BucketDefinitionForJob]))
+-&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_bucketDefinitions"><span class="hs-identifier hs-var hs-var">jobSummary_bucketDefinitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe [S3BucketDefinitionForJob])
+-&gt; (JobSummary -&gt; Maybe [S3BucketDefinitionForJob] -&gt; JobSummary)
+-&gt; Lens
+     JobSummary
+     JobSummary
+     (Maybe [S3BucketDefinitionForJob])
+     (Maybe [S3BucketDefinitionForJob])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403678"><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+bucketDefinitions :: Maybe [S3BucketDefinitionForJob]
+$sel:bucketDefinitions:JobSummary' :: JobSummary -&gt; Maybe [S3BucketDefinitionForJob]
+</span><a href="#local-6989586621679403678"><span class="hs-identifier hs-var hs-var">bucketDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+</span><a href="#local-6989586621679403678"><span class="hs-identifier hs-var">bucketDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403677"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679403677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403676"><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+</span><a href="#local-6989586621679403676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679403677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketDefinitions:JobSummary' :: Maybe [S3BucketDefinitionForJob]
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AbucketDefinitions%3AJobSummary%27"><span class="hs-identifier hs-var">bucketDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+</span><a href="#local-6989586621679403676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [S3BucketDefinitionForJob]
+  -&gt; f (Maybe [S3BucketDefinitionForJob]))
+ -&gt; JobSummary -&gt; f JobSummary)
+-&gt; ((Maybe [S3BucketDefinitionForJob]
+     -&gt; f (Maybe [S3BucketDefinitionForJob]))
+    -&gt; Maybe [S3BucketDefinitionForJob]
+    -&gt; f (Maybe [S3BucketDefinitionForJob]))
+-&gt; (Maybe [S3BucketDefinitionForJob]
+    -&gt; f (Maybe [S3BucketDefinitionForJob]))
+-&gt; JobSummary
+-&gt; f JobSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+-&gt; Iso
+     (Maybe [S3BucketDefinitionForJob])
+     (Maybe [S3BucketDefinitionForJob])
+     (Maybe [S3BucketDefinitionForJob])
+     (Maybe [S3BucketDefinitionForJob])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+  [S3BucketDefinitionForJob]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The current status of the job. Possible values are:</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- -   CANCELLED - You cancelled the job or, if it\'s a one-time job, you</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--     paused the job and didn\'t resume it within 30 days.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- -   COMPLETE - For a one-time job, Amazon Macie finished processing the</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     data specified for the job. This value doesn\'t apply to recurring</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     jobs.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   IDLE - For a recurring job, the previous scheduled run is complete</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     and the next scheduled run is pending. This value doesn\'t apply to</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     one-time jobs.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- -   PAUSED - Macie started running the job but additional processing</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     would exceed the monthly sensitive data discovery quota for your</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     account or one or more member accounts that the job analyzes data</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     for.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- -   RUNNING - For a one-time job, the job is in progress. For a</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     recurring job, a scheduled run is in progress.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- -   USER_PAUSED - You paused the job. If you paused the job while it had</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     a status of RUNNING and you don\'t resume it within 30 days of</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     pausing it, the job or job run will expire and be cancelled,</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     depending on the job\'s type. To check the expiration date, refer to</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     the UserPausedDetails.jobExpiresAt property.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_jobStatus"><span class="hs-identifier hs-type">jobSummary_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="jobSummary_jobStatus"><span class="annot"><span class="annottext">jobSummary_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
+-&gt; JobSummary -&gt; f JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#jobSummary_jobStatus"><span class="hs-identifier hs-var hs-var">jobSummary_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobSummary -&gt; Maybe JobStatus)
+-&gt; (JobSummary -&gt; Maybe JobStatus -&gt; JobSummary)
+-&gt; Lens JobSummary JobSummary (Maybe JobStatus) (Maybe JobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403673"><span class="annot"><span class="annottext">Maybe JobStatus
+jobStatus :: Maybe JobStatus
+$sel:jobStatus:JobSummary' :: JobSummary -&gt; Maybe JobStatus
+</span><a href="#local-6989586621679403673"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679403673"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403672"><span class="annot"><span class="annottext">s :: JobSummary
+</span><a href="#local-6989586621679403672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-type">JobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403671"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679403671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobSummary
+</span><a href="#local-6989586621679403672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:JobSummary' :: Maybe JobStatus
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#%24sel%3AjobStatus%3AJobSummary%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679403671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403668"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679403666"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser JobSummary) -&gt; Value -&gt; Parser JobSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;JobSummary&quot;</span></span><span>
+</span><span id="line-267"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679403663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>          </span><span class="annot"><span class="annottext">Maybe LastRunErrorStatus
+-&gt; Maybe JobType
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe UserPausedDetails
+-&gt; Maybe S3BucketCriteriaForJob
+-&gt; Maybe Text
+-&gt; Maybe [S3BucketDefinitionForJob]
+-&gt; Maybe JobStatus
+-&gt; JobSummary
+</span><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary%27"><span class="hs-identifier hs-var">JobSummary'</span></a></span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LastRunErrorStatus
+ -&gt; Maybe JobType
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe UserPausedDetails
+ -&gt; Maybe S3BucketCriteriaForJob
+ -&gt; Maybe Text
+ -&gt; Maybe [S3BucketDefinitionForJob]
+ -&gt; Maybe JobStatus
+ -&gt; JobSummary)
+-&gt; Parser (Maybe LastRunErrorStatus)
+-&gt; Parser
+     (Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe UserPausedDetails
+      -&gt; Maybe S3BucketCriteriaForJob
+      -&gt; Maybe Text
+      -&gt; Maybe [S3BucketDefinitionForJob]
+      -&gt; Maybe JobStatus
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LastRunErrorStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastRunErrorStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe UserPausedDetails
+   -&gt; Maybe S3BucketCriteriaForJob
+   -&gt; Maybe Text
+   -&gt; Maybe [S3BucketDefinitionForJob]
+   -&gt; Maybe JobStatus
+   -&gt; JobSummary)
+-&gt; Parser (Maybe JobType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe UserPausedDetails
+      -&gt; Maybe S3BucketCriteriaForJob
+      -&gt; Maybe Text
+      -&gt; Maybe [S3BucketDefinitionForJob]
+      -&gt; Maybe JobStatus
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe UserPausedDetails
+   -&gt; Maybe S3BucketCriteriaForJob
+   -&gt; Maybe Text
+   -&gt; Maybe [S3BucketDefinitionForJob]
+   -&gt; Maybe JobStatus
+   -&gt; JobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe UserPausedDetails
+      -&gt; Maybe S3BucketCriteriaForJob
+      -&gt; Maybe Text
+      -&gt; Maybe [S3BucketDefinitionForJob]
+      -&gt; Maybe JobStatus
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe UserPausedDetails
+   -&gt; Maybe S3BucketCriteriaForJob
+   -&gt; Maybe Text
+   -&gt; Maybe [S3BucketDefinitionForJob]
+   -&gt; Maybe JobStatus
+   -&gt; JobSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe UserPausedDetails
+      -&gt; Maybe S3BucketCriteriaForJob
+      -&gt; Maybe Text
+      -&gt; Maybe [S3BucketDefinitionForJob]
+      -&gt; Maybe JobStatus
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UserPausedDetails
+   -&gt; Maybe S3BucketCriteriaForJob
+   -&gt; Maybe Text
+   -&gt; Maybe [S3BucketDefinitionForJob]
+   -&gt; Maybe JobStatus
+   -&gt; JobSummary)
+-&gt; Parser (Maybe UserPausedDetails)
+-&gt; Parser
+     (Maybe S3BucketCriteriaForJob
+      -&gt; Maybe Text
+      -&gt; Maybe [S3BucketDefinitionForJob]
+      -&gt; Maybe JobStatus
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UserPausedDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userPausedDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3BucketCriteriaForJob
+   -&gt; Maybe Text
+   -&gt; Maybe [S3BucketDefinitionForJob]
+   -&gt; Maybe JobStatus
+   -&gt; JobSummary)
+-&gt; Parser (Maybe S3BucketCriteriaForJob)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [S3BucketDefinitionForJob]
+      -&gt; Maybe JobStatus
+      -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3BucketCriteriaForJob)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketCriteria&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [S3BucketDefinitionForJob]
+   -&gt; Maybe JobStatus
+   -&gt; JobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [S3BucketDefinitionForJob] -&gt; Maybe JobStatus -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [S3BucketDefinitionForJob] -&gt; Maybe JobStatus -&gt; JobSummary)
+-&gt; Parser (Maybe [S3BucketDefinitionForJob])
+-&gt; Parser (Maybe JobStatus -&gt; JobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [S3BucketDefinitionForJob]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketDefinitions&quot;</span></span><span>
+</span><span id="line-277"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [S3BucketDefinitionForJob]))
+-&gt; Maybe [S3BucketDefinitionForJob]
+-&gt; Parser (Maybe [S3BucketDefinitionForJob])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [S3BucketDefinitionForJob]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-278"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe JobStatus -&gt; JobSummary)
+-&gt; Parser (Maybe JobStatus) -&gt; Parser JobSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679403663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403656"><span id="local-6989586621679403658"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span></span></span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span></span><span>
+</span><span id="line-285"></span></pre></body></html>

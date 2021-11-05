@@ -49,10 +49,10 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeReportCreation' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679159154"><span id="local-6989586621679159155"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReportCreation"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-var">DescribeReportCreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReportCreation%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation%27"><span class="hs-identifier hs-var">DescribeReportCreation'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679159163"><span id="local-6989586621679159164"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReportCreation"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-var">DescribeReportCreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReportCreation%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation%27"><span class="hs-identifier hs-var">DescribeReportCreation'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159149"><span id="local-6989586621679159151"><span class="annot"><span class="annottext">DescribeReportCreation -&gt; DescribeReportCreation -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159158"><span id="local-6989586621679159160"><span class="annot"><span class="annottext">DescribeReportCreation -&gt; DescribeReportCreation -&gt; Bool
 (DescribeReportCreation -&gt; DescribeReportCreation -&gt; Bool)
 -&gt; (DescribeReportCreation -&gt; DescribeReportCreation -&gt; Bool)
 -&gt; Eq DescribeReportCreation
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeReportCreation -&gt; DescribeReportCreation -&gt; Bool
 == :: DescribeReportCreation -&gt; DescribeReportCreation -&gt; Bool
 $c== :: DescribeReportCreation -&gt; DescribeReportCreation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159140"><span id="local-6989586621679159142"><span id="local-6989586621679159144"><span id="local-6989586621679159146"><span class="annot"><span class="annottext">ReadPrec [DescribeReportCreation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159149"><span id="local-6989586621679159151"><span id="local-6989586621679159153"><span id="local-6989586621679159155"><span class="annot"><span class="annottext">ReadPrec [DescribeReportCreation]
 ReadPrec DescribeReportCreation
 Int -&gt; ReadS DescribeReportCreation
 ReadS [DescribeReportCreation]
@@ -81,7 +81,7 @@ readList :: ReadS [DescribeReportCreation]
 $creadList :: ReadS [DescribeReportCreation]
 readsPrec :: Int -&gt; ReadS DescribeReportCreation
 $creadsPrec :: Int -&gt; ReadS DescribeReportCreation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159133"><span id="local-6989586621679159135"><span id="local-6989586621679159137"><span class="annot"><span class="annottext">Int -&gt; DescribeReportCreation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159142"><span id="local-6989586621679159144"><span id="local-6989586621679159146"><span class="annot"><span class="annottext">Int -&gt; DescribeReportCreation -&gt; ShowS
 [DescribeReportCreation] -&gt; ShowS
 DescribeReportCreation -&gt; String
 (Int -&gt; DescribeReportCreation -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. DescribeReportCreation -&gt; Rep DescribeReportCreation x
 </span><span id="line-66"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-67"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679159125"><span class="annot"><span class="annottext">request :: DescribeReportCreation -&gt; Request DescribeReportCreation
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679159134"><span class="annot"><span class="annottext">request :: DescribeReportCreation -&gt; Request DescribeReportCreation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeReportCreation -&gt; Request DescribeReportCreation
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679159121"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679159130"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeReportCreation
 -&gt; ClientResponse ClientBody
@@ -153,10 +153,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679159118"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159118"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679159117"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679159117"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679159116"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679159116"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679159127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159127"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679159126"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679159126"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679159125"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159125"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -174,7 +174,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeReportCreationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679159116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679159125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,7 +186,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Int -&gt; DescribeReportCreationResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679159116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679159125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Location&quot;</span></span><span class="hs-special">)</span><span>
@@ -195,7 +195,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeReportCreationResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679159116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679159125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,15 +208,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159118"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159127"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159108"><span id="local-6989586621679159110"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159117"><span id="local-6989586621679159119"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159114"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679159101"><span class="annot"><span class="annottext">toHeaders :: DescribeReportCreation -&gt; ResponseHeaders
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679159110"><span class="annot"><span class="annottext">toHeaders :: DescribeReportCreation -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeReportCreation -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -243,8 +243,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159091"><span id="local-6989586621679159093"><span id="local-6989586621679159095"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679159089"><span class="annot"><span class="annottext">toJSON :: DescribeReportCreation -&gt; Value
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159100"><span id="local-6989586621679159102"><span id="local-6989586621679159104"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679159098"><span class="annot"><span class="annottext">toJSON :: DescribeReportCreation -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeReportCreation -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -253,14 +253,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679159084"><span class="annot"><span class="annottext">toPath :: DescribeReportCreation -&gt; ByteString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679159093"><span class="annot"><span class="annottext">toPath :: DescribeReportCreation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeReportCreation -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreation"><span class="hs-identifier hs-type">DescribeReportCreation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679159080"><span class="annot"><span class="annottext">toQuery :: DescribeReportCreation -&gt; QueryString
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679159089"><span class="annot"><span class="annottext">toQuery :: DescribeReportCreation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeReportCreation -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -268,7 +268,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newDescribeReportCreationResponse' smart constructor.</span><span>
-</span><span id="line-109"></span><span id="local-6989586621679159077"><span id="local-6989586621679159078"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReportCreationResponse"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-var">DescribeReportCreationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReportCreationResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-var">DescribeReportCreationResponse'</span></a></span></span><span>
+</span><span id="line-109"></span><span id="local-6989586621679159086"><span id="local-6989586621679159087"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReportCreationResponse"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-var">DescribeReportCreationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReportCreationResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-var">DescribeReportCreationResponse'</span></a></span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Reports the status of the operation.</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-comment">-- The operation status can be one of the following:</span><span>
@@ -296,7 +296,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeReportCreationResponse%27"><span class="annot"><span class="annottext">DescribeReportCreationResponse -&gt; Int
 </span><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#%24sel%3AhttpStatus%3ADescribeReportCreationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159069"><span id="local-6989586621679159071"><span class="annot"><span class="annottext">DescribeReportCreationResponse
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159078"><span id="local-6989586621679159080"><span class="annot"><span class="annottext">DescribeReportCreationResponse
 -&gt; DescribeReportCreationResponse -&gt; Bool
 (DescribeReportCreationResponse
  -&gt; DescribeReportCreationResponse -&gt; Bool)
@@ -312,7 +312,7 @@ $c/= :: DescribeReportCreationResponse
 -&gt; DescribeReportCreationResponse -&gt; Bool
 $c== :: DescribeReportCreationResponse
 -&gt; DescribeReportCreationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159061"><span id="local-6989586621679159063"><span id="local-6989586621679159065"><span id="local-6989586621679159067"><span class="annot"><span class="annottext">ReadPrec [DescribeReportCreationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159070"><span id="local-6989586621679159072"><span id="local-6989586621679159074"><span id="local-6989586621679159076"><span class="annot"><span class="annottext">ReadPrec [DescribeReportCreationResponse]
 ReadPrec DescribeReportCreationResponse
 Int -&gt; ReadS DescribeReportCreationResponse
 ReadS [DescribeReportCreationResponse]
@@ -332,7 +332,7 @@ readList :: ReadS [DescribeReportCreationResponse]
 $creadList :: ReadS [DescribeReportCreationResponse]
 readsPrec :: Int -&gt; ReadS DescribeReportCreationResponse
 $creadsPrec :: Int -&gt; ReadS DescribeReportCreationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159055"><span id="local-6989586621679159057"><span id="local-6989586621679159059"><span class="annot"><span class="annottext">Int -&gt; DescribeReportCreationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159064"><span id="local-6989586621679159066"><span id="local-6989586621679159068"><span class="annot"><span class="annottext">Int -&gt; DescribeReportCreationResponse -&gt; ShowS
 [DescribeReportCreationResponse] -&gt; ShowS
 DescribeReportCreationResponse -&gt; String
 (Int -&gt; DescribeReportCreationResponse -&gt; ShowS)
@@ -404,8 +404,8 @@ DescribeReportCreationResponse
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newDescribeReportCreationResponse"><span class="annot"><span class="annottext">newDescribeReportCreationResponse :: Int -&gt; DescribeReportCreationResponse
-</span><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#newDescribeReportCreationResponse"><span class="hs-identifier hs-var hs-var">newDescribeReportCreationResponse</span></a></span></span><span> </span><span id="local-6989586621679159052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#newDescribeReportCreationResponse"><span class="hs-identifier hs-var hs-var">newDescribeReportCreationResponse</span></a></span></span><span> </span><span id="local-6989586621679159061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159061"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">DescribeReportCreationResponse' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -427,7 +427,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReportCreationResponse' :: Int
 </span><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#%24sel%3AhttpStatus%3ADescribeReportCreationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679159061"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Reports the status of the operation.</span><span>
@@ -457,16 +457,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159049"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159058"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:DescribeReportCreationResponse' :: DescribeReportCreationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679159049"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159049"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159048"><span class="annot"><span class="annottext">s :: DescribeReportCreationResponse
-</span><a href="#local-6989586621679159048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159047"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReportCreationResponse
-</span><a href="#local-6989586621679159048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeReportCreationResponse' :: Maybe Text
+</span><a href="#local-6989586621679159058"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159058"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159057"><span class="annot"><span class="annottext">s :: DescribeReportCreationResponse
+</span><a href="#local-6989586621679159057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159056"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReportCreationResponse
+</span><a href="#local-6989586621679159057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeReportCreationResponse' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#%24sel%3Astatus%3ADescribeReportCreationResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The path to the Amazon S3 bucket where the report was stored on</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- creation.</span><span>
@@ -483,16 +483,16 @@ $sel:status:DescribeReportCreationResponse' :: DescribeReportCreationResponse -&
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159046"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159055"><span class="annot"><span class="annottext">Maybe Text
 s3Location :: Maybe Text
 $sel:s3Location:DescribeReportCreationResponse' :: DescribeReportCreationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679159046"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159046"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159045"><span class="annot"><span class="annottext">s :: DescribeReportCreationResponse
-</span><a href="#local-6989586621679159045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159044"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReportCreationResponse
-</span><a href="#local-6989586621679159045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:DescribeReportCreationResponse' :: Maybe Text
+</span><a href="#local-6989586621679159055"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159055"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159054"><span class="annot"><span class="annottext">s :: DescribeReportCreationResponse
+</span><a href="#local-6989586621679159054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159053"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReportCreationResponse
+</span><a href="#local-6989586621679159054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:DescribeReportCreationResponse' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#%24sel%3As3Location%3ADescribeReportCreationResponse%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | Details of the common errors that all operations return.</span><span>
 </span><span id="line-200"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#describeReportCreationResponse_errorMessage"><span class="hs-identifier hs-type">describeReportCreationResponse_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -508,16 +508,16 @@ $sel:s3Location:DescribeReportCreationResponse' :: DescribeReportCreationRespons
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159043"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159052"><span class="annot"><span class="annottext">Maybe Text
 errorMessage :: Maybe Text
 $sel:errorMessage:DescribeReportCreationResponse' :: DescribeReportCreationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679159043"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159043"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159042"><span class="annot"><span class="annottext">s :: DescribeReportCreationResponse
-</span><a href="#local-6989586621679159042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159041"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReportCreationResponse
-</span><a href="#local-6989586621679159042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:DescribeReportCreationResponse' :: Maybe Text
+</span><a href="#local-6989586621679159052"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159052"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159051"><span class="annot"><span class="annottext">s :: DescribeReportCreationResponse
+</span><a href="#local-6989586621679159051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159050"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReportCreationResponse
+</span><a href="#local-6989586621679159051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:DescribeReportCreationResponse' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#%24sel%3AerrorMessage%3ADescribeReportCreationResponse%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679159041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-204"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#describeReportCreationResponse_httpStatus"><span class="hs-identifier hs-type">describeReportCreationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -533,18 +533,18 @@ $sel:errorMessage:DescribeReportCreationResponse' :: DescribeReportCreationRespo
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159040"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159049"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeReportCreationResponse' :: DescribeReportCreationResponse -&gt; Int
-</span><a href="#local-6989586621679159040"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159040"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159039"><span class="annot"><span class="annottext">s :: DescribeReportCreationResponse
-</span><a href="#local-6989586621679159039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159038"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReportCreationResponse
-</span><a href="#local-6989586621679159039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReportCreationResponse' :: Int
+</span><a href="#local-6989586621679159049"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159049"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159048"><span class="annot"><span class="annottext">s :: DescribeReportCreationResponse
+</span><a href="#local-6989586621679159048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse%27"><span class="hs-identifier hs-type">DescribeReportCreationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReportCreationResponse
+</span><a href="#local-6989586621679159048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReportCreationResponse' :: Int
 </span><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#%24sel%3AhttpStatus%3ADescribeReportCreationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679159038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679159047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679159036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679159045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.DescribeReportCreation.html#DescribeReportCreationResponse"><span class="hs-identifier hs-type">DescribeReportCreationResponse</span></a></span></span><span>
 </span><span id="line-210"></span></pre></body></html>

@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- describes.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newJobLogs' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679223363"><span id="local-6989586621679223364"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobLogs"><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-var">JobLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobLogs%27"><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-var">JobLogs'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679223372"><span id="local-6989586621679223373"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobLogs"><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-var">JobLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobLogs%27"><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-var">JobLogs'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A link to an Amazon S3 presigned URL where the job failure log is</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- located.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AjobFailureLogURI%3AJobLogs%27"><span class="annot"><span class="annottext">JobLogs -&gt; Maybe Text
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AjobSuccessLogURI%3AJobLogs%27"><span class="annot"><span class="annottext">JobLogs -&gt; Maybe Text
 </span><a href="Network.AWS.Snowball.Types.JobLogs.html#%24sel%3AjobSuccessLogURI%3AJobLogs%27"><span class="hs-identifier hs-var hs-var">jobSuccessLogURI</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223355"><span id="local-6989586621679223357"><span class="annot"><span class="annottext">JobLogs -&gt; JobLogs -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223364"><span id="local-6989586621679223366"><span class="annot"><span class="annottext">JobLogs -&gt; JobLogs -&gt; Bool
 (JobLogs -&gt; JobLogs -&gt; Bool)
 -&gt; (JobLogs -&gt; JobLogs -&gt; Bool) -&gt; Eq JobLogs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobLogs -&gt; JobLogs -&gt; Bool
 == :: JobLogs -&gt; JobLogs -&gt; Bool
 $c== :: JobLogs -&gt; JobLogs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223346"><span id="local-6989586621679223348"><span id="local-6989586621679223350"><span id="local-6989586621679223352"><span class="annot"><span class="annottext">ReadPrec [JobLogs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223355"><span id="local-6989586621679223357"><span id="local-6989586621679223359"><span id="local-6989586621679223361"><span class="annot"><span class="annottext">ReadPrec [JobLogs]
 ReadPrec JobLogs
 Int -&gt; ReadS JobLogs
 ReadS [JobLogs]
@@ -89,7 +89,7 @@ readList :: ReadS [JobLogs]
 $creadList :: ReadS [JobLogs]
 readsPrec :: Int -&gt; ReadS JobLogs
 $creadsPrec :: Int -&gt; ReadS JobLogs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223339"><span id="local-6989586621679223341"><span id="local-6989586621679223343"><span class="annot"><span class="annottext">Int -&gt; JobLogs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223348"><span id="local-6989586621679223350"><span id="local-6989586621679223352"><span class="annot"><span class="annottext">Int -&gt; JobLogs -&gt; ShowS
 [JobLogs] -&gt; ShowS
 JobLogs -&gt; String
 (Int -&gt; JobLogs -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; (JobLogs -&gt; Maybe Text -&gt; JobLogs)
 -&gt; Lens JobLogs JobLogs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223330"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223339"><span class="annot"><span class="annottext">Maybe Text
 jobFailureLogURI :: Maybe Text
 $sel:jobFailureLogURI:JobLogs' :: JobLogs -&gt; Maybe Text
-</span><a href="#local-6989586621679223330"><span class="hs-identifier hs-var hs-var">jobFailureLogURI</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223330"><span class="hs-identifier hs-var">jobFailureLogURI</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223329"><span class="annot"><span class="annottext">s :: JobLogs
-</span><a href="#local-6989586621679223329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223328"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobLogs
-</span><a href="#local-6989586621679223329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFailureLogURI:JobLogs' :: Maybe Text
+</span><a href="#local-6989586621679223339"><span class="hs-identifier hs-var hs-var">jobFailureLogURI</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223339"><span class="hs-identifier hs-var">jobFailureLogURI</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223338"><span class="annot"><span class="annottext">s :: JobLogs
+</span><a href="#local-6989586621679223338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobLogs
+</span><a href="#local-6989586621679223338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFailureLogURI:JobLogs' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.JobLogs.html#%24sel%3AjobFailureLogURI%3AJobLogs%27"><span class="hs-identifier hs-var">jobFailureLogURI</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | A link to an Amazon S3 presigned URL where the job completion report is</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- located.</span><span>
@@ -175,16 +175,16 @@ $sel:jobFailureLogURI:JobLogs' :: JobLogs -&gt; Maybe Text
 -&gt; (JobLogs -&gt; Maybe Text -&gt; JobLogs)
 -&gt; Lens JobLogs JobLogs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223326"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223335"><span class="annot"><span class="annottext">Maybe Text
 jobCompletionReportURI :: Maybe Text
 $sel:jobCompletionReportURI:JobLogs' :: JobLogs -&gt; Maybe Text
-</span><a href="#local-6989586621679223326"><span class="hs-identifier hs-var hs-var">jobCompletionReportURI</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223326"><span class="hs-identifier hs-var">jobCompletionReportURI</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223325"><span class="annot"><span class="annottext">s :: JobLogs
-</span><a href="#local-6989586621679223325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223324"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobLogs
-</span><a href="#local-6989586621679223325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobCompletionReportURI:JobLogs' :: Maybe Text
+</span><a href="#local-6989586621679223335"><span class="hs-identifier hs-var hs-var">jobCompletionReportURI</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223335"><span class="hs-identifier hs-var">jobCompletionReportURI</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223334"><span class="annot"><span class="annottext">s :: JobLogs
+</span><a href="#local-6989586621679223334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobLogs
+</span><a href="#local-6989586621679223334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobCompletionReportURI:JobLogs' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.JobLogs.html#%24sel%3AjobCompletionReportURI%3AJobLogs%27"><span class="hs-identifier hs-var">jobCompletionReportURI</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A link to an Amazon S3 presigned URL where the job success log is</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- located.</span><span>
@@ -194,27 +194,27 @@ $sel:jobCompletionReportURI:JobLogs' :: JobLogs -&gt; Maybe Text
 -&gt; (JobLogs -&gt; Maybe Text -&gt; JobLogs)
 -&gt; Lens JobLogs JobLogs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223322"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223331"><span class="annot"><span class="annottext">Maybe Text
 jobSuccessLogURI :: Maybe Text
 $sel:jobSuccessLogURI:JobLogs' :: JobLogs -&gt; Maybe Text
-</span><a href="#local-6989586621679223322"><span class="hs-identifier hs-var hs-var">jobSuccessLogURI</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223322"><span class="hs-identifier hs-var">jobSuccessLogURI</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223321"><span class="annot"><span class="annottext">s :: JobLogs
-</span><a href="#local-6989586621679223321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223320"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobLogs
-</span><a href="#local-6989586621679223321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobSuccessLogURI:JobLogs' :: Maybe Text
+</span><a href="#local-6989586621679223331"><span class="hs-identifier hs-var hs-var">jobSuccessLogURI</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223331"><span class="hs-identifier hs-var">jobSuccessLogURI</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223330"><span class="annot"><span class="annottext">s :: JobLogs
+</span><a href="#local-6989586621679223330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-type">JobLogs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223329"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobLogs
+</span><a href="#local-6989586621679223330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobSuccessLogURI:JobLogs' :: Maybe Text
 </span><a href="Network.AWS.Snowball.Types.JobLogs.html#%24sel%3AjobSuccessLogURI%3AJobLogs%27"><span class="hs-identifier hs-var">jobSuccessLogURI</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223317"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679223315"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobLogs
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223326"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679223324"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobLogs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser JobLogs) -&gt; Value -&gt; Parser JobLogs
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobLogs&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223312"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223321"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223321"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; JobLogs
 </span><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs%27"><span class="hs-identifier hs-var">JobLogs'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; JobLogs)
@@ -222,7 +222,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; JobLogs)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679223321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobFailureLogURI&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,7 +230,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; JobLogs)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679223321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobCompletionReportURI&quot;</span></span><span class="hs-special">)</span><span>
@@ -238,13 +238,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser JobLogs
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679223321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobSuccessLogURI&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223306"><span id="local-6989586621679223308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223315"><span id="local-6989586621679223317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobLogs.html#JobLogs"><span class="hs-identifier hs-type">JobLogs</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

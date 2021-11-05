@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680294242"><span id="local-6989586621680294243"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoMLS3DataType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLS3DataType.html#AutoMLS3DataType"><span class="hs-identifier hs-var">AutoMLS3DataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLS3DataType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLS3DataType.html#AutoMLS3DataType%27"><span class="hs-identifier hs-var">AutoMLS3DataType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680294251"><span id="local-6989586621680294252"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoMLS3DataType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLS3DataType.html#AutoMLS3DataType"><span class="hs-identifier hs-var">AutoMLS3DataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLS3DataType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLS3DataType.html#AutoMLS3DataType%27"><span class="hs-identifier hs-var">AutoMLS3DataType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoMLS3DataType"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLS3DataType.html#fromAutoMLS3DataType"><span class="hs-identifier hs-var hs-var">fromAutoMLS3DataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294234"><span id="local-6989586621680294236"><span id="local-6989586621680294238"><span class="annot"><span class="annottext">Int -&gt; AutoMLS3DataType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294243"><span id="local-6989586621680294245"><span id="local-6989586621680294247"><span class="annot"><span class="annottext">Int -&gt; AutoMLS3DataType -&gt; ShowS
 [AutoMLS3DataType] -&gt; ShowS
 AutoMLS3DataType -&gt; String
 (Int -&gt; AutoMLS3DataType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AutoMLS3DataType -&gt; String
 showsPrec :: Int -&gt; AutoMLS3DataType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoMLS3DataType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680294225"><span id="local-6989586621680294227"><span id="local-6989586621680294229"><span id="local-6989586621680294231"><span class="annot"><span class="annottext">ReadPrec [AutoMLS3DataType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680294234"><span id="local-6989586621680294236"><span id="local-6989586621680294238"><span id="local-6989586621680294240"><span class="annot"><span class="annottext">ReadPrec [AutoMLS3DataType]
 ReadPrec AutoMLS3DataType
 Int -&gt; ReadS AutoMLS3DataType
 ReadS [AutoMLS3DataType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AutoMLS3DataType]
 readsPrec :: Int -&gt; ReadS AutoMLS3DataType
 $creadsPrec :: Int -&gt; ReadS AutoMLS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680294220"><span id="local-6989586621680294222"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; AutoMLS3DataType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680294229"><span id="local-6989586621680294231"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; AutoMLS3DataType -&gt; Bool
 (AutoMLS3DataType -&gt; AutoMLS3DataType -&gt; Bool)
 -&gt; (AutoMLS3DataType -&gt; AutoMLS3DataType -&gt; Bool)
 -&gt; Eq AutoMLS3DataType
@@ -82,7 +82,7 @@ $c/= :: AutoMLS3DataType -&gt; AutoMLS3DataType -&gt; Bool
 == :: AutoMLS3DataType -&gt; AutoMLS3DataType -&gt; Bool
 $c== :: AutoMLS3DataType -&gt; AutoMLS3DataType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680294204"><span id="local-6989586621680294206"><span id="local-6989586621680294208"><span id="local-6989586621680294210"><span id="local-6989586621680294212"><span id="local-6989586621680294214"><span id="local-6989586621680294216"><span class="annot"><span class="annottext">Eq AutoMLS3DataType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680294213"><span id="local-6989586621680294215"><span id="local-6989586621680294217"><span id="local-6989586621680294219"><span id="local-6989586621680294221"><span id="local-6989586621680294223"><span id="local-6989586621680294225"><span class="annot"><span class="annottext">Eq AutoMLS3DataType
 Eq AutoMLS3DataType
 -&gt; (AutoMLS3DataType -&gt; AutoMLS3DataType -&gt; Ordering)
 -&gt; (AutoMLS3DataType -&gt; AutoMLS3DataType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AutoMLS3DataType -&gt; Rep AutoMLS3DataType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294196"><span id="local-6989586621680294198"><span class="annot"><span class="annottext">Int -&gt; AutoMLS3DataType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294205"><span id="local-6989586621680294207"><span class="annot"><span class="annottext">Int -&gt; AutoMLS3DataType -&gt; Int
 AutoMLS3DataType -&gt; Int
 (Int -&gt; AutoMLS3DataType -&gt; Int)
 -&gt; (AutoMLS3DataType -&gt; Int) -&gt; Hashable AutoMLS3DataType
@@ -143,51 +143,51 @@ $chash :: AutoMLS3DataType -&gt; Int
 hashWithSalt :: Int -&gt; AutoMLS3DataType -&gt; Int
 $chashWithSalt :: Int -&gt; AutoMLS3DataType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680294193"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680294202"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; ()
 (AutoMLS3DataType -&gt; ()) -&gt; NFData AutoMLS3DataType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoMLS3DataType -&gt; ()
 $crnf :: AutoMLS3DataType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680294190"><span class="annot"><span class="annottext">Text -&gt; Either String AutoMLS3DataType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680294199"><span class="annot"><span class="annottext">Text -&gt; Either String AutoMLS3DataType
 (Text -&gt; Either String AutoMLS3DataType)
 -&gt; FromText AutoMLS3DataType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoMLS3DataType
 $cfromText :: Text -&gt; Either String AutoMLS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680294187"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680294196"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; Text
 (AutoMLS3DataType -&gt; Text) -&gt; ToText AutoMLS3DataType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoMLS3DataType -&gt; Text
 $ctoText :: AutoMLS3DataType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680294184"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680294193"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; ByteString
 (AutoMLS3DataType -&gt; ByteString) -&gt; ToByteString AutoMLS3DataType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoMLS3DataType -&gt; ByteString
 $ctoBS :: AutoMLS3DataType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680294181"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680294190"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; ByteStringBuilder
 (AutoMLS3DataType -&gt; ByteStringBuilder) -&gt; ToLog AutoMLS3DataType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoMLS3DataType -&gt; ByteStringBuilder
 $cbuild :: AutoMLS3DataType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680294178"><span class="annot"><span class="annottext">HeaderName -&gt; AutoMLS3DataType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680294187"><span class="annot"><span class="annottext">HeaderName -&gt; AutoMLS3DataType -&gt; [Header]
 (HeaderName -&gt; AutoMLS3DataType -&gt; [Header])
 -&gt; ToHeader AutoMLS3DataType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoMLS3DataType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoMLS3DataType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680294175"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680294184"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; QueryString
 (AutoMLS3DataType -&gt; QueryString) -&gt; ToQuery AutoMLS3DataType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoMLS3DataType -&gt; QueryString
 $ctoQuery :: AutoMLS3DataType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680294170"><span id="local-6989586621680294172"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoMLS3DataType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680294179"><span id="local-6989586621680294181"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoMLS3DataType]
 Value -&gt; Parser AutoMLS3DataType
 (Value -&gt; Parser AutoMLS3DataType)
 -&gt; (Value -&gt; Parser [AutoMLS3DataType])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoMLS3DataType]
 parseJSON :: Value -&gt; Parser AutoMLS3DataType
 $cparseJSON :: Value -&gt; Parser AutoMLS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680294165"><span id="local-6989586621680294167"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoMLS3DataType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680294174"><span id="local-6989586621680294176"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoMLS3DataType]
 FromJSONKeyFunction AutoMLS3DataType
 FromJSONKeyFunction AutoMLS3DataType
 -&gt; FromJSONKeyFunction [AutoMLS3DataType]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoMLS3DataType]
 fromJSONKey :: FromJSONKeyFunction AutoMLS3DataType
 $cfromJSONKey :: FromJSONKeyFunction AutoMLS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680294156"><span id="local-6989586621680294158"><span id="local-6989586621680294160"><span id="local-6989586621680294162"><span class="annot"><span class="annottext">[AutoMLS3DataType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680294165"><span id="local-6989586621680294167"><span id="local-6989586621680294169"><span id="local-6989586621680294171"><span class="annot"><span class="annottext">[AutoMLS3DataType] -&gt; Encoding
 [AutoMLS3DataType] -&gt; Value
 AutoMLS3DataType -&gt; Encoding
 AutoMLS3DataType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: AutoMLS3DataType -&gt; Encoding
 toJSON :: AutoMLS3DataType -&gt; Value
 $ctoJSON :: AutoMLS3DataType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680294151"><span id="local-6989586621680294153"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoMLS3DataType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680294160"><span id="local-6989586621680294162"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoMLS3DataType]
 ToJSONKeyFunction AutoMLS3DataType
 ToJSONKeyFunction AutoMLS3DataType
 -&gt; ToJSONKeyFunction [AutoMLS3DataType]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoMLS3DataType]
 toJSONKey :: ToJSONKeyFunction AutoMLS3DataType
 $ctoJSONKey :: ToJSONKeyFunction AutoMLS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680294148"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoMLS3DataType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680294157"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoMLS3DataType
 ([Node] -&gt; Either String AutoMLS3DataType)
 -&gt; FromXML AutoMLS3DataType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoMLS3DataType
 $cparseXML :: [Node] -&gt; Either String AutoMLS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680294145"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680294154"><span class="annot"><span class="annottext">AutoMLS3DataType -&gt; XML
 (AutoMLS3DataType -&gt; XML) -&gt; ToXML AutoMLS3DataType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoMLS3DataType -&gt; XML

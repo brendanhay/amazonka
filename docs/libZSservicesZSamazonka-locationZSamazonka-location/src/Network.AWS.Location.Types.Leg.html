@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Location.Types.Leg</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Location.Types.Leg</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.LegGeometry.html"><span class="hs-identifier">Network.AWS.Location.Types.LegGeometry</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Step.html"><span class="hs-identifier">Network.AWS.Location.Types.Step</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains the calculated route\'s details for each path between a pair of</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- positions. The number of legs returned corresponds to one fewer than the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- total number of positions in the request.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- For example, a route with a departure position and destination position</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- returns one leg with the positions</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road&gt;:</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   The @StartPosition@ is the departure position.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   The @EndPosition@ is the destination position.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- A route with a waypoint between the departure and destination position</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- returns two legs with the positions snapped to a nearby road:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- -   Leg 1: The @StartPosition@ is the departure position . The</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--     @EndPosition@ is the waypoint positon.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- -   Leg 2: The @StartPosition@ is the waypoint position. The</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     @EndPosition@ is the destination position.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newLeg' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679262924"><span id="local-6989586621679262925"></span></span><span class="hs-keyword">data</span><span> </span><span id="Leg"><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-var">Leg</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Leg%27"><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-var">Leg'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the calculated route\'s path as a linestring geometry.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Ageometry%3ALeg%27"><span class="annot"><span class="annottext">Leg -&gt; Maybe LegGeometry
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3Ageometry%3ALeg%27"><span class="hs-identifier hs-var hs-var">geometry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.LegGeometry.html#LegGeometry"><span class="hs-identifier hs-type">LegGeometry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The distance between the leg\'s @StartPosition@ and @EndPosition@ along</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- a calculated route.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   The default measurement is @Kilometers@ unless the request specifies</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     a @DistanceUnit@ of @Miles@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Adistance%3ALeg%27"><span class="annot"><span class="annottext">Leg -&gt; Double
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3Adistance%3ALeg%27"><span class="hs-identifier hs-var hs-var">distance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The estimated travel time between the leg\'s @StartPosition@ and</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @EndPosition@. The travel mode and departure time that you specify in</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the request determines the calculated time.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdurationSeconds%3ALeg%27"><span class="annot"><span class="annottext">Leg -&gt; Double
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3AdurationSeconds%3ALeg%27"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The terminating position of the leg. Follows the format</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @[longitude,latitude]@.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- If the @EndPosition@ isn\'t located on a road, it\'s</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road&gt;.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AendPosition%3ALeg%27"><span class="annot"><span class="annottext">Leg -&gt; Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3AendPosition%3ALeg%27"><span class="hs-identifier hs-var hs-var">endPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The starting position of the leg. Follows the format</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @[longitude,latitude]@.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- If the @StartPosition@ isn\'t located on a road, it\'s</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road&gt;.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AstartPosition%3ALeg%27"><span class="annot"><span class="annottext">Leg -&gt; Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3AstartPosition%3ALeg%27"><span class="hs-identifier hs-var hs-var">startPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Contains a list of steps, which represent subsections of a leg. Each</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- step provides instructions for how to move to the next step in the leg</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- such as the step\'s start position, end position, travel distance,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- travel duration, and geometry offset.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Asteps%3ALeg%27"><span class="annot"><span class="annottext">Leg -&gt; [Step]
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3Asteps%3ALeg%27"><span class="hs-identifier hs-var hs-var">steps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Location.Types.Step.html#Step"><span class="hs-identifier hs-type">Step</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262913"><span id="local-6989586621679262915"><span class="annot"><span class="annottext">Leg -&gt; Leg -&gt; Bool
+(Leg -&gt; Leg -&gt; Bool) -&gt; (Leg -&gt; Leg -&gt; Bool) -&gt; Eq Leg
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Leg -&gt; Leg -&gt; Bool
+$c/= :: Leg -&gt; Leg -&gt; Bool
+== :: Leg -&gt; Leg -&gt; Bool
+$c== :: Leg -&gt; Leg -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262906"><span id="local-6989586621679262908"><span id="local-6989586621679262910"><span class="annot"><span class="annottext">Int -&gt; Leg -&gt; ShowS
+[Leg] -&gt; ShowS
+Leg -&gt; String
+(Int -&gt; Leg -&gt; ShowS)
+-&gt; (Leg -&gt; String) -&gt; ([Leg] -&gt; ShowS) -&gt; Show Leg
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Leg] -&gt; ShowS
+$cshowList :: [Leg] -&gt; ShowS
+show :: Leg -&gt; String
+$cshow :: Leg -&gt; String
+showsPrec :: Int -&gt; Leg -&gt; ShowS
+$cshowsPrec :: Int -&gt; Leg -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Leg -&gt; Rep Leg x)
+-&gt; (forall x. Rep Leg x -&gt; Leg) -&gt; Generic Leg
+forall x. Rep Leg x -&gt; Leg
+forall x. Leg -&gt; Rep Leg x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Leg x -&gt; Leg
+$cfrom :: forall x. Leg -&gt; Rep Leg x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'Leg' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'geometry', 'leg_geometry' - Contains the calculated route\'s path as a linestring geometry.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'distance', 'leg_distance' - The distance between the leg\'s @StartPosition@ and @EndPosition@ along</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- a calculated route.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   The default measurement is @Kilometers@ unless the request specifies</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     a @DistanceUnit@ of @Miles@.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'durationSeconds', 'leg_durationSeconds' - The estimated travel time between the leg\'s @StartPosition@ and</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @EndPosition@. The travel mode and departure time that you specify in</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the request determines the calculated time.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'endPosition', 'leg_endPosition' - The terminating position of the leg. Follows the format</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- @[longitude,latitude]@.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- If the @EndPosition@ isn\'t located on a road, it\'s</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road&gt;.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'startPosition', 'leg_startPosition' - The starting position of the leg. Follows the format</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @[longitude,latitude]@.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- If the @StartPosition@ isn\'t located on a road, it\'s</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road&gt;.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'steps', 'leg_steps' - Contains a list of steps, which represent subsections of a leg. Each</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- step provides instructions for how to move to the next step in the leg</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- such as the step\'s start position, end position, travel distance,</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- travel duration, and geometry offset.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#newLeg"><span class="hs-identifier hs-type">newLeg</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'distance'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'durationSeconds'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'endPosition'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'startPosition'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span>
+</span><span id="line-129"></span><span id="newLeg"><span class="annot"><span class="annottext">newLeg :: Double -&gt; Double -&gt; NonEmpty Double -&gt; NonEmpty Double -&gt; Leg
+</span><a href="Network.AWS.Location.Types.Leg.html#newLeg"><span class="hs-identifier hs-var hs-var">newLeg</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679262900"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262900"><span class="hs-identifier hs-var">pDistance_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679262899"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262899"><span class="hs-identifier hs-var">pDurationSeconds_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679262898"><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679262898"><span class="hs-identifier hs-var">pEndPosition_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679262897"><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679262897"><span class="hs-identifier hs-var">pStartPosition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">Leg' :: Maybe LegGeometry
+-&gt; Double
+-&gt; Double
+-&gt; Sensitive (NonEmpty Double)
+-&gt; Sensitive (NonEmpty Double)
+-&gt; [Step]
+-&gt; Leg
+</span><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:geometry:Leg' :: Maybe LegGeometry
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3Ageometry%3ALeg%27"><span class="hs-identifier hs-var">geometry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LegGeometry
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:distance:Leg' :: Double
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3Adistance%3ALeg%27"><span class="hs-identifier hs-var">distance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262900"><span class="hs-identifier hs-var">pDistance_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:durationSeconds:Leg' :: Double
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3AdurationSeconds%3ALeg%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262899"><span class="hs-identifier hs-var">pDurationSeconds_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:endPosition:Leg' :: Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3AendPosition%3ALeg%27"><span class="hs-identifier hs-var">endPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; (Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+    -&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double)))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; NonEmpty Double -&gt; Sensitive (NonEmpty Double)
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679262898"><span class="hs-identifier hs-var">pEndPosition_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:startPosition:Leg' :: Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3AstartPosition%3ALeg%27"><span class="hs-identifier hs-var">startPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; (Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+    -&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double)))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; NonEmpty Double -&gt; Sensitive (NonEmpty Double)
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679262897"><span class="hs-identifier hs-var">pStartPosition_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:steps:Leg' :: [Step]
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3Asteps%3ALeg%27"><span class="hs-identifier hs-var">steps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Step]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Contains the calculated route\'s path as a linestring geometry.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_geometry"><span class="hs-identifier hs-type">leg_geometry</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.LegGeometry.html#LegGeometry"><span class="hs-identifier hs-type">LegGeometry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="leg_geometry"><span class="annot"><span class="annottext">leg_geometry :: (Maybe LegGeometry -&gt; f (Maybe LegGeometry)) -&gt; Leg -&gt; f Leg
+</span><a href="Network.AWS.Location.Types.Leg.html#leg_geometry"><span class="hs-identifier hs-var hs-var">leg_geometry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Leg -&gt; Maybe LegGeometry)
+-&gt; (Leg -&gt; Maybe LegGeometry -&gt; Leg)
+-&gt; Lens Leg Leg (Maybe LegGeometry) (Maybe LegGeometry)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262889"><span class="annot"><span class="annottext">Maybe LegGeometry
+geometry :: Maybe LegGeometry
+$sel:geometry:Leg' :: Leg -&gt; Maybe LegGeometry
+</span><a href="#local-6989586621679262889"><span class="hs-identifier hs-var hs-var">geometry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LegGeometry
+</span><a href="#local-6989586621679262889"><span class="hs-identifier hs-var">geometry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262888"><span class="annot"><span class="annottext">s :: Leg
+</span><a href="#local-6989586621679262888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262887"><span class="annot"><span class="annottext">Maybe LegGeometry
+</span><a href="#local-6989586621679262887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Leg
+</span><a href="#local-6989586621679262888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geometry:Leg' :: Maybe LegGeometry
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3Ageometry%3ALeg%27"><span class="hs-identifier hs-var">geometry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LegGeometry
+</span><a href="#local-6989586621679262887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The distance between the leg\'s @StartPosition@ and @EndPosition@ along</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- a calculated route.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   The default measurement is @Kilometers@ unless the request specifies</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     a @DistanceUnit@ of @Miles@.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_distance"><span class="hs-identifier hs-type">leg_distance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-157"></span><span id="leg_distance"><span class="annot"><span class="annottext">leg_distance :: (Double -&gt; f Double) -&gt; Leg -&gt; f Leg
+</span><a href="Network.AWS.Location.Types.Leg.html#leg_distance"><span class="hs-identifier hs-var hs-var">leg_distance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Leg -&gt; Double)
+-&gt; (Leg -&gt; Double -&gt; Leg) -&gt; Lens Leg Leg Double Double
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262885"><span class="annot"><span class="annottext">Double
+distance :: Double
+$sel:distance:Leg' :: Leg -&gt; Double
+</span><a href="#local-6989586621679262885"><span class="hs-identifier hs-var hs-var">distance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262885"><span class="hs-identifier hs-var">distance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262884"><span class="annot"><span class="annottext">s :: Leg
+</span><a href="#local-6989586621679262884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262883"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Leg
+</span><a href="#local-6989586621679262884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distance:Leg' :: Double
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3Adistance%3ALeg%27"><span class="hs-identifier hs-var">distance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The estimated travel time between the leg\'s @StartPosition@ and</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- @EndPosition@. The travel mode and departure time that you specify in</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- the request determines the calculated time.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_durationSeconds"><span class="hs-identifier hs-type">leg_durationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-163"></span><span id="leg_durationSeconds"><span class="annot"><span class="annottext">leg_durationSeconds :: (Double -&gt; f Double) -&gt; Leg -&gt; f Leg
+</span><a href="Network.AWS.Location.Types.Leg.html#leg_durationSeconds"><span class="hs-identifier hs-var hs-var">leg_durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Leg -&gt; Double)
+-&gt; (Leg -&gt; Double -&gt; Leg) -&gt; Lens Leg Leg Double Double
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262881"><span class="annot"><span class="annottext">Double
+durationSeconds :: Double
+$sel:durationSeconds:Leg' :: Leg -&gt; Double
+</span><a href="#local-6989586621679262881"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262881"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262880"><span class="annot"><span class="annottext">s :: Leg
+</span><a href="#local-6989586621679262880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262879"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Leg
+</span><a href="#local-6989586621679262880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSeconds:Leg' :: Double
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3AdurationSeconds%3ALeg%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679262879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The terminating position of the leg. Follows the format</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- @[longitude,latitude]@.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- If the @EndPosition@ isn\'t located on a road, it\'s</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road&gt;.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_endPosition"><span class="hs-identifier hs-type">leg_endPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="leg_endPosition"><span class="annot"><span class="annottext">leg_endPosition :: (NonEmpty Double -&gt; f (NonEmpty Double)) -&gt; Leg -&gt; f Leg
+</span><a href="Network.AWS.Location.Types.Leg.html#leg_endPosition"><span class="hs-identifier hs-var hs-var">leg_endPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Leg -&gt; Sensitive (NonEmpty Double))
+-&gt; (Leg -&gt; Sensitive (NonEmpty Double) -&gt; Leg)
+-&gt; Lens
+     Leg Leg (Sensitive (NonEmpty Double)) (Sensitive (NonEmpty Double))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262877"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+endPosition :: Sensitive (NonEmpty Double)
+$sel:endPosition:Leg' :: Leg -&gt; Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679262877"><span class="hs-identifier hs-var hs-var">endPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679262877"><span class="hs-identifier hs-var">endPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262876"><span class="annot"><span class="annottext">s :: Leg
+</span><a href="#local-6989586621679262876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262875"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679262875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Leg
+</span><a href="#local-6989586621679262876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endPosition:Leg' :: Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3AendPosition%3ALeg%27"><span class="hs-identifier hs-var">endPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679262875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+ -&gt; Leg -&gt; f Leg)
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Leg
+-&gt; f Leg
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">((NonEmpty Double -&gt; f (NonEmpty Double))
+ -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double)
+-&gt; f (Sensitive (NonEmpty Double))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; NonEmpty Double -&gt; f (NonEmpty Double)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The starting position of the leg. Follows the format</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- @[longitude,latitude]@.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- If the @StartPosition@ isn\'t located on a road, it\'s</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road snapped to a nearby road&gt;.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_startPosition"><span class="hs-identifier hs-type">leg_startPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="leg_startPosition"><span class="annot"><span class="annottext">leg_startPosition :: (NonEmpty Double -&gt; f (NonEmpty Double)) -&gt; Leg -&gt; f Leg
+</span><a href="Network.AWS.Location.Types.Leg.html#leg_startPosition"><span class="hs-identifier hs-var hs-var">leg_startPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Leg -&gt; Sensitive (NonEmpty Double))
+-&gt; (Leg -&gt; Sensitive (NonEmpty Double) -&gt; Leg)
+-&gt; Lens
+     Leg Leg (Sensitive (NonEmpty Double)) (Sensitive (NonEmpty Double))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262873"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+startPosition :: Sensitive (NonEmpty Double)
+$sel:startPosition:Leg' :: Leg -&gt; Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679262873"><span class="hs-identifier hs-var hs-var">startPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679262873"><span class="hs-identifier hs-var">startPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262872"><span class="annot"><span class="annottext">s :: Leg
+</span><a href="#local-6989586621679262872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262871"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679262871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Leg
+</span><a href="#local-6989586621679262872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startPosition:Leg' :: Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3AstartPosition%3ALeg%27"><span class="hs-identifier hs-var">startPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679262871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+ -&gt; Leg -&gt; f Leg)
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Leg
+-&gt; f Leg
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">((NonEmpty Double -&gt; f (NonEmpty Double))
+ -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double)
+-&gt; f (Sensitive (NonEmpty Double))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; NonEmpty Double -&gt; f (NonEmpty Double)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Contains a list of steps, which represent subsections of a leg. Each</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- step provides instructions for how to move to the next step in the leg</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- such as the step\'s start position, end position, travel distance,</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- travel duration, and geometry offset.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_steps"><span class="hs-identifier hs-type">leg_steps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Location.Types.Step.html#Step"><span class="hs-identifier hs-type">Step</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span id="leg_steps"><span class="annot"><span class="annottext">leg_steps :: ([Step] -&gt; f [Step]) -&gt; Leg -&gt; f Leg
+</span><a href="Network.AWS.Location.Types.Leg.html#leg_steps"><span class="hs-identifier hs-var hs-var">leg_steps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Leg -&gt; [Step])
+-&gt; (Leg -&gt; [Step] -&gt; Leg) -&gt; Lens Leg Leg [Step] [Step]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262869"><span class="annot"><span class="annottext">[Step]
+steps :: [Step]
+$sel:steps:Leg' :: Leg -&gt; [Step]
+</span><a href="#local-6989586621679262869"><span class="hs-identifier hs-var hs-var">steps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Step]
+</span><a href="#local-6989586621679262869"><span class="hs-identifier hs-var">steps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262868"><span class="annot"><span class="annottext">s :: Leg
+</span><a href="#local-6989586621679262868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-type">Leg'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262867"><span class="annot"><span class="annottext">[Step]
+</span><a href="#local-6989586621679262867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Leg
+</span><a href="#local-6989586621679262868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:steps:Leg' :: [Step]
+</span><a href="Network.AWS.Location.Types.Leg.html#%24sel%3Asteps%3ALeg%27"><span class="hs-identifier hs-var">steps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Step]
+</span><a href="#local-6989586621679262867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Step] -&gt; f [Step]) -&gt; Leg -&gt; f Leg)
+-&gt; (([Step] -&gt; f [Step]) -&gt; [Step] -&gt; f [Step])
+-&gt; ([Step] -&gt; f [Step])
+-&gt; Leg
+-&gt; f Leg
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Step] -&gt; f [Step]) -&gt; [Step] -&gt; f [Step]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262864"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679262862"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Leg
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Leg) -&gt; Value -&gt; Parser Leg
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Leg&quot;</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262859"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Maybe LegGeometry
+-&gt; Double
+-&gt; Double
+-&gt; Sensitive (NonEmpty Double)
+-&gt; Sensitive (NonEmpty Double)
+-&gt; [Step]
+-&gt; Leg
+</span><a href="Network.AWS.Location.Types.Leg.html#Leg%27"><span class="hs-identifier hs-var">Leg'</span></a></span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LegGeometry
+ -&gt; Double
+ -&gt; Double
+ -&gt; Sensitive (NonEmpty Double)
+ -&gt; Sensitive (NonEmpty Double)
+ -&gt; [Step]
+ -&gt; Leg)
+-&gt; Parser (Maybe LegGeometry)
+-&gt; Parser
+     (Double
+      -&gt; Double
+      -&gt; Sensitive (NonEmpty Double)
+      -&gt; Sensitive (NonEmpty Double)
+      -&gt; [Step]
+      -&gt; Leg)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LegGeometry)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Geometry&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Double
+   -&gt; Double
+   -&gt; Sensitive (NonEmpty Double)
+   -&gt; Sensitive (NonEmpty Double)
+   -&gt; [Step]
+   -&gt; Leg)
+-&gt; Parser Double
+-&gt; Parser
+     (Double
+      -&gt; Sensitive (NonEmpty Double)
+      -&gt; Sensitive (NonEmpty Double)
+      -&gt; [Step]
+      -&gt; Leg)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Distance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Double
+   -&gt; Sensitive (NonEmpty Double)
+   -&gt; Sensitive (NonEmpty Double)
+   -&gt; [Step]
+   -&gt; Leg)
+-&gt; Parser Double
+-&gt; Parser
+     (Sensitive (NonEmpty Double)
+      -&gt; Sensitive (NonEmpty Double) -&gt; [Step] -&gt; Leg)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Sensitive (NonEmpty Double)
+   -&gt; Sensitive (NonEmpty Double) -&gt; [Step] -&gt; Leg)
+-&gt; Parser (Sensitive (NonEmpty Double))
+-&gt; Parser (Sensitive (NonEmpty Double) -&gt; [Step] -&gt; Leg)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive (NonEmpty Double))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndPosition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser (Sensitive (NonEmpty Double) -&gt; [Step] -&gt; Leg)
+-&gt; Parser (Sensitive (NonEmpty Double)) -&gt; Parser ([Step] -&gt; Leg)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive (NonEmpty Double))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartPosition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Step] -&gt; Leg) -&gt; Parser [Step] -&gt; Parser Leg
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Step])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Steps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Step]) -&gt; [Step] -&gt; Parser [Step]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Step]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262851"><span id="local-6989586621679262853"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262848"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier hs-type">Leg</span></a></span></span><span>
+</span><span id="line-205"></span></pre></body></html>

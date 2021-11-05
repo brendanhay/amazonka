@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Returns information about the specified configuration revision.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newConfigurationRevision' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679222392"><span id="local-6989586621679222393"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigurationRevision"><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-var">ConfigurationRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationRevision%27"><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-var">ConfigurationRevision'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679222401"><span id="local-6989586621679222402"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigurationRevision"><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-var">ConfigurationRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigurationRevision%27"><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-var">ConfigurationRevision'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the configuration revision.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Adescription%3AConfigurationRevision%27"><span class="annot"><span class="annottext">ConfigurationRevision -&gt; Maybe Text
 </span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#%24sel%3Adescription%3AConfigurationRevision%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Acreated%3AConfigurationRevision%27"><span class="annot"><span class="annottext">ConfigurationRevision -&gt; POSIX
 </span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#%24sel%3Acreated%3AConfigurationRevision%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222384"><span id="local-6989586621679222386"><span class="annot"><span class="annottext">ConfigurationRevision -&gt; ConfigurationRevision -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222393"><span id="local-6989586621679222395"><span class="annot"><span class="annottext">ConfigurationRevision -&gt; ConfigurationRevision -&gt; Bool
 (ConfigurationRevision -&gt; ConfigurationRevision -&gt; Bool)
 -&gt; (ConfigurationRevision -&gt; ConfigurationRevision -&gt; Bool)
 -&gt; Eq ConfigurationRevision
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfigurationRevision -&gt; ConfigurationRevision -&gt; Bool
 == :: ConfigurationRevision -&gt; ConfigurationRevision -&gt; Bool
 $c== :: ConfigurationRevision -&gt; ConfigurationRevision -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222375"><span id="local-6989586621679222377"><span id="local-6989586621679222379"><span id="local-6989586621679222381"><span class="annot"><span class="annottext">ReadPrec [ConfigurationRevision]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222384"><span id="local-6989586621679222386"><span id="local-6989586621679222388"><span id="local-6989586621679222390"><span class="annot"><span class="annottext">ReadPrec [ConfigurationRevision]
 ReadPrec ConfigurationRevision
 Int -&gt; ReadS ConfigurationRevision
 ReadS [ConfigurationRevision]
@@ -66,7 +66,7 @@ readList :: ReadS [ConfigurationRevision]
 $creadList :: ReadS [ConfigurationRevision]
 readsPrec :: Int -&gt; ReadS ConfigurationRevision
 $creadsPrec :: Int -&gt; ReadS ConfigurationRevision
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222368"><span id="local-6989586621679222370"><span id="local-6989586621679222372"><span class="annot"><span class="annottext">Int -&gt; ConfigurationRevision -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222377"><span id="local-6989586621679222379"><span id="local-6989586621679222381"><span class="annot"><span class="annottext">Int -&gt; ConfigurationRevision -&gt; ShowS
 [ConfigurationRevision] -&gt; ShowS
 ConfigurationRevision -&gt; String
 (Int -&gt; ConfigurationRevision -&gt; ShowS)
@@ -112,9 +112,9 @@ $cfrom :: forall x. ConfigurationRevision -&gt; Rep ConfigurationRevision x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span>
 </span><span id="line-58"></span><span id="newConfigurationRevision"><span class="annot"><span class="annottext">newConfigurationRevision :: Int -&gt; UTCTime -&gt; ConfigurationRevision
-</span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#newConfigurationRevision"><span class="hs-identifier hs-var hs-var">newConfigurationRevision</span></a></span></span><span> </span><span id="local-6989586621679222362"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222362"><span class="hs-identifier hs-var">pRevision_</span></a></span></span><span> </span><span id="local-6989586621679222361"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679222361"><span class="hs-identifier hs-var">pCreated_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#newConfigurationRevision"><span class="hs-identifier hs-var hs-var">newConfigurationRevision</span></a></span></span><span> </span><span id="local-6989586621679222371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222371"><span class="hs-identifier hs-var">pRevision_</span></a></span></span><span> </span><span id="local-6989586621679222370"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679222370"><span class="hs-identifier hs-var">pCreated_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ConfigurationRevision' :: Maybe Text -&gt; Int -&gt; POSIX -&gt; ConfigurationRevision
 </span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:ConfigurationRevision' :: Maybe Text
@@ -124,7 +124,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:revision:ConfigurationRevision' :: Int
 </span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#%24sel%3Arevision%3AConfigurationRevision%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222362"><span class="hs-identifier hs-var">pRevision_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222371"><span class="hs-identifier hs-var">pRevision_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:created:ConfigurationRevision' :: POSIX
 </span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#%24sel%3Acreated%3AConfigurationRevision%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -133,7 +133,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679222361"><span class="hs-identifier hs-var">pCreated_</span></a></span><span>
+</span><a href="#local-6989586621679222370"><span class="hs-identifier hs-var">pCreated_</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The description of the configuration revision.</span><span>
@@ -148,16 +148,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222355"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222364"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:ConfigurationRevision' :: ConfigurationRevision -&gt; Maybe Text
-</span><a href="#local-6989586621679222355"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222355"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222354"><span class="annot"><span class="annottext">s :: ConfigurationRevision
-</span><a href="#local-6989586621679222354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222353"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRevision
-</span><a href="#local-6989586621679222354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ConfigurationRevision' :: Maybe Text
+</span><a href="#local-6989586621679222364"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222364"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222363"><span class="annot"><span class="annottext">s :: ConfigurationRevision
+</span><a href="#local-6989586621679222363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222362"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRevision
+</span><a href="#local-6989586621679222363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ConfigurationRevision' :: Maybe Text
 </span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#%24sel%3Adescription%3AConfigurationRevision%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | Required. The revision number of the configuration.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#configurationRevision_revision"><span class="hs-identifier hs-type">configurationRevision_revision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -166,16 +166,16 @@ $sel:description:ConfigurationRevision' :: ConfigurationRevision -&gt; Maybe Tex
 -&gt; (ConfigurationRevision -&gt; Int -&gt; ConfigurationRevision)
 -&gt; Lens ConfigurationRevision ConfigurationRevision Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222351"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222360"><span class="annot"><span class="annottext">Int
 revision :: Int
 $sel:revision:ConfigurationRevision' :: ConfigurationRevision -&gt; Int
-</span><a href="#local-6989586621679222351"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222351"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222350"><span class="annot"><span class="annottext">s :: ConfigurationRevision
-</span><a href="#local-6989586621679222350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222349"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRevision
-</span><a href="#local-6989586621679222350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:ConfigurationRevision' :: Int
+</span><a href="#local-6989586621679222360"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222360"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222359"><span class="annot"><span class="annottext">s :: ConfigurationRevision
+</span><a href="#local-6989586621679222359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222358"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRevision
+</span><a href="#local-6989586621679222359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:ConfigurationRevision' :: Int
 </span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#%24sel%3Arevision%3AConfigurationRevision%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Required. The date and time of the configuration revision.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#configurationRevision_created"><span class="hs-identifier hs-type">configurationRevision_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -185,16 +185,16 @@ $sel:revision:ConfigurationRevision' :: ConfigurationRevision -&gt; Int
 -&gt; (ConfigurationRevision -&gt; POSIX -&gt; ConfigurationRevision)
 -&gt; Lens ConfigurationRevision ConfigurationRevision POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222347"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222356"><span class="annot"><span class="annottext">POSIX
 created :: POSIX
 $sel:created:ConfigurationRevision' :: ConfigurationRevision -&gt; POSIX
-</span><a href="#local-6989586621679222347"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679222347"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222346"><span class="annot"><span class="annottext">s :: ConfigurationRevision
-</span><a href="#local-6989586621679222346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222345"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679222345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRevision
-</span><a href="#local-6989586621679222346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:ConfigurationRevision' :: POSIX
+</span><a href="#local-6989586621679222356"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679222356"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222355"><span class="annot"><span class="annottext">s :: ConfigurationRevision
+</span><a href="#local-6989586621679222355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-type">ConfigurationRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222354"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679222354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigurationRevision
+</span><a href="#local-6989586621679222355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:ConfigurationRevision' :: POSIX
 </span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#%24sel%3Acreated%3AConfigurationRevision%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679222345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679222354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; ConfigurationRevision -&gt; f ConfigurationRevision)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -205,8 +205,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222341"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679222339"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfigurationRevision
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222350"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679222348"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfigurationRevision
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConfigurationRevision)
@@ -216,8 +216,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConfigurationRevision&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222336"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222345"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222345"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; POSIX -&gt; ConfigurationRevision
 </span><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision%27"><span class="hs-identifier hs-var">ConfigurationRevision'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; POSIX -&gt; ConfigurationRevision)
@@ -225,7 +225,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Int -&gt; POSIX -&gt; ConfigurationRevision)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,7 +233,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Int -&gt; Parser (POSIX -&gt; ConfigurationRevision)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679222345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;revision&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,13 +241,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser ConfigurationRevision
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679222345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;created&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222329"><span id="local-6989586621679222331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222338"><span id="local-6989586621679222340"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ConfigurationRevision.html#ConfigurationRevision"><span class="hs-identifier hs-type">ConfigurationRevision</span></a></span></span><span>
 </span><span id="line-92"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | The compression used for Athena query results.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621680292005"><span id="local-6989586621680292006"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AthenaResultCompressionType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaResultCompressionType.html#AthenaResultCompressionType"><span class="hs-identifier hs-var">AthenaResultCompressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AthenaResultCompressionType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaResultCompressionType.html#AthenaResultCompressionType%27"><span class="hs-identifier hs-var">AthenaResultCompressionType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680292014"><span id="local-6989586621680292015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AthenaResultCompressionType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaResultCompressionType.html#AthenaResultCompressionType"><span class="hs-identifier hs-var">AthenaResultCompressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AthenaResultCompressionType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AthenaResultCompressionType.html#AthenaResultCompressionType%27"><span class="hs-identifier hs-var">AthenaResultCompressionType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAthenaResultCompressionType"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AthenaResultCompressionType.html#fromAthenaResultCompressionType"><span class="hs-identifier hs-var hs-var">fromAthenaResultCompressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680291997"><span id="local-6989586621680291999"><span id="local-6989586621680292001"><span class="annot"><span class="annottext">Int -&gt; AthenaResultCompressionType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680292006"><span id="local-6989586621680292008"><span id="local-6989586621680292010"><span class="annot"><span class="annottext">Int -&gt; AthenaResultCompressionType -&gt; ShowS
 [AthenaResultCompressionType] -&gt; ShowS
 AthenaResultCompressionType -&gt; String
 (Int -&gt; AthenaResultCompressionType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AthenaResultCompressionType -&gt; String
 showsPrec :: Int -&gt; AthenaResultCompressionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AthenaResultCompressionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680291988"><span id="local-6989586621680291990"><span id="local-6989586621680291992"><span id="local-6989586621680291994"><span class="annot"><span class="annottext">ReadPrec [AthenaResultCompressionType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680291997"><span id="local-6989586621680291999"><span id="local-6989586621680292001"><span id="local-6989586621680292003"><span class="annot"><span class="annottext">ReadPrec [AthenaResultCompressionType]
 ReadPrec AthenaResultCompressionType
 Int -&gt; ReadS AthenaResultCompressionType
 ReadS [AthenaResultCompressionType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AthenaResultCompressionType]
 readsPrec :: Int -&gt; ReadS AthenaResultCompressionType
 $creadsPrec :: Int -&gt; ReadS AthenaResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680291983"><span id="local-6989586621680291985"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; AthenaResultCompressionType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680291992"><span id="local-6989586621680291994"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; AthenaResultCompressionType -&gt; Bool
 (AthenaResultCompressionType
  -&gt; AthenaResultCompressionType -&gt; Bool)
 -&gt; (AthenaResultCompressionType
@@ -86,7 +86,7 @@ $c/= :: AthenaResultCompressionType -&gt; AthenaResultCompressionType -&gt; Bool
 == :: AthenaResultCompressionType -&gt; AthenaResultCompressionType -&gt; Bool
 $c== :: AthenaResultCompressionType -&gt; AthenaResultCompressionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680291967"><span id="local-6989586621680291969"><span id="local-6989586621680291971"><span id="local-6989586621680291973"><span id="local-6989586621680291975"><span id="local-6989586621680291977"><span id="local-6989586621680291979"><span class="annot"><span class="annottext">Eq AthenaResultCompressionType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680291976"><span id="local-6989586621680291978"><span id="local-6989586621680291980"><span id="local-6989586621680291982"><span id="local-6989586621680291984"><span id="local-6989586621680291986"><span id="local-6989586621680291988"><span class="annot"><span class="annottext">Eq AthenaResultCompressionType
 Eq AthenaResultCompressionType
 -&gt; (AthenaResultCompressionType
     -&gt; AthenaResultCompressionType -&gt; Ordering)
@@ -158,7 +158,7 @@ AthenaResultCompressionType -&gt; Rep AthenaResultCompressionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680291959"><span id="local-6989586621680291961"><span class="annot"><span class="annottext">Int -&gt; AthenaResultCompressionType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680291968"><span id="local-6989586621680291970"><span class="annot"><span class="annottext">Int -&gt; AthenaResultCompressionType -&gt; Int
 AthenaResultCompressionType -&gt; Int
 (Int -&gt; AthenaResultCompressionType -&gt; Int)
 -&gt; (AthenaResultCompressionType -&gt; Int)
@@ -169,56 +169,56 @@ $chash :: AthenaResultCompressionType -&gt; Int
 hashWithSalt :: Int -&gt; AthenaResultCompressionType -&gt; Int
 $chashWithSalt :: Int -&gt; AthenaResultCompressionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680291956"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680291965"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; ()
 (AthenaResultCompressionType -&gt; ())
 -&gt; NFData AthenaResultCompressionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AthenaResultCompressionType -&gt; ()
 $crnf :: AthenaResultCompressionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680291953"><span class="annot"><span class="annottext">Text -&gt; Either String AthenaResultCompressionType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680291962"><span class="annot"><span class="annottext">Text -&gt; Either String AthenaResultCompressionType
 (Text -&gt; Either String AthenaResultCompressionType)
 -&gt; FromText AthenaResultCompressionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AthenaResultCompressionType
 $cfromText :: Text -&gt; Either String AthenaResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680291950"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680291959"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; Text
 (AthenaResultCompressionType -&gt; Text)
 -&gt; ToText AthenaResultCompressionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AthenaResultCompressionType -&gt; Text
 $ctoText :: AthenaResultCompressionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680291947"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680291956"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; ByteString
 (AthenaResultCompressionType -&gt; ByteString)
 -&gt; ToByteString AthenaResultCompressionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AthenaResultCompressionType -&gt; ByteString
 $ctoBS :: AthenaResultCompressionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680291944"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680291953"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; ByteStringBuilder
 (AthenaResultCompressionType -&gt; ByteStringBuilder)
 -&gt; ToLog AthenaResultCompressionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AthenaResultCompressionType -&gt; ByteStringBuilder
 $cbuild :: AthenaResultCompressionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680291941"><span class="annot"><span class="annottext">HeaderName -&gt; AthenaResultCompressionType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680291950"><span class="annot"><span class="annottext">HeaderName -&gt; AthenaResultCompressionType -&gt; [Header]
 (HeaderName -&gt; AthenaResultCompressionType -&gt; [Header])
 -&gt; ToHeader AthenaResultCompressionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AthenaResultCompressionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AthenaResultCompressionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680291938"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680291947"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; QueryString
 (AthenaResultCompressionType -&gt; QueryString)
 -&gt; ToQuery AthenaResultCompressionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AthenaResultCompressionType -&gt; QueryString
 $ctoQuery :: AthenaResultCompressionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680291933"><span id="local-6989586621680291935"><span class="annot"><span class="annottext">Value -&gt; Parser [AthenaResultCompressionType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680291942"><span id="local-6989586621680291944"><span class="annot"><span class="annottext">Value -&gt; Parser [AthenaResultCompressionType]
 Value -&gt; Parser AthenaResultCompressionType
 (Value -&gt; Parser AthenaResultCompressionType)
 -&gt; (Value -&gt; Parser [AthenaResultCompressionType])
@@ -230,7 +230,7 @@ $cparseJSONList :: Value -&gt; Parser [AthenaResultCompressionType]
 parseJSON :: Value -&gt; Parser AthenaResultCompressionType
 $cparseJSON :: Value -&gt; Parser AthenaResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680291928"><span id="local-6989586621680291930"><span class="annot"><span class="annottext">FromJSONKeyFunction [AthenaResultCompressionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680291937"><span id="local-6989586621680291939"><span class="annot"><span class="annottext">FromJSONKeyFunction [AthenaResultCompressionType]
 FromJSONKeyFunction AthenaResultCompressionType
 FromJSONKeyFunction AthenaResultCompressionType
 -&gt; FromJSONKeyFunction [AthenaResultCompressionType]
@@ -242,7 +242,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AthenaResultCompressionType]
 fromJSONKey :: FromJSONKeyFunction AthenaResultCompressionType
 $cfromJSONKey :: FromJSONKeyFunction AthenaResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680291919"><span id="local-6989586621680291921"><span id="local-6989586621680291923"><span id="local-6989586621680291925"><span class="annot"><span class="annottext">[AthenaResultCompressionType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680291928"><span id="local-6989586621680291930"><span id="local-6989586621680291932"><span id="local-6989586621680291934"><span class="annot"><span class="annottext">[AthenaResultCompressionType] -&gt; Encoding
 [AthenaResultCompressionType] -&gt; Value
 AthenaResultCompressionType -&gt; Encoding
 AthenaResultCompressionType -&gt; Value
@@ -266,7 +266,7 @@ $ctoEncoding :: AthenaResultCompressionType -&gt; Encoding
 toJSON :: AthenaResultCompressionType -&gt; Value
 $ctoJSON :: AthenaResultCompressionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680291914"><span id="local-6989586621680291916"><span class="annot"><span class="annottext">ToJSONKeyFunction [AthenaResultCompressionType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680291923"><span id="local-6989586621680291925"><span class="annot"><span class="annottext">ToJSONKeyFunction [AthenaResultCompressionType]
 ToJSONKeyFunction AthenaResultCompressionType
 ToJSONKeyFunction AthenaResultCompressionType
 -&gt; ToJSONKeyFunction [AthenaResultCompressionType]
@@ -278,14 +278,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AthenaResultCompressionType]
 toJSONKey :: ToJSONKeyFunction AthenaResultCompressionType
 $ctoJSONKey :: ToJSONKeyFunction AthenaResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680291911"><span class="annot"><span class="annottext">[Node] -&gt; Either String AthenaResultCompressionType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680291920"><span class="annot"><span class="annottext">[Node] -&gt; Either String AthenaResultCompressionType
 ([Node] -&gt; Either String AthenaResultCompressionType)
 -&gt; FromXML AthenaResultCompressionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AthenaResultCompressionType
 $cparseXML :: [Node] -&gt; Either String AthenaResultCompressionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680291908"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680291917"><span class="annot"><span class="annottext">AthenaResultCompressionType -&gt; XML
 (AthenaResultCompressionType -&gt; XML)
 -&gt; ToXML AthenaResultCompressionType
 forall a. (a -&gt; XML) -&gt; ToXML a

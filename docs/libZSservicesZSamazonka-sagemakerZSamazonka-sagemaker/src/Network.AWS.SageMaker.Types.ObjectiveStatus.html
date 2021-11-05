@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621680324822"><span id="local-6989586621680324823"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectiveStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatus.html#ObjectiveStatus"><span class="hs-identifier hs-var">ObjectiveStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectiveStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatus.html#ObjectiveStatus%27"><span class="hs-identifier hs-var">ObjectiveStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680324831"><span id="local-6989586621680324832"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectiveStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatus.html#ObjectiveStatus"><span class="hs-identifier hs-var">ObjectiveStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectiveStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatus.html#ObjectiveStatus%27"><span class="hs-identifier hs-var">ObjectiveStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectiveStatus"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatus.html#fromObjectiveStatus"><span class="hs-identifier hs-var hs-var">fromObjectiveStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680324814"><span id="local-6989586621680324816"><span id="local-6989586621680324818"><span class="annot"><span class="annottext">Int -&gt; ObjectiveStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680324823"><span id="local-6989586621680324825"><span id="local-6989586621680324827"><span class="annot"><span class="annottext">Int -&gt; ObjectiveStatus -&gt; ShowS
 [ObjectiveStatus] -&gt; ShowS
 ObjectiveStatus -&gt; String
 (Int -&gt; ObjectiveStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ObjectiveStatus -&gt; String
 showsPrec :: Int -&gt; ObjectiveStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ObjectiveStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680324805"><span id="local-6989586621680324807"><span id="local-6989586621680324809"><span id="local-6989586621680324811"><span class="annot"><span class="annottext">ReadPrec [ObjectiveStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680324814"><span id="local-6989586621680324816"><span id="local-6989586621680324818"><span id="local-6989586621680324820"><span class="annot"><span class="annottext">ReadPrec [ObjectiveStatus]
 ReadPrec ObjectiveStatus
 Int -&gt; ReadS ObjectiveStatus
 ReadS [ObjectiveStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ObjectiveStatus]
 readsPrec :: Int -&gt; ReadS ObjectiveStatus
 $creadsPrec :: Int -&gt; ReadS ObjectiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680324800"><span id="local-6989586621680324802"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; ObjectiveStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680324809"><span id="local-6989586621680324811"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; ObjectiveStatus -&gt; Bool
 (ObjectiveStatus -&gt; ObjectiveStatus -&gt; Bool)
 -&gt; (ObjectiveStatus -&gt; ObjectiveStatus -&gt; Bool)
 -&gt; Eq ObjectiveStatus
@@ -83,7 +83,7 @@ $c/= :: ObjectiveStatus -&gt; ObjectiveStatus -&gt; Bool
 == :: ObjectiveStatus -&gt; ObjectiveStatus -&gt; Bool
 $c== :: ObjectiveStatus -&gt; ObjectiveStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680324784"><span id="local-6989586621680324786"><span id="local-6989586621680324788"><span id="local-6989586621680324790"><span id="local-6989586621680324792"><span id="local-6989586621680324794"><span id="local-6989586621680324796"><span class="annot"><span class="annottext">Eq ObjectiveStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680324793"><span id="local-6989586621680324795"><span id="local-6989586621680324797"><span id="local-6989586621680324799"><span id="local-6989586621680324801"><span id="local-6989586621680324803"><span id="local-6989586621680324805"><span class="annot"><span class="annottext">Eq ObjectiveStatus
 Eq ObjectiveStatus
 -&gt; (ObjectiveStatus -&gt; ObjectiveStatus -&gt; Ordering)
 -&gt; (ObjectiveStatus -&gt; ObjectiveStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ObjectiveStatus -&gt; Rep ObjectiveStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680324776"><span id="local-6989586621680324778"><span class="annot"><span class="annottext">Int -&gt; ObjectiveStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680324785"><span id="local-6989586621680324787"><span class="annot"><span class="annottext">Int -&gt; ObjectiveStatus -&gt; Int
 ObjectiveStatus -&gt; Int
 (Int -&gt; ObjectiveStatus -&gt; Int)
 -&gt; (ObjectiveStatus -&gt; Int) -&gt; Hashable ObjectiveStatus
@@ -144,50 +144,50 @@ $chash :: ObjectiveStatus -&gt; Int
 hashWithSalt :: Int -&gt; ObjectiveStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ObjectiveStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680324773"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680324782"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; ()
 (ObjectiveStatus -&gt; ()) -&gt; NFData ObjectiveStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ObjectiveStatus -&gt; ()
 $crnf :: ObjectiveStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680324770"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectiveStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680324779"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectiveStatus
 (Text -&gt; Either String ObjectiveStatus) -&gt; FromText ObjectiveStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ObjectiveStatus
 $cfromText :: Text -&gt; Either String ObjectiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680324767"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680324776"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; Text
 (ObjectiveStatus -&gt; Text) -&gt; ToText ObjectiveStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ObjectiveStatus -&gt; Text
 $ctoText :: ObjectiveStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680324764"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680324773"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; ByteString
 (ObjectiveStatus -&gt; ByteString) -&gt; ToByteString ObjectiveStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ObjectiveStatus -&gt; ByteString
 $ctoBS :: ObjectiveStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680324761"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680324770"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; ByteStringBuilder
 (ObjectiveStatus -&gt; ByteStringBuilder) -&gt; ToLog ObjectiveStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ObjectiveStatus -&gt; ByteStringBuilder
 $cbuild :: ObjectiveStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680324758"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectiveStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680324767"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectiveStatus -&gt; [Header]
 (HeaderName -&gt; ObjectiveStatus -&gt; [Header])
 -&gt; ToHeader ObjectiveStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ObjectiveStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ObjectiveStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680324755"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680324764"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; QueryString
 (ObjectiveStatus -&gt; QueryString) -&gt; ToQuery ObjectiveStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ObjectiveStatus -&gt; QueryString
 $ctoQuery :: ObjectiveStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680324750"><span id="local-6989586621680324752"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectiveStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680324759"><span id="local-6989586621680324761"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectiveStatus]
 Value -&gt; Parser ObjectiveStatus
 (Value -&gt; Parser ObjectiveStatus)
 -&gt; (Value -&gt; Parser [ObjectiveStatus]) -&gt; FromJSON ObjectiveStatus
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ObjectiveStatus]
 parseJSON :: Value -&gt; Parser ObjectiveStatus
 $cparseJSON :: Value -&gt; Parser ObjectiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680324745"><span id="local-6989586621680324747"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectiveStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680324754"><span id="local-6989586621680324756"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectiveStatus]
 FromJSONKeyFunction ObjectiveStatus
 FromJSONKeyFunction ObjectiveStatus
 -&gt; FromJSONKeyFunction [ObjectiveStatus]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ObjectiveStatus]
 fromJSONKey :: FromJSONKeyFunction ObjectiveStatus
 $cfromJSONKey :: FromJSONKeyFunction ObjectiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680324736"><span id="local-6989586621680324738"><span id="local-6989586621680324740"><span id="local-6989586621680324742"><span class="annot"><span class="annottext">[ObjectiveStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680324745"><span id="local-6989586621680324747"><span id="local-6989586621680324749"><span id="local-6989586621680324751"><span class="annot"><span class="annottext">[ObjectiveStatus] -&gt; Encoding
 [ObjectiveStatus] -&gt; Value
 ObjectiveStatus -&gt; Encoding
 ObjectiveStatus -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ObjectiveStatus -&gt; Encoding
 toJSON :: ObjectiveStatus -&gt; Value
 $ctoJSON :: ObjectiveStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680324731"><span id="local-6989586621680324733"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectiveStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680324740"><span id="local-6989586621680324742"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectiveStatus]
 ToJSONKeyFunction ObjectiveStatus
 ToJSONKeyFunction ObjectiveStatus
 -&gt; ToJSONKeyFunction [ObjectiveStatus] -&gt; ToJSONKey ObjectiveStatus
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ObjectiveStatus]
 toJSONKey :: ToJSONKeyFunction ObjectiveStatus
 $ctoJSONKey :: ToJSONKeyFunction ObjectiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680324728"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectiveStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680324737"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectiveStatus
 ([Node] -&gt; Either String ObjectiveStatus)
 -&gt; FromXML ObjectiveStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ObjectiveStatus
 $cparseXML :: [Node] -&gt; Either String ObjectiveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680324725"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680324734"><span class="annot"><span class="annottext">ObjectiveStatus -&gt; XML
 (ObjectiveStatus -&gt; XML) -&gt; ToXML ObjectiveStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ObjectiveStatus -&gt; XML

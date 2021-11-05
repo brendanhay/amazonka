@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newGetDifferences' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679365456"><span id="local-6989586621679365457"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDifferences"><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-var">GetDifferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDifferences%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-var">GetDifferences'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679365465"><span id="local-6989586621679365466"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDifferences"><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-var">GetDifferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDifferences%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-var">GetDifferences'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The file path in which to check differences. Limits the results to this</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- path. Can also be used to specify the changed name of a directory or</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- folder, if it has changed. If not specified, differences are shown for</span><span>
@@ -94,7 +94,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AafterCommitSpecifier%3AGetDifferences%27"><span class="annot"><span class="annottext">GetDifferences -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AafterCommitSpecifier%3AGetDifferences%27"><span class="hs-identifier hs-var hs-var">afterCommitSpecifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365444"><span id="local-6989586621679365446"><span class="annot"><span class="annottext">GetDifferences -&gt; GetDifferences -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365453"><span id="local-6989586621679365455"><span class="annot"><span class="annottext">GetDifferences -&gt; GetDifferences -&gt; Bool
 (GetDifferences -&gt; GetDifferences -&gt; Bool)
 -&gt; (GetDifferences -&gt; GetDifferences -&gt; Bool) -&gt; Eq GetDifferences
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -102,7 +102,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDifferences -&gt; GetDifferences -&gt; Bool
 == :: GetDifferences -&gt; GetDifferences -&gt; Bool
 $c== :: GetDifferences -&gt; GetDifferences -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365435"><span id="local-6989586621679365437"><span id="local-6989586621679365439"><span id="local-6989586621679365441"><span class="annot"><span class="annottext">ReadPrec [GetDifferences]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365444"><span id="local-6989586621679365446"><span id="local-6989586621679365448"><span id="local-6989586621679365450"><span class="annot"><span class="annottext">ReadPrec [GetDifferences]
 ReadPrec GetDifferences
 Int -&gt; ReadS GetDifferences
 ReadS [GetDifferences]
@@ -122,7 +122,7 @@ readList :: ReadS [GetDifferences]
 $creadList :: ReadS [GetDifferences]
 readsPrec :: Int -&gt; ReadS GetDifferences
 $creadsPrec :: Int -&gt; ReadS GetDifferences
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365428"><span id="local-6989586621679365430"><span id="local-6989586621679365432"><span class="annot"><span class="annottext">Int -&gt; GetDifferences -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365437"><span id="local-6989586621679365439"><span id="local-6989586621679365441"><span class="annot"><span class="annottext">Int -&gt; GetDifferences -&gt; ShowS
 [GetDifferences] -&gt; ShowS
 GetDifferences -&gt; String
 (Int -&gt; GetDifferences -&gt; ShowS)
@@ -190,10 +190,10 @@ $cfrom :: forall x. GetDifferences -&gt; Rep GetDifferences x
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span>
 </span><span id="line-132"></span><span id="newGetDifferences"><span class="annot"><span class="annottext">newGetDifferences :: Text -&gt; Text -&gt; GetDifferences
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#newGetDifferences"><span class="hs-identifier hs-var hs-var">newGetDifferences</span></a></span></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679365423"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365423"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679365422"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365422"><span class="hs-identifier hs-var">pAfterCommitSpecifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679365432"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365432"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679365431"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365431"><span class="hs-identifier hs-var">pAfterCommitSpecifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">GetDifferences' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -225,10 +225,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryName:GetDifferences' :: Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3ArepositoryName%3AGetDifferences%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365423"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365432"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:afterCommitSpecifier:GetDifferences' :: Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AafterCommitSpecifier%3AGetDifferences%27"><span class="hs-identifier hs-var">afterCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365422"><span class="hs-identifier hs-var">pAfterCommitSpecifier_</span></a></span><span>
+</span><a href="#local-6989586621679365431"><span class="hs-identifier hs-var">pAfterCommitSpecifier_</span></a></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The file path in which to check differences. Limits the results to this</span><span>
@@ -242,16 +242,16 @@ forall a. Maybe a
 -&gt; (GetDifferences -&gt; Maybe Text -&gt; GetDifferences)
 -&gt; Lens GetDifferences GetDifferences (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365420"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365429"><span class="annot"><span class="annottext">Maybe Text
 afterPath :: Maybe Text
 $sel:afterPath:GetDifferences' :: GetDifferences -&gt; Maybe Text
-</span><a href="#local-6989586621679365420"><span class="hs-identifier hs-var hs-var">afterPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365420"><span class="hs-identifier hs-var">afterPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365419"><span class="annot"><span class="annottext">s :: GetDifferences
-</span><a href="#local-6989586621679365419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365418"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
-</span><a href="#local-6989586621679365419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterPath:GetDifferences' :: Maybe Text
+</span><a href="#local-6989586621679365429"><span class="hs-identifier hs-var hs-var">afterPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365429"><span class="hs-identifier hs-var">afterPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365428"><span class="annot"><span class="annottext">s :: GetDifferences
+</span><a href="#local-6989586621679365428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365427"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
+</span><a href="#local-6989586621679365428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterPath:GetDifferences' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AafterPath%3AGetDifferences%27"><span class="hs-identifier hs-var">afterPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | An enumeration token that, when provided in a request, returns the next</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- batch of the results.</span><span>
@@ -262,16 +262,16 @@ $sel:afterPath:GetDifferences' :: GetDifferences -&gt; Maybe Text
 -&gt; (GetDifferences -&gt; Maybe Text -&gt; GetDifferences)
 -&gt; Lens GetDifferences GetDifferences (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365417"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365426"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetDifferences' :: GetDifferences -&gt; Maybe Text
-</span><a href="#local-6989586621679365417"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365417"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365416"><span class="annot"><span class="annottext">s :: GetDifferences
-</span><a href="#local-6989586621679365416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365415"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
-</span><a href="#local-6989586621679365416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDifferences' :: Maybe Text
+</span><a href="#local-6989586621679365426"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365426"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365425"><span class="annot"><span class="annottext">s :: GetDifferences
+</span><a href="#local-6989586621679365425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365424"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
+</span><a href="#local-6989586621679365425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDifferences' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AnextToken%3AGetDifferences%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- identify a commit (for example, the full commit ID). Optional. If not</span><span>
@@ -285,16 +285,16 @@ $sel:nextToken:GetDifferences' :: GetDifferences -&gt; Maybe Text
 -&gt; (GetDifferences -&gt; Maybe Text -&gt; GetDifferences)
 -&gt; Lens GetDifferences GetDifferences (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365414"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365423"><span class="annot"><span class="annottext">Maybe Text
 beforeCommitSpecifier :: Maybe Text
 $sel:beforeCommitSpecifier:GetDifferences' :: GetDifferences -&gt; Maybe Text
-</span><a href="#local-6989586621679365414"><span class="hs-identifier hs-var hs-var">beforeCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365414"><span class="hs-identifier hs-var">beforeCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365413"><span class="annot"><span class="annottext">s :: GetDifferences
-</span><a href="#local-6989586621679365413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365412"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
-</span><a href="#local-6989586621679365413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeCommitSpecifier:GetDifferences' :: Maybe Text
+</span><a href="#local-6989586621679365423"><span class="hs-identifier hs-var hs-var">beforeCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365423"><span class="hs-identifier hs-var">beforeCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365422"><span class="annot"><span class="annottext">s :: GetDifferences
+</span><a href="#local-6989586621679365422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365421"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
+</span><a href="#local-6989586621679365422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeCommitSpecifier:GetDifferences' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AbeforeCommitSpecifier%3AGetDifferences%27"><span class="hs-identifier hs-var">beforeCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The file path in which to check for differences. Limits the results to</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- this path. Can also be used to specify the previous name of a directory</span><span>
@@ -307,16 +307,16 @@ $sel:beforeCommitSpecifier:GetDifferences' :: GetDifferences -&gt; Maybe Text
 -&gt; (GetDifferences -&gt; Maybe Text -&gt; GetDifferences)
 -&gt; Lens GetDifferences GetDifferences (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365411"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365420"><span class="annot"><span class="annottext">Maybe Text
 beforePath :: Maybe Text
 $sel:beforePath:GetDifferences' :: GetDifferences -&gt; Maybe Text
-</span><a href="#local-6989586621679365411"><span class="hs-identifier hs-var hs-var">beforePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365411"><span class="hs-identifier hs-var">beforePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365410"><span class="annot"><span class="annottext">s :: GetDifferences
-</span><a href="#local-6989586621679365410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365409"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
-</span><a href="#local-6989586621679365410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforePath:GetDifferences' :: Maybe Text
+</span><a href="#local-6989586621679365420"><span class="hs-identifier hs-var hs-var">beforePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365420"><span class="hs-identifier hs-var">beforePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365419"><span class="annot"><span class="annottext">s :: GetDifferences
+</span><a href="#local-6989586621679365419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365418"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
+</span><a href="#local-6989586621679365419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforePath:GetDifferences' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AbeforePath%3AGetDifferences%27"><span class="hs-identifier hs-var">beforePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | A non-zero, non-negative integer used to limit the number of returned</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- results.</span><span>
@@ -326,16 +326,16 @@ $sel:beforePath:GetDifferences' :: GetDifferences -&gt; Maybe Text
 -&gt; (GetDifferences -&gt; Maybe Int -&gt; GetDifferences)
 -&gt; Lens GetDifferences GetDifferences (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365408"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365417"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:GetDifferences' :: GetDifferences -&gt; Maybe Int
-</span><a href="#local-6989586621679365408"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679365408"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365407"><span class="annot"><span class="annottext">s :: GetDifferences
-</span><a href="#local-6989586621679365407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365406"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679365406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
-</span><a href="#local-6989586621679365407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetDifferences' :: Maybe Int
+</span><a href="#local-6989586621679365417"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679365417"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365416"><span class="annot"><span class="annottext">s :: GetDifferences
+</span><a href="#local-6989586621679365416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365415"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679365415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
+</span><a href="#local-6989586621679365416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetDifferences' :: Maybe Int
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AmaxResults%3AGetDifferences%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679365406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The name of the repository where you want to get differences.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#getDifferences_repositoryName"><span class="hs-identifier hs-type">getDifferences_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -344,16 +344,16 @@ $sel:maxResults:GetDifferences' :: GetDifferences -&gt; Maybe Int
 -&gt; (GetDifferences -&gt; Text -&gt; GetDifferences)
 -&gt; Lens GetDifferences GetDifferences Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365405"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365414"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:GetDifferences' :: GetDifferences -&gt; Text
-</span><a href="#local-6989586621679365405"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365405"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365404"><span class="annot"><span class="annottext">s :: GetDifferences
-</span><a href="#local-6989586621679365404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365403"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
-</span><a href="#local-6989586621679365404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetDifferences' :: Text
+</span><a href="#local-6989586621679365414"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365414"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365413"><span class="annot"><span class="annottext">s :: GetDifferences
+</span><a href="#local-6989586621679365413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365412"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
+</span><a href="#local-6989586621679365413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetDifferences' :: Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3ArepositoryName%3AGetDifferences%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The branch, tag, HEAD, or other fully qualified reference used to</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- identify a commit.</span><span>
@@ -363,29 +363,29 @@ $sel:repositoryName:GetDifferences' :: GetDifferences -&gt; Text
 -&gt; (GetDifferences -&gt; Text -&gt; GetDifferences)
 -&gt; Lens GetDifferences GetDifferences Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365402"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365411"><span class="annot"><span class="annottext">Text
 afterCommitSpecifier :: Text
 $sel:afterCommitSpecifier:GetDifferences' :: GetDifferences -&gt; Text
-</span><a href="#local-6989586621679365402"><span class="hs-identifier hs-var hs-var">afterCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365402"><span class="hs-identifier hs-var">afterCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365401"><span class="annot"><span class="annottext">s :: GetDifferences
-</span><a href="#local-6989586621679365401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365400"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
-</span><a href="#local-6989586621679365401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterCommitSpecifier:GetDifferences' :: Text
+</span><a href="#local-6989586621679365411"><span class="hs-identifier hs-var hs-var">afterCommitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365411"><span class="hs-identifier hs-var">afterCommitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365410"><span class="annot"><span class="annottext">s :: GetDifferences
+</span><a href="#local-6989586621679365410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679365409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferences
+</span><a href="#local-6989586621679365410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterCommitSpecifier:GetDifferences' :: Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AafterCommitSpecifier%3AGetDifferences%27"><span class="hs-identifier hs-var">afterCommitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679365396"><span class="annot"><span class="annottext">page :: GetDifferences
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679365405"><span class="annot"><span class="annottext">page :: GetDifferences
 -&gt; AWSResponse GetDifferences -&gt; Maybe GetDifferences
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679365394"><span class="annot"><span class="annottext">GetDifferences
-</span><a href="#local-6989586621679365394"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679365393"><span class="annot"><span class="annottext">AWSResponse GetDifferences
-</span><a href="#local-6989586621679365393"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679365403"><span class="annot"><span class="annottext">GetDifferences
+</span><a href="#local-6989586621679365403"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679365402"><span class="annot"><span class="annottext">AWSResponse GetDifferences
+</span><a href="#local-6989586621679365402"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-189"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetDifferences
 GetDifferencesResponse
-</span><a href="#local-6989586621679365393"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679365402"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">GetDifferencesResponse
 -&gt; Getting (First Text) GetDifferencesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -414,7 +414,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-195"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetDifferences
 GetDifferencesResponse
-</span><a href="#local-6989586621679365393"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679365402"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">GetDifferencesResponse
 -&gt; Getting (First [Difference]) GetDifferencesResponse [Difference]
 -&gt; Maybe [Difference]
@@ -452,7 +452,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">GetDifferences
-</span><a href="#local-6989586621679365394"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679365403"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">GetDifferences
 -&gt; (GetDifferences -&gt; GetDifferences) -&gt; GetDifferences
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -466,7 +466,7 @@ Lens GetDifferences GetDifferences (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetDifferences
 GetDifferencesResponse
-</span><a href="#local-6989586621679365393"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679365402"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">GetDifferencesResponse
 -&gt; Getting (First Text) GetDifferencesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -490,12 +490,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-208"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-209"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679365383"><span class="annot"><span class="annottext">request :: GetDifferences -&gt; Request GetDifferences
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679365392"><span class="annot"><span class="annottext">request :: GetDifferences -&gt; Request GetDifferences
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDifferences -&gt; Request GetDifferences
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679365379"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679365388"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDifferences
 -&gt; ClientResponse ClientBody
@@ -519,10 +519,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365376"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365376"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679365375"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679365375"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679365374"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365374"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365385"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679365384"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679365384"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679365383"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Difference] -&gt; Int -&gt; GetDifferencesResponse
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-var">GetDifferencesResponse'</span></a></span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Difference] -&gt; Int -&gt; GetDifferencesResponse)
@@ -531,7 +531,7 @@ MonadResource m =&gt;
      String (Maybe [Difference] -&gt; Int -&gt; GetDifferencesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679365383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -540,7 +540,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetDifferencesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Difference]))
+</span><a href="#local-6989586621679365383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Difference]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;differences&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Difference]))
@@ -557,15 +557,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365376"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365385"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365365"><span id="local-6989586621679365367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365374"><span id="local-6989586621679365376"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span></span></span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365371"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span></span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679365358"><span class="annot"><span class="annottext">toHeaders :: GetDifferences -&gt; ResponseHeaders
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679365367"><span class="annot"><span class="annottext">toHeaders :: GetDifferences -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDifferences -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -592,9 +592,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-237"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-238"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365348"><span id="local-6989586621679365350"><span id="local-6989586621679365352"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679365346"><span class="annot"><span class="annottext">toJSON :: GetDifferences -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365338"><span id="local-6989586621679365339"><span id="local-6989586621679365340"><span id="local-6989586621679365341"><span id="local-6989586621679365342"><span id="local-6989586621679365343"><span id="local-6989586621679365344"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365357"><span id="local-6989586621679365359"><span id="local-6989586621679365361"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679365355"><span class="annot"><span class="annottext">toJSON :: GetDifferences -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences%27"><span class="hs-identifier hs-type">GetDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365347"><span id="local-6989586621679365348"><span id="local-6989586621679365349"><span id="local-6989586621679365350"><span id="local-6989586621679365351"><span id="local-6989586621679365352"><span id="local-6989586621679365353"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Text
 afterCommitSpecifier :: Text
@@ -611,7 +611,7 @@ $sel:beforePath:GetDifferences' :: GetDifferences -&gt; Maybe Text
 $sel:beforeCommitSpecifier:GetDifferences' :: GetDifferences -&gt; Maybe Text
 $sel:nextToken:GetDifferences' :: GetDifferences -&gt; Maybe Text
 $sel:afterPath:GetDifferences' :: GetDifferences -&gt; Maybe Text
-</span><a href="#local-6989586621679365338"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679365347"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-243"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -623,14 +623,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365344"><span class="hs-identifier hs-var">afterPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365353"><span class="hs-identifier hs-var">afterPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365343"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365352"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;beforeCommitSpecifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -638,21 +638,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365342"><span class="hs-identifier hs-var">beforeCommitSpecifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365351"><span class="hs-identifier hs-var">beforeCommitSpecifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;beforePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365341"><span class="hs-identifier hs-var">beforePath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365350"><span class="hs-identifier hs-var">beforePath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679365340"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365349"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -660,7 +660,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365339"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365348"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -669,20 +669,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-254"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365338"><span class="hs-identifier hs-var">afterCommitSpecifier</span></a></span><span>
+</span><a href="#local-6989586621679365347"><span class="hs-identifier hs-var">afterCommitSpecifier</span></a></span><span>
 </span><span id="line-255"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-257"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679365332"><span class="annot"><span class="annottext">toPath :: GetDifferences -&gt; ByteString
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679365341"><span class="annot"><span class="annottext">toPath :: GetDifferences -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDifferences -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferences"><span class="hs-identifier hs-type">GetDifferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621679365328"><span class="annot"><span class="annottext">toQuery :: GetDifferences -&gt; QueryString
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679365337"><span class="annot"><span class="annottext">toQuery :: GetDifferences -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDifferences -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -690,7 +690,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | /See:/ 'newGetDifferencesResponse' smart constructor.</span><span>
-</span><span id="line-266"></span><span id="local-6989586621679365325"><span id="local-6989586621679365326"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDifferencesResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-var">GetDifferencesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDifferencesResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-var">GetDifferencesResponse'</span></a></span></span><span>
+</span><span id="line-266"></span><span id="local-6989586621679365334"><span id="local-6989586621679365335"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDifferencesResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-var">GetDifferencesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDifferencesResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-var">GetDifferencesResponse'</span></a></span></span><span>
 </span><span id="line-267"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An enumeration token that can be used in a request to return the next</span><span>
 </span><span id="line-268"></span><span>    </span><span class="hs-comment">-- batch of the results.</span><span>
 </span><span id="line-269"></span><span>    </span><span id="%24sel%3AnextToken%3AGetDifferencesResponse%27"><span class="annot"><span class="annottext">GetDifferencesResponse -&gt; Maybe Text
@@ -704,7 +704,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-275"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDifferencesResponse%27"><span class="annot"><span class="annottext">GetDifferencesResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AhttpStatus%3AGetDifferencesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-276"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-277"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365318"><span id="local-6989586621679365320"><span class="annot"><span class="annottext">GetDifferencesResponse -&gt; GetDifferencesResponse -&gt; Bool
+</span><span id="line-277"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365327"><span id="local-6989586621679365329"><span class="annot"><span class="annottext">GetDifferencesResponse -&gt; GetDifferencesResponse -&gt; Bool
 (GetDifferencesResponse -&gt; GetDifferencesResponse -&gt; Bool)
 -&gt; (GetDifferencesResponse -&gt; GetDifferencesResponse -&gt; Bool)
 -&gt; Eq GetDifferencesResponse
@@ -713,7 +713,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDifferencesResponse -&gt; GetDifferencesResponse -&gt; Bool
 == :: GetDifferencesResponse -&gt; GetDifferencesResponse -&gt; Bool
 $c== :: GetDifferencesResponse -&gt; GetDifferencesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365310"><span id="local-6989586621679365312"><span id="local-6989586621679365314"><span id="local-6989586621679365316"><span class="annot"><span class="annottext">ReadPrec [GetDifferencesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365319"><span id="local-6989586621679365321"><span id="local-6989586621679365323"><span id="local-6989586621679365325"><span class="annot"><span class="annottext">ReadPrec [GetDifferencesResponse]
 ReadPrec GetDifferencesResponse
 Int -&gt; ReadS GetDifferencesResponse
 ReadS [GetDifferencesResponse]
@@ -733,7 +733,7 @@ readList :: ReadS [GetDifferencesResponse]
 $creadList :: ReadS [GetDifferencesResponse]
 readsPrec :: Int -&gt; ReadS GetDifferencesResponse
 $creadsPrec :: Int -&gt; ReadS GetDifferencesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365304"><span id="local-6989586621679365306"><span id="local-6989586621679365308"><span class="annot"><span class="annottext">Int -&gt; GetDifferencesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365313"><span id="local-6989586621679365315"><span id="local-6989586621679365317"><span class="annot"><span class="annottext">Int -&gt; GetDifferencesResponse -&gt; ShowS
 [GetDifferencesResponse] -&gt; ShowS
 GetDifferencesResponse -&gt; String
 (Int -&gt; GetDifferencesResponse -&gt; ShowS)
@@ -781,8 +781,8 @@ $cfrom :: forall x. GetDifferencesResponse -&gt; Rep GetDifferencesResponse x
 </span><span id="line-297"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-298"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span><span>
 </span><span id="line-299"></span><span id="newGetDifferencesResponse"><span class="annot"><span class="annottext">newGetDifferencesResponse :: Int -&gt; GetDifferencesResponse
-</span><a href="Network.AWS.CodeCommit.GetDifferences.html#newGetDifferencesResponse"><span class="hs-identifier hs-var hs-var">newGetDifferencesResponse</span></a></span></span><span> </span><span id="local-6989586621679365301"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.GetDifferences.html#newGetDifferencesResponse"><span class="hs-identifier hs-var hs-var">newGetDifferencesResponse</span></a></span></span><span> </span><span id="local-6989586621679365310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-300"></span><span>  </span><span class="annot"><span class="annottext">GetDifferencesResponse' :: Maybe Text -&gt; Maybe [Difference] -&gt; Int -&gt; GetDifferencesResponse
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span>
 </span><span id="line-301"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetDifferencesResponse' :: Maybe Text
@@ -796,7 +796,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDifferencesResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AhttpStatus%3AGetDifferencesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365301"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679365310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-305"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-306"></span><span>
 </span><span id="line-307"></span><span class="hs-comment">-- | An enumeration token that can be used in a request to return the next</span><span>
@@ -808,16 +808,16 @@ forall a. Maybe a
 -&gt; (GetDifferencesResponse -&gt; Maybe Text -&gt; GetDifferencesResponse)
 -&gt; Lens' GetDifferencesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365300"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365309"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetDifferencesResponse' :: GetDifferencesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679365300"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365300"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365299"><span class="annot"><span class="annottext">s :: GetDifferencesResponse
-</span><a href="#local-6989586621679365299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365298"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferencesResponse
-</span><a href="#local-6989586621679365299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDifferencesResponse' :: Maybe Text
+</span><a href="#local-6989586621679365309"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365309"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365308"><span class="annot"><span class="annottext">s :: GetDifferencesResponse
+</span><a href="#local-6989586621679365308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365307"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferencesResponse
+</span><a href="#local-6989586621679365308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetDifferencesResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AnextToken%3AGetDifferencesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679365298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | A data type object that contains information about the differences,</span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- including whether the difference is added, modified, or deleted (A, D,</span><span>
@@ -830,16 +830,16 @@ $sel:nextToken:GetDifferencesResponse' :: GetDifferencesResponse -&gt; Maybe Tex
     -&gt; Maybe [Difference] -&gt; GetDifferencesResponse)
 -&gt; Lens' GetDifferencesResponse (Maybe [Difference])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365297"><span class="annot"><span class="annottext">Maybe [Difference]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365306"><span class="annot"><span class="annottext">Maybe [Difference]
 differences :: Maybe [Difference]
 $sel:differences:GetDifferencesResponse' :: GetDifferencesResponse -&gt; Maybe [Difference]
-</span><a href="#local-6989586621679365297"><span class="hs-identifier hs-var hs-var">differences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Difference]
-</span><a href="#local-6989586621679365297"><span class="hs-identifier hs-var">differences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365296"><span class="annot"><span class="annottext">s :: GetDifferencesResponse
-</span><a href="#local-6989586621679365296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365295"><span class="annot"><span class="annottext">Maybe [Difference]
-</span><a href="#local-6989586621679365295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferencesResponse
-</span><a href="#local-6989586621679365296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:differences:GetDifferencesResponse' :: Maybe [Difference]
+</span><a href="#local-6989586621679365306"><span class="hs-identifier hs-var hs-var">differences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Difference]
+</span><a href="#local-6989586621679365306"><span class="hs-identifier hs-var">differences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365305"><span class="annot"><span class="annottext">s :: GetDifferencesResponse
+</span><a href="#local-6989586621679365305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365304"><span class="annot"><span class="annottext">Maybe [Difference]
+</span><a href="#local-6989586621679365304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferencesResponse
+</span><a href="#local-6989586621679365305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:differences:GetDifferencesResponse' :: Maybe [Difference]
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3Adifferences%3AGetDifferencesResponse%27"><span class="hs-identifier hs-var">differences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Difference]
-</span><a href="#local-6989586621679365295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Difference] -&gt; f (Maybe [Difference]))
+</span><a href="#local-6989586621679365304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Difference] -&gt; f (Maybe [Difference]))
  -&gt; GetDifferencesResponse -&gt; f GetDifferencesResponse)
 -&gt; ((Maybe [Difference] -&gt; f (Maybe [Difference]))
     -&gt; Maybe [Difference] -&gt; f (Maybe [Difference]))
@@ -868,16 +868,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetDifferencesResponse -&gt; Int -&gt; GetDifferencesResponse)
 -&gt; Lens GetDifferencesResponse GetDifferencesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365292"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365301"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDifferencesResponse' :: GetDifferencesResponse -&gt; Int
-</span><a href="#local-6989586621679365292"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365292"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365291"><span class="annot"><span class="annottext">s :: GetDifferencesResponse
-</span><a href="#local-6989586621679365291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365290"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferencesResponse
-</span><a href="#local-6989586621679365291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDifferencesResponse' :: Int
+</span><a href="#local-6989586621679365301"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365301"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365300"><span class="annot"><span class="annottext">s :: GetDifferencesResponse
+</span><a href="#local-6989586621679365300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse%27"><span class="hs-identifier hs-type">GetDifferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365299"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDifferencesResponse
+</span><a href="#local-6989586621679365300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDifferencesResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetDifferences.html#%24sel%3AhttpStatus%3AGetDifferencesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
-</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetDifferences.html#GetDifferencesResponse"><span class="hs-identifier hs-type">GetDifferencesResponse</span></a></span></span><span>
 </span><span id="line-323"></span></pre></body></html>

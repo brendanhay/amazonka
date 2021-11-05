@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Represents a request to the create device pool operation.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newCreateDevicePool' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679389184"><span id="local-6989586621679389185"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDevicePool"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-var">CreateDevicePool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDevicePool%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-var">CreateDevicePool'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679389193"><span id="local-6989586621679389194"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDevicePool"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-var">CreateDevicePool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDevicePool%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-var">CreateDevicePool'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of devices that Device Farm can add to your device pool.</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Device Farm adds devices that are available and meet the criteria that</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- you assign for the @rules@ parameter. Depending on how many devices meet</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3Arules%3ACreateDevicePool%27"><span class="annot"><span class="annottext">CreateDevicePool -&gt; [Rule]
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3Arules%3ACreateDevicePool%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389174"><span id="local-6989586621679389176"><span class="annot"><span class="annottext">CreateDevicePool -&gt; CreateDevicePool -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389183"><span id="local-6989586621679389185"><span class="annot"><span class="annottext">CreateDevicePool -&gt; CreateDevicePool -&gt; Bool
 (CreateDevicePool -&gt; CreateDevicePool -&gt; Bool)
 -&gt; (CreateDevicePool -&gt; CreateDevicePool -&gt; Bool)
 -&gt; Eq CreateDevicePool
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDevicePool -&gt; CreateDevicePool -&gt; Bool
 == :: CreateDevicePool -&gt; CreateDevicePool -&gt; Bool
 $c== :: CreateDevicePool -&gt; CreateDevicePool -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389165"><span id="local-6989586621679389167"><span id="local-6989586621679389169"><span id="local-6989586621679389171"><span class="annot"><span class="annottext">ReadPrec [CreateDevicePool]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389174"><span id="local-6989586621679389176"><span id="local-6989586621679389178"><span id="local-6989586621679389180"><span class="annot"><span class="annottext">ReadPrec [CreateDevicePool]
 ReadPrec CreateDevicePool
 Int -&gt; ReadS CreateDevicePool
 ReadS [CreateDevicePool]
@@ -106,7 +106,7 @@ readList :: ReadS [CreateDevicePool]
 $creadList :: ReadS [CreateDevicePool]
 readsPrec :: Int -&gt; ReadS CreateDevicePool
 $creadsPrec :: Int -&gt; ReadS CreateDevicePool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389158"><span id="local-6989586621679389160"><span id="local-6989586621679389162"><span class="annot"><span class="annottext">Int -&gt; CreateDevicePool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389167"><span id="local-6989586621679389169"><span id="local-6989586621679389171"><span class="annot"><span class="annottext">Int -&gt; CreateDevicePool -&gt; ShowS
 [CreateDevicePool] -&gt; ShowS
 CreateDevicePool -&gt; String
 (Int -&gt; CreateDevicePool -&gt; ShowS)
@@ -163,9 +163,9 @@ $cfrom :: forall x. CreateDevicePool -&gt; Rep CreateDevicePool x
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span>
 </span><span id="line-107"></span><span id="newCreateDevicePool"><span class="annot"><span class="annottext">newCreateDevicePool :: Text -&gt; Text -&gt; CreateDevicePool
-</span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#newCreateDevicePool"><span class="hs-identifier hs-var hs-var">newCreateDevicePool</span></a></span></span><span> </span><span id="local-6989586621679389153"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389153"><span class="hs-identifier hs-var">pProjectArn_</span></a></span></span><span> </span><span id="local-6989586621679389152"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389152"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#newCreateDevicePool"><span class="hs-identifier hs-var hs-var">newCreateDevicePool</span></a></span></span><span> </span><span id="local-6989586621679389162"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389162"><span class="hs-identifier hs-var">pProjectArn_</span></a></span></span><span> </span><span id="local-6989586621679389161"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389161"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">CreateDevicePool' :: Maybe Int
 -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; [Rule] -&gt; CreateDevicePool
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span>
@@ -179,10 +179,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectArn:CreateDevicePool' :: Text
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3AprojectArn%3ACreateDevicePool%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389153"><span class="hs-identifier hs-var">pProjectArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389162"><span class="hs-identifier hs-var">pProjectArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateDevicePool' :: Text
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3Aname%3ACreateDevicePool%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389152"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389161"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:rules:CreateDevicePool' :: [Rule]
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3Arules%3ACreateDevicePool%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Rule]
 forall a. Monoid a =&gt; a
@@ -204,16 +204,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CreateDevicePool -&gt; Maybe Int -&gt; CreateDevicePool)
 -&gt; Lens CreateDevicePool CreateDevicePool (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389149"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389158"><span class="annot"><span class="annottext">Maybe Int
 maxDevices :: Maybe Int
 $sel:maxDevices:CreateDevicePool' :: CreateDevicePool -&gt; Maybe Int
-</span><a href="#local-6989586621679389149"><span class="hs-identifier hs-var hs-var">maxDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679389149"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389148"><span class="annot"><span class="annottext">s :: CreateDevicePool
-</span><a href="#local-6989586621679389148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389147"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679389147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
-</span><a href="#local-6989586621679389148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxDevices:CreateDevicePool' :: Maybe Int
+</span><a href="#local-6989586621679389158"><span class="hs-identifier hs-var hs-var">maxDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679389158"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389157"><span class="annot"><span class="annottext">s :: CreateDevicePool
+</span><a href="#local-6989586621679389157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389156"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679389156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
+</span><a href="#local-6989586621679389157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxDevices:CreateDevicePool' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3AmaxDevices%3ACreateDevicePool%27"><span class="hs-identifier hs-var">maxDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679389147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The device pool\'s description.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#createDevicePool_description"><span class="hs-identifier hs-type">createDevicePool_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -223,16 +223,16 @@ $sel:maxDevices:CreateDevicePool' :: CreateDevicePool -&gt; Maybe Int
 -&gt; (CreateDevicePool -&gt; Maybe Text -&gt; CreateDevicePool)
 -&gt; Lens CreateDevicePool CreateDevicePool (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389146"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389155"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateDevicePool' :: CreateDevicePool -&gt; Maybe Text
-</span><a href="#local-6989586621679389146"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389146"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389145"><span class="annot"><span class="annottext">s :: CreateDevicePool
-</span><a href="#local-6989586621679389145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389144"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
-</span><a href="#local-6989586621679389145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateDevicePool' :: Maybe Text
+</span><a href="#local-6989586621679389155"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389155"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389154"><span class="annot"><span class="annottext">s :: CreateDevicePool
+</span><a href="#local-6989586621679389154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
+</span><a href="#local-6989586621679389154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateDevicePool' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3Adescription%3ACreateDevicePool%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The ARN of the project for the device pool.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#createDevicePool_projectArn"><span class="hs-identifier hs-type">createDevicePool_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -241,16 +241,16 @@ $sel:description:CreateDevicePool' :: CreateDevicePool -&gt; Maybe Text
 -&gt; (CreateDevicePool -&gt; Text -&gt; CreateDevicePool)
 -&gt; Lens CreateDevicePool CreateDevicePool Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389143"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389152"><span class="annot"><span class="annottext">Text
 projectArn :: Text
 $sel:projectArn:CreateDevicePool' :: CreateDevicePool -&gt; Text
-</span><a href="#local-6989586621679389143"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389143"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389142"><span class="annot"><span class="annottext">s :: CreateDevicePool
-</span><a href="#local-6989586621679389142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389141"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
-</span><a href="#local-6989586621679389142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:CreateDevicePool' :: Text
+</span><a href="#local-6989586621679389152"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389152"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389151"><span class="annot"><span class="annottext">s :: CreateDevicePool
+</span><a href="#local-6989586621679389151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
+</span><a href="#local-6989586621679389151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:CreateDevicePool' :: Text
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3AprojectArn%3ACreateDevicePool%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The device pool\'s name.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#createDevicePool_name"><span class="hs-identifier hs-type">createDevicePool_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -259,16 +259,16 @@ $sel:projectArn:CreateDevicePool' :: CreateDevicePool -&gt; Text
 -&gt; (CreateDevicePool -&gt; Text -&gt; CreateDevicePool)
 -&gt; Lens CreateDevicePool CreateDevicePool Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389140"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389149"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateDevicePool' :: CreateDevicePool -&gt; Text
-</span><a href="#local-6989586621679389140"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389140"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389139"><span class="annot"><span class="annottext">s :: CreateDevicePool
-</span><a href="#local-6989586621679389139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389138"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
-</span><a href="#local-6989586621679389139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDevicePool' :: Text
+</span><a href="#local-6989586621679389149"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389149"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389148"><span class="annot"><span class="annottext">s :: CreateDevicePool
+</span><a href="#local-6989586621679389148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389147"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
+</span><a href="#local-6989586621679389148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDevicePool' :: Text
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3Aname%3ACreateDevicePool%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The device pool\'s rules.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#createDevicePool_rules"><span class="hs-identifier hs-type">createDevicePool_rules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">]</span><span>
@@ -277,16 +277,16 @@ $sel:name:CreateDevicePool' :: CreateDevicePool -&gt; Text
 -&gt; (CreateDevicePool -&gt; [Rule] -&gt; CreateDevicePool)
 -&gt; Lens CreateDevicePool CreateDevicePool [Rule] [Rule]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389137"><span class="annot"><span class="annottext">[Rule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389146"><span class="annot"><span class="annottext">[Rule]
 rules :: [Rule]
 $sel:rules:CreateDevicePool' :: CreateDevicePool -&gt; [Rule]
-</span><a href="#local-6989586621679389137"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Rule]
-</span><a href="#local-6989586621679389137"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389136"><span class="annot"><span class="annottext">s :: CreateDevicePool
-</span><a href="#local-6989586621679389136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389135"><span class="annot"><span class="annottext">[Rule]
-</span><a href="#local-6989586621679389135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
-</span><a href="#local-6989586621679389136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:CreateDevicePool' :: [Rule]
+</span><a href="#local-6989586621679389146"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Rule]
+</span><a href="#local-6989586621679389146"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389145"><span class="annot"><span class="annottext">s :: CreateDevicePool
+</span><a href="#local-6989586621679389145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389144"><span class="annot"><span class="annottext">[Rule]
+</span><a href="#local-6989586621679389144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePool
+</span><a href="#local-6989586621679389145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:CreateDevicePool' :: [Rule]
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3Arules%3ACreateDevicePool%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Rule]
-</span><a href="#local-6989586621679389135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Rule] -&gt; f [Rule]) -&gt; CreateDevicePool -&gt; f CreateDevicePool)
+</span><a href="#local-6989586621679389144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Rule] -&gt; f [Rule]) -&gt; CreateDevicePool -&gt; f CreateDevicePool)
 -&gt; (([Rule] -&gt; f [Rule]) -&gt; [Rule] -&gt; f [Rule])
 -&gt; ([Rule] -&gt; f [Rule])
 -&gt; CreateDevicePool
@@ -300,12 +300,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-type">CreateDevicePoolResponse</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679389129"><span class="annot"><span class="annottext">request :: CreateDevicePool -&gt; Request CreateDevicePool
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679389138"><span class="annot"><span class="annottext">request :: CreateDevicePool -&gt; Request CreateDevicePool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDevicePool -&gt; Request CreateDevicePool
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679389125"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679389134"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDevicePool
 -&gt; ClientResponse ClientBody
@@ -329,10 +329,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389122"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389122"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389121"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679389121"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389120"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389131"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389131"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389130"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389130"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389129"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389129"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe DevicePool -&gt; Int -&gt; CreateDevicePoolResponse
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-var">CreateDevicePoolResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DevicePool -&gt; Int -&gt; CreateDevicePoolResponse)
@@ -340,7 +340,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateDevicePoolResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DevicePool)
+</span><a href="#local-6989586621679389129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DevicePool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;devicePool&quot;</span></span><span class="hs-special">)</span><span>
@@ -352,15 +352,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389122"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389131"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389112"><span id="local-6989586621679389114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389121"><span id="local-6989586621679389123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679389105"><span class="annot"><span class="annottext">toHeaders :: CreateDevicePool -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679389114"><span class="annot"><span class="annottext">toHeaders :: CreateDevicePool -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDevicePool -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -387,9 +387,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389095"><span id="local-6989586621679389097"><span id="local-6989586621679389099"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679389093"><span class="annot"><span class="annottext">toJSON :: CreateDevicePool -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389087"><span id="local-6989586621679389088"><span id="local-6989586621679389089"><span id="local-6989586621679389090"><span id="local-6989586621679389091"><span class="annot"><span class="annottext">[Rule]
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389104"><span id="local-6989586621679389106"><span id="local-6989586621679389108"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679389102"><span class="annot"><span class="annottext">toJSON :: CreateDevicePool -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool%27"><span class="hs-identifier hs-type">CreateDevicePool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389096"><span id="local-6989586621679389097"><span id="local-6989586621679389098"><span id="local-6989586621679389099"><span id="local-6989586621679389100"><span class="annot"><span class="annottext">[Rule]
 Maybe Int
 Maybe Text
 Text
@@ -403,7 +403,7 @@ $sel:name:CreateDevicePool' :: CreateDevicePool -&gt; Text
 $sel:projectArn:CreateDevicePool' :: CreateDevicePool -&gt; Text
 $sel:description:CreateDevicePool' :: CreateDevicePool -&gt; Maybe Text
 $sel:maxDevices:CreateDevicePool' :: CreateDevicePool -&gt; Maybe Int
-</span><a href="#local-6989586621679389087"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389096"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -415,47 +415,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679389091"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389100"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389090"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389099"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;projectArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389089"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389098"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389088"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389097"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Rule] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Rule]
-</span><a href="#local-6989586621679389087"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389096"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679389081"><span class="annot"><span class="annottext">toPath :: CreateDevicePool -&gt; ByteString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679389090"><span class="annot"><span class="annottext">toPath :: CreateDevicePool -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDevicePool -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePool"><span class="hs-identifier hs-type">CreateDevicePool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679389077"><span class="annot"><span class="annottext">toQuery :: CreateDevicePool -&gt; QueryString
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679389086"><span class="annot"><span class="annottext">toQuery :: CreateDevicePool -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDevicePool -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -465,7 +465,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-193"></span><span class="hs-comment">-- | Represents the result of a create device pool request.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- /See:/ 'newCreateDevicePoolResponse' smart constructor.</span><span>
-</span><span id="line-196"></span><span id="local-6989586621679389074"><span id="local-6989586621679389075"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDevicePoolResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-var">CreateDevicePoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDevicePoolResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-var">CreateDevicePoolResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span id="local-6989586621679389083"><span id="local-6989586621679389084"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDevicePoolResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-var">CreateDevicePoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDevicePoolResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-var">CreateDevicePoolResponse'</span></a></span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The newly created device pool.</span><span>
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3AdevicePool%3ACreateDevicePoolResponse%27"><span class="annot"><span class="annottext">CreateDevicePoolResponse -&gt; Maybe DevicePool
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3AdevicePool%3ACreateDevicePoolResponse%27"><span class="hs-identifier hs-var hs-var">devicePool</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DevicePool.html#DevicePool"><span class="hs-identifier hs-type">DevicePool</span></a></span><span class="hs-special">,</span><span>
@@ -473,7 +473,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDevicePoolResponse%27"><span class="annot"><span class="annottext">CreateDevicePoolResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3AhttpStatus%3ACreateDevicePoolResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389068"><span id="local-6989586621679389070"><span class="annot"><span class="annottext">CreateDevicePoolResponse -&gt; CreateDevicePoolResponse -&gt; Bool
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389077"><span id="local-6989586621679389079"><span class="annot"><span class="annottext">CreateDevicePoolResponse -&gt; CreateDevicePoolResponse -&gt; Bool
 (CreateDevicePoolResponse -&gt; CreateDevicePoolResponse -&gt; Bool)
 -&gt; (CreateDevicePoolResponse -&gt; CreateDevicePoolResponse -&gt; Bool)
 -&gt; Eq CreateDevicePoolResponse
@@ -482,7 +482,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDevicePoolResponse -&gt; CreateDevicePoolResponse -&gt; Bool
 == :: CreateDevicePoolResponse -&gt; CreateDevicePoolResponse -&gt; Bool
 $c== :: CreateDevicePoolResponse -&gt; CreateDevicePoolResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389060"><span id="local-6989586621679389062"><span id="local-6989586621679389064"><span id="local-6989586621679389066"><span class="annot"><span class="annottext">ReadPrec [CreateDevicePoolResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389069"><span id="local-6989586621679389071"><span id="local-6989586621679389073"><span id="local-6989586621679389075"><span class="annot"><span class="annottext">ReadPrec [CreateDevicePoolResponse]
 ReadPrec CreateDevicePoolResponse
 Int -&gt; ReadS CreateDevicePoolResponse
 ReadS [CreateDevicePoolResponse]
@@ -502,7 +502,7 @@ readList :: ReadS [CreateDevicePoolResponse]
 $creadList :: ReadS [CreateDevicePoolResponse]
 readsPrec :: Int -&gt; ReadS CreateDevicePoolResponse
 $creadsPrec :: Int -&gt; ReadS CreateDevicePoolResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389054"><span id="local-6989586621679389056"><span id="local-6989586621679389058"><span class="annot"><span class="annottext">Int -&gt; CreateDevicePoolResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389063"><span id="local-6989586621679389065"><span id="local-6989586621679389067"><span class="annot"><span class="annottext">Int -&gt; CreateDevicePoolResponse -&gt; ShowS
 [CreateDevicePoolResponse] -&gt; ShowS
 CreateDevicePoolResponse -&gt; String
 (Int -&gt; CreateDevicePoolResponse -&gt; ShowS)
@@ -550,8 +550,8 @@ CreateDevicePoolResponse -&gt; Rep CreateDevicePoolResponse x
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-type">CreateDevicePoolResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newCreateDevicePoolResponse"><span class="annot"><span class="annottext">newCreateDevicePoolResponse :: Int -&gt; CreateDevicePoolResponse
-</span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#newCreateDevicePoolResponse"><span class="hs-identifier hs-var hs-var">newCreateDevicePoolResponse</span></a></span></span><span> </span><span id="local-6989586621679389051"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389051"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#newCreateDevicePoolResponse"><span class="hs-identifier hs-var hs-var">newCreateDevicePoolResponse</span></a></span></span><span> </span><span id="local-6989586621679389060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">CreateDevicePoolResponse' :: Maybe DevicePool -&gt; Int -&gt; CreateDevicePoolResponse
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-type">CreateDevicePoolResponse'</span></a></span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:devicePool:CreateDevicePoolResponse' :: Maybe DevicePool
@@ -561,7 +561,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDevicePoolResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3AhttpStatus%3ACreateDevicePoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389051"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679389060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The newly created device pool.</span><span>
@@ -577,16 +577,16 @@ forall a. Maybe a
      (Maybe DevicePool)
      (Maybe DevicePool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-type">CreateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389050"><span class="annot"><span class="annottext">Maybe DevicePool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-type">CreateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389059"><span class="annot"><span class="annottext">Maybe DevicePool
 devicePool :: Maybe DevicePool
 $sel:devicePool:CreateDevicePoolResponse' :: CreateDevicePoolResponse -&gt; Maybe DevicePool
-</span><a href="#local-6989586621679389050"><span class="hs-identifier hs-var hs-var">devicePool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DevicePool
-</span><a href="#local-6989586621679389050"><span class="hs-identifier hs-var">devicePool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389049"><span class="annot"><span class="annottext">s :: CreateDevicePoolResponse
-</span><a href="#local-6989586621679389049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-type">CreateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389048"><span class="annot"><span class="annottext">Maybe DevicePool
-</span><a href="#local-6989586621679389048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePoolResponse
-</span><a href="#local-6989586621679389049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devicePool:CreateDevicePoolResponse' :: Maybe DevicePool
+</span><a href="#local-6989586621679389059"><span class="hs-identifier hs-var hs-var">devicePool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DevicePool
+</span><a href="#local-6989586621679389059"><span class="hs-identifier hs-var">devicePool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389058"><span class="annot"><span class="annottext">s :: CreateDevicePoolResponse
+</span><a href="#local-6989586621679389058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-type">CreateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389057"><span class="annot"><span class="annottext">Maybe DevicePool
+</span><a href="#local-6989586621679389057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePoolResponse
+</span><a href="#local-6989586621679389058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devicePool:CreateDevicePoolResponse' :: Maybe DevicePool
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3AdevicePool%3ACreateDevicePoolResponse%27"><span class="hs-identifier hs-var">devicePool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DevicePool
-</span><a href="#local-6989586621679389048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-type">CreateDevicePoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-type">CreateDevicePoolResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#createDevicePoolResponse_httpStatus"><span class="hs-identifier hs-type">createDevicePoolResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-type">CreateDevicePoolResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -596,16 +596,16 @@ $sel:devicePool:CreateDevicePoolResponse' :: CreateDevicePoolResponse -&gt; Mayb
 -&gt; (CreateDevicePoolResponse -&gt; Int -&gt; CreateDevicePoolResponse)
 -&gt; Lens CreateDevicePoolResponse CreateDevicePoolResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-type">CreateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389047"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-type">CreateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389056"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDevicePoolResponse' :: CreateDevicePoolResponse -&gt; Int
-</span><a href="#local-6989586621679389047"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389047"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389046"><span class="annot"><span class="annottext">s :: CreateDevicePoolResponse
-</span><a href="#local-6989586621679389046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-type">CreateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389045"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePoolResponse
-</span><a href="#local-6989586621679389046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDevicePoolResponse' :: Int
+</span><a href="#local-6989586621679389056"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389056"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389055"><span class="annot"><span class="annottext">s :: CreateDevicePoolResponse
+</span><a href="#local-6989586621679389055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse%27"><span class="hs-identifier hs-type">CreateDevicePoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389054"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDevicePoolResponse
+</span><a href="#local-6989586621679389055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDevicePoolResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#%24sel%3AhttpStatus%3ACreateDevicePoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-type">CreateDevicePoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-type">CreateDevicePoolResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-type">CreateDevicePoolResponse</span></a></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.CreateDevicePool.html#CreateDevicePoolResponse"><span class="hs-identifier hs-type">CreateDevicePoolResponse</span></a></span></span><span>
 </span><span id="line-235"></span></pre></body></html>

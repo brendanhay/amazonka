@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newPutPermission' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679310498"><span id="local-6989586621679310499"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPermission"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-var">PutPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPermission%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-var">PutPermission'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679310507"><span id="local-6989586621679310508"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPermission"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-var">PutPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPermission%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-var">PutPermission'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The action that you are enabling the other account to perform.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Aaction%3APutPermission%27"><span class="annot"><span class="annottext">PutPermission -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#%24sel%3Aaction%3APutPermission%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -118,7 +118,7 @@
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3Acondition%3APutPermission%27"><span class="annot"><span class="annottext">PutPermission -&gt; Maybe Condition
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#%24sel%3Acondition%3APutPermission%27"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310487"><span id="local-6989586621679310489"><span class="annot"><span class="annottext">PutPermission -&gt; PutPermission -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310496"><span id="local-6989586621679310498"><span class="annot"><span class="annottext">PutPermission -&gt; PutPermission -&gt; Bool
 (PutPermission -&gt; PutPermission -&gt; Bool)
 -&gt; (PutPermission -&gt; PutPermission -&gt; Bool) -&gt; Eq PutPermission
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -126,7 +126,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutPermission -&gt; PutPermission -&gt; Bool
 == :: PutPermission -&gt; PutPermission -&gt; Bool
 $c== :: PutPermission -&gt; PutPermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310478"><span id="local-6989586621679310480"><span id="local-6989586621679310482"><span id="local-6989586621679310484"><span class="annot"><span class="annottext">ReadPrec [PutPermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310487"><span id="local-6989586621679310489"><span id="local-6989586621679310491"><span id="local-6989586621679310493"><span class="annot"><span class="annottext">ReadPrec [PutPermission]
 ReadPrec PutPermission
 Int -&gt; ReadS PutPermission
 ReadS [PutPermission]
@@ -146,7 +146,7 @@ readList :: ReadS [PutPermission]
 $creadList :: ReadS [PutPermission]
 readsPrec :: Int -&gt; ReadS PutPermission
 $creadsPrec :: Int -&gt; ReadS PutPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310471"><span id="local-6989586621679310473"><span id="local-6989586621679310475"><span class="annot"><span class="annottext">Int -&gt; PutPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310480"><span id="local-6989586621679310482"><span id="local-6989586621679310484"><span class="annot"><span class="annottext">Int -&gt; PutPermission -&gt; ShowS
 [PutPermission] -&gt; ShowS
 PutPermission -&gt; String
 (Int -&gt; PutPermission -&gt; ShowS)
@@ -262,16 +262,16 @@ forall a. Maybe a
 -&gt; (PutPermission -&gt; Maybe Text -&gt; PutPermission)
 -&gt; Lens PutPermission PutPermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310464"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310473"><span class="annot"><span class="annottext">Maybe Text
 action :: Maybe Text
 $sel:action:PutPermission' :: PutPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679310464"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310464"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310463"><span class="annot"><span class="annottext">s :: PutPermission
-</span><a href="#local-6989586621679310463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310462"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
-</span><a href="#local-6989586621679310463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:PutPermission' :: Maybe Text
+</span><a href="#local-6989586621679310473"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310473"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310472"><span class="annot"><span class="annottext">s :: PutPermission
+</span><a href="#local-6989586621679310472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
+</span><a href="#local-6989586621679310472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:PutPermission' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#%24sel%3Aaction%3APutPermission%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The name of the event bus associated with the rule. If you omit this,</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- the default event bus is used.</span><span>
@@ -281,16 +281,16 @@ $sel:action:PutPermission' :: PutPermission -&gt; Maybe Text
 -&gt; (PutPermission -&gt; Maybe Text -&gt; PutPermission)
 -&gt; Lens PutPermission PutPermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310461"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310470"><span class="annot"><span class="annottext">Maybe Text
 eventBusName :: Maybe Text
 $sel:eventBusName:PutPermission' :: PutPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679310461"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310461"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310460"><span class="annot"><span class="annottext">s :: PutPermission
-</span><a href="#local-6989586621679310460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310459"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
-</span><a href="#local-6989586621679310460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBusName:PutPermission' :: Maybe Text
+</span><a href="#local-6989586621679310470"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310470"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310469"><span class="annot"><span class="annottext">s :: PutPermission
+</span><a href="#local-6989586621679310469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
+</span><a href="#local-6989586621679310469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBusName:PutPermission' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#%24sel%3AeventBusName%3APutPermission%27"><span class="hs-identifier hs-var">eventBusName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The 12-digit Amazon Web Services account ID that you are permitting to</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- put events to your default event bus. Specify \&quot;*\&quot; to permit any</span><span>
@@ -307,16 +307,16 @@ $sel:eventBusName:PutPermission' :: PutPermission -&gt; Maybe Text
 -&gt; (PutPermission -&gt; Maybe Text -&gt; PutPermission)
 -&gt; Lens PutPermission PutPermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310458"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310467"><span class="annot"><span class="annottext">Maybe Text
 principal :: Maybe Text
 $sel:principal:PutPermission' :: PutPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679310458"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310458"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310457"><span class="annot"><span class="annottext">s :: PutPermission
-</span><a href="#local-6989586621679310457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310456"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
-</span><a href="#local-6989586621679310457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:PutPermission' :: Maybe Text
+</span><a href="#local-6989586621679310467"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310467"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310466"><span class="annot"><span class="annottext">s :: PutPermission
+</span><a href="#local-6989586621679310466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
+</span><a href="#local-6989586621679310466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:PutPermission' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#%24sel%3Aprincipal%3APutPermission%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | A JSON string that describes the permission policy statement. You can</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- include a @Policy@ parameter in the request instead of using the</span><span>
@@ -327,16 +327,16 @@ $sel:principal:PutPermission' :: PutPermission -&gt; Maybe Text
 -&gt; (PutPermission -&gt; Maybe Text -&gt; PutPermission)
 -&gt; Lens PutPermission PutPermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310455"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310464"><span class="annot"><span class="annottext">Maybe Text
 policy :: Maybe Text
 $sel:policy:PutPermission' :: PutPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679310455"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310455"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310454"><span class="annot"><span class="annottext">s :: PutPermission
-</span><a href="#local-6989586621679310454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310453"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
-</span><a href="#local-6989586621679310454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutPermission' :: Maybe Text
+</span><a href="#local-6989586621679310464"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310464"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310463"><span class="annot"><span class="annottext">s :: PutPermission
+</span><a href="#local-6989586621679310463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
+</span><a href="#local-6989586621679310463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:PutPermission' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#%24sel%3Apolicy%3APutPermission%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | An identifier string for the external account that you are granting</span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- permissions to. If you later want to revoke the permission for this</span><span>
@@ -348,16 +348,16 @@ $sel:policy:PutPermission' :: PutPermission -&gt; Maybe Text
 -&gt; (PutPermission -&gt; Maybe Text -&gt; PutPermission)
 -&gt; Lens PutPermission PutPermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310452"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310461"><span class="annot"><span class="annottext">Maybe Text
 statementId :: Maybe Text
 $sel:statementId:PutPermission' :: PutPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679310452"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310452"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310451"><span class="annot"><span class="annottext">s :: PutPermission
-</span><a href="#local-6989586621679310451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310450"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
-</span><a href="#local-6989586621679310451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementId:PutPermission' :: Maybe Text
+</span><a href="#local-6989586621679310461"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310461"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310460"><span class="annot"><span class="annottext">s :: PutPermission
+</span><a href="#local-6989586621679310460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
+</span><a href="#local-6989586621679310460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementId:PutPermission' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#%24sel%3AstatementId%3APutPermission%27"><span class="hs-identifier hs-var">statementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | This parameter enables you to limit the permission to accounts that</span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- fulfill a certain condition, such as being a member of a certain Amazon</span><span>
@@ -380,27 +380,27 @@ $sel:statementId:PutPermission' :: PutPermission -&gt; Maybe Text
 -&gt; Lens
      PutPermission PutPermission (Maybe Condition) (Maybe Condition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310449"><span class="annot"><span class="annottext">Maybe Condition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310458"><span class="annot"><span class="annottext">Maybe Condition
 condition :: Maybe Condition
 $sel:condition:PutPermission' :: PutPermission -&gt; Maybe Condition
-</span><a href="#local-6989586621679310449"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Condition
-</span><a href="#local-6989586621679310449"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310448"><span class="annot"><span class="annottext">s :: PutPermission
-</span><a href="#local-6989586621679310448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310447"><span class="annot"><span class="annottext">Maybe Condition
-</span><a href="#local-6989586621679310447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
-</span><a href="#local-6989586621679310448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:PutPermission' :: Maybe Condition
+</span><a href="#local-6989586621679310458"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Condition
+</span><a href="#local-6989586621679310458"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310457"><span class="annot"><span class="annottext">s :: PutPermission
+</span><a href="#local-6989586621679310457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310456"><span class="annot"><span class="annottext">Maybe Condition
+</span><a href="#local-6989586621679310456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutPermission
+</span><a href="#local-6989586621679310457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:PutPermission' :: Maybe Condition
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#%24sel%3Acondition%3APutPermission%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Condition
-</span><a href="#local-6989586621679310447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-226"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-227"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermissionResponse"><span class="hs-identifier hs-type">PutPermissionResponse</span></a></span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679310443"><span class="annot"><span class="annottext">request :: PutPermission -&gt; Request PutPermission
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679310452"><span class="annot"><span class="annottext">request :: PutPermission -&gt; Request PutPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutPermission -&gt; Request PutPermission
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679310439"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679310448"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutPermission
 -&gt; ClientResponse ClientBody
@@ -424,12 +424,12 @@ AWSResponse a
 PutPermissionResponse
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermissionResponse%27"><span class="hs-identifier hs-var">PutPermissionResponse'</span></a></span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310432"><span id="local-6989586621679310434"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span></span></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310441"><span id="local-6989586621679310443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span></span></span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span></span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679310425"><span class="annot"><span class="annottext">toHeaders :: PutPermission -&gt; [Header]
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679310434"><span class="annot"><span class="annottext">toHeaders :: PutPermission -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutPermission -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -454,9 +454,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-246"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-247"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310415"><span id="local-6989586621679310417"><span id="local-6989586621679310419"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-250"></span><span>  </span><span id="local-6989586621679310413"><span class="annot"><span class="annottext">toJSON :: PutPermission -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310406"><span id="local-6989586621679310407"><span id="local-6989586621679310408"><span id="local-6989586621679310409"><span id="local-6989586621679310410"><span id="local-6989586621679310411"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310424"><span id="local-6989586621679310426"><span id="local-6989586621679310428"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679310422"><span class="annot"><span class="annottext">toJSON :: PutPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission%27"><span class="hs-identifier hs-type">PutPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310415"><span id="local-6989586621679310416"><span id="local-6989586621679310417"><span id="local-6989586621679310418"><span id="local-6989586621679310419"><span id="local-6989586621679310420"><span class="annot"><span class="annottext">Maybe Text
 Maybe Condition
 condition :: Maybe Condition
 statementId :: Maybe Text
@@ -470,7 +470,7 @@ $sel:policy:PutPermission' :: PutPermission -&gt; Maybe Text
 $sel:principal:PutPermission' :: PutPermission -&gt; Maybe Text
 $sel:eventBusName:PutPermission' :: PutPermission -&gt; Maybe Text
 $sel:action:PutPermission' :: PutPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679310406"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679310415"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -482,54 +482,54 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310411"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310420"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventBusName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310410"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310419"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Principal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310409"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310418"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310408"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310417"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatementId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310407"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310416"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Condition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Condition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Condition -&gt; Pair) -&gt; Maybe Condition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Condition
-</span><a href="#local-6989586621679310406"><span class="hs-identifier hs-var">condition</span></a></span><span>
+</span><a href="#local-6989586621679310415"><span class="hs-identifier hs-var">condition</span></a></span><span>
 </span><span id="line-259"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-260"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621679310399"><span class="annot"><span class="annottext">toPath :: PutPermission -&gt; ByteString
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679310408"><span class="annot"><span class="annottext">toPath :: PutPermission -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutPermission -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermission"><span class="hs-identifier hs-type">PutPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679310395"><span class="annot"><span class="annottext">toQuery :: PutPermission -&gt; QueryString
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679310404"><span class="annot"><span class="annottext">toQuery :: PutPermission -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutPermission -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -537,10 +537,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- | /See:/ 'newPutPermissionResponse' smart constructor.</span><span>
-</span><span id="line-269"></span><span id="local-6989586621679310392"><span id="local-6989586621679310393"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPermissionResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermissionResponse"><span class="hs-identifier hs-var">PutPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPermissionResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermissionResponse%27"><span class="hs-identifier hs-var">PutPermissionResponse'</span></a></span></span><span>
+</span><span id="line-269"></span><span id="local-6989586621679310401"><span id="local-6989586621679310402"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutPermissionResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermissionResponse"><span class="hs-identifier hs-var">PutPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutPermissionResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermissionResponse%27"><span class="hs-identifier hs-var">PutPermissionResponse'</span></a></span></span><span>
 </span><span id="line-270"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-271"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-272"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310388"><span id="local-6989586621679310390"><span class="annot"><span class="annottext">PutPermissionResponse -&gt; PutPermissionResponse -&gt; Bool
+</span><span id="line-272"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310397"><span id="local-6989586621679310399"><span class="annot"><span class="annottext">PutPermissionResponse -&gt; PutPermissionResponse -&gt; Bool
 (PutPermissionResponse -&gt; PutPermissionResponse -&gt; Bool)
 -&gt; (PutPermissionResponse -&gt; PutPermissionResponse -&gt; Bool)
 -&gt; Eq PutPermissionResponse
@@ -549,7 +549,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutPermissionResponse -&gt; PutPermissionResponse -&gt; Bool
 == :: PutPermissionResponse -&gt; PutPermissionResponse -&gt; Bool
 $c== :: PutPermissionResponse -&gt; PutPermissionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310380"><span id="local-6989586621679310382"><span id="local-6989586621679310384"><span id="local-6989586621679310386"><span class="annot"><span class="annottext">ReadPrec [PutPermissionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310389"><span id="local-6989586621679310391"><span id="local-6989586621679310393"><span id="local-6989586621679310395"><span class="annot"><span class="annottext">ReadPrec [PutPermissionResponse]
 ReadPrec PutPermissionResponse
 Int -&gt; ReadS PutPermissionResponse
 ReadS [PutPermissionResponse]
@@ -569,7 +569,7 @@ readList :: ReadS [PutPermissionResponse]
 $creadList :: ReadS [PutPermissionResponse]
 readsPrec :: Int -&gt; ReadS PutPermissionResponse
 $creadsPrec :: Int -&gt; ReadS PutPermissionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310374"><span id="local-6989586621679310376"><span id="local-6989586621679310378"><span class="annot"><span class="annottext">Int -&gt; PutPermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310383"><span id="local-6989586621679310385"><span id="local-6989586621679310387"><span class="annot"><span class="annottext">Int -&gt; PutPermissionResponse -&gt; ShowS
 [PutPermissionResponse] -&gt; ShowS
 PutPermissionResponse -&gt; String
 (Int -&gt; PutPermissionResponse -&gt; ShowS)
@@ -605,5 +605,5 @@ $cfrom :: forall x. PutPermissionResponse -&gt; Rep PutPermissionResponse x
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#newPutPermissionResponse"><span class="hs-identifier hs-var hs-var">newPutPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutPermissionResponse
 </span><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermissionResponse%27"><span class="hs-identifier hs-var">PutPermissionResponse'</span></a></span><span>
 </span><span id="line-281"></span><span>
-</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermissionResponse"><span class="hs-identifier hs-type">PutPermissionResponse</span></a></span></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.PutPermission.html#PutPermissionResponse"><span class="hs-identifier hs-type">PutPermissionResponse</span></a></span></span><span>
 </span><span id="line-283"></span></pre></body></html>

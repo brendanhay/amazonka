@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.Compute</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.Compute</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.ComputeType.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types.ComputeType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Compute information for the simulation job.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCompute' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679365534"><span id="local-6989586621679365535"></span></span><span class="hs-keyword">data</span><span> </span><span id="Compute"><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-var">Compute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Compute%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-var">Compute'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The simulation unit limit. Your simulation is allocated CPU and memory</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- proportional to the supplied simulation unit limit. A simulation unit is</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- 1 vcpu and 2GB of memory. You are only billed for the SU utilization you</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- consume up to the maximum value provided. The default is 15.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsimulationUnitLimit%3ACompute%27"><span class="annot"><span class="annottext">Compute -&gt; Maybe Natural
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#%24sel%3AsimulationUnitLimit%3ACompute%27"><span class="hs-identifier hs-var hs-var">simulationUnitLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Compute GPU unit limit for the simulation job. It is the same as the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- number of GPUs allocated to the SimulationJob.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AgpuUnitLimit%3ACompute%27"><span class="annot"><span class="annottext">Compute -&gt; Maybe Natural
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#%24sel%3AgpuUnitLimit%3ACompute%27"><span class="hs-identifier hs-var hs-var">gpuUnitLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Compute type information for the simulation job.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcomputeType%3ACompute%27"><span class="annot"><span class="annottext">Compute -&gt; Maybe ComputeType
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#%24sel%3AcomputeType%3ACompute%27"><span class="hs-identifier hs-var hs-var">computeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365526"><span id="local-6989586621679365528"><span class="annot"><span class="annottext">Compute -&gt; Compute -&gt; Bool
+(Compute -&gt; Compute -&gt; Bool)
+-&gt; (Compute -&gt; Compute -&gt; Bool) -&gt; Eq Compute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Compute -&gt; Compute -&gt; Bool
+$c/= :: Compute -&gt; Compute -&gt; Bool
+== :: Compute -&gt; Compute -&gt; Bool
+$c== :: Compute -&gt; Compute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365517"><span id="local-6989586621679365519"><span id="local-6989586621679365521"><span id="local-6989586621679365523"><span class="annot"><span class="annottext">ReadPrec [Compute]
+ReadPrec Compute
+Int -&gt; ReadS Compute
+ReadS [Compute]
+(Int -&gt; ReadS Compute)
+-&gt; ReadS [Compute]
+-&gt; ReadPrec Compute
+-&gt; ReadPrec [Compute]
+-&gt; Read Compute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Compute]
+$creadListPrec :: ReadPrec [Compute]
+readPrec :: ReadPrec Compute
+$creadPrec :: ReadPrec Compute
+readList :: ReadS [Compute]
+$creadList :: ReadS [Compute]
+readsPrec :: Int -&gt; ReadS Compute
+$creadsPrec :: Int -&gt; ReadS Compute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365510"><span id="local-6989586621679365512"><span id="local-6989586621679365514"><span class="annot"><span class="annottext">Int -&gt; Compute -&gt; ShowS
+[Compute] -&gt; ShowS
+Compute -&gt; String
+(Int -&gt; Compute -&gt; ShowS)
+-&gt; (Compute -&gt; String) -&gt; ([Compute] -&gt; ShowS) -&gt; Show Compute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Compute] -&gt; ShowS
+$cshowList :: [Compute] -&gt; ShowS
+show :: Compute -&gt; String
+$cshow :: Compute -&gt; String
+showsPrec :: Int -&gt; Compute -&gt; ShowS
+$cshowsPrec :: Int -&gt; Compute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Compute -&gt; Rep Compute x)
+-&gt; (forall x. Rep Compute x -&gt; Compute) -&gt; Generic Compute
+forall x. Rep Compute x -&gt; Compute
+forall x. Compute -&gt; Rep Compute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Compute x -&gt; Compute
+$cfrom :: forall x. Compute -&gt; Rep Compute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'Compute' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'simulationUnitLimit', 'compute_simulationUnitLimit' - The simulation unit limit. Your simulation is allocated CPU and memory</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- proportional to the supplied simulation unit limit. A simulation unit is</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 1 vcpu and 2GB of memory. You are only billed for the SU utilization you</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- consume up to the maximum value provided. The default is 15.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'gpuUnitLimit', 'compute_gpuUnitLimit' - Compute GPU unit limit for the simulation job. It is the same as the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- number of GPUs allocated to the SimulationJob.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'computeType', 'compute_computeType' - Compute type information for the simulation job.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#newCompute"><span class="hs-identifier hs-type">newCompute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span><span>
+</span><span id="line-63"></span><span id="newCompute"><span class="annot"><span class="annottext">newCompute :: Compute
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#newCompute"><span class="hs-identifier hs-var hs-var">newCompute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">Compute' :: Maybe Natural -&gt; Maybe Natural -&gt; Maybe ComputeType -&gt; Compute
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-type">Compute'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:simulationUnitLimit:Compute' :: Maybe Natural
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#%24sel%3AsimulationUnitLimit%3ACompute%27"><span class="hs-identifier hs-var">simulationUnitLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:gpuUnitLimit:Compute' :: Maybe Natural
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#%24sel%3AgpuUnitLimit%3ACompute%27"><span class="hs-identifier hs-var">gpuUnitLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:computeType:Compute' :: Maybe ComputeType
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#%24sel%3AcomputeType%3ACompute%27"><span class="hs-identifier hs-var">computeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The simulation unit limit. Your simulation is allocated CPU and memory</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- proportional to the supplied simulation unit limit. A simulation unit is</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 1 vcpu and 2GB of memory. You are only billed for the SU utilization you</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- consume up to the maximum value provided. The default is 15.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#compute_simulationUnitLimit"><span class="hs-identifier hs-type">compute_simulationUnitLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="compute_simulationUnitLimit"><span class="annot"><span class="annottext">compute_simulationUnitLimit :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Compute -&gt; f Compute
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#compute_simulationUnitLimit"><span class="hs-identifier hs-var hs-var">compute_simulationUnitLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Compute -&gt; Maybe Natural)
+-&gt; (Compute -&gt; Maybe Natural -&gt; Compute)
+-&gt; Lens Compute Compute (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-type">Compute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365501"><span class="annot"><span class="annottext">Maybe Natural
+simulationUnitLimit :: Maybe Natural
+$sel:simulationUnitLimit:Compute' :: Compute -&gt; Maybe Natural
+</span><a href="#local-6989586621679365501"><span class="hs-identifier hs-var hs-var">simulationUnitLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679365501"><span class="hs-identifier hs-var">simulationUnitLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365500"><span class="annot"><span class="annottext">s :: Compute
+</span><a href="#local-6989586621679365500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-type">Compute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365499"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679365499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Compute
+</span><a href="#local-6989586621679365500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:simulationUnitLimit:Compute' :: Maybe Natural
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#%24sel%3AsimulationUnitLimit%3ACompute%27"><span class="hs-identifier hs-var">simulationUnitLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679365499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Compute GPU unit limit for the simulation job. It is the same as the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- number of GPUs allocated to the SimulationJob.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#compute_gpuUnitLimit"><span class="hs-identifier hs-type">compute_gpuUnitLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="compute_gpuUnitLimit"><span class="annot"><span class="annottext">compute_gpuUnitLimit :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Compute -&gt; f Compute
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#compute_gpuUnitLimit"><span class="hs-identifier hs-var hs-var">compute_gpuUnitLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Compute -&gt; Maybe Natural)
+-&gt; (Compute -&gt; Maybe Natural -&gt; Compute)
+-&gt; Lens Compute Compute (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-type">Compute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365497"><span class="annot"><span class="annottext">Maybe Natural
+gpuUnitLimit :: Maybe Natural
+$sel:gpuUnitLimit:Compute' :: Compute -&gt; Maybe Natural
+</span><a href="#local-6989586621679365497"><span class="hs-identifier hs-var hs-var">gpuUnitLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679365497"><span class="hs-identifier hs-var">gpuUnitLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365496"><span class="annot"><span class="annottext">s :: Compute
+</span><a href="#local-6989586621679365496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-type">Compute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365495"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679365495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Compute
+</span><a href="#local-6989586621679365496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gpuUnitLimit:Compute' :: Maybe Natural
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#%24sel%3AgpuUnitLimit%3ACompute%27"><span class="hs-identifier hs-var">gpuUnitLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679365495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Compute type information for the simulation job.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#compute_computeType"><span class="hs-identifier hs-type">compute_computeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="compute_computeType"><span class="annot"><span class="annottext">compute_computeType :: (Maybe ComputeType -&gt; f (Maybe ComputeType))
+-&gt; Compute -&gt; f Compute
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#compute_computeType"><span class="hs-identifier hs-var hs-var">compute_computeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Compute -&gt; Maybe ComputeType)
+-&gt; (Compute -&gt; Maybe ComputeType -&gt; Compute)
+-&gt; Lens Compute Compute (Maybe ComputeType) (Maybe ComputeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-type">Compute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365493"><span class="annot"><span class="annottext">Maybe ComputeType
+computeType :: Maybe ComputeType
+$sel:computeType:Compute' :: Compute -&gt; Maybe ComputeType
+</span><a href="#local-6989586621679365493"><span class="hs-identifier hs-var hs-var">computeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeType
+</span><a href="#local-6989586621679365493"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365492"><span class="annot"><span class="annottext">s :: Compute
+</span><a href="#local-6989586621679365492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-type">Compute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365491"><span class="annot"><span class="annottext">Maybe ComputeType
+</span><a href="#local-6989586621679365491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Compute
+</span><a href="#local-6989586621679365492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeType:Compute' :: Maybe ComputeType
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#%24sel%3AcomputeType%3ACompute%27"><span class="hs-identifier hs-var">computeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComputeType
+</span><a href="#local-6989586621679365491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365488"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679365486"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Compute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Compute) -&gt; Value -&gt; Parser Compute
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Compute&quot;</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365483"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365483"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; Maybe ComputeType -&gt; Compute
+</span><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-var">Compute'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; Maybe ComputeType -&gt; Compute)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Natural -&gt; Maybe ComputeType -&gt; Compute)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;simulationUnitLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe ComputeType -&gt; Compute)
+-&gt; Parser (Maybe Natural) -&gt; Parser (Maybe ComputeType -&gt; Compute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gpuUnitLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ComputeType -&gt; Compute)
+-&gt; Parser (Maybe ComputeType) -&gt; Parser Compute
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComputeType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;computeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365477"><span id="local-6989586621679365479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365466"><span id="local-6989586621679365468"><span id="local-6989586621679365470"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute"><span class="hs-identifier hs-type">Compute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679365464"><span class="annot"><span class="annottext">toJSON :: Compute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Compute.html#Compute%27"><span class="hs-identifier hs-type">Compute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365460"><span id="local-6989586621679365461"><span id="local-6989586621679365462"><span class="annot"><span class="annottext">Maybe Natural
+Maybe ComputeType
+computeType :: Maybe ComputeType
+gpuUnitLimit :: Maybe Natural
+simulationUnitLimit :: Maybe Natural
+$sel:computeType:Compute' :: Compute -&gt; Maybe ComputeType
+$sel:gpuUnitLimit:Compute' :: Compute -&gt; Maybe Natural
+$sel:simulationUnitLimit:Compute' :: Compute -&gt; Maybe Natural
+</span><a href="#local-6989586621679365460"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;simulationUnitLimit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679365462"><span class="hs-identifier hs-var">simulationUnitLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gpuUnitLimit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679365461"><span class="hs-identifier hs-var">gpuUnitLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;computeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComputeType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ComputeType -&gt; Pair) -&gt; Maybe ComputeType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ComputeType
+</span><a href="#local-6989586621679365460"><span class="hs-identifier hs-var">computeType</span></a></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span></pre></body></html>

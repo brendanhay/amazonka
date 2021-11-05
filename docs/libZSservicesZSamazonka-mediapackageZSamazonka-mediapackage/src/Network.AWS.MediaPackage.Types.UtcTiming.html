@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679240058"><span id="local-6989586621679240059"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UtcTiming"><span class="annot"><a href="Network.AWS.MediaPackage.Types.UtcTiming.html#UtcTiming"><span class="hs-identifier hs-var">UtcTiming</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UtcTiming%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.UtcTiming.html#UtcTiming%27"><span class="hs-identifier hs-var">UtcTiming'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679240067"><span id="local-6989586621679240068"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UtcTiming"><span class="annot"><a href="Network.AWS.MediaPackage.Types.UtcTiming.html#UtcTiming"><span class="hs-identifier hs-var">UtcTiming</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UtcTiming%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.UtcTiming.html#UtcTiming%27"><span class="hs-identifier hs-var">UtcTiming'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUtcTiming"><span class="annot"><span class="annottext">UtcTiming -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.UtcTiming.html#fromUtcTiming"><span class="hs-identifier hs-var hs-var">fromUtcTiming</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240050"><span id="local-6989586621679240052"><span id="local-6989586621679240054"><span class="annot"><span class="annottext">Int -&gt; UtcTiming -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240059"><span id="local-6989586621679240061"><span id="local-6989586621679240063"><span class="annot"><span class="annottext">Int -&gt; UtcTiming -&gt; ShowS
 [UtcTiming] -&gt; ShowS
 UtcTiming -&gt; String
 (Int -&gt; UtcTiming -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: UtcTiming -&gt; String
 showsPrec :: Int -&gt; UtcTiming -&gt; ShowS
 $cshowsPrec :: Int -&gt; UtcTiming -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679240041"><span id="local-6989586621679240043"><span id="local-6989586621679240045"><span id="local-6989586621679240047"><span class="annot"><span class="annottext">ReadPrec [UtcTiming]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679240050"><span id="local-6989586621679240052"><span id="local-6989586621679240054"><span id="local-6989586621679240056"><span class="annot"><span class="annottext">ReadPrec [UtcTiming]
 ReadPrec UtcTiming
 Int -&gt; ReadS UtcTiming
 ReadS [UtcTiming]
@@ -73,7 +73,7 @@ $creadList :: ReadS [UtcTiming]
 readsPrec :: Int -&gt; ReadS UtcTiming
 $creadsPrec :: Int -&gt; ReadS UtcTiming
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679240036"><span id="local-6989586621679240038"><span class="annot"><span class="annottext">UtcTiming -&gt; UtcTiming -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679240045"><span id="local-6989586621679240047"><span class="annot"><span class="annottext">UtcTiming -&gt; UtcTiming -&gt; Bool
 (UtcTiming -&gt; UtcTiming -&gt; Bool)
 -&gt; (UtcTiming -&gt; UtcTiming -&gt; Bool) -&gt; Eq UtcTiming
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: UtcTiming -&gt; UtcTiming -&gt; Bool
 == :: UtcTiming -&gt; UtcTiming -&gt; Bool
 $c== :: UtcTiming -&gt; UtcTiming -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679240020"><span id="local-6989586621679240022"><span id="local-6989586621679240024"><span id="local-6989586621679240026"><span id="local-6989586621679240028"><span id="local-6989586621679240030"><span id="local-6989586621679240032"><span class="annot"><span class="annottext">Eq UtcTiming
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679240029"><span id="local-6989586621679240031"><span id="local-6989586621679240033"><span id="local-6989586621679240035"><span id="local-6989586621679240037"><span id="local-6989586621679240039"><span id="local-6989586621679240041"><span class="annot"><span class="annottext">Eq UtcTiming
 Eq UtcTiming
 -&gt; (UtcTiming -&gt; UtcTiming -&gt; Ordering)
 -&gt; (UtcTiming -&gt; UtcTiming -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. UtcTiming -&gt; Rep UtcTiming x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240012"><span id="local-6989586621679240014"><span class="annot"><span class="annottext">Int -&gt; UtcTiming -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240021"><span id="local-6989586621679240023"><span class="annot"><span class="annottext">Int -&gt; UtcTiming -&gt; Int
 UtcTiming -&gt; Int
 (Int -&gt; UtcTiming -&gt; Int)
 -&gt; (UtcTiming -&gt; Int) -&gt; Hashable UtcTiming
@@ -142,49 +142,49 @@ $chash :: UtcTiming -&gt; Int
 hashWithSalt :: Int -&gt; UtcTiming -&gt; Int
 $chashWithSalt :: Int -&gt; UtcTiming -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679240009"><span class="annot"><span class="annottext">UtcTiming -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679240018"><span class="annot"><span class="annottext">UtcTiming -&gt; ()
 (UtcTiming -&gt; ()) -&gt; NFData UtcTiming
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UtcTiming -&gt; ()
 $crnf :: UtcTiming -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679240006"><span class="annot"><span class="annottext">Text -&gt; Either String UtcTiming
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679240015"><span class="annot"><span class="annottext">Text -&gt; Either String UtcTiming
 (Text -&gt; Either String UtcTiming) -&gt; FromText UtcTiming
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UtcTiming
 $cfromText :: Text -&gt; Either String UtcTiming
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679240003"><span class="annot"><span class="annottext">UtcTiming -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679240012"><span class="annot"><span class="annottext">UtcTiming -&gt; Text
 (UtcTiming -&gt; Text) -&gt; ToText UtcTiming
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UtcTiming -&gt; Text
 $ctoText :: UtcTiming -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679240000"><span class="annot"><span class="annottext">UtcTiming -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679240009"><span class="annot"><span class="annottext">UtcTiming -&gt; ByteString
 (UtcTiming -&gt; ByteString) -&gt; ToByteString UtcTiming
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UtcTiming -&gt; ByteString
 $ctoBS :: UtcTiming -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679239997"><span class="annot"><span class="annottext">UtcTiming -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679240006"><span class="annot"><span class="annottext">UtcTiming -&gt; ByteStringBuilder
 (UtcTiming -&gt; ByteStringBuilder) -&gt; ToLog UtcTiming
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UtcTiming -&gt; ByteStringBuilder
 $cbuild :: UtcTiming -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679239994"><span class="annot"><span class="annottext">HeaderName -&gt; UtcTiming -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679240003"><span class="annot"><span class="annottext">HeaderName -&gt; UtcTiming -&gt; [Header]
 (HeaderName -&gt; UtcTiming -&gt; [Header]) -&gt; ToHeader UtcTiming
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UtcTiming -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UtcTiming -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679239991"><span class="annot"><span class="annottext">UtcTiming -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679240000"><span class="annot"><span class="annottext">UtcTiming -&gt; QueryString
 (UtcTiming -&gt; QueryString) -&gt; ToQuery UtcTiming
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UtcTiming -&gt; QueryString
 $ctoQuery :: UtcTiming -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679239986"><span id="local-6989586621679239988"><span class="annot"><span class="annottext">Value -&gt; Parser [UtcTiming]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679239995"><span id="local-6989586621679239997"><span class="annot"><span class="annottext">Value -&gt; Parser [UtcTiming]
 Value -&gt; Parser UtcTiming
 (Value -&gt; Parser UtcTiming)
 -&gt; (Value -&gt; Parser [UtcTiming]) -&gt; FromJSON UtcTiming
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [UtcTiming]
 parseJSON :: Value -&gt; Parser UtcTiming
 $cparseJSON :: Value -&gt; Parser UtcTiming
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679239981"><span id="local-6989586621679239983"><span class="annot"><span class="annottext">FromJSONKeyFunction [UtcTiming]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679239990"><span id="local-6989586621679239992"><span class="annot"><span class="annottext">FromJSONKeyFunction [UtcTiming]
 FromJSONKeyFunction UtcTiming
 FromJSONKeyFunction UtcTiming
 -&gt; FromJSONKeyFunction [UtcTiming] -&gt; FromJSONKey UtcTiming
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UtcTiming]
 fromJSONKey :: FromJSONKeyFunction UtcTiming
 $cfromJSONKey :: FromJSONKeyFunction UtcTiming
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679239972"><span id="local-6989586621679239974"><span id="local-6989586621679239976"><span id="local-6989586621679239978"><span class="annot"><span class="annottext">[UtcTiming] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679239981"><span id="local-6989586621679239983"><span id="local-6989586621679239985"><span id="local-6989586621679239987"><span class="annot"><span class="annottext">[UtcTiming] -&gt; Encoding
 [UtcTiming] -&gt; Value
 UtcTiming -&gt; Encoding
 UtcTiming -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: UtcTiming -&gt; Encoding
 toJSON :: UtcTiming -&gt; Value
 $ctoJSON :: UtcTiming -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679239967"><span id="local-6989586621679239969"><span class="annot"><span class="annottext">ToJSONKeyFunction [UtcTiming]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679239976"><span id="local-6989586621679239978"><span class="annot"><span class="annottext">ToJSONKeyFunction [UtcTiming]
 ToJSONKeyFunction UtcTiming
 ToJSONKeyFunction UtcTiming
 -&gt; ToJSONKeyFunction [UtcTiming] -&gt; ToJSONKey UtcTiming
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UtcTiming]
 toJSONKey :: ToJSONKeyFunction UtcTiming
 $ctoJSONKey :: ToJSONKeyFunction UtcTiming
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679239964"><span class="annot"><span class="annottext">[Node] -&gt; Either String UtcTiming
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679239973"><span class="annot"><span class="annottext">[Node] -&gt; Either String UtcTiming
 ([Node] -&gt; Either String UtcTiming) -&gt; FromXML UtcTiming
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UtcTiming
 $cparseXML :: [Node] -&gt; Either String UtcTiming
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679239961"><span class="annot"><span class="annottext">UtcTiming -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679239970"><span class="annot"><span class="annottext">UtcTiming -&gt; XML
 (UtcTiming -&gt; XML) -&gt; ToXML UtcTiming
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UtcTiming -&gt; XML

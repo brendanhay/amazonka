@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-comment">-- specified in the payload.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- /See:/ 'newCreateUsagePlan' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679390611"><span id="local-6989586621679390612"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUsagePlan"><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-var">CreateUsagePlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUsagePlan%27"><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-var">CreateUsagePlan'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679390620"><span id="local-6989586621679390621"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUsagePlan"><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-var">CreateUsagePlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUsagePlan%27"><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-var">CreateUsagePlan'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The associated API stages of the usage plan.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AapiStages%3ACreateUsagePlan%27"><span class="annot"><span class="annottext">CreateUsagePlan -&gt; Maybe [ApiStage]
 </span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#%24sel%3AapiStages%3ACreateUsagePlan%27"><span class="hs-identifier hs-var hs-var">apiStages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiStage.html#ApiStage"><span class="hs-identifier hs-type">ApiStage</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3Aname%3ACreateUsagePlan%27"><span class="annot"><span class="annottext">CreateUsagePlan -&gt; Text
 </span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#%24sel%3Aname%3ACreateUsagePlan%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390600"><span id="local-6989586621679390602"><span class="annot"><span class="annottext">CreateUsagePlan -&gt; CreateUsagePlan -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390609"><span id="local-6989586621679390611"><span class="annot"><span class="annottext">CreateUsagePlan -&gt; CreateUsagePlan -&gt; Bool
 (CreateUsagePlan -&gt; CreateUsagePlan -&gt; Bool)
 -&gt; (CreateUsagePlan -&gt; CreateUsagePlan -&gt; Bool)
 -&gt; Eq CreateUsagePlan
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUsagePlan -&gt; CreateUsagePlan -&gt; Bool
 == :: CreateUsagePlan -&gt; CreateUsagePlan -&gt; Bool
 $c== :: CreateUsagePlan -&gt; CreateUsagePlan -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390591"><span id="local-6989586621679390593"><span id="local-6989586621679390595"><span id="local-6989586621679390597"><span class="annot"><span class="annottext">ReadPrec [CreateUsagePlan]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390600"><span id="local-6989586621679390602"><span id="local-6989586621679390604"><span id="local-6989586621679390606"><span class="annot"><span class="annottext">ReadPrec [CreateUsagePlan]
 ReadPrec CreateUsagePlan
 Int -&gt; ReadS CreateUsagePlan
 ReadS [CreateUsagePlan]
@@ -114,7 +114,7 @@ readList :: ReadS [CreateUsagePlan]
 $creadList :: ReadS [CreateUsagePlan]
 readsPrec :: Int -&gt; ReadS CreateUsagePlan
 $creadsPrec :: Int -&gt; ReadS CreateUsagePlan
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390584"><span id="local-6989586621679390586"><span id="local-6989586621679390588"><span class="annot"><span class="annottext">Int -&gt; CreateUsagePlan -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390593"><span id="local-6989586621679390595"><span id="local-6989586621679390597"><span class="annot"><span class="annottext">Int -&gt; CreateUsagePlan -&gt; ShowS
 [CreateUsagePlan] -&gt; ShowS
 CreateUsagePlan -&gt; String
 (Int -&gt; CreateUsagePlan -&gt; ShowS)
@@ -166,8 +166,8 @@ $cfrom :: forall x. CreateUsagePlan -&gt; Rep CreateUsagePlan x
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span>
 </span><span id="line-109"></span><span id="newCreateUsagePlan"><span class="annot"><span class="annottext">newCreateUsagePlan :: Text -&gt; CreateUsagePlan
-</span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#newCreateUsagePlan"><span class="hs-identifier hs-var hs-var">newCreateUsagePlan</span></a></span></span><span> </span><span id="local-6989586621679390579"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390579"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#newCreateUsagePlan"><span class="hs-identifier hs-var hs-var">newCreateUsagePlan</span></a></span></span><span> </span><span id="local-6989586621679390588"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390588"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">CreateUsagePlan' :: Maybe [ApiStage]
 -&gt; Maybe ThrottleSettings
 -&gt; Maybe QuotaSettings
@@ -198,7 +198,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateUsagePlan' :: Text
 </span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#%24sel%3Aname%3ACreateUsagePlan%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390579"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679390588"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The associated API stages of the usage plan.</span><span>
@@ -213,16 +213,16 @@ forall a. Maybe a
      (Maybe [ApiStage])
      (Maybe [ApiStage])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390576"><span class="annot"><span class="annottext">Maybe [ApiStage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390585"><span class="annot"><span class="annottext">Maybe [ApiStage]
 apiStages :: Maybe [ApiStage]
 $sel:apiStages:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe [ApiStage]
-</span><a href="#local-6989586621679390576"><span class="hs-identifier hs-var hs-var">apiStages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ApiStage]
-</span><a href="#local-6989586621679390576"><span class="hs-identifier hs-var">apiStages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390575"><span class="annot"><span class="annottext">s :: CreateUsagePlan
-</span><a href="#local-6989586621679390575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390574"><span class="annot"><span class="annottext">Maybe [ApiStage]
-</span><a href="#local-6989586621679390574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
-</span><a href="#local-6989586621679390575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiStages:CreateUsagePlan' :: Maybe [ApiStage]
+</span><a href="#local-6989586621679390585"><span class="hs-identifier hs-var hs-var">apiStages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ApiStage]
+</span><a href="#local-6989586621679390585"><span class="hs-identifier hs-var">apiStages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390584"><span class="annot"><span class="annottext">s :: CreateUsagePlan
+</span><a href="#local-6989586621679390584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390583"><span class="annot"><span class="annottext">Maybe [ApiStage]
+</span><a href="#local-6989586621679390583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
+</span><a href="#local-6989586621679390584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiStages:CreateUsagePlan' :: Maybe [ApiStage]
 </span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#%24sel%3AapiStages%3ACreateUsagePlan%27"><span class="hs-identifier hs-var">apiStages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ApiStage]
-</span><a href="#local-6989586621679390574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ApiStage] -&gt; f (Maybe [ApiStage]))
+</span><a href="#local-6989586621679390583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ApiStage] -&gt; f (Maybe [ApiStage]))
  -&gt; CreateUsagePlan -&gt; f CreateUsagePlan)
 -&gt; ((Maybe [ApiStage] -&gt; f (Maybe [ApiStage]))
     -&gt; Maybe [ApiStage] -&gt; f (Maybe [ApiStage]))
@@ -255,16 +255,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ThrottleSettings)
      (Maybe ThrottleSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390570"><span class="annot"><span class="annottext">Maybe ThrottleSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390579"><span class="annot"><span class="annottext">Maybe ThrottleSettings
 throttle :: Maybe ThrottleSettings
 $sel:throttle:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe ThrottleSettings
-</span><a href="#local-6989586621679390570"><span class="hs-identifier hs-var hs-var">throttle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
-</span><a href="#local-6989586621679390570"><span class="hs-identifier hs-var">throttle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390569"><span class="annot"><span class="annottext">s :: CreateUsagePlan
-</span><a href="#local-6989586621679390569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390568"><span class="annot"><span class="annottext">Maybe ThrottleSettings
-</span><a href="#local-6989586621679390568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
-</span><a href="#local-6989586621679390569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throttle:CreateUsagePlan' :: Maybe ThrottleSettings
+</span><a href="#local-6989586621679390579"><span class="hs-identifier hs-var hs-var">throttle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
+</span><a href="#local-6989586621679390579"><span class="hs-identifier hs-var">throttle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390578"><span class="annot"><span class="annottext">s :: CreateUsagePlan
+</span><a href="#local-6989586621679390578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390577"><span class="annot"><span class="annottext">Maybe ThrottleSettings
+</span><a href="#local-6989586621679390577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
+</span><a href="#local-6989586621679390578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throttle:CreateUsagePlan' :: Maybe ThrottleSettings
 </span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#%24sel%3Athrottle%3ACreateUsagePlan%27"><span class="hs-identifier hs-var">throttle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
-</span><a href="#local-6989586621679390568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The quota of the usage plan.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#createUsagePlan_quota"><span class="hs-identifier hs-type">createUsagePlan_quota</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.QuotaSettings.html#QuotaSettings"><span class="hs-identifier hs-type">QuotaSettings</span></a></span><span class="hs-special">)</span><span>
@@ -278,16 +278,16 @@ $sel:throttle:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe ThrottleSettings
      (Maybe QuotaSettings)
      (Maybe QuotaSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390567"><span class="annot"><span class="annottext">Maybe QuotaSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390576"><span class="annot"><span class="annottext">Maybe QuotaSettings
 quota :: Maybe QuotaSettings
 $sel:quota:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe QuotaSettings
-</span><a href="#local-6989586621679390567"><span class="hs-identifier hs-var hs-var">quota</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QuotaSettings
-</span><a href="#local-6989586621679390567"><span class="hs-identifier hs-var">quota</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390566"><span class="annot"><span class="annottext">s :: CreateUsagePlan
-</span><a href="#local-6989586621679390566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390565"><span class="annot"><span class="annottext">Maybe QuotaSettings
-</span><a href="#local-6989586621679390565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
-</span><a href="#local-6989586621679390566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quota:CreateUsagePlan' :: Maybe QuotaSettings
+</span><a href="#local-6989586621679390576"><span class="hs-identifier hs-var hs-var">quota</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QuotaSettings
+</span><a href="#local-6989586621679390576"><span class="hs-identifier hs-var">quota</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390575"><span class="annot"><span class="annottext">s :: CreateUsagePlan
+</span><a href="#local-6989586621679390575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390574"><span class="annot"><span class="annottext">Maybe QuotaSettings
+</span><a href="#local-6989586621679390574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
+</span><a href="#local-6989586621679390575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quota:CreateUsagePlan' :: Maybe QuotaSettings
 </span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#%24sel%3Aquota%3ACreateUsagePlan%27"><span class="hs-identifier hs-var">quota</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QuotaSettings
-</span><a href="#local-6989586621679390565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The description of the usage plan.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#createUsagePlan_description"><span class="hs-identifier hs-type">createUsagePlan_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -297,16 +297,16 @@ $sel:quota:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe QuotaSettings
 -&gt; (CreateUsagePlan -&gt; Maybe Text -&gt; CreateUsagePlan)
 -&gt; Lens CreateUsagePlan CreateUsagePlan (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390564"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390573"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe Text
-</span><a href="#local-6989586621679390564"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390564"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390563"><span class="annot"><span class="annottext">s :: CreateUsagePlan
-</span><a href="#local-6989586621679390563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390562"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
-</span><a href="#local-6989586621679390563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateUsagePlan' :: Maybe Text
+</span><a href="#local-6989586621679390573"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390573"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390572"><span class="annot"><span class="annottext">s :: CreateUsagePlan
+</span><a href="#local-6989586621679390572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
+</span><a href="#local-6989586621679390572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateUsagePlan' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#%24sel%3Adescription%3ACreateUsagePlan%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The key-value map of strings. The valid character set is</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not</span><span>
@@ -323,16 +323,16 @@ $sel:description:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390561"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390570"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679390561"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679390561"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390560"><span class="annot"><span class="annottext">s :: CreateUsagePlan
-</span><a href="#local-6989586621679390560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390559"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679390559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
-</span><a href="#local-6989586621679390560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateUsagePlan' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679390570"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679390570"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390569"><span class="annot"><span class="annottext">s :: CreateUsagePlan
+</span><a href="#local-6989586621679390569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390568"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679390568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
+</span><a href="#local-6989586621679390569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateUsagePlan' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#%24sel%3Atags%3ACreateUsagePlan%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679390559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679390568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CreateUsagePlan -&gt; f CreateUsagePlan)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -368,25 +368,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateUsagePlan -&gt; Text -&gt; CreateUsagePlan)
 -&gt; Lens CreateUsagePlan CreateUsagePlan Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390558"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390567"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateUsagePlan' :: CreateUsagePlan -&gt; Text
-</span><a href="#local-6989586621679390558"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390558"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390557"><span class="annot"><span class="annottext">s :: CreateUsagePlan
-</span><a href="#local-6989586621679390557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390556"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
-</span><a href="#local-6989586621679390557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateUsagePlan' :: Text
+</span><a href="#local-6989586621679390567"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390567"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390566"><span class="annot"><span class="annottext">s :: CreateUsagePlan
+</span><a href="#local-6989586621679390566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390565"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUsagePlan
+</span><a href="#local-6989586621679390566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateUsagePlan' :: Text
 </span><a href="Network.AWS.APIGateway.CreateUsagePlan.html#%24sel%3Aname%3ACreateUsagePlan%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.UsagePlan.html#UsagePlan"><span class="hs-identifier hs-type">UsagePlan</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679390552"><span class="annot"><span class="annottext">request :: CreateUsagePlan -&gt; Request CreateUsagePlan
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679390561"><span class="annot"><span class="annottext">request :: CreateUsagePlan -&gt; Request CreateUsagePlan
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateUsagePlan -&gt; Request CreateUsagePlan
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679390548"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679390557"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateUsagePlan
 -&gt; ClientResponse ClientBody
@@ -410,20 +410,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390545"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390545"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390544"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679390544"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390543"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String UsagePlan
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390554"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390554"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390553"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679390553"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390552"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679390552"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String UsagePlan
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390543"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390552"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390538"><span id="local-6989586621679390540"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390547"><span id="local-6989586621679390549"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679390531"><span class="annot"><span class="annottext">toHeaders :: CreateUsagePlan -&gt; ResponseHeaders
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679390540"><span class="annot"><span class="annottext">toHeaders :: CreateUsagePlan -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateUsagePlan -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -440,9 +440,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390521"><span id="local-6989586621679390523"><span id="local-6989586621679390525"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679390519"><span class="annot"><span class="annottext">toJSON :: CreateUsagePlan -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390512"><span id="local-6989586621679390513"><span id="local-6989586621679390514"><span id="local-6989586621679390515"><span id="local-6989586621679390516"><span id="local-6989586621679390517"><span class="annot"><span class="annottext">Maybe [ApiStage]
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390530"><span id="local-6989586621679390532"><span id="local-6989586621679390534"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679390528"><span class="annot"><span class="annottext">toJSON :: CreateUsagePlan -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan%27"><span class="hs-identifier hs-type">CreateUsagePlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390521"><span id="local-6989586621679390522"><span id="local-6989586621679390523"><span id="local-6989586621679390524"><span id="local-6989586621679390525"><span id="local-6989586621679390526"><span class="annot"><span class="annottext">Maybe [ApiStage]
 Maybe Text
 Maybe (HashMap Text Text)
 Maybe QuotaSettings
@@ -460,7 +460,7 @@ $sel:description:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe Text
 $sel:quota:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe QuotaSettings
 $sel:throttle:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe ThrottleSettings
 $sel:apiStages:CreateUsagePlan' :: CreateUsagePlan -&gt; Maybe [ApiStage]
-</span><a href="#local-6989586621679390512"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679390521"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -472,28 +472,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ApiStage] -&gt; Pair) -&gt; Maybe [ApiStage] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ApiStage]
-</span><a href="#local-6989586621679390517"><span class="hs-identifier hs-var">apiStages</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390526"><span class="hs-identifier hs-var">apiStages</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;throttle&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ThrottleSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ThrottleSettings -&gt; Pair) -&gt; Maybe ThrottleSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
-</span><a href="#local-6989586621679390516"><span class="hs-identifier hs-var">throttle</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390525"><span class="hs-identifier hs-var">throttle</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;quota&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; QuotaSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(QuotaSettings -&gt; Pair) -&gt; Maybe QuotaSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe QuotaSettings
-</span><a href="#local-6989586621679390515"><span class="hs-identifier hs-var">quota</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390524"><span class="hs-identifier hs-var">quota</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390514"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390523"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -501,26 +501,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679390513"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390522"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390512"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390521"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679390505"><span class="annot"><span class="annottext">toPath :: CreateUsagePlan -&gt; ByteString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679390514"><span class="annot"><span class="annottext">toPath :: CreateUsagePlan -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateUsagePlan -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/usageplans&quot;</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.CreateUsagePlan.html#CreateUsagePlan"><span class="hs-identifier hs-type">CreateUsagePlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679390501"><span class="annot"><span class="annottext">toQuery :: CreateUsagePlan -&gt; QueryString
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679390510"><span class="annot"><span class="annottext">toQuery :: CreateUsagePlan -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateUsagePlan -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

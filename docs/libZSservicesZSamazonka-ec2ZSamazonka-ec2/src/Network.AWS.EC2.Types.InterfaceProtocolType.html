@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681121017"><span id="local-6989586621681121018"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InterfaceProtocolType"><span class="annot"><a href="Network.AWS.EC2.Types.InterfaceProtocolType.html#InterfaceProtocolType"><span class="hs-identifier hs-var">InterfaceProtocolType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InterfaceProtocolType%27"><span class="annot"><a href="Network.AWS.EC2.Types.InterfaceProtocolType.html#InterfaceProtocolType%27"><span class="hs-identifier hs-var">InterfaceProtocolType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681121026"><span id="local-6989586621681121027"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InterfaceProtocolType"><span class="annot"><a href="Network.AWS.EC2.Types.InterfaceProtocolType.html#InterfaceProtocolType"><span class="hs-identifier hs-var">InterfaceProtocolType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InterfaceProtocolType%27"><span class="annot"><a href="Network.AWS.EC2.Types.InterfaceProtocolType.html#InterfaceProtocolType%27"><span class="hs-identifier hs-var">InterfaceProtocolType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInterfaceProtocolType"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.InterfaceProtocolType.html#fromInterfaceProtocolType"><span class="hs-identifier hs-var hs-var">fromInterfaceProtocolType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681121009"><span id="local-6989586621681121011"><span id="local-6989586621681121013"><span class="annot"><span class="annottext">Int -&gt; InterfaceProtocolType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681121018"><span id="local-6989586621681121020"><span id="local-6989586621681121022"><span class="annot"><span class="annottext">Int -&gt; InterfaceProtocolType -&gt; ShowS
 [InterfaceProtocolType] -&gt; ShowS
 InterfaceProtocolType -&gt; String
 (Int -&gt; InterfaceProtocolType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: InterfaceProtocolType -&gt; String
 showsPrec :: Int -&gt; InterfaceProtocolType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InterfaceProtocolType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681121000"><span id="local-6989586621681121002"><span id="local-6989586621681121004"><span id="local-6989586621681121006"><span class="annot"><span class="annottext">ReadPrec [InterfaceProtocolType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681121009"><span id="local-6989586621681121011"><span id="local-6989586621681121013"><span id="local-6989586621681121015"><span class="annot"><span class="annottext">ReadPrec [InterfaceProtocolType]
 ReadPrec InterfaceProtocolType
 Int -&gt; ReadS InterfaceProtocolType
 ReadS [InterfaceProtocolType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [InterfaceProtocolType]
 readsPrec :: Int -&gt; ReadS InterfaceProtocolType
 $creadsPrec :: Int -&gt; ReadS InterfaceProtocolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681120995"><span id="local-6989586621681120997"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; InterfaceProtocolType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681121004"><span id="local-6989586621681121006"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; InterfaceProtocolType -&gt; Bool
 (InterfaceProtocolType -&gt; InterfaceProtocolType -&gt; Bool)
 -&gt; (InterfaceProtocolType -&gt; InterfaceProtocolType -&gt; Bool)
 -&gt; Eq InterfaceProtocolType
@@ -83,7 +83,7 @@ $c/= :: InterfaceProtocolType -&gt; InterfaceProtocolType -&gt; Bool
 == :: InterfaceProtocolType -&gt; InterfaceProtocolType -&gt; Bool
 $c== :: InterfaceProtocolType -&gt; InterfaceProtocolType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681120979"><span id="local-6989586621681120981"><span id="local-6989586621681120983"><span id="local-6989586621681120985"><span id="local-6989586621681120987"><span id="local-6989586621681120989"><span id="local-6989586621681120991"><span class="annot"><span class="annottext">Eq InterfaceProtocolType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681120988"><span id="local-6989586621681120990"><span id="local-6989586621681120992"><span id="local-6989586621681120994"><span id="local-6989586621681120996"><span id="local-6989586621681120998"><span id="local-6989586621681121000"><span class="annot"><span class="annottext">Eq InterfaceProtocolType
 Eq InterfaceProtocolType
 -&gt; (InterfaceProtocolType -&gt; InterfaceProtocolType -&gt; Ordering)
 -&gt; (InterfaceProtocolType -&gt; InterfaceProtocolType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. InterfaceProtocolType -&gt; Rep InterfaceProtocolType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681120971"><span id="local-6989586621681120973"><span class="annot"><span class="annottext">Int -&gt; InterfaceProtocolType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681120980"><span id="local-6989586621681120982"><span class="annot"><span class="annottext">Int -&gt; InterfaceProtocolType -&gt; Int
 InterfaceProtocolType -&gt; Int
 (Int -&gt; InterfaceProtocolType -&gt; Int)
 -&gt; (InterfaceProtocolType -&gt; Int) -&gt; Hashable InterfaceProtocolType
@@ -151,54 +151,54 @@ $chash :: InterfaceProtocolType -&gt; Int
 hashWithSalt :: Int -&gt; InterfaceProtocolType -&gt; Int
 $chashWithSalt :: Int -&gt; InterfaceProtocolType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681120968"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681120977"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; ()
 (InterfaceProtocolType -&gt; ()) -&gt; NFData InterfaceProtocolType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InterfaceProtocolType -&gt; ()
 $crnf :: InterfaceProtocolType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681120965"><span class="annot"><span class="annottext">Text -&gt; Either String InterfaceProtocolType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681120974"><span class="annot"><span class="annottext">Text -&gt; Either String InterfaceProtocolType
 (Text -&gt; Either String InterfaceProtocolType)
 -&gt; FromText InterfaceProtocolType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InterfaceProtocolType
 $cfromText :: Text -&gt; Either String InterfaceProtocolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681120962"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681120971"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; Text
 (InterfaceProtocolType -&gt; Text) -&gt; ToText InterfaceProtocolType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InterfaceProtocolType -&gt; Text
 $ctoText :: InterfaceProtocolType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681120959"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681120968"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; ByteString
 (InterfaceProtocolType -&gt; ByteString)
 -&gt; ToByteString InterfaceProtocolType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InterfaceProtocolType -&gt; ByteString
 $ctoBS :: InterfaceProtocolType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681120956"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681120965"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; ByteStringBuilder
 (InterfaceProtocolType -&gt; ByteStringBuilder)
 -&gt; ToLog InterfaceProtocolType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InterfaceProtocolType -&gt; ByteStringBuilder
 $cbuild :: InterfaceProtocolType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681120953"><span class="annot"><span class="annottext">HeaderName -&gt; InterfaceProtocolType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681120962"><span class="annot"><span class="annottext">HeaderName -&gt; InterfaceProtocolType -&gt; [Header]
 (HeaderName -&gt; InterfaceProtocolType -&gt; [Header])
 -&gt; ToHeader InterfaceProtocolType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InterfaceProtocolType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InterfaceProtocolType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681120950"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681120959"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; QueryString
 (InterfaceProtocolType -&gt; QueryString)
 -&gt; ToQuery InterfaceProtocolType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InterfaceProtocolType -&gt; QueryString
 $ctoQuery :: InterfaceProtocolType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681120945"><span id="local-6989586621681120947"><span class="annot"><span class="annottext">Value -&gt; Parser [InterfaceProtocolType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681120954"><span id="local-6989586621681120956"><span class="annot"><span class="annottext">Value -&gt; Parser [InterfaceProtocolType]
 Value -&gt; Parser InterfaceProtocolType
 (Value -&gt; Parser InterfaceProtocolType)
 -&gt; (Value -&gt; Parser [InterfaceProtocolType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [InterfaceProtocolType]
 parseJSON :: Value -&gt; Parser InterfaceProtocolType
 $cparseJSON :: Value -&gt; Parser InterfaceProtocolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681120940"><span id="local-6989586621681120942"><span class="annot"><span class="annottext">FromJSONKeyFunction [InterfaceProtocolType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681120949"><span id="local-6989586621681120951"><span class="annot"><span class="annottext">FromJSONKeyFunction [InterfaceProtocolType]
 FromJSONKeyFunction InterfaceProtocolType
 FromJSONKeyFunction InterfaceProtocolType
 -&gt; FromJSONKeyFunction [InterfaceProtocolType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InterfaceProtocolType]
 fromJSONKey :: FromJSONKeyFunction InterfaceProtocolType
 $cfromJSONKey :: FromJSONKeyFunction InterfaceProtocolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681120931"><span id="local-6989586621681120933"><span id="local-6989586621681120935"><span id="local-6989586621681120937"><span class="annot"><span class="annottext">[InterfaceProtocolType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681120940"><span id="local-6989586621681120942"><span id="local-6989586621681120944"><span id="local-6989586621681120946"><span class="annot"><span class="annottext">[InterfaceProtocolType] -&gt; Encoding
 [InterfaceProtocolType] -&gt; Value
 InterfaceProtocolType -&gt; Encoding
 InterfaceProtocolType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: InterfaceProtocolType -&gt; Encoding
 toJSON :: InterfaceProtocolType -&gt; Value
 $ctoJSON :: InterfaceProtocolType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681120926"><span id="local-6989586621681120928"><span class="annot"><span class="annottext">ToJSONKeyFunction [InterfaceProtocolType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681120935"><span id="local-6989586621681120937"><span class="annot"><span class="annottext">ToJSONKeyFunction [InterfaceProtocolType]
 ToJSONKeyFunction InterfaceProtocolType
 ToJSONKeyFunction InterfaceProtocolType
 -&gt; ToJSONKeyFunction [InterfaceProtocolType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InterfaceProtocolType]
 toJSONKey :: ToJSONKeyFunction InterfaceProtocolType
 $ctoJSONKey :: ToJSONKeyFunction InterfaceProtocolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681120923"><span class="annot"><span class="annottext">[Node] -&gt; Either String InterfaceProtocolType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681120932"><span class="annot"><span class="annottext">[Node] -&gt; Either String InterfaceProtocolType
 ([Node] -&gt; Either String InterfaceProtocolType)
 -&gt; FromXML InterfaceProtocolType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InterfaceProtocolType
 $cparseXML :: [Node] -&gt; Either String InterfaceProtocolType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681120920"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681120929"><span class="annot"><span class="annottext">InterfaceProtocolType -&gt; XML
 (InterfaceProtocolType -&gt; XML) -&gt; ToXML InterfaceProtocolType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InterfaceProtocolType -&gt; XML

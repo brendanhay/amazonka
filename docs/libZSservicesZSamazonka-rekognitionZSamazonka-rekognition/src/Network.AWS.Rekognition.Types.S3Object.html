@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- Resource-Based Policies in the Amazon Rekognition Developer Guide.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newS3Object' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679329663"><span id="local-6989586621679329664"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Object"><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-var">S3Object</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Object%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-var">S3Object'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679329672"><span id="local-6989586621679329673"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Object"><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-var">S3Object</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Object%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-var">S3Object'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the S3 bucket.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Abucket%3AS3Object%27"><span class="annot"><span class="annottext">S3Object -&gt; Maybe Text
 </span><a href="Network.AWS.Rekognition.Types.S3Object.html#%24sel%3Abucket%3AS3Object%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Aversion%3AS3Object%27"><span class="annot"><span class="annottext">S3Object -&gt; Maybe Text
 </span><a href="Network.AWS.Rekognition.Types.S3Object.html#%24sel%3Aversion%3AS3Object%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329655"><span id="local-6989586621679329657"><span class="annot"><span class="annottext">S3Object -&gt; S3Object -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329664"><span id="local-6989586621679329666"><span class="annot"><span class="annottext">S3Object -&gt; S3Object -&gt; Bool
 (S3Object -&gt; S3Object -&gt; Bool)
 -&gt; (S3Object -&gt; S3Object -&gt; Bool) -&gt; Eq S3Object
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Object -&gt; S3Object -&gt; Bool
 == :: S3Object -&gt; S3Object -&gt; Bool
 $c== :: S3Object -&gt; S3Object -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329646"><span id="local-6989586621679329648"><span id="local-6989586621679329650"><span id="local-6989586621679329652"><span class="annot"><span class="annottext">ReadPrec [S3Object]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329655"><span id="local-6989586621679329657"><span id="local-6989586621679329659"><span id="local-6989586621679329661"><span class="annot"><span class="annottext">ReadPrec [S3Object]
 ReadPrec S3Object
 Int -&gt; ReadS S3Object
 ReadS [S3Object]
@@ -72,7 +72,7 @@ readList :: ReadS [S3Object]
 $creadList :: ReadS [S3Object]
 readsPrec :: Int -&gt; ReadS S3Object
 $creadsPrec :: Int -&gt; ReadS S3Object
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329639"><span id="local-6989586621679329641"><span id="local-6989586621679329643"><span class="annot"><span class="annottext">Int -&gt; S3Object -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329648"><span id="local-6989586621679329650"><span id="local-6989586621679329652"><span class="annot"><span class="annottext">Int -&gt; S3Object -&gt; ShowS
 [S3Object] -&gt; ShowS
 S3Object -&gt; String
 (Int -&gt; S3Object -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; (S3Object -&gt; Maybe Text -&gt; S3Object)
 -&gt; Lens S3Object S3Object (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329630"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329639"><span class="annot"><span class="annottext">Maybe Text
 bucket :: Maybe Text
 $sel:bucket:S3Object' :: S3Object -&gt; Maybe Text
-</span><a href="#local-6989586621679329630"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329630"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329629"><span class="annot"><span class="annottext">s :: S3Object
-</span><a href="#local-6989586621679329629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329628"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Object
-</span><a href="#local-6989586621679329629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:S3Object' :: Maybe Text
+</span><a href="#local-6989586621679329639"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329639"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329638"><span class="annot"><span class="annottext">s :: S3Object
+</span><a href="#local-6989586621679329638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Object
+</span><a href="#local-6989586621679329638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:S3Object' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.Types.S3Object.html#%24sel%3Abucket%3AS3Object%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | S3 object key name.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#s3Object_name"><span class="hs-identifier hs-type">s3Object_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -153,16 +153,16 @@ $sel:bucket:S3Object' :: S3Object -&gt; Maybe Text
 -&gt; (S3Object -&gt; Maybe Text -&gt; S3Object)
 -&gt; Lens S3Object S3Object (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329626"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329635"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:S3Object' :: S3Object -&gt; Maybe Text
-</span><a href="#local-6989586621679329626"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329626"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329625"><span class="annot"><span class="annottext">s :: S3Object
-</span><a href="#local-6989586621679329625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329624"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Object
-</span><a href="#local-6989586621679329625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:S3Object' :: Maybe Text
+</span><a href="#local-6989586621679329635"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329635"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329634"><span class="annot"><span class="annottext">s :: S3Object
+</span><a href="#local-6989586621679329634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Object
+</span><a href="#local-6989586621679329634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:S3Object' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.Types.S3Object.html#%24sel%3Aname%3AS3Object%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | If the bucket is versioning enabled, you can specify the object version.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#s3Object_version"><span class="hs-identifier hs-type">s3Object_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -171,27 +171,27 @@ $sel:name:S3Object' :: S3Object -&gt; Maybe Text
 -&gt; (S3Object -&gt; Maybe Text -&gt; S3Object)
 -&gt; Lens S3Object S3Object (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329622"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329631"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:S3Object' :: S3Object -&gt; Maybe Text
-</span><a href="#local-6989586621679329622"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329622"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329621"><span class="annot"><span class="annottext">s :: S3Object
-</span><a href="#local-6989586621679329621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329620"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Object
-</span><a href="#local-6989586621679329621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:S3Object' :: Maybe Text
+</span><a href="#local-6989586621679329631"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329631"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329630"><span class="annot"><span class="annottext">s :: S3Object
+</span><a href="#local-6989586621679329630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329629"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679329629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Object
+</span><a href="#local-6989586621679329630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:S3Object' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.Types.S3Object.html#%24sel%3Aversion%3AS3Object%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329617"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679329615"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Object
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329626"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679329624"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Object
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser S3Object) -&gt; Value -&gt; Parser S3Object
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3Object&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329612"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329612"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329621"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; S3Object
 </span><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-var">S3Object'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; S3Object)
@@ -199,7 +199,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; S3Object)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679329621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Bucket&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,7 +207,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; S3Object)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679329621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,26 +215,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser S3Object
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679329621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329606"><span id="local-6989586621679329608"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329615"><span id="local-6989586621679329617"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329595"><span id="local-6989586621679329597"><span id="local-6989586621679329599"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679329593"><span class="annot"><span class="annottext">toJSON :: S3Object -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329589"><span id="local-6989586621679329590"><span id="local-6989586621679329591"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329604"><span id="local-6989586621679329606"><span id="local-6989586621679329608"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679329602"><span class="annot"><span class="annottext">toJSON :: S3Object -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object%27"><span class="hs-identifier hs-type">S3Object'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329598"><span id="local-6989586621679329599"><span id="local-6989586621679329600"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 name :: Maybe Text
 bucket :: Maybe Text
 $sel:version:S3Object' :: S3Object -&gt; Maybe Text
 $sel:name:S3Object' :: S3Object -&gt; Maybe Text
 $sel:bucket:S3Object' :: S3Object -&gt; Maybe Text
-</span><a href="#local-6989586621679329589"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679329598"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -246,21 +246,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329591"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679329600"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329590"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679329599"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329589"><span class="hs-identifier hs-var">version</span></a></span><span>
+</span><a href="#local-6989586621679329598"><span class="hs-identifier hs-var">version</span></a></span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679417162"><span id="local-6989586621679417163"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IdentityProvider"><span class="annot"><a href="Network.AWS.CloudFormation.Types.IdentityProvider.html#IdentityProvider"><span class="hs-identifier hs-var">IdentityProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityProvider%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.IdentityProvider.html#IdentityProvider%27"><span class="hs-identifier hs-var">IdentityProvider'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679417171"><span id="local-6989586621679417172"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IdentityProvider"><span class="annot"><a href="Network.AWS.CloudFormation.Types.IdentityProvider.html#IdentityProvider"><span class="hs-identifier hs-var">IdentityProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityProvider%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.IdentityProvider.html#IdentityProvider%27"><span class="hs-identifier hs-var">IdentityProvider'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIdentityProvider"><span class="annot"><span class="annottext">IdentityProvider -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.IdentityProvider.html#fromIdentityProvider"><span class="hs-identifier hs-var hs-var">fromIdentityProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679417154"><span id="local-6989586621679417156"><span id="local-6989586621679417158"><span class="annot"><span class="annottext">Int -&gt; IdentityProvider -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679417163"><span id="local-6989586621679417165"><span id="local-6989586621679417167"><span class="annot"><span class="annottext">Int -&gt; IdentityProvider -&gt; ShowS
 [IdentityProvider] -&gt; ShowS
 IdentityProvider -&gt; String
 (Int -&gt; IdentityProvider -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: IdentityProvider -&gt; String
 showsPrec :: Int -&gt; IdentityProvider -&gt; ShowS
 $cshowsPrec :: Int -&gt; IdentityProvider -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679417145"><span id="local-6989586621679417147"><span id="local-6989586621679417149"><span id="local-6989586621679417151"><span class="annot"><span class="annottext">ReadPrec [IdentityProvider]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679417154"><span id="local-6989586621679417156"><span id="local-6989586621679417158"><span id="local-6989586621679417160"><span class="annot"><span class="annottext">ReadPrec [IdentityProvider]
 ReadPrec IdentityProvider
 Int -&gt; ReadS IdentityProvider
 ReadS [IdentityProvider]
@@ -73,7 +73,7 @@ $creadList :: ReadS [IdentityProvider]
 readsPrec :: Int -&gt; ReadS IdentityProvider
 $creadsPrec :: Int -&gt; ReadS IdentityProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679417140"><span id="local-6989586621679417142"><span class="annot"><span class="annottext">IdentityProvider -&gt; IdentityProvider -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679417149"><span id="local-6989586621679417151"><span class="annot"><span class="annottext">IdentityProvider -&gt; IdentityProvider -&gt; Bool
 (IdentityProvider -&gt; IdentityProvider -&gt; Bool)
 -&gt; (IdentityProvider -&gt; IdentityProvider -&gt; Bool)
 -&gt; Eq IdentityProvider
@@ -83,7 +83,7 @@ $c/= :: IdentityProvider -&gt; IdentityProvider -&gt; Bool
 == :: IdentityProvider -&gt; IdentityProvider -&gt; Bool
 $c== :: IdentityProvider -&gt; IdentityProvider -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679417124"><span id="local-6989586621679417126"><span id="local-6989586621679417128"><span id="local-6989586621679417130"><span id="local-6989586621679417132"><span id="local-6989586621679417134"><span id="local-6989586621679417136"><span class="annot"><span class="annottext">Eq IdentityProvider
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679417133"><span id="local-6989586621679417135"><span id="local-6989586621679417137"><span id="local-6989586621679417139"><span id="local-6989586621679417141"><span id="local-6989586621679417143"><span id="local-6989586621679417145"><span class="annot"><span class="annottext">Eq IdentityProvider
 Eq IdentityProvider
 -&gt; (IdentityProvider -&gt; IdentityProvider -&gt; Ordering)
 -&gt; (IdentityProvider -&gt; IdentityProvider -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. IdentityProvider -&gt; Rep IdentityProvider x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679417116"><span id="local-6989586621679417118"><span class="annot"><span class="annottext">Int -&gt; IdentityProvider -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679417125"><span id="local-6989586621679417127"><span class="annot"><span class="annottext">Int -&gt; IdentityProvider -&gt; Int
 IdentityProvider -&gt; Int
 (Int -&gt; IdentityProvider -&gt; Int)
 -&gt; (IdentityProvider -&gt; Int) -&gt; Hashable IdentityProvider
@@ -144,51 +144,51 @@ $chash :: IdentityProvider -&gt; Int
 hashWithSalt :: Int -&gt; IdentityProvider -&gt; Int
 $chashWithSalt :: Int -&gt; IdentityProvider -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679417113"><span class="annot"><span class="annottext">IdentityProvider -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679417122"><span class="annot"><span class="annottext">IdentityProvider -&gt; ()
 (IdentityProvider -&gt; ()) -&gt; NFData IdentityProvider
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: IdentityProvider -&gt; ()
 $crnf :: IdentityProvider -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679417110"><span class="annot"><span class="annottext">Text -&gt; Either String IdentityProvider
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679417119"><span class="annot"><span class="annottext">Text -&gt; Either String IdentityProvider
 (Text -&gt; Either String IdentityProvider)
 -&gt; FromText IdentityProvider
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String IdentityProvider
 $cfromText :: Text -&gt; Either String IdentityProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679417107"><span class="annot"><span class="annottext">IdentityProvider -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679417116"><span class="annot"><span class="annottext">IdentityProvider -&gt; Text
 (IdentityProvider -&gt; Text) -&gt; ToText IdentityProvider
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: IdentityProvider -&gt; Text
 $ctoText :: IdentityProvider -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679417104"><span class="annot"><span class="annottext">IdentityProvider -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679417113"><span class="annot"><span class="annottext">IdentityProvider -&gt; ByteString
 (IdentityProvider -&gt; ByteString) -&gt; ToByteString IdentityProvider
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: IdentityProvider -&gt; ByteString
 $ctoBS :: IdentityProvider -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679417101"><span class="annot"><span class="annottext">IdentityProvider -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679417110"><span class="annot"><span class="annottext">IdentityProvider -&gt; ByteStringBuilder
 (IdentityProvider -&gt; ByteStringBuilder) -&gt; ToLog IdentityProvider
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: IdentityProvider -&gt; ByteStringBuilder
 $cbuild :: IdentityProvider -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679417098"><span class="annot"><span class="annottext">HeaderName -&gt; IdentityProvider -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679417107"><span class="annot"><span class="annottext">HeaderName -&gt; IdentityProvider -&gt; [Header]
 (HeaderName -&gt; IdentityProvider -&gt; [Header])
 -&gt; ToHeader IdentityProvider
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; IdentityProvider -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; IdentityProvider -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679417095"><span class="annot"><span class="annottext">IdentityProvider -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679417104"><span class="annot"><span class="annottext">IdentityProvider -&gt; QueryString
 (IdentityProvider -&gt; QueryString) -&gt; ToQuery IdentityProvider
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: IdentityProvider -&gt; QueryString
 $ctoQuery :: IdentityProvider -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679417090"><span id="local-6989586621679417092"><span class="annot"><span class="annottext">Value -&gt; Parser [IdentityProvider]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679417099"><span id="local-6989586621679417101"><span class="annot"><span class="annottext">Value -&gt; Parser [IdentityProvider]
 Value -&gt; Parser IdentityProvider
 (Value -&gt; Parser IdentityProvider)
 -&gt; (Value -&gt; Parser [IdentityProvider])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [IdentityProvider]
 parseJSON :: Value -&gt; Parser IdentityProvider
 $cparseJSON :: Value -&gt; Parser IdentityProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679417085"><span id="local-6989586621679417087"><span class="annot"><span class="annottext">FromJSONKeyFunction [IdentityProvider]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679417094"><span id="local-6989586621679417096"><span class="annot"><span class="annottext">FromJSONKeyFunction [IdentityProvider]
 FromJSONKeyFunction IdentityProvider
 FromJSONKeyFunction IdentityProvider
 -&gt; FromJSONKeyFunction [IdentityProvider]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [IdentityProvider]
 fromJSONKey :: FromJSONKeyFunction IdentityProvider
 $cfromJSONKey :: FromJSONKeyFunction IdentityProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679417076"><span id="local-6989586621679417078"><span id="local-6989586621679417080"><span id="local-6989586621679417082"><span class="annot"><span class="annottext">[IdentityProvider] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679417085"><span id="local-6989586621679417087"><span id="local-6989586621679417089"><span id="local-6989586621679417091"><span class="annot"><span class="annottext">[IdentityProvider] -&gt; Encoding
 [IdentityProvider] -&gt; Value
 IdentityProvider -&gt; Encoding
 IdentityProvider -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: IdentityProvider -&gt; Encoding
 toJSON :: IdentityProvider -&gt; Value
 $ctoJSON :: IdentityProvider -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679417071"><span id="local-6989586621679417073"><span class="annot"><span class="annottext">ToJSONKeyFunction [IdentityProvider]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679417080"><span id="local-6989586621679417082"><span class="annot"><span class="annottext">ToJSONKeyFunction [IdentityProvider]
 ToJSONKeyFunction IdentityProvider
 ToJSONKeyFunction IdentityProvider
 -&gt; ToJSONKeyFunction [IdentityProvider]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [IdentityProvider]
 toJSONKey :: ToJSONKeyFunction IdentityProvider
 $ctoJSONKey :: ToJSONKeyFunction IdentityProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679417068"><span class="annot"><span class="annottext">[Node] -&gt; Either String IdentityProvider
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679417077"><span class="annot"><span class="annottext">[Node] -&gt; Either String IdentityProvider
 ([Node] -&gt; Either String IdentityProvider)
 -&gt; FromXML IdentityProvider
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String IdentityProvider
 $cparseXML :: [Node] -&gt; Either String IdentityProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679417065"><span class="annot"><span class="annottext">IdentityProvider -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679417074"><span class="annot"><span class="annottext">IdentityProvider -&gt; XML
 (IdentityProvider -&gt; XML) -&gt; ToXML IdentityProvider
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: IdentityProvider -&gt; XML

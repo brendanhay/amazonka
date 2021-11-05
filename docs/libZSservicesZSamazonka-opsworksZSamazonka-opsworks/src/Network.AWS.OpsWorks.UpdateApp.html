@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newUpdateApp' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679396400"><span id="local-6989586621679396401"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateApp"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-var">UpdateApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateApp%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-var">UpdateApp'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679396409"><span id="local-6989586621679396410"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateApp"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-var">UpdateApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateApp%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-var">UpdateApp'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An @SslConfiguration@ object with the SSL configuration.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AsslConfiguration%3AUpdateApp%27"><span class="annot"><span class="annottext">UpdateApp -&gt; Maybe SslConfiguration
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3AsslConfiguration%3AUpdateApp%27"><span class="hs-identifier hs-var hs-var">sslConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span><span class="hs-special">,</span><span>
@@ -110,7 +110,7 @@
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AappId%3AUpdateApp%27"><span class="annot"><span class="annottext">UpdateApp -&gt; Text
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3AappId%3AUpdateApp%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396384"><span id="local-6989586621679396386"><span class="annot"><span class="annottext">UpdateApp -&gt; UpdateApp -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396393"><span id="local-6989586621679396395"><span class="annot"><span class="annottext">UpdateApp -&gt; UpdateApp -&gt; Bool
 (UpdateApp -&gt; UpdateApp -&gt; Bool)
 -&gt; (UpdateApp -&gt; UpdateApp -&gt; Bool) -&gt; Eq UpdateApp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -118,7 +118,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateApp -&gt; UpdateApp -&gt; Bool
 == :: UpdateApp -&gt; UpdateApp -&gt; Bool
 $c== :: UpdateApp -&gt; UpdateApp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396375"><span id="local-6989586621679396377"><span id="local-6989586621679396379"><span id="local-6989586621679396381"><span class="annot"><span class="annottext">ReadPrec [UpdateApp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396384"><span id="local-6989586621679396386"><span id="local-6989586621679396388"><span id="local-6989586621679396390"><span class="annot"><span class="annottext">ReadPrec [UpdateApp]
 ReadPrec UpdateApp
 Int -&gt; ReadS UpdateApp
 ReadS [UpdateApp]
@@ -138,7 +138,7 @@ readList :: ReadS [UpdateApp]
 $creadList :: ReadS [UpdateApp]
 readsPrec :: Int -&gt; ReadS UpdateApp
 $creadsPrec :: Int -&gt; ReadS UpdateApp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396368"><span id="local-6989586621679396370"><span id="local-6989586621679396372"><span class="annot"><span class="annottext">Int -&gt; UpdateApp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396377"><span id="local-6989586621679396379"><span id="local-6989586621679396381"><span class="annot"><span class="annottext">Int -&gt; UpdateApp -&gt; ShowS
 [UpdateApp] -&gt; ShowS
 UpdateApp -&gt; String
 (Int -&gt; UpdateApp -&gt; ShowS)
@@ -213,8 +213,8 @@ $cfrom :: forall x. UpdateApp -&gt; Rep UpdateApp x
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span>
 </span><span id="line-153"></span><span id="newUpdateApp"><span class="annot"><span class="annottext">newUpdateApp :: Text -&gt; UpdateApp
-</span><a href="Network.AWS.OpsWorks.UpdateApp.html#newUpdateApp"><span class="hs-identifier hs-var hs-var">newUpdateApp</span></a></span></span><span> </span><span id="local-6989586621679396363"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396363"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.UpdateApp.html#newUpdateApp"><span class="hs-identifier hs-var hs-var">newUpdateApp</span></a></span></span><span> </span><span id="local-6989586621679396372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396372"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">UpdateApp' :: Maybe SslConfiguration
 -&gt; Maybe [EnvironmentVariable]
 -&gt; Maybe Bool
@@ -270,7 +270,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:appId:UpdateApp' :: Text
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3AappId%3AUpdateApp%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396363"><span class="hs-identifier hs-var">pAppId_</span></a></span><span>
+</span><a href="#local-6989586621679396372"><span class="hs-identifier hs-var">pAppId_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | An @SslConfiguration@ object with the SSL configuration.</span><span>
@@ -285,16 +285,16 @@ forall a. Maybe a
      (Maybe SslConfiguration)
      (Maybe SslConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396360"><span class="annot"><span class="annottext">Maybe SslConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396369"><span class="annot"><span class="annottext">Maybe SslConfiguration
 sslConfiguration :: Maybe SslConfiguration
 $sel:sslConfiguration:UpdateApp' :: UpdateApp -&gt; Maybe SslConfiguration
-</span><a href="#local-6989586621679396360"><span class="hs-identifier hs-var hs-var">sslConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SslConfiguration
-</span><a href="#local-6989586621679396360"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396359"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396358"><span class="annot"><span class="annottext">Maybe SslConfiguration
-</span><a href="#local-6989586621679396358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslConfiguration:UpdateApp' :: Maybe SslConfiguration
+</span><a href="#local-6989586621679396369"><span class="hs-identifier hs-var hs-var">sslConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SslConfiguration
+</span><a href="#local-6989586621679396369"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396368"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396367"><span class="annot"><span class="annottext">Maybe SslConfiguration
+</span><a href="#local-6989586621679396367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslConfiguration:UpdateApp' :: Maybe SslConfiguration
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3AsslConfiguration%3AUpdateApp%27"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SslConfiguration
-</span><a href="#local-6989586621679396358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | An array of @EnvironmentVariable@ objects that specify environment</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- variables to be associated with the app. After you deploy the app, these</span><span>
@@ -322,16 +322,16 @@ $sel:sslConfiguration:UpdateApp' :: UpdateApp -&gt; Maybe SslConfiguration
      (Maybe [EnvironmentVariable])
      (Maybe [EnvironmentVariable])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396357"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396366"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
 environment :: Maybe [EnvironmentVariable]
 $sel:environment:UpdateApp' :: UpdateApp -&gt; Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679396357"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679396357"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396356"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396355"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679396355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:UpdateApp' :: Maybe [EnvironmentVariable]
+</span><a href="#local-6989586621679396366"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
+</span><a href="#local-6989586621679396366"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396365"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396364"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
+</span><a href="#local-6989586621679396364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:UpdateApp' :: Maybe [EnvironmentVariable]
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3Aenvironment%3AUpdateApp%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679396355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentVariable] -&gt; f (Maybe [EnvironmentVariable]))
+</span><a href="#local-6989586621679396364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentVariable] -&gt; f (Maybe [EnvironmentVariable]))
  -&gt; UpdateApp -&gt; f UpdateApp)
 -&gt; ((Maybe [EnvironmentVariable]
      -&gt; f (Maybe [EnvironmentVariable]))
@@ -368,16 +368,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateApp -&gt; Maybe Bool -&gt; UpdateApp)
 -&gt; Lens UpdateApp UpdateApp (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396351"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396360"><span class="annot"><span class="annottext">Maybe Bool
 enableSsl :: Maybe Bool
 $sel:enableSsl:UpdateApp' :: UpdateApp -&gt; Maybe Bool
-</span><a href="#local-6989586621679396351"><span class="hs-identifier hs-var hs-var">enableSsl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679396351"><span class="hs-identifier hs-var">enableSsl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396350"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396349"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679396349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableSsl:UpdateApp' :: Maybe Bool
+</span><a href="#local-6989586621679396360"><span class="hs-identifier hs-var hs-var">enableSsl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396360"><span class="hs-identifier hs-var">enableSsl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396359"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396358"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableSsl:UpdateApp' :: Maybe Bool
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3AenableSsl%3AUpdateApp%27"><span class="hs-identifier hs-var">enableSsl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679396349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The app\'s data sources.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#updateApp_dataSources"><span class="hs-identifier hs-type">updateApp_dataSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -388,16 +388,16 @@ $sel:enableSsl:UpdateApp' :: UpdateApp -&gt; Maybe Bool
 -&gt; Lens
      UpdateApp UpdateApp (Maybe [DataSource]) (Maybe [DataSource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396348"><span class="annot"><span class="annottext">Maybe [DataSource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396357"><span class="annot"><span class="annottext">Maybe [DataSource]
 dataSources :: Maybe [DataSource]
 $sel:dataSources:UpdateApp' :: UpdateApp -&gt; Maybe [DataSource]
-</span><a href="#local-6989586621679396348"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
-</span><a href="#local-6989586621679396348"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396347"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396346"><span class="annot"><span class="annottext">Maybe [DataSource]
-</span><a href="#local-6989586621679396346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSources:UpdateApp' :: Maybe [DataSource]
+</span><a href="#local-6989586621679396357"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
+</span><a href="#local-6989586621679396357"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396356"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396355"><span class="annot"><span class="annottext">Maybe [DataSource]
+</span><a href="#local-6989586621679396355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSources:UpdateApp' :: Maybe [DataSource]
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3AdataSources%3AUpdateApp%27"><span class="hs-identifier hs-var">dataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
-</span><a href="#local-6989586621679396346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataSource] -&gt; f (Maybe [DataSource]))
+</span><a href="#local-6989586621679396355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataSource] -&gt; f (Maybe [DataSource]))
  -&gt; UpdateApp -&gt; f UpdateApp)
 -&gt; ((Maybe [DataSource] -&gt; f (Maybe [DataSource]))
     -&gt; Maybe [DataSource] -&gt; f (Maybe [DataSource]))
@@ -425,16 +425,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateApp -&gt; Maybe Source -&gt; UpdateApp)
 -&gt; Lens UpdateApp UpdateApp (Maybe Source) (Maybe Source)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396345"><span class="annot"><span class="annottext">Maybe Source
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396354"><span class="annot"><span class="annottext">Maybe Source
 appSource :: Maybe Source
 $sel:appSource:UpdateApp' :: UpdateApp -&gt; Maybe Source
-</span><a href="#local-6989586621679396345"><span class="hs-identifier hs-var hs-var">appSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679396345"><span class="hs-identifier hs-var">appSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396344"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396343"><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679396343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSource:UpdateApp' :: Maybe Source
+</span><a href="#local-6989586621679396354"><span class="hs-identifier hs-var hs-var">appSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679396354"><span class="hs-identifier hs-var">appSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396353"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396352"><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679396352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSource:UpdateApp' :: Maybe Source
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3AappSource%3AUpdateApp%27"><span class="hs-identifier hs-var">appSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679396343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | One or more user-defined key\/value pairs to be added to the stack</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- attributes.</span><span>
@@ -451,16 +451,16 @@ $sel:appSource:UpdateApp' :: UpdateApp -&gt; Maybe Source
      (Maybe (HashMap AppAttributesKeys Text))
      (Maybe (HashMap AppAttributesKeys Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396342"><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396351"><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
 attributes :: Maybe (HashMap AppAttributesKeys Text)
 $sel:attributes:UpdateApp' :: UpdateApp -&gt; Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679396342"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679396342"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396341"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396340"><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679396340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:UpdateApp' :: Maybe (HashMap AppAttributesKeys Text)
+</span><a href="#local-6989586621679396351"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
+</span><a href="#local-6989586621679396351"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396350"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396349"><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
+</span><a href="#local-6989586621679396349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:UpdateApp' :: Maybe (HashMap AppAttributesKeys Text)
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3Aattributes%3AUpdateApp%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679396340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap AppAttributesKeys Text)
+</span><a href="#local-6989586621679396349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap AppAttributesKeys Text)
   -&gt; f (Maybe (HashMap AppAttributesKeys Text)))
  -&gt; UpdateApp -&gt; f UpdateApp)
 -&gt; ((Maybe (HashMap AppAttributesKeys Text)
@@ -500,16 +500,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateApp -&gt; Maybe Text -&gt; UpdateApp)
 -&gt; Lens UpdateApp UpdateApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396339"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396348"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:UpdateApp' :: UpdateApp -&gt; Maybe Text
-</span><a href="#local-6989586621679396339"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396339"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396338"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396337"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateApp' :: Maybe Text
+</span><a href="#local-6989586621679396348"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396348"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396347"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396346"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateApp' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3Aname%3AUpdateApp%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The app type.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#updateApp_type"><span class="hs-identifier hs-type">updateApp_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span class="hs-special">)</span><span>
@@ -518,16 +518,16 @@ $sel:name:UpdateApp' :: UpdateApp -&gt; Maybe Text
 -&gt; (UpdateApp -&gt; Maybe AppType -&gt; UpdateApp)
 -&gt; Lens UpdateApp UpdateApp (Maybe AppType) (Maybe AppType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396336"><span class="annot"><span class="annottext">Maybe AppType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396345"><span class="annot"><span class="annottext">Maybe AppType
 type' :: Maybe AppType
 $sel:type':UpdateApp' :: UpdateApp -&gt; Maybe AppType
-</span><a href="#local-6989586621679396336"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppType
-</span><a href="#local-6989586621679396336"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396335"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396334"><span class="annot"><span class="annottext">Maybe AppType
-</span><a href="#local-6989586621679396334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':UpdateApp' :: Maybe AppType
+</span><a href="#local-6989586621679396345"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppType
+</span><a href="#local-6989586621679396345"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396344"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396343"><span class="annot"><span class="annottext">Maybe AppType
+</span><a href="#local-6989586621679396343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':UpdateApp' :: Maybe AppType
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3Atype%27%3AUpdateApp%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppType
-</span><a href="#local-6989586621679396334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The app\'s virtual host settings, with multiple domains separated by</span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- commas. For example: @\'www.example.com, example.com\'@</span><span>
@@ -537,16 +537,16 @@ $sel:type':UpdateApp' :: UpdateApp -&gt; Maybe AppType
 -&gt; (UpdateApp -&gt; Maybe [Text] -&gt; UpdateApp)
 -&gt; Lens UpdateApp UpdateApp (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396333"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396342"><span class="annot"><span class="annottext">Maybe [Text]
 domains :: Maybe [Text]
 $sel:domains:UpdateApp' :: UpdateApp -&gt; Maybe [Text]
-</span><a href="#local-6989586621679396333"><span class="hs-identifier hs-var hs-var">domains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679396333"><span class="hs-identifier hs-var">domains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396332"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396331"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679396331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domains:UpdateApp' :: Maybe [Text]
+</span><a href="#local-6989586621679396342"><span class="hs-identifier hs-var hs-var">domains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396342"><span class="hs-identifier hs-var">domains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396341"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396340"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domains:UpdateApp' :: Maybe [Text]
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3Adomains%3AUpdateApp%27"><span class="hs-identifier hs-var">domains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679396331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UpdateApp -&gt; f UpdateApp)
+</span><a href="#local-6989586621679396340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UpdateApp -&gt; f UpdateApp)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -569,16 +569,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateApp -&gt; Maybe Text -&gt; UpdateApp)
 -&gt; Lens UpdateApp UpdateApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396330"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396339"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateApp' :: UpdateApp -&gt; Maybe Text
-</span><a href="#local-6989586621679396330"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396330"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396329"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396328"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateApp' :: Maybe Text
+</span><a href="#local-6989586621679396339"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396339"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396338"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateApp' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3Adescription%3AUpdateApp%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The app ID.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#updateApp_appId"><span class="hs-identifier hs-type">updateApp_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -587,25 +587,25 @@ $sel:description:UpdateApp' :: UpdateApp -&gt; Maybe Text
 -&gt; (UpdateApp -&gt; Text -&gt; UpdateApp)
 -&gt; Lens UpdateApp UpdateApp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396327"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396336"><span class="annot"><span class="annottext">Text
 appId :: Text
 $sel:appId:UpdateApp' :: UpdateApp -&gt; Text
-</span><a href="#local-6989586621679396327"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396327"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396326"><span class="annot"><span class="annottext">s :: UpdateApp
-</span><a href="#local-6989586621679396326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
-</span><a href="#local-6989586621679396326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:UpdateApp' :: Text
+</span><a href="#local-6989586621679396336"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396336"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396335"><span class="annot"><span class="annottext">s :: UpdateApp
+</span><a href="#local-6989586621679396335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApp
+</span><a href="#local-6989586621679396335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:UpdateApp' :: Text
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#%24sel%3AappId%3AUpdateApp%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-229"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateAppResponse"><span class="hs-identifier hs-type">UpdateAppResponse</span></a></span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679396321"><span class="annot"><span class="annottext">request :: UpdateApp -&gt; Request UpdateApp
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679396330"><span class="annot"><span class="annottext">request :: UpdateApp -&gt; Request UpdateApp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateApp -&gt; Request UpdateApp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679396317"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679396326"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateApp
 -&gt; ClientResponse ClientBody
@@ -628,12 +628,12 @@ AWSResponse a
 UpdateAppResponse
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateAppResponse%27"><span class="hs-identifier hs-var">UpdateAppResponse'</span></a></span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396310"><span id="local-6989586621679396312"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396319"><span id="local-6989586621679396321"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span></span></span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396316"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span></span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679396303"><span class="annot"><span class="annottext">toHeaders :: UpdateApp -&gt; [Header]
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679396312"><span class="annot"><span class="annottext">toHeaders :: UpdateApp -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateApp -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -660,9 +660,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-249"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396293"><span id="local-6989586621679396295"><span id="local-6989586621679396297"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621679396291"><span class="annot"><span class="annottext">toJSON :: UpdateApp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396279"><span id="local-6989586621679396280"><span id="local-6989586621679396281"><span id="local-6989586621679396282"><span id="local-6989586621679396283"><span id="local-6989586621679396284"><span id="local-6989586621679396285"><span id="local-6989586621679396286"><span id="local-6989586621679396287"><span id="local-6989586621679396288"><span id="local-6989586621679396289"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396302"><span id="local-6989586621679396304"><span id="local-6989586621679396306"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679396300"><span class="annot"><span class="annottext">toJSON :: UpdateApp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp%27"><span class="hs-identifier hs-type">UpdateApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396288"><span id="local-6989586621679396289"><span id="local-6989586621679396290"><span id="local-6989586621679396291"><span id="local-6989586621679396292"><span id="local-6989586621679396293"><span id="local-6989586621679396294"><span id="local-6989586621679396295"><span id="local-6989586621679396296"><span id="local-6989586621679396297"><span id="local-6989586621679396298"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [DataSource]
 Maybe [EnvironmentVariable]
@@ -694,7 +694,7 @@ $sel:dataSources:UpdateApp' :: UpdateApp -&gt; Maybe [DataSource]
 $sel:enableSsl:UpdateApp' :: UpdateApp -&gt; Maybe Bool
 $sel:environment:UpdateApp' :: UpdateApp -&gt; Maybe [EnvironmentVariable]
 $sel:sslConfiguration:UpdateApp' :: UpdateApp -&gt; Maybe SslConfiguration
-</span><a href="#local-6989586621679396279"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679396288"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -707,7 +707,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">(SslConfiguration -&gt; Pair) -&gt; Maybe SslConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SslConfiguration
-</span><a href="#local-6989586621679396289"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396298"><span class="hs-identifier hs-var">sslConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EnvironmentVariable] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -715,28 +715,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [EnvironmentVariable] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679396288"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396297"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableSsl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679396287"><span class="hs-identifier hs-var">enableSsl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396296"><span class="hs-identifier hs-var">enableSsl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DataSource] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([DataSource] -&gt; Pair) -&gt; Maybe [DataSource] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DataSource]
-</span><a href="#local-6989586621679396286"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396295"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Source -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Source -&gt; Pair) -&gt; Maybe Source -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679396285"><span class="hs-identifier hs-var">appSource</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396294"><span class="hs-identifier hs-var">appSource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap AppAttributesKeys Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -744,54 +744,54 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap AppAttributesKeys Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap AppAttributesKeys Text)
-</span><a href="#local-6989586621679396284"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396293"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396283"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396292"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AppType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AppType -&gt; Pair) -&gt; Maybe AppType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AppType
-</span><a href="#local-6989586621679396282"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396291"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Domains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679396281"><span class="hs-identifier hs-var">domains</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396290"><span class="hs-identifier hs-var">domains</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396280"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396289"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396279"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396288"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-269"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679396272"><span class="annot"><span class="annottext">toPath :: UpdateApp -&gt; ByteString
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679396281"><span class="annot"><span class="annottext">toPath :: UpdateApp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateApp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateApp"><span class="hs-identifier hs-type">UpdateApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-275"></span><span>  </span><span id="local-6989586621679396268"><span class="annot"><span class="annottext">toQuery :: UpdateApp -&gt; QueryString
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679396277"><span class="annot"><span class="annottext">toQuery :: UpdateApp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateApp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -799,10 +799,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | /See:/ 'newUpdateAppResponse' smart constructor.</span><span>
-</span><span id="line-278"></span><span id="local-6989586621679396265"><span id="local-6989586621679396266"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAppResponse"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateAppResponse"><span class="hs-identifier hs-var">UpdateAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAppResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateAppResponse%27"><span class="hs-identifier hs-var">UpdateAppResponse'</span></a></span></span><span>
+</span><span id="line-278"></span><span id="local-6989586621679396274"><span id="local-6989586621679396275"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAppResponse"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateAppResponse"><span class="hs-identifier hs-var">UpdateAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAppResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateAppResponse%27"><span class="hs-identifier hs-var">UpdateAppResponse'</span></a></span></span><span>
 </span><span id="line-279"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-280"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-281"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396261"><span id="local-6989586621679396263"><span class="annot"><span class="annottext">UpdateAppResponse -&gt; UpdateAppResponse -&gt; Bool
+</span><span id="line-281"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396270"><span id="local-6989586621679396272"><span class="annot"><span class="annottext">UpdateAppResponse -&gt; UpdateAppResponse -&gt; Bool
 (UpdateAppResponse -&gt; UpdateAppResponse -&gt; Bool)
 -&gt; (UpdateAppResponse -&gt; UpdateAppResponse -&gt; Bool)
 -&gt; Eq UpdateAppResponse
@@ -811,7 +811,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateAppResponse -&gt; UpdateAppResponse -&gt; Bool
 == :: UpdateAppResponse -&gt; UpdateAppResponse -&gt; Bool
 $c== :: UpdateAppResponse -&gt; UpdateAppResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396253"><span id="local-6989586621679396255"><span id="local-6989586621679396257"><span id="local-6989586621679396259"><span class="annot"><span class="annottext">ReadPrec [UpdateAppResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396262"><span id="local-6989586621679396264"><span id="local-6989586621679396266"><span id="local-6989586621679396268"><span class="annot"><span class="annottext">ReadPrec [UpdateAppResponse]
 ReadPrec UpdateAppResponse
 Int -&gt; ReadS UpdateAppResponse
 ReadS [UpdateAppResponse]
@@ -831,7 +831,7 @@ readList :: ReadS [UpdateAppResponse]
 $creadList :: ReadS [UpdateAppResponse]
 readsPrec :: Int -&gt; ReadS UpdateAppResponse
 $creadsPrec :: Int -&gt; ReadS UpdateAppResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396247"><span id="local-6989586621679396249"><span id="local-6989586621679396251"><span class="annot"><span class="annottext">Int -&gt; UpdateAppResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396256"><span id="local-6989586621679396258"><span id="local-6989586621679396260"><span class="annot"><span class="annottext">Int -&gt; UpdateAppResponse -&gt; ShowS
 [UpdateAppResponse] -&gt; ShowS
 UpdateAppResponse -&gt; String
 (Int -&gt; UpdateAppResponse -&gt; ShowS)
@@ -867,5 +867,5 @@ $cfrom :: forall x. UpdateAppResponse -&gt; Rep UpdateAppResponse x
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#newUpdateAppResponse"><span class="hs-identifier hs-var hs-var">newUpdateAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateAppResponse
 </span><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateAppResponse%27"><span class="hs-identifier hs-var">UpdateAppResponse'</span></a></span><span>
 </span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateAppResponse"><span class="hs-identifier hs-type">UpdateAppResponse</span></a></span></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateApp.html#UpdateAppResponse"><span class="hs-identifier hs-type">UpdateAppResponse</span></a></span></span><span>
 </span><span id="line-292"></span></pre></body></html>

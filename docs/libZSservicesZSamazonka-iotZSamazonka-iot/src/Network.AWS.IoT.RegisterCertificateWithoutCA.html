@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newRegisterCertificateWithoutCA' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679815247"><span id="local-6989586621679815248"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCertificateWithoutCA"><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-var">RegisterCertificateWithoutCA</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCertificateWithoutCA%27"><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-var">RegisterCertificateWithoutCA'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679815256"><span id="local-6989586621679815257"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCertificateWithoutCA"><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-var">RegisterCertificateWithoutCA</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCertificateWithoutCA%27"><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-var">RegisterCertificateWithoutCA'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the register certificate request.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Astatus%3ARegisterCertificateWithoutCA%27"><span class="annot"><span class="annottext">RegisterCertificateWithoutCA -&gt; Maybe CertificateStatus
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3Astatus%3ARegisterCertificateWithoutCA%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateStatus.html#CertificateStatus"><span class="hs-identifier hs-type">CertificateStatus</span></a></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AcertificatePem%3ARegisterCertificateWithoutCA%27"><span class="annot"><span class="annottext">RegisterCertificateWithoutCA -&gt; Text
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3AcertificatePem%3ARegisterCertificateWithoutCA%27"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815240"><span id="local-6989586621679815242"><span class="annot"><span class="annottext">RegisterCertificateWithoutCA
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815249"><span id="local-6989586621679815251"><span class="annot"><span class="annottext">RegisterCertificateWithoutCA
 -&gt; RegisterCertificateWithoutCA -&gt; Bool
 (RegisterCertificateWithoutCA
  -&gt; RegisterCertificateWithoutCA -&gt; Bool)
@@ -73,7 +73,7 @@ $c/= :: RegisterCertificateWithoutCA
 -&gt; RegisterCertificateWithoutCA -&gt; Bool
 $c== :: RegisterCertificateWithoutCA
 -&gt; RegisterCertificateWithoutCA -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815231"><span id="local-6989586621679815233"><span id="local-6989586621679815235"><span id="local-6989586621679815237"><span class="annot"><span class="annottext">ReadPrec [RegisterCertificateWithoutCA]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815240"><span id="local-6989586621679815242"><span id="local-6989586621679815244"><span id="local-6989586621679815246"><span class="annot"><span class="annottext">ReadPrec [RegisterCertificateWithoutCA]
 ReadPrec RegisterCertificateWithoutCA
 Int -&gt; ReadS RegisterCertificateWithoutCA
 ReadS [RegisterCertificateWithoutCA]
@@ -93,7 +93,7 @@ readList :: ReadS [RegisterCertificateWithoutCA]
 $creadList :: ReadS [RegisterCertificateWithoutCA]
 readsPrec :: Int -&gt; ReadS RegisterCertificateWithoutCA
 $creadsPrec :: Int -&gt; ReadS RegisterCertificateWithoutCA
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815224"><span id="local-6989586621679815226"><span id="local-6989586621679815228"><span class="annot"><span class="annottext">Int -&gt; RegisterCertificateWithoutCA -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815233"><span id="local-6989586621679815235"><span id="local-6989586621679815237"><span class="annot"><span class="annottext">Int -&gt; RegisterCertificateWithoutCA -&gt; ShowS
 [RegisterCertificateWithoutCA] -&gt; ShowS
 RegisterCertificateWithoutCA -&gt; String
 (Int -&gt; RegisterCertificateWithoutCA -&gt; ShowS)
@@ -141,8 +141,8 @@ RegisterCertificateWithoutCA -&gt; Rep RegisterCertificateWithoutCA x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span>
 </span><span id="line-75"></span><span id="newRegisterCertificateWithoutCA"><span class="annot"><span class="annottext">newRegisterCertificateWithoutCA :: Text -&gt; RegisterCertificateWithoutCA
-</span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#newRegisterCertificateWithoutCA"><span class="hs-identifier hs-var hs-var">newRegisterCertificateWithoutCA</span></a></span></span><span> </span><span id="local-6989586621679815219"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815219"><span class="hs-identifier hs-var">pCertificatePem_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#newRegisterCertificateWithoutCA"><span class="hs-identifier hs-var hs-var">newRegisterCertificateWithoutCA</span></a></span></span><span> </span><span id="local-6989586621679815228"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815228"><span class="hs-identifier hs-var">pCertificatePem_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCA' :: Maybe CertificateStatus -&gt; Text -&gt; RegisterCertificateWithoutCA
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:RegisterCertificateWithoutCA' :: Maybe CertificateStatus
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificatePem:RegisterCertificateWithoutCA' :: Text
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3AcertificatePem%3ARegisterCertificateWithoutCA%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815219"><span class="hs-identifier hs-var">pCertificatePem_</span></a></span><span>
+</span><a href="#local-6989586621679815228"><span class="hs-identifier hs-var">pCertificatePem_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The status of the register certificate request.</span><span>
@@ -168,16 +168,16 @@ forall a. Maybe a
      (Maybe CertificateStatus)
      (Maybe CertificateStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815216"><span class="annot"><span class="annottext">Maybe CertificateStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815225"><span class="annot"><span class="annottext">Maybe CertificateStatus
 status :: Maybe CertificateStatus
 $sel:status:RegisterCertificateWithoutCA' :: RegisterCertificateWithoutCA -&gt; Maybe CertificateStatus
-</span><a href="#local-6989586621679815216"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateStatus
-</span><a href="#local-6989586621679815216"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815215"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCA
-</span><a href="#local-6989586621679815215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815214"><span class="annot"><span class="annottext">Maybe CertificateStatus
-</span><a href="#local-6989586621679815214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCA
-</span><a href="#local-6989586621679815215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RegisterCertificateWithoutCA' :: Maybe CertificateStatus
+</span><a href="#local-6989586621679815225"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateStatus
+</span><a href="#local-6989586621679815225"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815224"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCA
+</span><a href="#local-6989586621679815224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815223"><span class="annot"><span class="annottext">Maybe CertificateStatus
+</span><a href="#local-6989586621679815223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCA
+</span><a href="#local-6989586621679815224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RegisterCertificateWithoutCA' :: Maybe CertificateStatus
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3Astatus%3ARegisterCertificateWithoutCA%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateStatus
-</span><a href="#local-6989586621679815214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The certificate data, in PEM format.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#registerCertificateWithoutCA_certificatePem"><span class="hs-identifier hs-type">registerCertificateWithoutCA_certificatePem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -189,22 +189,22 @@ $sel:status:RegisterCertificateWithoutCA' :: RegisterCertificateWithoutCA -&gt; 
 -&gt; Lens
      RegisterCertificateWithoutCA RegisterCertificateWithoutCA Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815213"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815222"><span class="annot"><span class="annottext">Text
 certificatePem :: Text
 $sel:certificatePem:RegisterCertificateWithoutCA' :: RegisterCertificateWithoutCA -&gt; Text
-</span><a href="#local-6989586621679815213"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815213"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815212"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCA
-</span><a href="#local-6989586621679815212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815211"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCA
-</span><a href="#local-6989586621679815212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificatePem:RegisterCertificateWithoutCA' :: Text
+</span><a href="#local-6989586621679815222"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815222"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815221"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCA
+</span><a href="#local-6989586621679815221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815220"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCA
+</span><a href="#local-6989586621679815221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificatePem:RegisterCertificateWithoutCA' :: Text
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3AcertificatePem%3ARegisterCertificateWithoutCA%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679815207"><span class="annot"><span class="annottext">request :: RegisterCertificateWithoutCA
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679815216"><span class="annot"><span class="annottext">request :: RegisterCertificateWithoutCA
 -&gt; Request RegisterCertificateWithoutCA
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RegisterCertificateWithoutCA
@@ -212,7 +212,7 @@ $sel:certificatePem:RegisterCertificateWithoutCA' :: RegisterCertificateWithoutC
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679815203"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679815212"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterCertificateWithoutCA
 -&gt; ClientResponse ClientBody
@@ -238,10 +238,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679815200"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815200"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679815199"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679815199"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679815198"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679815198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679815209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679815209"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679815208"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679815208"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679815207"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Int -&gt; RegisterCertificateWithoutCAResponse
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-var">RegisterCertificateWithoutCAResponse'</span></a></span><span>
@@ -252,7 +252,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; RegisterCertificateWithoutCAResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679815198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679815207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,7 +262,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; RegisterCertificateWithoutCAResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679815198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679815207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateId&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,32 +275,32 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815200"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815209"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679815190"><span id="local-6989586621679815192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679815199"><span id="local-6989586621679815201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679815183"><span class="annot"><span class="annottext">toHeaders :: RegisterCertificateWithoutCA -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679815192"><span class="annot"><span class="annottext">toHeaders :: RegisterCertificateWithoutCA -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterCertificateWithoutCA -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815174"><span id="local-6989586621679815176"><span id="local-6989586621679815178"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679815172"><span class="annot"><span class="annottext">toJSON :: RegisterCertificateWithoutCA -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815169"><span id="local-6989586621679815170"><span class="annot"><span class="annottext">Maybe CertificateStatus
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815183"><span id="local-6989586621679815185"><span id="local-6989586621679815187"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679815181"><span class="annot"><span class="annottext">toJSON :: RegisterCertificateWithoutCA -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815178"><span id="local-6989586621679815179"><span class="annot"><span class="annottext">Maybe CertificateStatus
 Text
 certificatePem :: Text
 status :: Maybe CertificateStatus
 $sel:certificatePem:RegisterCertificateWithoutCA' :: RegisterCertificateWithoutCA -&gt; Text
 $sel:status:RegisterCertificateWithoutCA' :: RegisterCertificateWithoutCA -&gt; Maybe CertificateStatus
-</span><a href="#local-6989586621679815169"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679815178"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -313,7 +313,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CertificateStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CertificateStatus
-</span><a href="#local-6989586621679815170"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679815179"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -321,19 +321,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;certificatePem&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679815169"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815178"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679815163"><span class="annot"><span class="annottext">toPath :: RegisterCertificateWithoutCA -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679815172"><span class="annot"><span class="annottext">toPath :: RegisterCertificateWithoutCA -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterCertificateWithoutCA -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/certificate/register-no-ca&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCA"><span class="hs-identifier hs-type">RegisterCertificateWithoutCA</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679815159"><span class="annot"><span class="annottext">toQuery :: RegisterCertificateWithoutCA -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679815168"><span class="annot"><span class="annottext">toQuery :: RegisterCertificateWithoutCA -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterCertificateWithoutCA -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -341,7 +341,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newRegisterCertificateWithoutCAResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679815156"><span id="local-6989586621679815157"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCertificateWithoutCAResponse"><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-var">RegisterCertificateWithoutCAResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCertificateWithoutCAResponse%27"><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-var">RegisterCertificateWithoutCAResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679815165"><span id="local-6989586621679815166"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCertificateWithoutCAResponse"><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-var">RegisterCertificateWithoutCAResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCertificateWithoutCAResponse%27"><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-var">RegisterCertificateWithoutCAResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the registered certificate.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AcertificateArn%3ARegisterCertificateWithoutCAResponse%27"><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3AcertificateArn%3ARegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -353,7 +353,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterCertificateWithoutCAResponse%27"><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse -&gt; Int
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3AhttpStatus%3ARegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815149"><span id="local-6989586621679815151"><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815158"><span id="local-6989586621679815160"><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse
 -&gt; RegisterCertificateWithoutCAResponse -&gt; Bool
 (RegisterCertificateWithoutCAResponse
  -&gt; RegisterCertificateWithoutCAResponse -&gt; Bool)
@@ -369,7 +369,7 @@ $c/= :: RegisterCertificateWithoutCAResponse
 -&gt; RegisterCertificateWithoutCAResponse -&gt; Bool
 $c== :: RegisterCertificateWithoutCAResponse
 -&gt; RegisterCertificateWithoutCAResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815141"><span id="local-6989586621679815143"><span id="local-6989586621679815145"><span id="local-6989586621679815147"><span class="annot"><span class="annottext">ReadPrec [RegisterCertificateWithoutCAResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815150"><span id="local-6989586621679815152"><span id="local-6989586621679815154"><span id="local-6989586621679815156"><span class="annot"><span class="annottext">ReadPrec [RegisterCertificateWithoutCAResponse]
 ReadPrec RegisterCertificateWithoutCAResponse
 Int -&gt; ReadS RegisterCertificateWithoutCAResponse
 ReadS [RegisterCertificateWithoutCAResponse]
@@ -389,7 +389,7 @@ readList :: ReadS [RegisterCertificateWithoutCAResponse]
 $creadList :: ReadS [RegisterCertificateWithoutCAResponse]
 readsPrec :: Int -&gt; ReadS RegisterCertificateWithoutCAResponse
 $creadsPrec :: Int -&gt; ReadS RegisterCertificateWithoutCAResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815135"><span id="local-6989586621679815137"><span id="local-6989586621679815139"><span class="annot"><span class="annottext">Int -&gt; RegisterCertificateWithoutCAResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815144"><span id="local-6989586621679815146"><span id="local-6989586621679815148"><span class="annot"><span class="annottext">Int -&gt; RegisterCertificateWithoutCAResponse -&gt; ShowS
 [RegisterCertificateWithoutCAResponse] -&gt; ShowS
 RegisterCertificateWithoutCAResponse -&gt; String
 (Int -&gt; RegisterCertificateWithoutCAResponse -&gt; ShowS)
@@ -446,8 +446,8 @@ RegisterCertificateWithoutCAResponse
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newRegisterCertificateWithoutCAResponse"><span class="annot"><span class="annottext">newRegisterCertificateWithoutCAResponse :: Int -&gt; RegisterCertificateWithoutCAResponse
-</span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#newRegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-var hs-var">newRegisterCertificateWithoutCAResponse</span></a></span></span><span> </span><span id="local-6989586621679815132"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815132"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#newRegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-var hs-var">newRegisterCertificateWithoutCAResponse</span></a></span></span><span> </span><span id="local-6989586621679815141"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679815141"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Int -&gt; RegisterCertificateWithoutCAResponse
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span>
@@ -462,7 +462,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterCertificateWithoutCAResponse' :: Int
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3AhttpStatus%3ARegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815132"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679815141"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the registered certificate.</span><span>
@@ -479,16 +479,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815131"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815140"><span class="annot"><span class="annottext">Maybe Text
 certificateArn :: Maybe Text
 $sel:certificateArn:RegisterCertificateWithoutCAResponse' :: RegisterCertificateWithoutCAResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679815131"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815131"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815130"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCAResponse
-</span><a href="#local-6989586621679815130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815129"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse
-</span><a href="#local-6989586621679815130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:RegisterCertificateWithoutCAResponse' :: Maybe Text
+</span><a href="#local-6989586621679815140"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815140"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815139"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCAResponse
+</span><a href="#local-6989586621679815139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse
+</span><a href="#local-6989586621679815139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:RegisterCertificateWithoutCAResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3AcertificateArn%3ARegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The ID of the registered certificate. (The last part of the certificate</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- ARN contains the certificate ID.</span><span>
@@ -505,16 +505,16 @@ $sel:certificateArn:RegisterCertificateWithoutCAResponse' :: RegisterCertificate
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815128"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815137"><span class="annot"><span class="annottext">Maybe Text
 certificateId :: Maybe Text
 $sel:certificateId:RegisterCertificateWithoutCAResponse' :: RegisterCertificateWithoutCAResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679815128"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815128"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815127"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCAResponse
-</span><a href="#local-6989586621679815127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815126"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse
-</span><a href="#local-6989586621679815127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:RegisterCertificateWithoutCAResponse' :: Maybe Text
+</span><a href="#local-6989586621679815137"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815137"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815136"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCAResponse
+</span><a href="#local-6989586621679815136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815135"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse
+</span><a href="#local-6989586621679815136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:RegisterCertificateWithoutCAResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3AcertificateId%3ARegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#registerCertificateWithoutCAResponse_httpStatus"><span class="hs-identifier hs-type">registerCertificateWithoutCAResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -530,18 +530,18 @@ $sel:certificateId:RegisterCertificateWithoutCAResponse' :: RegisterCertificateW
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815125"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815134"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterCertificateWithoutCAResponse' :: RegisterCertificateWithoutCAResponse -&gt; Int
-</span><a href="#local-6989586621679815125"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815125"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815124"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCAResponse
-</span><a href="#local-6989586621679815124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815123"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse
-</span><a href="#local-6989586621679815124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterCertificateWithoutCAResponse' :: Int
+</span><a href="#local-6989586621679815134"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679815134"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815133"><span class="annot"><span class="annottext">s :: RegisterCertificateWithoutCAResponse
+</span><a href="#local-6989586621679815133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679815132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCertificateWithoutCAResponse
+</span><a href="#local-6989586621679815133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterCertificateWithoutCAResponse' :: Int
 </span><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#%24sel%3AhttpStatus%3ARegisterCertificateWithoutCAResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679815121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679815130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCertificateWithoutCA.html#RegisterCertificateWithoutCAResponse"><span class="hs-identifier hs-type">RegisterCertificateWithoutCAResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- match.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newSentimentFilter' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679274952"><span id="local-6989586621679274953"></span></span><span class="hs-keyword">data</span><span> </span><span id="SentimentFilter"><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-var">SentimentFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SentimentFilter%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-var">SentimentFilter'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679274961"><span id="local-6989586621679274962"></span></span><span class="hs-keyword">data</span><span> </span><span id="SentimentFilter"><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-var">SentimentFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SentimentFilter%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-var">SentimentFilter'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that determines whether the sentiment belongs to the customer or</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the agent.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AparticipantRole%3ASentimentFilter%27"><span class="annot"><span class="annottext">SentimentFilter -&gt; Maybe ParticipantRole
@@ -55,7 +55,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Asentiments%3ASentimentFilter%27"><span class="annot"><span class="annottext">SentimentFilter -&gt; NonEmpty SentimentValue
 </span><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#%24sel%3Asentiments%3ASentimentFilter%27"><span class="hs-identifier hs-var hs-var">sentiments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentValue.html#SentimentValue"><span class="hs-identifier hs-type">SentimentValue</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274942"><span id="local-6989586621679274944"><span class="annot"><span class="annottext">SentimentFilter -&gt; SentimentFilter -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274951"><span id="local-6989586621679274953"><span class="annot"><span class="annottext">SentimentFilter -&gt; SentimentFilter -&gt; Bool
 (SentimentFilter -&gt; SentimentFilter -&gt; Bool)
 -&gt; (SentimentFilter -&gt; SentimentFilter -&gt; Bool)
 -&gt; Eq SentimentFilter
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SentimentFilter -&gt; SentimentFilter -&gt; Bool
 == :: SentimentFilter -&gt; SentimentFilter -&gt; Bool
 $c== :: SentimentFilter -&gt; SentimentFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274933"><span id="local-6989586621679274935"><span id="local-6989586621679274937"><span id="local-6989586621679274939"><span class="annot"><span class="annottext">ReadPrec [SentimentFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274942"><span id="local-6989586621679274944"><span id="local-6989586621679274946"><span id="local-6989586621679274948"><span class="annot"><span class="annottext">ReadPrec [SentimentFilter]
 ReadPrec SentimentFilter
 Int -&gt; ReadS SentimentFilter
 ReadS [SentimentFilter]
@@ -84,7 +84,7 @@ readList :: ReadS [SentimentFilter]
 $creadList :: ReadS [SentimentFilter]
 readsPrec :: Int -&gt; ReadS SentimentFilter
 $creadsPrec :: Int -&gt; ReadS SentimentFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274926"><span id="local-6989586621679274928"><span id="local-6989586621679274930"><span class="annot"><span class="annottext">Int -&gt; SentimentFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274935"><span id="local-6989586621679274937"><span id="local-6989586621679274939"><span class="annot"><span class="annottext">Int -&gt; SentimentFilter -&gt; ShowS
 [SentimentFilter] -&gt; ShowS
 SentimentFilter -&gt; String
 (Int -&gt; SentimentFilter -&gt; ShowS)
@@ -136,8 +136,8 @@ $cfrom :: forall x. SentimentFilter -&gt; Rep SentimentFilter x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentValue.html#SentimentValue"><span class="hs-identifier hs-type">SentimentValue</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span>
 </span><span id="line-80"></span><span id="newSentimentFilter"><span class="annot"><span class="annottext">newSentimentFilter :: NonEmpty SentimentValue -&gt; SentimentFilter
-</span><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#newSentimentFilter"><span class="hs-identifier hs-var hs-var">newSentimentFilter</span></a></span></span><span> </span><span id="local-6989586621679274920"><span class="annot"><span class="annottext">NonEmpty SentimentValue
-</span><a href="#local-6989586621679274920"><span class="hs-identifier hs-var">pSentiments_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#newSentimentFilter"><span class="hs-identifier hs-var hs-var">newSentimentFilter</span></a></span></span><span> </span><span id="local-6989586621679274929"><span class="annot"><span class="annottext">NonEmpty SentimentValue
+</span><a href="#local-6989586621679274929"><span class="hs-identifier hs-var">pSentiments_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">SentimentFilter' :: Maybe ParticipantRole
 -&gt; Maybe RelativeTimeRange
 -&gt; Maybe Bool
@@ -174,7 +174,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty SentimentValue -&gt; NonEmpty SentimentValue
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty SentimentValue
-</span><a href="#local-6989586621679274920"><span class="hs-identifier hs-var">pSentiments_</span></a></span><span>
+</span><a href="#local-6989586621679274929"><span class="hs-identifier hs-var">pSentiments_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | A value that determines whether the sentiment belongs to the customer or</span><span>
@@ -190,16 +190,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe ParticipantRole)
      (Maybe ParticipantRole)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274914"><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274923"><span class="annot"><span class="annottext">Maybe ParticipantRole
 participantRole :: Maybe ParticipantRole
 $sel:participantRole:SentimentFilter' :: SentimentFilter -&gt; Maybe ParticipantRole
-</span><a href="#local-6989586621679274914"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
-</span><a href="#local-6989586621679274914"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274913"><span class="annot"><span class="annottext">s :: SentimentFilter
-</span><a href="#local-6989586621679274913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274912"><span class="annot"><span class="annottext">Maybe ParticipantRole
-</span><a href="#local-6989586621679274912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
-</span><a href="#local-6989586621679274913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantRole:SentimentFilter' :: Maybe ParticipantRole
+</span><a href="#local-6989586621679274923"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679274923"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274922"><span class="annot"><span class="annottext">s :: SentimentFilter
+</span><a href="#local-6989586621679274922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274921"><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679274921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
+</span><a href="#local-6989586621679274922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantRole:SentimentFilter' :: Maybe ParticipantRole
 </span><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#%24sel%3AparticipantRole%3ASentimentFilter%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
-</span><a href="#local-6989586621679274912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The time range, set in percentages, that correspond to proportion of the</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- call.</span><span>
@@ -214,16 +214,16 @@ $sel:participantRole:SentimentFilter' :: SentimentFilter -&gt; Maybe Participant
      (Maybe RelativeTimeRange)
      (Maybe RelativeTimeRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274910"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274919"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
 relativeTimeRange :: Maybe RelativeTimeRange
 $sel:relativeTimeRange:SentimentFilter' :: SentimentFilter -&gt; Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274910"><span class="hs-identifier hs-var hs-var">relativeTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274910"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274909"><span class="annot"><span class="annottext">s :: SentimentFilter
-</span><a href="#local-6989586621679274909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274908"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
-</span><a href="#local-6989586621679274909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativeTimeRange:SentimentFilter' :: Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274919"><span class="hs-identifier hs-var hs-var">relativeTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274919"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274918"><span class="annot"><span class="annottext">s :: SentimentFilter
+</span><a href="#local-6989586621679274918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274917"><span class="annot"><span class="annottext">Maybe RelativeTimeRange
+</span><a href="#local-6989586621679274917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
+</span><a href="#local-6989586621679274918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativeTimeRange:SentimentFilter' :: Maybe RelativeTimeRange
 </span><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#%24sel%3ArelativeTimeRange%3ASentimentFilter%27"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Set to @TRUE@ to look for sentiments that weren\'t specified in the</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- request.</span><span>
@@ -234,16 +234,16 @@ $sel:relativeTimeRange:SentimentFilter' :: SentimentFilter -&gt; Maybe RelativeT
 -&gt; (SentimentFilter -&gt; Maybe Bool -&gt; SentimentFilter)
 -&gt; Lens SentimentFilter SentimentFilter (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274906"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274915"><span class="annot"><span class="annottext">Maybe Bool
 negate :: Maybe Bool
 $sel:negate:SentimentFilter' :: SentimentFilter -&gt; Maybe Bool
-</span><a href="#local-6989586621679274906"><span class="hs-identifier hs-var hs-var">negate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274906"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274905"><span class="annot"><span class="annottext">s :: SentimentFilter
-</span><a href="#local-6989586621679274905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274904"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
-</span><a href="#local-6989586621679274905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:negate:SentimentFilter' :: Maybe Bool
+</span><a href="#local-6989586621679274915"><span class="hs-identifier hs-var hs-var">negate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274915"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274914"><span class="annot"><span class="annottext">s :: SentimentFilter
+</span><a href="#local-6989586621679274914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274913"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
+</span><a href="#local-6989586621679274914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:negate:SentimentFilter' :: Maybe Bool
 </span><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#%24sel%3Anegate%3ASentimentFilter%27"><span class="hs-identifier hs-var">negate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The time range, measured in seconds, of the sentiment.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#sentimentFilter_absoluteTimeRange"><span class="hs-identifier hs-type">sentimentFilter_absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.AbsoluteTimeRange.html#AbsoluteTimeRange"><span class="hs-identifier hs-type">AbsoluteTimeRange</span></a></span><span class="hs-special">)</span><span>
@@ -257,16 +257,16 @@ $sel:negate:SentimentFilter' :: SentimentFilter -&gt; Maybe Bool
      (Maybe AbsoluteTimeRange)
      (Maybe AbsoluteTimeRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274902"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274911"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
 absoluteTimeRange :: Maybe AbsoluteTimeRange
 $sel:absoluteTimeRange:SentimentFilter' :: SentimentFilter -&gt; Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274902"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274902"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274901"><span class="annot"><span class="annottext">s :: SentimentFilter
-</span><a href="#local-6989586621679274901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274900"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
-</span><a href="#local-6989586621679274901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:SentimentFilter' :: Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679274911"><span class="hs-identifier hs-var hs-var">absoluteTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679274911"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274910"><span class="annot"><span class="annottext">s :: SentimentFilter
+</span><a href="#local-6989586621679274910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274909"><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
+</span><a href="#local-6989586621679274909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
+</span><a href="#local-6989586621679274910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absoluteTimeRange:SentimentFilter' :: Maybe AbsoluteTimeRange
 </span><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#%24sel%3AabsoluteTimeRange%3ASentimentFilter%27"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | An array that enables you to specify sentiments for the customer or</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- agent. You can specify one or more values.</span><span>
@@ -281,16 +281,16 @@ $sel:absoluteTimeRange:SentimentFilter' :: SentimentFilter -&gt; Maybe AbsoluteT
      (NonEmpty SentimentValue)
      (NonEmpty SentimentValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274898"><span class="annot"><span class="annottext">NonEmpty SentimentValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274907"><span class="annot"><span class="annottext">NonEmpty SentimentValue
 sentiments :: NonEmpty SentimentValue
 $sel:sentiments:SentimentFilter' :: SentimentFilter -&gt; NonEmpty SentimentValue
-</span><a href="#local-6989586621679274898"><span class="hs-identifier hs-var hs-var">sentiments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty SentimentValue
-</span><a href="#local-6989586621679274898"><span class="hs-identifier hs-var">sentiments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274897"><span class="annot"><span class="annottext">s :: SentimentFilter
-</span><a href="#local-6989586621679274897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274896"><span class="annot"><span class="annottext">NonEmpty SentimentValue
-</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
-</span><a href="#local-6989586621679274897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentiments:SentimentFilter' :: NonEmpty SentimentValue
+</span><a href="#local-6989586621679274907"><span class="hs-identifier hs-var hs-var">sentiments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty SentimentValue
+</span><a href="#local-6989586621679274907"><span class="hs-identifier hs-var">sentiments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274906"><span class="annot"><span class="annottext">s :: SentimentFilter
+</span><a href="#local-6989586621679274906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274905"><span class="annot"><span class="annottext">NonEmpty SentimentValue
+</span><a href="#local-6989586621679274905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentFilter
+</span><a href="#local-6989586621679274906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentiments:SentimentFilter' :: NonEmpty SentimentValue
 </span><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#%24sel%3Asentiments%3ASentimentFilter%27"><span class="hs-identifier hs-var">sentiments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty SentimentValue
-</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty SentimentValue -&gt; f (NonEmpty SentimentValue))
+</span><a href="#local-6989586621679274905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty SentimentValue -&gt; f (NonEmpty SentimentValue))
  -&gt; SentimentFilter -&gt; f SentimentFilter)
 -&gt; ((NonEmpty SentimentValue -&gt; f (NonEmpty SentimentValue))
     -&gt; NonEmpty SentimentValue -&gt; f (NonEmpty SentimentValue))
@@ -303,8 +303,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274892"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679274890"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SentimentFilter
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274901"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679274899"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SentimentFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SentimentFilter)
@@ -314,8 +314,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SentimentFilter&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274887"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274887"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274896"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe ParticipantRole
 -&gt; Maybe RelativeTimeRange
 -&gt; Maybe Bool
@@ -338,7 +338,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; SentimentFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParticipantRole)
+</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParticipantRole)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParticipantRole&quot;</span></span><span class="hs-special">)</span><span>
@@ -356,7 +356,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; SentimentFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelativeTimeRange)
+</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelativeTimeRange)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RelativeTimeRange&quot;</span></span><span class="hs-special">)</span><span>
@@ -371,7 +371,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; NonEmpty SentimentValue -&gt; SentimentFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Negate&quot;</span></span><span class="hs-special">)</span><span>
@@ -382,7 +382,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (NonEmpty SentimentValue -&gt; SentimentFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AbsoluteTimeRange)
+</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AbsoluteTimeRange)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AbsoluteTimeRange&quot;</span></span><span class="hs-special">)</span><span>
@@ -390,19 +390,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (NonEmpty SentimentValue) -&gt; Parser SentimentFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty SentimentValue)
+</span><a href="#local-6989586621679274896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty SentimentValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Sentiments&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274880"><span id="local-6989586621679274882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274889"><span id="local-6989586621679274891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274869"><span id="local-6989586621679274871"><span id="local-6989586621679274873"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679274867"><span class="annot"><span class="annottext">toJSON :: SentimentFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274861"><span id="local-6989586621679274862"><span id="local-6989586621679274863"><span id="local-6989586621679274864"><span id="local-6989586621679274865"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274878"><span id="local-6989586621679274880"><span id="local-6989586621679274882"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679274876"><span class="annot"><span class="annottext">toJSON :: SentimentFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter%27"><span class="hs-identifier hs-type">SentimentFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274870"><span id="local-6989586621679274871"><span id="local-6989586621679274872"><span id="local-6989586621679274873"><span id="local-6989586621679274874"><span class="annot"><span class="annottext">Maybe Bool
 Maybe AbsoluteTimeRange
 Maybe ParticipantRole
 Maybe RelativeTimeRange
@@ -417,7 +417,7 @@ $sel:absoluteTimeRange:SentimentFilter' :: SentimentFilter -&gt; Maybe AbsoluteT
 $sel:negate:SentimentFilter' :: SentimentFilter -&gt; Maybe Bool
 $sel:relativeTimeRange:SentimentFilter' :: SentimentFilter -&gt; Maybe RelativeTimeRange
 $sel:participantRole:SentimentFilter' :: SentimentFilter -&gt; Maybe ParticipantRole
-</span><a href="#local-6989586621679274861"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274870"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -430,7 +430,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(ParticipantRole -&gt; Pair) -&gt; Maybe ParticipantRole -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
-</span><a href="#local-6989586621679274865"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274874"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RelativeTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RelativeTimeRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -439,14 +439,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RelativeTimeRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RelativeTimeRange
-</span><a href="#local-6989586621679274864"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274873"><span class="hs-identifier hs-var">relativeTimeRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Negate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274863"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274872"><span class="hs-identifier hs-var">negate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AbsoluteTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AbsoluteTimeRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -455,14 +455,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AbsoluteTimeRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AbsoluteTimeRange
-</span><a href="#local-6989586621679274862"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274871"><span class="hs-identifier hs-var">absoluteTimeRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Sentiments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty SentimentValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty SentimentValue
-</span><a href="#local-6989586621679274861"><span class="hs-identifier hs-var">sentiments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274870"><span class="hs-identifier hs-var">sentiments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span></pre></body></html>

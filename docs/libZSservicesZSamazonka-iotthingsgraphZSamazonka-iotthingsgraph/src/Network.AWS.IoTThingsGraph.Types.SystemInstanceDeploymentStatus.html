@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier">SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_BOOTSTRAP"><span class="hs-identifier">SystemInstanceDeploymentStatus_BOOTSTRAP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_DELETED_IN_TARGET"><span class="hs-identifier">SystemInstanceDeploymentStatus_DELETED_IN_TARGET</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET"><span class="hs-identifier">SystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS"><span class="hs-identifier">SystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_FAILED"><span class="hs-identifier">SystemInstanceDeploymentStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_NOT_DEPLOYED"><span class="hs-identifier">SystemInstanceDeploymentStatus_NOT_DEPLOYED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_PENDING_DELETE"><span class="hs-identifier">SystemInstanceDeploymentStatus_PENDING_DELETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS"><span class="hs-identifier">SystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679218679"><span id="local-6989586621679218680"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SystemInstanceDeploymentStatus"><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-var">SystemInstanceDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SystemInstanceDeploymentStatus%27"><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-identifier hs-var">SystemInstanceDeploymentStatus'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSystemInstanceDeploymentStatus"><span class="annot"><span class="annottext">SystemInstanceDeploymentStatus -&gt; Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#fromSystemInstanceDeploymentStatus"><span class="hs-identifier hs-var hs-var">fromSystemInstanceDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218671"><span id="local-6989586621679218673"><span id="local-6989586621679218675"><span class="annot"><span class="annottext">Int -&gt; SystemInstanceDeploymentStatus -&gt; ShowS
+[SystemInstanceDeploymentStatus] -&gt; ShowS
+SystemInstanceDeploymentStatus -&gt; String
+(Int -&gt; SystemInstanceDeploymentStatus -&gt; ShowS)
+-&gt; (SystemInstanceDeploymentStatus -&gt; String)
+-&gt; ([SystemInstanceDeploymentStatus] -&gt; ShowS)
+-&gt; Show SystemInstanceDeploymentStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SystemInstanceDeploymentStatus] -&gt; ShowS
+$cshowList :: [SystemInstanceDeploymentStatus] -&gt; ShowS
+show :: SystemInstanceDeploymentStatus -&gt; String
+$cshow :: SystemInstanceDeploymentStatus -&gt; String
+showsPrec :: Int -&gt; SystemInstanceDeploymentStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; SystemInstanceDeploymentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679218662"><span id="local-6989586621679218664"><span id="local-6989586621679218666"><span id="local-6989586621679218668"><span class="annot"><span class="annottext">ReadPrec [SystemInstanceDeploymentStatus]
+ReadPrec SystemInstanceDeploymentStatus
+Int -&gt; ReadS SystemInstanceDeploymentStatus
+ReadS [SystemInstanceDeploymentStatus]
+(Int -&gt; ReadS SystemInstanceDeploymentStatus)
+-&gt; ReadS [SystemInstanceDeploymentStatus]
+-&gt; ReadPrec SystemInstanceDeploymentStatus
+-&gt; ReadPrec [SystemInstanceDeploymentStatus]
+-&gt; Read SystemInstanceDeploymentStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SystemInstanceDeploymentStatus]
+$creadListPrec :: ReadPrec [SystemInstanceDeploymentStatus]
+readPrec :: ReadPrec SystemInstanceDeploymentStatus
+$creadPrec :: ReadPrec SystemInstanceDeploymentStatus
+readList :: ReadS [SystemInstanceDeploymentStatus]
+$creadList :: ReadS [SystemInstanceDeploymentStatus]
+readsPrec :: Int -&gt; ReadS SystemInstanceDeploymentStatus
+$creadsPrec :: Int -&gt; ReadS SystemInstanceDeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679218657"><span id="local-6989586621679218659"><span class="annot"><span class="annottext">SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+(SystemInstanceDeploymentStatus
+ -&gt; SystemInstanceDeploymentStatus -&gt; Bool)
+-&gt; (SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus -&gt; Bool)
+-&gt; Eq SystemInstanceDeploymentStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+$c/= :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+== :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+$c== :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679218641"><span id="local-6989586621679218643"><span id="local-6989586621679218645"><span id="local-6989586621679218647"><span id="local-6989586621679218649"><span id="local-6989586621679218651"><span id="local-6989586621679218653"><span class="annot"><span class="annottext">Eq SystemInstanceDeploymentStatus
+Eq SystemInstanceDeploymentStatus
+-&gt; (SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus -&gt; Ordering)
+-&gt; (SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus -&gt; Bool)
+-&gt; (SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus -&gt; Bool)
+-&gt; (SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus -&gt; Bool)
+-&gt; (SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus -&gt; Bool)
+-&gt; (SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus)
+-&gt; (SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus
+    -&gt; SystemInstanceDeploymentStatus)
+-&gt; Ord SystemInstanceDeploymentStatus
+SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Ordering
+SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; SystemInstanceDeploymentStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; SystemInstanceDeploymentStatus
+$cmin :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; SystemInstanceDeploymentStatus
+max :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; SystemInstanceDeploymentStatus
+$cmax :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; SystemInstanceDeploymentStatus
+&gt;= :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+$c&gt;= :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+&gt; :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+$c&gt; :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+&lt;= :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+$c&lt;= :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+&lt; :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+$c&lt; :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Bool
+compare :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Ordering
+$ccompare :: SystemInstanceDeploymentStatus
+-&gt; SystemInstanceDeploymentStatus -&gt; Ordering
+$cp1Ord :: Eq SystemInstanceDeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SystemInstanceDeploymentStatus
+ -&gt; Rep SystemInstanceDeploymentStatus x)
+-&gt; (forall x.
+    Rep SystemInstanceDeploymentStatus x
+    -&gt; SystemInstanceDeploymentStatus)
+-&gt; Generic SystemInstanceDeploymentStatus
+forall x.
+Rep SystemInstanceDeploymentStatus x
+-&gt; SystemInstanceDeploymentStatus
+forall x.
+SystemInstanceDeploymentStatus
+-&gt; Rep SystemInstanceDeploymentStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SystemInstanceDeploymentStatus x
+-&gt; SystemInstanceDeploymentStatus
+$cfrom :: forall x.
+SystemInstanceDeploymentStatus
+-&gt; Rep SystemInstanceDeploymentStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218633"><span id="local-6989586621679218635"><span class="annot"><span class="annottext">Int -&gt; SystemInstanceDeploymentStatus -&gt; Int
+SystemInstanceDeploymentStatus -&gt; Int
+(Int -&gt; SystemInstanceDeploymentStatus -&gt; Int)
+-&gt; (SystemInstanceDeploymentStatus -&gt; Int)
+-&gt; Hashable SystemInstanceDeploymentStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SystemInstanceDeploymentStatus -&gt; Int
+$chash :: SystemInstanceDeploymentStatus -&gt; Int
+hashWithSalt :: Int -&gt; SystemInstanceDeploymentStatus -&gt; Int
+$chashWithSalt :: Int -&gt; SystemInstanceDeploymentStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679218630"><span class="annot"><span class="annottext">SystemInstanceDeploymentStatus -&gt; ()
+(SystemInstanceDeploymentStatus -&gt; ())
+-&gt; NFData SystemInstanceDeploymentStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SystemInstanceDeploymentStatus -&gt; ()
+$crnf :: SystemInstanceDeploymentStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679218627"><span class="annot"><span class="annottext">Text -&gt; Either String SystemInstanceDeploymentStatus
+(Text -&gt; Either String SystemInstanceDeploymentStatus)
+-&gt; FromText SystemInstanceDeploymentStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SystemInstanceDeploymentStatus
+$cfromText :: Text -&gt; Either String SystemInstanceDeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679218624"><span class="annot"><span class="annottext">SystemInstanceDeploymentStatus -&gt; Text
+(SystemInstanceDeploymentStatus -&gt; Text)
+-&gt; ToText SystemInstanceDeploymentStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SystemInstanceDeploymentStatus -&gt; Text
+$ctoText :: SystemInstanceDeploymentStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679218621"><span class="annot"><span class="annottext">SystemInstanceDeploymentStatus -&gt; ByteString
+(SystemInstanceDeploymentStatus -&gt; ByteString)
+-&gt; ToByteString SystemInstanceDeploymentStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SystemInstanceDeploymentStatus -&gt; ByteString
+$ctoBS :: SystemInstanceDeploymentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679218618"><span class="annot"><span class="annottext">SystemInstanceDeploymentStatus -&gt; ByteStringBuilder
+(SystemInstanceDeploymentStatus -&gt; ByteStringBuilder)
+-&gt; ToLog SystemInstanceDeploymentStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SystemInstanceDeploymentStatus -&gt; ByteStringBuilder
+$cbuild :: SystemInstanceDeploymentStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679218615"><span class="annot"><span class="annottext">HeaderName -&gt; SystemInstanceDeploymentStatus -&gt; [Header]
+(HeaderName -&gt; SystemInstanceDeploymentStatus -&gt; [Header])
+-&gt; ToHeader SystemInstanceDeploymentStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SystemInstanceDeploymentStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SystemInstanceDeploymentStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679218612"><span class="annot"><span class="annottext">SystemInstanceDeploymentStatus -&gt; QueryString
+(SystemInstanceDeploymentStatus -&gt; QueryString)
+-&gt; ToQuery SystemInstanceDeploymentStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SystemInstanceDeploymentStatus -&gt; QueryString
+$ctoQuery :: SystemInstanceDeploymentStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679218607"><span id="local-6989586621679218609"><span class="annot"><span class="annottext">Value -&gt; Parser [SystemInstanceDeploymentStatus]
+Value -&gt; Parser SystemInstanceDeploymentStatus
+(Value -&gt; Parser SystemInstanceDeploymentStatus)
+-&gt; (Value -&gt; Parser [SystemInstanceDeploymentStatus])
+-&gt; FromJSON SystemInstanceDeploymentStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SystemInstanceDeploymentStatus]
+$cparseJSONList :: Value -&gt; Parser [SystemInstanceDeploymentStatus]
+parseJSON :: Value -&gt; Parser SystemInstanceDeploymentStatus
+$cparseJSON :: Value -&gt; Parser SystemInstanceDeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679218602"><span id="local-6989586621679218604"><span class="annot"><span class="annottext">FromJSONKeyFunction [SystemInstanceDeploymentStatus]
+FromJSONKeyFunction SystemInstanceDeploymentStatus
+FromJSONKeyFunction SystemInstanceDeploymentStatus
+-&gt; FromJSONKeyFunction [SystemInstanceDeploymentStatus]
+-&gt; FromJSONKey SystemInstanceDeploymentStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SystemInstanceDeploymentStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [SystemInstanceDeploymentStatus]
+fromJSONKey :: FromJSONKeyFunction SystemInstanceDeploymentStatus
+$cfromJSONKey :: FromJSONKeyFunction SystemInstanceDeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679218593"><span id="local-6989586621679218595"><span id="local-6989586621679218597"><span id="local-6989586621679218599"><span class="annot"><span class="annottext">[SystemInstanceDeploymentStatus] -&gt; Encoding
+[SystemInstanceDeploymentStatus] -&gt; Value
+SystemInstanceDeploymentStatus -&gt; Encoding
+SystemInstanceDeploymentStatus -&gt; Value
+(SystemInstanceDeploymentStatus -&gt; Value)
+-&gt; (SystemInstanceDeploymentStatus -&gt; Encoding)
+-&gt; ([SystemInstanceDeploymentStatus] -&gt; Value)
+-&gt; ([SystemInstanceDeploymentStatus] -&gt; Encoding)
+-&gt; ToJSON SystemInstanceDeploymentStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SystemInstanceDeploymentStatus] -&gt; Encoding
+$ctoEncodingList :: [SystemInstanceDeploymentStatus] -&gt; Encoding
+toJSONList :: [SystemInstanceDeploymentStatus] -&gt; Value
+$ctoJSONList :: [SystemInstanceDeploymentStatus] -&gt; Value
+toEncoding :: SystemInstanceDeploymentStatus -&gt; Encoding
+$ctoEncoding :: SystemInstanceDeploymentStatus -&gt; Encoding
+toJSON :: SystemInstanceDeploymentStatus -&gt; Value
+$ctoJSON :: SystemInstanceDeploymentStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679218588"><span id="local-6989586621679218590"><span class="annot"><span class="annottext">ToJSONKeyFunction [SystemInstanceDeploymentStatus]
+ToJSONKeyFunction SystemInstanceDeploymentStatus
+ToJSONKeyFunction SystemInstanceDeploymentStatus
+-&gt; ToJSONKeyFunction [SystemInstanceDeploymentStatus]
+-&gt; ToJSONKey SystemInstanceDeploymentStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SystemInstanceDeploymentStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [SystemInstanceDeploymentStatus]
+toJSONKey :: ToJSONKeyFunction SystemInstanceDeploymentStatus
+$ctoJSONKey :: ToJSONKeyFunction SystemInstanceDeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679218585"><span class="annot"><span class="annottext">[Node] -&gt; Either String SystemInstanceDeploymentStatus
+([Node] -&gt; Either String SystemInstanceDeploymentStatus)
+-&gt; FromXML SystemInstanceDeploymentStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SystemInstanceDeploymentStatus
+$cparseXML :: [Node] -&gt; Either String SystemInstanceDeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679218582"><span class="annot"><span class="annottext">SystemInstanceDeploymentStatus -&gt; XML
+(SystemInstanceDeploymentStatus -&gt; XML)
+-&gt; ToXML SystemInstanceDeploymentStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SystemInstanceDeploymentStatus -&gt; XML
+$ctoXML :: SystemInstanceDeploymentStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_BOOTSTRAP"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus_BOOTSTRAP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSystemInstanceDeploymentStatus_BOOTSTRAP"><span id="%24mSystemInstanceDeploymentStatus_BOOTSTRAP"><span id="SystemInstanceDeploymentStatus_BOOTSTRAP"><span class="annot"><span class="annottext">$bSystemInstanceDeploymentStatus_BOOTSTRAP :: SystemInstanceDeploymentStatus
+$mSystemInstanceDeploymentStatus_BOOTSTRAP :: forall r.
+SystemInstanceDeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#%24bSystemInstanceDeploymentStatus_BOOTSTRAP"><span class="hs-identifier hs-var hs-var hs-var">SystemInstanceDeploymentStatus_BOOTSTRAP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BOOTSTRAP&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_DELETED_IN_TARGET"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus_DELETED_IN_TARGET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSystemInstanceDeploymentStatus_DELETED_IN_TARGET"><span id="%24mSystemInstanceDeploymentStatus_DELETED_IN_TARGET"><span id="SystemInstanceDeploymentStatus_DELETED_IN_TARGET"><span class="annot"><span class="annottext">$bSystemInstanceDeploymentStatus_DELETED_IN_TARGET :: SystemInstanceDeploymentStatus
+$mSystemInstanceDeploymentStatus_DELETED_IN_TARGET :: forall r.
+SystemInstanceDeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#%24bSystemInstanceDeploymentStatus_DELETED_IN_TARGET"><span class="hs-identifier hs-var hs-var hs-var">SystemInstanceDeploymentStatus_DELETED_IN_TARGET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED_IN_TARGET&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET"><span id="%24mSystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET"><span id="SystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET"><span class="annot"><span class="annottext">$bSystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET :: SystemInstanceDeploymentStatus
+$mSystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET :: forall r.
+SystemInstanceDeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#%24bSystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET"><span class="hs-identifier hs-var hs-var hs-var">SystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEPLOYED_IN_TARGET&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS"><span id="%24mSystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS"><span id="SystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS"><span class="annot"><span class="annottext">$bSystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS :: SystemInstanceDeploymentStatus
+$mSystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS :: forall r.
+SystemInstanceDeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#%24bSystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">SystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEPLOY_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_FAILED"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSystemInstanceDeploymentStatus_FAILED"><span id="%24mSystemInstanceDeploymentStatus_FAILED"><span id="SystemInstanceDeploymentStatus_FAILED"><span class="annot"><span class="annottext">$bSystemInstanceDeploymentStatus_FAILED :: SystemInstanceDeploymentStatus
+$mSystemInstanceDeploymentStatus_FAILED :: forall r.
+SystemInstanceDeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#%24bSystemInstanceDeploymentStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">SystemInstanceDeploymentStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_NOT_DEPLOYED"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus_NOT_DEPLOYED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSystemInstanceDeploymentStatus_NOT_DEPLOYED"><span id="%24mSystemInstanceDeploymentStatus_NOT_DEPLOYED"><span id="SystemInstanceDeploymentStatus_NOT_DEPLOYED"><span class="annot"><span class="annottext">$bSystemInstanceDeploymentStatus_NOT_DEPLOYED :: SystemInstanceDeploymentStatus
+$mSystemInstanceDeploymentStatus_NOT_DEPLOYED :: forall r.
+SystemInstanceDeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#%24bSystemInstanceDeploymentStatus_NOT_DEPLOYED"><span class="hs-identifier hs-var hs-var hs-var">SystemInstanceDeploymentStatus_NOT_DEPLOYED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_DEPLOYED&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_PENDING_DELETE"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus_PENDING_DELETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSystemInstanceDeploymentStatus_PENDING_DELETE"><span id="%24mSystemInstanceDeploymentStatus_PENDING_DELETE"><span id="SystemInstanceDeploymentStatus_PENDING_DELETE"><span class="annot"><span class="annottext">$bSystemInstanceDeploymentStatus_PENDING_DELETE :: SystemInstanceDeploymentStatus
+$mSystemInstanceDeploymentStatus_PENDING_DELETE :: forall r.
+SystemInstanceDeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#%24bSystemInstanceDeploymentStatus_PENDING_DELETE"><span class="hs-identifier hs-var hs-var hs-var">SystemInstanceDeploymentStatus_PENDING_DELETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_DELETE&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS"><span id="%24mSystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS"><span id="SystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS"><span class="annot"><span class="annottext">$bSystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS :: SystemInstanceDeploymentStatus
+$mSystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS :: forall r.
+SystemInstanceDeploymentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#%24bSystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">SystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNDEPLOY_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_BOOTSTRAP"><span class="hs-pragma hs-type">SystemInstanceDeploymentStatus_BOOTSTRAP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_DELETED_IN_TARGET"><span class="hs-pragma hs-type">SystemInstanceDeploymentStatus_DELETED_IN_TARGET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET"><span class="hs-pragma hs-type">SystemInstanceDeploymentStatus_DEPLOYED_IN_TARGET</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS"><span class="hs-pragma hs-type">SystemInstanceDeploymentStatus_DEPLOY_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_FAILED"><span class="hs-pragma hs-type">SystemInstanceDeploymentStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_NOT_DEPLOYED"><span class="hs-pragma hs-type">SystemInstanceDeploymentStatus_NOT_DEPLOYED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_PENDING_DELETE"><span class="hs-pragma hs-type">SystemInstanceDeploymentStatus_PENDING_DELETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS"><span class="hs-pragma hs-type">SystemInstanceDeploymentStatus_UNDEPLOY_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus%27"><span class="hs-pragma hs-type">SystemInstanceDeploymentStatus'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

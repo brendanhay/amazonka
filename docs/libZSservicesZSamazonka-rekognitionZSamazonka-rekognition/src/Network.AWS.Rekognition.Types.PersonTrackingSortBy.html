@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679327288"><span id="local-6989586621679327289"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PersonTrackingSortBy"><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonTrackingSortBy.html#PersonTrackingSortBy"><span class="hs-identifier hs-var">PersonTrackingSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PersonTrackingSortBy%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonTrackingSortBy.html#PersonTrackingSortBy%27"><span class="hs-identifier hs-var">PersonTrackingSortBy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679327297"><span id="local-6989586621679327298"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PersonTrackingSortBy"><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonTrackingSortBy.html#PersonTrackingSortBy"><span class="hs-identifier hs-var">PersonTrackingSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PersonTrackingSortBy%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonTrackingSortBy.html#PersonTrackingSortBy%27"><span class="hs-identifier hs-var">PersonTrackingSortBy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPersonTrackingSortBy"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.PersonTrackingSortBy.html#fromPersonTrackingSortBy"><span class="hs-identifier hs-var hs-var">fromPersonTrackingSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327280"><span id="local-6989586621679327282"><span id="local-6989586621679327284"><span class="annot"><span class="annottext">Int -&gt; PersonTrackingSortBy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327289"><span id="local-6989586621679327291"><span id="local-6989586621679327293"><span class="annot"><span class="annottext">Int -&gt; PersonTrackingSortBy -&gt; ShowS
 [PersonTrackingSortBy] -&gt; ShowS
 PersonTrackingSortBy -&gt; String
 (Int -&gt; PersonTrackingSortBy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PersonTrackingSortBy -&gt; String
 showsPrec :: Int -&gt; PersonTrackingSortBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; PersonTrackingSortBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679327271"><span id="local-6989586621679327273"><span id="local-6989586621679327275"><span id="local-6989586621679327277"><span class="annot"><span class="annottext">ReadPrec [PersonTrackingSortBy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679327280"><span id="local-6989586621679327282"><span id="local-6989586621679327284"><span id="local-6989586621679327286"><span class="annot"><span class="annottext">ReadPrec [PersonTrackingSortBy]
 ReadPrec PersonTrackingSortBy
 Int -&gt; ReadS PersonTrackingSortBy
 ReadS [PersonTrackingSortBy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PersonTrackingSortBy]
 readsPrec :: Int -&gt; ReadS PersonTrackingSortBy
 $creadsPrec :: Int -&gt; ReadS PersonTrackingSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679327266"><span id="local-6989586621679327268"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; PersonTrackingSortBy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679327275"><span id="local-6989586621679327277"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; PersonTrackingSortBy -&gt; Bool
 (PersonTrackingSortBy -&gt; PersonTrackingSortBy -&gt; Bool)
 -&gt; (PersonTrackingSortBy -&gt; PersonTrackingSortBy -&gt; Bool)
 -&gt; Eq PersonTrackingSortBy
@@ -82,7 +82,7 @@ $c/= :: PersonTrackingSortBy -&gt; PersonTrackingSortBy -&gt; Bool
 == :: PersonTrackingSortBy -&gt; PersonTrackingSortBy -&gt; Bool
 $c== :: PersonTrackingSortBy -&gt; PersonTrackingSortBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327250"><span id="local-6989586621679327252"><span id="local-6989586621679327254"><span id="local-6989586621679327256"><span id="local-6989586621679327258"><span id="local-6989586621679327260"><span id="local-6989586621679327262"><span class="annot"><span class="annottext">Eq PersonTrackingSortBy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327259"><span id="local-6989586621679327261"><span id="local-6989586621679327263"><span id="local-6989586621679327265"><span id="local-6989586621679327267"><span id="local-6989586621679327269"><span id="local-6989586621679327271"><span class="annot"><span class="annottext">Eq PersonTrackingSortBy
 Eq PersonTrackingSortBy
 -&gt; (PersonTrackingSortBy -&gt; PersonTrackingSortBy -&gt; Ordering)
 -&gt; (PersonTrackingSortBy -&gt; PersonTrackingSortBy -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. PersonTrackingSortBy -&gt; Rep PersonTrackingSortBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327242"><span id="local-6989586621679327244"><span class="annot"><span class="annottext">Int -&gt; PersonTrackingSortBy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327251"><span id="local-6989586621679327253"><span class="annot"><span class="annottext">Int -&gt; PersonTrackingSortBy -&gt; Int
 PersonTrackingSortBy -&gt; Int
 (Int -&gt; PersonTrackingSortBy -&gt; Int)
 -&gt; (PersonTrackingSortBy -&gt; Int) -&gt; Hashable PersonTrackingSortBy
@@ -150,54 +150,54 @@ $chash :: PersonTrackingSortBy -&gt; Int
 hashWithSalt :: Int -&gt; PersonTrackingSortBy -&gt; Int
 $chashWithSalt :: Int -&gt; PersonTrackingSortBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679327239"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679327248"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; ()
 (PersonTrackingSortBy -&gt; ()) -&gt; NFData PersonTrackingSortBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PersonTrackingSortBy -&gt; ()
 $crnf :: PersonTrackingSortBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679327236"><span class="annot"><span class="annottext">Text -&gt; Either String PersonTrackingSortBy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679327245"><span class="annot"><span class="annottext">Text -&gt; Either String PersonTrackingSortBy
 (Text -&gt; Either String PersonTrackingSortBy)
 -&gt; FromText PersonTrackingSortBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PersonTrackingSortBy
 $cfromText :: Text -&gt; Either String PersonTrackingSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327233"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327242"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; Text
 (PersonTrackingSortBy -&gt; Text) -&gt; ToText PersonTrackingSortBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PersonTrackingSortBy -&gt; Text
 $ctoText :: PersonTrackingSortBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327230"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327239"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; ByteString
 (PersonTrackingSortBy -&gt; ByteString)
 -&gt; ToByteString PersonTrackingSortBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PersonTrackingSortBy -&gt; ByteString
 $ctoBS :: PersonTrackingSortBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327227"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327236"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; ByteStringBuilder
 (PersonTrackingSortBy -&gt; ByteStringBuilder)
 -&gt; ToLog PersonTrackingSortBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PersonTrackingSortBy -&gt; ByteStringBuilder
 $cbuild :: PersonTrackingSortBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327224"><span class="annot"><span class="annottext">HeaderName -&gt; PersonTrackingSortBy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327233"><span class="annot"><span class="annottext">HeaderName -&gt; PersonTrackingSortBy -&gt; [Header]
 (HeaderName -&gt; PersonTrackingSortBy -&gt; [Header])
 -&gt; ToHeader PersonTrackingSortBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PersonTrackingSortBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PersonTrackingSortBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327221"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327230"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; QueryString
 (PersonTrackingSortBy -&gt; QueryString)
 -&gt; ToQuery PersonTrackingSortBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PersonTrackingSortBy -&gt; QueryString
 $ctoQuery :: PersonTrackingSortBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327216"><span id="local-6989586621679327218"><span class="annot"><span class="annottext">Value -&gt; Parser [PersonTrackingSortBy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327225"><span id="local-6989586621679327227"><span class="annot"><span class="annottext">Value -&gt; Parser [PersonTrackingSortBy]
 Value -&gt; Parser PersonTrackingSortBy
 (Value -&gt; Parser PersonTrackingSortBy)
 -&gt; (Value -&gt; Parser [PersonTrackingSortBy])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [PersonTrackingSortBy]
 parseJSON :: Value -&gt; Parser PersonTrackingSortBy
 $cparseJSON :: Value -&gt; Parser PersonTrackingSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327211"><span id="local-6989586621679327213"><span class="annot"><span class="annottext">FromJSONKeyFunction [PersonTrackingSortBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327220"><span id="local-6989586621679327222"><span class="annot"><span class="annottext">FromJSONKeyFunction [PersonTrackingSortBy]
 FromJSONKeyFunction PersonTrackingSortBy
 FromJSONKeyFunction PersonTrackingSortBy
 -&gt; FromJSONKeyFunction [PersonTrackingSortBy]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PersonTrackingSortBy]
 fromJSONKey :: FromJSONKeyFunction PersonTrackingSortBy
 $cfromJSONKey :: FromJSONKeyFunction PersonTrackingSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327202"><span id="local-6989586621679327204"><span id="local-6989586621679327206"><span id="local-6989586621679327208"><span class="annot"><span class="annottext">[PersonTrackingSortBy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327211"><span id="local-6989586621679327213"><span id="local-6989586621679327215"><span id="local-6989586621679327217"><span class="annot"><span class="annottext">[PersonTrackingSortBy] -&gt; Encoding
 [PersonTrackingSortBy] -&gt; Value
 PersonTrackingSortBy -&gt; Encoding
 PersonTrackingSortBy -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: PersonTrackingSortBy -&gt; Encoding
 toJSON :: PersonTrackingSortBy -&gt; Value
 $ctoJSON :: PersonTrackingSortBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327197"><span id="local-6989586621679327199"><span class="annot"><span class="annottext">ToJSONKeyFunction [PersonTrackingSortBy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327206"><span id="local-6989586621679327208"><span class="annot"><span class="annottext">ToJSONKeyFunction [PersonTrackingSortBy]
 ToJSONKeyFunction PersonTrackingSortBy
 ToJSONKeyFunction PersonTrackingSortBy
 -&gt; ToJSONKeyFunction [PersonTrackingSortBy]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PersonTrackingSortBy]
 toJSONKey :: ToJSONKeyFunction PersonTrackingSortBy
 $ctoJSONKey :: ToJSONKeyFunction PersonTrackingSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327194"><span class="annot"><span class="annottext">[Node] -&gt; Either String PersonTrackingSortBy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327203"><span class="annot"><span class="annottext">[Node] -&gt; Either String PersonTrackingSortBy
 ([Node] -&gt; Either String PersonTrackingSortBy)
 -&gt; FromXML PersonTrackingSortBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PersonTrackingSortBy
 $cparseXML :: [Node] -&gt; Either String PersonTrackingSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327191"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327200"><span class="annot"><span class="annottext">PersonTrackingSortBy -&gt; XML
 (PersonTrackingSortBy -&gt; XML) -&gt; ToXML PersonTrackingSortBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PersonTrackingSortBy -&gt; XML

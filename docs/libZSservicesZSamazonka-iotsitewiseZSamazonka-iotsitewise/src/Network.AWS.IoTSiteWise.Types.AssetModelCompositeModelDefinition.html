@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelPropertyDefinition.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.AssetModelPropertyDefinition</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains a composite model definition in an asset model. This composite</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- model definition is applied to all assets created from the asset model.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAssetModelCompositeModelDefinition' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679346547"><span id="local-6989586621679346548"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetModelCompositeModelDefinition"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-var">AssetModelCompositeModelDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetModelCompositeModelDefinition%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var">AssetModelCompositeModelDefinition'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the composite model.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adescription%3AAssetModelCompositeModelDefinition%27"><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition -&gt; Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Adescription%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The asset property definitions for this composite model.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aproperties%3AAssetModelCompositeModelDefinition%27"><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition
+-&gt; Maybe [AssetModelPropertyDefinition]
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Aproperties%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelPropertyDefinition.html#AssetModelPropertyDefinition"><span class="hs-identifier hs-type">AssetModelPropertyDefinition</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the composite model.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AAssetModelCompositeModelDefinition%27"><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Aname%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of the composite model. For alarm composite models, this type</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- is @AWS\/ALARM@.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atype%27%3AAssetModelCompositeModelDefinition%27"><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Atype%27%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346538"><span id="local-6989586621679346540"><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition
+-&gt; AssetModelCompositeModelDefinition -&gt; Bool
+(AssetModelCompositeModelDefinition
+ -&gt; AssetModelCompositeModelDefinition -&gt; Bool)
+-&gt; (AssetModelCompositeModelDefinition
+    -&gt; AssetModelCompositeModelDefinition -&gt; Bool)
+-&gt; Eq AssetModelCompositeModelDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssetModelCompositeModelDefinition
+-&gt; AssetModelCompositeModelDefinition -&gt; Bool
+$c/= :: AssetModelCompositeModelDefinition
+-&gt; AssetModelCompositeModelDefinition -&gt; Bool
+== :: AssetModelCompositeModelDefinition
+-&gt; AssetModelCompositeModelDefinition -&gt; Bool
+$c== :: AssetModelCompositeModelDefinition
+-&gt; AssetModelCompositeModelDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346529"><span id="local-6989586621679346531"><span id="local-6989586621679346533"><span id="local-6989586621679346535"><span class="annot"><span class="annottext">ReadPrec [AssetModelCompositeModelDefinition]
+ReadPrec AssetModelCompositeModelDefinition
+Int -&gt; ReadS AssetModelCompositeModelDefinition
+ReadS [AssetModelCompositeModelDefinition]
+(Int -&gt; ReadS AssetModelCompositeModelDefinition)
+-&gt; ReadS [AssetModelCompositeModelDefinition]
+-&gt; ReadPrec AssetModelCompositeModelDefinition
+-&gt; ReadPrec [AssetModelCompositeModelDefinition]
+-&gt; Read AssetModelCompositeModelDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssetModelCompositeModelDefinition]
+$creadListPrec :: ReadPrec [AssetModelCompositeModelDefinition]
+readPrec :: ReadPrec AssetModelCompositeModelDefinition
+$creadPrec :: ReadPrec AssetModelCompositeModelDefinition
+readList :: ReadS [AssetModelCompositeModelDefinition]
+$creadList :: ReadS [AssetModelCompositeModelDefinition]
+readsPrec :: Int -&gt; ReadS AssetModelCompositeModelDefinition
+$creadsPrec :: Int -&gt; ReadS AssetModelCompositeModelDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346522"><span id="local-6989586621679346524"><span id="local-6989586621679346526"><span class="annot"><span class="annottext">Int -&gt; AssetModelCompositeModelDefinition -&gt; ShowS
+[AssetModelCompositeModelDefinition] -&gt; ShowS
+AssetModelCompositeModelDefinition -&gt; String
+(Int -&gt; AssetModelCompositeModelDefinition -&gt; ShowS)
+-&gt; (AssetModelCompositeModelDefinition -&gt; String)
+-&gt; ([AssetModelCompositeModelDefinition] -&gt; ShowS)
+-&gt; Show AssetModelCompositeModelDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssetModelCompositeModelDefinition] -&gt; ShowS
+$cshowList :: [AssetModelCompositeModelDefinition] -&gt; ShowS
+show :: AssetModelCompositeModelDefinition -&gt; String
+$cshow :: AssetModelCompositeModelDefinition -&gt; String
+showsPrec :: Int -&gt; AssetModelCompositeModelDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssetModelCompositeModelDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssetModelCompositeModelDefinition
+ -&gt; Rep AssetModelCompositeModelDefinition x)
+-&gt; (forall x.
+    Rep AssetModelCompositeModelDefinition x
+    -&gt; AssetModelCompositeModelDefinition)
+-&gt; Generic AssetModelCompositeModelDefinition
+forall x.
+Rep AssetModelCompositeModelDefinition x
+-&gt; AssetModelCompositeModelDefinition
+forall x.
+AssetModelCompositeModelDefinition
+-&gt; Rep AssetModelCompositeModelDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssetModelCompositeModelDefinition x
+-&gt; AssetModelCompositeModelDefinition
+$cfrom :: forall x.
+AssetModelCompositeModelDefinition
+-&gt; Rep AssetModelCompositeModelDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'AssetModelCompositeModelDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'description', 'assetModelCompositeModelDefinition_description' - The description of the composite model.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'properties', 'assetModelCompositeModelDefinition_properties' - The asset property definitions for this composite model.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'name', 'assetModelCompositeModelDefinition_name' - The name of the composite model.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'type'', 'assetModelCompositeModelDefinition_type' - The type of the composite model. For alarm composite models, this type</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- is @AWS\/ALARM@.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#newAssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">newAssetModelCompositeModelDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span><span>
+</span><span id="line-66"></span><span id="newAssetModelCompositeModelDefinition"><span class="annot"><span class="annottext">newAssetModelCompositeModelDefinition :: Text -&gt; Text -&gt; AssetModelCompositeModelDefinition
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#newAssetModelCompositeModelDefinition"><span class="hs-identifier hs-var hs-var">newAssetModelCompositeModelDefinition</span></a></span></span><span> </span><span id="local-6989586621679346516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346516"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679346515"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346515"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition' :: Maybe Text
+-&gt; Maybe [AssetModelPropertyDefinition]
+-&gt; Text
+-&gt; Text
+-&gt; AssetModelCompositeModelDefinition
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:AssetModelCompositeModelDefinition' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Adescription%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:properties:AssetModelCompositeModelDefinition' :: Maybe [AssetModelPropertyDefinition]
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Aproperties%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AssetModelPropertyDefinition]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AssetModelCompositeModelDefinition' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Aname%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346516"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':AssetModelCompositeModelDefinition' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Atype%27%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346515"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The description of the composite model.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#assetModelCompositeModelDefinition_description"><span class="hs-identifier hs-type">assetModelCompositeModelDefinition_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="assetModelCompositeModelDefinition_description"><span class="annot"><span class="annottext">assetModelCompositeModelDefinition_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssetModelCompositeModelDefinition
+-&gt; f AssetModelCompositeModelDefinition
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#assetModelCompositeModelDefinition_description"><span class="hs-identifier hs-var hs-var">assetModelCompositeModelDefinition_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetModelCompositeModelDefinition -&gt; Maybe Text)
+-&gt; (AssetModelCompositeModelDefinition
+    -&gt; Maybe Text -&gt; AssetModelCompositeModelDefinition)
+-&gt; Lens
+     AssetModelCompositeModelDefinition
+     AssetModelCompositeModelDefinition
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346511"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:AssetModelCompositeModelDefinition' :: AssetModelCompositeModelDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679346511"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346511"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346510"><span class="annot"><span class="annottext">s :: AssetModelCompositeModelDefinition
+</span><a href="#local-6989586621679346510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition
+</span><a href="#local-6989586621679346510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AssetModelCompositeModelDefinition' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Adescription%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The asset property definitions for this composite model.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#assetModelCompositeModelDefinition_properties"><span class="hs-identifier hs-type">assetModelCompositeModelDefinition_properties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelPropertyDefinition.html#AssetModelPropertyDefinition"><span class="hs-identifier hs-type">AssetModelPropertyDefinition</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="assetModelCompositeModelDefinition_properties"><span class="annot"><span class="annottext">assetModelCompositeModelDefinition_properties :: (Maybe [AssetModelPropertyDefinition]
+ -&gt; f (Maybe [AssetModelPropertyDefinition]))
+-&gt; AssetModelCompositeModelDefinition
+-&gt; f AssetModelCompositeModelDefinition
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#assetModelCompositeModelDefinition_properties"><span class="hs-identifier hs-var hs-var">assetModelCompositeModelDefinition_properties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetModelCompositeModelDefinition
+ -&gt; Maybe [AssetModelPropertyDefinition])
+-&gt; (AssetModelCompositeModelDefinition
+    -&gt; Maybe [AssetModelPropertyDefinition]
+    -&gt; AssetModelCompositeModelDefinition)
+-&gt; Lens
+     AssetModelCompositeModelDefinition
+     AssetModelCompositeModelDefinition
+     (Maybe [AssetModelPropertyDefinition])
+     (Maybe [AssetModelPropertyDefinition])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346507"><span class="annot"><span class="annottext">Maybe [AssetModelPropertyDefinition]
+properties :: Maybe [AssetModelPropertyDefinition]
+$sel:properties:AssetModelCompositeModelDefinition' :: AssetModelCompositeModelDefinition
+-&gt; Maybe [AssetModelPropertyDefinition]
+</span><a href="#local-6989586621679346507"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AssetModelPropertyDefinition]
+</span><a href="#local-6989586621679346507"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346506"><span class="annot"><span class="annottext">s :: AssetModelCompositeModelDefinition
+</span><a href="#local-6989586621679346506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346505"><span class="annot"><span class="annottext">Maybe [AssetModelPropertyDefinition]
+</span><a href="#local-6989586621679346505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition
+</span><a href="#local-6989586621679346506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:AssetModelCompositeModelDefinition' :: Maybe [AssetModelPropertyDefinition]
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Aproperties%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AssetModelPropertyDefinition]
+</span><a href="#local-6989586621679346505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AssetModelPropertyDefinition]
+  -&gt; f (Maybe [AssetModelPropertyDefinition]))
+ -&gt; AssetModelCompositeModelDefinition
+ -&gt; f AssetModelCompositeModelDefinition)
+-&gt; ((Maybe [AssetModelPropertyDefinition]
+     -&gt; f (Maybe [AssetModelPropertyDefinition]))
+    -&gt; Maybe [AssetModelPropertyDefinition]
+    -&gt; f (Maybe [AssetModelPropertyDefinition]))
+-&gt; (Maybe [AssetModelPropertyDefinition]
+    -&gt; f (Maybe [AssetModelPropertyDefinition]))
+-&gt; AssetModelCompositeModelDefinition
+-&gt; f AssetModelCompositeModelDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AssetModelPropertyDefinition]
+  [AssetModelPropertyDefinition]
+  [AssetModelPropertyDefinition]
+  [AssetModelPropertyDefinition]
+-&gt; Iso
+     (Maybe [AssetModelPropertyDefinition])
+     (Maybe [AssetModelPropertyDefinition])
+     (Maybe [AssetModelPropertyDefinition])
+     (Maybe [AssetModelPropertyDefinition])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AssetModelPropertyDefinition]
+  [AssetModelPropertyDefinition]
+  [AssetModelPropertyDefinition]
+  [AssetModelPropertyDefinition]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The name of the composite model.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#assetModelCompositeModelDefinition_name"><span class="hs-identifier hs-type">assetModelCompositeModelDefinition_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="assetModelCompositeModelDefinition_name"><span class="annot"><span class="annottext">assetModelCompositeModelDefinition_name :: (Text -&gt; f Text)
+-&gt; AssetModelCompositeModelDefinition
+-&gt; f AssetModelCompositeModelDefinition
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#assetModelCompositeModelDefinition_name"><span class="hs-identifier hs-var hs-var">assetModelCompositeModelDefinition_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetModelCompositeModelDefinition -&gt; Text)
+-&gt; (AssetModelCompositeModelDefinition
+    -&gt; Text -&gt; AssetModelCompositeModelDefinition)
+-&gt; Lens
+     AssetModelCompositeModelDefinition
+     AssetModelCompositeModelDefinition
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346500"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:AssetModelCompositeModelDefinition' :: AssetModelCompositeModelDefinition -&gt; Text
+</span><a href="#local-6989586621679346500"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346500"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346499"><span class="annot"><span class="annottext">s :: AssetModelCompositeModelDefinition
+</span><a href="#local-6989586621679346499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346498"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition
+</span><a href="#local-6989586621679346499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssetModelCompositeModelDefinition' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Aname%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The type of the composite model. For alarm composite models, this type</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- is @AWS\/ALARM@.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#assetModelCompositeModelDefinition_type"><span class="hs-identifier hs-type">assetModelCompositeModelDefinition_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="assetModelCompositeModelDefinition_type"><span class="annot"><span class="annottext">assetModelCompositeModelDefinition_type :: (Text -&gt; f Text)
+-&gt; AssetModelCompositeModelDefinition
+-&gt; f AssetModelCompositeModelDefinition
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#assetModelCompositeModelDefinition_type"><span class="hs-identifier hs-var hs-var">assetModelCompositeModelDefinition_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetModelCompositeModelDefinition -&gt; Text)
+-&gt; (AssetModelCompositeModelDefinition
+    -&gt; Text -&gt; AssetModelCompositeModelDefinition)
+-&gt; Lens
+     AssetModelCompositeModelDefinition
+     AssetModelCompositeModelDefinition
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346496"><span class="annot"><span class="annottext">Text
+type' :: Text
+$sel:type':AssetModelCompositeModelDefinition' :: AssetModelCompositeModelDefinition -&gt; Text
+</span><a href="#local-6989586621679346496"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346496"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346495"><span class="annot"><span class="annottext">s :: AssetModelCompositeModelDefinition
+</span><a href="#local-6989586621679346495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346494"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetModelCompositeModelDefinition
+</span><a href="#local-6989586621679346495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':AssetModelCompositeModelDefinition' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#%24sel%3Atype%27%3AAssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679346490"><span id="local-6989586621679346492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679346487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679346479"><span id="local-6989586621679346481"><span id="local-6989586621679346483"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition</span></a></span></span></span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679346477"><span class="annot"><span class="annottext">toJSON :: AssetModelCompositeModelDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetModelCompositeModelDefinition.html#AssetModelCompositeModelDefinition%27"><span class="hs-identifier hs-type">AssetModelCompositeModelDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346472"><span id="local-6989586621679346473"><span id="local-6989586621679346474"><span id="local-6989586621679346475"><span class="annot"><span class="annottext">Maybe [AssetModelPropertyDefinition]
+Maybe Text
+Text
+type' :: Text
+name :: Text
+properties :: Maybe [AssetModelPropertyDefinition]
+description :: Maybe Text
+$sel:type':AssetModelCompositeModelDefinition' :: AssetModelCompositeModelDefinition -&gt; Text
+$sel:name:AssetModelCompositeModelDefinition' :: AssetModelCompositeModelDefinition -&gt; Text
+$sel:properties:AssetModelCompositeModelDefinition' :: AssetModelCompositeModelDefinition
+-&gt; Maybe [AssetModelPropertyDefinition]
+$sel:description:AssetModelCompositeModelDefinition' :: AssetModelCompositeModelDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679346472"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346475"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AssetModelPropertyDefinition] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AssetModelPropertyDefinition] -&gt; Pair)
+-&gt; Maybe [AssetModelPropertyDefinition] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AssetModelPropertyDefinition]
+</span><a href="#local-6989586621679346474"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346473"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346472"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679346822"><span id="local-6989586621679346823"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LambdaFunctionTimeoutType"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType"><span class="hs-identifier hs-var">LambdaFunctionTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionTimeoutType%27"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType%27"><span class="hs-identifier hs-var">LambdaFunctionTimeoutType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679346831"><span id="local-6989586621679346832"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LambdaFunctionTimeoutType"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType"><span class="hs-identifier hs-var">LambdaFunctionTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionTimeoutType%27"><span class="annot"><a href="Network.AWS.SWF.Types.LambdaFunctionTimeoutType.html#LambdaFunctionTimeoutType%27"><span class="hs-identifier hs-var">LambdaFunctionTimeoutType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLambdaFunctionTimeoutType"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; Text
 </span><a href="Network.AWS.SWF.Types.LambdaFunctionTimeoutType.html#fromLambdaFunctionTimeoutType"><span class="hs-identifier hs-var hs-var">fromLambdaFunctionTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346814"><span id="local-6989586621679346816"><span id="local-6989586621679346818"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionTimeoutType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346823"><span id="local-6989586621679346825"><span id="local-6989586621679346827"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionTimeoutType -&gt; ShowS
 [LambdaFunctionTimeoutType] -&gt; ShowS
 LambdaFunctionTimeoutType -&gt; String
 (Int -&gt; LambdaFunctionTimeoutType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: LambdaFunctionTimeoutType -&gt; String
 showsPrec :: Int -&gt; LambdaFunctionTimeoutType -&gt; ShowS
 $cshowsPrec :: Int -&gt; LambdaFunctionTimeoutType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679346805"><span id="local-6989586621679346807"><span id="local-6989586621679346809"><span id="local-6989586621679346811"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionTimeoutType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679346814"><span id="local-6989586621679346816"><span id="local-6989586621679346818"><span id="local-6989586621679346820"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionTimeoutType]
 ReadPrec LambdaFunctionTimeoutType
 Int -&gt; ReadS LambdaFunctionTimeoutType
 ReadS [LambdaFunctionTimeoutType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [LambdaFunctionTimeoutType]
 readsPrec :: Int -&gt; ReadS LambdaFunctionTimeoutType
 $creadsPrec :: Int -&gt; ReadS LambdaFunctionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679346800"><span id="local-6989586621679346802"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679346809"><span id="local-6989586621679346811"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
 (LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool)
 -&gt; (LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool)
 -&gt; Eq LambdaFunctionTimeoutType
@@ -81,7 +81,7 @@ $c/= :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
 == :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
 $c== :: LambdaFunctionTimeoutType -&gt; LambdaFunctionTimeoutType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679346784"><span id="local-6989586621679346786"><span id="local-6989586621679346788"><span id="local-6989586621679346790"><span id="local-6989586621679346792"><span id="local-6989586621679346794"><span id="local-6989586621679346796"><span class="annot"><span class="annottext">Eq LambdaFunctionTimeoutType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679346793"><span id="local-6989586621679346795"><span id="local-6989586621679346797"><span id="local-6989586621679346799"><span id="local-6989586621679346801"><span id="local-6989586621679346803"><span id="local-6989586621679346805"><span class="annot"><span class="annottext">Eq LambdaFunctionTimeoutType
 Eq LambdaFunctionTimeoutType
 -&gt; (LambdaFunctionTimeoutType
     -&gt; LambdaFunctionTimeoutType -&gt; Ordering)
@@ -146,7 +146,7 @@ LambdaFunctionTimeoutType -&gt; Rep LambdaFunctionTimeoutType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346776"><span id="local-6989586621679346778"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionTimeoutType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679346785"><span id="local-6989586621679346787"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionTimeoutType -&gt; Int
 LambdaFunctionTimeoutType -&gt; Int
 (Int -&gt; LambdaFunctionTimeoutType -&gt; Int)
 -&gt; (LambdaFunctionTimeoutType -&gt; Int)
@@ -157,56 +157,56 @@ $chash :: LambdaFunctionTimeoutType -&gt; Int
 hashWithSalt :: Int -&gt; LambdaFunctionTimeoutType -&gt; Int
 $chashWithSalt :: Int -&gt; LambdaFunctionTimeoutType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679346773"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679346782"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; ()
 (LambdaFunctionTimeoutType -&gt; ())
 -&gt; NFData LambdaFunctionTimeoutType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LambdaFunctionTimeoutType -&gt; ()
 $crnf :: LambdaFunctionTimeoutType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679346770"><span class="annot"><span class="annottext">Text -&gt; Either String LambdaFunctionTimeoutType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679346779"><span class="annot"><span class="annottext">Text -&gt; Either String LambdaFunctionTimeoutType
 (Text -&gt; Either String LambdaFunctionTimeoutType)
 -&gt; FromText LambdaFunctionTimeoutType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LambdaFunctionTimeoutType
 $cfromText :: Text -&gt; Either String LambdaFunctionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679346767"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679346776"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; Text
 (LambdaFunctionTimeoutType -&gt; Text)
 -&gt; ToText LambdaFunctionTimeoutType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LambdaFunctionTimeoutType -&gt; Text
 $ctoText :: LambdaFunctionTimeoutType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679346764"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679346773"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; ByteString
 (LambdaFunctionTimeoutType -&gt; ByteString)
 -&gt; ToByteString LambdaFunctionTimeoutType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LambdaFunctionTimeoutType -&gt; ByteString
 $ctoBS :: LambdaFunctionTimeoutType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679346761"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679346770"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; ByteStringBuilder
 (LambdaFunctionTimeoutType -&gt; ByteStringBuilder)
 -&gt; ToLog LambdaFunctionTimeoutType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LambdaFunctionTimeoutType -&gt; ByteStringBuilder
 $cbuild :: LambdaFunctionTimeoutType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679346758"><span class="annot"><span class="annottext">HeaderName -&gt; LambdaFunctionTimeoutType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679346767"><span class="annot"><span class="annottext">HeaderName -&gt; LambdaFunctionTimeoutType -&gt; [Header]
 (HeaderName -&gt; LambdaFunctionTimeoutType -&gt; [Header])
 -&gt; ToHeader LambdaFunctionTimeoutType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LambdaFunctionTimeoutType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LambdaFunctionTimeoutType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679346755"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679346764"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; QueryString
 (LambdaFunctionTimeoutType -&gt; QueryString)
 -&gt; ToQuery LambdaFunctionTimeoutType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LambdaFunctionTimeoutType -&gt; QueryString
 $ctoQuery :: LambdaFunctionTimeoutType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679346750"><span id="local-6989586621679346752"><span class="annot"><span class="annottext">Value -&gt; Parser [LambdaFunctionTimeoutType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679346759"><span id="local-6989586621679346761"><span class="annot"><span class="annottext">Value -&gt; Parser [LambdaFunctionTimeoutType]
 Value -&gt; Parser LambdaFunctionTimeoutType
 (Value -&gt; Parser LambdaFunctionTimeoutType)
 -&gt; (Value -&gt; Parser [LambdaFunctionTimeoutType])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [LambdaFunctionTimeoutType]
 parseJSON :: Value -&gt; Parser LambdaFunctionTimeoutType
 $cparseJSON :: Value -&gt; Parser LambdaFunctionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679346745"><span id="local-6989586621679346747"><span class="annot"><span class="annottext">FromJSONKeyFunction [LambdaFunctionTimeoutType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679346754"><span id="local-6989586621679346756"><span class="annot"><span class="annottext">FromJSONKeyFunction [LambdaFunctionTimeoutType]
 FromJSONKeyFunction LambdaFunctionTimeoutType
 FromJSONKeyFunction LambdaFunctionTimeoutType
 -&gt; FromJSONKeyFunction [LambdaFunctionTimeoutType]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LambdaFunctionTimeoutType]
 fromJSONKey :: FromJSONKeyFunction LambdaFunctionTimeoutType
 $cfromJSONKey :: FromJSONKeyFunction LambdaFunctionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679346736"><span id="local-6989586621679346738"><span id="local-6989586621679346740"><span id="local-6989586621679346742"><span class="annot"><span class="annottext">[LambdaFunctionTimeoutType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679346745"><span id="local-6989586621679346747"><span id="local-6989586621679346749"><span id="local-6989586621679346751"><span class="annot"><span class="annottext">[LambdaFunctionTimeoutType] -&gt; Encoding
 [LambdaFunctionTimeoutType] -&gt; Value
 LambdaFunctionTimeoutType -&gt; Encoding
 LambdaFunctionTimeoutType -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: LambdaFunctionTimeoutType -&gt; Encoding
 toJSON :: LambdaFunctionTimeoutType -&gt; Value
 $ctoJSON :: LambdaFunctionTimeoutType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679346731"><span id="local-6989586621679346733"><span class="annot"><span class="annottext">ToJSONKeyFunction [LambdaFunctionTimeoutType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679346740"><span id="local-6989586621679346742"><span class="annot"><span class="annottext">ToJSONKeyFunction [LambdaFunctionTimeoutType]
 ToJSONKeyFunction LambdaFunctionTimeoutType
 ToJSONKeyFunction LambdaFunctionTimeoutType
 -&gt; ToJSONKeyFunction [LambdaFunctionTimeoutType]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LambdaFunctionTimeoutType]
 toJSONKey :: ToJSONKeyFunction LambdaFunctionTimeoutType
 $ctoJSONKey :: ToJSONKeyFunction LambdaFunctionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679346728"><span class="annot"><span class="annottext">[Node] -&gt; Either String LambdaFunctionTimeoutType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679346737"><span class="annot"><span class="annottext">[Node] -&gt; Either String LambdaFunctionTimeoutType
 ([Node] -&gt; Either String LambdaFunctionTimeoutType)
 -&gt; FromXML LambdaFunctionTimeoutType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LambdaFunctionTimeoutType
 $cparseXML :: [Node] -&gt; Either String LambdaFunctionTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679346725"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679346734"><span class="annot"><span class="annottext">LambdaFunctionTimeoutType -&gt; XML
 (LambdaFunctionTimeoutType -&gt; XML)
 -&gt; ToXML LambdaFunctionTimeoutType
 forall a. (a -&gt; XML) -&gt; ToXML a

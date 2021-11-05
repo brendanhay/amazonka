@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html Supported Logs and Discovered Fields&gt;.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newResultField' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679222752"><span id="local-6989586621679222753"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultField"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-var">ResultField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultField%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-var">ResultField'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679222761"><span id="local-6989586621679222762"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultField"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-var">ResultField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultField%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-var">ResultField'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The log event field.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Afield%3AResultField%27"><span class="annot"><span class="annottext">ResultField -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#%24sel%3Afield%3AResultField%27"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Avalue%3AResultField%27"><span class="annot"><span class="annottext">ResultField -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#%24sel%3Avalue%3AResultField%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222745"><span id="local-6989586621679222747"><span class="annot"><span class="annottext">ResultField -&gt; ResultField -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222754"><span id="local-6989586621679222756"><span class="annot"><span class="annottext">ResultField -&gt; ResultField -&gt; Bool
 (ResultField -&gt; ResultField -&gt; Bool)
 -&gt; (ResultField -&gt; ResultField -&gt; Bool) -&gt; Eq ResultField
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResultField -&gt; ResultField -&gt; Bool
 == :: ResultField -&gt; ResultField -&gt; Bool
 $c== :: ResultField -&gt; ResultField -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222736"><span id="local-6989586621679222738"><span id="local-6989586621679222740"><span id="local-6989586621679222742"><span class="annot"><span class="annottext">ReadPrec [ResultField]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222745"><span id="local-6989586621679222747"><span id="local-6989586621679222749"><span id="local-6989586621679222751"><span class="annot"><span class="annottext">ReadPrec [ResultField]
 ReadPrec ResultField
 Int -&gt; ReadS ResultField
 ReadS [ResultField]
@@ -67,7 +67,7 @@ readList :: ReadS [ResultField]
 $creadList :: ReadS [ResultField]
 readsPrec :: Int -&gt; ReadS ResultField
 $creadsPrec :: Int -&gt; ReadS ResultField
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222729"><span id="local-6989586621679222731"><span id="local-6989586621679222733"><span class="annot"><span class="annottext">Int -&gt; ResultField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222738"><span id="local-6989586621679222740"><span id="local-6989586621679222742"><span class="annot"><span class="annottext">Int -&gt; ResultField -&gt; ShowS
 [ResultField] -&gt; ShowS
 ResultField -&gt; String
 (Int -&gt; ResultField -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (ResultField -&gt; Maybe Text -&gt; ResultField)
 -&gt; Lens ResultField ResultField (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-type">ResultField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222720"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-type">ResultField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222729"><span class="annot"><span class="annottext">Maybe Text
 field :: Maybe Text
 $sel:field:ResultField' :: ResultField -&gt; Maybe Text
-</span><a href="#local-6989586621679222720"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222720"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222719"><span class="annot"><span class="annottext">s :: ResultField
-</span><a href="#local-6989586621679222719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-type">ResultField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222718"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultField
-</span><a href="#local-6989586621679222719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:field:ResultField' :: Maybe Text
+</span><a href="#local-6989586621679222729"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222729"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222728"><span class="annot"><span class="annottext">s :: ResultField
+</span><a href="#local-6989586621679222728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-type">ResultField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222727"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultField
+</span><a href="#local-6989586621679222728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:field:ResultField' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#%24sel%3Afield%3AResultField%27"><span class="hs-identifier hs-var">field</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The value of this field.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#resultField_value"><span class="hs-identifier hs-type">resultField_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -145,19 +145,19 @@ $sel:field:ResultField' :: ResultField -&gt; Maybe Text
 -&gt; (ResultField -&gt; Maybe Text -&gt; ResultField)
 -&gt; Lens ResultField ResultField (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-type">ResultField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222716"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-type">ResultField'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222725"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:ResultField' :: ResultField -&gt; Maybe Text
-</span><a href="#local-6989586621679222716"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222716"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222715"><span class="annot"><span class="annottext">s :: ResultField
-</span><a href="#local-6989586621679222715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-type">ResultField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222714"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultField
-</span><a href="#local-6989586621679222715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResultField' :: Maybe Text
+</span><a href="#local-6989586621679222725"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222725"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222724"><span class="annot"><span class="annottext">s :: ResultField
+</span><a href="#local-6989586621679222724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-type">ResultField'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222723"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultField
+</span><a href="#local-6989586621679222724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResultField' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#%24sel%3Avalue%3AResultField%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222711"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679222709"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResultField
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222720"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679222718"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResultField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResultField) -&gt; Value -&gt; Parser ResultField
@@ -165,15 +165,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResultField&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222706"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222706"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222715"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222715"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ResultField
 </span><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField%27"><span class="hs-identifier hs-var">ResultField'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ResultField)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ResultField)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;field&quot;</span></span><span class="hs-special">)</span><span>
@@ -181,13 +181,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ResultField
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679222715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222700"><span id="local-6989586621679222702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222709"><span id="local-6989586621679222711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ResultField.html#ResultField"><span class="hs-identifier hs-type">ResultField</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- subdirectories.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newRootDirectory' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679187365"><span id="local-6989586621679187366"></span></span><span class="hs-keyword">data</span><span> </span><span id="RootDirectory"><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-var">RootDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RootDirectory%27"><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-var">RootDirectory'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679187374"><span id="local-6989586621679187375"></span></span><span class="hs-keyword">data</span><span> </span><span id="RootDirectory"><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-var">RootDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RootDirectory%27"><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-var">RootDirectory'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) Specifies the POSIX IDs and permissions to apply to the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- access point\'s @RootDirectory@. If the @RootDirectory@ &gt; @Path@</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- specified does not exist, EFS creates the root directory using the</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Apath%3ARootDirectory%27"><span class="annot"><span class="annottext">RootDirectory -&gt; Maybe Text
 </span><a href="Network.AWS.EFS.Types.RootDirectory.html#%24sel%3Apath%3ARootDirectory%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187358"><span id="local-6989586621679187360"><span class="annot"><span class="annottext">RootDirectory -&gt; RootDirectory -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187367"><span id="local-6989586621679187369"><span class="annot"><span class="annottext">RootDirectory -&gt; RootDirectory -&gt; Bool
 (RootDirectory -&gt; RootDirectory -&gt; Bool)
 -&gt; (RootDirectory -&gt; RootDirectory -&gt; Bool) -&gt; Eq RootDirectory
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RootDirectory -&gt; RootDirectory -&gt; Bool
 == :: RootDirectory -&gt; RootDirectory -&gt; Bool
 $c== :: RootDirectory -&gt; RootDirectory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187349"><span id="local-6989586621679187351"><span id="local-6989586621679187353"><span id="local-6989586621679187355"><span class="annot"><span class="annottext">ReadPrec [RootDirectory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187358"><span id="local-6989586621679187360"><span id="local-6989586621679187362"><span id="local-6989586621679187364"><span class="annot"><span class="annottext">ReadPrec [RootDirectory]
 ReadPrec RootDirectory
 Int -&gt; ReadS RootDirectory
 ReadS [RootDirectory]
@@ -80,7 +80,7 @@ readList :: ReadS [RootDirectory]
 $creadList :: ReadS [RootDirectory]
 readsPrec :: Int -&gt; ReadS RootDirectory
 $creadsPrec :: Int -&gt; ReadS RootDirectory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187342"><span id="local-6989586621679187344"><span id="local-6989586621679187346"><span class="annot"><span class="annottext">Int -&gt; RootDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187351"><span id="local-6989586621679187353"><span id="local-6989586621679187355"><span class="annot"><span class="annottext">Int -&gt; RootDirectory -&gt; ShowS
 [RootDirectory] -&gt; ShowS
 RootDirectory -&gt; String
 (Int -&gt; RootDirectory -&gt; ShowS)
@@ -166,16 +166,16 @@ forall a. Maybe a
      (Maybe CreationInfo)
      (Maybe CreationInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187333"><span class="annot"><span class="annottext">Maybe CreationInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187342"><span class="annot"><span class="annottext">Maybe CreationInfo
 creationInfo :: Maybe CreationInfo
 $sel:creationInfo:RootDirectory' :: RootDirectory -&gt; Maybe CreationInfo
-</span><a href="#local-6989586621679187333"><span class="hs-identifier hs-var hs-var">creationInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreationInfo
-</span><a href="#local-6989586621679187333"><span class="hs-identifier hs-var">creationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187332"><span class="annot"><span class="annottext">s :: RootDirectory
-</span><a href="#local-6989586621679187332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187331"><span class="annot"><span class="annottext">Maybe CreationInfo
-</span><a href="#local-6989586621679187331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootDirectory
-</span><a href="#local-6989586621679187332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationInfo:RootDirectory' :: Maybe CreationInfo
+</span><a href="#local-6989586621679187342"><span class="hs-identifier hs-var hs-var">creationInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreationInfo
+</span><a href="#local-6989586621679187342"><span class="hs-identifier hs-var">creationInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187341"><span class="annot"><span class="annottext">s :: RootDirectory
+</span><a href="#local-6989586621679187341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187340"><span class="annot"><span class="annottext">Maybe CreationInfo
+</span><a href="#local-6989586621679187340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootDirectory
+</span><a href="#local-6989586621679187341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationInfo:RootDirectory' :: Maybe CreationInfo
 </span><a href="Network.AWS.EFS.Types.RootDirectory.html#%24sel%3AcreationInfo%3ARootDirectory%27"><span class="hs-identifier hs-var">creationInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreationInfo
-</span><a href="#local-6989586621679187331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Specifies the path on the EFS file system to expose as the root</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- directory to NFS clients using the access point to access the EFS file</span><span>
@@ -187,19 +187,19 @@ $sel:creationInfo:RootDirectory' :: RootDirectory -&gt; Maybe CreationInfo
 -&gt; (RootDirectory -&gt; Maybe Text -&gt; RootDirectory)
 -&gt; Lens RootDirectory RootDirectory (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187329"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187338"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:RootDirectory' :: RootDirectory -&gt; Maybe Text
-</span><a href="#local-6989586621679187329"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187329"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187328"><span class="annot"><span class="annottext">s :: RootDirectory
-</span><a href="#local-6989586621679187328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187327"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootDirectory
-</span><a href="#local-6989586621679187328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:RootDirectory' :: Maybe Text
+</span><a href="#local-6989586621679187338"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187338"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187337"><span class="annot"><span class="annottext">s :: RootDirectory
+</span><a href="#local-6989586621679187337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187336"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootDirectory
+</span><a href="#local-6989586621679187337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:RootDirectory' :: Maybe Text
 </span><a href="Network.AWS.EFS.Types.RootDirectory.html#%24sel%3Apath%3ARootDirectory%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187324"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679187322"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RootDirectory
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187333"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679187331"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RootDirectory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RootDirectory)
@@ -209,8 +209,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RootDirectory&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187319"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187328"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187328"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe CreationInfo -&gt; Maybe Text -&gt; RootDirectory
 </span><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-var">RootDirectory'</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CreationInfo -&gt; Maybe Text -&gt; RootDirectory)
@@ -218,7 +218,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; RootDirectory)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CreationInfo)
+</span><a href="#local-6989586621679187328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CreationInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationInfo&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,25 +226,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser RootDirectory
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679187328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187313"><span id="local-6989586621679187315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187322"><span id="local-6989586621679187324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187302"><span id="local-6989586621679187304"><span id="local-6989586621679187306"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679187300"><span class="annot"><span class="annottext">toJSON :: RootDirectory -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187297"><span id="local-6989586621679187298"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187311"><span id="local-6989586621679187313"><span id="local-6989586621679187315"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory"><span class="hs-identifier hs-type">RootDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679187309"><span class="annot"><span class="annottext">toJSON :: RootDirectory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.RootDirectory.html#RootDirectory%27"><span class="hs-identifier hs-type">RootDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187306"><span id="local-6989586621679187307"><span class="annot"><span class="annottext">Maybe Text
 Maybe CreationInfo
 path :: Maybe Text
 creationInfo :: Maybe CreationInfo
 $sel:path:RootDirectory' :: RootDirectory -&gt; Maybe Text
 $sel:creationInfo:RootDirectory' :: RootDirectory -&gt; Maybe CreationInfo
-</span><a href="#local-6989586621679187297"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679187306"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -256,14 +256,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CreationInfo -&gt; Pair) -&gt; Maybe CreationInfo -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CreationInfo
-</span><a href="#local-6989586621679187298"><span class="hs-identifier hs-var">creationInfo</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679187307"><span class="hs-identifier hs-var">creationInfo</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187297"><span class="hs-identifier hs-var">path</span></a></span><span>
+</span><a href="#local-6989586621679187306"><span class="hs-identifier hs-var">path</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span></pre></body></html>

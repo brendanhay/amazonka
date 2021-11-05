@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the state of an Amazon Lightsail bucket.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBucketState' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679605496"><span id="local-6989586621679605497"></span></span><span class="hs-keyword">data</span><span> </span><span id="BucketState"><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-var">BucketState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-var">BucketState'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679605505"><span id="local-6989586621679605506"></span></span><span class="hs-keyword">data</span><span> </span><span id="BucketState"><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-var">BucketState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketState%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-var">BucketState'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state code of the bucket.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- The following codes are possible:</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Amessage%3ABucketState%27"><span class="annot"><span class="annottext">BucketState -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.BucketState.html#%24sel%3Amessage%3ABucketState%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679605489"><span id="local-6989586621679605491"><span class="annot"><span class="annottext">BucketState -&gt; BucketState -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679605498"><span id="local-6989586621679605500"><span class="annot"><span class="annottext">BucketState -&gt; BucketState -&gt; Bool
 (BucketState -&gt; BucketState -&gt; Bool)
 -&gt; (BucketState -&gt; BucketState -&gt; Bool) -&gt; Eq BucketState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BucketState -&gt; BucketState -&gt; Bool
 == :: BucketState -&gt; BucketState -&gt; Bool
 $c== :: BucketState -&gt; BucketState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605480"><span id="local-6989586621679605482"><span id="local-6989586621679605484"><span id="local-6989586621679605486"><span class="annot"><span class="annottext">ReadPrec [BucketState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605489"><span id="local-6989586621679605491"><span id="local-6989586621679605493"><span id="local-6989586621679605495"><span class="annot"><span class="annottext">ReadPrec [BucketState]
 ReadPrec BucketState
 Int -&gt; ReadS BucketState
 ReadS [BucketState]
@@ -69,7 +69,7 @@ readList :: ReadS [BucketState]
 $creadList :: ReadS [BucketState]
 readsPrec :: Int -&gt; ReadS BucketState
 $creadsPrec :: Int -&gt; ReadS BucketState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605473"><span id="local-6989586621679605475"><span id="local-6989586621679605477"><span class="annot"><span class="annottext">Int -&gt; BucketState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679605482"><span id="local-6989586621679605484"><span id="local-6989586621679605486"><span class="annot"><span class="annottext">Int -&gt; BucketState -&gt; ShowS
 [BucketState] -&gt; ShowS
 BucketState -&gt; String
 (Int -&gt; BucketState -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
 -&gt; (BucketState -&gt; Maybe Text -&gt; BucketState)
 -&gt; Lens BucketState BucketState (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-type">BucketState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605464"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-type">BucketState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605473"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:BucketState' :: BucketState -&gt; Maybe Text
-</span><a href="#local-6989586621679605464"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605464"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605463"><span class="annot"><span class="annottext">s :: BucketState
-</span><a href="#local-6989586621679605463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-type">BucketState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605462"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketState
-</span><a href="#local-6989586621679605463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:BucketState' :: Maybe Text
+</span><a href="#local-6989586621679605473"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679605473"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605472"><span class="annot"><span class="annottext">s :: BucketState
+</span><a href="#local-6989586621679605472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-type">BucketState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679605471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketState
+</span><a href="#local-6989586621679605472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:BucketState' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.BucketState.html#%24sel%3Acode%3ABucketState%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679605471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | A message that describes the state of the bucket.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#bucketState_message"><span class="hs-identifier hs-type">bucketState_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -161,19 +161,19 @@ $sel:code:BucketState' :: BucketState -&gt; Maybe Text
 -&gt; (BucketState -&gt; Maybe Text -&gt; BucketState)
 -&gt; Lens BucketState BucketState (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-type">BucketState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605460"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-type">BucketState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679605469"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:BucketState' :: BucketState -&gt; Maybe Text
-</span><a href="#local-6989586621679605460"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605460"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605459"><span class="annot"><span class="annottext">s :: BucketState
-</span><a href="#local-6989586621679605459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-type">BucketState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605458"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketState
-</span><a href="#local-6989586621679605459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:BucketState' :: Maybe Text
+</span><a href="#local-6989586621679605469"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679605469"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679605468"><span class="annot"><span class="annottext">s :: BucketState
+</span><a href="#local-6989586621679605468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-type">BucketState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679605467"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679605467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketState
+</span><a href="#local-6989586621679605468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:BucketState' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.BucketState.html#%24sel%3Amessage%3ABucketState%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679605458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679605467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605455"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679605453"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BucketState
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605464"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679605462"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BucketState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BucketState) -&gt; Value -&gt; Parser BucketState
@@ -181,15 +181,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BucketState&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679605450"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679605459"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679605459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; BucketState
 </span><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState%27"><span class="hs-identifier hs-var">BucketState'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; BucketState)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; BucketState)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679605459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
@@ -197,13 +197,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser BucketState
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679605450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679605459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605444"><span id="local-6989586621679605446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605453"><span id="local-6989586621679605455"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679605450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketState.html#BucketState"><span class="hs-identifier hs-type">BucketState</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

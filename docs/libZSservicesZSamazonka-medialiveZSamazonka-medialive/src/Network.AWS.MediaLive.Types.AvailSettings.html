@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Avail Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAvailSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679919307"><span id="local-6989586621679919308"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-var">AvailSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-var">AvailSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679919316"><span id="local-6989586621679919317"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-var">AvailSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-var">AvailSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Ascte35SpliceInsert%3AAvailSettings%27"><span class="annot"><span class="annottext">AvailSettings -&gt; Maybe Scte35SpliceInsert
 </span><a href="Network.AWS.MediaLive.Types.AvailSettings.html#%24sel%3Ascte35SpliceInsert%3AAvailSettings%27"><span class="hs-identifier hs-var hs-var">scte35SpliceInsert</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Ascte35TimeSignalApos%3AAvailSettings%27"><span class="annot"><span class="annottext">AvailSettings -&gt; Maybe Scte35TimeSignalApos
 </span><a href="Network.AWS.MediaLive.Types.AvailSettings.html#%24sel%3Ascte35TimeSignalApos%3AAvailSettings%27"><span class="hs-identifier hs-var hs-var">scte35TimeSignalApos</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679919300"><span id="local-6989586621679919302"><span class="annot"><span class="annottext">AvailSettings -&gt; AvailSettings -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679919309"><span id="local-6989586621679919311"><span class="annot"><span class="annottext">AvailSettings -&gt; AvailSettings -&gt; Bool
 (AvailSettings -&gt; AvailSettings -&gt; Bool)
 -&gt; (AvailSettings -&gt; AvailSettings -&gt; Bool) -&gt; Eq AvailSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AvailSettings -&gt; AvailSettings -&gt; Bool
 == :: AvailSettings -&gt; AvailSettings -&gt; Bool
 $c== :: AvailSettings -&gt; AvailSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919291"><span id="local-6989586621679919293"><span id="local-6989586621679919295"><span id="local-6989586621679919297"><span class="annot"><span class="annottext">ReadPrec [AvailSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919300"><span id="local-6989586621679919302"><span id="local-6989586621679919304"><span id="local-6989586621679919306"><span class="annot"><span class="annottext">ReadPrec [AvailSettings]
 ReadPrec AvailSettings
 Int -&gt; ReadS AvailSettings
 ReadS [AvailSettings]
@@ -62,7 +62,7 @@ readList :: ReadS [AvailSettings]
 $creadList :: ReadS [AvailSettings]
 readsPrec :: Int -&gt; ReadS AvailSettings
 $creadsPrec :: Int -&gt; ReadS AvailSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919284"><span id="local-6989586621679919286"><span id="local-6989586621679919288"><span class="annot"><span class="annottext">Int -&gt; AvailSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919293"><span id="local-6989586621679919295"><span id="local-6989586621679919297"><span class="annot"><span class="annottext">Int -&gt; AvailSettings -&gt; ShowS
 [AvailSettings] -&gt; ShowS
 AvailSettings -&gt; String
 (Int -&gt; AvailSettings -&gt; ShowS)
@@ -129,16 +129,16 @@ forall a. Maybe a
      (Maybe Scte35SpliceInsert)
      (Maybe Scte35SpliceInsert)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919275"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919284"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
 scte35SpliceInsert :: Maybe Scte35SpliceInsert
 $sel:scte35SpliceInsert:AvailSettings' :: AvailSettings -&gt; Maybe Scte35SpliceInsert
-</span><a href="#local-6989586621679919275"><span class="hs-identifier hs-var hs-var">scte35SpliceInsert</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
-</span><a href="#local-6989586621679919275"><span class="hs-identifier hs-var">scte35SpliceInsert</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919274"><span class="annot"><span class="annottext">s :: AvailSettings
-</span><a href="#local-6989586621679919274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919273"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
-</span><a href="#local-6989586621679919273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailSettings
-</span><a href="#local-6989586621679919274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35SpliceInsert:AvailSettings' :: Maybe Scte35SpliceInsert
+</span><a href="#local-6989586621679919284"><span class="hs-identifier hs-var hs-var">scte35SpliceInsert</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
+</span><a href="#local-6989586621679919284"><span class="hs-identifier hs-var">scte35SpliceInsert</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919283"><span class="annot"><span class="annottext">s :: AvailSettings
+</span><a href="#local-6989586621679919283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919282"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
+</span><a href="#local-6989586621679919282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailSettings
+</span><a href="#local-6989586621679919283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35SpliceInsert:AvailSettings' :: Maybe Scte35SpliceInsert
 </span><a href="Network.AWS.MediaLive.Types.AvailSettings.html#%24sel%3Ascte35SpliceInsert%3AAvailSettings%27"><span class="hs-identifier hs-var">scte35SpliceInsert</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
-</span><a href="#local-6989586621679919273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679919282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#availSettings_scte35TimeSignalApos"><span class="hs-identifier hs-type">availSettings_scte35TimeSignalApos</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span><span class="hs-special">)</span><span>
@@ -152,19 +152,19 @@ $sel:scte35SpliceInsert:AvailSettings' :: AvailSettings -&gt; Maybe Scte35Splice
      (Maybe Scte35TimeSignalApos)
      (Maybe Scte35TimeSignalApos)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919271"><span class="annot"><span class="annottext">Maybe Scte35TimeSignalApos
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919280"><span class="annot"><span class="annottext">Maybe Scte35TimeSignalApos
 scte35TimeSignalApos :: Maybe Scte35TimeSignalApos
 $sel:scte35TimeSignalApos:AvailSettings' :: AvailSettings -&gt; Maybe Scte35TimeSignalApos
-</span><a href="#local-6989586621679919271"><span class="hs-identifier hs-var hs-var">scte35TimeSignalApos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35TimeSignalApos
-</span><a href="#local-6989586621679919271"><span class="hs-identifier hs-var">scte35TimeSignalApos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919270"><span class="annot"><span class="annottext">s :: AvailSettings
-</span><a href="#local-6989586621679919270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919269"><span class="annot"><span class="annottext">Maybe Scte35TimeSignalApos
-</span><a href="#local-6989586621679919269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailSettings
-</span><a href="#local-6989586621679919270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35TimeSignalApos:AvailSettings' :: Maybe Scte35TimeSignalApos
+</span><a href="#local-6989586621679919280"><span class="hs-identifier hs-var hs-var">scte35TimeSignalApos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35TimeSignalApos
+</span><a href="#local-6989586621679919280"><span class="hs-identifier hs-var">scte35TimeSignalApos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919279"><span class="annot"><span class="annottext">s :: AvailSettings
+</span><a href="#local-6989586621679919279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919278"><span class="annot"><span class="annottext">Maybe Scte35TimeSignalApos
+</span><a href="#local-6989586621679919278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailSettings
+</span><a href="#local-6989586621679919279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35TimeSignalApos:AvailSettings' :: Maybe Scte35TimeSignalApos
 </span><a href="Network.AWS.MediaLive.Types.AvailSettings.html#%24sel%3Ascte35TimeSignalApos%3AAvailSettings%27"><span class="hs-identifier hs-var">scte35TimeSignalApos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35TimeSignalApos
-</span><a href="#local-6989586621679919269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679919278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919266"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679919264"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AvailSettings
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919275"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679919273"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AvailSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AvailSettings)
@@ -174,8 +174,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AvailSettings&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679919261"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679919270"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679919270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
 -&gt; Maybe Scte35TimeSignalApos -&gt; AvailSettings
 </span><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-var">AvailSettings'</span></a></span><span>
@@ -185,7 +185,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Scte35TimeSignalApos -&gt; AvailSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Scte35SpliceInsert)
+</span><a href="#local-6989586621679919270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Scte35SpliceInsert)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35SpliceInsert&quot;</span></span><span class="hs-special">)</span><span>
@@ -193,25 +193,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Scte35TimeSignalApos) -&gt; Parser AvailSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Scte35TimeSignalApos)
+</span><a href="#local-6989586621679919270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Scte35TimeSignalApos)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35TimeSignalApos&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919255"><span id="local-6989586621679919257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919264"><span id="local-6989586621679919266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919244"><span id="local-6989586621679919246"><span id="local-6989586621679919248"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679919242"><span class="annot"><span class="annottext">toJSON :: AvailSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919239"><span id="local-6989586621679919240"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919253"><span id="local-6989586621679919255"><span id="local-6989586621679919257"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings"><span class="hs-identifier hs-type">AvailSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679919251"><span class="annot"><span class="annottext">toJSON :: AvailSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AvailSettings.html#AvailSettings%27"><span class="hs-identifier hs-type">AvailSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919248"><span id="local-6989586621679919249"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
 Maybe Scte35TimeSignalApos
 scte35TimeSignalApos :: Maybe Scte35TimeSignalApos
 scte35SpliceInsert :: Maybe Scte35SpliceInsert
 $sel:scte35TimeSignalApos:AvailSettings' :: AvailSettings -&gt; Maybe Scte35TimeSignalApos
 $sel:scte35SpliceInsert:AvailSettings' :: AvailSettings -&gt; Maybe Scte35SpliceInsert
-</span><a href="#local-6989586621679919239"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679919248"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -225,7 +225,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Scte35SpliceInsert -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsert
-</span><a href="#local-6989586621679919240"><span class="hs-identifier hs-var">scte35SpliceInsert</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679919249"><span class="hs-identifier hs-var">scte35SpliceInsert</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35TimeSignalApos&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scte35TimeSignalApos -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -234,7 +234,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Scte35TimeSignalApos -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte35TimeSignalApos
-</span><a href="#local-6989586621679919239"><span class="hs-identifier hs-var">scte35TimeSignalApos</span></a></span><span>
+</span><a href="#local-6989586621679919248"><span class="hs-identifier hs-var">scte35TimeSignalApos</span></a></span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

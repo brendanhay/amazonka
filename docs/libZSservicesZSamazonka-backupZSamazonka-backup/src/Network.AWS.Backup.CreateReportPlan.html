@@ -1,0 +1,841 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Backup.CreateReportPlan</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a report plan. A report plan is a document that contains</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information about the contents of the report and where Backup will</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- deliver it.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- If you call @CreateReportPlan@ with a plan that already exists, you</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- receive an @AlreadyExistsException@ exception.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Backup.CreateReportPlan</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier">CreateReportPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#newCreateReportPlan"><span class="hs-identifier">newCreateReportPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_idempotencyToken"><span class="hs-identifier">createReportPlan_idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportPlanTags"><span class="hs-identifier">createReportPlan_reportPlanTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportPlanDescription"><span class="hs-identifier">createReportPlan_reportPlanDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportPlanName"><span class="hs-identifier">createReportPlan_reportPlanName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportDeliveryChannel"><span class="hs-identifier">createReportPlan_reportDeliveryChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportSetting"><span class="hs-identifier">createReportPlan_reportSetting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier">CreateReportPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#newCreateReportPlanResponse"><span class="hs-identifier">newCreateReportPlanResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_creationTime"><span class="hs-identifier">createReportPlanResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_reportPlanName"><span class="hs-identifier">createReportPlanResponse_reportPlanName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_reportPlanArn"><span class="hs-identifier">createReportPlanResponse_reportPlanArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_httpStatus"><span class="hs-identifier">createReportPlanResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.html"><span class="hs-identifier">Network.AWS.Backup.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateReportPlan' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679323467"><span id="local-6989586621679323468"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateReportPlan"><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-var">CreateReportPlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateReportPlan%27"><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-var">CreateReportPlan'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A customer-chosen string that you can use to distinguish between</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- otherwise identical calls to @CreateReportPlanInput@. Retrying a</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- successful request with the same idempotency token results in a success</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- message with no action taken.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AidempotencyToken%3ACreateReportPlan%27"><span class="annot"><span class="annottext">CreateReportPlan -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AidempotencyToken%3ACreateReportPlan%27"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Metadata that you can assign to help organize the report plans that you</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- create. Each tag is a key-value pair.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AreportPlanTags%3ACreateReportPlan%27"><span class="annot"><span class="annottext">CreateReportPlan -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanTags%3ACreateReportPlan%27"><span class="hs-identifier hs-var hs-var">reportPlanTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | An optional description of the report plan with a maximum of 1,024</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- characters.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AreportPlanDescription%3ACreateReportPlan%27"><span class="annot"><span class="annottext">CreateReportPlan -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanDescription%3ACreateReportPlan%27"><span class="hs-identifier hs-var hs-var">reportPlanDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The unique name of the report plan. The name must be between 1 and 256</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- characters, starting with a letter, and consisting of letters (a-z,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- A-Z), numbers (0-9), and underscores (_).</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AreportPlanName%3ACreateReportPlan%27"><span class="annot"><span class="annottext">CreateReportPlan -&gt; Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanName%3ACreateReportPlan%27"><span class="hs-identifier hs-var hs-var">reportPlanName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | A structure that contains information about where and how to deliver</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- your reports, specifically your Amazon S3 bucket name, S3 key prefix,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- and the formats of your reports.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AreportDeliveryChannel%3ACreateReportPlan%27"><span class="annot"><span class="annottext">CreateReportPlan -&gt; ReportDeliveryChannel
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportDeliveryChannel%3ACreateReportPlan%27"><span class="hs-identifier hs-var hs-var">reportDeliveryChannel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDeliveryChannel.html#ReportDeliveryChannel"><span class="hs-identifier hs-type">ReportDeliveryChannel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Identifies the report template for the report. Reports are built using a</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- report template. The report templates are:</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT@</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- If the report template is @RESOURCE_COMPLIANCE_REPORT@ or</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @CONTROL_COMPLIANCE_REPORT@, this API resource also describes the report</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- coverage by Amazon Web Services Regions and frameworks.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AreportSetting%3ACreateReportPlan%27"><span class="annot"><span class="annottext">CreateReportPlan -&gt; ReportSetting
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportSetting%3ACreateReportPlan%27"><span class="hs-identifier hs-var hs-var">reportSetting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportSetting.html#ReportSetting"><span class="hs-identifier hs-type">ReportSetting</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323456"><span id="local-6989586621679323458"><span class="annot"><span class="annottext">CreateReportPlan -&gt; CreateReportPlan -&gt; Bool
+(CreateReportPlan -&gt; CreateReportPlan -&gt; Bool)
+-&gt; (CreateReportPlan -&gt; CreateReportPlan -&gt; Bool)
+-&gt; Eq CreateReportPlan
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateReportPlan -&gt; CreateReportPlan -&gt; Bool
+$c/= :: CreateReportPlan -&gt; CreateReportPlan -&gt; Bool
+== :: CreateReportPlan -&gt; CreateReportPlan -&gt; Bool
+$c== :: CreateReportPlan -&gt; CreateReportPlan -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323447"><span id="local-6989586621679323449"><span id="local-6989586621679323451"><span id="local-6989586621679323453"><span class="annot"><span class="annottext">ReadPrec [CreateReportPlan]
+ReadPrec CreateReportPlan
+Int -&gt; ReadS CreateReportPlan
+ReadS [CreateReportPlan]
+(Int -&gt; ReadS CreateReportPlan)
+-&gt; ReadS [CreateReportPlan]
+-&gt; ReadPrec CreateReportPlan
+-&gt; ReadPrec [CreateReportPlan]
+-&gt; Read CreateReportPlan
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateReportPlan]
+$creadListPrec :: ReadPrec [CreateReportPlan]
+readPrec :: ReadPrec CreateReportPlan
+$creadPrec :: ReadPrec CreateReportPlan
+readList :: ReadS [CreateReportPlan]
+$creadList :: ReadS [CreateReportPlan]
+readsPrec :: Int -&gt; ReadS CreateReportPlan
+$creadsPrec :: Int -&gt; ReadS CreateReportPlan
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323440"><span id="local-6989586621679323442"><span id="local-6989586621679323444"><span class="annot"><span class="annottext">Int -&gt; CreateReportPlan -&gt; ShowS
+[CreateReportPlan] -&gt; ShowS
+CreateReportPlan -&gt; String
+(Int -&gt; CreateReportPlan -&gt; ShowS)
+-&gt; (CreateReportPlan -&gt; String)
+-&gt; ([CreateReportPlan] -&gt; ShowS)
+-&gt; Show CreateReportPlan
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateReportPlan] -&gt; ShowS
+$cshowList :: [CreateReportPlan] -&gt; ShowS
+show :: CreateReportPlan -&gt; String
+$cshow :: CreateReportPlan -&gt; String
+showsPrec :: Int -&gt; CreateReportPlan -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateReportPlan -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateReportPlan -&gt; Rep CreateReportPlan x)
+-&gt; (forall x. Rep CreateReportPlan x -&gt; CreateReportPlan)
+-&gt; Generic CreateReportPlan
+forall x. Rep CreateReportPlan x -&gt; CreateReportPlan
+forall x. CreateReportPlan -&gt; Rep CreateReportPlan x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateReportPlan x -&gt; CreateReportPlan
+$cfrom :: forall x. CreateReportPlan -&gt; Rep CreateReportPlan x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'CreateReportPlan' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'idempotencyToken', 'createReportPlan_idempotencyToken' - A customer-chosen string that you can use to distinguish between</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- otherwise identical calls to @CreateReportPlanInput@. Retrying a</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- successful request with the same idempotency token results in a success</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- message with no action taken.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'reportPlanTags', 'createReportPlan_reportPlanTags' - Metadata that you can assign to help organize the report plans that you</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- create. Each tag is a key-value pair.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'reportPlanDescription', 'createReportPlan_reportPlanDescription' - An optional description of the report plan with a maximum of 1,024</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- characters.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'reportPlanName', 'createReportPlan_reportPlanName' - The unique name of the report plan. The name must be between 1 and 256</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- characters, starting with a letter, and consisting of letters (a-z,</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- A-Z), numbers (0-9), and underscores (_).</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'reportDeliveryChannel', 'createReportPlan_reportDeliveryChannel' - A structure that contains information about where and how to deliver</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- your reports, specifically your Amazon S3 bucket name, S3 key prefix,</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- and the formats of your reports.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'reportSetting', 'createReportPlan_reportSetting' - Identifies the report template for the report. Reports are built using a</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- report template. The report templates are:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT@</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- If the report template is @RESOURCE_COMPLIANCE_REPORT@ or</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @CONTROL_COMPLIANCE_REPORT@, this API resource also describes the report</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- coverage by Amazon Web Services Regions and frameworks.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#newCreateReportPlan"><span class="hs-identifier hs-type">newCreateReportPlan</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'reportPlanName'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'reportDeliveryChannel'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDeliveryChannel.html#ReportDeliveryChannel"><span class="hs-identifier hs-type">ReportDeliveryChannel</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'reportSetting'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportSetting.html#ReportSetting"><span class="hs-identifier hs-type">ReportSetting</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span>
+</span><span id="line-137"></span><span id="newCreateReportPlan"><span class="annot"><span class="annottext">newCreateReportPlan :: Text -&gt; ReportDeliveryChannel -&gt; ReportSetting -&gt; CreateReportPlan
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#newCreateReportPlan"><span class="hs-identifier hs-var hs-var">newCreateReportPlan</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679323435"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323435"><span class="hs-identifier hs-var">pReportPlanName_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679323434"><span class="annot"><span class="annottext">ReportDeliveryChannel
+</span><a href="#local-6989586621679323434"><span class="hs-identifier hs-var">pReportDeliveryChannel_</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679323433"><span class="annot"><span class="annottext">ReportSetting
+</span><a href="#local-6989586621679323433"><span class="hs-identifier hs-var">pReportSetting_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">CreateReportPlan' :: Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Text
+-&gt; ReportDeliveryChannel
+-&gt; ReportSetting
+-&gt; CreateReportPlan
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateReportPlan' :: Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AidempotencyToken%3ACreateReportPlan%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportPlanTags:CreateReportPlan' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanTags%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportPlanTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportPlanDescription:CreateReportPlan' :: Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanDescription%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportPlanDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportPlanName:CreateReportPlan' :: Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanName%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportPlanName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323435"><span class="hs-identifier hs-var">pReportPlanName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportDeliveryChannel:CreateReportPlan' :: ReportDeliveryChannel
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportDeliveryChannel%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportDeliveryChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportDeliveryChannel
+</span><a href="#local-6989586621679323434"><span class="hs-identifier hs-var">pReportDeliveryChannel_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportSetting:CreateReportPlan' :: ReportSetting
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportSetting%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportSetting
+</span><a href="#local-6989586621679323433"><span class="hs-identifier hs-var">pReportSetting_</span></a></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | A customer-chosen string that you can use to distinguish between</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- otherwise identical calls to @CreateReportPlanInput@. Retrying a</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- successful request with the same idempotency token results in a success</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- message with no action taken.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_idempotencyToken"><span class="hs-identifier hs-type">createReportPlan_idempotencyToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="createReportPlan_idempotencyToken"><span class="annot"><span class="annottext">createReportPlan_idempotencyToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateReportPlan -&gt; f CreateReportPlan
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_idempotencyToken"><span class="hs-identifier hs-var hs-var">createReportPlan_idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlan -&gt; Maybe Text)
+-&gt; (CreateReportPlan -&gt; Maybe Text -&gt; CreateReportPlan)
+-&gt; Lens CreateReportPlan CreateReportPlan (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323430"><span class="annot"><span class="annottext">Maybe Text
+idempotencyToken :: Maybe Text
+$sel:idempotencyToken:CreateReportPlan' :: CreateReportPlan -&gt; Maybe Text
+</span><a href="#local-6989586621679323430"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323430"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323429"><span class="annot"><span class="annottext">s :: CreateReportPlan
+</span><a href="#local-6989586621679323429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlan
+</span><a href="#local-6989586621679323429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:CreateReportPlan' :: Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AidempotencyToken%3ACreateReportPlan%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Metadata that you can assign to help organize the report plans that you</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- create. Each tag is a key-value pair.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportPlanTags"><span class="hs-identifier hs-type">createReportPlan_reportPlanTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="createReportPlan_reportPlanTags"><span class="annot"><span class="annottext">createReportPlan_reportPlanTags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateReportPlan -&gt; f CreateReportPlan
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportPlanTags"><span class="hs-identifier hs-var hs-var">createReportPlan_reportPlanTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlan -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateReportPlan
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateReportPlan)
+-&gt; Lens
+     CreateReportPlan
+     CreateReportPlan
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323427"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+reportPlanTags :: Maybe (HashMap Text Text)
+$sel:reportPlanTags:CreateReportPlan' :: CreateReportPlan -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679323427"><span class="hs-identifier hs-var hs-var">reportPlanTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679323427"><span class="hs-identifier hs-var">reportPlanTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323426"><span class="annot"><span class="annottext">s :: CreateReportPlan
+</span><a href="#local-6989586621679323426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323425"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679323425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlan
+</span><a href="#local-6989586621679323426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportPlanTags:CreateReportPlan' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanTags%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportPlanTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679323425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateReportPlan -&gt; f CreateReportPlan)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateReportPlan
+-&gt; f CreateReportPlan
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | An optional description of the report plan with a maximum of 1,024</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- characters.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportPlanDescription"><span class="hs-identifier hs-type">createReportPlan_reportPlanDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="createReportPlan_reportPlanDescription"><span class="annot"><span class="annottext">createReportPlan_reportPlanDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateReportPlan -&gt; f CreateReportPlan
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportPlanDescription"><span class="hs-identifier hs-var hs-var">createReportPlan_reportPlanDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlan -&gt; Maybe Text)
+-&gt; (CreateReportPlan -&gt; Maybe Text -&gt; CreateReportPlan)
+-&gt; Lens CreateReportPlan CreateReportPlan (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323421"><span class="annot"><span class="annottext">Maybe Text
+reportPlanDescription :: Maybe Text
+$sel:reportPlanDescription:CreateReportPlan' :: CreateReportPlan -&gt; Maybe Text
+</span><a href="#local-6989586621679323421"><span class="hs-identifier hs-var hs-var">reportPlanDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323421"><span class="hs-identifier hs-var">reportPlanDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323420"><span class="annot"><span class="annottext">s :: CreateReportPlan
+</span><a href="#local-6989586621679323420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlan
+</span><a href="#local-6989586621679323420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportPlanDescription:CreateReportPlan' :: Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanDescription%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportPlanDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The unique name of the report plan. The name must be between 1 and 256</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- characters, starting with a letter, and consisting of letters (a-z,</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- A-Z), numbers (0-9), and underscores (_).</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportPlanName"><span class="hs-identifier hs-type">createReportPlan_reportPlanName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-172"></span><span id="createReportPlan_reportPlanName"><span class="annot"><span class="annottext">createReportPlan_reportPlanName :: (Text -&gt; f Text) -&gt; CreateReportPlan -&gt; f CreateReportPlan
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportPlanName"><span class="hs-identifier hs-var hs-var">createReportPlan_reportPlanName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlan -&gt; Text)
+-&gt; (CreateReportPlan -&gt; Text -&gt; CreateReportPlan)
+-&gt; Lens CreateReportPlan CreateReportPlan Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323418"><span class="annot"><span class="annottext">Text
+reportPlanName :: Text
+$sel:reportPlanName:CreateReportPlan' :: CreateReportPlan -&gt; Text
+</span><a href="#local-6989586621679323418"><span class="hs-identifier hs-var hs-var">reportPlanName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323418"><span class="hs-identifier hs-var">reportPlanName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323417"><span class="annot"><span class="annottext">s :: CreateReportPlan
+</span><a href="#local-6989586621679323417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323416"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlan
+</span><a href="#local-6989586621679323417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportPlanName:CreateReportPlan' :: Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanName%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportPlanName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | A structure that contains information about where and how to deliver</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- your reports, specifically your Amazon S3 bucket name, S3 key prefix,</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- and the formats of your reports.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportDeliveryChannel"><span class="hs-identifier hs-type">createReportPlan_reportDeliveryChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportDeliveryChannel.html#ReportDeliveryChannel"><span class="hs-identifier hs-type">ReportDeliveryChannel</span></a></span><span>
+</span><span id="line-178"></span><span id="createReportPlan_reportDeliveryChannel"><span class="annot"><span class="annottext">createReportPlan_reportDeliveryChannel :: (ReportDeliveryChannel -&gt; f ReportDeliveryChannel)
+-&gt; CreateReportPlan -&gt; f CreateReportPlan
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportDeliveryChannel"><span class="hs-identifier hs-var hs-var">createReportPlan_reportDeliveryChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlan -&gt; ReportDeliveryChannel)
+-&gt; (CreateReportPlan -&gt; ReportDeliveryChannel -&gt; CreateReportPlan)
+-&gt; Lens
+     CreateReportPlan
+     CreateReportPlan
+     ReportDeliveryChannel
+     ReportDeliveryChannel
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323415"><span class="annot"><span class="annottext">ReportDeliveryChannel
+reportDeliveryChannel :: ReportDeliveryChannel
+$sel:reportDeliveryChannel:CreateReportPlan' :: CreateReportPlan -&gt; ReportDeliveryChannel
+</span><a href="#local-6989586621679323415"><span class="hs-identifier hs-var hs-var">reportDeliveryChannel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDeliveryChannel
+</span><a href="#local-6989586621679323415"><span class="hs-identifier hs-var">reportDeliveryChannel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323414"><span class="annot"><span class="annottext">s :: CreateReportPlan
+</span><a href="#local-6989586621679323414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323413"><span class="annot"><span class="annottext">ReportDeliveryChannel
+</span><a href="#local-6989586621679323413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlan
+</span><a href="#local-6989586621679323414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportDeliveryChannel:CreateReportPlan' :: ReportDeliveryChannel
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportDeliveryChannel%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportDeliveryChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportDeliveryChannel
+</span><a href="#local-6989586621679323413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Identifies the report template for the report. Reports are built using a</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- report template. The report templates are:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- @RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT@</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- If the report template is @RESOURCE_COMPLIANCE_REPORT@ or</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- @CONTROL_COMPLIANCE_REPORT@, this API resource also describes the report</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- coverage by Amazon Web Services Regions and frameworks.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportSetting"><span class="hs-identifier hs-type">createReportPlan_reportSetting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.ReportSetting.html#ReportSetting"><span class="hs-identifier hs-type">ReportSetting</span></a></span><span>
+</span><span id="line-189"></span><span id="createReportPlan_reportSetting"><span class="annot"><span class="annottext">createReportPlan_reportSetting :: (ReportSetting -&gt; f ReportSetting)
+-&gt; CreateReportPlan -&gt; f CreateReportPlan
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlan_reportSetting"><span class="hs-identifier hs-var hs-var">createReportPlan_reportSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlan -&gt; ReportSetting)
+-&gt; (CreateReportPlan -&gt; ReportSetting -&gt; CreateReportPlan)
+-&gt; Lens
+     CreateReportPlan CreateReportPlan ReportSetting ReportSetting
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323412"><span class="annot"><span class="annottext">ReportSetting
+reportSetting :: ReportSetting
+$sel:reportSetting:CreateReportPlan' :: CreateReportPlan -&gt; ReportSetting
+</span><a href="#local-6989586621679323412"><span class="hs-identifier hs-var hs-var">reportSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportSetting
+</span><a href="#local-6989586621679323412"><span class="hs-identifier hs-var">reportSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323411"><span class="annot"><span class="annottext">s :: CreateReportPlan
+</span><a href="#local-6989586621679323411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323410"><span class="annot"><span class="annottext">ReportSetting
+</span><a href="#local-6989586621679323410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlan
+</span><a href="#local-6989586621679323411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportSetting:CreateReportPlan' :: ReportSetting
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportSetting%3ACreateReportPlan%27"><span class="hs-identifier hs-var">reportSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportSetting
+</span><a href="#local-6989586621679323410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-193"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679323406"><span class="annot"><span class="annottext">request :: CreateReportPlan -&gt; Request CreateReportPlan
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateReportPlan -&gt; Request CreateReportPlan
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679323402"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateReportPlan
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateReportPlan)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateReportPlan))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateReportPlan
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateReportPlan)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323399"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323399"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679323398"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679323398"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679323397"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateReportPlanResponse
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-var">CreateReportPlanResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateReportPlanResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateReportPlanResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateReportPlanResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateReportPlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportPlanName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateReportPlanResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateReportPlanResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportPlanArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateReportPlanResponse)
+-&gt; Either String Int -&gt; Either String CreateReportPlanResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323399"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323389"><span id="local-6989586621679323391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span></span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679323382"><span class="annot"><span class="annottext">toHeaders :: CreateReportPlan -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateReportPlan -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-214"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-217"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323372"><span id="local-6989586621679323374"><span id="local-6989586621679323376"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679323370"><span class="annot"><span class="annottext">toJSON :: CreateReportPlan -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan%27"><span class="hs-identifier hs-type">CreateReportPlan'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323363"><span id="local-6989586621679323364"><span id="local-6989586621679323365"><span id="local-6989586621679323366"><span id="local-6989586621679323367"><span id="local-6989586621679323368"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+ReportDeliveryChannel
+ReportSetting
+reportSetting :: ReportSetting
+reportDeliveryChannel :: ReportDeliveryChannel
+reportPlanName :: Text
+reportPlanDescription :: Maybe Text
+reportPlanTags :: Maybe (HashMap Text Text)
+idempotencyToken :: Maybe Text
+$sel:reportSetting:CreateReportPlan' :: CreateReportPlan -&gt; ReportSetting
+$sel:reportDeliveryChannel:CreateReportPlan' :: CreateReportPlan -&gt; ReportDeliveryChannel
+$sel:reportPlanName:CreateReportPlan' :: CreateReportPlan -&gt; Text
+$sel:reportPlanDescription:CreateReportPlan' :: CreateReportPlan -&gt; Maybe Text
+$sel:reportPlanTags:CreateReportPlan' :: CreateReportPlan -&gt; Maybe (HashMap Text Text)
+$sel:idempotencyToken:CreateReportPlan' :: CreateReportPlan -&gt; Maybe Text
+</span><a href="#local-6989586621679323363"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-225"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdempotencyToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323368"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportPlanTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679323367"><span class="hs-identifier hs-var">reportPlanTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportPlanDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323366"><span class="hs-identifier hs-var">reportPlanDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-232"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportPlanName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323365"><span class="hs-identifier hs-var">reportPlanName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-234"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportDeliveryChannel&quot;</span></span><span>
+</span><span id="line-235"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ReportDeliveryChannel -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReportDeliveryChannel
+</span><a href="#local-6989586621679323364"><span class="hs-identifier hs-var">reportDeliveryChannel</span></a></span><span>
+</span><span id="line-236"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-238"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportSetting&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReportSetting -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReportSetting
+</span><a href="#local-6989586621679323363"><span class="hs-identifier hs-var">reportSetting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679323357"><span class="annot"><span class="annottext">toPath :: CreateReportPlan -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateReportPlan -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/audit/report-plans&quot;</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlan"><span class="hs-identifier hs-type">CreateReportPlan</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679323353"><span class="annot"><span class="annottext">toQuery :: CreateReportPlan -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateReportPlan -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | /See:/ 'newCreateReportPlanResponse' smart constructor.</span><span>
+</span><span id="line-249"></span><span id="local-6989586621679323350"><span id="local-6989586621679323351"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateReportPlanResponse"><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-var">CreateReportPlanResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateReportPlanResponse%27"><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-var">CreateReportPlanResponse'</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time a backup vault is created, in Unix format and</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationTime@ is</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-254"></span><span>    </span><span id="%24sel%3AcreationTime%3ACreateReportPlanResponse%27"><span class="annot"><span class="annottext">CreateReportPlanResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AcreationTime%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">-- | The unique name of the report plan.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3AreportPlanName%3ACreateReportPlanResponse%27"><span class="annot"><span class="annottext">CreateReportPlanResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanName%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var hs-var">reportPlanName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- format of the ARN depends on the resource type.</span><span>
+</span><span id="line-259"></span><span>    </span><span id="%24sel%3AreportPlanArn%3ACreateReportPlanResponse%27"><span class="annot"><span class="annottext">CreateReportPlanResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanArn%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var hs-var">reportPlanArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateReportPlanResponse%27"><span class="annot"><span class="annottext">CreateReportPlanResponse -&gt; Int
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AhttpStatus%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323342"><span id="local-6989586621679323344"><span class="annot"><span class="annottext">CreateReportPlanResponse -&gt; CreateReportPlanResponse -&gt; Bool
+(CreateReportPlanResponse -&gt; CreateReportPlanResponse -&gt; Bool)
+-&gt; (CreateReportPlanResponse -&gt; CreateReportPlanResponse -&gt; Bool)
+-&gt; Eq CreateReportPlanResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateReportPlanResponse -&gt; CreateReportPlanResponse -&gt; Bool
+$c/= :: CreateReportPlanResponse -&gt; CreateReportPlanResponse -&gt; Bool
+== :: CreateReportPlanResponse -&gt; CreateReportPlanResponse -&gt; Bool
+$c== :: CreateReportPlanResponse -&gt; CreateReportPlanResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323334"><span id="local-6989586621679323336"><span id="local-6989586621679323338"><span id="local-6989586621679323340"><span class="annot"><span class="annottext">ReadPrec [CreateReportPlanResponse]
+ReadPrec CreateReportPlanResponse
+Int -&gt; ReadS CreateReportPlanResponse
+ReadS [CreateReportPlanResponse]
+(Int -&gt; ReadS CreateReportPlanResponse)
+-&gt; ReadS [CreateReportPlanResponse]
+-&gt; ReadPrec CreateReportPlanResponse
+-&gt; ReadPrec [CreateReportPlanResponse]
+-&gt; Read CreateReportPlanResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateReportPlanResponse]
+$creadListPrec :: ReadPrec [CreateReportPlanResponse]
+readPrec :: ReadPrec CreateReportPlanResponse
+$creadPrec :: ReadPrec CreateReportPlanResponse
+readList :: ReadS [CreateReportPlanResponse]
+$creadList :: ReadS [CreateReportPlanResponse]
+readsPrec :: Int -&gt; ReadS CreateReportPlanResponse
+$creadsPrec :: Int -&gt; ReadS CreateReportPlanResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323328"><span id="local-6989586621679323330"><span id="local-6989586621679323332"><span class="annot"><span class="annottext">Int -&gt; CreateReportPlanResponse -&gt; ShowS
+[CreateReportPlanResponse] -&gt; ShowS
+CreateReportPlanResponse -&gt; String
+(Int -&gt; CreateReportPlanResponse -&gt; ShowS)
+-&gt; (CreateReportPlanResponse -&gt; String)
+-&gt; ([CreateReportPlanResponse] -&gt; ShowS)
+-&gt; Show CreateReportPlanResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateReportPlanResponse] -&gt; ShowS
+$cshowList :: [CreateReportPlanResponse] -&gt; ShowS
+show :: CreateReportPlanResponse -&gt; String
+$cshow :: CreateReportPlanResponse -&gt; String
+showsPrec :: Int -&gt; CreateReportPlanResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateReportPlanResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateReportPlanResponse -&gt; Rep CreateReportPlanResponse x)
+-&gt; (forall x.
+    Rep CreateReportPlanResponse x -&gt; CreateReportPlanResponse)
+-&gt; Generic CreateReportPlanResponse
+forall x.
+Rep CreateReportPlanResponse x -&gt; CreateReportPlanResponse
+forall x.
+CreateReportPlanResponse -&gt; Rep CreateReportPlanResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateReportPlanResponse x -&gt; CreateReportPlanResponse
+$cfrom :: forall x.
+CreateReportPlanResponse -&gt; Rep CreateReportPlanResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Create a value of 'CreateReportPlanResponse' with all optional fields omitted.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'creationTime', 'createReportPlanResponse_creationTime' - The date and time a backup vault is created, in Unix format and</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationTime@ is</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'reportPlanName', 'createReportPlanResponse_reportPlanName' - The unique name of the report plan.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'reportPlanArn', 'createReportPlanResponse_reportPlanArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- format of the ARN depends on the resource type.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'httpStatus', 'createReportPlanResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#newCreateReportPlanResponse"><span class="hs-identifier hs-type">newCreateReportPlanResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span>
+</span><span id="line-288"></span><span id="newCreateReportPlanResponse"><span class="annot"><span class="annottext">newCreateReportPlanResponse :: Int -&gt; CreateReportPlanResponse
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#newCreateReportPlanResponse"><span class="hs-identifier hs-var hs-var">newCreateReportPlanResponse</span></a></span></span><span> </span><span id="local-6989586621679323325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>  </span><span class="annot"><span class="annottext">CreateReportPlanResponse' :: Maybe POSIX
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateReportPlanResponse
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-type">CreateReportPlanResponse'</span></a></span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:CreateReportPlanResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AcreationTime%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportPlanName:CreateReportPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanName%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var">reportPlanName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportPlanArn:CreateReportPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanArn%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var">reportPlanArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateReportPlanResponse' :: Int
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AhttpStatus%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The date and time a backup vault is created, in Unix format and</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationTime@ is</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-301"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_creationTime"><span class="hs-identifier hs-type">createReportPlanResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span id="createReportPlanResponse_creationTime"><span class="annot"><span class="annottext">createReportPlanResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateReportPlanResponse -&gt; f CreateReportPlanResponse
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_creationTime"><span class="hs-identifier hs-var hs-var">createReportPlanResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlanResponse -&gt; Maybe POSIX)
+-&gt; (CreateReportPlanResponse
+    -&gt; Maybe POSIX -&gt; CreateReportPlanResponse)
+-&gt; Lens
+     CreateReportPlanResponse
+     CreateReportPlanResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-type">CreateReportPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323324"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:CreateReportPlanResponse' :: CreateReportPlanResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679323324"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679323324"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323323"><span class="annot"><span class="annottext">s :: CreateReportPlanResponse
+</span><a href="#local-6989586621679323323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-type">CreateReportPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323322"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679323322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlanResponse
+</span><a href="#local-6989586621679323323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CreateReportPlanResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AcreationTime%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679323322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateReportPlanResponse -&gt; f CreateReportPlanResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateReportPlanResponse
+-&gt; f CreateReportPlanResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The unique name of the report plan.</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_reportPlanName"><span class="hs-identifier hs-type">createReportPlanResponse_reportPlanName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span id="createReportPlanResponse_reportPlanName"><span class="annot"><span class="annottext">createReportPlanResponse_reportPlanName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateReportPlanResponse -&gt; f CreateReportPlanResponse
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_reportPlanName"><span class="hs-identifier hs-var hs-var">createReportPlanResponse_reportPlanName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlanResponse -&gt; Maybe Text)
+-&gt; (CreateReportPlanResponse
+    -&gt; Maybe Text -&gt; CreateReportPlanResponse)
+-&gt; Lens
+     CreateReportPlanResponse
+     CreateReportPlanResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-type">CreateReportPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323320"><span class="annot"><span class="annottext">Maybe Text
+reportPlanName :: Maybe Text
+$sel:reportPlanName:CreateReportPlanResponse' :: CreateReportPlanResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679323320"><span class="hs-identifier hs-var hs-var">reportPlanName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323320"><span class="hs-identifier hs-var">reportPlanName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323319"><span class="annot"><span class="annottext">s :: CreateReportPlanResponse
+</span><a href="#local-6989586621679323319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-type">CreateReportPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323318"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlanResponse
+</span><a href="#local-6989586621679323319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportPlanName:CreateReportPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanName%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var">reportPlanName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- format of the ARN depends on the resource type.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_reportPlanArn"><span class="hs-identifier hs-type">createReportPlanResponse_reportPlanArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="createReportPlanResponse_reportPlanArn"><span class="annot"><span class="annottext">createReportPlanResponse_reportPlanArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateReportPlanResponse -&gt; f CreateReportPlanResponse
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_reportPlanArn"><span class="hs-identifier hs-var hs-var">createReportPlanResponse_reportPlanArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlanResponse -&gt; Maybe Text)
+-&gt; (CreateReportPlanResponse
+    -&gt; Maybe Text -&gt; CreateReportPlanResponse)
+-&gt; Lens
+     CreateReportPlanResponse
+     CreateReportPlanResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-type">CreateReportPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323317"><span class="annot"><span class="annottext">Maybe Text
+reportPlanArn :: Maybe Text
+$sel:reportPlanArn:CreateReportPlanResponse' :: CreateReportPlanResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679323317"><span class="hs-identifier hs-var hs-var">reportPlanArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323317"><span class="hs-identifier hs-var">reportPlanArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323316"><span class="annot"><span class="annottext">s :: CreateReportPlanResponse
+</span><a href="#local-6989586621679323316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-type">CreateReportPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323315"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlanResponse
+</span><a href="#local-6989586621679323316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportPlanArn:CreateReportPlanResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AreportPlanArn%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var">reportPlanArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679323315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_httpStatus"><span class="hs-identifier hs-type">createReportPlanResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-315"></span><span id="createReportPlanResponse_httpStatus"><span class="annot"><span class="annottext">createReportPlanResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateReportPlanResponse -&gt; f CreateReportPlanResponse
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#createReportPlanResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createReportPlanResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateReportPlanResponse -&gt; Int)
+-&gt; (CreateReportPlanResponse -&gt; Int -&gt; CreateReportPlanResponse)
+-&gt; Lens CreateReportPlanResponse CreateReportPlanResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-type">CreateReportPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323314"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateReportPlanResponse' :: CreateReportPlanResponse -&gt; Int
+</span><a href="#local-6989586621679323314"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323314"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323313"><span class="annot"><span class="annottext">s :: CreateReportPlanResponse
+</span><a href="#local-6989586621679323313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse%27"><span class="hs-identifier hs-type">CreateReportPlanResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323312"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateReportPlanResponse
+</span><a href="#local-6989586621679323313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateReportPlanResponse' :: Int
+</span><a href="Network.AWS.Backup.CreateReportPlan.html#%24sel%3AhttpStatus%3ACreateReportPlanResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.CreateReportPlan.html#CreateReportPlanResponse"><span class="hs-identifier hs-type">CreateReportPlanResponse</span></a></span></span><span>
+</span><span id="line-318"></span></pre></body></html>

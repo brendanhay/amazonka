@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- | The status of a document.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679794620"><span id="local-6989586621679794621"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentStatus"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentStatus.html#DocumentStatus"><span class="hs-identifier hs-var">DocumentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentStatus.html#DocumentStatus%27"><span class="hs-identifier hs-var">DocumentStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679794629"><span id="local-6989586621679794630"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentStatus"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentStatus.html#DocumentStatus"><span class="hs-identifier hs-var">DocumentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.DocumentStatus.html#DocumentStatus%27"><span class="hs-identifier hs-var">DocumentStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentStatus"><span class="annot"><span class="annottext">DocumentStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.DocumentStatus.html#fromDocumentStatus"><span class="hs-identifier hs-var hs-var">fromDocumentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794612"><span id="local-6989586621679794614"><span id="local-6989586621679794616"><span class="annot"><span class="annottext">Int -&gt; DocumentStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794621"><span id="local-6989586621679794623"><span id="local-6989586621679794625"><span class="annot"><span class="annottext">Int -&gt; DocumentStatus -&gt; ShowS
 [DocumentStatus] -&gt; ShowS
 DocumentStatus -&gt; String
 (Int -&gt; DocumentStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: DocumentStatus -&gt; String
 showsPrec :: Int -&gt; DocumentStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679794603"><span id="local-6989586621679794605"><span id="local-6989586621679794607"><span id="local-6989586621679794609"><span class="annot"><span class="annottext">ReadPrec [DocumentStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679794612"><span id="local-6989586621679794614"><span id="local-6989586621679794616"><span id="local-6989586621679794618"><span class="annot"><span class="annottext">ReadPrec [DocumentStatus]
 ReadPrec DocumentStatus
 Int -&gt; ReadS DocumentStatus
 ReadS [DocumentStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [DocumentStatus]
 readsPrec :: Int -&gt; ReadS DocumentStatus
 $creadsPrec :: Int -&gt; ReadS DocumentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679794598"><span id="local-6989586621679794600"><span class="annot"><span class="annottext">DocumentStatus -&gt; DocumentStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679794607"><span id="local-6989586621679794609"><span class="annot"><span class="annottext">DocumentStatus -&gt; DocumentStatus -&gt; Bool
 (DocumentStatus -&gt; DocumentStatus -&gt; Bool)
 -&gt; (DocumentStatus -&gt; DocumentStatus -&gt; Bool) -&gt; Eq DocumentStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: DocumentStatus -&gt; DocumentStatus -&gt; Bool
 == :: DocumentStatus -&gt; DocumentStatus -&gt; Bool
 $c== :: DocumentStatus -&gt; DocumentStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679794582"><span id="local-6989586621679794584"><span id="local-6989586621679794586"><span id="local-6989586621679794588"><span id="local-6989586621679794590"><span id="local-6989586621679794592"><span id="local-6989586621679794594"><span class="annot"><span class="annottext">Eq DocumentStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679794591"><span id="local-6989586621679794593"><span id="local-6989586621679794595"><span id="local-6989586621679794597"><span id="local-6989586621679794599"><span id="local-6989586621679794601"><span id="local-6989586621679794603"><span class="annot"><span class="annottext">Eq DocumentStatus
 Eq DocumentStatus
 -&gt; (DocumentStatus -&gt; DocumentStatus -&gt; Ordering)
 -&gt; (DocumentStatus -&gt; DocumentStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. DocumentStatus -&gt; Rep DocumentStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794574"><span id="local-6989586621679794576"><span class="annot"><span class="annottext">Int -&gt; DocumentStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794583"><span id="local-6989586621679794585"><span class="annot"><span class="annottext">Int -&gt; DocumentStatus -&gt; Int
 DocumentStatus -&gt; Int
 (Int -&gt; DocumentStatus -&gt; Int)
 -&gt; (DocumentStatus -&gt; Int) -&gt; Hashable DocumentStatus
@@ -146,50 +146,50 @@ $chash :: DocumentStatus -&gt; Int
 hashWithSalt :: Int -&gt; DocumentStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679794571"><span class="annot"><span class="annottext">DocumentStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679794580"><span class="annot"><span class="annottext">DocumentStatus -&gt; ()
 (DocumentStatus -&gt; ()) -&gt; NFData DocumentStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentStatus -&gt; ()
 $crnf :: DocumentStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679794568"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679794577"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentStatus
 (Text -&gt; Either String DocumentStatus) -&gt; FromText DocumentStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentStatus
 $cfromText :: Text -&gt; Either String DocumentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679794565"><span class="annot"><span class="annottext">DocumentStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679794574"><span class="annot"><span class="annottext">DocumentStatus -&gt; Text
 (DocumentStatus -&gt; Text) -&gt; ToText DocumentStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentStatus -&gt; Text
 $ctoText :: DocumentStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679794562"><span class="annot"><span class="annottext">DocumentStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679794571"><span class="annot"><span class="annottext">DocumentStatus -&gt; ByteString
 (DocumentStatus -&gt; ByteString) -&gt; ToByteString DocumentStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentStatus -&gt; ByteString
 $ctoBS :: DocumentStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679794559"><span class="annot"><span class="annottext">DocumentStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679794568"><span class="annot"><span class="annottext">DocumentStatus -&gt; ByteStringBuilder
 (DocumentStatus -&gt; ByteStringBuilder) -&gt; ToLog DocumentStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentStatus -&gt; ByteStringBuilder
 $cbuild :: DocumentStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679794556"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679794565"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentStatus -&gt; [Header]
 (HeaderName -&gt; DocumentStatus -&gt; [Header])
 -&gt; ToHeader DocumentStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679794553"><span class="annot"><span class="annottext">DocumentStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679794562"><span class="annot"><span class="annottext">DocumentStatus -&gt; QueryString
 (DocumentStatus -&gt; QueryString) -&gt; ToQuery DocumentStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentStatus -&gt; QueryString
 $ctoQuery :: DocumentStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679794548"><span id="local-6989586621679794550"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679794557"><span id="local-6989586621679794559"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentStatus]
 Value -&gt; Parser DocumentStatus
 (Value -&gt; Parser DocumentStatus)
 -&gt; (Value -&gt; Parser [DocumentStatus]) -&gt; FromJSON DocumentStatus
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentStatus]
 parseJSON :: Value -&gt; Parser DocumentStatus
 $cparseJSON :: Value -&gt; Parser DocumentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679794543"><span id="local-6989586621679794545"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679794552"><span id="local-6989586621679794554"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentStatus]
 FromJSONKeyFunction DocumentStatus
 FromJSONKeyFunction DocumentStatus
 -&gt; FromJSONKeyFunction [DocumentStatus]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentStatus]
 fromJSONKey :: FromJSONKeyFunction DocumentStatus
 $cfromJSONKey :: FromJSONKeyFunction DocumentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679794534"><span id="local-6989586621679794536"><span id="local-6989586621679794538"><span id="local-6989586621679794540"><span class="annot"><span class="annottext">[DocumentStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679794543"><span id="local-6989586621679794545"><span id="local-6989586621679794547"><span id="local-6989586621679794549"><span class="annot"><span class="annottext">[DocumentStatus] -&gt; Encoding
 [DocumentStatus] -&gt; Value
 DocumentStatus -&gt; Encoding
 DocumentStatus -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: DocumentStatus -&gt; Encoding
 toJSON :: DocumentStatus -&gt; Value
 $ctoJSON :: DocumentStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679794529"><span id="local-6989586621679794531"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679794538"><span id="local-6989586621679794540"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentStatus]
 ToJSONKeyFunction DocumentStatus
 ToJSONKeyFunction DocumentStatus
 -&gt; ToJSONKeyFunction [DocumentStatus] -&gt; ToJSONKey DocumentStatus
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentStatus]
 toJSONKey :: ToJSONKeyFunction DocumentStatus
 $ctoJSONKey :: ToJSONKeyFunction DocumentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679794526"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679794535"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentStatus
 ([Node] -&gt; Either String DocumentStatus) -&gt; FromXML DocumentStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentStatus
 $cparseXML :: [Node] -&gt; Either String DocumentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679794523"><span class="annot"><span class="annottext">DocumentStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679794532"><span class="annot"><span class="annottext">DocumentStatus -&gt; XML
 (DocumentStatus -&gt; XML) -&gt; ToXML DocumentStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DocumentStatus -&gt; XML

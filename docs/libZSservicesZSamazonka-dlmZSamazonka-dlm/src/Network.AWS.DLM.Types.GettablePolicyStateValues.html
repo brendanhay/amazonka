@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DLM.Types.GettablePolicyStateValues</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DLM.Types.GettablePolicyStateValues</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues"><span class="hs-identifier">GettablePolicyStateValues</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues_DISABLED"><span class="hs-identifier">GettablePolicyStateValues_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues_ENABLED"><span class="hs-identifier">GettablePolicyStateValues_ENABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues_ERROR"><span class="hs-identifier">GettablePolicyStateValues_ERROR</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679177898"><span id="local-6989586621679177899"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GettablePolicyStateValues"><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues"><span class="hs-identifier hs-var">GettablePolicyStateValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GettablePolicyStateValues%27"><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues%27"><span class="hs-identifier hs-var">GettablePolicyStateValues'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGettablePolicyStateValues"><span class="annot"><span class="annottext">GettablePolicyStateValues -&gt; Text
+</span><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#fromGettablePolicyStateValues"><span class="hs-identifier hs-var hs-var">fromGettablePolicyStateValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177890"><span id="local-6989586621679177892"><span id="local-6989586621679177894"><span class="annot"><span class="annottext">Int -&gt; GettablePolicyStateValues -&gt; ShowS
+[GettablePolicyStateValues] -&gt; ShowS
+GettablePolicyStateValues -&gt; String
+(Int -&gt; GettablePolicyStateValues -&gt; ShowS)
+-&gt; (GettablePolicyStateValues -&gt; String)
+-&gt; ([GettablePolicyStateValues] -&gt; ShowS)
+-&gt; Show GettablePolicyStateValues
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GettablePolicyStateValues] -&gt; ShowS
+$cshowList :: [GettablePolicyStateValues] -&gt; ShowS
+show :: GettablePolicyStateValues -&gt; String
+$cshow :: GettablePolicyStateValues -&gt; String
+showsPrec :: Int -&gt; GettablePolicyStateValues -&gt; ShowS
+$cshowsPrec :: Int -&gt; GettablePolicyStateValues -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679177881"><span id="local-6989586621679177883"><span id="local-6989586621679177885"><span id="local-6989586621679177887"><span class="annot"><span class="annottext">ReadPrec [GettablePolicyStateValues]
+ReadPrec GettablePolicyStateValues
+Int -&gt; ReadS GettablePolicyStateValues
+ReadS [GettablePolicyStateValues]
+(Int -&gt; ReadS GettablePolicyStateValues)
+-&gt; ReadS [GettablePolicyStateValues]
+-&gt; ReadPrec GettablePolicyStateValues
+-&gt; ReadPrec [GettablePolicyStateValues]
+-&gt; Read GettablePolicyStateValues
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GettablePolicyStateValues]
+$creadListPrec :: ReadPrec [GettablePolicyStateValues]
+readPrec :: ReadPrec GettablePolicyStateValues
+$creadPrec :: ReadPrec GettablePolicyStateValues
+readList :: ReadS [GettablePolicyStateValues]
+$creadList :: ReadS [GettablePolicyStateValues]
+readsPrec :: Int -&gt; ReadS GettablePolicyStateValues
+$creadsPrec :: Int -&gt; ReadS GettablePolicyStateValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679177876"><span id="local-6989586621679177878"><span class="annot"><span class="annottext">GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+(GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool)
+-&gt; (GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool)
+-&gt; Eq GettablePolicyStateValues
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+$c/= :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+== :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+$c== :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679177860"><span id="local-6989586621679177862"><span id="local-6989586621679177864"><span id="local-6989586621679177866"><span id="local-6989586621679177868"><span id="local-6989586621679177870"><span id="local-6989586621679177872"><span class="annot"><span class="annottext">Eq GettablePolicyStateValues
+Eq GettablePolicyStateValues
+-&gt; (GettablePolicyStateValues
+    -&gt; GettablePolicyStateValues -&gt; Ordering)
+-&gt; (GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool)
+-&gt; (GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool)
+-&gt; (GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool)
+-&gt; (GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool)
+-&gt; (GettablePolicyStateValues
+    -&gt; GettablePolicyStateValues -&gt; GettablePolicyStateValues)
+-&gt; (GettablePolicyStateValues
+    -&gt; GettablePolicyStateValues -&gt; GettablePolicyStateValues)
+-&gt; Ord GettablePolicyStateValues
+GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Ordering
+GettablePolicyStateValues
+-&gt; GettablePolicyStateValues -&gt; GettablePolicyStateValues
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GettablePolicyStateValues
+-&gt; GettablePolicyStateValues -&gt; GettablePolicyStateValues
+$cmin :: GettablePolicyStateValues
+-&gt; GettablePolicyStateValues -&gt; GettablePolicyStateValues
+max :: GettablePolicyStateValues
+-&gt; GettablePolicyStateValues -&gt; GettablePolicyStateValues
+$cmax :: GettablePolicyStateValues
+-&gt; GettablePolicyStateValues -&gt; GettablePolicyStateValues
+&gt;= :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+$c&gt;= :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+&gt; :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+$c&gt; :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+&lt;= :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+$c&lt;= :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+&lt; :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+$c&lt; :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Bool
+compare :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Ordering
+$ccompare :: GettablePolicyStateValues -&gt; GettablePolicyStateValues -&gt; Ordering
+$cp1Ord :: Eq GettablePolicyStateValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ GettablePolicyStateValues -&gt; Rep GettablePolicyStateValues x)
+-&gt; (forall x.
+    Rep GettablePolicyStateValues x -&gt; GettablePolicyStateValues)
+-&gt; Generic GettablePolicyStateValues
+forall x.
+Rep GettablePolicyStateValues x -&gt; GettablePolicyStateValues
+forall x.
+GettablePolicyStateValues -&gt; Rep GettablePolicyStateValues x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GettablePolicyStateValues x -&gt; GettablePolicyStateValues
+$cfrom :: forall x.
+GettablePolicyStateValues -&gt; Rep GettablePolicyStateValues x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177852"><span id="local-6989586621679177854"><span class="annot"><span class="annottext">Int -&gt; GettablePolicyStateValues -&gt; Int
+GettablePolicyStateValues -&gt; Int
+(Int -&gt; GettablePolicyStateValues -&gt; Int)
+-&gt; (GettablePolicyStateValues -&gt; Int)
+-&gt; Hashable GettablePolicyStateValues
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GettablePolicyStateValues -&gt; Int
+$chash :: GettablePolicyStateValues -&gt; Int
+hashWithSalt :: Int -&gt; GettablePolicyStateValues -&gt; Int
+$chashWithSalt :: Int -&gt; GettablePolicyStateValues -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679177849"><span class="annot"><span class="annottext">GettablePolicyStateValues -&gt; ()
+(GettablePolicyStateValues -&gt; ())
+-&gt; NFData GettablePolicyStateValues
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GettablePolicyStateValues -&gt; ()
+$crnf :: GettablePolicyStateValues -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679177846"><span class="annot"><span class="annottext">Text -&gt; Either String GettablePolicyStateValues
+(Text -&gt; Either String GettablePolicyStateValues)
+-&gt; FromText GettablePolicyStateValues
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GettablePolicyStateValues
+$cfromText :: Text -&gt; Either String GettablePolicyStateValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679177843"><span class="annot"><span class="annottext">GettablePolicyStateValues -&gt; Text
+(GettablePolicyStateValues -&gt; Text)
+-&gt; ToText GettablePolicyStateValues
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GettablePolicyStateValues -&gt; Text
+$ctoText :: GettablePolicyStateValues -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679177840"><span class="annot"><span class="annottext">GettablePolicyStateValues -&gt; ByteString
+(GettablePolicyStateValues -&gt; ByteString)
+-&gt; ToByteString GettablePolicyStateValues
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GettablePolicyStateValues -&gt; ByteString
+$ctoBS :: GettablePolicyStateValues -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679177837"><span class="annot"><span class="annottext">GettablePolicyStateValues -&gt; ByteStringBuilder
+(GettablePolicyStateValues -&gt; ByteStringBuilder)
+-&gt; ToLog GettablePolicyStateValues
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GettablePolicyStateValues -&gt; ByteStringBuilder
+$cbuild :: GettablePolicyStateValues -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679177834"><span class="annot"><span class="annottext">HeaderName -&gt; GettablePolicyStateValues -&gt; [Header]
+(HeaderName -&gt; GettablePolicyStateValues -&gt; [Header])
+-&gt; ToHeader GettablePolicyStateValues
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GettablePolicyStateValues -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GettablePolicyStateValues -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679177831"><span class="annot"><span class="annottext">GettablePolicyStateValues -&gt; QueryString
+(GettablePolicyStateValues -&gt; QueryString)
+-&gt; ToQuery GettablePolicyStateValues
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GettablePolicyStateValues -&gt; QueryString
+$ctoQuery :: GettablePolicyStateValues -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679177826"><span id="local-6989586621679177828"><span class="annot"><span class="annottext">Value -&gt; Parser [GettablePolicyStateValues]
+Value -&gt; Parser GettablePolicyStateValues
+(Value -&gt; Parser GettablePolicyStateValues)
+-&gt; (Value -&gt; Parser [GettablePolicyStateValues])
+-&gt; FromJSON GettablePolicyStateValues
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GettablePolicyStateValues]
+$cparseJSONList :: Value -&gt; Parser [GettablePolicyStateValues]
+parseJSON :: Value -&gt; Parser GettablePolicyStateValues
+$cparseJSON :: Value -&gt; Parser GettablePolicyStateValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679177821"><span id="local-6989586621679177823"><span class="annot"><span class="annottext">FromJSONKeyFunction [GettablePolicyStateValues]
+FromJSONKeyFunction GettablePolicyStateValues
+FromJSONKeyFunction GettablePolicyStateValues
+-&gt; FromJSONKeyFunction [GettablePolicyStateValues]
+-&gt; FromJSONKey GettablePolicyStateValues
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GettablePolicyStateValues]
+$cfromJSONKeyList :: FromJSONKeyFunction [GettablePolicyStateValues]
+fromJSONKey :: FromJSONKeyFunction GettablePolicyStateValues
+$cfromJSONKey :: FromJSONKeyFunction GettablePolicyStateValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679177812"><span id="local-6989586621679177814"><span id="local-6989586621679177816"><span id="local-6989586621679177818"><span class="annot"><span class="annottext">[GettablePolicyStateValues] -&gt; Encoding
+[GettablePolicyStateValues] -&gt; Value
+GettablePolicyStateValues -&gt; Encoding
+GettablePolicyStateValues -&gt; Value
+(GettablePolicyStateValues -&gt; Value)
+-&gt; (GettablePolicyStateValues -&gt; Encoding)
+-&gt; ([GettablePolicyStateValues] -&gt; Value)
+-&gt; ([GettablePolicyStateValues] -&gt; Encoding)
+-&gt; ToJSON GettablePolicyStateValues
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GettablePolicyStateValues] -&gt; Encoding
+$ctoEncodingList :: [GettablePolicyStateValues] -&gt; Encoding
+toJSONList :: [GettablePolicyStateValues] -&gt; Value
+$ctoJSONList :: [GettablePolicyStateValues] -&gt; Value
+toEncoding :: GettablePolicyStateValues -&gt; Encoding
+$ctoEncoding :: GettablePolicyStateValues -&gt; Encoding
+toJSON :: GettablePolicyStateValues -&gt; Value
+$ctoJSON :: GettablePolicyStateValues -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679177807"><span id="local-6989586621679177809"><span class="annot"><span class="annottext">ToJSONKeyFunction [GettablePolicyStateValues]
+ToJSONKeyFunction GettablePolicyStateValues
+ToJSONKeyFunction GettablePolicyStateValues
+-&gt; ToJSONKeyFunction [GettablePolicyStateValues]
+-&gt; ToJSONKey GettablePolicyStateValues
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GettablePolicyStateValues]
+$ctoJSONKeyList :: ToJSONKeyFunction [GettablePolicyStateValues]
+toJSONKey :: ToJSONKeyFunction GettablePolicyStateValues
+$ctoJSONKey :: ToJSONKeyFunction GettablePolicyStateValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679177804"><span class="annot"><span class="annottext">[Node] -&gt; Either String GettablePolicyStateValues
+([Node] -&gt; Either String GettablePolicyStateValues)
+-&gt; FromXML GettablePolicyStateValues
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GettablePolicyStateValues
+$cparseXML :: [Node] -&gt; Either String GettablePolicyStateValues
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679177801"><span class="annot"><span class="annottext">GettablePolicyStateValues -&gt; XML
+(GettablePolicyStateValues -&gt; XML)
+-&gt; ToXML GettablePolicyStateValues
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GettablePolicyStateValues -&gt; XML
+$ctoXML :: GettablePolicyStateValues -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues_DISABLED"><span class="hs-identifier hs-type">GettablePolicyStateValues_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues"><span class="hs-identifier hs-type">GettablePolicyStateValues</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGettablePolicyStateValues_DISABLED"><span id="%24mGettablePolicyStateValues_DISABLED"><span id="GettablePolicyStateValues_DISABLED"><span class="annot"><span class="annottext">$bGettablePolicyStateValues_DISABLED :: GettablePolicyStateValues
+$mGettablePolicyStateValues_DISABLED :: forall r.
+GettablePolicyStateValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#%24bGettablePolicyStateValues_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">GettablePolicyStateValues_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues%27"><span class="hs-identifier hs-type">GettablePolicyStateValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues_ENABLED"><span class="hs-identifier hs-type">GettablePolicyStateValues_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues"><span class="hs-identifier hs-type">GettablePolicyStateValues</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGettablePolicyStateValues_ENABLED"><span id="%24mGettablePolicyStateValues_ENABLED"><span id="GettablePolicyStateValues_ENABLED"><span class="annot"><span class="annottext">$bGettablePolicyStateValues_ENABLED :: GettablePolicyStateValues
+$mGettablePolicyStateValues_ENABLED :: forall r.
+GettablePolicyStateValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#%24bGettablePolicyStateValues_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">GettablePolicyStateValues_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues%27"><span class="hs-identifier hs-type">GettablePolicyStateValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues_ERROR"><span class="hs-identifier hs-type">GettablePolicyStateValues_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues"><span class="hs-identifier hs-type">GettablePolicyStateValues</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGettablePolicyStateValues_ERROR"><span id="%24mGettablePolicyStateValues_ERROR"><span id="GettablePolicyStateValues_ERROR"><span class="annot"><span class="annottext">$bGettablePolicyStateValues_ERROR :: GettablePolicyStateValues
+$mGettablePolicyStateValues_ERROR :: forall r.
+GettablePolicyStateValues -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#%24bGettablePolicyStateValues_ERROR"><span class="hs-identifier hs-var hs-var hs-var">GettablePolicyStateValues_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues%27"><span class="hs-identifier hs-type">GettablePolicyStateValues'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues_DISABLED"><span class="hs-pragma hs-type">GettablePolicyStateValues_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues_ENABLED"><span class="hs-pragma hs-type">GettablePolicyStateValues_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues_ERROR"><span class="hs-pragma hs-type">GettablePolicyStateValues_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.Types.GettablePolicyStateValues.html#GettablePolicyStateValues%27"><span class="hs-pragma hs-type">GettablePolicyStateValues'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

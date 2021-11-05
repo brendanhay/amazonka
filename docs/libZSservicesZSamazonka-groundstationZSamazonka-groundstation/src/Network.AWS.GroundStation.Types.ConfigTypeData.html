@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GroundStation.Types.ConfigTypeData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GroundStation.Types.ConfigTypeData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.AntennaDownlinkConfig.html"><span class="hs-identifier">Network.AWS.GroundStation.Types.AntennaDownlinkConfig</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.html"><span class="hs-identifier">Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.AntennaUplinkConfig.html"><span class="hs-identifier">Network.AWS.GroundStation.Types.AntennaUplinkConfig</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointConfig.html"><span class="hs-identifier">Network.AWS.GroundStation.Types.DataflowEndpointConfig</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.S3RecordingConfig.html"><span class="hs-identifier">Network.AWS.GroundStation.Types.S3RecordingConfig</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.TrackingConfig.html"><span class="hs-identifier">Network.AWS.GroundStation.Types.TrackingConfig</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html"><span class="hs-identifier">Network.AWS.GroundStation.Types.UplinkEchoConfig</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Object containing the parameters of a @Config@.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- See the subtype definitions for what each type of @Config@ contains.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newConfigTypeData' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679217261"><span id="local-6989586621679217262"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigTypeData"><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-var">ConfigTypeData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigTypeData%27"><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-var">ConfigTypeData'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about how AWS Ground Station should con&#64257;gure an antenna for</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- downlink demod decode during a contact.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AantennaDownlinkDemodDecodeConfig%3AConfigTypeData%27"><span class="annot"><span class="annottext">ConfigTypeData -&gt; Maybe AntennaDownlinkDemodDecodeConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AantennaDownlinkDemodDecodeConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var hs-var">antennaDownlinkDemodDecodeConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.html#AntennaDownlinkDemodDecodeConfig"><span class="hs-identifier hs-type">AntennaDownlinkDemodDecodeConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Information about how AWS Ground Station should configure an antenna for</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- downlink during a contact.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AantennaDownlinkConfig%3AConfigTypeData%27"><span class="annot"><span class="annottext">ConfigTypeData -&gt; Maybe AntennaDownlinkConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AantennaDownlinkConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var hs-var">antennaDownlinkConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.AntennaDownlinkConfig.html#AntennaDownlinkConfig"><span class="hs-identifier hs-type">AntennaDownlinkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Information about how AWS Ground Station should con&#64257;gure an antenna for</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- uplink during a contact.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AantennaUplinkConfig%3AConfigTypeData%27"><span class="annot"><span class="annottext">ConfigTypeData -&gt; Maybe AntennaUplinkConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AantennaUplinkConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var hs-var">antennaUplinkConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.AntennaUplinkConfig.html#AntennaUplinkConfig"><span class="hs-identifier hs-type">AntennaUplinkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Information about an uplink echo @Config@.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- Parameters from the @AntennaUplinkConfig@, corresponding to the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- specified @AntennaUplinkConfigArn@, are used when this</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @UplinkEchoConfig@ is used in a contact.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AuplinkEchoConfig%3AConfigTypeData%27"><span class="annot"><span class="annottext">ConfigTypeData -&gt; Maybe UplinkEchoConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AuplinkEchoConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var hs-var">uplinkEchoConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Information about an S3 recording @Config@.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3As3RecordingConfig%3AConfigTypeData%27"><span class="annot"><span class="annottext">ConfigTypeData -&gt; Maybe S3RecordingConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3As3RecordingConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var hs-var">s3RecordingConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.S3RecordingConfig.html#S3RecordingConfig"><span class="hs-identifier hs-type">S3RecordingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Object that determines whether tracking should be used during a contact</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- executed with this @Config@ in the mission profile.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtrackingConfig%3AConfigTypeData%27"><span class="annot"><span class="annottext">ConfigTypeData -&gt; Maybe TrackingConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AtrackingConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var hs-var">trackingConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.TrackingConfig.html#TrackingConfig"><span class="hs-identifier hs-type">TrackingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Information about the dataflow endpoint @Config@.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdataflowEndpointConfig%3AConfigTypeData%27"><span class="annot"><span class="annottext">ConfigTypeData -&gt; Maybe DataflowEndpointConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AdataflowEndpointConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var hs-var">dataflowEndpointConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointConfig.html#DataflowEndpointConfig"><span class="hs-identifier hs-type">DataflowEndpointConfig</span></a></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217249"><span id="local-6989586621679217251"><span class="annot"><span class="annottext">ConfigTypeData -&gt; ConfigTypeData -&gt; Bool
+(ConfigTypeData -&gt; ConfigTypeData -&gt; Bool)
+-&gt; (ConfigTypeData -&gt; ConfigTypeData -&gt; Bool) -&gt; Eq ConfigTypeData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigTypeData -&gt; ConfigTypeData -&gt; Bool
+$c/= :: ConfigTypeData -&gt; ConfigTypeData -&gt; Bool
+== :: ConfigTypeData -&gt; ConfigTypeData -&gt; Bool
+$c== :: ConfigTypeData -&gt; ConfigTypeData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217240"><span id="local-6989586621679217242"><span id="local-6989586621679217244"><span id="local-6989586621679217246"><span class="annot"><span class="annottext">ReadPrec [ConfigTypeData]
+ReadPrec ConfigTypeData
+Int -&gt; ReadS ConfigTypeData
+ReadS [ConfigTypeData]
+(Int -&gt; ReadS ConfigTypeData)
+-&gt; ReadS [ConfigTypeData]
+-&gt; ReadPrec ConfigTypeData
+-&gt; ReadPrec [ConfigTypeData]
+-&gt; Read ConfigTypeData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigTypeData]
+$creadListPrec :: ReadPrec [ConfigTypeData]
+readPrec :: ReadPrec ConfigTypeData
+$creadPrec :: ReadPrec ConfigTypeData
+readList :: ReadS [ConfigTypeData]
+$creadList :: ReadS [ConfigTypeData]
+readsPrec :: Int -&gt; ReadS ConfigTypeData
+$creadsPrec :: Int -&gt; ReadS ConfigTypeData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217233"><span id="local-6989586621679217235"><span id="local-6989586621679217237"><span class="annot"><span class="annottext">Int -&gt; ConfigTypeData -&gt; ShowS
+[ConfigTypeData] -&gt; ShowS
+ConfigTypeData -&gt; String
+(Int -&gt; ConfigTypeData -&gt; ShowS)
+-&gt; (ConfigTypeData -&gt; String)
+-&gt; ([ConfigTypeData] -&gt; ShowS)
+-&gt; Show ConfigTypeData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigTypeData] -&gt; ShowS
+$cshowList :: [ConfigTypeData] -&gt; ShowS
+show :: ConfigTypeData -&gt; String
+$cshow :: ConfigTypeData -&gt; String
+showsPrec :: Int -&gt; ConfigTypeData -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigTypeData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ConfigTypeData -&gt; Rep ConfigTypeData x)
+-&gt; (forall x. Rep ConfigTypeData x -&gt; ConfigTypeData)
+-&gt; Generic ConfigTypeData
+forall x. Rep ConfigTypeData x -&gt; ConfigTypeData
+forall x. ConfigTypeData -&gt; Rep ConfigTypeData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConfigTypeData x -&gt; ConfigTypeData
+$cfrom :: forall x. ConfigTypeData -&gt; Rep ConfigTypeData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ConfigTypeData' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'antennaDownlinkDemodDecodeConfig', 'configTypeData_antennaDownlinkDemodDecodeConfig' - Information about how AWS Ground Station should con&#64257;gure an antenna for</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- downlink demod decode during a contact.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'antennaDownlinkConfig', 'configTypeData_antennaDownlinkConfig' - Information about how AWS Ground Station should configure an antenna for</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- downlink during a contact.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'antennaUplinkConfig', 'configTypeData_antennaUplinkConfig' - Information about how AWS Ground Station should con&#64257;gure an antenna for</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- uplink during a contact.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'uplinkEchoConfig', 'configTypeData_uplinkEchoConfig' - Information about an uplink echo @Config@.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Parameters from the @AntennaUplinkConfig@, corresponding to the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- specified @AntennaUplinkConfigArn@, are used when this</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @UplinkEchoConfig@ is used in a contact.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 's3RecordingConfig', 'configTypeData_s3RecordingConfig' - Information about an S3 recording @Config@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'trackingConfig', 'configTypeData_trackingConfig' - Object that determines whether tracking should be used during a contact</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- executed with this @Config@ in the mission profile.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'dataflowEndpointConfig', 'configTypeData_dataflowEndpointConfig' - Information about the dataflow endpoint @Config@.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#newConfigTypeData"><span class="hs-identifier hs-type">newConfigTypeData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span>
+</span><span id="line-95"></span><span id="newConfigTypeData"><span class="annot"><span class="annottext">newConfigTypeData :: ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#newConfigTypeData"><span class="hs-identifier hs-var hs-var">newConfigTypeData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ConfigTypeData' :: Maybe AntennaDownlinkDemodDecodeConfig
+-&gt; Maybe AntennaDownlinkConfig
+-&gt; Maybe AntennaUplinkConfig
+-&gt; Maybe UplinkEchoConfig
+-&gt; Maybe S3RecordingConfig
+-&gt; Maybe TrackingConfig
+-&gt; Maybe DataflowEndpointConfig
+-&gt; ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:antennaDownlinkDemodDecodeConfig:ConfigTypeData' :: Maybe AntennaDownlinkDemodDecodeConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AantennaDownlinkDemodDecodeConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">antennaDownlinkDemodDecodeConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe AntennaDownlinkDemodDecodeConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:antennaDownlinkConfig:ConfigTypeData' :: Maybe AntennaDownlinkConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AantennaDownlinkConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">antennaDownlinkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AntennaDownlinkConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:antennaUplinkConfig:ConfigTypeData' :: Maybe AntennaUplinkConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AantennaUplinkConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">antennaUplinkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AntennaUplinkConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:uplinkEchoConfig:ConfigTypeData' :: Maybe UplinkEchoConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AuplinkEchoConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">uplinkEchoConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UplinkEchoConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3RecordingConfig:ConfigTypeData' :: Maybe S3RecordingConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3As3RecordingConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">s3RecordingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3RecordingConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:trackingConfig:ConfigTypeData' :: Maybe TrackingConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AtrackingConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">trackingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrackingConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataflowEndpointConfig:ConfigTypeData' :: Maybe DataflowEndpointConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AdataflowEndpointConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">dataflowEndpointConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataflowEndpointConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Information about how AWS Ground Station should con&#64257;gure an antenna for</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- downlink demod decode during a contact.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_antennaDownlinkDemodDecodeConfig"><span class="hs-identifier hs-type">configTypeData_antennaDownlinkDemodDecodeConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.html#AntennaDownlinkDemodDecodeConfig"><span class="hs-identifier hs-type">AntennaDownlinkDemodDecodeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="configTypeData_antennaDownlinkDemodDecodeConfig"><span class="annot"><span class="annottext">configTypeData_antennaDownlinkDemodDecodeConfig :: (Maybe AntennaDownlinkDemodDecodeConfig
+ -&gt; f (Maybe AntennaDownlinkDemodDecodeConfig))
+-&gt; ConfigTypeData -&gt; f ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_antennaDownlinkDemodDecodeConfig"><span class="hs-identifier hs-var hs-var">configTypeData_antennaDownlinkDemodDecodeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigTypeData -&gt; Maybe AntennaDownlinkDemodDecodeConfig)
+-&gt; (ConfigTypeData
+    -&gt; Maybe AntennaDownlinkDemodDecodeConfig -&gt; ConfigTypeData)
+-&gt; Lens
+     ConfigTypeData
+     ConfigTypeData
+     (Maybe AntennaDownlinkDemodDecodeConfig)
+     (Maybe AntennaDownlinkDemodDecodeConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217224"><span class="annot"><span class="annottext">Maybe AntennaDownlinkDemodDecodeConfig
+antennaDownlinkDemodDecodeConfig :: Maybe AntennaDownlinkDemodDecodeConfig
+$sel:antennaDownlinkDemodDecodeConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe AntennaDownlinkDemodDecodeConfig
+</span><a href="#local-6989586621679217224"><span class="hs-identifier hs-var hs-var">antennaDownlinkDemodDecodeConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AntennaDownlinkDemodDecodeConfig
+</span><a href="#local-6989586621679217224"><span class="hs-identifier hs-var">antennaDownlinkDemodDecodeConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217223"><span class="annot"><span class="annottext">s :: ConfigTypeData
+</span><a href="#local-6989586621679217223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217222"><span class="annot"><span class="annottext">Maybe AntennaDownlinkDemodDecodeConfig
+</span><a href="#local-6989586621679217222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679217223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:antennaDownlinkDemodDecodeConfig:ConfigTypeData' :: Maybe AntennaDownlinkDemodDecodeConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AantennaDownlinkDemodDecodeConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">antennaDownlinkDemodDecodeConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AntennaDownlinkDemodDecodeConfig
+</span><a href="#local-6989586621679217222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Information about how AWS Ground Station should configure an antenna for</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- downlink during a contact.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_antennaDownlinkConfig"><span class="hs-identifier hs-type">configTypeData_antennaDownlinkConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.AntennaDownlinkConfig.html#AntennaDownlinkConfig"><span class="hs-identifier hs-type">AntennaDownlinkConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="configTypeData_antennaDownlinkConfig"><span class="annot"><span class="annottext">configTypeData_antennaDownlinkConfig :: (Maybe AntennaDownlinkConfig -&gt; f (Maybe AntennaDownlinkConfig))
+-&gt; ConfigTypeData -&gt; f ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_antennaDownlinkConfig"><span class="hs-identifier hs-var hs-var">configTypeData_antennaDownlinkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigTypeData -&gt; Maybe AntennaDownlinkConfig)
+-&gt; (ConfigTypeData
+    -&gt; Maybe AntennaDownlinkConfig -&gt; ConfigTypeData)
+-&gt; Lens
+     ConfigTypeData
+     ConfigTypeData
+     (Maybe AntennaDownlinkConfig)
+     (Maybe AntennaDownlinkConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217220"><span class="annot"><span class="annottext">Maybe AntennaDownlinkConfig
+antennaDownlinkConfig :: Maybe AntennaDownlinkConfig
+$sel:antennaDownlinkConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe AntennaDownlinkConfig
+</span><a href="#local-6989586621679217220"><span class="hs-identifier hs-var hs-var">antennaDownlinkConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AntennaDownlinkConfig
+</span><a href="#local-6989586621679217220"><span class="hs-identifier hs-var">antennaDownlinkConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217219"><span class="annot"><span class="annottext">s :: ConfigTypeData
+</span><a href="#local-6989586621679217219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217218"><span class="annot"><span class="annottext">Maybe AntennaDownlinkConfig
+</span><a href="#local-6989586621679217218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679217219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:antennaDownlinkConfig:ConfigTypeData' :: Maybe AntennaDownlinkConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AantennaDownlinkConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">antennaDownlinkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AntennaDownlinkConfig
+</span><a href="#local-6989586621679217218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Information about how AWS Ground Station should con&#64257;gure an antenna for</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- uplink during a contact.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_antennaUplinkConfig"><span class="hs-identifier hs-type">configTypeData_antennaUplinkConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.AntennaUplinkConfig.html#AntennaUplinkConfig"><span class="hs-identifier hs-type">AntennaUplinkConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="configTypeData_antennaUplinkConfig"><span class="annot"><span class="annottext">configTypeData_antennaUplinkConfig :: (Maybe AntennaUplinkConfig -&gt; f (Maybe AntennaUplinkConfig))
+-&gt; ConfigTypeData -&gt; f ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_antennaUplinkConfig"><span class="hs-identifier hs-var hs-var">configTypeData_antennaUplinkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigTypeData -&gt; Maybe AntennaUplinkConfig)
+-&gt; (ConfigTypeData -&gt; Maybe AntennaUplinkConfig -&gt; ConfigTypeData)
+-&gt; Lens
+     ConfigTypeData
+     ConfigTypeData
+     (Maybe AntennaUplinkConfig)
+     (Maybe AntennaUplinkConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217216"><span class="annot"><span class="annottext">Maybe AntennaUplinkConfig
+antennaUplinkConfig :: Maybe AntennaUplinkConfig
+$sel:antennaUplinkConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe AntennaUplinkConfig
+</span><a href="#local-6989586621679217216"><span class="hs-identifier hs-var hs-var">antennaUplinkConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AntennaUplinkConfig
+</span><a href="#local-6989586621679217216"><span class="hs-identifier hs-var">antennaUplinkConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217215"><span class="annot"><span class="annottext">s :: ConfigTypeData
+</span><a href="#local-6989586621679217215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217214"><span class="annot"><span class="annottext">Maybe AntennaUplinkConfig
+</span><a href="#local-6989586621679217214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679217215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:antennaUplinkConfig:ConfigTypeData' :: Maybe AntennaUplinkConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AantennaUplinkConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">antennaUplinkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AntennaUplinkConfig
+</span><a href="#local-6989586621679217214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Information about an uplink echo @Config@.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Parameters from the @AntennaUplinkConfig@, corresponding to the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- specified @AntennaUplinkConfigArn@, are used when this</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @UplinkEchoConfig@ is used in a contact.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_uplinkEchoConfig"><span class="hs-identifier hs-type">configTypeData_uplinkEchoConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="configTypeData_uplinkEchoConfig"><span class="annot"><span class="annottext">configTypeData_uplinkEchoConfig :: (Maybe UplinkEchoConfig -&gt; f (Maybe UplinkEchoConfig))
+-&gt; ConfigTypeData -&gt; f ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_uplinkEchoConfig"><span class="hs-identifier hs-var hs-var">configTypeData_uplinkEchoConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigTypeData -&gt; Maybe UplinkEchoConfig)
+-&gt; (ConfigTypeData -&gt; Maybe UplinkEchoConfig -&gt; ConfigTypeData)
+-&gt; Lens
+     ConfigTypeData
+     ConfigTypeData
+     (Maybe UplinkEchoConfig)
+     (Maybe UplinkEchoConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217212"><span class="annot"><span class="annottext">Maybe UplinkEchoConfig
+uplinkEchoConfig :: Maybe UplinkEchoConfig
+$sel:uplinkEchoConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe UplinkEchoConfig
+</span><a href="#local-6989586621679217212"><span class="hs-identifier hs-var hs-var">uplinkEchoConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UplinkEchoConfig
+</span><a href="#local-6989586621679217212"><span class="hs-identifier hs-var">uplinkEchoConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217211"><span class="annot"><span class="annottext">s :: ConfigTypeData
+</span><a href="#local-6989586621679217211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217210"><span class="annot"><span class="annottext">Maybe UplinkEchoConfig
+</span><a href="#local-6989586621679217210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679217211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uplinkEchoConfig:ConfigTypeData' :: Maybe UplinkEchoConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AuplinkEchoConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">uplinkEchoConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UplinkEchoConfig
+</span><a href="#local-6989586621679217210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Information about an S3 recording @Config@.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_s3RecordingConfig"><span class="hs-identifier hs-type">configTypeData_s3RecordingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.S3RecordingConfig.html#S3RecordingConfig"><span class="hs-identifier hs-type">S3RecordingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="configTypeData_s3RecordingConfig"><span class="annot"><span class="annottext">configTypeData_s3RecordingConfig :: (Maybe S3RecordingConfig -&gt; f (Maybe S3RecordingConfig))
+-&gt; ConfigTypeData -&gt; f ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_s3RecordingConfig"><span class="hs-identifier hs-var hs-var">configTypeData_s3RecordingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigTypeData -&gt; Maybe S3RecordingConfig)
+-&gt; (ConfigTypeData -&gt; Maybe S3RecordingConfig -&gt; ConfigTypeData)
+-&gt; Lens
+     ConfigTypeData
+     ConfigTypeData
+     (Maybe S3RecordingConfig)
+     (Maybe S3RecordingConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217208"><span class="annot"><span class="annottext">Maybe S3RecordingConfig
+s3RecordingConfig :: Maybe S3RecordingConfig
+$sel:s3RecordingConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe S3RecordingConfig
+</span><a href="#local-6989586621679217208"><span class="hs-identifier hs-var hs-var">s3RecordingConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3RecordingConfig
+</span><a href="#local-6989586621679217208"><span class="hs-identifier hs-var">s3RecordingConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217207"><span class="annot"><span class="annottext">s :: ConfigTypeData
+</span><a href="#local-6989586621679217207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217206"><span class="annot"><span class="annottext">Maybe S3RecordingConfig
+</span><a href="#local-6989586621679217206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679217207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3RecordingConfig:ConfigTypeData' :: Maybe S3RecordingConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3As3RecordingConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">s3RecordingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3RecordingConfig
+</span><a href="#local-6989586621679217206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Object that determines whether tracking should be used during a contact</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- executed with this @Config@ in the mission profile.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_trackingConfig"><span class="hs-identifier hs-type">configTypeData_trackingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.TrackingConfig.html#TrackingConfig"><span class="hs-identifier hs-type">TrackingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="configTypeData_trackingConfig"><span class="annot"><span class="annottext">configTypeData_trackingConfig :: (Maybe TrackingConfig -&gt; f (Maybe TrackingConfig))
+-&gt; ConfigTypeData -&gt; f ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_trackingConfig"><span class="hs-identifier hs-var hs-var">configTypeData_trackingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigTypeData -&gt; Maybe TrackingConfig)
+-&gt; (ConfigTypeData -&gt; Maybe TrackingConfig -&gt; ConfigTypeData)
+-&gt; Lens
+     ConfigTypeData
+     ConfigTypeData
+     (Maybe TrackingConfig)
+     (Maybe TrackingConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217204"><span class="annot"><span class="annottext">Maybe TrackingConfig
+trackingConfig :: Maybe TrackingConfig
+$sel:trackingConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe TrackingConfig
+</span><a href="#local-6989586621679217204"><span class="hs-identifier hs-var hs-var">trackingConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrackingConfig
+</span><a href="#local-6989586621679217204"><span class="hs-identifier hs-var">trackingConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217203"><span class="annot"><span class="annottext">s :: ConfigTypeData
+</span><a href="#local-6989586621679217203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217202"><span class="annot"><span class="annottext">Maybe TrackingConfig
+</span><a href="#local-6989586621679217202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679217203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackingConfig:ConfigTypeData' :: Maybe TrackingConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AtrackingConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">trackingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrackingConfig
+</span><a href="#local-6989586621679217202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | Information about the dataflow endpoint @Config@.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_dataflowEndpointConfig"><span class="hs-identifier hs-type">configTypeData_dataflowEndpointConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.DataflowEndpointConfig.html#DataflowEndpointConfig"><span class="hs-identifier hs-type">DataflowEndpointConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="configTypeData_dataflowEndpointConfig"><span class="annot"><span class="annottext">configTypeData_dataflowEndpointConfig :: (Maybe DataflowEndpointConfig -&gt; f (Maybe DataflowEndpointConfig))
+-&gt; ConfigTypeData -&gt; f ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#configTypeData_dataflowEndpointConfig"><span class="hs-identifier hs-var hs-var">configTypeData_dataflowEndpointConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigTypeData -&gt; Maybe DataflowEndpointConfig)
+-&gt; (ConfigTypeData
+    -&gt; Maybe DataflowEndpointConfig -&gt; ConfigTypeData)
+-&gt; Lens
+     ConfigTypeData
+     ConfigTypeData
+     (Maybe DataflowEndpointConfig)
+     (Maybe DataflowEndpointConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217200"><span class="annot"><span class="annottext">Maybe DataflowEndpointConfig
+dataflowEndpointConfig :: Maybe DataflowEndpointConfig
+$sel:dataflowEndpointConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe DataflowEndpointConfig
+</span><a href="#local-6989586621679217200"><span class="hs-identifier hs-var hs-var">dataflowEndpointConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataflowEndpointConfig
+</span><a href="#local-6989586621679217200"><span class="hs-identifier hs-var">dataflowEndpointConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217199"><span class="annot"><span class="annottext">s :: ConfigTypeData
+</span><a href="#local-6989586621679217199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217198"><span class="annot"><span class="annottext">Maybe DataflowEndpointConfig
+</span><a href="#local-6989586621679217198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigTypeData
+</span><a href="#local-6989586621679217199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataflowEndpointConfig:ConfigTypeData' :: Maybe DataflowEndpointConfig
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#%24sel%3AdataflowEndpointConfig%3AConfigTypeData%27"><span class="hs-identifier hs-var">dataflowEndpointConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataflowEndpointConfig
+</span><a href="#local-6989586621679217198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217195"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679217193"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfigTypeData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ConfigTypeData)
+-&gt; Value
+-&gt; Parser ConfigTypeData
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ConfigTypeData&quot;</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217190"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe AntennaDownlinkDemodDecodeConfig
+-&gt; Maybe AntennaDownlinkConfig
+-&gt; Maybe AntennaUplinkConfig
+-&gt; Maybe UplinkEchoConfig
+-&gt; Maybe S3RecordingConfig
+-&gt; Maybe TrackingConfig
+-&gt; Maybe DataflowEndpointConfig
+-&gt; ConfigTypeData
+</span><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-var">ConfigTypeData'</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AntennaDownlinkDemodDecodeConfig
+ -&gt; Maybe AntennaDownlinkConfig
+ -&gt; Maybe AntennaUplinkConfig
+ -&gt; Maybe UplinkEchoConfig
+ -&gt; Maybe S3RecordingConfig
+ -&gt; Maybe TrackingConfig
+ -&gt; Maybe DataflowEndpointConfig
+ -&gt; ConfigTypeData)
+-&gt; Parser (Maybe AntennaDownlinkDemodDecodeConfig)
+-&gt; Parser
+     (Maybe AntennaDownlinkConfig
+      -&gt; Maybe AntennaUplinkConfig
+      -&gt; Maybe UplinkEchoConfig
+      -&gt; Maybe S3RecordingConfig
+      -&gt; Maybe TrackingConfig
+      -&gt; Maybe DataflowEndpointConfig
+      -&gt; ConfigTypeData)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AntennaDownlinkDemodDecodeConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;antennaDownlinkDemodDecodeConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AntennaDownlinkConfig
+   -&gt; Maybe AntennaUplinkConfig
+   -&gt; Maybe UplinkEchoConfig
+   -&gt; Maybe S3RecordingConfig
+   -&gt; Maybe TrackingConfig
+   -&gt; Maybe DataflowEndpointConfig
+   -&gt; ConfigTypeData)
+-&gt; Parser (Maybe AntennaDownlinkConfig)
+-&gt; Parser
+     (Maybe AntennaUplinkConfig
+      -&gt; Maybe UplinkEchoConfig
+      -&gt; Maybe S3RecordingConfig
+      -&gt; Maybe TrackingConfig
+      -&gt; Maybe DataflowEndpointConfig
+      -&gt; ConfigTypeData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AntennaDownlinkConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;antennaDownlinkConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AntennaUplinkConfig
+   -&gt; Maybe UplinkEchoConfig
+   -&gt; Maybe S3RecordingConfig
+   -&gt; Maybe TrackingConfig
+   -&gt; Maybe DataflowEndpointConfig
+   -&gt; ConfigTypeData)
+-&gt; Parser (Maybe AntennaUplinkConfig)
+-&gt; Parser
+     (Maybe UplinkEchoConfig
+      -&gt; Maybe S3RecordingConfig
+      -&gt; Maybe TrackingConfig
+      -&gt; Maybe DataflowEndpointConfig
+      -&gt; ConfigTypeData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AntennaUplinkConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;antennaUplinkConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UplinkEchoConfig
+   -&gt; Maybe S3RecordingConfig
+   -&gt; Maybe TrackingConfig
+   -&gt; Maybe DataflowEndpointConfig
+   -&gt; ConfigTypeData)
+-&gt; Parser (Maybe UplinkEchoConfig)
+-&gt; Parser
+     (Maybe S3RecordingConfig
+      -&gt; Maybe TrackingConfig
+      -&gt; Maybe DataflowEndpointConfig
+      -&gt; ConfigTypeData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UplinkEchoConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uplinkEchoConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3RecordingConfig
+   -&gt; Maybe TrackingConfig
+   -&gt; Maybe DataflowEndpointConfig
+   -&gt; ConfigTypeData)
+-&gt; Parser (Maybe S3RecordingConfig)
+-&gt; Parser
+     (Maybe TrackingConfig
+      -&gt; Maybe DataflowEndpointConfig -&gt; ConfigTypeData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3RecordingConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3RecordingConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TrackingConfig
+   -&gt; Maybe DataflowEndpointConfig -&gt; ConfigTypeData)
+-&gt; Parser (Maybe TrackingConfig)
+-&gt; Parser (Maybe DataflowEndpointConfig -&gt; ConfigTypeData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrackingConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trackingConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DataflowEndpointConfig -&gt; ConfigTypeData)
+-&gt; Parser (Maybe DataflowEndpointConfig) -&gt; Parser ConfigTypeData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataflowEndpointConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataflowEndpointConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217184"><span id="local-6989586621679217186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217173"><span id="local-6989586621679217175"><span id="local-6989586621679217177"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData"><span class="hs-identifier hs-type">ConfigTypeData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679217171"><span class="annot"><span class="annottext">toJSON :: ConfigTypeData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigTypeData.html#ConfigTypeData%27"><span class="hs-identifier hs-type">ConfigTypeData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217163"><span id="local-6989586621679217164"><span id="local-6989586621679217165"><span id="local-6989586621679217166"><span id="local-6989586621679217167"><span id="local-6989586621679217168"><span id="local-6989586621679217169"><span class="annot"><span class="annottext">Maybe DataflowEndpointConfig
+Maybe S3RecordingConfig
+Maybe AntennaDownlinkDemodDecodeConfig
+Maybe AntennaDownlinkConfig
+Maybe TrackingConfig
+Maybe UplinkEchoConfig
+Maybe AntennaUplinkConfig
+dataflowEndpointConfig :: Maybe DataflowEndpointConfig
+trackingConfig :: Maybe TrackingConfig
+s3RecordingConfig :: Maybe S3RecordingConfig
+uplinkEchoConfig :: Maybe UplinkEchoConfig
+antennaUplinkConfig :: Maybe AntennaUplinkConfig
+antennaDownlinkConfig :: Maybe AntennaDownlinkConfig
+antennaDownlinkDemodDecodeConfig :: Maybe AntennaDownlinkDemodDecodeConfig
+$sel:dataflowEndpointConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe DataflowEndpointConfig
+$sel:trackingConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe TrackingConfig
+$sel:s3RecordingConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe S3RecordingConfig
+$sel:uplinkEchoConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe UplinkEchoConfig
+$sel:antennaUplinkConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe AntennaUplinkConfig
+$sel:antennaDownlinkConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe AntennaDownlinkConfig
+$sel:antennaDownlinkDemodDecodeConfig:ConfigTypeData' :: ConfigTypeData -&gt; Maybe AntennaDownlinkDemodDecodeConfig
+</span><a href="#local-6989586621679217163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;antennaDownlinkDemodDecodeConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AntennaDownlinkDemodDecodeConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(AntennaDownlinkDemodDecodeConfig -&gt; Pair)
+-&gt; Maybe AntennaDownlinkDemodDecodeConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AntennaDownlinkDemodDecodeConfig
+</span><a href="#local-6989586621679217169"><span class="hs-identifier hs-var">antennaDownlinkDemodDecodeConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;antennaDownlinkConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AntennaDownlinkConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(AntennaDownlinkConfig -&gt; Pair)
+-&gt; Maybe AntennaDownlinkConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AntennaDownlinkConfig
+</span><a href="#local-6989586621679217168"><span class="hs-identifier hs-var">antennaDownlinkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;antennaUplinkConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AntennaUplinkConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">(AntennaUplinkConfig -&gt; Pair)
+-&gt; Maybe AntennaUplinkConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AntennaUplinkConfig
+</span><a href="#local-6989586621679217167"><span class="hs-identifier hs-var">antennaUplinkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uplinkEchoConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UplinkEchoConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(UplinkEchoConfig -&gt; Pair) -&gt; Maybe UplinkEchoConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UplinkEchoConfig
+</span><a href="#local-6989586621679217166"><span class="hs-identifier hs-var">uplinkEchoConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3RecordingConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3RecordingConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">(S3RecordingConfig -&gt; Pair)
+-&gt; Maybe S3RecordingConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3RecordingConfig
+</span><a href="#local-6989586621679217165"><span class="hs-identifier hs-var">s3RecordingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trackingConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrackingConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(TrackingConfig -&gt; Pair) -&gt; Maybe TrackingConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrackingConfig
+</span><a href="#local-6989586621679217164"><span class="hs-identifier hs-var">trackingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataflowEndpointConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataflowEndpointConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">(DataflowEndpointConfig -&gt; Pair)
+-&gt; Maybe DataflowEndpointConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataflowEndpointConfig
+</span><a href="#local-6989586621679217163"><span class="hs-identifier hs-var">dataflowEndpointConfig</span></a></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span></pre></body></html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Wisdom.GetKnowledgeBase</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about the knowledge base.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Wisdom.GetKnowledgeBase</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier">GetKnowledgeBase</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#newGetKnowledgeBase"><span class="hs-identifier">newGetKnowledgeBase</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#getKnowledgeBase_knowledgeBaseId"><span class="hs-identifier">getKnowledgeBase_knowledgeBaseId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse"><span class="hs-identifier">GetKnowledgeBaseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#newGetKnowledgeBaseResponse"><span class="hs-identifier">newGetKnowledgeBaseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#getKnowledgeBaseResponse_knowledgeBase"><span class="hs-identifier">getKnowledgeBaseResponse_knowledgeBase</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#getKnowledgeBaseResponse_httpStatus"><span class="hs-identifier">getKnowledgeBaseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.html"><span class="hs-identifier">Network.AWS.Wisdom.Types</span></a></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetKnowledgeBase' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679227722"><span id="local-6989586621679227723"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetKnowledgeBase"><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-var">GetKnowledgeBase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetKnowledgeBase%27"><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase%27"><span class="hs-identifier hs-var">GetKnowledgeBase'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The the identifier of the knowledge base. Can be either the ID or the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- ARN. URLs cannot contain the ARN.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AknowledgeBaseId%3AGetKnowledgeBase%27"><span class="annot"><span class="annottext">GetKnowledgeBase -&gt; Text
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#%24sel%3AknowledgeBaseId%3AGetKnowledgeBase%27"><span class="hs-identifier hs-var hs-var">knowledgeBaseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227716"><span id="local-6989586621679227718"><span class="annot"><span class="annottext">GetKnowledgeBase -&gt; GetKnowledgeBase -&gt; Bool
+(GetKnowledgeBase -&gt; GetKnowledgeBase -&gt; Bool)
+-&gt; (GetKnowledgeBase -&gt; GetKnowledgeBase -&gt; Bool)
+-&gt; Eq GetKnowledgeBase
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetKnowledgeBase -&gt; GetKnowledgeBase -&gt; Bool
+$c/= :: GetKnowledgeBase -&gt; GetKnowledgeBase -&gt; Bool
+== :: GetKnowledgeBase -&gt; GetKnowledgeBase -&gt; Bool
+$c== :: GetKnowledgeBase -&gt; GetKnowledgeBase -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227707"><span id="local-6989586621679227709"><span id="local-6989586621679227711"><span id="local-6989586621679227713"><span class="annot"><span class="annottext">ReadPrec [GetKnowledgeBase]
+ReadPrec GetKnowledgeBase
+Int -&gt; ReadS GetKnowledgeBase
+ReadS [GetKnowledgeBase]
+(Int -&gt; ReadS GetKnowledgeBase)
+-&gt; ReadS [GetKnowledgeBase]
+-&gt; ReadPrec GetKnowledgeBase
+-&gt; ReadPrec [GetKnowledgeBase]
+-&gt; Read GetKnowledgeBase
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetKnowledgeBase]
+$creadListPrec :: ReadPrec [GetKnowledgeBase]
+readPrec :: ReadPrec GetKnowledgeBase
+$creadPrec :: ReadPrec GetKnowledgeBase
+readList :: ReadS [GetKnowledgeBase]
+$creadList :: ReadS [GetKnowledgeBase]
+readsPrec :: Int -&gt; ReadS GetKnowledgeBase
+$creadsPrec :: Int -&gt; ReadS GetKnowledgeBase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227700"><span id="local-6989586621679227702"><span id="local-6989586621679227704"><span class="annot"><span class="annottext">Int -&gt; GetKnowledgeBase -&gt; ShowS
+[GetKnowledgeBase] -&gt; ShowS
+GetKnowledgeBase -&gt; String
+(Int -&gt; GetKnowledgeBase -&gt; ShowS)
+-&gt; (GetKnowledgeBase -&gt; String)
+-&gt; ([GetKnowledgeBase] -&gt; ShowS)
+-&gt; Show GetKnowledgeBase
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetKnowledgeBase] -&gt; ShowS
+$cshowList :: [GetKnowledgeBase] -&gt; ShowS
+show :: GetKnowledgeBase -&gt; String
+$cshow :: GetKnowledgeBase -&gt; String
+showsPrec :: Int -&gt; GetKnowledgeBase -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetKnowledgeBase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetKnowledgeBase -&gt; Rep GetKnowledgeBase x)
+-&gt; (forall x. Rep GetKnowledgeBase x -&gt; GetKnowledgeBase)
+-&gt; Generic GetKnowledgeBase
+forall x. Rep GetKnowledgeBase x -&gt; GetKnowledgeBase
+forall x. GetKnowledgeBase -&gt; Rep GetKnowledgeBase x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetKnowledgeBase x -&gt; GetKnowledgeBase
+$cfrom :: forall x. GetKnowledgeBase -&gt; Rep GetKnowledgeBase x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'GetKnowledgeBase' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'knowledgeBaseId', 'getKnowledgeBase_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- ARN. URLs cannot contain the ARN.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#newGetKnowledgeBase"><span class="hs-identifier hs-type">newGetKnowledgeBase</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'knowledgeBaseId'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span><span>
+</span><span id="line-71"></span><span id="newGetKnowledgeBase"><span class="annot"><span class="annottext">newGetKnowledgeBase :: Text -&gt; GetKnowledgeBase
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#newGetKnowledgeBase"><span class="hs-identifier hs-var hs-var">newGetKnowledgeBase</span></a></span></span><span> </span><span id="local-6989586621679227695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227695"><span class="hs-identifier hs-var">pKnowledgeBaseId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetKnowledgeBase' :: Text -&gt; GetKnowledgeBase
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase%27"><span class="hs-identifier hs-type">GetKnowledgeBase'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:knowledgeBaseId:GetKnowledgeBase' :: Text
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#%24sel%3AknowledgeBaseId%3AGetKnowledgeBase%27"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227695"><span class="hs-identifier hs-var">pKnowledgeBaseId_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The the identifier of the knowledge base. Can be either the ID or the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- ARN. URLs cannot contain the ARN.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#getKnowledgeBase_knowledgeBaseId"><span class="hs-identifier hs-type">getKnowledgeBase_knowledgeBaseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="getKnowledgeBase_knowledgeBaseId"><span class="annot"><span class="annottext">getKnowledgeBase_knowledgeBaseId :: (Text -&gt; f Text) -&gt; GetKnowledgeBase -&gt; f GetKnowledgeBase
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#getKnowledgeBase_knowledgeBaseId"><span class="hs-identifier hs-var hs-var">getKnowledgeBase_knowledgeBaseId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetKnowledgeBase -&gt; Text)
+-&gt; (GetKnowledgeBase -&gt; Text -&gt; GetKnowledgeBase)
+-&gt; Lens GetKnowledgeBase GetKnowledgeBase Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase%27"><span class="hs-identifier hs-type">GetKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227692"><span class="annot"><span class="annottext">Text
+knowledgeBaseId :: Text
+$sel:knowledgeBaseId:GetKnowledgeBase' :: GetKnowledgeBase -&gt; Text
+</span><a href="#local-6989586621679227692"><span class="hs-identifier hs-var hs-var">knowledgeBaseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227692"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227691"><span class="annot"><span class="annottext">s :: GetKnowledgeBase
+</span><a href="#local-6989586621679227691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase%27"><span class="hs-identifier hs-type">GetKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227690"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKnowledgeBase
+</span><a href="#local-6989586621679227691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:knowledgeBaseId:GetKnowledgeBase' :: Text
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#%24sel%3AknowledgeBaseId%3AGetKnowledgeBase%27"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679227686"><span class="annot"><span class="annottext">request :: GetKnowledgeBase -&gt; Request GetKnowledgeBase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetKnowledgeBase -&gt; Request GetKnowledgeBase
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679227682"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetKnowledgeBase
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetKnowledgeBase)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetKnowledgeBase))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetKnowledgeBase
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetKnowledgeBase)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227679"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227679"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227678"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679227678"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227677"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227677"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe KnowledgeBaseData -&gt; Int -&gt; GetKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">GetKnowledgeBaseResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KnowledgeBaseData -&gt; Int -&gt; GetKnowledgeBaseResponse)
+-&gt; Either String (Maybe KnowledgeBaseData)
+-&gt; Either String (Int -&gt; GetKnowledgeBaseResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KnowledgeBaseData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;knowledgeBase&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetKnowledgeBaseResponse)
+-&gt; Either String Int -&gt; Either String GetKnowledgeBaseResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227679"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227669"><span id="local-6989586621679227671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679227662"><span class="annot"><span class="annottext">toHeaders :: GetKnowledgeBase -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetKnowledgeBase -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679227656"><span class="annot"><span class="annottext">toPath :: GetKnowledgeBase -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase%27"><span class="hs-identifier hs-type">GetKnowledgeBase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227654"><span class="annot"><span class="annottext">Text
+knowledgeBaseId :: Text
+$sel:knowledgeBaseId:GetKnowledgeBase' :: GetKnowledgeBase -&gt; Text
+</span><a href="#local-6989586621679227654"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/knowledgeBases/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227654"><span class="hs-identifier hs-var">knowledgeBaseId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBase"><span class="hs-identifier hs-type">GetKnowledgeBase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679227650"><span class="annot"><span class="annottext">toQuery :: GetKnowledgeBase -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetKnowledgeBase -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newGetKnowledgeBaseResponse' smart constructor.</span><span>
+</span><span id="line-119"></span><span id="local-6989586621679227647"><span id="local-6989586621679227648"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetKnowledgeBaseResponse"><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse"><span class="hs-identifier hs-var">GetKnowledgeBaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetKnowledgeBaseResponse%27"><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">GetKnowledgeBaseResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The knowledge base.</span><span>
+</span><span id="line-121"></span><span>    </span><span id="%24sel%3AknowledgeBase%3AGetKnowledgeBaseResponse%27"><span class="annot"><span class="annottext">GetKnowledgeBaseResponse -&gt; Maybe KnowledgeBaseData
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#%24sel%3AknowledgeBase%3AGetKnowledgeBaseResponse%27"><span class="hs-identifier hs-var hs-var">knowledgeBase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#KnowledgeBaseData"><span class="hs-identifier hs-type">KnowledgeBaseData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetKnowledgeBaseResponse%27"><span class="annot"><span class="annottext">GetKnowledgeBaseResponse -&gt; Int
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#%24sel%3AhttpStatus%3AGetKnowledgeBaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227641"><span id="local-6989586621679227643"><span class="annot"><span class="annottext">GetKnowledgeBaseResponse -&gt; GetKnowledgeBaseResponse -&gt; Bool
+(GetKnowledgeBaseResponse -&gt; GetKnowledgeBaseResponse -&gt; Bool)
+-&gt; (GetKnowledgeBaseResponse -&gt; GetKnowledgeBaseResponse -&gt; Bool)
+-&gt; Eq GetKnowledgeBaseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetKnowledgeBaseResponse -&gt; GetKnowledgeBaseResponse -&gt; Bool
+$c/= :: GetKnowledgeBaseResponse -&gt; GetKnowledgeBaseResponse -&gt; Bool
+== :: GetKnowledgeBaseResponse -&gt; GetKnowledgeBaseResponse -&gt; Bool
+$c== :: GetKnowledgeBaseResponse -&gt; GetKnowledgeBaseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227633"><span id="local-6989586621679227635"><span id="local-6989586621679227637"><span id="local-6989586621679227639"><span class="annot"><span class="annottext">ReadPrec [GetKnowledgeBaseResponse]
+ReadPrec GetKnowledgeBaseResponse
+Int -&gt; ReadS GetKnowledgeBaseResponse
+ReadS [GetKnowledgeBaseResponse]
+(Int -&gt; ReadS GetKnowledgeBaseResponse)
+-&gt; ReadS [GetKnowledgeBaseResponse]
+-&gt; ReadPrec GetKnowledgeBaseResponse
+-&gt; ReadPrec [GetKnowledgeBaseResponse]
+-&gt; Read GetKnowledgeBaseResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetKnowledgeBaseResponse]
+$creadListPrec :: ReadPrec [GetKnowledgeBaseResponse]
+readPrec :: ReadPrec GetKnowledgeBaseResponse
+$creadPrec :: ReadPrec GetKnowledgeBaseResponse
+readList :: ReadS [GetKnowledgeBaseResponse]
+$creadList :: ReadS [GetKnowledgeBaseResponse]
+readsPrec :: Int -&gt; ReadS GetKnowledgeBaseResponse
+$creadsPrec :: Int -&gt; ReadS GetKnowledgeBaseResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227627"><span id="local-6989586621679227629"><span id="local-6989586621679227631"><span class="annot"><span class="annottext">Int -&gt; GetKnowledgeBaseResponse -&gt; ShowS
+[GetKnowledgeBaseResponse] -&gt; ShowS
+GetKnowledgeBaseResponse -&gt; String
+(Int -&gt; GetKnowledgeBaseResponse -&gt; ShowS)
+-&gt; (GetKnowledgeBaseResponse -&gt; String)
+-&gt; ([GetKnowledgeBaseResponse] -&gt; ShowS)
+-&gt; Show GetKnowledgeBaseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetKnowledgeBaseResponse] -&gt; ShowS
+$cshowList :: [GetKnowledgeBaseResponse] -&gt; ShowS
+show :: GetKnowledgeBaseResponse -&gt; String
+$cshow :: GetKnowledgeBaseResponse -&gt; String
+showsPrec :: Int -&gt; GetKnowledgeBaseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetKnowledgeBaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetKnowledgeBaseResponse -&gt; Rep GetKnowledgeBaseResponse x)
+-&gt; (forall x.
+    Rep GetKnowledgeBaseResponse x -&gt; GetKnowledgeBaseResponse)
+-&gt; Generic GetKnowledgeBaseResponse
+forall x.
+Rep GetKnowledgeBaseResponse x -&gt; GetKnowledgeBaseResponse
+forall x.
+GetKnowledgeBaseResponse -&gt; Rep GetKnowledgeBaseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetKnowledgeBaseResponse x -&gt; GetKnowledgeBaseResponse
+$cfrom :: forall x.
+GetKnowledgeBaseResponse -&gt; Rep GetKnowledgeBaseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'GetKnowledgeBaseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'knowledgeBase', 'getKnowledgeBaseResponse_knowledgeBase' - The knowledge base.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'httpStatus', 'getKnowledgeBaseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#newGetKnowledgeBaseResponse"><span class="hs-identifier hs-type">newGetKnowledgeBaseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse</span></a></span><span>
+</span><span id="line-142"></span><span id="newGetKnowledgeBaseResponse"><span class="annot"><span class="annottext">newGetKnowledgeBaseResponse :: Int -&gt; GetKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#newGetKnowledgeBaseResponse"><span class="hs-identifier hs-var hs-var">newGetKnowledgeBaseResponse</span></a></span></span><span> </span><span id="local-6989586621679227624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">GetKnowledgeBaseResponse' :: Maybe KnowledgeBaseData -&gt; Int -&gt; GetKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:knowledgeBase:GetKnowledgeBaseResponse' :: Maybe KnowledgeBaseData
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#%24sel%3AknowledgeBase%3AGetKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">knowledgeBase</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetKnowledgeBaseResponse' :: Int
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#%24sel%3AhttpStatus%3AGetKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The knowledge base.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#getKnowledgeBaseResponse_knowledgeBase"><span class="hs-identifier hs-type">getKnowledgeBaseResponse_knowledgeBase</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.Types.KnowledgeBaseData.html#KnowledgeBaseData"><span class="hs-identifier hs-type">KnowledgeBaseData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="getKnowledgeBaseResponse_knowledgeBase"><span class="annot"><span class="annottext">getKnowledgeBaseResponse_knowledgeBase :: (Maybe KnowledgeBaseData -&gt; f (Maybe KnowledgeBaseData))
+-&gt; GetKnowledgeBaseResponse -&gt; f GetKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#getKnowledgeBaseResponse_knowledgeBase"><span class="hs-identifier hs-var hs-var">getKnowledgeBaseResponse_knowledgeBase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetKnowledgeBaseResponse -&gt; Maybe KnowledgeBaseData)
+-&gt; (GetKnowledgeBaseResponse
+    -&gt; Maybe KnowledgeBaseData -&gt; GetKnowledgeBaseResponse)
+-&gt; Lens
+     GetKnowledgeBaseResponse
+     GetKnowledgeBaseResponse
+     (Maybe KnowledgeBaseData)
+     (Maybe KnowledgeBaseData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227623"><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+knowledgeBase :: Maybe KnowledgeBaseData
+$sel:knowledgeBase:GetKnowledgeBaseResponse' :: GetKnowledgeBaseResponse -&gt; Maybe KnowledgeBaseData
+</span><a href="#local-6989586621679227623"><span class="hs-identifier hs-var hs-var">knowledgeBase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+</span><a href="#local-6989586621679227623"><span class="hs-identifier hs-var">knowledgeBase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227622"><span class="annot"><span class="annottext">s :: GetKnowledgeBaseResponse
+</span><a href="#local-6989586621679227622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227621"><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+</span><a href="#local-6989586621679227621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKnowledgeBaseResponse
+</span><a href="#local-6989586621679227622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:knowledgeBase:GetKnowledgeBaseResponse' :: Maybe KnowledgeBaseData
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#%24sel%3AknowledgeBase%3AGetKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">knowledgeBase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KnowledgeBaseData
+</span><a href="#local-6989586621679227621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#getKnowledgeBaseResponse_httpStatus"><span class="hs-identifier hs-type">getKnowledgeBaseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span id="getKnowledgeBaseResponse_httpStatus"><span class="annot"><span class="annottext">getKnowledgeBaseResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetKnowledgeBaseResponse -&gt; f GetKnowledgeBaseResponse
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#getKnowledgeBaseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getKnowledgeBaseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetKnowledgeBaseResponse -&gt; Int)
+-&gt; (GetKnowledgeBaseResponse -&gt; Int -&gt; GetKnowledgeBaseResponse)
+-&gt; Lens GetKnowledgeBaseResponse GetKnowledgeBaseResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227620"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetKnowledgeBaseResponse' :: GetKnowledgeBaseResponse -&gt; Int
+</span><a href="#local-6989586621679227620"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227620"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227619"><span class="annot"><span class="annottext">s :: GetKnowledgeBaseResponse
+</span><a href="#local-6989586621679227619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse%27"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227618"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetKnowledgeBaseResponse
+</span><a href="#local-6989586621679227619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetKnowledgeBaseResponse' :: Int
+</span><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#%24sel%3AhttpStatus%3AGetKnowledgeBaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Wisdom.GetKnowledgeBase.html#GetKnowledgeBaseResponse"><span class="hs-identifier hs-type">GetKnowledgeBaseResponse</span></a></span></span><span>
+</span><span id="line-158"></span></pre></body></html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.DeleteBatchPredictionJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a batch prediction job.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.DeleteBatchPredictionJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier">DeleteBatchPredictionJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#newDeleteBatchPredictionJob"><span class="hs-identifier">newDeleteBatchPredictionJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#deleteBatchPredictionJob_jobId"><span class="hs-identifier">deleteBatchPredictionJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse"><span class="hs-identifier">DeleteBatchPredictionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#newDeleteBatchPredictionJobResponse"><span class="hs-identifier">newDeleteBatchPredictionJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#deleteBatchPredictionJobResponse_httpStatus"><span class="hs-identifier">deleteBatchPredictionJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteBatchPredictionJob' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679319701"><span id="local-6989586621679319702"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBatchPredictionJob"><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-var">DeleteBatchPredictionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBatchPredictionJob%27"><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob%27"><span class="hs-identifier hs-var">DeleteBatchPredictionJob'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the batch prediction job to delete.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AjobId%3ADeleteBatchPredictionJob%27"><span class="annot"><span class="annottext">DeleteBatchPredictionJob -&gt; Text
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#%24sel%3AjobId%3ADeleteBatchPredictionJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319695"><span id="local-6989586621679319697"><span class="annot"><span class="annottext">DeleteBatchPredictionJob -&gt; DeleteBatchPredictionJob -&gt; Bool
+(DeleteBatchPredictionJob -&gt; DeleteBatchPredictionJob -&gt; Bool)
+-&gt; (DeleteBatchPredictionJob -&gt; DeleteBatchPredictionJob -&gt; Bool)
+-&gt; Eq DeleteBatchPredictionJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteBatchPredictionJob -&gt; DeleteBatchPredictionJob -&gt; Bool
+$c/= :: DeleteBatchPredictionJob -&gt; DeleteBatchPredictionJob -&gt; Bool
+== :: DeleteBatchPredictionJob -&gt; DeleteBatchPredictionJob -&gt; Bool
+$c== :: DeleteBatchPredictionJob -&gt; DeleteBatchPredictionJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319686"><span id="local-6989586621679319688"><span id="local-6989586621679319690"><span id="local-6989586621679319692"><span class="annot"><span class="annottext">ReadPrec [DeleteBatchPredictionJob]
+ReadPrec DeleteBatchPredictionJob
+Int -&gt; ReadS DeleteBatchPredictionJob
+ReadS [DeleteBatchPredictionJob]
+(Int -&gt; ReadS DeleteBatchPredictionJob)
+-&gt; ReadS [DeleteBatchPredictionJob]
+-&gt; ReadPrec DeleteBatchPredictionJob
+-&gt; ReadPrec [DeleteBatchPredictionJob]
+-&gt; Read DeleteBatchPredictionJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteBatchPredictionJob]
+$creadListPrec :: ReadPrec [DeleteBatchPredictionJob]
+readPrec :: ReadPrec DeleteBatchPredictionJob
+$creadPrec :: ReadPrec DeleteBatchPredictionJob
+readList :: ReadS [DeleteBatchPredictionJob]
+$creadList :: ReadS [DeleteBatchPredictionJob]
+readsPrec :: Int -&gt; ReadS DeleteBatchPredictionJob
+$creadsPrec :: Int -&gt; ReadS DeleteBatchPredictionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319679"><span id="local-6989586621679319681"><span id="local-6989586621679319683"><span class="annot"><span class="annottext">Int -&gt; DeleteBatchPredictionJob -&gt; ShowS
+[DeleteBatchPredictionJob] -&gt; ShowS
+DeleteBatchPredictionJob -&gt; String
+(Int -&gt; DeleteBatchPredictionJob -&gt; ShowS)
+-&gt; (DeleteBatchPredictionJob -&gt; String)
+-&gt; ([DeleteBatchPredictionJob] -&gt; ShowS)
+-&gt; Show DeleteBatchPredictionJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteBatchPredictionJob] -&gt; ShowS
+$cshowList :: [DeleteBatchPredictionJob] -&gt; ShowS
+show :: DeleteBatchPredictionJob -&gt; String
+$cshow :: DeleteBatchPredictionJob -&gt; String
+showsPrec :: Int -&gt; DeleteBatchPredictionJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteBatchPredictionJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteBatchPredictionJob -&gt; Rep DeleteBatchPredictionJob x)
+-&gt; (forall x.
+    Rep DeleteBatchPredictionJob x -&gt; DeleteBatchPredictionJob)
+-&gt; Generic DeleteBatchPredictionJob
+forall x.
+Rep DeleteBatchPredictionJob x -&gt; DeleteBatchPredictionJob
+forall x.
+DeleteBatchPredictionJob -&gt; Rep DeleteBatchPredictionJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteBatchPredictionJob x -&gt; DeleteBatchPredictionJob
+$cfrom :: forall x.
+DeleteBatchPredictionJob -&gt; Rep DeleteBatchPredictionJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteBatchPredictionJob' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'jobId', 'deleteBatchPredictionJob_jobId' - The ID of the batch prediction job to delete.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#newDeleteBatchPredictionJob"><span class="hs-identifier hs-type">newDeleteBatchPredictionJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteBatchPredictionJob"><span class="annot"><span class="annottext">newDeleteBatchPredictionJob :: Text -&gt; DeleteBatchPredictionJob
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#newDeleteBatchPredictionJob"><span class="hs-identifier hs-var hs-var">newDeleteBatchPredictionJob</span></a></span></span><span> </span><span id="local-6989586621679319674"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319674"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteBatchPredictionJob' :: Text -&gt; DeleteBatchPredictionJob
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob%27"><span class="hs-identifier hs-type">DeleteBatchPredictionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DeleteBatchPredictionJob' :: Text
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#%24sel%3AjobId%3ADeleteBatchPredictionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319674"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ID of the batch prediction job to delete.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#deleteBatchPredictionJob_jobId"><span class="hs-identifier hs-type">deleteBatchPredictionJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteBatchPredictionJob_jobId"><span class="annot"><span class="annottext">deleteBatchPredictionJob_jobId :: (Text -&gt; f Text)
+-&gt; DeleteBatchPredictionJob -&gt; f DeleteBatchPredictionJob
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#deleteBatchPredictionJob_jobId"><span class="hs-identifier hs-var hs-var">deleteBatchPredictionJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBatchPredictionJob -&gt; Text)
+-&gt; (DeleteBatchPredictionJob -&gt; Text -&gt; DeleteBatchPredictionJob)
+-&gt; Lens DeleteBatchPredictionJob DeleteBatchPredictionJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob%27"><span class="hs-identifier hs-type">DeleteBatchPredictionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319671"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DeleteBatchPredictionJob' :: DeleteBatchPredictionJob -&gt; Text
+</span><a href="#local-6989586621679319671"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319671"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319670"><span class="annot"><span class="annottext">s :: DeleteBatchPredictionJob
+</span><a href="#local-6989586621679319670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob%27"><span class="hs-identifier hs-type">DeleteBatchPredictionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319669"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBatchPredictionJob
+</span><a href="#local-6989586621679319670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DeleteBatchPredictionJob' :: Text
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#%24sel%3AjobId%3ADeleteBatchPredictionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse"><span class="hs-identifier hs-type">DeleteBatchPredictionJobResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679319665"><span class="annot"><span class="annottext">request :: DeleteBatchPredictionJob -&gt; Request DeleteBatchPredictionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteBatchPredictionJob -&gt; Request DeleteBatchPredictionJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679319661"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteBatchPredictionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteBatchPredictionJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteBatchPredictionJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteBatchPredictionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteBatchPredictionJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679319658"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319658"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679319657"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679319657"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679319656"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679319656"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteBatchPredictionJobResponse
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse%27"><span class="hs-identifier hs-var">DeleteBatchPredictionJobResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteBatchPredictionJobResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteBatchPredictionJobResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319658"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319649"><span id="local-6989586621679319651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679319642"><span class="annot"><span class="annottext">toHeaders :: DeleteBatchPredictionJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBatchPredictionJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.DeleteBatchPredictionJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319632"><span id="local-6989586621679319634"><span id="local-6989586621679319636"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679319630"><span class="annot"><span class="annottext">toJSON :: DeleteBatchPredictionJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob%27"><span class="hs-identifier hs-type">DeleteBatchPredictionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319628"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DeleteBatchPredictionJob' :: DeleteBatchPredictionJob -&gt; Text
+</span><a href="#local-6989586621679319628"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319628"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679319622"><span class="annot"><span class="annottext">toPath :: DeleteBatchPredictionJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteBatchPredictionJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJob"><span class="hs-identifier hs-type">DeleteBatchPredictionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679319618"><span class="annot"><span class="annottext">toQuery :: DeleteBatchPredictionJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBatchPredictionJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteBatchPredictionJobResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621679319615"><span id="local-6989586621679319616"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBatchPredictionJobResponse"><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse"><span class="hs-identifier hs-var">DeleteBatchPredictionJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBatchPredictionJobResponse%27"><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse%27"><span class="hs-identifier hs-var">DeleteBatchPredictionJobResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBatchPredictionJobResponse%27"><span class="annot"><span class="annottext">DeleteBatchPredictionJobResponse -&gt; Int
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#%24sel%3AhttpStatus%3ADeleteBatchPredictionJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319610"><span id="local-6989586621679319612"><span class="annot"><span class="annottext">DeleteBatchPredictionJobResponse
+-&gt; DeleteBatchPredictionJobResponse -&gt; Bool
+(DeleteBatchPredictionJobResponse
+ -&gt; DeleteBatchPredictionJobResponse -&gt; Bool)
+-&gt; (DeleteBatchPredictionJobResponse
+    -&gt; DeleteBatchPredictionJobResponse -&gt; Bool)
+-&gt; Eq DeleteBatchPredictionJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteBatchPredictionJobResponse
+-&gt; DeleteBatchPredictionJobResponse -&gt; Bool
+$c/= :: DeleteBatchPredictionJobResponse
+-&gt; DeleteBatchPredictionJobResponse -&gt; Bool
+== :: DeleteBatchPredictionJobResponse
+-&gt; DeleteBatchPredictionJobResponse -&gt; Bool
+$c== :: DeleteBatchPredictionJobResponse
+-&gt; DeleteBatchPredictionJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319602"><span id="local-6989586621679319604"><span id="local-6989586621679319606"><span id="local-6989586621679319608"><span class="annot"><span class="annottext">ReadPrec [DeleteBatchPredictionJobResponse]
+ReadPrec DeleteBatchPredictionJobResponse
+Int -&gt; ReadS DeleteBatchPredictionJobResponse
+ReadS [DeleteBatchPredictionJobResponse]
+(Int -&gt; ReadS DeleteBatchPredictionJobResponse)
+-&gt; ReadS [DeleteBatchPredictionJobResponse]
+-&gt; ReadPrec DeleteBatchPredictionJobResponse
+-&gt; ReadPrec [DeleteBatchPredictionJobResponse]
+-&gt; Read DeleteBatchPredictionJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteBatchPredictionJobResponse]
+$creadListPrec :: ReadPrec [DeleteBatchPredictionJobResponse]
+readPrec :: ReadPrec DeleteBatchPredictionJobResponse
+$creadPrec :: ReadPrec DeleteBatchPredictionJobResponse
+readList :: ReadS [DeleteBatchPredictionJobResponse]
+$creadList :: ReadS [DeleteBatchPredictionJobResponse]
+readsPrec :: Int -&gt; ReadS DeleteBatchPredictionJobResponse
+$creadsPrec :: Int -&gt; ReadS DeleteBatchPredictionJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319596"><span id="local-6989586621679319598"><span id="local-6989586621679319600"><span class="annot"><span class="annottext">Int -&gt; DeleteBatchPredictionJobResponse -&gt; ShowS
+[DeleteBatchPredictionJobResponse] -&gt; ShowS
+DeleteBatchPredictionJobResponse -&gt; String
+(Int -&gt; DeleteBatchPredictionJobResponse -&gt; ShowS)
+-&gt; (DeleteBatchPredictionJobResponse -&gt; String)
+-&gt; ([DeleteBatchPredictionJobResponse] -&gt; ShowS)
+-&gt; Show DeleteBatchPredictionJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteBatchPredictionJobResponse] -&gt; ShowS
+$cshowList :: [DeleteBatchPredictionJobResponse] -&gt; ShowS
+show :: DeleteBatchPredictionJobResponse -&gt; String
+$cshow :: DeleteBatchPredictionJobResponse -&gt; String
+showsPrec :: Int -&gt; DeleteBatchPredictionJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteBatchPredictionJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteBatchPredictionJobResponse
+ -&gt; Rep DeleteBatchPredictionJobResponse x)
+-&gt; (forall x.
+    Rep DeleteBatchPredictionJobResponse x
+    -&gt; DeleteBatchPredictionJobResponse)
+-&gt; Generic DeleteBatchPredictionJobResponse
+forall x.
+Rep DeleteBatchPredictionJobResponse x
+-&gt; DeleteBatchPredictionJobResponse
+forall x.
+DeleteBatchPredictionJobResponse
+-&gt; Rep DeleteBatchPredictionJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteBatchPredictionJobResponse x
+-&gt; DeleteBatchPredictionJobResponse
+$cfrom :: forall x.
+DeleteBatchPredictionJobResponse
+-&gt; Rep DeleteBatchPredictionJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'DeleteBatchPredictionJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'httpStatus', 'deleteBatchPredictionJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#newDeleteBatchPredictionJobResponse"><span class="hs-identifier hs-type">newDeleteBatchPredictionJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse"><span class="hs-identifier hs-type">DeleteBatchPredictionJobResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newDeleteBatchPredictionJobResponse"><span class="annot"><span class="annottext">newDeleteBatchPredictionJobResponse :: Int -&gt; DeleteBatchPredictionJobResponse
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#newDeleteBatchPredictionJobResponse"><span class="hs-identifier hs-var hs-var">newDeleteBatchPredictionJobResponse</span></a></span></span><span> </span><span id="local-6989586621679319593"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319593"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteBatchPredictionJobResponse' :: Int -&gt; DeleteBatchPredictionJobResponse
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse%27"><span class="hs-identifier hs-type">DeleteBatchPredictionJobResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBatchPredictionJobResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#%24sel%3AhttpStatus%3ADeleteBatchPredictionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319593"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#deleteBatchPredictionJobResponse_httpStatus"><span class="hs-identifier hs-type">deleteBatchPredictionJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse"><span class="hs-identifier hs-type">DeleteBatchPredictionJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span id="deleteBatchPredictionJobResponse_httpStatus"><span class="annot"><span class="annottext">deleteBatchPredictionJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteBatchPredictionJobResponse
+-&gt; f DeleteBatchPredictionJobResponse
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#deleteBatchPredictionJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteBatchPredictionJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBatchPredictionJobResponse -&gt; Int)
+-&gt; (DeleteBatchPredictionJobResponse
+    -&gt; Int -&gt; DeleteBatchPredictionJobResponse)
+-&gt; Lens
+     DeleteBatchPredictionJobResponse
+     DeleteBatchPredictionJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse%27"><span class="hs-identifier hs-type">DeleteBatchPredictionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319592"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteBatchPredictionJobResponse' :: DeleteBatchPredictionJobResponse -&gt; Int
+</span><a href="#local-6989586621679319592"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319592"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319591"><span class="annot"><span class="annottext">s :: DeleteBatchPredictionJobResponse
+</span><a href="#local-6989586621679319591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse%27"><span class="hs-identifier hs-type">DeleteBatchPredictionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319590"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBatchPredictionJobResponse
+</span><a href="#local-6989586621679319591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBatchPredictionJobResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#%24sel%3AhttpStatus%3ADeleteBatchPredictionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse"><span class="hs-identifier hs-type">DeleteBatchPredictionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679319588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.DeleteBatchPredictionJob.html#DeleteBatchPredictionJobResponse"><span class="hs-identifier hs-type">DeleteBatchPredictionJobResponse</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

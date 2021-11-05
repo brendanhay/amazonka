@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MemoryDb.Types.Authentication</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MemoryDb.Types.Authentication</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.AuthenticationType.html"><span class="hs-identifier">Network.AWS.MemoryDb.Types.AuthenticationType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Denotes the user\'s authentication properties, such as whether it</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- requires a password to authenticate. Used in output responses.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAuthentication' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679241971"><span id="local-6989586621679241972"></span></span><span class="hs-keyword">data</span><span> </span><span id="Authentication"><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication"><span class="hs-identifier hs-var">Authentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Authentication%27"><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication%27"><span class="hs-identifier hs-var">Authentication'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of passwords belonging to the user. The maximum is two.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ApasswordCount%3AAuthentication%27"><span class="annot"><span class="annottext">Authentication -&gt; Maybe Int
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#%24sel%3ApasswordCount%3AAuthentication%27"><span class="hs-identifier hs-var hs-var">passwordCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Indicates whether the user requires a password to authenticate.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atype%27%3AAuthentication%27"><span class="annot"><span class="annottext">Authentication -&gt; Maybe AuthenticationType
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#%24sel%3Atype%27%3AAuthentication%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679241964"><span id="local-6989586621679241966"><span class="annot"><span class="annottext">Authentication -&gt; Authentication -&gt; Bool
+(Authentication -&gt; Authentication -&gt; Bool)
+-&gt; (Authentication -&gt; Authentication -&gt; Bool) -&gt; Eq Authentication
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Authentication -&gt; Authentication -&gt; Bool
+$c/= :: Authentication -&gt; Authentication -&gt; Bool
+== :: Authentication -&gt; Authentication -&gt; Bool
+$c== :: Authentication -&gt; Authentication -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241955"><span id="local-6989586621679241957"><span id="local-6989586621679241959"><span id="local-6989586621679241961"><span class="annot"><span class="annottext">ReadPrec [Authentication]
+ReadPrec Authentication
+Int -&gt; ReadS Authentication
+ReadS [Authentication]
+(Int -&gt; ReadS Authentication)
+-&gt; ReadS [Authentication]
+-&gt; ReadPrec Authentication
+-&gt; ReadPrec [Authentication]
+-&gt; Read Authentication
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Authentication]
+$creadListPrec :: ReadPrec [Authentication]
+readPrec :: ReadPrec Authentication
+$creadPrec :: ReadPrec Authentication
+readList :: ReadS [Authentication]
+$creadList :: ReadS [Authentication]
+readsPrec :: Int -&gt; ReadS Authentication
+$creadsPrec :: Int -&gt; ReadS Authentication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679241948"><span id="local-6989586621679241950"><span id="local-6989586621679241952"><span class="annot"><span class="annottext">Int -&gt; Authentication -&gt; ShowS
+[Authentication] -&gt; ShowS
+Authentication -&gt; String
+(Int -&gt; Authentication -&gt; ShowS)
+-&gt; (Authentication -&gt; String)
+-&gt; ([Authentication] -&gt; ShowS)
+-&gt; Show Authentication
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Authentication] -&gt; ShowS
+$cshowList :: [Authentication] -&gt; ShowS
+show :: Authentication -&gt; String
+$cshow :: Authentication -&gt; String
+showsPrec :: Int -&gt; Authentication -&gt; ShowS
+$cshowsPrec :: Int -&gt; Authentication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Authentication -&gt; Rep Authentication x)
+-&gt; (forall x. Rep Authentication x -&gt; Authentication)
+-&gt; Generic Authentication
+forall x. Rep Authentication x -&gt; Authentication
+forall x. Authentication -&gt; Rep Authentication x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Authentication x -&gt; Authentication
+$cfrom :: forall x. Authentication -&gt; Rep Authentication x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'Authentication' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'passwordCount', 'authentication_passwordCount' - The number of passwords belonging to the user. The maximum is two.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'type'', 'authentication_type' - Indicates whether the user requires a password to authenticate.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#newAuthentication"><span class="hs-identifier hs-type">newAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication"><span class="hs-identifier hs-type">Authentication</span></a></span><span>
+</span><span id="line-52"></span><span id="newAuthentication"><span class="annot"><span class="annottext">newAuthentication :: Authentication
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#newAuthentication"><span class="hs-identifier hs-var hs-var">newAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Authentication' :: Maybe Int -&gt; Maybe AuthenticationType -&gt; Authentication
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication%27"><span class="hs-identifier hs-type">Authentication'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:passwordCount:Authentication' :: Maybe Int
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#%24sel%3ApasswordCount%3AAuthentication%27"><span class="hs-identifier hs-var">passwordCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Authentication' :: Maybe AuthenticationType
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#%24sel%3Atype%27%3AAuthentication%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The number of passwords belonging to the user. The maximum is two.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#authentication_passwordCount"><span class="hs-identifier hs-type">authentication_passwordCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication"><span class="hs-identifier hs-type">Authentication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="authentication_passwordCount"><span class="annot"><span class="annottext">authentication_passwordCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Authentication -&gt; f Authentication
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#authentication_passwordCount"><span class="hs-identifier hs-var hs-var">authentication_passwordCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Authentication -&gt; Maybe Int)
+-&gt; (Authentication -&gt; Maybe Int -&gt; Authentication)
+-&gt; Lens Authentication Authentication (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication%27"><span class="hs-identifier hs-type">Authentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241939"><span class="annot"><span class="annottext">Maybe Int
+passwordCount :: Maybe Int
+$sel:passwordCount:Authentication' :: Authentication -&gt; Maybe Int
+</span><a href="#local-6989586621679241939"><span class="hs-identifier hs-var hs-var">passwordCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679241939"><span class="hs-identifier hs-var">passwordCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241938"><span class="annot"><span class="annottext">s :: Authentication
+</span><a href="#local-6989586621679241938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication%27"><span class="hs-identifier hs-type">Authentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241937"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679241937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Authentication
+</span><a href="#local-6989586621679241938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwordCount:Authentication' :: Maybe Int
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#%24sel%3ApasswordCount%3AAuthentication%27"><span class="hs-identifier hs-var">passwordCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679241937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication"><span class="hs-identifier hs-type">Authentication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Indicates whether the user requires a password to authenticate.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#authentication_type"><span class="hs-identifier hs-type">authentication_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication"><span class="hs-identifier hs-type">Authentication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="authentication_type"><span class="annot"><span class="annottext">authentication_type :: (Maybe AuthenticationType -&gt; f (Maybe AuthenticationType))
+-&gt; Authentication -&gt; f Authentication
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#authentication_type"><span class="hs-identifier hs-var hs-var">authentication_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Authentication -&gt; Maybe AuthenticationType)
+-&gt; (Authentication -&gt; Maybe AuthenticationType -&gt; Authentication)
+-&gt; Lens
+     Authentication
+     Authentication
+     (Maybe AuthenticationType)
+     (Maybe AuthenticationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication%27"><span class="hs-identifier hs-type">Authentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679241935"><span class="annot"><span class="annottext">Maybe AuthenticationType
+type' :: Maybe AuthenticationType
+$sel:type':Authentication' :: Authentication -&gt; Maybe AuthenticationType
+</span><a href="#local-6989586621679241935"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679241935"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679241934"><span class="annot"><span class="annottext">s :: Authentication
+</span><a href="#local-6989586621679241934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication%27"><span class="hs-identifier hs-type">Authentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679241933"><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679241933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Authentication
+</span><a href="#local-6989586621679241934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Authentication' :: Maybe AuthenticationType
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#%24sel%3Atype%27%3AAuthentication%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679241933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication"><span class="hs-identifier hs-type">Authentication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241930"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication"><span class="hs-identifier hs-type">Authentication</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679241928"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Authentication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Authentication)
+-&gt; Value
+-&gt; Parser Authentication
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Authentication&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679241925"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241925"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe AuthenticationType -&gt; Authentication
+</span><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication%27"><span class="hs-identifier hs-var">Authentication'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe AuthenticationType -&gt; Authentication)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe AuthenticationType -&gt; Authentication)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PasswordCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AuthenticationType -&gt; Authentication)
+-&gt; Parser (Maybe AuthenticationType) -&gt; Parser Authentication
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679241925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthenticationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241919"><span id="local-6989586621679241921"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication"><span class="hs-identifier hs-type">Authentication</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679241916"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MemoryDb.Types.Authentication.html#Authentication"><span class="hs-identifier hs-type">Authentication</span></a></span></span><span>
+</span><span id="line-79"></span></pre></body></html>

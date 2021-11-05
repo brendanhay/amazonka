@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newCreateLogStream' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679232508"><span id="local-6989586621679232509"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogStream"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-var">CreateLogStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogStream%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-var">CreateLogStream'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679232517"><span id="local-6989586621679232518"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogStream"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-var">CreateLogStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogStream%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-var">CreateLogStream'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AlogGroupName%3ACreateLogStream%27"><span class="annot"><span class="annottext">CreateLogStream -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#%24sel%3AlogGroupName%3ACreateLogStream%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AlogStreamName%3ACreateLogStream%27"><span class="annot"><span class="annottext">CreateLogStream -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#%24sel%3AlogStreamName%3ACreateLogStream%27"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232501"><span id="local-6989586621679232503"><span class="annot"><span class="annottext">CreateLogStream -&gt; CreateLogStream -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232510"><span id="local-6989586621679232512"><span class="annot"><span class="annottext">CreateLogStream -&gt; CreateLogStream -&gt; Bool
 (CreateLogStream -&gt; CreateLogStream -&gt; Bool)
 -&gt; (CreateLogStream -&gt; CreateLogStream -&gt; Bool)
 -&gt; Eq CreateLogStream
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLogStream -&gt; CreateLogStream -&gt; Bool
 == :: CreateLogStream -&gt; CreateLogStream -&gt; Bool
 $c== :: CreateLogStream -&gt; CreateLogStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232492"><span id="local-6989586621679232494"><span id="local-6989586621679232496"><span id="local-6989586621679232498"><span class="annot"><span class="annottext">ReadPrec [CreateLogStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232501"><span id="local-6989586621679232503"><span id="local-6989586621679232505"><span id="local-6989586621679232507"><span class="annot"><span class="annottext">ReadPrec [CreateLogStream]
 ReadPrec CreateLogStream
 Int -&gt; ReadS CreateLogStream
 ReadS [CreateLogStream]
@@ -95,7 +95,7 @@ readList :: ReadS [CreateLogStream]
 $creadList :: ReadS [CreateLogStream]
 readsPrec :: Int -&gt; ReadS CreateLogStream
 $creadsPrec :: Int -&gt; ReadS CreateLogStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232485"><span id="local-6989586621679232487"><span id="local-6989586621679232489"><span class="annot"><span class="annottext">Int -&gt; CreateLogStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232494"><span id="local-6989586621679232496"><span id="local-6989586621679232498"><span class="annot"><span class="annottext">Int -&gt; CreateLogStream -&gt; ShowS
 [CreateLogStream] -&gt; ShowS
 CreateLogStream -&gt; String
 (Int -&gt; CreateLogStream -&gt; ShowS)
@@ -139,17 +139,17 @@ $cfrom :: forall x. CreateLogStream -&gt; Rep CreateLogStream x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span>
 </span><span id="line-86"></span><span id="newCreateLogStream"><span class="annot"><span class="annottext">newCreateLogStream :: Text -&gt; Text -&gt; CreateLogStream
-</span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#newCreateLogStream"><span class="hs-identifier hs-var hs-var">newCreateLogStream</span></a></span></span><span> </span><span id="local-6989586621679232480"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232480"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span id="local-6989586621679232479"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232479"><span class="hs-identifier hs-var">pLogStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#newCreateLogStream"><span class="hs-identifier hs-var hs-var">newCreateLogStream</span></a></span></span><span> </span><span id="local-6989586621679232489"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232489"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span id="local-6989586621679232488"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232488"><span class="hs-identifier hs-var">pLogStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">CreateLogStream' :: Text -&gt; Text -&gt; CreateLogStream
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logGroupName:CreateLogStream' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#%24sel%3AlogGroupName%3ACreateLogStream%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232480"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679232489"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:logStreamName:CreateLogStream' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#%24sel%3AlogStreamName%3ACreateLogStream%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232479"><span class="hs-identifier hs-var">pLogStreamName_</span></a></span><span>
+</span><a href="#local-6989586621679232488"><span class="hs-identifier hs-var">pLogStreamName_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The name of the log group.</span><span>
@@ -159,16 +159,16 @@ $cfrom :: forall x. CreateLogStream -&gt; Rep CreateLogStream x
 -&gt; (CreateLogStream -&gt; Text -&gt; CreateLogStream)
 -&gt; Lens CreateLogStream CreateLogStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232476"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232485"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:CreateLogStream' :: CreateLogStream -&gt; Text
-</span><a href="#local-6989586621679232476"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232476"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232475"><span class="annot"><span class="annottext">s :: CreateLogStream
-</span><a href="#local-6989586621679232475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232474"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogStream
-</span><a href="#local-6989586621679232475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CreateLogStream' :: Text
+</span><a href="#local-6989586621679232485"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232485"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232484"><span class="annot"><span class="annottext">s :: CreateLogStream
+</span><a href="#local-6989586621679232484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogStream
+</span><a href="#local-6989586621679232484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CreateLogStream' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#%24sel%3AlogGroupName%3ACreateLogStream%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The name of the log stream.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#createLogStream_logStreamName"><span class="hs-identifier hs-type">createLogStream_logStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,27 +177,27 @@ $sel:logGroupName:CreateLogStream' :: CreateLogStream -&gt; Text
 -&gt; (CreateLogStream -&gt; Text -&gt; CreateLogStream)
 -&gt; Lens CreateLogStream CreateLogStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232473"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232482"><span class="annot"><span class="annottext">Text
 logStreamName :: Text
 $sel:logStreamName:CreateLogStream' :: CreateLogStream -&gt; Text
-</span><a href="#local-6989586621679232473"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232473"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232472"><span class="annot"><span class="annottext">s :: CreateLogStream
-</span><a href="#local-6989586621679232472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232471"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogStream
-</span><a href="#local-6989586621679232472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamName:CreateLogStream' :: Text
+</span><a href="#local-6989586621679232482"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232482"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232481"><span class="annot"><span class="annottext">s :: CreateLogStream
+</span><a href="#local-6989586621679232481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232480"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679232480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLogStream
+</span><a href="#local-6989586621679232481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamName:CreateLogStream' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#%24sel%3AlogStreamName%3ACreateLogStream%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStreamResponse"><span class="hs-identifier hs-type">CreateLogStreamResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679232467"><span class="annot"><span class="annottext">request :: CreateLogStream -&gt; Request CreateLogStream
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679232476"><span class="annot"><span class="annottext">request :: CreateLogStream -&gt; Request CreateLogStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLogStream -&gt; Request CreateLogStream
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679232463"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679232472"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateLogStream
 -&gt; ClientResponse ClientBody
@@ -221,12 +221,12 @@ AWSResponse a
 CreateLogStreamResponse
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStreamResponse%27"><span class="hs-identifier hs-var">CreateLogStreamResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232456"><span id="local-6989586621679232458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232465"><span id="local-6989586621679232467"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679232449"><span class="annot"><span class="annottext">toHeaders :: CreateLogStream -&gt; [Header]
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679232458"><span class="annot"><span class="annottext">toHeaders :: CreateLogStream -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; CreateLogStream -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -253,14 +253,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232439"><span id="local-6989586621679232441"><span id="local-6989586621679232443"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679232437"><span class="annot"><span class="annottext">toJSON :: CreateLogStream -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232434"><span id="local-6989586621679232435"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232448"><span id="local-6989586621679232450"><span id="local-6989586621679232452"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679232446"><span class="annot"><span class="annottext">toJSON :: CreateLogStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream%27"><span class="hs-identifier hs-type">CreateLogStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232443"><span id="local-6989586621679232444"><span class="annot"><span class="annottext">Text
 logStreamName :: Text
 logGroupName :: Text
 $sel:logStreamName:CreateLogStream' :: CreateLogStream -&gt; Text
 $sel:logGroupName:CreateLogStream' :: CreateLogStream -&gt; Text
-</span><a href="#local-6989586621679232434"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679232443"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,7 +272,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232435"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679232444"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -280,19 +280,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;logStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679232434"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232443"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679232428"><span class="annot"><span class="annottext">toPath :: CreateLogStream -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679232437"><span class="annot"><span class="annottext">toPath :: CreateLogStream -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLogStream -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStream"><span class="hs-identifier hs-type">CreateLogStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679232424"><span class="annot"><span class="annottext">toQuery :: CreateLogStream -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679232433"><span class="annot"><span class="annottext">toQuery :: CreateLogStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLogStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -300,10 +300,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newCreateLogStreamResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679232421"><span id="local-6989586621679232422"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogStreamResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStreamResponse"><span class="hs-identifier hs-var">CreateLogStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogStreamResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStreamResponse%27"><span class="hs-identifier hs-var">CreateLogStreamResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679232430"><span id="local-6989586621679232431"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLogStreamResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStreamResponse"><span class="hs-identifier hs-var">CreateLogStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLogStreamResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStreamResponse%27"><span class="hs-identifier hs-var">CreateLogStreamResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232417"><span id="local-6989586621679232419"><span class="annot"><span class="annottext">CreateLogStreamResponse -&gt; CreateLogStreamResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232426"><span id="local-6989586621679232428"><span class="annot"><span class="annottext">CreateLogStreamResponse -&gt; CreateLogStreamResponse -&gt; Bool
 (CreateLogStreamResponse -&gt; CreateLogStreamResponse -&gt; Bool)
 -&gt; (CreateLogStreamResponse -&gt; CreateLogStreamResponse -&gt; Bool)
 -&gt; Eq CreateLogStreamResponse
@@ -312,7 +312,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLogStreamResponse -&gt; CreateLogStreamResponse -&gt; Bool
 == :: CreateLogStreamResponse -&gt; CreateLogStreamResponse -&gt; Bool
 $c== :: CreateLogStreamResponse -&gt; CreateLogStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232409"><span id="local-6989586621679232411"><span id="local-6989586621679232413"><span id="local-6989586621679232415"><span class="annot"><span class="annottext">ReadPrec [CreateLogStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232418"><span id="local-6989586621679232420"><span id="local-6989586621679232422"><span id="local-6989586621679232424"><span class="annot"><span class="annottext">ReadPrec [CreateLogStreamResponse]
 ReadPrec CreateLogStreamResponse
 Int -&gt; ReadS CreateLogStreamResponse
 ReadS [CreateLogStreamResponse]
@@ -332,7 +332,7 @@ readList :: ReadS [CreateLogStreamResponse]
 $creadList :: ReadS [CreateLogStreamResponse]
 readsPrec :: Int -&gt; ReadS CreateLogStreamResponse
 $creadsPrec :: Int -&gt; ReadS CreateLogStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232403"><span id="local-6989586621679232405"><span id="local-6989586621679232407"><span class="annot"><span class="annottext">Int -&gt; CreateLogStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232412"><span id="local-6989586621679232414"><span id="local-6989586621679232416"><span class="annot"><span class="annottext">Int -&gt; CreateLogStreamResponse -&gt; ShowS
 [CreateLogStreamResponse] -&gt; ShowS
 CreateLogStreamResponse -&gt; String
 (Int -&gt; CreateLogStreamResponse -&gt; ShowS)
@@ -370,5 +370,5 @@ $cfrom :: forall x. CreateLogStreamResponse -&gt; Rep CreateLogStreamResponse x
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#newCreateLogStreamResponse"><span class="hs-identifier hs-var hs-var">newCreateLogStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CreateLogStreamResponse
 </span><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStreamResponse%27"><span class="hs-identifier hs-var">CreateLogStreamResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStreamResponse"><span class="hs-identifier hs-type">CreateLogStreamResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.CreateLogStream.html#CreateLogStreamResponse"><span class="hs-identifier hs-type">CreateLogStreamResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

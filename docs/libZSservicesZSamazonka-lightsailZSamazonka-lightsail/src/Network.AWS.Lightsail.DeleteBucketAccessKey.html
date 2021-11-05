@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketAccessKey' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679655467"><span id="local-6989586621679655468"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketAccessKey"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-var">DeleteBucketAccessKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketAccessKey%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-var">DeleteBucketAccessKey'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679655476"><span id="local-6989586621679655477"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketAccessKey"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-var">DeleteBucketAccessKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketAccessKey%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-var">DeleteBucketAccessKey'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the bucket that the access key belongs to.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AbucketName%3ADeleteBucketAccessKey%27"><span class="annot"><span class="annottext">DeleteBucketAccessKey -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3AbucketName%3ADeleteBucketAccessKey%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AaccessKeyId%3ADeleteBucketAccessKey%27"><span class="annot"><span class="annottext">DeleteBucketAccessKey -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3AaccessKeyId%3ADeleteBucketAccessKey%27"><span class="hs-identifier hs-var hs-var">accessKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679655460"><span id="local-6989586621679655462"><span class="annot"><span class="annottext">DeleteBucketAccessKey -&gt; DeleteBucketAccessKey -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679655469"><span id="local-6989586621679655471"><span class="annot"><span class="annottext">DeleteBucketAccessKey -&gt; DeleteBucketAccessKey -&gt; Bool
 (DeleteBucketAccessKey -&gt; DeleteBucketAccessKey -&gt; Bool)
 -&gt; (DeleteBucketAccessKey -&gt; DeleteBucketAccessKey -&gt; Bool)
 -&gt; Eq DeleteBucketAccessKey
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBucketAccessKey -&gt; DeleteBucketAccessKey -&gt; Bool
 == :: DeleteBucketAccessKey -&gt; DeleteBucketAccessKey -&gt; Bool
 $c== :: DeleteBucketAccessKey -&gt; DeleteBucketAccessKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655451"><span id="local-6989586621679655453"><span id="local-6989586621679655455"><span id="local-6989586621679655457"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketAccessKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655460"><span id="local-6989586621679655462"><span id="local-6989586621679655464"><span id="local-6989586621679655466"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketAccessKey]
 ReadPrec DeleteBucketAccessKey
 Int -&gt; ReadS DeleteBucketAccessKey
 ReadS [DeleteBucketAccessKey]
@@ -95,7 +95,7 @@ readList :: ReadS [DeleteBucketAccessKey]
 $creadList :: ReadS [DeleteBucketAccessKey]
 readsPrec :: Int -&gt; ReadS DeleteBucketAccessKey
 $creadsPrec :: Int -&gt; ReadS DeleteBucketAccessKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655444"><span id="local-6989586621679655446"><span id="local-6989586621679655448"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketAccessKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655453"><span id="local-6989586621679655455"><span id="local-6989586621679655457"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketAccessKey -&gt; ShowS
 [DeleteBucketAccessKey] -&gt; ShowS
 DeleteBucketAccessKey -&gt; String
 (Int -&gt; DeleteBucketAccessKey -&gt; ShowS)
@@ -142,17 +142,17 @@ $cfrom :: forall x. DeleteBucketAccessKey -&gt; Rep DeleteBucketAccessKey x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span>
 </span><span id="line-89"></span><span id="newDeleteBucketAccessKey"><span class="annot"><span class="annottext">newDeleteBucketAccessKey :: Text -&gt; Text -&gt; DeleteBucketAccessKey
-</span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#newDeleteBucketAccessKey"><span class="hs-identifier hs-var hs-var">newDeleteBucketAccessKey</span></a></span></span><span> </span><span id="local-6989586621679655439"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655439"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679655438"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655438"><span class="hs-identifier hs-var">pAccessKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#newDeleteBucketAccessKey"><span class="hs-identifier hs-var hs-var">newDeleteBucketAccessKey</span></a></span></span><span> </span><span id="local-6989586621679655448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655448"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679655447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655447"><span class="hs-identifier hs-var">pAccessKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketAccessKey' :: Text -&gt; Text -&gt; DeleteBucketAccessKey
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bucketName:DeleteBucketAccessKey' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3AbucketName%3ADeleteBucketAccessKey%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655439"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679655448"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessKeyId:DeleteBucketAccessKey' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3AaccessKeyId%3ADeleteBucketAccessKey%27"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655438"><span class="hs-identifier hs-var">pAccessKeyId_</span></a></span><span>
+</span><a href="#local-6989586621679655447"><span class="hs-identifier hs-var">pAccessKeyId_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The name of the bucket that the access key belongs to.</span><span>
@@ -163,16 +163,16 @@ $cfrom :: forall x. DeleteBucketAccessKey -&gt; Rep DeleteBucketAccessKey x
 -&gt; (DeleteBucketAccessKey -&gt; Text -&gt; DeleteBucketAccessKey)
 -&gt; Lens DeleteBucketAccessKey DeleteBucketAccessKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655435"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655444"><span class="annot"><span class="annottext">Text
 bucketName :: Text
 $sel:bucketName:DeleteBucketAccessKey' :: DeleteBucketAccessKey -&gt; Text
-</span><a href="#local-6989586621679655435"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655435"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655434"><span class="annot"><span class="annottext">s :: DeleteBucketAccessKey
-</span><a href="#local-6989586621679655434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655433"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketAccessKey
-</span><a href="#local-6989586621679655434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:DeleteBucketAccessKey' :: Text
+</span><a href="#local-6989586621679655444"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655444"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655443"><span class="annot"><span class="annottext">s :: DeleteBucketAccessKey
+</span><a href="#local-6989586621679655443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketAccessKey
+</span><a href="#local-6989586621679655443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:DeleteBucketAccessKey' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3AbucketName%3ADeleteBucketAccessKey%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The ID of the access key to delete.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
@@ -185,27 +185,27 @@ $sel:bucketName:DeleteBucketAccessKey' :: DeleteBucketAccessKey -&gt; Text
 -&gt; (DeleteBucketAccessKey -&gt; Text -&gt; DeleteBucketAccessKey)
 -&gt; Lens DeleteBucketAccessKey DeleteBucketAccessKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655432"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655441"><span class="annot"><span class="annottext">Text
 accessKeyId :: Text
 $sel:accessKeyId:DeleteBucketAccessKey' :: DeleteBucketAccessKey -&gt; Text
-</span><a href="#local-6989586621679655432"><span class="hs-identifier hs-var hs-var">accessKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655432"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655431"><span class="annot"><span class="annottext">s :: DeleteBucketAccessKey
-</span><a href="#local-6989586621679655431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655430"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketAccessKey
-</span><a href="#local-6989586621679655431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessKeyId:DeleteBucketAccessKey' :: Text
+</span><a href="#local-6989586621679655441"><span class="hs-identifier hs-var hs-var">accessKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655441"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655440"><span class="annot"><span class="annottext">s :: DeleteBucketAccessKey
+</span><a href="#local-6989586621679655440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketAccessKey
+</span><a href="#local-6989586621679655440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessKeyId:DeleteBucketAccessKey' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3AaccessKeyId%3ADeleteBucketAccessKey%27"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679655426"><span class="annot"><span class="annottext">request :: DeleteBucketAccessKey -&gt; Request DeleteBucketAccessKey
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679655435"><span class="annot"><span class="annottext">request :: DeleteBucketAccessKey -&gt; Request DeleteBucketAccessKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBucketAccessKey -&gt; Request DeleteBucketAccessKey
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679655422"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679655431"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBucketAccessKey
 -&gt; ClientResponse ClientBody
@@ -231,10 +231,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679655419"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679655419"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679655418"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679655418"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679655417"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679655417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679655428"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655428"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679655427"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679655427"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679655426"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679655426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; DeleteBucketAccessKeyResponse
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-var">DeleteBucketAccessKeyResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; DeleteBucketAccessKeyResponse)
@@ -242,7 +242,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteBucketAccessKeyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679655417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679655426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -259,15 +259,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679655419"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655428"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655408"><span id="local-6989586621679655410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655417"><span id="local-6989586621679655419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679655401"><span class="annot"><span class="annottext">toHeaders :: DeleteBucketAccessKey -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679655410"><span class="annot"><span class="annottext">toHeaders :: DeleteBucketAccessKey -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteBucketAccessKey -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -294,14 +294,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655391"><span id="local-6989586621679655393"><span id="local-6989586621679655395"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679655389"><span class="annot"><span class="annottext">toJSON :: DeleteBucketAccessKey -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655386"><span id="local-6989586621679655387"><span class="annot"><span class="annottext">Text
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655400"><span id="local-6989586621679655402"><span id="local-6989586621679655404"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679655398"><span class="annot"><span class="annottext">toJSON :: DeleteBucketAccessKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey%27"><span class="hs-identifier hs-type">DeleteBucketAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655395"><span id="local-6989586621679655396"><span class="annot"><span class="annottext">Text
 accessKeyId :: Text
 bucketName :: Text
 $sel:accessKeyId:DeleteBucketAccessKey' :: DeleteBucketAccessKey -&gt; Text
 $sel:bucketName:DeleteBucketAccessKey' :: DeleteBucketAccessKey -&gt; Text
-</span><a href="#local-6989586621679655386"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679655395"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -313,26 +313,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;bucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655387"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679655396"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accessKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679655386"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655395"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679655380"><span class="annot"><span class="annottext">toPath :: DeleteBucketAccessKey -&gt; ByteString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679655389"><span class="annot"><span class="annottext">toPath :: DeleteBucketAccessKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteBucketAccessKey -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKey"><span class="hs-identifier hs-type">DeleteBucketAccessKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679655376"><span class="annot"><span class="annottext">toQuery :: DeleteBucketAccessKey -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679655385"><span class="annot"><span class="annottext">toQuery :: DeleteBucketAccessKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBucketAccessKey -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -340,7 +340,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketAccessKeyResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679655373"><span id="local-6989586621679655374"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketAccessKeyResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-var">DeleteBucketAccessKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketAccessKeyResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-var">DeleteBucketAccessKeyResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679655382"><span id="local-6989586621679655383"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketAccessKeyResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-var">DeleteBucketAccessKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketAccessKeyResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-var">DeleteBucketAccessKeyResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -350,7 +350,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteBucketAccessKeyResponse%27"><span class="annot"><span class="annottext">DeleteBucketAccessKeyResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3AhttpStatus%3ADeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679655367"><span id="local-6989586621679655369"><span class="annot"><span class="annottext">DeleteBucketAccessKeyResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679655376"><span id="local-6989586621679655378"><span class="annot"><span class="annottext">DeleteBucketAccessKeyResponse
 -&gt; DeleteBucketAccessKeyResponse -&gt; Bool
 (DeleteBucketAccessKeyResponse
  -&gt; DeleteBucketAccessKeyResponse -&gt; Bool)
@@ -366,7 +366,7 @@ $c/= :: DeleteBucketAccessKeyResponse
 -&gt; DeleteBucketAccessKeyResponse -&gt; Bool
 $c== :: DeleteBucketAccessKeyResponse
 -&gt; DeleteBucketAccessKeyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655359"><span id="local-6989586621679655361"><span id="local-6989586621679655363"><span id="local-6989586621679655365"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketAccessKeyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655368"><span id="local-6989586621679655370"><span id="local-6989586621679655372"><span id="local-6989586621679655374"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketAccessKeyResponse]
 ReadPrec DeleteBucketAccessKeyResponse
 Int -&gt; ReadS DeleteBucketAccessKeyResponse
 ReadS [DeleteBucketAccessKeyResponse]
@@ -386,7 +386,7 @@ readList :: ReadS [DeleteBucketAccessKeyResponse]
 $creadList :: ReadS [DeleteBucketAccessKeyResponse]
 readsPrec :: Int -&gt; ReadS DeleteBucketAccessKeyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBucketAccessKeyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655353"><span id="local-6989586621679655355"><span id="local-6989586621679655357"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketAccessKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655362"><span id="local-6989586621679655364"><span id="local-6989586621679655366"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketAccessKeyResponse -&gt; ShowS
 [DeleteBucketAccessKeyResponse] -&gt; ShowS
 DeleteBucketAccessKeyResponse -&gt; String
 (Int -&gt; DeleteBucketAccessKeyResponse -&gt; ShowS)
@@ -442,8 +442,8 @@ DeleteBucketAccessKeyResponse
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse</span></a></span><span>
 </span><span id="line-181"></span><span id="newDeleteBucketAccessKeyResponse"><span class="annot"><span class="annottext">newDeleteBucketAccessKeyResponse :: Int -&gt; DeleteBucketAccessKeyResponse
-</span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#newDeleteBucketAccessKeyResponse"><span class="hs-identifier hs-var hs-var">newDeleteBucketAccessKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679655350"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679655350"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#newDeleteBucketAccessKeyResponse"><span class="hs-identifier hs-var hs-var">newDeleteBucketAccessKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679655359"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketAccessKeyResponse' :: Maybe [Operation] -&gt; Int -&gt; DeleteBucketAccessKeyResponse
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse'</span></a></span><span>
 </span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:DeleteBucketAccessKeyResponse' :: Maybe [Operation]
@@ -453,7 +453,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBucketAccessKeyResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3AhttpStatus%3ADeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679655350"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679655359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -471,16 +471,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655349"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655358"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:DeleteBucketAccessKeyResponse' :: DeleteBucketAccessKeyResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679655349"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679655349"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655348"><span class="annot"><span class="annottext">s :: DeleteBucketAccessKeyResponse
-</span><a href="#local-6989586621679655348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655347"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679655347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketAccessKeyResponse
-</span><a href="#local-6989586621679655348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteBucketAccessKeyResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679655358"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679655358"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655357"><span class="annot"><span class="annottext">s :: DeleteBucketAccessKeyResponse
+</span><a href="#local-6989586621679655357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655356"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679655356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketAccessKeyResponse
+</span><a href="#local-6989586621679655357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteBucketAccessKeyResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3Aoperations%3ADeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679655347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679655356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; DeleteBucketAccessKeyResponse
  -&gt; f DeleteBucketAccessKeyResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -512,16 +512,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DeleteBucketAccessKeyResponse DeleteBucketAccessKeyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655343"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655352"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteBucketAccessKeyResponse' :: DeleteBucketAccessKeyResponse -&gt; Int
-</span><a href="#local-6989586621679655343"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679655343"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655342"><span class="annot"><span class="annottext">s :: DeleteBucketAccessKeyResponse
-</span><a href="#local-6989586621679655342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655341"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679655341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketAccessKeyResponse
-</span><a href="#local-6989586621679655342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBucketAccessKeyResponse' :: Int
+</span><a href="#local-6989586621679655352"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655352"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655351"><span class="annot"><span class="annottext">s :: DeleteBucketAccessKeyResponse
+</span><a href="#local-6989586621679655351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655350"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketAccessKeyResponse
+</span><a href="#local-6989586621679655351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteBucketAccessKeyResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#%24sel%3AhttpStatus%3ADeleteBucketAccessKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679655341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679655350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteBucketAccessKey.html#DeleteBucketAccessKeyResponse"><span class="hs-identifier hs-type">DeleteBucketAccessKeyResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

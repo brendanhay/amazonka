@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679295809"><span id="local-6989586621679295810"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FunctionVersion"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionVersion.html#FunctionVersion"><span class="hs-identifier hs-var">FunctionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionVersion%27"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionVersion.html#FunctionVersion%27"><span class="hs-identifier hs-var">FunctionVersion'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679295818"><span id="local-6989586621679295819"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FunctionVersion"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionVersion.html#FunctionVersion"><span class="hs-identifier hs-var">FunctionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionVersion%27"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionVersion.html#FunctionVersion%27"><span class="hs-identifier hs-var">FunctionVersion'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFunctionVersion"><span class="annot"><span class="annottext">FunctionVersion -&gt; Text
 </span><a href="Network.AWS.Lambda.Types.FunctionVersion.html#fromFunctionVersion"><span class="hs-identifier hs-var hs-var">fromFunctionVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295801"><span id="local-6989586621679295803"><span id="local-6989586621679295805"><span class="annot"><span class="annottext">Int -&gt; FunctionVersion -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295810"><span id="local-6989586621679295812"><span id="local-6989586621679295814"><span class="annot"><span class="annottext">Int -&gt; FunctionVersion -&gt; ShowS
 [FunctionVersion] -&gt; ShowS
 FunctionVersion -&gt; String
 (Int -&gt; FunctionVersion -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: FunctionVersion -&gt; String
 showsPrec :: Int -&gt; FunctionVersion -&gt; ShowS
 $cshowsPrec :: Int -&gt; FunctionVersion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679295792"><span id="local-6989586621679295794"><span id="local-6989586621679295796"><span id="local-6989586621679295798"><span class="annot"><span class="annottext">ReadPrec [FunctionVersion]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679295801"><span id="local-6989586621679295803"><span id="local-6989586621679295805"><span id="local-6989586621679295807"><span class="annot"><span class="annottext">ReadPrec [FunctionVersion]
 ReadPrec FunctionVersion
 Int -&gt; ReadS FunctionVersion
 ReadS [FunctionVersion]
@@ -71,7 +71,7 @@ $creadList :: ReadS [FunctionVersion]
 readsPrec :: Int -&gt; ReadS FunctionVersion
 $creadsPrec :: Int -&gt; ReadS FunctionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295787"><span id="local-6989586621679295789"><span class="annot"><span class="annottext">FunctionVersion -&gt; FunctionVersion -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295796"><span id="local-6989586621679295798"><span class="annot"><span class="annottext">FunctionVersion -&gt; FunctionVersion -&gt; Bool
 (FunctionVersion -&gt; FunctionVersion -&gt; Bool)
 -&gt; (FunctionVersion -&gt; FunctionVersion -&gt; Bool)
 -&gt; Eq FunctionVersion
@@ -81,7 +81,7 @@ $c/= :: FunctionVersion -&gt; FunctionVersion -&gt; Bool
 == :: FunctionVersion -&gt; FunctionVersion -&gt; Bool
 $c== :: FunctionVersion -&gt; FunctionVersion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295771"><span id="local-6989586621679295773"><span id="local-6989586621679295775"><span id="local-6989586621679295777"><span id="local-6989586621679295779"><span id="local-6989586621679295781"><span id="local-6989586621679295783"><span class="annot"><span class="annottext">Eq FunctionVersion
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295780"><span id="local-6989586621679295782"><span id="local-6989586621679295784"><span id="local-6989586621679295786"><span id="local-6989586621679295788"><span id="local-6989586621679295790"><span id="local-6989586621679295792"><span class="annot"><span class="annottext">Eq FunctionVersion
 Eq FunctionVersion
 -&gt; (FunctionVersion -&gt; FunctionVersion -&gt; Ordering)
 -&gt; (FunctionVersion -&gt; FunctionVersion -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. FunctionVersion -&gt; Rep FunctionVersion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295763"><span id="local-6989586621679295765"><span class="annot"><span class="annottext">Int -&gt; FunctionVersion -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295772"><span id="local-6989586621679295774"><span class="annot"><span class="annottext">Int -&gt; FunctionVersion -&gt; Int
 FunctionVersion -&gt; Int
 (Int -&gt; FunctionVersion -&gt; Int)
 -&gt; (FunctionVersion -&gt; Int) -&gt; Hashable FunctionVersion
@@ -142,50 +142,50 @@ $chash :: FunctionVersion -&gt; Int
 hashWithSalt :: Int -&gt; FunctionVersion -&gt; Int
 $chashWithSalt :: Int -&gt; FunctionVersion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679295760"><span class="annot"><span class="annottext">FunctionVersion -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679295769"><span class="annot"><span class="annottext">FunctionVersion -&gt; ()
 (FunctionVersion -&gt; ()) -&gt; NFData FunctionVersion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FunctionVersion -&gt; ()
 $crnf :: FunctionVersion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295757"><span class="annot"><span class="annottext">Text -&gt; Either String FunctionVersion
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295766"><span class="annot"><span class="annottext">Text -&gt; Either String FunctionVersion
 (Text -&gt; Either String FunctionVersion) -&gt; FromText FunctionVersion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FunctionVersion
 $cfromText :: Text -&gt; Either String FunctionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295754"><span class="annot"><span class="annottext">FunctionVersion -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295763"><span class="annot"><span class="annottext">FunctionVersion -&gt; Text
 (FunctionVersion -&gt; Text) -&gt; ToText FunctionVersion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FunctionVersion -&gt; Text
 $ctoText :: FunctionVersion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295751"><span class="annot"><span class="annottext">FunctionVersion -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295760"><span class="annot"><span class="annottext">FunctionVersion -&gt; ByteString
 (FunctionVersion -&gt; ByteString) -&gt; ToByteString FunctionVersion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FunctionVersion -&gt; ByteString
 $ctoBS :: FunctionVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295748"><span class="annot"><span class="annottext">FunctionVersion -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295757"><span class="annot"><span class="annottext">FunctionVersion -&gt; ByteStringBuilder
 (FunctionVersion -&gt; ByteStringBuilder) -&gt; ToLog FunctionVersion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FunctionVersion -&gt; ByteStringBuilder
 $cbuild :: FunctionVersion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295745"><span class="annot"><span class="annottext">HeaderName -&gt; FunctionVersion -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295754"><span class="annot"><span class="annottext">HeaderName -&gt; FunctionVersion -&gt; [Header]
 (HeaderName -&gt; FunctionVersion -&gt; [Header])
 -&gt; ToHeader FunctionVersion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FunctionVersion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FunctionVersion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295742"><span class="annot"><span class="annottext">FunctionVersion -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295751"><span class="annot"><span class="annottext">FunctionVersion -&gt; QueryString
 (FunctionVersion -&gt; QueryString) -&gt; ToQuery FunctionVersion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FunctionVersion -&gt; QueryString
 $ctoQuery :: FunctionVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295737"><span id="local-6989586621679295739"><span class="annot"><span class="annottext">Value -&gt; Parser [FunctionVersion]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295746"><span id="local-6989586621679295748"><span class="annot"><span class="annottext">Value -&gt; Parser [FunctionVersion]
 Value -&gt; Parser FunctionVersion
 (Value -&gt; Parser FunctionVersion)
 -&gt; (Value -&gt; Parser [FunctionVersion]) -&gt; FromJSON FunctionVersion
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [FunctionVersion]
 parseJSON :: Value -&gt; Parser FunctionVersion
 $cparseJSON :: Value -&gt; Parser FunctionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295732"><span id="local-6989586621679295734"><span class="annot"><span class="annottext">FromJSONKeyFunction [FunctionVersion]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295741"><span id="local-6989586621679295743"><span class="annot"><span class="annottext">FromJSONKeyFunction [FunctionVersion]
 FromJSONKeyFunction FunctionVersion
 FromJSONKeyFunction FunctionVersion
 -&gt; FromJSONKeyFunction [FunctionVersion]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FunctionVersion]
 fromJSONKey :: FromJSONKeyFunction FunctionVersion
 $cfromJSONKey :: FromJSONKeyFunction FunctionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295723"><span id="local-6989586621679295725"><span id="local-6989586621679295727"><span id="local-6989586621679295729"><span class="annot"><span class="annottext">[FunctionVersion] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295732"><span id="local-6989586621679295734"><span id="local-6989586621679295736"><span id="local-6989586621679295738"><span class="annot"><span class="annottext">[FunctionVersion] -&gt; Encoding
 [FunctionVersion] -&gt; Value
 FunctionVersion -&gt; Encoding
 FunctionVersion -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: FunctionVersion -&gt; Encoding
 toJSON :: FunctionVersion -&gt; Value
 $ctoJSON :: FunctionVersion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295718"><span id="local-6989586621679295720"><span class="annot"><span class="annottext">ToJSONKeyFunction [FunctionVersion]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295727"><span id="local-6989586621679295729"><span class="annot"><span class="annottext">ToJSONKeyFunction [FunctionVersion]
 ToJSONKeyFunction FunctionVersion
 ToJSONKeyFunction FunctionVersion
 -&gt; ToJSONKeyFunction [FunctionVersion] -&gt; ToJSONKey FunctionVersion
@@ -243,14 +243,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FunctionVersion]
 toJSONKey :: ToJSONKeyFunction FunctionVersion
 $ctoJSONKey :: ToJSONKeyFunction FunctionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295715"><span class="annot"><span class="annottext">[Node] -&gt; Either String FunctionVersion
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295724"><span class="annot"><span class="annottext">[Node] -&gt; Either String FunctionVersion
 ([Node] -&gt; Either String FunctionVersion)
 -&gt; FromXML FunctionVersion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FunctionVersion
 $cparseXML :: [Node] -&gt; Either String FunctionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295712"><span class="annot"><span class="annottext">FunctionVersion -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295721"><span class="annot"><span class="annottext">FunctionVersion -&gt; XML
 (FunctionVersion -&gt; XML) -&gt; ToXML FunctionVersion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FunctionVersion -&gt; XML

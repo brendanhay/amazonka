@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- in the /Amazon Connect Administrator Guide/.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCurrentMetric' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679406108"><span id="local-6989586621679406109"></span></span><span class="hs-keyword">data</span><span> </span><span id="CurrentMetric"><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-var">CurrentMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CurrentMetric%27"><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-var">CurrentMetric'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679406117"><span id="local-6989586621679406118"></span></span><span class="hs-keyword">data</span><span> </span><span id="CurrentMetric"><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-var">CurrentMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CurrentMetric%27"><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-var">CurrentMetric'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3ACurrentMetric%27"><span class="annot"><span class="annottext">CurrentMetric -&gt; Maybe CurrentMetricName
 </span><a href="Network.AWS.Connect.Types.CurrentMetric.html#%24sel%3Aname%3ACurrentMetric%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetricName.html#CurrentMetricName"><span class="hs-identifier hs-type">CurrentMetricName</span></a></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aunit%3ACurrentMetric%27"><span class="annot"><span class="annottext">CurrentMetric -&gt; Maybe Unit
 </span><a href="Network.AWS.Connect.Types.CurrentMetric.html#%24sel%3Aunit%3ACurrentMetric%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406101"><span id="local-6989586621679406103"><span class="annot"><span class="annottext">CurrentMetric -&gt; CurrentMetric -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406110"><span id="local-6989586621679406112"><span class="annot"><span class="annottext">CurrentMetric -&gt; CurrentMetric -&gt; Bool
 (CurrentMetric -&gt; CurrentMetric -&gt; Bool)
 -&gt; (CurrentMetric -&gt; CurrentMetric -&gt; Bool) -&gt; Eq CurrentMetric
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CurrentMetric -&gt; CurrentMetric -&gt; Bool
 == :: CurrentMetric -&gt; CurrentMetric -&gt; Bool
 $c== :: CurrentMetric -&gt; CurrentMetric -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406092"><span id="local-6989586621679406094"><span id="local-6989586621679406096"><span id="local-6989586621679406098"><span class="annot"><span class="annottext">ReadPrec [CurrentMetric]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406101"><span id="local-6989586621679406103"><span id="local-6989586621679406105"><span id="local-6989586621679406107"><span class="annot"><span class="annottext">ReadPrec [CurrentMetric]
 ReadPrec CurrentMetric
 Int -&gt; ReadS CurrentMetric
 ReadS [CurrentMetric]
@@ -67,7 +67,7 @@ readList :: ReadS [CurrentMetric]
 $creadList :: ReadS [CurrentMetric]
 readsPrec :: Int -&gt; ReadS CurrentMetric
 $creadsPrec :: Int -&gt; ReadS CurrentMetric
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406085"><span id="local-6989586621679406087"><span id="local-6989586621679406089"><span class="annot"><span class="annottext">Int -&gt; CurrentMetric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406094"><span id="local-6989586621679406096"><span id="local-6989586621679406098"><span class="annot"><span class="annottext">Int -&gt; CurrentMetric -&gt; ShowS
 [CurrentMetric] -&gt; ShowS
 CurrentMetric -&gt; String
 (Int -&gt; CurrentMetric -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
      (Maybe CurrentMetricName)
      (Maybe CurrentMetricName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406076"><span class="annot"><span class="annottext">Maybe CurrentMetricName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406085"><span class="annot"><span class="annottext">Maybe CurrentMetricName
 name :: Maybe CurrentMetricName
 $sel:name:CurrentMetric' :: CurrentMetric -&gt; Maybe CurrentMetricName
-</span><a href="#local-6989586621679406076"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrentMetricName
-</span><a href="#local-6989586621679406076"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406075"><span class="annot"><span class="annottext">s :: CurrentMetric
-</span><a href="#local-6989586621679406075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406074"><span class="annot"><span class="annottext">Maybe CurrentMetricName
-</span><a href="#local-6989586621679406074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentMetric
-</span><a href="#local-6989586621679406075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CurrentMetric' :: Maybe CurrentMetricName
+</span><a href="#local-6989586621679406085"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrentMetricName
+</span><a href="#local-6989586621679406085"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406084"><span class="annot"><span class="annottext">s :: CurrentMetric
+</span><a href="#local-6989586621679406084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406083"><span class="annot"><span class="annottext">Maybe CurrentMetricName
+</span><a href="#local-6989586621679406083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentMetric
+</span><a href="#local-6989586621679406084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CurrentMetric' :: Maybe CurrentMetricName
 </span><a href="Network.AWS.Connect.Types.CurrentMetric.html#%24sel%3Aname%3ACurrentMetric%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrentMetricName
-</span><a href="#local-6989586621679406074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The unit for the metric.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#currentMetric_unit"><span class="hs-identifier hs-type">currentMetric_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span class="hs-special">)</span><span>
@@ -150,19 +150,19 @@ $sel:name:CurrentMetric' :: CurrentMetric -&gt; Maybe CurrentMetricName
 -&gt; (CurrentMetric -&gt; Maybe Unit -&gt; CurrentMetric)
 -&gt; Lens CurrentMetric CurrentMetric (Maybe Unit) (Maybe Unit)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406072"><span class="annot"><span class="annottext">Maybe Unit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406081"><span class="annot"><span class="annottext">Maybe Unit
 unit :: Maybe Unit
 $sel:unit:CurrentMetric' :: CurrentMetric -&gt; Maybe Unit
-</span><a href="#local-6989586621679406072"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
-</span><a href="#local-6989586621679406072"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406071"><span class="annot"><span class="annottext">s :: CurrentMetric
-</span><a href="#local-6989586621679406071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406070"><span class="annot"><span class="annottext">Maybe Unit
-</span><a href="#local-6989586621679406070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentMetric
-</span><a href="#local-6989586621679406071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:CurrentMetric' :: Maybe Unit
+</span><a href="#local-6989586621679406081"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679406081"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406080"><span class="annot"><span class="annottext">s :: CurrentMetric
+</span><a href="#local-6989586621679406080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406079"><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679406079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CurrentMetric
+</span><a href="#local-6989586621679406080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:CurrentMetric' :: Maybe Unit
 </span><a href="Network.AWS.Connect.Types.CurrentMetric.html#%24sel%3Aunit%3ACurrentMetric%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
-</span><a href="#local-6989586621679406070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679406079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406067"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679406065"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CurrentMetric
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406076"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679406074"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CurrentMetric
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CurrentMetric)
@@ -172,8 +172,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CurrentMetric&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406062"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406062"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406071"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406071"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe CurrentMetricName -&gt; Maybe Unit -&gt; CurrentMetric
 </span><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-var">CurrentMetric'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CurrentMetricName -&gt; Maybe Unit -&gt; CurrentMetric)
@@ -181,32 +181,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Unit -&gt; CurrentMetric)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CurrentMetricName)
+</span><a href="#local-6989586621679406071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CurrentMetricName)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Unit -&gt; CurrentMetric)
 -&gt; Parser (Maybe Unit) -&gt; Parser CurrentMetric
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Unit)
+</span><a href="#local-6989586621679406071"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Unit)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Unit&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406056"><span id="local-6989586621679406058"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406065"><span id="local-6989586621679406067"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406045"><span id="local-6989586621679406047"><span id="local-6989586621679406049"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679406043"><span class="annot"><span class="annottext">toJSON :: CurrentMetric -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406040"><span id="local-6989586621679406041"><span class="annot"><span class="annottext">Maybe CurrentMetricName
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406054"><span id="local-6989586621679406056"><span id="local-6989586621679406058"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679406052"><span class="annot"><span class="annottext">toJSON :: CurrentMetric -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric%27"><span class="hs-identifier hs-type">CurrentMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406049"><span id="local-6989586621679406050"><span class="annot"><span class="annottext">Maybe CurrentMetricName
 Maybe Unit
 unit :: Maybe Unit
 name :: Maybe CurrentMetricName
 $sel:unit:CurrentMetric' :: CurrentMetric -&gt; Maybe Unit
 $sel:name:CurrentMetric' :: CurrentMetric -&gt; Maybe CurrentMetricName
-</span><a href="#local-6989586621679406040"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679406049"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -219,14 +219,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CurrentMetricName -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CurrentMetricName
-</span><a href="#local-6989586621679406041"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679406050"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Unit -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Unit -&gt; Pair) -&gt; Maybe Unit -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Unit
-</span><a href="#local-6989586621679406040"><span class="hs-keyword hs-var">unit</span></a></span><span>
+</span><a href="#local-6989586621679406049"><span class="hs-keyword hs-var">unit</span></a></span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

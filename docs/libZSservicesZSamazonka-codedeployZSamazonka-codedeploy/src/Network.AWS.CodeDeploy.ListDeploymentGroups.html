@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | Represents the input of a @ListDeploymentGroups@ operation.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newListDeploymentGroups' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679320921"><span id="local-6989586621679320922"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeploymentGroups"><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-var">ListDeploymentGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeploymentGroups%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-var">ListDeploymentGroups'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679320930"><span id="local-6989586621679320931"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeploymentGroups"><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-var">ListDeploymentGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeploymentGroups%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-var">ListDeploymentGroups'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier returned from the previous list deployment groups call. It</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- can be used to return the next set of deployment groups in the list.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListDeploymentGroups%27"><span class="annot"><span class="annottext">ListDeploymentGroups -&gt; Maybe Text
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AapplicationName%3AListDeploymentGroups%27"><span class="annot"><span class="annottext">ListDeploymentGroups -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AapplicationName%3AListDeploymentGroups%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320914"><span id="local-6989586621679320916"><span class="annot"><span class="annottext">ListDeploymentGroups -&gt; ListDeploymentGroups -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320923"><span id="local-6989586621679320925"><span class="annot"><span class="annottext">ListDeploymentGroups -&gt; ListDeploymentGroups -&gt; Bool
 (ListDeploymentGroups -&gt; ListDeploymentGroups -&gt; Bool)
 -&gt; (ListDeploymentGroups -&gt; ListDeploymentGroups -&gt; Bool)
 -&gt; Eq ListDeploymentGroups
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDeploymentGroups -&gt; ListDeploymentGroups -&gt; Bool
 == :: ListDeploymentGroups -&gt; ListDeploymentGroups -&gt; Bool
 $c== :: ListDeploymentGroups -&gt; ListDeploymentGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320905"><span id="local-6989586621679320907"><span id="local-6989586621679320909"><span id="local-6989586621679320911"><span class="annot"><span class="annottext">ReadPrec [ListDeploymentGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320914"><span id="local-6989586621679320916"><span id="local-6989586621679320918"><span id="local-6989586621679320920"><span class="annot"><span class="annottext">ReadPrec [ListDeploymentGroups]
 ReadPrec ListDeploymentGroups
 Int -&gt; ReadS ListDeploymentGroups
 ReadS [ListDeploymentGroups]
@@ -94,7 +94,7 @@ readList :: ReadS [ListDeploymentGroups]
 $creadList :: ReadS [ListDeploymentGroups]
 readsPrec :: Int -&gt; ReadS ListDeploymentGroups
 $creadsPrec :: Int -&gt; ReadS ListDeploymentGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320898"><span id="local-6989586621679320900"><span id="local-6989586621679320902"><span class="annot"><span class="annottext">Int -&gt; ListDeploymentGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320907"><span id="local-6989586621679320909"><span id="local-6989586621679320911"><span class="annot"><span class="annottext">Int -&gt; ListDeploymentGroups -&gt; ShowS
 [ListDeploymentGroups] -&gt; ShowS
 ListDeploymentGroups -&gt; String
 (Int -&gt; ListDeploymentGroups -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. ListDeploymentGroups -&gt; Rep ListDeploymentGroups x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span>
 </span><span id="line-85"></span><span id="newListDeploymentGroups"><span class="annot"><span class="annottext">newListDeploymentGroups :: Text -&gt; ListDeploymentGroups
-</span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#newListDeploymentGroups"><span class="hs-identifier hs-var hs-var">newListDeploymentGroups</span></a></span></span><span> </span><span id="local-6989586621679320893"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679320893"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#newListDeploymentGroups"><span class="hs-identifier hs-var hs-var">newListDeploymentGroups</span></a></span></span><span> </span><span id="local-6989586621679320902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320902"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">ListDeploymentGroups' :: Maybe Text -&gt; Text -&gt; ListDeploymentGroups
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDeploymentGroups' :: Maybe Text
@@ -148,7 +148,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationName:ListDeploymentGroups' :: Text
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AapplicationName%3AListDeploymentGroups%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679320893"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
+</span><a href="#local-6989586621679320902"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | An identifier returned from the previous list deployment groups call. It</span><span>
@@ -161,16 +161,16 @@ forall a. Maybe a
 -&gt; Lens
      ListDeploymentGroups ListDeploymentGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320891"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320900"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDeploymentGroups' :: ListDeploymentGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679320891"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320891"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320890"><span class="annot"><span class="annottext">s :: ListDeploymentGroups
-</span><a href="#local-6989586621679320890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320889"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroups
-</span><a href="#local-6989586621679320890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeploymentGroups' :: Maybe Text
+</span><a href="#local-6989586621679320900"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320900"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320899"><span class="annot"><span class="annottext">s :: ListDeploymentGroups
+</span><a href="#local-6989586621679320899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320898"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroups
+</span><a href="#local-6989586621679320899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeploymentGroups' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AnextToken%3AListDeploymentGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The name of an AWS CodeDeploy application associated with the IAM user</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- or AWS account.</span><span>
@@ -180,29 +180,29 @@ $sel:nextToken:ListDeploymentGroups' :: ListDeploymentGroups -&gt; Maybe Text
 -&gt; (ListDeploymentGroups -&gt; Text -&gt; ListDeploymentGroups)
 -&gt; Lens ListDeploymentGroups ListDeploymentGroups Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320888"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320897"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:ListDeploymentGroups' :: ListDeploymentGroups -&gt; Text
-</span><a href="#local-6989586621679320888"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679320888"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320887"><span class="annot"><span class="annottext">s :: ListDeploymentGroups
-</span><a href="#local-6989586621679320887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320886"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679320886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroups
-</span><a href="#local-6989586621679320887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ListDeploymentGroups' :: Text
+</span><a href="#local-6989586621679320897"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320897"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320896"><span class="annot"><span class="annottext">s :: ListDeploymentGroups
+</span><a href="#local-6989586621679320896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroups
+</span><a href="#local-6989586621679320896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ListDeploymentGroups' :: Text
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AapplicationName%3AListDeploymentGroups%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679320886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679320882"><span class="annot"><span class="annottext">page :: ListDeploymentGroups
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679320891"><span class="annot"><span class="annottext">page :: ListDeploymentGroups
 -&gt; AWSResponse ListDeploymentGroups -&gt; Maybe ListDeploymentGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679320880"><span class="annot"><span class="annottext">ListDeploymentGroups
-</span><a href="#local-6989586621679320880"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679320879"><span class="annot"><span class="annottext">AWSResponse ListDeploymentGroups
-</span><a href="#local-6989586621679320879"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679320889"><span class="annot"><span class="annottext">ListDeploymentGroups
+</span><a href="#local-6989586621679320889"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679320888"><span class="annot"><span class="annottext">AWSResponse ListDeploymentGroups
+</span><a href="#local-6989586621679320888"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeploymentGroups
 ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320879"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679320888"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
 -&gt; Getting (First Text) ListDeploymentGroupsResponse Text
 -&gt; Maybe Text
@@ -232,7 +232,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeploymentGroups
 ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320879"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679320888"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
 -&gt; Getting (First [Text]) ListDeploymentGroupsResponse [Text]
 -&gt; Maybe [Text]
@@ -266,7 +266,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ListDeploymentGroups
-</span><a href="#local-6989586621679320880"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679320889"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListDeploymentGroups
 -&gt; (ListDeploymentGroups -&gt; ListDeploymentGroups)
 -&gt; ListDeploymentGroups
@@ -282,7 +282,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDeploymentGroups
 ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320879"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679320888"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
 -&gt; Getting (First Text) ListDeploymentGroupsResponse Text
 -&gt; Maybe Text
@@ -308,12 +308,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679320869"><span class="annot"><span class="annottext">request :: ListDeploymentGroups -&gt; Request ListDeploymentGroups
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679320878"><span class="annot"><span class="annottext">request :: ListDeploymentGroups -&gt; Request ListDeploymentGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDeploymentGroups -&gt; Request ListDeploymentGroups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679320865"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679320874"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDeploymentGroups
 -&gt; ClientResponse ClientBody
@@ -339,10 +339,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679320862"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320862"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679320861"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679320861"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679320860"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679320860"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679320871"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320871"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679320870"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679320870"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679320869"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320869"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Text]
@@ -360,7 +360,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListDeploymentGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679320860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679320869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -372,7 +372,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe [Text] -&gt; Int -&gt; ListDeploymentGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679320860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679320869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;applicationName&quot;</span></span><span class="hs-special">)</span><span>
@@ -381,7 +381,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListDeploymentGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679320860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679320869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deploymentGroups&quot;</span></span><span>
@@ -400,15 +400,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320862"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320871"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320851"><span id="local-6989586621679320853"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320860"><span id="local-6989586621679320862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320848"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679320844"><span class="annot"><span class="annottext">toHeaders :: ListDeploymentGroups -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679320853"><span class="annot"><span class="annottext">toHeaders :: ListDeploymentGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDeploymentGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -435,15 +435,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320834"><span id="local-6989586621679320836"><span id="local-6989586621679320838"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679320832"><span class="annot"><span class="annottext">toJSON :: ListDeploymentGroups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320829"><span id="local-6989586621679320830"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320843"><span id="local-6989586621679320845"><span id="local-6989586621679320847"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679320841"><span class="annot"><span class="annottext">toJSON :: ListDeploymentGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups%27"><span class="hs-identifier hs-type">ListDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320838"><span id="local-6989586621679320839"><span class="annot"><span class="annottext">Maybe Text
 Text
 applicationName :: Text
 nextToken :: Maybe Text
 $sel:applicationName:ListDeploymentGroups' :: ListDeploymentGroups -&gt; Text
 $sel:nextToken:ListDeploymentGroups' :: ListDeploymentGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679320829"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679320838"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -455,7 +455,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320830"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679320839"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -463,19 +463,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;applicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679320829"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320838"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679320823"><span class="annot"><span class="annottext">toPath :: ListDeploymentGroups -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679320832"><span class="annot"><span class="annottext">toPath :: ListDeploymentGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDeploymentGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroups"><span class="hs-identifier hs-type">ListDeploymentGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679320819"><span class="annot"><span class="annottext">toQuery :: ListDeploymentGroups -&gt; QueryString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679320828"><span class="annot"><span class="annottext">toQuery :: ListDeploymentGroups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDeploymentGroups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -485,7 +485,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-175"></span><span class="hs-comment">-- | Represents the output of a @ListDeploymentGroups@ operation.</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- /See:/ 'newListDeploymentGroupsResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679320816"><span id="local-6989586621679320817"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeploymentGroupsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-var">ListDeploymentGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeploymentGroupsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">ListDeploymentGroupsResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679320825"><span id="local-6989586621679320826"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeploymentGroupsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-var">ListDeploymentGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeploymentGroupsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">ListDeploymentGroupsResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-comment">-- returned. It can be used in a subsequent list deployment groups call to</span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-comment">-- return the next set of deployment groups in the list.</span><span>
@@ -501,7 +501,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDeploymentGroupsResponse%27"><span class="annot"><span class="annottext">ListDeploymentGroupsResponse -&gt; Int
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AhttpStatus%3AListDeploymentGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320808"><span id="local-6989586621679320810"><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320817"><span id="local-6989586621679320819"><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
 -&gt; ListDeploymentGroupsResponse -&gt; Bool
 (ListDeploymentGroupsResponse
  -&gt; ListDeploymentGroupsResponse -&gt; Bool)
@@ -517,7 +517,7 @@ $c/= :: ListDeploymentGroupsResponse
 -&gt; ListDeploymentGroupsResponse -&gt; Bool
 $c== :: ListDeploymentGroupsResponse
 -&gt; ListDeploymentGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320800"><span id="local-6989586621679320802"><span id="local-6989586621679320804"><span id="local-6989586621679320806"><span class="annot"><span class="annottext">ReadPrec [ListDeploymentGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320809"><span id="local-6989586621679320811"><span id="local-6989586621679320813"><span id="local-6989586621679320815"><span class="annot"><span class="annottext">ReadPrec [ListDeploymentGroupsResponse]
 ReadPrec ListDeploymentGroupsResponse
 Int -&gt; ReadS ListDeploymentGroupsResponse
 ReadS [ListDeploymentGroupsResponse]
@@ -537,7 +537,7 @@ readList :: ReadS [ListDeploymentGroupsResponse]
 $creadList :: ReadS [ListDeploymentGroupsResponse]
 readsPrec :: Int -&gt; ReadS ListDeploymentGroupsResponse
 $creadsPrec :: Int -&gt; ReadS ListDeploymentGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320794"><span id="local-6989586621679320796"><span id="local-6989586621679320798"><span class="annot"><span class="annottext">Int -&gt; ListDeploymentGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320803"><span id="local-6989586621679320805"><span id="local-6989586621679320807"><span class="annot"><span class="annottext">Int -&gt; ListDeploymentGroupsResponse -&gt; ShowS
 [ListDeploymentGroupsResponse] -&gt; ShowS
 ListDeploymentGroupsResponse -&gt; String
 (Int -&gt; ListDeploymentGroupsResponse -&gt; ShowS)
@@ -591,8 +591,8 @@ ListDeploymentGroupsResponse -&gt; Rep ListDeploymentGroupsResponse x
 </span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span>
 </span><span id="line-213"></span><span id="newListDeploymentGroupsResponse"><span class="annot"><span class="annottext">newListDeploymentGroupsResponse :: Int -&gt; ListDeploymentGroupsResponse
-</span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#newListDeploymentGroupsResponse"><span class="hs-identifier hs-var hs-var">newListDeploymentGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679320791"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#newListDeploymentGroupsResponse"><span class="hs-identifier hs-var hs-var">newListDeploymentGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679320800"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320800"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Text]
@@ -614,7 +614,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeploymentGroupsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AhttpStatus%3AListDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679320800"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
@@ -628,16 +628,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListDeploymentGroupsResponse)
 -&gt; Lens' ListDeploymentGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320790"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320799"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDeploymentGroupsResponse' :: ListDeploymentGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679320790"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320790"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320789"><span class="annot"><span class="annottext">s :: ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320788"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeploymentGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679320799"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320799"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320798"><span class="annot"><span class="annottext">s :: ListDeploymentGroupsResponse
+</span><a href="#local-6989586621679320798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320797"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
+</span><a href="#local-6989586621679320798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDeploymentGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AnextToken%3AListDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The application name.</span><span>
 </span><span id="line-229"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#listDeploymentGroupsResponse_applicationName"><span class="hs-identifier hs-type">listDeploymentGroupsResponse_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -648,16 +648,16 @@ $sel:nextToken:ListDeploymentGroupsResponse' :: ListDeploymentGroupsResponse -&g
     -&gt; Maybe Text -&gt; ListDeploymentGroupsResponse)
 -&gt; Lens' ListDeploymentGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320787"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320796"><span class="annot"><span class="annottext">Maybe Text
 applicationName :: Maybe Text
 $sel:applicationName:ListDeploymentGroupsResponse' :: ListDeploymentGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679320787"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320787"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320786"><span class="annot"><span class="annottext">s :: ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320785"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ListDeploymentGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679320796"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320796"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320795"><span class="annot"><span class="annottext">s :: ListDeploymentGroupsResponse
+</span><a href="#local-6989586621679320795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
+</span><a href="#local-6989586621679320795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ListDeploymentGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AapplicationName%3AListDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679320785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | A list of deployment group names.</span><span>
 </span><span id="line-233"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#listDeploymentGroupsResponse_deploymentGroups"><span class="hs-identifier hs-type">listDeploymentGroupsResponse_deploymentGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -668,16 +668,16 @@ $sel:applicationName:ListDeploymentGroupsResponse' :: ListDeploymentGroupsRespon
     -&gt; Maybe [Text] -&gt; ListDeploymentGroupsResponse)
 -&gt; Lens' ListDeploymentGroupsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320784"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320793"><span class="annot"><span class="annottext">Maybe [Text]
 deploymentGroups :: Maybe [Text]
 $sel:deploymentGroups:ListDeploymentGroupsResponse' :: ListDeploymentGroupsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679320784"><span class="hs-identifier hs-var hs-var">deploymentGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679320784"><span class="hs-identifier hs-var">deploymentGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320783"><span class="annot"><span class="annottext">s :: ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320782"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentGroups:ListDeploymentGroupsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679320793"><span class="hs-identifier hs-var hs-var">deploymentGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679320793"><span class="hs-identifier hs-var">deploymentGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320792"><span class="annot"><span class="annottext">s :: ListDeploymentGroupsResponse
+</span><a href="#local-6989586621679320792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320791"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
+</span><a href="#local-6989586621679320792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentGroups:ListDeploymentGroupsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AdeploymentGroups%3AListDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">deploymentGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListDeploymentGroupsResponse -&gt; f ListDeploymentGroupsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -704,16 +704,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListDeploymentGroupsResponse ListDeploymentGroupsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320779"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320788"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDeploymentGroupsResponse' :: ListDeploymentGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679320779"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320779"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320778"><span class="annot"><span class="annottext">s :: ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320777"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
-</span><a href="#local-6989586621679320778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeploymentGroupsResponse' :: Int
+</span><a href="#local-6989586621679320788"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320788"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320787"><span class="annot"><span class="annottext">s :: ListDeploymentGroupsResponse
+</span><a href="#local-6989586621679320787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320786"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeploymentGroupsResponse
+</span><a href="#local-6989586621679320787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeploymentGroupsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#%24sel%3AhttpStatus%3AListDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679320777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679320786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320775"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListDeploymentGroups.html#ListDeploymentGroupsResponse"><span class="hs-identifier hs-type">ListDeploymentGroupsResponse</span></a></span></span><span>
 </span><span id="line-241"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Aac Raw Format</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679862608"><span id="local-6989586621679862609"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacRawFormat"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier hs-var">AacRawFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacRawFormat%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRawFormat.html#AacRawFormat%27"><span class="hs-identifier hs-var">AacRawFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679862617"><span id="local-6989586621679862618"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AacRawFormat"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRawFormat.html#AacRawFormat"><span class="hs-identifier hs-var">AacRawFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AacRawFormat%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AacRawFormat.html#AacRawFormat%27"><span class="hs-identifier hs-var">AacRawFormat'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAacRawFormat"><span class="annot"><span class="annottext">AacRawFormat -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.AacRawFormat.html#fromAacRawFormat"><span class="hs-identifier hs-var hs-var">fromAacRawFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862600"><span id="local-6989586621679862602"><span id="local-6989586621679862604"><span class="annot"><span class="annottext">Int -&gt; AacRawFormat -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862609"><span id="local-6989586621679862611"><span id="local-6989586621679862613"><span class="annot"><span class="annottext">Int -&gt; AacRawFormat -&gt; ShowS
 [AacRawFormat] -&gt; ShowS
 AacRawFormat -&gt; String
 (Int -&gt; AacRawFormat -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AacRawFormat -&gt; String
 showsPrec :: Int -&gt; AacRawFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; AacRawFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679862591"><span id="local-6989586621679862593"><span id="local-6989586621679862595"><span id="local-6989586621679862597"><span class="annot"><span class="annottext">ReadPrec [AacRawFormat]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679862600"><span id="local-6989586621679862602"><span id="local-6989586621679862604"><span id="local-6989586621679862606"><span class="annot"><span class="annottext">ReadPrec [AacRawFormat]
 ReadPrec AacRawFormat
 Int -&gt; ReadS AacRawFormat
 ReadS [AacRawFormat]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AacRawFormat]
 readsPrec :: Int -&gt; ReadS AacRawFormat
 $creadsPrec :: Int -&gt; ReadS AacRawFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679862586"><span id="local-6989586621679862588"><span class="annot"><span class="annottext">AacRawFormat -&gt; AacRawFormat -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679862595"><span id="local-6989586621679862597"><span class="annot"><span class="annottext">AacRawFormat -&gt; AacRawFormat -&gt; Bool
 (AacRawFormat -&gt; AacRawFormat -&gt; Bool)
 -&gt; (AacRawFormat -&gt; AacRawFormat -&gt; Bool) -&gt; Eq AacRawFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
 == :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
 $c== :: AacRawFormat -&gt; AacRawFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679862570"><span id="local-6989586621679862572"><span id="local-6989586621679862574"><span id="local-6989586621679862576"><span id="local-6989586621679862578"><span id="local-6989586621679862580"><span id="local-6989586621679862582"><span class="annot"><span class="annottext">Eq AacRawFormat
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679862579"><span id="local-6989586621679862581"><span id="local-6989586621679862583"><span id="local-6989586621679862585"><span id="local-6989586621679862587"><span id="local-6989586621679862589"><span id="local-6989586621679862591"><span class="annot"><span class="annottext">Eq AacRawFormat
 Eq AacRawFormat
 -&gt; (AacRawFormat -&gt; AacRawFormat -&gt; Ordering)
 -&gt; (AacRawFormat -&gt; AacRawFormat -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AacRawFormat -&gt; Rep AacRawFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862562"><span id="local-6989586621679862564"><span class="annot"><span class="annottext">Int -&gt; AacRawFormat -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679862571"><span id="local-6989586621679862573"><span class="annot"><span class="annottext">Int -&gt; AacRawFormat -&gt; Int
 AacRawFormat -&gt; Int
 (Int -&gt; AacRawFormat -&gt; Int)
 -&gt; (AacRawFormat -&gt; Int) -&gt; Hashable AacRawFormat
@@ -143,49 +143,49 @@ $chash :: AacRawFormat -&gt; Int
 hashWithSalt :: Int -&gt; AacRawFormat -&gt; Int
 $chashWithSalt :: Int -&gt; AacRawFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679862559"><span class="annot"><span class="annottext">AacRawFormat -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679862568"><span class="annot"><span class="annottext">AacRawFormat -&gt; ()
 (AacRawFormat -&gt; ()) -&gt; NFData AacRawFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AacRawFormat -&gt; ()
 $crnf :: AacRawFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679862556"><span class="annot"><span class="annottext">Text -&gt; Either String AacRawFormat
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679862565"><span class="annot"><span class="annottext">Text -&gt; Either String AacRawFormat
 (Text -&gt; Either String AacRawFormat) -&gt; FromText AacRawFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AacRawFormat
 $cfromText :: Text -&gt; Either String AacRawFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679862553"><span class="annot"><span class="annottext">AacRawFormat -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679862562"><span class="annot"><span class="annottext">AacRawFormat -&gt; Text
 (AacRawFormat -&gt; Text) -&gt; ToText AacRawFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AacRawFormat -&gt; Text
 $ctoText :: AacRawFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679862550"><span class="annot"><span class="annottext">AacRawFormat -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679862559"><span class="annot"><span class="annottext">AacRawFormat -&gt; ByteString
 (AacRawFormat -&gt; ByteString) -&gt; ToByteString AacRawFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AacRawFormat -&gt; ByteString
 $ctoBS :: AacRawFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679862547"><span class="annot"><span class="annottext">AacRawFormat -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679862556"><span class="annot"><span class="annottext">AacRawFormat -&gt; ByteStringBuilder
 (AacRawFormat -&gt; ByteStringBuilder) -&gt; ToLog AacRawFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AacRawFormat -&gt; ByteStringBuilder
 $cbuild :: AacRawFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679862544"><span class="annot"><span class="annottext">HeaderName -&gt; AacRawFormat -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679862553"><span class="annot"><span class="annottext">HeaderName -&gt; AacRawFormat -&gt; [Header]
 (HeaderName -&gt; AacRawFormat -&gt; [Header]) -&gt; ToHeader AacRawFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AacRawFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AacRawFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679862541"><span class="annot"><span class="annottext">AacRawFormat -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679862550"><span class="annot"><span class="annottext">AacRawFormat -&gt; QueryString
 (AacRawFormat -&gt; QueryString) -&gt; ToQuery AacRawFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AacRawFormat -&gt; QueryString
 $ctoQuery :: AacRawFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679862536"><span id="local-6989586621679862538"><span class="annot"><span class="annottext">Value -&gt; Parser [AacRawFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679862545"><span id="local-6989586621679862547"><span class="annot"><span class="annottext">Value -&gt; Parser [AacRawFormat]
 Value -&gt; Parser AacRawFormat
 (Value -&gt; Parser AacRawFormat)
 -&gt; (Value -&gt; Parser [AacRawFormat]) -&gt; FromJSON AacRawFormat
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [AacRawFormat]
 parseJSON :: Value -&gt; Parser AacRawFormat
 $cparseJSON :: Value -&gt; Parser AacRawFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679862531"><span id="local-6989586621679862533"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacRawFormat]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679862540"><span id="local-6989586621679862542"><span class="annot"><span class="annottext">FromJSONKeyFunction [AacRawFormat]
 FromJSONKeyFunction AacRawFormat
 FromJSONKeyFunction AacRawFormat
 -&gt; FromJSONKeyFunction [AacRawFormat] -&gt; FromJSONKey AacRawFormat
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AacRawFormat]
 fromJSONKey :: FromJSONKeyFunction AacRawFormat
 $cfromJSONKey :: FromJSONKeyFunction AacRawFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679862522"><span id="local-6989586621679862524"><span id="local-6989586621679862526"><span id="local-6989586621679862528"><span class="annot"><span class="annottext">[AacRawFormat] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679862531"><span id="local-6989586621679862533"><span id="local-6989586621679862535"><span id="local-6989586621679862537"><span class="annot"><span class="annottext">[AacRawFormat] -&gt; Encoding
 [AacRawFormat] -&gt; Value
 AacRawFormat -&gt; Encoding
 AacRawFormat -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: AacRawFormat -&gt; Encoding
 toJSON :: AacRawFormat -&gt; Value
 $ctoJSON :: AacRawFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679862517"><span id="local-6989586621679862519"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacRawFormat]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679862526"><span id="local-6989586621679862528"><span class="annot"><span class="annottext">ToJSONKeyFunction [AacRawFormat]
 ToJSONKeyFunction AacRawFormat
 ToJSONKeyFunction AacRawFormat
 -&gt; ToJSONKeyFunction [AacRawFormat] -&gt; ToJSONKey AacRawFormat
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AacRawFormat]
 toJSONKey :: ToJSONKeyFunction AacRawFormat
 $ctoJSONKey :: ToJSONKeyFunction AacRawFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679862514"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacRawFormat
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679862523"><span class="annot"><span class="annottext">[Node] -&gt; Either String AacRawFormat
 ([Node] -&gt; Either String AacRawFormat) -&gt; FromXML AacRawFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AacRawFormat
 $cparseXML :: [Node] -&gt; Either String AacRawFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679862511"><span class="annot"><span class="annottext">AacRawFormat -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679862520"><span class="annot"><span class="annottext">AacRawFormat -&gt; XML
 (AacRawFormat -&gt; XML) -&gt; ToXML AacRawFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AacRawFormat -&gt; XML

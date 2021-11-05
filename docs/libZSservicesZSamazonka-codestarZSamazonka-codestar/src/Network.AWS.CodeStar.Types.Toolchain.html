@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- CloudFormation.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newToolchain' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679174423"><span id="local-6989586621679174424"></span></span><span class="hs-keyword">data</span><span> </span><span id="Toolchain"><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-var">Toolchain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Toolchain%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-var">Toolchain'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679174432"><span id="local-6989586621679174433"></span></span><span class="hs-keyword">data</span><span> </span><span id="Toolchain"><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-var">Toolchain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Toolchain%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-var">Toolchain'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of parameter overrides to be passed into the toolchain template</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- during stack provisioning, if any.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AstackParameters%3AToolchain%27"><span class="annot"><span class="annottext">Toolchain -&gt; Maybe (HashMap Text (Sensitive Text))
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Asource%3AToolchain%27"><span class="annot"><span class="annottext">Toolchain -&gt; ToolchainSource
 </span><a href="Network.AWS.CodeStar.Types.Toolchain.html#%24sel%3Asource%3AToolchain%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ToolchainSource.html#ToolchainSource"><span class="hs-identifier hs-type">ToolchainSource</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174415"><span id="local-6989586621679174417"><span class="annot"><span class="annottext">Toolchain -&gt; Toolchain -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174424"><span id="local-6989586621679174426"><span class="annot"><span class="annottext">Toolchain -&gt; Toolchain -&gt; Bool
 (Toolchain -&gt; Toolchain -&gt; Bool)
 -&gt; (Toolchain -&gt; Toolchain -&gt; Bool) -&gt; Eq Toolchain
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Toolchain -&gt; Toolchain -&gt; Bool
 == :: Toolchain -&gt; Toolchain -&gt; Bool
 $c== :: Toolchain -&gt; Toolchain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174408"><span id="local-6989586621679174410"><span id="local-6989586621679174412"><span class="annot"><span class="annottext">Int -&gt; Toolchain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174417"><span id="local-6989586621679174419"><span id="local-6989586621679174421"><span class="annot"><span class="annottext">Int -&gt; Toolchain -&gt; ShowS
 [Toolchain] -&gt; ShowS
 Toolchain -&gt; String
 (Int -&gt; Toolchain -&gt; ShowS)
@@ -99,8 +99,8 @@ $cfrom :: forall x. Toolchain -&gt; Rep Toolchain x
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.Types.ToolchainSource.html#ToolchainSource"><span class="hs-identifier hs-type">ToolchainSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span><span>
 </span><span id="line-67"></span><span id="newToolchain"><span class="annot"><span class="annottext">newToolchain :: ToolchainSource -&gt; Toolchain
-</span><a href="Network.AWS.CodeStar.Types.Toolchain.html#newToolchain"><span class="hs-identifier hs-var hs-var">newToolchain</span></a></span></span><span> </span><span id="local-6989586621679174402"><span class="annot"><span class="annottext">ToolchainSource
-</span><a href="#local-6989586621679174402"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.Types.Toolchain.html#newToolchain"><span class="hs-identifier hs-var hs-var">newToolchain</span></a></span></span><span> </span><span id="local-6989586621679174411"><span class="annot"><span class="annottext">ToolchainSource
+</span><a href="#local-6989586621679174411"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Toolchain' :: Maybe (HashMap Text (Sensitive Text))
 -&gt; Maybe Text -&gt; ToolchainSource -&gt; Toolchain
 </span><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span>
@@ -114,7 +114,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:Toolchain' :: ToolchainSource
 </span><a href="Network.AWS.CodeStar.Types.Toolchain.html#%24sel%3Asource%3AToolchain%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ToolchainSource
-</span><a href="#local-6989586621679174402"><span class="hs-identifier hs-var">pSource_</span></a></span><span>
+</span><a href="#local-6989586621679174411"><span class="hs-identifier hs-var">pSource_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The list of parameter overrides to be passed into the toolchain template</span><span>
@@ -131,16 +131,16 @@ forall a. Maybe a
      (Maybe (HashMap Text (Sensitive Text)))
      (Maybe (HashMap Text (Sensitive Text)))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174398"><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174407"><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
 stackParameters :: Maybe (HashMap Text (Sensitive Text))
 $sel:stackParameters:Toolchain' :: Toolchain -&gt; Maybe (HashMap Text (Sensitive Text))
-</span><a href="#local-6989586621679174398"><span class="hs-identifier hs-var hs-var">stackParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
-</span><a href="#local-6989586621679174398"><span class="hs-identifier hs-var">stackParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174397"><span class="annot"><span class="annottext">s :: Toolchain
-</span><a href="#local-6989586621679174397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174396"><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
-</span><a href="#local-6989586621679174396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Toolchain
-</span><a href="#local-6989586621679174397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackParameters:Toolchain' :: Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679174407"><span class="hs-identifier hs-var hs-var">stackParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679174407"><span class="hs-identifier hs-var">stackParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174406"><span class="annot"><span class="annottext">s :: Toolchain
+</span><a href="#local-6989586621679174406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174405"><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679174405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Toolchain
+</span><a href="#local-6989586621679174406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackParameters:Toolchain' :: Maybe (HashMap Text (Sensitive Text))
 </span><a href="Network.AWS.CodeStar.Types.Toolchain.html#%24sel%3AstackParameters%3AToolchain%27"><span class="hs-identifier hs-var">stackParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
-</span><a href="#local-6989586621679174396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (Sensitive Text))
+</span><a href="#local-6989586621679174405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text (Sensitive Text))
   -&gt; f (Maybe (HashMap Text (Sensitive Text))))
  -&gt; Toolchain -&gt; f Toolchain)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -179,16 +179,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Toolchain -&gt; Maybe Text -&gt; Toolchain)
 -&gt; Lens Toolchain Toolchain (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174391"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174400"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:Toolchain' :: Toolchain -&gt; Maybe Text
-</span><a href="#local-6989586621679174391"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174391"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174390"><span class="annot"><span class="annottext">s :: Toolchain
-</span><a href="#local-6989586621679174390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174389"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Toolchain
-</span><a href="#local-6989586621679174390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Toolchain' :: Maybe Text
+</span><a href="#local-6989586621679174400"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174400"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174399"><span class="annot"><span class="annottext">s :: Toolchain
+</span><a href="#local-6989586621679174399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174398"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Toolchain
+</span><a href="#local-6989586621679174399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Toolchain' :: Maybe Text
 </span><a href="Network.AWS.CodeStar.Types.Toolchain.html#%24sel%3AroleArn%3AToolchain%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The Amazon S3 location where the toolchain template file provided with</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- the project request is stored. AWS CodeStar retrieves the file during</span><span>
@@ -199,24 +199,24 @@ $sel:roleArn:Toolchain' :: Toolchain -&gt; Maybe Text
 -&gt; (Toolchain -&gt; ToolchainSource -&gt; Toolchain)
 -&gt; Lens Toolchain Toolchain ToolchainSource ToolchainSource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174387"><span class="annot"><span class="annottext">ToolchainSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174396"><span class="annot"><span class="annottext">ToolchainSource
 source :: ToolchainSource
 $sel:source:Toolchain' :: Toolchain -&gt; ToolchainSource
-</span><a href="#local-6989586621679174387"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ToolchainSource
-</span><a href="#local-6989586621679174387"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174386"><span class="annot"><span class="annottext">s :: Toolchain
-</span><a href="#local-6989586621679174386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174385"><span class="annot"><span class="annottext">ToolchainSource
-</span><a href="#local-6989586621679174385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Toolchain
-</span><a href="#local-6989586621679174386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Toolchain' :: ToolchainSource
+</span><a href="#local-6989586621679174396"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ToolchainSource
+</span><a href="#local-6989586621679174396"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174395"><span class="annot"><span class="annottext">s :: Toolchain
+</span><a href="#local-6989586621679174395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174394"><span class="annot"><span class="annottext">ToolchainSource
+</span><a href="#local-6989586621679174394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Toolchain
+</span><a href="#local-6989586621679174395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:Toolchain' :: ToolchainSource
 </span><a href="Network.AWS.CodeStar.Types.Toolchain.html#%24sel%3Asource%3AToolchain%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ToolchainSource
-</span><a href="#local-6989586621679174385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174381"><span id="local-6989586621679174383"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174390"><span id="local-6989586621679174392"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174370"><span id="local-6989586621679174372"><span id="local-6989586621679174374"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679174368"><span class="annot"><span class="annottext">toJSON :: Toolchain -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174364"><span id="local-6989586621679174365"><span id="local-6989586621679174366"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174379"><span id="local-6989586621679174381"><span id="local-6989586621679174383"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain"><span class="hs-identifier hs-type">Toolchain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679174377"><span class="annot"><span class="annottext">toJSON :: Toolchain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.Toolchain.html#Toolchain%27"><span class="hs-identifier hs-type">Toolchain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174373"><span id="local-6989586621679174374"><span id="local-6989586621679174375"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text (Sensitive Text))
 ToolchainSource
 source :: ToolchainSource
@@ -225,7 +225,7 @@ stackParameters :: Maybe (HashMap Text (Sensitive Text))
 $sel:source:Toolchain' :: Toolchain -&gt; ToolchainSource
 $sel:roleArn:Toolchain' :: Toolchain -&gt; Maybe Text
 $sel:stackParameters:Toolchain' :: Toolchain -&gt; Maybe (HashMap Text (Sensitive Text))
-</span><a href="#local-6989586621679174364"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679174373"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -239,21 +239,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text (Sensitive Text)) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text (Sensitive Text))
-</span><a href="#local-6989586621679174366"><span class="hs-identifier hs-var">stackParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679174375"><span class="hs-identifier hs-var">stackParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174365"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679174374"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ToolchainSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ToolchainSource
-</span><a href="#local-6989586621679174364"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174373"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

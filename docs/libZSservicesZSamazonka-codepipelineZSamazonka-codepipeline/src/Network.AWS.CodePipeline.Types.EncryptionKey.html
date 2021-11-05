@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- artifact store, such as an AWS Key Management Service (AWS KMS) key.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEncryptionKey' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679277177"><span id="local-6989586621679277178"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionKey"><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-var">EncryptionKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionKey%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-var">EncryptionKey'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679277186"><span id="local-6989586621679277187"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionKey"><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-var">EncryptionKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionKey%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-var">EncryptionKey'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID used to identify the key. For an AWS KMS key, you can use the key</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- ID, the key ARN, or the alias ARN.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Atype%27%3AEncryptionKey%27"><span class="annot"><span class="annottext">EncryptionKey -&gt; EncryptionKeyType
 </span><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#%24sel%3Atype%27%3AEncryptionKey%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKeyType.html#EncryptionKeyType"><span class="hs-identifier hs-type">EncryptionKeyType</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277170"><span id="local-6989586621679277172"><span class="annot"><span class="annottext">EncryptionKey -&gt; EncryptionKey -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277179"><span id="local-6989586621679277181"><span class="annot"><span class="annottext">EncryptionKey -&gt; EncryptionKey -&gt; Bool
 (EncryptionKey -&gt; EncryptionKey -&gt; Bool)
 -&gt; (EncryptionKey -&gt; EncryptionKey -&gt; Bool) -&gt; Eq EncryptionKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EncryptionKey -&gt; EncryptionKey -&gt; Bool
 == :: EncryptionKey -&gt; EncryptionKey -&gt; Bool
 $c== :: EncryptionKey -&gt; EncryptionKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277161"><span id="local-6989586621679277163"><span id="local-6989586621679277165"><span id="local-6989586621679277167"><span class="annot"><span class="annottext">ReadPrec [EncryptionKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277170"><span id="local-6989586621679277172"><span id="local-6989586621679277174"><span id="local-6989586621679277176"><span class="annot"><span class="annottext">ReadPrec [EncryptionKey]
 ReadPrec EncryptionKey
 Int -&gt; ReadS EncryptionKey
 ReadS [EncryptionKey]
@@ -71,7 +71,7 @@ readList :: ReadS [EncryptionKey]
 $creadList :: ReadS [EncryptionKey]
 readsPrec :: Int -&gt; ReadS EncryptionKey
 $creadsPrec :: Int -&gt; ReadS EncryptionKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277154"><span id="local-6989586621679277156"><span id="local-6989586621679277158"><span class="annot"><span class="annottext">Int -&gt; EncryptionKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277163"><span id="local-6989586621679277165"><span id="local-6989586621679277167"><span class="annot"><span class="annottext">Int -&gt; EncryptionKey -&gt; ShowS
 [EncryptionKey] -&gt; ShowS
 EncryptionKey -&gt; String
 (Int -&gt; EncryptionKey -&gt; ShowS)
@@ -122,15 +122,15 @@ $cfrom :: forall x. EncryptionKey -&gt; Rep EncryptionKey x
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKeyType.html#EncryptionKeyType"><span class="hs-identifier hs-type">EncryptionKeyType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span><span>
 </span><span id="line-70"></span><span id="newEncryptionKey"><span class="annot"><span class="annottext">newEncryptionKey :: Text -&gt; EncryptionKeyType -&gt; EncryptionKey
-</span><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#newEncryptionKey"><span class="hs-identifier hs-var hs-var">newEncryptionKey</span></a></span></span><span> </span><span id="local-6989586621679277148"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277148"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679277147"><span class="annot"><span class="annottext">EncryptionKeyType
-</span><a href="#local-6989586621679277147"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#newEncryptionKey"><span class="hs-identifier hs-var hs-var">newEncryptionKey</span></a></span></span><span> </span><span id="local-6989586621679277157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277157"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679277156"><span class="annot"><span class="annottext">EncryptionKeyType
+</span><a href="#local-6989586621679277156"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">EncryptionKey' :: Text -&gt; EncryptionKeyType -&gt; EncryptionKey
 </span><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:EncryptionKey' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#%24sel%3Aid%3AEncryptionKey%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277148"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':EncryptionKey' :: EncryptionKeyType
+</span><a href="#local-6989586621679277157"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':EncryptionKey' :: EncryptionKeyType
 </span><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#%24sel%3Atype%27%3AEncryptionKey%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionKeyType
-</span><a href="#local-6989586621679277147"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679277156"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The ID used to identify the key. For an AWS KMS key, you can use the key</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- ID, the key ARN, or the alias ARN.</span><span>
@@ -144,16 +144,16 @@ $cfrom :: forall x. EncryptionKey -&gt; Rep EncryptionKey x
 -&gt; (EncryptionKey -&gt; Text -&gt; EncryptionKey)
 -&gt; Lens EncryptionKey EncryptionKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277143"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277152"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:EncryptionKey' :: EncryptionKey -&gt; Text
-</span><a href="#local-6989586621679277143"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277143"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277142"><span class="annot"><span class="annottext">s :: EncryptionKey
-</span><a href="#local-6989586621679277142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277141"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionKey
-</span><a href="#local-6989586621679277142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:EncryptionKey' :: Text
+</span><a href="#local-6989586621679277152"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277152"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277151"><span class="annot"><span class="annottext">s :: EncryptionKey
+</span><a href="#local-6989586621679277151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionKey
+</span><a href="#local-6989586621679277151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:EncryptionKey' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#%24sel%3Aid%3AEncryptionKey%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The type of encryption key, such as an AWS Key Management Service (AWS</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- KMS) key. When creating or updating a pipeline, the value must be set to</span><span>
@@ -166,19 +166,19 @@ $sel:id:EncryptionKey' :: EncryptionKey -&gt; Text
 -&gt; Lens
      EncryptionKey EncryptionKey EncryptionKeyType EncryptionKeyType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277139"><span class="annot"><span class="annottext">EncryptionKeyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277148"><span class="annot"><span class="annottext">EncryptionKeyType
 type' :: EncryptionKeyType
 $sel:type':EncryptionKey' :: EncryptionKey -&gt; EncryptionKeyType
-</span><a href="#local-6989586621679277139"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionKeyType
-</span><a href="#local-6989586621679277139"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277138"><span class="annot"><span class="annottext">s :: EncryptionKey
-</span><a href="#local-6989586621679277138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277137"><span class="annot"><span class="annottext">EncryptionKeyType
-</span><a href="#local-6989586621679277137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionKey
-</span><a href="#local-6989586621679277138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EncryptionKey' :: EncryptionKeyType
+</span><a href="#local-6989586621679277148"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionKeyType
+</span><a href="#local-6989586621679277148"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277147"><span class="annot"><span class="annottext">s :: EncryptionKey
+</span><a href="#local-6989586621679277147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277146"><span class="annot"><span class="annottext">EncryptionKeyType
+</span><a href="#local-6989586621679277146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionKey
+</span><a href="#local-6989586621679277147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EncryptionKey' :: EncryptionKeyType
 </span><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#%24sel%3Atype%27%3AEncryptionKey%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EncryptionKeyType
-</span><a href="#local-6989586621679277137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277134"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679277132"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionKey
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277143"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679277141"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EncryptionKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EncryptionKey)
@@ -188,40 +188,40 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EncryptionKey&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277129"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277129"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277138"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277138"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; EncryptionKeyType -&gt; EncryptionKey
 </span><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-var">EncryptionKey'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; EncryptionKeyType -&gt; EncryptionKey)
 -&gt; Parser Text -&gt; Parser (EncryptionKeyType -&gt; EncryptionKey)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679277138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (EncryptionKeyType -&gt; EncryptionKey)
 -&gt; Parser EncryptionKeyType -&gt; Parser EncryptionKey
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EncryptionKeyType
+</span><a href="#local-6989586621679277138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EncryptionKeyType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277123"><span id="local-6989586621679277125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277132"><span id="local-6989586621679277134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277112"><span id="local-6989586621679277114"><span id="local-6989586621679277116"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679277110"><span class="annot"><span class="annottext">toJSON :: EncryptionKey -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277107"><span id="local-6989586621679277108"><span class="annot"><span class="annottext">Text
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277121"><span id="local-6989586621679277123"><span id="local-6989586621679277125"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey"><span class="hs-identifier hs-type">EncryptionKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679277119"><span class="annot"><span class="annottext">toJSON :: EncryptionKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.EncryptionKey.html#EncryptionKey%27"><span class="hs-identifier hs-type">EncryptionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277116"><span id="local-6989586621679277117"><span class="annot"><span class="annottext">Text
 EncryptionKeyType
 type' :: EncryptionKeyType
 id :: Text
 $sel:type':EncryptionKey' :: EncryptionKey -&gt; EncryptionKeyType
 $sel:id:EncryptionKey' :: EncryptionKey -&gt; Text
-</span><a href="#local-6989586621679277107"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679277116"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -233,14 +233,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277108"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277117"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EncryptionKeyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EncryptionKeyType
-</span><a href="#local-6989586621679277107"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277116"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span></pre></body></html>

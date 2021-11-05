@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- CloudFront distribution.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFunctionAssociation' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679391005"><span id="local-6989586621679391006"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionAssociation"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-var">FunctionAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionAssociation%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-var">FunctionAssociation'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679391014"><span id="local-6989586621679391015"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionAssociation"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-var">FunctionAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionAssociation%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-var">FunctionAssociation'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the function.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AfunctionARN%3AFunctionAssociation%27"><span class="annot"><span class="annottext">FunctionAssociation -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#%24sel%3AfunctionARN%3AFunctionAssociation%27"><span class="hs-identifier hs-var hs-var">functionARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AeventType%3AFunctionAssociation%27"><span class="annot"><span class="annottext">FunctionAssociation -&gt; EventType
 </span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#%24sel%3AeventType%3AFunctionAssociation%27"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390998"><span id="local-6989586621679391000"><span class="annot"><span class="annottext">FunctionAssociation -&gt; FunctionAssociation -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391007"><span id="local-6989586621679391009"><span class="annot"><span class="annottext">FunctionAssociation -&gt; FunctionAssociation -&gt; Bool
 (FunctionAssociation -&gt; FunctionAssociation -&gt; Bool)
 -&gt; (FunctionAssociation -&gt; FunctionAssociation -&gt; Bool)
 -&gt; Eq FunctionAssociation
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FunctionAssociation -&gt; FunctionAssociation -&gt; Bool
 == :: FunctionAssociation -&gt; FunctionAssociation -&gt; Bool
 $c== :: FunctionAssociation -&gt; FunctionAssociation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390989"><span id="local-6989586621679390991"><span id="local-6989586621679390993"><span id="local-6989586621679390995"><span class="annot"><span class="annottext">ReadPrec [FunctionAssociation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390998"><span id="local-6989586621679391000"><span id="local-6989586621679391002"><span id="local-6989586621679391004"><span class="annot"><span class="annottext">ReadPrec [FunctionAssociation]
 ReadPrec FunctionAssociation
 Int -&gt; ReadS FunctionAssociation
 ReadS [FunctionAssociation]
@@ -67,7 +67,7 @@ readList :: ReadS [FunctionAssociation]
 $creadList :: ReadS [FunctionAssociation]
 readsPrec :: Int -&gt; ReadS FunctionAssociation
 $creadsPrec :: Int -&gt; ReadS FunctionAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390982"><span id="local-6989586621679390984"><span id="local-6989586621679390986"><span class="annot"><span class="annottext">Int -&gt; FunctionAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390991"><span id="local-6989586621679390993"><span id="local-6989586621679390995"><span class="annot"><span class="annottext">Int -&gt; FunctionAssociation -&gt; ShowS
 [FunctionAssociation] -&gt; ShowS
 FunctionAssociation -&gt; String
 (Int -&gt; FunctionAssociation -&gt; ShowS)
@@ -113,17 +113,17 @@ $cfrom :: forall x. FunctionAssociation -&gt; Rep FunctionAssociation x
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span><span>
 </span><span id="line-60"></span><span id="newFunctionAssociation"><span class="annot"><span class="annottext">newFunctionAssociation :: Text -&gt; EventType -&gt; FunctionAssociation
-</span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#newFunctionAssociation"><span class="hs-identifier hs-var hs-var">newFunctionAssociation</span></a></span></span><span> </span><span id="local-6989586621679390976"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390976"><span class="hs-identifier hs-var">pFunctionARN_</span></a></span></span><span> </span><span id="local-6989586621679390975"><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679390975"><span class="hs-identifier hs-var">pEventType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#newFunctionAssociation"><span class="hs-identifier hs-var hs-var">newFunctionAssociation</span></a></span></span><span> </span><span id="local-6989586621679390985"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390985"><span class="hs-identifier hs-var">pFunctionARN_</span></a></span></span><span> </span><span id="local-6989586621679390984"><span class="annot"><span class="annottext">EventType
+</span><a href="#local-6989586621679390984"><span class="hs-identifier hs-var">pEventType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">FunctionAssociation' :: Text -&gt; EventType -&gt; FunctionAssociation
 </span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functionARN:FunctionAssociation' :: Text
 </span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#%24sel%3AfunctionARN%3AFunctionAssociation%27"><span class="hs-identifier hs-var">functionARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390976"><span class="hs-identifier hs-var">pFunctionARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390985"><span class="hs-identifier hs-var">pFunctionARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventType:FunctionAssociation' :: EventType
 </span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#%24sel%3AeventType%3AFunctionAssociation%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679390975"><span class="hs-identifier hs-var">pEventType_</span></a></span><span>
+</span><a href="#local-6989586621679390984"><span class="hs-identifier hs-var">pEventType_</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the function.</span><span>
@@ -133,16 +133,16 @@ $cfrom :: forall x. FunctionAssociation -&gt; Rep FunctionAssociation x
 -&gt; (FunctionAssociation -&gt; Text -&gt; FunctionAssociation)
 -&gt; Lens FunctionAssociation FunctionAssociation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390971"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390980"><span class="annot"><span class="annottext">Text
 functionARN :: Text
 $sel:functionARN:FunctionAssociation' :: FunctionAssociation -&gt; Text
-</span><a href="#local-6989586621679390971"><span class="hs-identifier hs-var hs-var">functionARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390971"><span class="hs-identifier hs-var">functionARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390970"><span class="annot"><span class="annottext">s :: FunctionAssociation
-</span><a href="#local-6989586621679390970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390969"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionAssociation
-</span><a href="#local-6989586621679390970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionARN:FunctionAssociation' :: Text
+</span><a href="#local-6989586621679390980"><span class="hs-identifier hs-var hs-var">functionARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390980"><span class="hs-identifier hs-var">functionARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390979"><span class="annot"><span class="annottext">s :: FunctionAssociation
+</span><a href="#local-6989586621679390979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionAssociation
+</span><a href="#local-6989586621679390979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionARN:FunctionAssociation' :: Text
 </span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#%24sel%3AfunctionARN%3AFunctionAssociation%27"><span class="hs-identifier hs-var">functionARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The event type of the function, either @viewer-request@ or</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- @viewer-response@. You cannot use origin-facing event types</span><span>
@@ -154,21 +154,21 @@ $sel:functionARN:FunctionAssociation' :: FunctionAssociation -&gt; Text
 -&gt; (FunctionAssociation -&gt; EventType -&gt; FunctionAssociation)
 -&gt; Lens FunctionAssociation FunctionAssociation EventType EventType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390967"><span class="annot"><span class="annottext">EventType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390976"><span class="annot"><span class="annottext">EventType
 eventType :: EventType
 $sel:eventType:FunctionAssociation' :: FunctionAssociation -&gt; EventType
-</span><a href="#local-6989586621679390967"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679390967"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390966"><span class="annot"><span class="annottext">s :: FunctionAssociation
-</span><a href="#local-6989586621679390966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390965"><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679390965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionAssociation
-</span><a href="#local-6989586621679390966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:FunctionAssociation' :: EventType
+</span><a href="#local-6989586621679390976"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventType
+</span><a href="#local-6989586621679390976"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390975"><span class="annot"><span class="annottext">s :: FunctionAssociation
+</span><a href="#local-6989586621679390975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390974"><span class="annot"><span class="annottext">EventType
+</span><a href="#local-6989586621679390974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionAssociation
+</span><a href="#local-6989586621679390975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:FunctionAssociation' :: EventType
 </span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#%24sel%3AeventType%3AFunctionAssociation%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679390965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679390962"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FunctionAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679390960"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679390960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679390971"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FunctionAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679390969"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679390969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; EventType -&gt; FunctionAssociation
 </span><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-var">FunctionAssociation'</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; EventType -&gt; FunctionAssociation)
@@ -176,7 +176,7 @@ $sel:eventType:FunctionAssociation' :: FunctionAssociation -&gt; EventType
 -&gt; Either String (EventType -&gt; FunctionAssociation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679390960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679390969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FunctionARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -184,24 +184,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String EventType -&gt; Either String FunctionAssociation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679390960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String EventType
+</span><a href="#local-6989586621679390969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String EventType
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390954"><span id="local-6989586621679390956"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390963"><span id="local-6989586621679390965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation"><span class="hs-identifier hs-type">FunctionAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679390947"><span class="annot"><span class="annottext">toXML :: FunctionAssociation -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390944"><span id="local-6989586621679390945"><span class="annot"><span class="annottext">Text
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679390956"><span class="annot"><span class="annottext">toXML :: FunctionAssociation -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionAssociation.html#FunctionAssociation%27"><span class="hs-identifier hs-type">FunctionAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390953"><span id="local-6989586621679390954"><span class="annot"><span class="annottext">Text
 EventType
 eventType :: EventType
 functionARN :: Text
 $sel:eventType:FunctionAssociation' :: FunctionAssociation -&gt; EventType
 $sel:functionARN:FunctionAssociation' :: FunctionAssociation -&gt; Text
-</span><a href="#local-6989586621679390944"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679390953"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -209,11 +209,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;FunctionARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390945"><span class="hs-identifier hs-var">functionARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390954"><span class="hs-identifier hs-var">functionARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;EventType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; EventType -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">EventType
-</span><a href="#local-6989586621679390944"><span class="hs-identifier hs-var">eventType</span></a></span><span>
+</span><a href="#local-6989586621679390953"><span class="hs-identifier hs-var">eventType</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-92"></span></pre></body></html>

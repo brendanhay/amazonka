@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Represents the input of a @PutJobSuccessResult@ action.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newPutJobSuccessResult' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679287547"><span id="local-6989586621679287548"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutJobSuccessResult"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-var">PutJobSuccessResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutJobSuccessResult%27"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-var">PutJobSuccessResult'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679287556"><span id="local-6989586621679287557"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutJobSuccessResult"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-var">PutJobSuccessResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutJobSuccessResult%27"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-var">PutJobSuccessResult'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Key-value pairs produced as output by a job worker that can be made</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- available to a downstream action configuration. @outputVariables@ can be</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- included only when there is no continuation token on the request.</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AjobId%3APutJobSuccessResult%27"><span class="annot"><span class="annottext">PutJobSuccessResult -&gt; Text
 </span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#%24sel%3AjobId%3APutJobSuccessResult%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287537"><span id="local-6989586621679287539"><span class="annot"><span class="annottext">PutJobSuccessResult -&gt; PutJobSuccessResult -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287546"><span id="local-6989586621679287548"><span class="annot"><span class="annottext">PutJobSuccessResult -&gt; PutJobSuccessResult -&gt; Bool
 (PutJobSuccessResult -&gt; PutJobSuccessResult -&gt; Bool)
 -&gt; (PutJobSuccessResult -&gt; PutJobSuccessResult -&gt; Bool)
 -&gt; Eq PutJobSuccessResult
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutJobSuccessResult -&gt; PutJobSuccessResult -&gt; Bool
 == :: PutJobSuccessResult -&gt; PutJobSuccessResult -&gt; Bool
 $c== :: PutJobSuccessResult -&gt; PutJobSuccessResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287528"><span id="local-6989586621679287530"><span id="local-6989586621679287532"><span id="local-6989586621679287534"><span class="annot"><span class="annottext">ReadPrec [PutJobSuccessResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287537"><span id="local-6989586621679287539"><span id="local-6989586621679287541"><span id="local-6989586621679287543"><span class="annot"><span class="annottext">ReadPrec [PutJobSuccessResult]
 ReadPrec PutJobSuccessResult
 Int -&gt; ReadS PutJobSuccessResult
 ReadS [PutJobSuccessResult]
@@ -106,7 +106,7 @@ readList :: ReadS [PutJobSuccessResult]
 $creadList :: ReadS [PutJobSuccessResult]
 readsPrec :: Int -&gt; ReadS PutJobSuccessResult
 $creadsPrec :: Int -&gt; ReadS PutJobSuccessResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287521"><span id="local-6989586621679287523"><span id="local-6989586621679287525"><span class="annot"><span class="annottext">Int -&gt; PutJobSuccessResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287530"><span id="local-6989586621679287532"><span id="local-6989586621679287534"><span class="annot"><span class="annottext">Int -&gt; PutJobSuccessResult -&gt; ShowS
 [PutJobSuccessResult] -&gt; ShowS
 PutJobSuccessResult -&gt; String
 (Int -&gt; PutJobSuccessResult -&gt; ShowS)
@@ -164,8 +164,8 @@ $cfrom :: forall x. PutJobSuccessResult -&gt; Rep PutJobSuccessResult x
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span>
 </span><span id="line-108"></span><span id="newPutJobSuccessResult"><span class="annot"><span class="annottext">newPutJobSuccessResult :: Text -&gt; PutJobSuccessResult
-</span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#newPutJobSuccessResult"><span class="hs-identifier hs-var hs-var">newPutJobSuccessResult</span></a></span></span><span> </span><span id="local-6989586621679287516"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287516"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#newPutJobSuccessResult"><span class="hs-identifier hs-var hs-var">newPutJobSuccessResult</span></a></span></span><span> </span><span id="local-6989586621679287525"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287525"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">PutJobSuccessResult' :: Maybe (HashMap Text Text)
 -&gt; Maybe Text
 -&gt; Maybe ExecutionDetails
@@ -192,7 +192,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:PutJobSuccessResult' :: Text
 </span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#%24sel%3AjobId%3APutJobSuccessResult%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287516"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><a href="#local-6989586621679287525"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Key-value pairs produced as output by a job worker that can be made</span><span>
@@ -210,16 +210,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287513"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287522"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 outputVariables :: Maybe (HashMap Text Text)
 $sel:outputVariables:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679287513"><span class="hs-identifier hs-var hs-var">outputVariables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679287513"><span class="hs-identifier hs-var">outputVariables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287512"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
-</span><a href="#local-6989586621679287512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287511"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679287511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
-</span><a href="#local-6989586621679287512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputVariables:PutJobSuccessResult' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679287522"><span class="hs-identifier hs-var hs-var">outputVariables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679287522"><span class="hs-identifier hs-var">outputVariables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287521"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
+</span><a href="#local-6989586621679287521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287520"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679287520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
+</span><a href="#local-6989586621679287521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputVariables:PutJobSuccessResult' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#%24sel%3AoutputVariables%3APutJobSuccessResult%27"><span class="hs-identifier hs-var">outputVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679287511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679287520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; PutJobSuccessResult -&gt; f PutJobSuccessResult)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -262,16 +262,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      PutJobSuccessResult PutJobSuccessResult (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287507"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287516"><span class="annot"><span class="annottext">Maybe Text
 continuationToken :: Maybe Text
 $sel:continuationToken:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe Text
-</span><a href="#local-6989586621679287507"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679287507"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287506"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
-</span><a href="#local-6989586621679287506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287505"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679287505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
-</span><a href="#local-6989586621679287506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationToken:PutJobSuccessResult' :: Maybe Text
+</span><a href="#local-6989586621679287516"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287516"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287515"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
+</span><a href="#local-6989586621679287515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
+</span><a href="#local-6989586621679287515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationToken:PutJobSuccessResult' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#%24sel%3AcontinuationToken%3APutJobSuccessResult%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679287505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The execution details of the successful job, such as the actions taken</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- by the job worker.</span><span>
@@ -287,16 +287,16 @@ $sel:continuationToken:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe T
      (Maybe ExecutionDetails)
      (Maybe ExecutionDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287504"><span class="annot"><span class="annottext">Maybe ExecutionDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287513"><span class="annot"><span class="annottext">Maybe ExecutionDetails
 executionDetails :: Maybe ExecutionDetails
 $sel:executionDetails:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe ExecutionDetails
-</span><a href="#local-6989586621679287504"><span class="hs-identifier hs-var hs-var">executionDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionDetails
-</span><a href="#local-6989586621679287504"><span class="hs-identifier hs-var">executionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287503"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
-</span><a href="#local-6989586621679287503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287502"><span class="annot"><span class="annottext">Maybe ExecutionDetails
-</span><a href="#local-6989586621679287502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
-</span><a href="#local-6989586621679287503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionDetails:PutJobSuccessResult' :: Maybe ExecutionDetails
+</span><a href="#local-6989586621679287513"><span class="hs-identifier hs-var hs-var">executionDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionDetails
+</span><a href="#local-6989586621679287513"><span class="hs-identifier hs-var">executionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287512"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
+</span><a href="#local-6989586621679287512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287511"><span class="annot"><span class="annottext">Maybe ExecutionDetails
+</span><a href="#local-6989586621679287511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
+</span><a href="#local-6989586621679287512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionDetails:PutJobSuccessResult' :: Maybe ExecutionDetails
 </span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#%24sel%3AexecutionDetails%3APutJobSuccessResult%27"><span class="hs-identifier hs-var">executionDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionDetails
-</span><a href="#local-6989586621679287502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The ID of the current revision of the artifact successfully worked on by</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- the job.</span><span>
@@ -312,16 +312,16 @@ $sel:executionDetails:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe Ex
      (Maybe CurrentRevision)
      (Maybe CurrentRevision)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287501"><span class="annot"><span class="annottext">Maybe CurrentRevision
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287510"><span class="annot"><span class="annottext">Maybe CurrentRevision
 currentRevision :: Maybe CurrentRevision
 $sel:currentRevision:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe CurrentRevision
-</span><a href="#local-6989586621679287501"><span class="hs-identifier hs-var hs-var">currentRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrentRevision
-</span><a href="#local-6989586621679287501"><span class="hs-identifier hs-var">currentRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287500"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
-</span><a href="#local-6989586621679287500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287499"><span class="annot"><span class="annottext">Maybe CurrentRevision
-</span><a href="#local-6989586621679287499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
-</span><a href="#local-6989586621679287500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentRevision:PutJobSuccessResult' :: Maybe CurrentRevision
+</span><a href="#local-6989586621679287510"><span class="hs-identifier hs-var hs-var">currentRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrentRevision
+</span><a href="#local-6989586621679287510"><span class="hs-identifier hs-var">currentRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287509"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
+</span><a href="#local-6989586621679287509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287508"><span class="annot"><span class="annottext">Maybe CurrentRevision
+</span><a href="#local-6989586621679287508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
+</span><a href="#local-6989586621679287509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentRevision:PutJobSuccessResult' :: Maybe CurrentRevision
 </span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#%24sel%3AcurrentRevision%3APutJobSuccessResult%27"><span class="hs-identifier hs-var">currentRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrentRevision
-</span><a href="#local-6989586621679287499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The unique system-generated ID of the job that succeeded. This is the</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- same ID returned from @PollForJobs@.</span><span>
@@ -331,27 +331,27 @@ $sel:currentRevision:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe Cur
 -&gt; (PutJobSuccessResult -&gt; Text -&gt; PutJobSuccessResult)
 -&gt; Lens PutJobSuccessResult PutJobSuccessResult Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287498"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287507"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Text
-</span><a href="#local-6989586621679287498"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287498"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287497"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
-</span><a href="#local-6989586621679287497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287496"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
-</span><a href="#local-6989586621679287497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:PutJobSuccessResult' :: Text
+</span><a href="#local-6989586621679287507"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287507"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287506"><span class="annot"><span class="annottext">s :: PutJobSuccessResult
+</span><a href="#local-6989586621679287506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutJobSuccessResult
+</span><a href="#local-6989586621679287506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:PutJobSuccessResult' :: Text
 </span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#%24sel%3AjobId%3APutJobSuccessResult%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-150"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResultResponse"><span class="hs-identifier hs-type">PutJobSuccessResultResponse</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679287492"><span class="annot"><span class="annottext">request :: PutJobSuccessResult -&gt; Request PutJobSuccessResult
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679287501"><span class="annot"><span class="annottext">request :: PutJobSuccessResult -&gt; Request PutJobSuccessResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutJobSuccessResult -&gt; Request PutJobSuccessResult
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679287488"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679287497"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutJobSuccessResult
 -&gt; ClientResponse ClientBody
@@ -377,12 +377,12 @@ AWSResponse a
 PutJobSuccessResultResponse
 </span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResultResponse%27"><span class="hs-identifier hs-var">PutJobSuccessResultResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287481"><span id="local-6989586621679287483"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287490"><span id="local-6989586621679287492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287478"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679287474"><span class="annot"><span class="annottext">toHeaders :: PutJobSuccessResult -&gt; [Header]
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679287483"><span class="annot"><span class="annottext">toHeaders :: PutJobSuccessResult -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutJobSuccessResult -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -409,9 +409,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287464"><span id="local-6989586621679287466"><span id="local-6989586621679287468"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679287462"><span class="annot"><span class="annottext">toJSON :: PutJobSuccessResult -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287456"><span id="local-6989586621679287457"><span id="local-6989586621679287458"><span id="local-6989586621679287459"><span id="local-6989586621679287460"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287473"><span id="local-6989586621679287475"><span id="local-6989586621679287477"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679287471"><span class="annot"><span class="annottext">toJSON :: PutJobSuccessResult -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult%27"><span class="hs-identifier hs-type">PutJobSuccessResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287465"><span id="local-6989586621679287466"><span id="local-6989586621679287467"><span id="local-6989586621679287468"><span id="local-6989586621679287469"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Maybe CurrentRevision
 Maybe ExecutionDetails
@@ -426,7 +426,7 @@ $sel:currentRevision:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe Cur
 $sel:executionDetails:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe ExecutionDetails
 $sel:continuationToken:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe Text
 $sel:outputVariables:PutJobSuccessResult' :: PutJobSuccessResult -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679287456"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679287465"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -440,7 +440,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679287460"><span class="hs-identifier hs-var">outputVariables</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287469"><span class="hs-identifier hs-var">outputVariables</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;continuationToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -448,7 +448,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679287459"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287468"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecutionDetails -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -456,7 +456,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(ExecutionDetails -&gt; Pair) -&gt; Maybe ExecutionDetails -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionDetails
-</span><a href="#local-6989586621679287458"><span class="hs-identifier hs-var">executionDetails</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287467"><span class="hs-identifier hs-var">executionDetails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;currentRevision&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CurrentRevision -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -464,26 +464,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(CurrentRevision -&gt; Pair) -&gt; Maybe CurrentRevision -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CurrentRevision
-</span><a href="#local-6989586621679287457"><span class="hs-identifier hs-var">currentRevision</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287466"><span class="hs-identifier hs-var">currentRevision</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287456"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287465"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679287449"><span class="annot"><span class="annottext">toPath :: PutJobSuccessResult -&gt; ByteString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679287458"><span class="annot"><span class="annottext">toPath :: PutJobSuccessResult -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutJobSuccessResult -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResult"><span class="hs-identifier hs-type">PutJobSuccessResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679287445"><span class="annot"><span class="annottext">toQuery :: PutJobSuccessResult -&gt; QueryString
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679287454"><span class="annot"><span class="annottext">toQuery :: PutJobSuccessResult -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutJobSuccessResult -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -491,10 +491,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | /See:/ 'newPutJobSuccessResultResponse' smart constructor.</span><span>
-</span><span id="line-198"></span><span id="local-6989586621679287442"><span id="local-6989586621679287443"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutJobSuccessResultResponse"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResultResponse"><span class="hs-identifier hs-var">PutJobSuccessResultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutJobSuccessResultResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResultResponse%27"><span class="hs-identifier hs-var">PutJobSuccessResultResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span id="local-6989586621679287451"><span id="local-6989586621679287452"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutJobSuccessResultResponse"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResultResponse"><span class="hs-identifier hs-var">PutJobSuccessResultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutJobSuccessResultResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResultResponse%27"><span class="hs-identifier hs-var">PutJobSuccessResultResponse'</span></a></span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287438"><span id="local-6989586621679287440"><span class="annot"><span class="annottext">PutJobSuccessResultResponse -&gt; PutJobSuccessResultResponse -&gt; Bool
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287447"><span id="local-6989586621679287449"><span class="annot"><span class="annottext">PutJobSuccessResultResponse -&gt; PutJobSuccessResultResponse -&gt; Bool
 (PutJobSuccessResultResponse
  -&gt; PutJobSuccessResultResponse -&gt; Bool)
 -&gt; (PutJobSuccessResultResponse
@@ -505,7 +505,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutJobSuccessResultResponse -&gt; PutJobSuccessResultResponse -&gt; Bool
 == :: PutJobSuccessResultResponse -&gt; PutJobSuccessResultResponse -&gt; Bool
 $c== :: PutJobSuccessResultResponse -&gt; PutJobSuccessResultResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287430"><span id="local-6989586621679287432"><span id="local-6989586621679287434"><span id="local-6989586621679287436"><span class="annot"><span class="annottext">ReadPrec [PutJobSuccessResultResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287439"><span id="local-6989586621679287441"><span id="local-6989586621679287443"><span id="local-6989586621679287445"><span class="annot"><span class="annottext">ReadPrec [PutJobSuccessResultResponse]
 ReadPrec PutJobSuccessResultResponse
 Int -&gt; ReadS PutJobSuccessResultResponse
 ReadS [PutJobSuccessResultResponse]
@@ -525,7 +525,7 @@ readList :: ReadS [PutJobSuccessResultResponse]
 $creadList :: ReadS [PutJobSuccessResultResponse]
 readsPrec :: Int -&gt; ReadS PutJobSuccessResultResponse
 $creadsPrec :: Int -&gt; ReadS PutJobSuccessResultResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287424"><span id="local-6989586621679287426"><span id="local-6989586621679287428"><span class="annot"><span class="annottext">Int -&gt; PutJobSuccessResultResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287433"><span id="local-6989586621679287435"><span id="local-6989586621679287437"><span class="annot"><span class="annottext">Int -&gt; PutJobSuccessResultResponse -&gt; ShowS
 [PutJobSuccessResultResponse] -&gt; ShowS
 PutJobSuccessResultResponse -&gt; String
 (Int -&gt; PutJobSuccessResultResponse -&gt; ShowS)
@@ -568,5 +568,5 @@ PutJobSuccessResultResponse -&gt; Rep PutJobSuccessResultResponse x
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">PutJobSuccessResultResponse
 </span><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResultResponse%27"><span class="hs-identifier hs-var">PutJobSuccessResultResponse'</span></a></span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResultResponse"><span class="hs-identifier hs-type">PutJobSuccessResultResponse</span></a></span></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.PutJobSuccessResult.html#PutJobSuccessResultResponse"><span class="hs-identifier hs-type">PutJobSuccessResultResponse</span></a></span></span><span>
 </span><span id="line-213"></span></pre></body></html>

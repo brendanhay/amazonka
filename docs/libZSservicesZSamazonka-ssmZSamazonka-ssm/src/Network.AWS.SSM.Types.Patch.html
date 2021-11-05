@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents metadata about a patch.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPatch' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679807465"><span id="local-6989586621679807466"></span></span><span class="hs-keyword">data</span><span> </span><span id="Patch"><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-var">Patch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Patch%27"><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-var">Patch'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679807474"><span id="local-6989586621679807475"></span></span><span class="hs-keyword">data</span><span> </span><span id="Patch"><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-var">Patch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Patch%27"><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-var">Patch'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Bugzilla ID of the patch. For example, @1600646@. Applies to</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Linux-based instances only.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AbugzillaIds%3APatch%27"><span class="annot"><span class="annottext">Patch -&gt; Maybe [Text]
@@ -119,14 +119,14 @@
 </span><span id="line-97"></span><span>    </span><span id="%24sel%3Aepoch%3APatch%27"><span class="annot"><span class="annottext">Patch -&gt; Maybe Int
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Aepoch%3APatch%27"><span class="hs-identifier hs-var hs-var">epoch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679807437"><span id="local-6989586621679807439"><span class="annot"><span class="annottext">Patch -&gt; Patch -&gt; Bool
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679807446"><span id="local-6989586621679807448"><span class="annot"><span class="annottext">Patch -&gt; Patch -&gt; Bool
 (Patch -&gt; Patch -&gt; Bool) -&gt; (Patch -&gt; Patch -&gt; Bool) -&gt; Eq Patch
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Patch -&gt; Patch -&gt; Bool
 $c/= :: Patch -&gt; Patch -&gt; Bool
 == :: Patch -&gt; Patch -&gt; Bool
 $c== :: Patch -&gt; Patch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807428"><span id="local-6989586621679807430"><span id="local-6989586621679807432"><span id="local-6989586621679807434"><span class="annot"><span class="annottext">ReadPrec [Patch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807437"><span id="local-6989586621679807439"><span id="local-6989586621679807441"><span id="local-6989586621679807443"><span class="annot"><span class="annottext">ReadPrec [Patch]
 ReadPrec Patch
 Int -&gt; ReadS Patch
 ReadS [Patch]
@@ -146,7 +146,7 @@ readList :: ReadS [Patch]
 $creadList :: ReadS [Patch]
 readsPrec :: Int -&gt; ReadS Patch
 $creadsPrec :: Int -&gt; ReadS Patch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807421"><span id="local-6989586621679807423"><span id="local-6989586621679807425"><span class="annot"><span class="annottext">Int -&gt; Patch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807430"><span id="local-6989586621679807432"><span id="local-6989586621679807434"><span class="annot"><span class="annottext">Int -&gt; Patch -&gt; ShowS
 [Patch] -&gt; ShowS
 Patch -&gt; String
 (Int -&gt; Patch -&gt; ShowS)
@@ -375,16 +375,16 @@ forall a. Maybe a
 -&gt; (Patch -&gt; Maybe [Text] -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807412"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807421"><span class="annot"><span class="annottext">Maybe [Text]
 bugzillaIds :: Maybe [Text]
 $sel:bugzillaIds:Patch' :: Patch -&gt; Maybe [Text]
-</span><a href="#local-6989586621679807412"><span class="hs-identifier hs-var hs-var">bugzillaIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679807412"><span class="hs-identifier hs-var">bugzillaIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807411"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807410"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679807410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bugzillaIds:Patch' :: Maybe [Text]
+</span><a href="#local-6989586621679807421"><span class="hs-identifier hs-var hs-var">bugzillaIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679807421"><span class="hs-identifier hs-var">bugzillaIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807420"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807419"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679807419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bugzillaIds:Patch' :: Maybe [Text]
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3AbugzillaIds%3APatch%27"><span class="hs-identifier hs-var">bugzillaIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679807410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Patch -&gt; f Patch)
+</span><a href="#local-6989586621679807419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Patch -&gt; f Patch)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -407,16 +407,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807405"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807414"><span class="annot"><span class="annottext">Maybe Text
 vendor :: Maybe Text
 $sel:vendor:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807405"><span class="hs-identifier hs-var hs-var">vendor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807405"><span class="hs-identifier hs-var">vendor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807404"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807403"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vendor:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807414"><span class="hs-identifier hs-var hs-var">vendor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807414"><span class="hs-identifier hs-var">vendor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807413"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807412"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vendor:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Avendor%3APatch%27"><span class="hs-identifier hs-var">vendor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The severity of the patch, such as @Critical@, @Important@, or</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- @Moderate@. Applies to Windows patches only.</span><span>
@@ -426,16 +426,16 @@ $sel:vendor:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807401"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807410"><span class="annot"><span class="annottext">Maybe Text
 msrcSeverity :: Maybe Text
 $sel:msrcSeverity:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807401"><span class="hs-identifier hs-var hs-var">msrcSeverity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807401"><span class="hs-identifier hs-var">msrcSeverity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807400"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807399"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:msrcSeverity:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807410"><span class="hs-identifier hs-var hs-var">msrcSeverity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807410"><span class="hs-identifier hs-var">msrcSeverity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807409"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:msrcSeverity:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3AmsrcSeverity%3APatch%27"><span class="hs-identifier hs-var">msrcSeverity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The source patch repository for the operating system and version, such</span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@</span><span>
@@ -446,16 +446,16 @@ $sel:msrcSeverity:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807397"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807406"><span class="annot"><span class="annottext">Maybe Text
 repository :: Maybe Text
 $sel:repository:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807397"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807397"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807396"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807395"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807406"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807406"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807405"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807404"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Arepository%3APatch%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The product family the patch is applicable for. For example, @Windows@</span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- or @Amazon Linux 2@.</span><span>
@@ -465,16 +465,16 @@ $sel:repository:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807393"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807402"><span class="annot"><span class="annottext">Maybe Text
 productFamily :: Maybe Text
 $sel:productFamily:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807393"><span class="hs-identifier hs-var hs-var">productFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807393"><span class="hs-identifier hs-var">productFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807392"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807391"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productFamily:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807402"><span class="hs-identifier hs-var hs-var">productFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807402"><span class="hs-identifier hs-var">productFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807401"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807400"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productFamily:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3AproductFamily%3APatch%27"><span class="hs-identifier hs-var">productFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The severity level of the patch. For example, @CRITICAL@ or @MODERATE@.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#patch_severity"><span class="hs-identifier hs-type">patch_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -483,16 +483,16 @@ $sel:productFamily:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807389"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807398"><span class="annot"><span class="annottext">Maybe Text
 severity :: Maybe Text
 $sel:severity:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807389"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807389"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807388"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807387"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807398"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807398"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807397"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Aseverity%3APatch%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The Advisory ID of the patch. For example, @RHSA-2020:3779@. Applies to</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- Linux-based instances only.</span><span>
@@ -502,16 +502,16 @@ $sel:severity:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe [Text] -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807385"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807394"><span class="annot"><span class="annottext">Maybe [Text]
 advisoryIds :: Maybe [Text]
 $sel:advisoryIds:Patch' :: Patch -&gt; Maybe [Text]
-</span><a href="#local-6989586621679807385"><span class="hs-identifier hs-var hs-var">advisoryIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679807385"><span class="hs-identifier hs-var">advisoryIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807384"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807383"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679807383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:advisoryIds:Patch' :: Maybe [Text]
+</span><a href="#local-6989586621679807394"><span class="hs-identifier hs-var hs-var">advisoryIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679807394"><span class="hs-identifier hs-var">advisoryIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807393"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807392"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679807392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:advisoryIds:Patch' :: Maybe [Text]
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3AadvisoryIds%3APatch%27"><span class="hs-identifier hs-var">advisoryIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679807383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Patch -&gt; f Patch)
+</span><a href="#local-6989586621679807392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Patch -&gt; f Patch)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -535,16 +535,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Patch -&gt; Maybe [Text] -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807381"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807390"><span class="annot"><span class="annottext">Maybe [Text]
 cVEIds :: Maybe [Text]
 $sel:cVEIds:Patch' :: Patch -&gt; Maybe [Text]
-</span><a href="#local-6989586621679807381"><span class="hs-identifier hs-var hs-var">cVEIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679807381"><span class="hs-identifier hs-var">cVEIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807380"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807379"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679807379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cVEIds:Patch' :: Maybe [Text]
+</span><a href="#local-6989586621679807390"><span class="hs-identifier hs-var hs-var">cVEIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679807390"><span class="hs-identifier hs-var">cVEIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807389"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807388"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679807388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cVEIds:Patch' :: Maybe [Text]
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3AcVEIds%3APatch%27"><span class="hs-identifier hs-var">cVEIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679807379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Patch -&gt; f Patch)
+</span><a href="#local-6989586621679807388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Patch -&gt; f Patch)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -568,16 +568,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807377"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807386"><span class="annot"><span class="annottext">Maybe Text
 classification :: Maybe Text
 $sel:classification:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807377"><span class="hs-identifier hs-var hs-var">classification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807377"><span class="hs-identifier hs-var">classification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807376"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807375"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classification:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807386"><span class="hs-identifier hs-var hs-var">classification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807386"><span class="hs-identifier hs-var">classification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807385"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807384"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classification:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Aclassification%3APatch%27"><span class="hs-identifier hs-var">classification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The particular release of a patch. For example, in</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the release is @2.amaz1@.</span><span>
@@ -588,16 +588,16 @@ $sel:classification:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807373"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807382"><span class="annot"><span class="annottext">Maybe Text
 release :: Maybe Text
 $sel:release:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807373"><span class="hs-identifier hs-var hs-var">release</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807373"><span class="hs-identifier hs-var">release</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807372"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807371"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:release:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807382"><span class="hs-identifier hs-var hs-var">release</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807382"><span class="hs-identifier hs-var">release</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807381"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:release:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Arelease%3APatch%27"><span class="hs-identifier hs-var">release</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- | The ID of the Microsoft Security Response Center (MSRC) bulletin the</span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- patch is related to. For example, @MS14-045@. Applies to Windows patches</span><span>
@@ -608,16 +608,16 @@ $sel:release:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807369"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807378"><span class="annot"><span class="annottext">Maybe Text
 msrcNumber :: Maybe Text
 $sel:msrcNumber:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807369"><span class="hs-identifier hs-var hs-var">msrcNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807369"><span class="hs-identifier hs-var">msrcNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807368"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807367"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:msrcNumber:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807378"><span class="hs-identifier hs-var hs-var">msrcNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807378"><span class="hs-identifier hs-var">msrcNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807377"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807376"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:msrcNumber:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3AmsrcNumber%3APatch%27"><span class="hs-identifier hs-var">msrcNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The name of the patch. Applies to Linux-based instances only.</span><span>
 </span><span id="line-262"></span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#patch_name"><span class="hs-identifier hs-type">patch_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -626,16 +626,16 @@ $sel:msrcNumber:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807365"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807374"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807365"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807365"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807364"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807363"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807374"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807374"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807373"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807372"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Aname%3APatch%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | The version number of the patch. For example, in</span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated</span><span>
@@ -646,16 +646,16 @@ $sel:name:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807361"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807370"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807361"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807361"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807360"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807359"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807370"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807370"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807369"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807368"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Aversion%3APatch%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | The language of the patch if it\'s language-specific.</span><span>
 </span><span id="line-272"></span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#patch_language"><span class="hs-identifier hs-type">patch_language</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -664,16 +664,16 @@ $sel:version:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807357"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807366"><span class="annot"><span class="annottext">Maybe Text
 language :: Maybe Text
 $sel:language:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807357"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807357"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807356"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807355"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807366"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807366"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807365"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807364"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Alanguage%3APatch%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | The Microsoft Knowledge Base ID of the patch. Applies to Windows patches</span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- only.</span><span>
@@ -683,16 +683,16 @@ $sel:language:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807353"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807362"><span class="annot"><span class="annottext">Maybe Text
 kbNumber :: Maybe Text
 $sel:kbNumber:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807353"><span class="hs-identifier hs-var hs-var">kbNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807353"><span class="hs-identifier hs-var">kbNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807352"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807351"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kbNumber:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807362"><span class="hs-identifier hs-var hs-var">kbNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807362"><span class="hs-identifier hs-var">kbNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807361"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807360"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kbNumber:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3AkbNumber%3APatch%27"><span class="hs-identifier hs-var">kbNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- | The URL where more information can be obtained about the patch.</span><span>
 </span><span id="line-281"></span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#patch_contentUrl"><span class="hs-identifier hs-type">patch_contentUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -701,16 +701,16 @@ $sel:kbNumber:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807349"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807358"><span class="annot"><span class="annottext">Maybe Text
 contentUrl :: Maybe Text
 $sel:contentUrl:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807349"><span class="hs-identifier hs-var hs-var">contentUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807349"><span class="hs-identifier hs-var">contentUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807348"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807347"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentUrl:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807358"><span class="hs-identifier hs-var hs-var">contentUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807358"><span class="hs-identifier hs-var">contentUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807357"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807356"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentUrl:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3AcontentUrl%3APatch%27"><span class="hs-identifier hs-var">contentUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | The ID of the patch. Applies to Windows patches only.</span><span>
 </span><span id="line-285"></span><span class="hs-comment">--</span><span>
@@ -721,16 +721,16 @@ $sel:contentUrl:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807345"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807354"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807345"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807345"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807344"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807343"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807354"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807354"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807353"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807352"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Aid%3APatch%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | The date the patch was released.</span><span>
 </span><span id="line-291"></span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#patch_releaseDate"><span class="hs-identifier hs-type">patch_releaseDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -739,16 +739,16 @@ $sel:id:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe POSIX -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807341"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807350"><span class="annot"><span class="annottext">Maybe POSIX
 releaseDate :: Maybe POSIX
 $sel:releaseDate:Patch' :: Patch -&gt; Maybe POSIX
-</span><a href="#local-6989586621679807341"><span class="hs-identifier hs-var hs-var">releaseDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679807341"><span class="hs-identifier hs-var">releaseDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807340"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807339"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679807339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:releaseDate:Patch' :: Maybe POSIX
+</span><a href="#local-6989586621679807350"><span class="hs-identifier hs-var hs-var">releaseDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679807350"><span class="hs-identifier hs-var">releaseDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807349"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807348"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679807348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:releaseDate:Patch' :: Maybe POSIX
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3AreleaseDate%3APatch%27"><span class="hs-identifier hs-var">releaseDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679807339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Patch -&gt; f Patch)
+</span><a href="#local-6989586621679807348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Patch -&gt; f Patch)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -771,16 +771,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807336"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807345"><span class="annot"><span class="annottext">Maybe Text
 title :: Maybe Text
 $sel:title:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807336"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807336"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807335"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807334"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807345"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807345"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807344"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Atitle%3APatch%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | The architecture of the patch. For example, in</span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- @example-pkg-0.710.10-2.7.abcd.x86_64@, the architecture is indicated by</span><span>
@@ -791,16 +791,16 @@ $sel:title:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807332"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807341"><span class="annot"><span class="annottext">Maybe Text
 arch :: Maybe Text
 $sel:arch:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807332"><span class="hs-identifier hs-var hs-var">arch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807332"><span class="hs-identifier hs-var">arch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807331"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807330"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arch:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807341"><span class="hs-identifier hs-var hs-var">arch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807341"><span class="hs-identifier hs-var">arch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807340"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807339"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arch:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Aarch%3APatch%27"><span class="hs-identifier hs-var">arch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-303"></span><span>
 </span><span id="line-304"></span><span class="hs-comment">-- | The specific product the patch is applicable for. For example,</span><span>
 </span><span id="line-305"></span><span class="hs-comment">-- @WindowsServer2016@ or @AmazonLinux2018.03@.</span><span>
@@ -810,16 +810,16 @@ $sel:arch:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807328"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807337"><span class="annot"><span class="annottext">Maybe Text
 product :: Maybe Text
 $sel:product:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807328"><span class="hs-identifier hs-var hs-var">product</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807328"><span class="hs-identifier hs-var">product</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807327"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807326"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:product:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807337"><span class="hs-identifier hs-var hs-var">product</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807337"><span class="hs-identifier hs-var">product</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807336"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:product:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Aproduct%3APatch%27"><span class="hs-identifier hs-var">product</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- | The description of the patch.</span><span>
 </span><span id="line-310"></span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#patch_description"><span class="hs-identifier hs-type">patch_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -828,16 +828,16 @@ $sel:product:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Text -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807324"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807333"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Patch' :: Patch -&gt; Maybe Text
-</span><a href="#local-6989586621679807324"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807324"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807323"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807322"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Patch' :: Maybe Text
+</span><a href="#local-6989586621679807333"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807333"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807332"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679807331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Patch' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Adescription%3APatch%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679807322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- | The epoch of the patch. For example in</span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the epoch value is</span><span>
@@ -848,27 +848,27 @@ $sel:description:Patch' :: Patch -&gt; Maybe Text
 -&gt; (Patch -&gt; Maybe Int -&gt; Patch)
 -&gt; Lens Patch Patch (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807320"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807329"><span class="annot"><span class="annottext">Maybe Int
 epoch :: Maybe Int
 $sel:epoch:Patch' :: Patch -&gt; Maybe Int
-</span><a href="#local-6989586621679807320"><span class="hs-identifier hs-var hs-var">epoch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679807320"><span class="hs-identifier hs-var">epoch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807319"><span class="annot"><span class="annottext">s :: Patch
-</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807318"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679807318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
-</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:epoch:Patch' :: Maybe Int
+</span><a href="#local-6989586621679807329"><span class="hs-identifier hs-var hs-var">epoch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679807329"><span class="hs-identifier hs-var">epoch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807328"><span class="annot"><span class="annottext">s :: Patch
+</span><a href="#local-6989586621679807328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch%27"><span class="hs-identifier hs-type">Patch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807327"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679807327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Patch
+</span><a href="#local-6989586621679807328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:epoch:Patch' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.Patch.html#%24sel%3Aepoch%3APatch%27"><span class="hs-identifier hs-var">epoch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679807318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-318"></span><span>
-</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807315"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621679807313"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Patch
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807324"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679807322"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Patch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Patch) -&gt; Value -&gt; Parser Patch
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-322"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Patch&quot;</span></span><span>
-</span><span id="line-323"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679807310"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-323"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679807319"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-324"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -945,7 +945,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BugzillaIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -1004,7 +1004,7 @@ forall a. Monoid a =&gt; a
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Vendor&quot;</span></span><span class="hs-special">)</span><span>
@@ -1056,7 +1056,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MsrcSeverity&quot;</span></span><span class="hs-special">)</span><span>
@@ -1106,7 +1106,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Repository&quot;</span></span><span class="hs-special">)</span><span>
@@ -1154,7 +1154,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProductFamily&quot;</span></span><span class="hs-special">)</span><span>
@@ -1200,7 +1200,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Severity&quot;</span></span><span class="hs-special">)</span><span>
@@ -1244,7 +1244,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AdvisoryIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -1291,7 +1291,7 @@ forall a. Monoid a =&gt; a
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CVEIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -1336,7 +1336,7 @@ forall a. Monoid a =&gt; a
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Classification&quot;</span></span><span class="hs-special">)</span><span>
@@ -1374,7 +1374,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Release&quot;</span></span><span class="hs-special">)</span><span>
@@ -1410,7 +1410,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MsrcNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -1444,7 +1444,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -1476,7 +1476,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
@@ -1506,7 +1506,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Language&quot;</span></span><span class="hs-special">)</span><span>
@@ -1534,7 +1534,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KbNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -1560,7 +1560,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContentUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -1584,7 +1584,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -1602,7 +1602,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReleaseDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -1614,7 +1614,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Title&quot;</span></span><span class="hs-special">)</span><span>
@@ -1624,7 +1624,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arch&quot;</span></span><span class="hs-special">)</span><span>
@@ -1632,7 +1632,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Product&quot;</span></span><span class="hs-special">)</span><span>
@@ -1640,20 +1640,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Int -&gt; Patch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Patch) -&gt; Parser (Maybe Int) -&gt; Parser Patch
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679807310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679807319"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Epoch&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-348"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-349"></span><span>
-</span><span id="line-350"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807303"><span id="local-6989586621679807305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span></span></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807312"><span id="local-6989586621679807314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span></span></span><span>
 </span><span id="line-351"></span><span>
-</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Patch.html#Patch"><span class="hs-identifier hs-type">Patch</span></a></span></span><span>
 </span><span id="line-353"></span></pre></body></html>

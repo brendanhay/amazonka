@@ -1,0 +1,850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Network.AWS.Location.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Location.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier">_ServiceQuotaExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchItemErrorCode</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchItemErrorCode.html#BatchItemErrorCode"><span class="hs-identifier">BatchItemErrorCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DimensionUnit</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DimensionUnit.html#DimensionUnit"><span class="hs-identifier">DimensionUnit</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DistanceUnit</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DistanceUnit.html#DistanceUnit"><span class="hs-identifier">DistanceUnit</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IntendedUse</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.IntendedUse.html#IntendedUse"><span class="hs-identifier">IntendedUse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PositionFiltering</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.PositionFiltering.html#PositionFiltering"><span class="hs-identifier">PositionFiltering</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PricingPlan</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier">PricingPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TravelMode</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TravelMode.html#TravelMode"><span class="hs-identifier">TravelMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VehicleWeightUnit</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.VehicleWeightUnit.html#VehicleWeightUnit"><span class="hs-identifier">VehicleWeightUnit</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchDeleteDevicePositionHistoryError</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteDevicePositionHistoryError.html#BatchDeleteDevicePositionHistoryError"><span class="hs-identifier">BatchDeleteDevicePositionHistoryError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteDevicePositionHistoryError.html#newBatchDeleteDevicePositionHistoryError"><span class="hs-identifier">newBatchDeleteDevicePositionHistoryError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteDevicePositionHistoryError.html#batchDeleteDevicePositionHistoryError_deviceId"><span class="hs-identifier">batchDeleteDevicePositionHistoryError_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteDevicePositionHistoryError.html#batchDeleteDevicePositionHistoryError_error"><span class="hs-identifier">batchDeleteDevicePositionHistoryError_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchDeleteGeofenceError</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteGeofenceError.html#BatchDeleteGeofenceError"><span class="hs-identifier">BatchDeleteGeofenceError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteGeofenceError.html#newBatchDeleteGeofenceError"><span class="hs-identifier">newBatchDeleteGeofenceError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteGeofenceError.html#batchDeleteGeofenceError_error"><span class="hs-identifier">batchDeleteGeofenceError_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteGeofenceError.html#batchDeleteGeofenceError_geofenceId"><span class="hs-identifier">batchDeleteGeofenceError_geofenceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchEvaluateGeofencesError</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchEvaluateGeofencesError.html#BatchEvaluateGeofencesError"><span class="hs-identifier">BatchEvaluateGeofencesError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchEvaluateGeofencesError.html#newBatchEvaluateGeofencesError"><span class="hs-identifier">newBatchEvaluateGeofencesError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchEvaluateGeofencesError.html#batchEvaluateGeofencesError_deviceId"><span class="hs-identifier">batchEvaluateGeofencesError_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchEvaluateGeofencesError.html#batchEvaluateGeofencesError_error"><span class="hs-identifier">batchEvaluateGeofencesError_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchEvaluateGeofencesError.html#batchEvaluateGeofencesError_sampleTime"><span class="hs-identifier">batchEvaluateGeofencesError_sampleTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchGetDevicePositionError</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchGetDevicePositionError.html#BatchGetDevicePositionError"><span class="hs-identifier">BatchGetDevicePositionError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchGetDevicePositionError.html#newBatchGetDevicePositionError"><span class="hs-identifier">newBatchGetDevicePositionError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchGetDevicePositionError.html#batchGetDevicePositionError_deviceId"><span class="hs-identifier">batchGetDevicePositionError_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchGetDevicePositionError.html#batchGetDevicePositionError_error"><span class="hs-identifier">batchGetDevicePositionError_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchItemError</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier">BatchItemError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchItemError.html#newBatchItemError"><span class="hs-identifier">newBatchItemError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchItemError.html#batchItemError_code"><span class="hs-identifier">batchItemError_code</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchItemError.html#batchItemError_message"><span class="hs-identifier">batchItemError_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchPutGeofenceError</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceError.html#BatchPutGeofenceError"><span class="hs-identifier">BatchPutGeofenceError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceError.html#newBatchPutGeofenceError"><span class="hs-identifier">newBatchPutGeofenceError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceError.html#batchPutGeofenceError_error"><span class="hs-identifier">batchPutGeofenceError_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceError.html#batchPutGeofenceError_geofenceId"><span class="hs-identifier">batchPutGeofenceError_geofenceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchPutGeofenceRequestEntry</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceRequestEntry.html#BatchPutGeofenceRequestEntry"><span class="hs-identifier">BatchPutGeofenceRequestEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceRequestEntry.html#newBatchPutGeofenceRequestEntry"><span class="hs-identifier">newBatchPutGeofenceRequestEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceRequestEntry.html#batchPutGeofenceRequestEntry_geofenceId"><span class="hs-identifier">batchPutGeofenceRequestEntry_geofenceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceRequestEntry.html#batchPutGeofenceRequestEntry_geometry"><span class="hs-identifier">batchPutGeofenceRequestEntry_geometry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchPutGeofenceSuccess</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceSuccess.html#BatchPutGeofenceSuccess"><span class="hs-identifier">BatchPutGeofenceSuccess</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceSuccess.html#newBatchPutGeofenceSuccess"><span class="hs-identifier">newBatchPutGeofenceSuccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceSuccess.html#batchPutGeofenceSuccess_createTime"><span class="hs-identifier">batchPutGeofenceSuccess_createTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceSuccess.html#batchPutGeofenceSuccess_geofenceId"><span class="hs-identifier">batchPutGeofenceSuccess_geofenceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceSuccess.html#batchPutGeofenceSuccess_updateTime"><span class="hs-identifier">batchPutGeofenceSuccess_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchUpdateDevicePositionError</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchUpdateDevicePositionError.html#BatchUpdateDevicePositionError"><span class="hs-identifier">BatchUpdateDevicePositionError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchUpdateDevicePositionError.html#newBatchUpdateDevicePositionError"><span class="hs-identifier">newBatchUpdateDevicePositionError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchUpdateDevicePositionError.html#batchUpdateDevicePositionError_deviceId"><span class="hs-identifier">batchUpdateDevicePositionError_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchUpdateDevicePositionError.html#batchUpdateDevicePositionError_error"><span class="hs-identifier">batchUpdateDevicePositionError_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.BatchUpdateDevicePositionError.html#batchUpdateDevicePositionError_sampleTime"><span class="hs-identifier">batchUpdateDevicePositionError_sampleTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CalculateRouteCarModeOptions</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteCarModeOptions.html#CalculateRouteCarModeOptions"><span class="hs-identifier">CalculateRouteCarModeOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteCarModeOptions.html#newCalculateRouteCarModeOptions"><span class="hs-identifier">newCalculateRouteCarModeOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteCarModeOptions.html#calculateRouteCarModeOptions_avoidTolls"><span class="hs-identifier">calculateRouteCarModeOptions_avoidTolls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteCarModeOptions.html#calculateRouteCarModeOptions_avoidFerries"><span class="hs-identifier">calculateRouteCarModeOptions_avoidFerries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CalculateRouteSummary</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier">CalculateRouteSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#newCalculateRouteSummary"><span class="hs-identifier">newCalculateRouteSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_dataSource"><span class="hs-identifier">calculateRouteSummary_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_distance"><span class="hs-identifier">calculateRouteSummary_distance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_distanceUnit"><span class="hs-identifier">calculateRouteSummary_distanceUnit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_durationSeconds"><span class="hs-identifier">calculateRouteSummary_durationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_routeBBox"><span class="hs-identifier">calculateRouteSummary_routeBBox</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CalculateRouteTruckModeOptions</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteTruckModeOptions.html#CalculateRouteTruckModeOptions"><span class="hs-identifier">CalculateRouteTruckModeOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteTruckModeOptions.html#newCalculateRouteTruckModeOptions"><span class="hs-identifier">newCalculateRouteTruckModeOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteTruckModeOptions.html#calculateRouteTruckModeOptions_weight"><span class="hs-identifier">calculateRouteTruckModeOptions_weight</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteTruckModeOptions.html#calculateRouteTruckModeOptions_avoidTolls"><span class="hs-identifier">calculateRouteTruckModeOptions_avoidTolls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteTruckModeOptions.html#calculateRouteTruckModeOptions_dimensions"><span class="hs-identifier">calculateRouteTruckModeOptions_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteTruckModeOptions.html#calculateRouteTruckModeOptions_avoidFerries"><span class="hs-identifier">calculateRouteTruckModeOptions_avoidFerries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataSourceConfiguration</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DataSourceConfiguration.html#DataSourceConfiguration"><span class="hs-identifier">DataSourceConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DataSourceConfiguration.html#newDataSourceConfiguration"><span class="hs-identifier">newDataSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DataSourceConfiguration.html#dataSourceConfiguration_intendedUse"><span class="hs-identifier">dataSourceConfiguration_intendedUse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DevicePosition</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePosition.html#DevicePosition"><span class="hs-identifier">DevicePosition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePosition.html#newDevicePosition"><span class="hs-identifier">newDevicePosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePosition.html#devicePosition_deviceId"><span class="hs-identifier">devicePosition_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePosition.html#devicePosition_position"><span class="hs-identifier">devicePosition_position</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePosition.html#devicePosition_receivedTime"><span class="hs-identifier">devicePosition_receivedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePosition.html#devicePosition_sampleTime"><span class="hs-identifier">devicePosition_sampleTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DevicePositionUpdate</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePositionUpdate.html#DevicePositionUpdate"><span class="hs-identifier">DevicePositionUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePositionUpdate.html#newDevicePositionUpdate"><span class="hs-identifier">newDevicePositionUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePositionUpdate.html#devicePositionUpdate_deviceId"><span class="hs-identifier">devicePositionUpdate_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePositionUpdate.html#devicePositionUpdate_position"><span class="hs-identifier">devicePositionUpdate_position</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePositionUpdate.html#devicePositionUpdate_sampleTime"><span class="hs-identifier">devicePositionUpdate_sampleTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="hs-comment">-- * GeofenceGeometry</span></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.GeofenceGeometry.html#GeofenceGeometry"><span class="hs-identifier">GeofenceGeometry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.GeofenceGeometry.html#newGeofenceGeometry"><span class="hs-identifier">newGeofenceGeometry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.GeofenceGeometry.html#geofenceGeometry_polygon"><span class="hs-identifier">geofenceGeometry_polygon</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Leg</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#Leg"><span class="hs-identifier">Leg</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#newLeg"><span class="hs-identifier">newLeg</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_geometry"><span class="hs-identifier">leg_geometry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_distance"><span class="hs-identifier">leg_distance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_durationSeconds"><span class="hs-identifier">leg_durationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_endPosition"><span class="hs-identifier">leg_endPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_startPosition"><span class="hs-identifier">leg_startPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html#leg_steps"><span class="hs-identifier">leg_steps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LegGeometry</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.LegGeometry.html#LegGeometry"><span class="hs-identifier">LegGeometry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.LegGeometry.html#newLegGeometry"><span class="hs-identifier">newLegGeometry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.LegGeometry.html#legGeometry_lineString"><span class="hs-identifier">legGeometry_lineString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListDevicePositionsResponseEntry</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#ListDevicePositionsResponseEntry"><span class="hs-identifier">ListDevicePositionsResponseEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#newListDevicePositionsResponseEntry"><span class="hs-identifier">newListDevicePositionsResponseEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#listDevicePositionsResponseEntry_deviceId"><span class="hs-identifier">listDevicePositionsResponseEntry_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#listDevicePositionsResponseEntry_position"><span class="hs-identifier">listDevicePositionsResponseEntry_position</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html#listDevicePositionsResponseEntry_sampleTime"><span class="hs-identifier">listDevicePositionsResponseEntry_sampleTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListGeofenceCollectionsResponseEntry</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry.html#ListGeofenceCollectionsResponseEntry"><span class="hs-identifier">ListGeofenceCollectionsResponseEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry.html#newListGeofenceCollectionsResponseEntry"><span class="hs-identifier">newListGeofenceCollectionsResponseEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry.html#listGeofenceCollectionsResponseEntry_pricingPlanDataSource"><span class="hs-identifier">listGeofenceCollectionsResponseEntry_pricingPlanDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry.html#listGeofenceCollectionsResponseEntry_collectionName"><span class="hs-identifier">listGeofenceCollectionsResponseEntry_collectionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry.html#listGeofenceCollectionsResponseEntry_createTime"><span class="hs-identifier">listGeofenceCollectionsResponseEntry_createTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry.html#listGeofenceCollectionsResponseEntry_description"><span class="hs-identifier">listGeofenceCollectionsResponseEntry_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry.html#listGeofenceCollectionsResponseEntry_pricingPlan"><span class="hs-identifier">listGeofenceCollectionsResponseEntry_pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry.html#listGeofenceCollectionsResponseEntry_updateTime"><span class="hs-identifier">listGeofenceCollectionsResponseEntry_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListGeofenceResponseEntry</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceResponseEntry.html#ListGeofenceResponseEntry"><span class="hs-identifier">ListGeofenceResponseEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceResponseEntry.html#newListGeofenceResponseEntry"><span class="hs-identifier">newListGeofenceResponseEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceResponseEntry.html#listGeofenceResponseEntry_createTime"><span class="hs-identifier">listGeofenceResponseEntry_createTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceResponseEntry.html#listGeofenceResponseEntry_geofenceId"><span class="hs-identifier">listGeofenceResponseEntry_geofenceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceResponseEntry.html#listGeofenceResponseEntry_geometry"><span class="hs-identifier">listGeofenceResponseEntry_geometry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceResponseEntry.html#listGeofenceResponseEntry_status"><span class="hs-identifier">listGeofenceResponseEntry_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceResponseEntry.html#listGeofenceResponseEntry_updateTime"><span class="hs-identifier">listGeofenceResponseEntry_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListMapsResponseEntry</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListMapsResponseEntry.html#ListMapsResponseEntry"><span class="hs-identifier">ListMapsResponseEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListMapsResponseEntry.html#newListMapsResponseEntry"><span class="hs-identifier">newListMapsResponseEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListMapsResponseEntry.html#listMapsResponseEntry_createTime"><span class="hs-identifier">listMapsResponseEntry_createTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListMapsResponseEntry.html#listMapsResponseEntry_dataSource"><span class="hs-identifier">listMapsResponseEntry_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListMapsResponseEntry.html#listMapsResponseEntry_description"><span class="hs-identifier">listMapsResponseEntry_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListMapsResponseEntry.html#listMapsResponseEntry_mapName"><span class="hs-identifier">listMapsResponseEntry_mapName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListMapsResponseEntry.html#listMapsResponseEntry_pricingPlan"><span class="hs-identifier">listMapsResponseEntry_pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListMapsResponseEntry.html#listMapsResponseEntry_updateTime"><span class="hs-identifier">listMapsResponseEntry_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListPlaceIndexesResponseEntry</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListPlaceIndexesResponseEntry.html#ListPlaceIndexesResponseEntry"><span class="hs-identifier">ListPlaceIndexesResponseEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListPlaceIndexesResponseEntry.html#newListPlaceIndexesResponseEntry"><span class="hs-identifier">newListPlaceIndexesResponseEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListPlaceIndexesResponseEntry.html#listPlaceIndexesResponseEntry_createTime"><span class="hs-identifier">listPlaceIndexesResponseEntry_createTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListPlaceIndexesResponseEntry.html#listPlaceIndexesResponseEntry_dataSource"><span class="hs-identifier">listPlaceIndexesResponseEntry_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListPlaceIndexesResponseEntry.html#listPlaceIndexesResponseEntry_description"><span class="hs-identifier">listPlaceIndexesResponseEntry_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListPlaceIndexesResponseEntry.html#listPlaceIndexesResponseEntry_indexName"><span class="hs-identifier">listPlaceIndexesResponseEntry_indexName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListPlaceIndexesResponseEntry.html#listPlaceIndexesResponseEntry_pricingPlan"><span class="hs-identifier">listPlaceIndexesResponseEntry_pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListPlaceIndexesResponseEntry.html#listPlaceIndexesResponseEntry_updateTime"><span class="hs-identifier">listPlaceIndexesResponseEntry_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListRouteCalculatorsResponseEntry</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry.html#ListRouteCalculatorsResponseEntry"><span class="hs-identifier">ListRouteCalculatorsResponseEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry.html#newListRouteCalculatorsResponseEntry"><span class="hs-identifier">newListRouteCalculatorsResponseEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry.html#listRouteCalculatorsResponseEntry_calculatorName"><span class="hs-identifier">listRouteCalculatorsResponseEntry_calculatorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry.html#listRouteCalculatorsResponseEntry_createTime"><span class="hs-identifier">listRouteCalculatorsResponseEntry_createTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry.html#listRouteCalculatorsResponseEntry_dataSource"><span class="hs-identifier">listRouteCalculatorsResponseEntry_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry.html#listRouteCalculatorsResponseEntry_description"><span class="hs-identifier">listRouteCalculatorsResponseEntry_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry.html#listRouteCalculatorsResponseEntry_pricingPlan"><span class="hs-identifier">listRouteCalculatorsResponseEntry_pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry.html#listRouteCalculatorsResponseEntry_updateTime"><span class="hs-identifier">listRouteCalculatorsResponseEntry_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ListTrackersResponseEntry</span></span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListTrackersResponseEntry.html#ListTrackersResponseEntry"><span class="hs-identifier">ListTrackersResponseEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListTrackersResponseEntry.html#newListTrackersResponseEntry"><span class="hs-identifier">newListTrackersResponseEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListTrackersResponseEntry.html#listTrackersResponseEntry_pricingPlanDataSource"><span class="hs-identifier">listTrackersResponseEntry_pricingPlanDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListTrackersResponseEntry.html#listTrackersResponseEntry_createTime"><span class="hs-identifier">listTrackersResponseEntry_createTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListTrackersResponseEntry.html#listTrackersResponseEntry_description"><span class="hs-identifier">listTrackersResponseEntry_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListTrackersResponseEntry.html#listTrackersResponseEntry_pricingPlan"><span class="hs-identifier">listTrackersResponseEntry_pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListTrackersResponseEntry.html#listTrackersResponseEntry_trackerName"><span class="hs-identifier">listTrackersResponseEntry_trackerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.ListTrackersResponseEntry.html#listTrackersResponseEntry_updateTime"><span class="hs-identifier">listTrackersResponseEntry_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MapConfiguration</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.MapConfiguration.html#MapConfiguration"><span class="hs-identifier">MapConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.MapConfiguration.html#newMapConfiguration"><span class="hs-identifier">newMapConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.MapConfiguration.html#mapConfiguration_style"><span class="hs-identifier">mapConfiguration_style</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Place</span></span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#Place"><span class="hs-identifier">Place</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#newPlace"><span class="hs-identifier">newPlace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_municipality"><span class="hs-identifier">place_municipality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_addressNumber"><span class="hs-identifier">place_addressNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_postalCode"><span class="hs-identifier">place_postalCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_country"><span class="hs-identifier">place_country</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_street"><span class="hs-identifier">place_street</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_subRegion"><span class="hs-identifier">place_subRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_region"><span class="hs-identifier">place_region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_label"><span class="hs-identifier">place_label</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_neighborhood"><span class="hs-identifier">place_neighborhood</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html#place_geometry"><span class="hs-identifier">place_geometry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PlaceGeometry</span></span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.PlaceGeometry.html#PlaceGeometry"><span class="hs-identifier">PlaceGeometry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.PlaceGeometry.html#newPlaceGeometry"><span class="hs-identifier">newPlaceGeometry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.PlaceGeometry.html#placeGeometry_point"><span class="hs-identifier">placeGeometry_point</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SearchForPositionResult</span></span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchForPositionResult.html#SearchForPositionResult"><span class="hs-identifier">SearchForPositionResult</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchForPositionResult.html#newSearchForPositionResult"><span class="hs-identifier">newSearchForPositionResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchForPositionResult.html#searchForPositionResult_place"><span class="hs-identifier">searchForPositionResult_place</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SearchForTextResult</span></span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchForTextResult.html#SearchForTextResult"><span class="hs-identifier">SearchForTextResult</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchForTextResult.html#newSearchForTextResult"><span class="hs-identifier">newSearchForTextResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchForTextResult.html#searchForTextResult_place"><span class="hs-identifier">searchForTextResult_place</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SearchPlaceIndexForPositionSummary</span></span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary.html#SearchPlaceIndexForPositionSummary"><span class="hs-identifier">SearchPlaceIndexForPositionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary.html#newSearchPlaceIndexForPositionSummary"><span class="hs-identifier">newSearchPlaceIndexForPositionSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary.html#searchPlaceIndexForPositionSummary_maxResults"><span class="hs-identifier">searchPlaceIndexForPositionSummary_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary.html#searchPlaceIndexForPositionSummary_dataSource"><span class="hs-identifier">searchPlaceIndexForPositionSummary_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary.html#searchPlaceIndexForPositionSummary_position"><span class="hs-identifier">searchPlaceIndexForPositionSummary_position</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SearchPlaceIndexForTextSummary</span></span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html#SearchPlaceIndexForTextSummary"><span class="hs-identifier">SearchPlaceIndexForTextSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html#newSearchPlaceIndexForTextSummary"><span class="hs-identifier">newSearchPlaceIndexForTextSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html#searchPlaceIndexForTextSummary_filterBBox"><span class="hs-identifier">searchPlaceIndexForTextSummary_filterBBox</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html#searchPlaceIndexForTextSummary_resultBBox"><span class="hs-identifier">searchPlaceIndexForTextSummary_resultBBox</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html#searchPlaceIndexForTextSummary_biasPosition"><span class="hs-identifier">searchPlaceIndexForTextSummary_biasPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html#searchPlaceIndexForTextSummary_filterCountries"><span class="hs-identifier">searchPlaceIndexForTextSummary_filterCountries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html#searchPlaceIndexForTextSummary_maxResults"><span class="hs-identifier">searchPlaceIndexForTextSummary_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html#searchPlaceIndexForTextSummary_dataSource"><span class="hs-identifier">searchPlaceIndexForTextSummary_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html#searchPlaceIndexForTextSummary_text"><span class="hs-identifier">searchPlaceIndexForTextSummary_text</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Step</span></span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Step.html#Step"><span class="hs-identifier">Step</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Step.html#newStep"><span class="hs-identifier">newStep</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Step.html#step_geometryOffset"><span class="hs-identifier">step_geometryOffset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Step.html#step_distance"><span class="hs-identifier">step_distance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Step.html#step_durationSeconds"><span class="hs-identifier">step_durationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Step.html#step_endPosition"><span class="hs-identifier">step_endPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.Step.html#step_startPosition"><span class="hs-identifier">step_startPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TruckDimensions</span></span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckDimensions.html#TruckDimensions"><span class="hs-identifier">TruckDimensions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckDimensions.html#newTruckDimensions"><span class="hs-identifier">newTruckDimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckDimensions.html#truckDimensions_length"><span class="hs-identifier">truckDimensions_length</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckDimensions.html#truckDimensions_height"><span class="hs-identifier">truckDimensions_height</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckDimensions.html#truckDimensions_width"><span class="hs-identifier">truckDimensions_width</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckDimensions.html#truckDimensions_unit"><span class="hs-identifier">truckDimensions_unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TruckWeight</span></span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckWeight.html#TruckWeight"><span class="hs-identifier">TruckWeight</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckWeight.html#newTruckWeight"><span class="hs-identifier">newTruckWeight</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckWeight.html#truckWeight_total"><span class="hs-identifier">truckWeight_total</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.Types.TruckWeight.html#truckWeight_unit"><span class="hs-identifier">truckWeight_unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteDevicePositionHistoryError.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchDeleteDevicePositionHistoryError</span></a></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchDeleteGeofenceError.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchDeleteGeofenceError</span></a></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchEvaluateGeofencesError.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchEvaluateGeofencesError</span></a></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchGetDevicePositionError.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchGetDevicePositionError</span></a></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchItemError.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchItemError</span></a></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchItemErrorCode.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchItemErrorCode</span></a></span><span>
+</span><span id="line-323"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceError.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchPutGeofenceError</span></a></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceRequestEntry.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchPutGeofenceRequestEntry</span></a></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchPutGeofenceSuccess.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchPutGeofenceSuccess</span></a></span><span>
+</span><span id="line-326"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.BatchUpdateDevicePositionError.html"><span class="hs-identifier">Network.AWS.Location.Types.BatchUpdateDevicePositionError</span></a></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteCarModeOptions.html"><span class="hs-identifier">Network.AWS.Location.Types.CalculateRouteCarModeOptions</span></a></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html"><span class="hs-identifier">Network.AWS.Location.Types.CalculateRouteSummary</span></a></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteTruckModeOptions.html"><span class="hs-identifier">Network.AWS.Location.Types.CalculateRouteTruckModeOptions</span></a></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DataSourceConfiguration.html"><span class="hs-identifier">Network.AWS.Location.Types.DataSourceConfiguration</span></a></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePosition.html"><span class="hs-identifier">Network.AWS.Location.Types.DevicePosition</span></a></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DevicePositionUpdate.html"><span class="hs-identifier">Network.AWS.Location.Types.DevicePositionUpdate</span></a></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DimensionUnit.html"><span class="hs-identifier">Network.AWS.Location.Types.DimensionUnit</span></a></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DistanceUnit.html"><span class="hs-identifier">Network.AWS.Location.Types.DistanceUnit</span></a></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.GeofenceGeometry.html"><span class="hs-identifier">Network.AWS.Location.Types.GeofenceGeometry</span></a></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.IntendedUse.html"><span class="hs-identifier">Network.AWS.Location.Types.IntendedUse</span></a></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Leg.html"><span class="hs-identifier">Network.AWS.Location.Types.Leg</span></a></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.LegGeometry.html"><span class="hs-identifier">Network.AWS.Location.Types.LegGeometry</span></a></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListDevicePositionsResponseEntry.html"><span class="hs-identifier">Network.AWS.Location.Types.ListDevicePositionsResponseEntry</span></a></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry.html"><span class="hs-identifier">Network.AWS.Location.Types.ListGeofenceCollectionsResponseEntry</span></a></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListGeofenceResponseEntry.html"><span class="hs-identifier">Network.AWS.Location.Types.ListGeofenceResponseEntry</span></a></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListMapsResponseEntry.html"><span class="hs-identifier">Network.AWS.Location.Types.ListMapsResponseEntry</span></a></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListPlaceIndexesResponseEntry.html"><span class="hs-identifier">Network.AWS.Location.Types.ListPlaceIndexesResponseEntry</span></a></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry.html"><span class="hs-identifier">Network.AWS.Location.Types.ListRouteCalculatorsResponseEntry</span></a></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.ListTrackersResponseEntry.html"><span class="hs-identifier">Network.AWS.Location.Types.ListTrackersResponseEntry</span></a></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.MapConfiguration.html"><span class="hs-identifier">Network.AWS.Location.Types.MapConfiguration</span></a></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Place.html"><span class="hs-identifier">Network.AWS.Location.Types.Place</span></a></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.PlaceGeometry.html"><span class="hs-identifier">Network.AWS.Location.Types.PlaceGeometry</span></a></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.PositionFiltering.html"><span class="hs-identifier">Network.AWS.Location.Types.PositionFiltering</span></a></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.PricingPlan.html"><span class="hs-identifier">Network.AWS.Location.Types.PricingPlan</span></a></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.SearchForPositionResult.html"><span class="hs-identifier">Network.AWS.Location.Types.SearchForPositionResult</span></a></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.SearchForTextResult.html"><span class="hs-identifier">Network.AWS.Location.Types.SearchForTextResult</span></a></span><span>
+</span><span id="line-353"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary.html"><span class="hs-identifier">Network.AWS.Location.Types.SearchPlaceIndexForPositionSummary</span></a></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.SearchPlaceIndexForTextSummary.html"><span class="hs-identifier">Network.AWS.Location.Types.SearchPlaceIndexForTextSummary</span></a></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.Step.html"><span class="hs-identifier">Network.AWS.Location.Types.Step</span></a></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.TravelMode.html"><span class="hs-identifier">Network.AWS.Location.Types.TravelMode</span></a></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.TruckDimensions.html"><span class="hs-identifier">Network.AWS.Location.Types.TruckDimensions</span></a></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.TruckWeight.html"><span class="hs-identifier">Network.AWS.Location.Types.TruckWeight</span></a></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.VehicleWeightUnit.html"><span class="hs-identifier">Network.AWS.Location.Types.VehicleWeightUnit</span></a></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-362"></span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- | API version @2020-11-19@ of the Amazon Location Service SDK configuration.</span><span>
+</span><span id="line-364"></span><span class="annot"><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-365"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-366"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-367"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;geo&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;geo&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2020-11-19&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-373"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679263868"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-378"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-379"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-380"></span><span>    </span><span id="local-6989586621679263868"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679263868"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-381"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-382"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-383"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679263862"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-386"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-387"></span><span>    </span><span id="local-6989586621679263862"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679263862"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679263861"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-388"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-389"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-390"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-391"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-392"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-393"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-394"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-395"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-396"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-397"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-398"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-399"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-401"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-402"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-403"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-404"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-405"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-406"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-407"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-408"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-409"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-410"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-411"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-412"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-413"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-414"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-415"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-416"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-417"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-418"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-419"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-420"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-421"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-422"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-423"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-424"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-425"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-426"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-427"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-428"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-429"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263861"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-430"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-431"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- | The input failed to meet the constraints specified by the AWS service.</span><span>
+</span><span id="line-434"></span><span id="local-6989586621679263856"><span class="annot"><a href="Network.AWS.Location.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263856"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263856"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-435"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Location.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-436"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-437"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-438"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-439"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-440"></span><span>
+</span><span id="line-441"></span><span class="hs-comment">-- | The request was denied because of insufficient access or permissions.</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- Check with an administrator to verify your permissions.</span><span>
+</span><span id="line-443"></span><span id="local-6989586621679263854"><span class="annot"><a href="Network.AWS.Location.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263854"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263854"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-444"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Location.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-445"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-446"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-447"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-448"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">403</span></span><span>
+</span><span id="line-449"></span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- | The request was unsuccessful because of a conflict.</span><span>
+</span><span id="line-451"></span><span id="local-6989586621679263853"><span class="annot"><a href="Network.AWS.Location.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263853"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263853"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-452"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Location.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-453"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-454"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-455"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-456"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">409</span></span><span>
+</span><span id="line-457"></span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- | The operation was denied because the request would exceed the maximum</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html quota&gt;</span><span>
+</span><span id="line-460"></span><span class="hs-comment">-- set for Amazon Location Service.</span><span>
+</span><span id="line-461"></span><span id="local-6989586621679263852"><span class="annot"><a href="Network.AWS.Location.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier hs-type">_ServiceQuotaExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263852"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263852"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-462"></span><span id="_ServiceQuotaExceededException"><span class="annot"><span class="annottext">_ServiceQuotaExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Location.Types.html#_ServiceQuotaExceededException"><span class="hs-identifier hs-var hs-var">_ServiceQuotaExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-463"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-464"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-465"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceQuotaExceededException&quot;</span></span><span>
+</span><span id="line-466"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">402</span></span><span>
+</span><span id="line-467"></span><span>
+</span><span id="line-468"></span><span class="hs-comment">-- | The request was denied because of request throttling.</span><span>
+</span><span id="line-469"></span><span id="local-6989586621679263851"><span class="annot"><a href="Network.AWS.Location.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263851"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263851"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-470"></span><span id="_ThrottlingException"><span class="annot"><span class="annottext">_ThrottlingException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Location.Types.html#_ThrottlingException"><span class="hs-identifier hs-var hs-var">_ThrottlingException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-471"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-472"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-473"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-474"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-475"></span><span>
+</span><span id="line-476"></span><span class="hs-comment">-- | The request has failed to process because of an unknown server error,</span><span>
+</span><span id="line-477"></span><span class="hs-comment">-- exception, or failure.</span><span>
+</span><span id="line-478"></span><span id="local-6989586621679263850"><span class="annot"><a href="Network.AWS.Location.Types.html#_InternalServerException"><span class="hs-identifier hs-type">_InternalServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263850"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263850"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-479"></span><span id="_InternalServerException"><span class="annot"><span class="annottext">_InternalServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Location.Types.html#_InternalServerException"><span class="hs-identifier hs-var hs-var">_InternalServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-480"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-481"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-482"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServerException&quot;</span></span><span>
+</span><span id="line-483"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-484"></span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- | The resource that you\'ve entered was not found in your AWS account.</span><span>
+</span><span id="line-486"></span><span id="local-6989586621679263849"><span class="annot"><a href="Network.AWS.Location.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263849"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263849"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-487"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.Location.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-488"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-489"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-490"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-491"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-492"></span></pre></body></html>

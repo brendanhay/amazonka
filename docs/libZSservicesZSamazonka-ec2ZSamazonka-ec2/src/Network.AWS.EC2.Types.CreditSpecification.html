@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the credit option for CPU usage of a T2, T3, or T3a instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCreditSpecification' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681097301"><span id="local-6989586621681097302"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreditSpecification"><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification"><span class="hs-identifier hs-var">CreditSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreditSpecification%27"><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification%27"><span class="hs-identifier hs-var">CreditSpecification'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681097310"><span id="local-6989586621681097311"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreditSpecification"><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification"><span class="hs-identifier hs-var">CreditSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreditSpecification%27"><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification%27"><span class="hs-identifier hs-var">CreditSpecification'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- values are @standard@ and @unlimited@.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AcpuCredits%3ACreditSpecification%27"><span class="annot"><span class="annottext">CreditSpecification -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.CreditSpecification.html#%24sel%3AcpuCredits%3ACreditSpecification%27"><span class="hs-identifier hs-var hs-var">cpuCredits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681097295"><span id="local-6989586621681097297"><span class="annot"><span class="annottext">CreditSpecification -&gt; CreditSpecification -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681097304"><span id="local-6989586621681097306"><span class="annot"><span class="annottext">CreditSpecification -&gt; CreditSpecification -&gt; Bool
 (CreditSpecification -&gt; CreditSpecification -&gt; Bool)
 -&gt; (CreditSpecification -&gt; CreditSpecification -&gt; Bool)
 -&gt; Eq CreditSpecification
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreditSpecification -&gt; CreditSpecification -&gt; Bool
 == :: CreditSpecification -&gt; CreditSpecification -&gt; Bool
 $c== :: CreditSpecification -&gt; CreditSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681097286"><span id="local-6989586621681097288"><span id="local-6989586621681097290"><span id="local-6989586621681097292"><span class="annot"><span class="annottext">ReadPrec [CreditSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681097295"><span id="local-6989586621681097297"><span id="local-6989586621681097299"><span id="local-6989586621681097301"><span class="annot"><span class="annottext">ReadPrec [CreditSpecification]
 ReadPrec CreditSpecification
 Int -&gt; ReadS CreditSpecification
 ReadS [CreditSpecification]
@@ -62,7 +62,7 @@ readList :: ReadS [CreditSpecification]
 $creadList :: ReadS [CreditSpecification]
 readsPrec :: Int -&gt; ReadS CreditSpecification
 $creadsPrec :: Int -&gt; ReadS CreditSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681097279"><span id="local-6989586621681097281"><span id="local-6989586621681097283"><span class="annot"><span class="annottext">Int -&gt; CreditSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681097288"><span id="local-6989586621681097290"><span id="local-6989586621681097292"><span class="annot"><span class="annottext">Int -&gt; CreditSpecification -&gt; ShowS
 [CreditSpecification] -&gt; ShowS
 CreditSpecification -&gt; String
 (Int -&gt; CreditSpecification -&gt; ShowS)
@@ -118,33 +118,33 @@ forall a. Maybe a
 -&gt; Lens
      CreditSpecification CreditSpecification (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification%27"><span class="hs-identifier hs-type">CreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681097270"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification%27"><span class="hs-identifier hs-type">CreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681097279"><span class="annot"><span class="annottext">Maybe Text
 cpuCredits :: Maybe Text
 $sel:cpuCredits:CreditSpecification' :: CreditSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621681097270"><span class="hs-identifier hs-var hs-var">cpuCredits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681097270"><span class="hs-identifier hs-var">cpuCredits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681097269"><span class="annot"><span class="annottext">s :: CreditSpecification
-</span><a href="#local-6989586621681097269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification%27"><span class="hs-identifier hs-type">CreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681097268"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681097268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreditSpecification
-</span><a href="#local-6989586621681097269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuCredits:CreditSpecification' :: Maybe Text
+</span><a href="#local-6989586621681097279"><span class="hs-identifier hs-var hs-var">cpuCredits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681097279"><span class="hs-identifier hs-var">cpuCredits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681097278"><span class="annot"><span class="annottext">s :: CreditSpecification
+</span><a href="#local-6989586621681097278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification%27"><span class="hs-identifier hs-type">CreditSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681097277"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681097277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreditSpecification
+</span><a href="#local-6989586621681097278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cpuCredits:CreditSpecification' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.CreditSpecification.html#%24sel%3AcpuCredits%3ACreditSpecification%27"><span class="hs-identifier hs-var">cpuCredits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681097268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification"><span class="hs-identifier hs-type">CreditSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681097277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification"><span class="hs-identifier hs-type">CreditSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification"><span class="hs-identifier hs-type">CreditSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621681097265"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CreditSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681097263"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681097263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621681097274"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CreditSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681097272"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681097272"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; CreditSpecification
 </span><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification%27"><span class="hs-identifier hs-var">CreditSpecification'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; CreditSpecification)
 -&gt; Either String (Maybe Text) -&gt; Either String CreditSpecification
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681097263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681097272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cpuCredits&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681097257"><span id="local-6989586621681097259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification"><span class="hs-identifier hs-type">CreditSpecification</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681097266"><span id="local-6989586621681097268"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification"><span class="hs-identifier hs-type">CreditSpecification</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681097254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification"><span class="hs-identifier hs-type">CreditSpecification</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681097263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CreditSpecification.html#CreditSpecification"><span class="hs-identifier hs-type">CreditSpecification</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

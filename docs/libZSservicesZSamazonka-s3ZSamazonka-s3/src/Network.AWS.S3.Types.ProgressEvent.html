@@ -29,12 +29,12 @@
 </span><span id="line-29"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newProgressEvent' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679548788"><span id="local-6989586621679548789"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProgressEvent"><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-var">ProgressEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProgressEvent%27"><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-var">ProgressEvent'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679548797"><span id="local-6989586621679548798"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProgressEvent"><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-var">ProgressEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProgressEvent%27"><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-var">ProgressEvent'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Progress event details.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Adetails%3AProgressEvent%27"><span class="annot"><span class="annottext">ProgressEvent -&gt; Maybe Progress
 </span><a href="Network.AWS.S3.Types.ProgressEvent.html#%24sel%3Adetails%3AProgressEvent%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Progress.html#Progress"><span class="hs-identifier hs-type">Progress</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679548782"><span id="local-6989586621679548784"><span class="annot"><span class="annottext">ProgressEvent -&gt; ProgressEvent -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679548791"><span id="local-6989586621679548793"><span class="annot"><span class="annottext">ProgressEvent -&gt; ProgressEvent -&gt; Bool
 (ProgressEvent -&gt; ProgressEvent -&gt; Bool)
 -&gt; (ProgressEvent -&gt; ProgressEvent -&gt; Bool) -&gt; Eq ProgressEvent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProgressEvent -&gt; ProgressEvent -&gt; Bool
 == :: ProgressEvent -&gt; ProgressEvent -&gt; Bool
 $c== :: ProgressEvent -&gt; ProgressEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548773"><span id="local-6989586621679548775"><span id="local-6989586621679548777"><span id="local-6989586621679548779"><span class="annot"><span class="annottext">ReadPrec [ProgressEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548782"><span id="local-6989586621679548784"><span id="local-6989586621679548786"><span id="local-6989586621679548788"><span class="annot"><span class="annottext">ReadPrec [ProgressEvent]
 ReadPrec ProgressEvent
 Int -&gt; ReadS ProgressEvent
 ReadS [ProgressEvent]
@@ -62,7 +62,7 @@ readList :: ReadS [ProgressEvent]
 $creadList :: ReadS [ProgressEvent]
 readsPrec :: Int -&gt; ReadS ProgressEvent
 $creadsPrec :: Int -&gt; ReadS ProgressEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548766"><span id="local-6989586621679548768"><span id="local-6989586621679548770"><span class="annot"><span class="annottext">Int -&gt; ProgressEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548775"><span id="local-6989586621679548777"><span id="local-6989586621679548779"><span class="annot"><span class="annottext">Int -&gt; ProgressEvent -&gt; ShowS
 [ProgressEvent] -&gt; ShowS
 ProgressEvent -&gt; String
 (Int -&gt; ProgressEvent -&gt; ShowS)
@@ -116,32 +116,32 @@ forall a. Maybe a
 -&gt; Lens
      ProgressEvent ProgressEvent (Maybe Progress) (Maybe Progress)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548757"><span class="annot"><span class="annottext">Maybe Progress
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548766"><span class="annot"><span class="annottext">Maybe Progress
 details :: Maybe Progress
 $sel:details:ProgressEvent' :: ProgressEvent -&gt; Maybe Progress
-</span><a href="#local-6989586621679548757"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Progress
-</span><a href="#local-6989586621679548757"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548756"><span class="annot"><span class="annottext">s :: ProgressEvent
-</span><a href="#local-6989586621679548756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548755"><span class="annot"><span class="annottext">Maybe Progress
-</span><a href="#local-6989586621679548755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
-</span><a href="#local-6989586621679548756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ProgressEvent' :: Maybe Progress
+</span><a href="#local-6989586621679548766"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Progress
+</span><a href="#local-6989586621679548766"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548765"><span class="annot"><span class="annottext">s :: ProgressEvent
+</span><a href="#local-6989586621679548765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-type">ProgressEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548764"><span class="annot"><span class="annottext">Maybe Progress
+</span><a href="#local-6989586621679548764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProgressEvent
+</span><a href="#local-6989586621679548765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ProgressEvent' :: Maybe Progress
 </span><a href="Network.AWS.S3.Types.ProgressEvent.html#%24sel%3Adetails%3AProgressEvent%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Progress
-</span><a href="#local-6989586621679548755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679548764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679548752"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProgressEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679548750"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679548761"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProgressEvent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679548759"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679548759"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">Maybe Progress -&gt; ProgressEvent
 </span><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent%27"><span class="hs-identifier hs-var">ProgressEvent'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Progress -&gt; ProgressEvent)
 -&gt; Either String (Maybe Progress) -&gt; Either String ProgressEvent
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Progress)
+</span><a href="#local-6989586621679548759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Progress)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548744"><span id="local-6989586621679548746"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548753"><span id="local-6989586621679548755"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548741"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span></span><span>
 </span><span id="line-63"></span></pre></body></html>

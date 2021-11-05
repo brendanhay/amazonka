@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Launch configuration for a server group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newServerGroupLaunchConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679250695"><span id="local-6989586621679250696"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerGroupLaunchConfiguration"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-var">ServerGroupLaunchConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerGroupLaunchConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-var">ServerGroupLaunchConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679250704"><span id="local-6989586621679250705"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerGroupLaunchConfiguration"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-var">ServerGroupLaunchConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerGroupLaunchConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-var">ServerGroupLaunchConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the server group with which the launch configuration is</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- associated.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AserverGroupId%3AServerGroupLaunchConfiguration%27"><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration -&gt; Maybe Text
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AserverLaunchConfigurations%3AServerGroupLaunchConfiguration%27"><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration -&gt; Maybe [ServerLaunchConfiguration]
 </span><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#%24sel%3AserverLaunchConfigurations%3AServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-var hs-var">serverLaunchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerLaunchConfiguration.html#ServerLaunchConfiguration"><span class="hs-identifier hs-type">ServerLaunchConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250687"><span id="local-6989586621679250689"><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250696"><span id="local-6989586621679250698"><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration
 -&gt; ServerGroupLaunchConfiguration -&gt; Bool
 (ServerGroupLaunchConfiguration
  -&gt; ServerGroupLaunchConfiguration -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: ServerGroupLaunchConfiguration
 -&gt; ServerGroupLaunchConfiguration -&gt; Bool
 $c== :: ServerGroupLaunchConfiguration
 -&gt; ServerGroupLaunchConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250678"><span id="local-6989586621679250680"><span id="local-6989586621679250682"><span id="local-6989586621679250684"><span class="annot"><span class="annottext">ReadPrec [ServerGroupLaunchConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250687"><span id="local-6989586621679250689"><span id="local-6989586621679250691"><span id="local-6989586621679250693"><span class="annot"><span class="annottext">ReadPrec [ServerGroupLaunchConfiguration]
 ReadPrec ServerGroupLaunchConfiguration
 Int -&gt; ReadS ServerGroupLaunchConfiguration
 ReadS [ServerGroupLaunchConfiguration]
@@ -75,7 +75,7 @@ readList :: ReadS [ServerGroupLaunchConfiguration]
 $creadList :: ReadS [ServerGroupLaunchConfiguration]
 readsPrec :: Int -&gt; ReadS ServerGroupLaunchConfiguration
 $creadsPrec :: Int -&gt; ReadS ServerGroupLaunchConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250671"><span id="local-6989586621679250673"><span id="local-6989586621679250675"><span class="annot"><span class="annottext">Int -&gt; ServerGroupLaunchConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250680"><span id="local-6989586621679250682"><span id="local-6989586621679250684"><span class="annot"><span class="annottext">Int -&gt; ServerGroupLaunchConfiguration -&gt; ShowS
 [ServerGroupLaunchConfiguration] -&gt; ShowS
 ServerGroupLaunchConfiguration -&gt; String
 (Int -&gt; ServerGroupLaunchConfiguration -&gt; ShowS)
@@ -167,16 +167,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250662"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250671"><span class="annot"><span class="annottext">Maybe Text
 serverGroupId :: Maybe Text
 $sel:serverGroupId:ServerGroupLaunchConfiguration' :: ServerGroupLaunchConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679250662"><span class="hs-identifier hs-var hs-var">serverGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250662"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250661"><span class="annot"><span class="annottext">s :: ServerGroupLaunchConfiguration
-</span><a href="#local-6989586621679250661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250660"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration
-</span><a href="#local-6989586621679250661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroupId:ServerGroupLaunchConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679250671"><span class="hs-identifier hs-var hs-var">serverGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250671"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250670"><span class="annot"><span class="annottext">s :: ServerGroupLaunchConfiguration
+</span><a href="#local-6989586621679250670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250669"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration
+</span><a href="#local-6989586621679250670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroupId:ServerGroupLaunchConfiguration' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#%24sel%3AserverGroupId%3AServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The launch order of servers in the server group.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#serverGroupLaunchConfiguration_launchOrder"><span class="hs-identifier hs-type">serverGroupLaunchConfiguration_launchOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -192,16 +192,16 @@ $sel:serverGroupId:ServerGroupLaunchConfiguration' :: ServerGroupLaunchConfigura
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250658"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250667"><span class="annot"><span class="annottext">Maybe Int
 launchOrder :: Maybe Int
 $sel:launchOrder:ServerGroupLaunchConfiguration' :: ServerGroupLaunchConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621679250658"><span class="hs-identifier hs-var hs-var">launchOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679250658"><span class="hs-identifier hs-var">launchOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250657"><span class="annot"><span class="annottext">s :: ServerGroupLaunchConfiguration
-</span><a href="#local-6989586621679250657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250656"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679250656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration
-</span><a href="#local-6989586621679250657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchOrder:ServerGroupLaunchConfiguration' :: Maybe Int
+</span><a href="#local-6989586621679250667"><span class="hs-identifier hs-var hs-var">launchOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679250667"><span class="hs-identifier hs-var">launchOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250666"><span class="annot"><span class="annottext">s :: ServerGroupLaunchConfiguration
+</span><a href="#local-6989586621679250666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250665"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679250665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration
+</span><a href="#local-6989586621679250666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchOrder:ServerGroupLaunchConfiguration' :: Maybe Int
 </span><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#%24sel%3AlaunchOrder%3AServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-var">launchOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679250656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The launch configuration for servers in the server group.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#serverGroupLaunchConfiguration_serverLaunchConfigurations"><span class="hs-identifier hs-type">serverGroupLaunchConfiguration_serverLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerLaunchConfiguration.html#ServerLaunchConfiguration"><span class="hs-identifier hs-type">ServerLaunchConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -220,16 +220,16 @@ $sel:launchOrder:ServerGroupLaunchConfiguration' :: ServerGroupLaunchConfigurati
      (Maybe [ServerLaunchConfiguration])
      (Maybe [ServerLaunchConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250654"><span class="annot"><span class="annottext">Maybe [ServerLaunchConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250663"><span class="annot"><span class="annottext">Maybe [ServerLaunchConfiguration]
 serverLaunchConfigurations :: Maybe [ServerLaunchConfiguration]
 $sel:serverLaunchConfigurations:ServerGroupLaunchConfiguration' :: ServerGroupLaunchConfiguration -&gt; Maybe [ServerLaunchConfiguration]
-</span><a href="#local-6989586621679250654"><span class="hs-identifier hs-var hs-var">serverLaunchConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerLaunchConfiguration]
-</span><a href="#local-6989586621679250654"><span class="hs-identifier hs-var">serverLaunchConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250653"><span class="annot"><span class="annottext">s :: ServerGroupLaunchConfiguration
-</span><a href="#local-6989586621679250653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250652"><span class="annot"><span class="annottext">Maybe [ServerLaunchConfiguration]
-</span><a href="#local-6989586621679250652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration
-</span><a href="#local-6989586621679250653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverLaunchConfigurations:ServerGroupLaunchConfiguration' :: Maybe [ServerLaunchConfiguration]
+</span><a href="#local-6989586621679250663"><span class="hs-identifier hs-var hs-var">serverLaunchConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerLaunchConfiguration]
+</span><a href="#local-6989586621679250663"><span class="hs-identifier hs-var">serverLaunchConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250662"><span class="annot"><span class="annottext">s :: ServerGroupLaunchConfiguration
+</span><a href="#local-6989586621679250662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250661"><span class="annot"><span class="annottext">Maybe [ServerLaunchConfiguration]
+</span><a href="#local-6989586621679250661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupLaunchConfiguration
+</span><a href="#local-6989586621679250662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverLaunchConfigurations:ServerGroupLaunchConfiguration' :: Maybe [ServerLaunchConfiguration]
 </span><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#%24sel%3AserverLaunchConfigurations%3AServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-var">serverLaunchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerLaunchConfiguration]
-</span><a href="#local-6989586621679250652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerLaunchConfiguration]
+</span><a href="#local-6989586621679250661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerLaunchConfiguration]
   -&gt; f (Maybe [ServerLaunchConfiguration]))
  -&gt; ServerGroupLaunchConfiguration
  -&gt; f ServerGroupLaunchConfiguration)
@@ -263,8 +263,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250646"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679250644"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerGroupLaunchConfiguration
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250655"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679250653"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerGroupLaunchConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServerGroupLaunchConfiguration)
@@ -274,8 +274,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServerGroupLaunchConfiguration&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250641"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250650"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250650"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe [ServerLaunchConfiguration]
@@ -292,7 +292,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ServerGroupLaunchConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679250650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverGroupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -306,7 +306,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ServerGroupLaunchConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679250650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;launchOrder&quot;</span></span><span class="hs-special">)</span><span>
@@ -317,7 +317,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ServerGroupLaunchConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [ServerLaunchConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -333,16 +333,16 @@ forall a. Monoid a =&gt; a
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679250634"><span id="local-6989586621679250636"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679250643"><span id="local-6989586621679250645"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679250631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679250640"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250623"><span id="local-6989586621679250625"><span id="local-6989586621679250627"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679250621"><span class="annot"><span class="annottext">toJSON :: ServerGroupLaunchConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250617"><span id="local-6989586621679250618"><span id="local-6989586621679250619"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250632"><span id="local-6989586621679250634"><span id="local-6989586621679250636"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679250630"><span class="annot"><span class="annottext">toJSON :: ServerGroupLaunchConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupLaunchConfiguration.html#ServerGroupLaunchConfiguration%27"><span class="hs-identifier hs-type">ServerGroupLaunchConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250626"><span id="local-6989586621679250627"><span id="local-6989586621679250628"><span class="annot"><span class="annottext">Maybe Int
 Maybe [ServerLaunchConfiguration]
 Maybe Text
 serverLaunchConfigurations :: Maybe [ServerLaunchConfiguration]
@@ -351,7 +351,7 @@ serverGroupId :: Maybe Text
 $sel:serverLaunchConfigurations:ServerGroupLaunchConfiguration' :: ServerGroupLaunchConfiguration -&gt; Maybe [ServerLaunchConfiguration]
 $sel:launchOrder:ServerGroupLaunchConfiguration' :: ServerGroupLaunchConfiguration -&gt; Maybe Int
 $sel:serverGroupId:ServerGroupLaunchConfiguration' :: ServerGroupLaunchConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679250617"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250626"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -363,14 +363,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250619"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250628"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;launchOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679250618"><span class="hs-identifier hs-var">launchOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250627"><span class="hs-identifier hs-var">launchOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverLaunchConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ServerLaunchConfiguration] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -379,7 +379,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ServerLaunchConfiguration] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ServerLaunchConfiguration]
-</span><a href="#local-6989586621679250617"><span class="hs-identifier hs-var">serverLaunchConfigurations</span></a></span><span>
+</span><a href="#local-6989586621679250626"><span class="hs-identifier hs-var">serverLaunchConfigurations</span></a></span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

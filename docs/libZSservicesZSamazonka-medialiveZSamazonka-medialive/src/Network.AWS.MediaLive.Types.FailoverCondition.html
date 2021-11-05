@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- inside AutomaticInputFailoverSettings.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFailoverCondition' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679929312"><span id="local-6989586621679929313"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverCondition"><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-var">FailoverCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverCondition%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition%27"><span class="hs-identifier hs-var">FailoverCondition'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679929321"><span id="local-6989586621679929322"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverCondition"><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-var">FailoverCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverCondition%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition%27"><span class="hs-identifier hs-var">FailoverCondition'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Failover condition type-specific settings.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AfailoverConditionSettings%3AFailoverCondition%27"><span class="annot"><span class="annottext">FailoverCondition -&gt; Maybe FailoverConditionSettings
 </span><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#%24sel%3AfailoverConditionSettings%3AFailoverCondition%27"><span class="hs-identifier hs-var hs-var">failoverConditionSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverConditionSettings.html#FailoverConditionSettings"><span class="hs-identifier hs-type">FailoverConditionSettings</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679929306"><span id="local-6989586621679929308"><span class="annot"><span class="annottext">FailoverCondition -&gt; FailoverCondition -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679929315"><span id="local-6989586621679929317"><span class="annot"><span class="annottext">FailoverCondition -&gt; FailoverCondition -&gt; Bool
 (FailoverCondition -&gt; FailoverCondition -&gt; Bool)
 -&gt; (FailoverCondition -&gt; FailoverCondition -&gt; Bool)
 -&gt; Eq FailoverCondition
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FailoverCondition -&gt; FailoverCondition -&gt; Bool
 == :: FailoverCondition -&gt; FailoverCondition -&gt; Bool
 $c== :: FailoverCondition -&gt; FailoverCondition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929297"><span id="local-6989586621679929299"><span id="local-6989586621679929301"><span id="local-6989586621679929303"><span class="annot"><span class="annottext">ReadPrec [FailoverCondition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929306"><span id="local-6989586621679929308"><span id="local-6989586621679929310"><span id="local-6989586621679929312"><span class="annot"><span class="annottext">ReadPrec [FailoverCondition]
 ReadPrec FailoverCondition
 Int -&gt; ReadS FailoverCondition
 ReadS [FailoverCondition]
@@ -62,7 +62,7 @@ readList :: ReadS [FailoverCondition]
 $creadList :: ReadS [FailoverCondition]
 readsPrec :: Int -&gt; ReadS FailoverCondition
 $creadsPrec :: Int -&gt; ReadS FailoverCondition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929290"><span id="local-6989586621679929292"><span id="local-6989586621679929294"><span class="annot"><span class="annottext">Int -&gt; FailoverCondition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929299"><span id="local-6989586621679929301"><span id="local-6989586621679929303"><span class="annot"><span class="annottext">Int -&gt; FailoverCondition -&gt; ShowS
 [FailoverCondition] -&gt; ShowS
 FailoverCondition -&gt; String
 (Int -&gt; FailoverCondition -&gt; ShowS)
@@ -124,19 +124,19 @@ forall a. Maybe a
      (Maybe FailoverConditionSettings)
      (Maybe FailoverConditionSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition%27"><span class="hs-identifier hs-type">FailoverCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929281"><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition%27"><span class="hs-identifier hs-type">FailoverCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929290"><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
 failoverConditionSettings :: Maybe FailoverConditionSettings
 $sel:failoverConditionSettings:FailoverCondition' :: FailoverCondition -&gt; Maybe FailoverConditionSettings
-</span><a href="#local-6989586621679929281"><span class="hs-identifier hs-var hs-var">failoverConditionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
-</span><a href="#local-6989586621679929281"><span class="hs-identifier hs-var">failoverConditionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929280"><span class="annot"><span class="annottext">s :: FailoverCondition
-</span><a href="#local-6989586621679929280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition%27"><span class="hs-identifier hs-type">FailoverCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929279"><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
-</span><a href="#local-6989586621679929279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverCondition
-</span><a href="#local-6989586621679929280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failoverConditionSettings:FailoverCondition' :: Maybe FailoverConditionSettings
+</span><a href="#local-6989586621679929290"><span class="hs-identifier hs-var hs-var">failoverConditionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
+</span><a href="#local-6989586621679929290"><span class="hs-identifier hs-var">failoverConditionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929289"><span class="annot"><span class="annottext">s :: FailoverCondition
+</span><a href="#local-6989586621679929289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition%27"><span class="hs-identifier hs-type">FailoverCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929288"><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
+</span><a href="#local-6989586621679929288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverCondition
+</span><a href="#local-6989586621679929289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failoverConditionSettings:FailoverCondition' :: Maybe FailoverConditionSettings
 </span><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#%24sel%3AfailoverConditionSettings%3AFailoverCondition%27"><span class="hs-identifier hs-var">failoverConditionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
-</span><a href="#local-6989586621679929279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679929288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929276"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679929274"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailoverCondition
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929285"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679929283"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailoverCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FailoverCondition)
@@ -146,8 +146,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FailoverCondition&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679929271"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929271"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679929280"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679929280"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe FailoverConditionSettings -&gt; FailoverCondition
 </span><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition%27"><span class="hs-identifier hs-var">FailoverCondition'</span></a></span><span>
 </span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FailoverConditionSettings -&gt; FailoverCondition)
@@ -155,22 +155,22 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser FailoverCondition
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FailoverConditionSettings)
+</span><a href="#local-6989586621679929280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FailoverConditionSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failoverConditionSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929265"><span id="local-6989586621679929267"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929274"><span id="local-6989586621679929276"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929254"><span id="local-6989586621679929256"><span id="local-6989586621679929258"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679929252"><span class="annot"><span class="annottext">toJSON :: FailoverCondition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition%27"><span class="hs-identifier hs-type">FailoverCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929250"><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929263"><span id="local-6989586621679929265"><span id="local-6989586621679929267"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition"><span class="hs-identifier hs-type">FailoverCondition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679929261"><span class="annot"><span class="annottext">toJSON :: FailoverCondition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.FailoverCondition.html#FailoverCondition%27"><span class="hs-identifier hs-type">FailoverCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929259"><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
 failoverConditionSettings :: Maybe FailoverConditionSettings
 $sel:failoverConditionSettings:FailoverCondition' :: FailoverCondition -&gt; Maybe FailoverConditionSettings
-</span><a href="#local-6989586621679929250"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679929259"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -184,7 +184,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FailoverConditionSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FailoverConditionSettings
-</span><a href="#local-6989586621679929250"><span class="hs-identifier hs-var">failoverConditionSettings</span></a></span><span>
+</span><a href="#local-6989586621679929259"><span class="hs-identifier hs-var">failoverConditionSettings</span></a></span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

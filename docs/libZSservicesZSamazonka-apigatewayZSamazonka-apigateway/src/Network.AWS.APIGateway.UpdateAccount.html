@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-comment">-- resource.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newUpdateAccount' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679393848"><span id="local-6989586621679393849"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAccount"><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-var">UpdateAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAccount%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-var">UpdateAccount'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679393857"><span id="local-6989586621679393858"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAccount"><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-var">UpdateAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAccount%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-var">UpdateAccount'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- in the order specified in this list.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3ApatchOperations%3AUpdateAccount%27"><span class="annot"><span class="annottext">UpdateAccount -&gt; Maybe [PatchOperation]
 </span><a href="Network.AWS.APIGateway.UpdateAccount.html#%24sel%3ApatchOperations%3AUpdateAccount%27"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.APIGateway.Types.PatchOperation.html#PatchOperation"><span class="hs-identifier hs-type">PatchOperation</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393842"><span id="local-6989586621679393844"><span class="annot"><span class="annottext">UpdateAccount -&gt; UpdateAccount -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393851"><span id="local-6989586621679393853"><span class="annot"><span class="annottext">UpdateAccount -&gt; UpdateAccount -&gt; Bool
 (UpdateAccount -&gt; UpdateAccount -&gt; Bool)
 -&gt; (UpdateAccount -&gt; UpdateAccount -&gt; Bool) -&gt; Eq UpdateAccount
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateAccount -&gt; UpdateAccount -&gt; Bool
 == :: UpdateAccount -&gt; UpdateAccount -&gt; Bool
 $c== :: UpdateAccount -&gt; UpdateAccount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393833"><span id="local-6989586621679393835"><span id="local-6989586621679393837"><span id="local-6989586621679393839"><span class="annot"><span class="annottext">ReadPrec [UpdateAccount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393842"><span id="local-6989586621679393844"><span id="local-6989586621679393846"><span id="local-6989586621679393848"><span class="annot"><span class="annottext">ReadPrec [UpdateAccount]
 ReadPrec UpdateAccount
 Int -&gt; ReadS UpdateAccount
 ReadS [UpdateAccount]
@@ -86,7 +86,7 @@ readList :: ReadS [UpdateAccount]
 $creadList :: ReadS [UpdateAccount]
 readsPrec :: Int -&gt; ReadS UpdateAccount
 $creadsPrec :: Int -&gt; ReadS UpdateAccount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393826"><span id="local-6989586621679393828"><span id="local-6989586621679393830"><span class="annot"><span class="annottext">Int -&gt; UpdateAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393835"><span id="local-6989586621679393837"><span id="local-6989586621679393839"><span class="annot"><span class="annottext">Int -&gt; UpdateAccount -&gt; ShowS
 [UpdateAccount] -&gt; ShowS
 UpdateAccount -&gt; String
 (Int -&gt; UpdateAccount -&gt; ShowS)
@@ -145,16 +145,16 @@ forall a. Maybe a
      (Maybe [PatchOperation])
      (Maybe [PatchOperation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393819"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393828"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 patchOperations :: Maybe [PatchOperation]
 $sel:patchOperations:UpdateAccount' :: UpdateAccount -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679393819"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679393819"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393818"><span class="annot"><span class="annottext">s :: UpdateAccount
-</span><a href="#local-6989586621679393818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393817"><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679393817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccount
-</span><a href="#local-6989586621679393818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateAccount' :: Maybe [PatchOperation]
+</span><a href="#local-6989586621679393828"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679393828"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393827"><span class="annot"><span class="annottext">s :: UpdateAccount
+</span><a href="#local-6989586621679393827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393826"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679393826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAccount
+</span><a href="#local-6989586621679393827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateAccount' :: Maybe [PatchOperation]
 </span><a href="Network.AWS.APIGateway.UpdateAccount.html#%24sel%3ApatchOperations%3AUpdateAccount%27"><span class="hs-identifier hs-var">patchOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679393817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
+</span><a href="#local-6989586621679393826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
  -&gt; UpdateAccount -&gt; f UpdateAccount)
 -&gt; ((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
     -&gt; Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
@@ -179,12 +179,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679393810"><span class="annot"><span class="annottext">request :: UpdateAccount -&gt; Request UpdateAccount
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679393819"><span class="annot"><span class="annottext">request :: UpdateAccount -&gt; Request UpdateAccount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateAccount -&gt; Request UpdateAccount
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679393806"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679393815"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateAccount
 -&gt; ClientResponse ClientBody
@@ -208,20 +208,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393803"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393803"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393802"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679393802"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393801"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393801"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Account
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393812"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393812"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393811"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393811"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393810"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679393810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Account
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393801"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393810"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393796"><span id="local-6989586621679393798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393805"><span id="local-6989586621679393807"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679393789"><span class="annot"><span class="annottext">toHeaders :: UpdateAccount -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679393798"><span class="annot"><span class="annottext">toHeaders :: UpdateAccount -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateAccount -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -238,12 +238,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393779"><span id="local-6989586621679393781"><span id="local-6989586621679393783"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679393777"><span class="annot"><span class="annottext">toJSON :: UpdateAccount -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393775"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393788"><span id="local-6989586621679393790"><span id="local-6989586621679393792"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679393786"><span class="annot"><span class="annottext">toJSON :: UpdateAccount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount%27"><span class="hs-identifier hs-type">UpdateAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393784"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 patchOperations :: Maybe [PatchOperation]
 $sel:patchOperations:UpdateAccount' :: UpdateAccount -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679393775"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679393784"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -256,19 +256,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">([PatchOperation] -&gt; Pair) -&gt; Maybe [PatchOperation] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679393775"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
+</span><a href="#local-6989586621679393784"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679393768"><span class="annot"><span class="annottext">toPath :: UpdateAccount -&gt; ByteString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679393777"><span class="annot"><span class="annottext">toPath :: UpdateAccount -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateAccount -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/account&quot;</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateAccount.html#UpdateAccount"><span class="hs-identifier hs-type">UpdateAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679393764"><span class="annot"><span class="annottext">toQuery :: UpdateAccount -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679393773"><span class="annot"><span class="annottext">toQuery :: UpdateAccount -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAccount -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

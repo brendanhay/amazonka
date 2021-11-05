@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newListShards' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679202839"><span id="local-6989586621679202840"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListShards"><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-var">ListShards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListShards%27"><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-var">ListShards'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679202848"><span id="local-6989586621679202849"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListShards"><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-var">ListShards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListShards%27"><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-var">ListShards'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AshardFilter%3AListShards%27"><span class="annot"><span class="annottext">ListShards -&gt; Maybe ShardFilter
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AshardFilter%3AListShards%27"><span class="hs-identifier hs-var hs-var">shardFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | When the number of shards in the data stream is greater than the default</span><span>
@@ -126,7 +126,7 @@
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AmaxResults%3AListShards%27"><span class="annot"><span class="annottext">ListShards -&gt; Maybe Natural
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AmaxResults%3AListShards%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202828"><span id="local-6989586621679202830"><span class="annot"><span class="annottext">ListShards -&gt; ListShards -&gt; Bool
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202837"><span id="local-6989586621679202839"><span class="annot"><span class="annottext">ListShards -&gt; ListShards -&gt; Bool
 (ListShards -&gt; ListShards -&gt; Bool)
 -&gt; (ListShards -&gt; ListShards -&gt; Bool) -&gt; Eq ListShards
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -134,7 +134,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListShards -&gt; ListShards -&gt; Bool
 == :: ListShards -&gt; ListShards -&gt; Bool
 $c== :: ListShards -&gt; ListShards -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202819"><span id="local-6989586621679202821"><span id="local-6989586621679202823"><span id="local-6989586621679202825"><span class="annot"><span class="annottext">ReadPrec [ListShards]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202828"><span id="local-6989586621679202830"><span id="local-6989586621679202832"><span id="local-6989586621679202834"><span class="annot"><span class="annottext">ReadPrec [ListShards]
 ReadPrec ListShards
 Int -&gt; ReadS ListShards
 ReadS [ListShards]
@@ -154,7 +154,7 @@ readList :: ReadS [ListShards]
 $creadList :: ReadS [ListShards]
 readsPrec :: Int -&gt; ReadS ListShards
 $creadsPrec :: Int -&gt; ReadS ListShards
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202812"><span id="local-6989586621679202814"><span id="local-6989586621679202816"><span class="annot"><span class="annottext">Int -&gt; ListShards -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202821"><span id="local-6989586621679202823"><span id="local-6989586621679202825"><span class="annot"><span class="annottext">Int -&gt; ListShards -&gt; ShowS
 [ListShards] -&gt; ShowS
 ListShards -&gt; String
 (Int -&gt; ListShards -&gt; ShowS)
@@ -289,16 +289,16 @@ forall a. Maybe a
 -&gt; Lens
      ListShards ListShards (Maybe ShardFilter) (Maybe ShardFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202806"><span class="annot"><span class="annottext">Maybe ShardFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202815"><span class="annot"><span class="annottext">Maybe ShardFilter
 shardFilter :: Maybe ShardFilter
 $sel:shardFilter:ListShards' :: ListShards -&gt; Maybe ShardFilter
-</span><a href="#local-6989586621679202806"><span class="hs-identifier hs-var hs-var">shardFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShardFilter
-</span><a href="#local-6989586621679202806"><span class="hs-identifier hs-var">shardFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202805"><span class="annot"><span class="annottext">s :: ListShards
-</span><a href="#local-6989586621679202805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202804"><span class="annot"><span class="annottext">Maybe ShardFilter
-</span><a href="#local-6989586621679202804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
-</span><a href="#local-6989586621679202805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardFilter:ListShards' :: Maybe ShardFilter
+</span><a href="#local-6989586621679202815"><span class="hs-identifier hs-var hs-var">shardFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShardFilter
+</span><a href="#local-6989586621679202815"><span class="hs-identifier hs-var">shardFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202814"><span class="annot"><span class="annottext">s :: ListShards
+</span><a href="#local-6989586621679202814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202813"><span class="annot"><span class="annottext">Maybe ShardFilter
+</span><a href="#local-6989586621679202813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
+</span><a href="#local-6989586621679202814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardFilter:ListShards' :: Maybe ShardFilter
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AshardFilter%3AListShards%27"><span class="hs-identifier hs-var">shardFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShardFilter
-</span><a href="#local-6989586621679202804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | When the number of shards in the data stream is greater than the default</span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- value for the @MaxResults@ parameter, or if you explicitly specify a</span><span>
@@ -327,16 +327,16 @@ $sel:shardFilter:ListShards' :: ListShards -&gt; Maybe ShardFilter
 -&gt; (ListShards -&gt; Maybe Text -&gt; ListShards)
 -&gt; Lens ListShards ListShards (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202803"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202812"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListShards' :: ListShards -&gt; Maybe Text
-</span><a href="#local-6989586621679202803"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202803"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202802"><span class="annot"><span class="annottext">s :: ListShards
-</span><a href="#local-6989586621679202802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202801"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
-</span><a href="#local-6989586621679202802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListShards' :: Maybe Text
+</span><a href="#local-6989586621679202812"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202812"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202811"><span class="annot"><span class="annottext">s :: ListShards
+</span><a href="#local-6989586621679202811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
+</span><a href="#local-6989586621679202811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListShards' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AnextToken%3AListShards%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | Specify this parameter to indicate that you want to list the shards</span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- starting with the shard whose ID immediately follows</span><span>
@@ -353,16 +353,16 @@ $sel:nextToken:ListShards' :: ListShards -&gt; Maybe Text
 -&gt; (ListShards -&gt; Maybe Text -&gt; ListShards)
 -&gt; Lens ListShards ListShards (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202800"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202809"><span class="annot"><span class="annottext">Maybe Text
 exclusiveStartShardId :: Maybe Text
 $sel:exclusiveStartShardId:ListShards' :: ListShards -&gt; Maybe Text
-</span><a href="#local-6989586621679202800"><span class="hs-identifier hs-var hs-var">exclusiveStartShardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202800"><span class="hs-identifier hs-var">exclusiveStartShardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202799"><span class="annot"><span class="annottext">s :: ListShards
-</span><a href="#local-6989586621679202799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202798"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
-</span><a href="#local-6989586621679202799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartShardId:ListShards' :: Maybe Text
+</span><a href="#local-6989586621679202809"><span class="hs-identifier hs-var hs-var">exclusiveStartShardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202809"><span class="hs-identifier hs-var">exclusiveStartShardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202808"><span class="annot"><span class="annottext">s :: ListShards
+</span><a href="#local-6989586621679202808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202807"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
+</span><a href="#local-6989586621679202808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartShardId:ListShards' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AexclusiveStartShardId%3AListShards%27"><span class="hs-identifier hs-var">exclusiveStartShardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | Specify this input parameter to distinguish data streams that have the</span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- same name. For example, if you create a data stream and then delete it,</span><span>
@@ -378,16 +378,16 @@ $sel:exclusiveStartShardId:ListShards' :: ListShards -&gt; Maybe Text
 -&gt; (ListShards -&gt; Maybe POSIX -&gt; ListShards)
 -&gt; Lens ListShards ListShards (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202797"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202806"><span class="annot"><span class="annottext">Maybe POSIX
 streamCreationTimestamp :: Maybe POSIX
 $sel:streamCreationTimestamp:ListShards' :: ListShards -&gt; Maybe POSIX
-</span><a href="#local-6989586621679202797"><span class="hs-identifier hs-var hs-var">streamCreationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679202797"><span class="hs-identifier hs-var">streamCreationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202796"><span class="annot"><span class="annottext">s :: ListShards
-</span><a href="#local-6989586621679202796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202795"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679202795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
-</span><a href="#local-6989586621679202796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamCreationTimestamp:ListShards' :: Maybe POSIX
+</span><a href="#local-6989586621679202806"><span class="hs-identifier hs-var hs-var">streamCreationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202806"><span class="hs-identifier hs-var">streamCreationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202805"><span class="annot"><span class="annottext">s :: ListShards
+</span><a href="#local-6989586621679202805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202804"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
+</span><a href="#local-6989586621679202805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamCreationTimestamp:ListShards' :: Maybe POSIX
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AstreamCreationTimestamp%3AListShards%27"><span class="hs-identifier hs-var">streamCreationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679202795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListShards -&gt; f ListShards)
+</span><a href="#local-6989586621679202804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ListShards -&gt; f ListShards)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -413,16 +413,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ListShards -&gt; Maybe Text -&gt; ListShards)
 -&gt; Lens ListShards ListShards (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202791"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202800"><span class="annot"><span class="annottext">Maybe Text
 streamName :: Maybe Text
 $sel:streamName:ListShards' :: ListShards -&gt; Maybe Text
-</span><a href="#local-6989586621679202791"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202791"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202790"><span class="annot"><span class="annottext">s :: ListShards
-</span><a href="#local-6989586621679202790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202789"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
-</span><a href="#local-6989586621679202790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:ListShards' :: Maybe Text
+</span><a href="#local-6989586621679202800"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202800"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202799"><span class="annot"><span class="annottext">s :: ListShards
+</span><a href="#local-6989586621679202799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202798"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
+</span><a href="#local-6989586621679202799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:ListShards' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AstreamName%3AListShards%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | The maximum number of shards to return in a single call to @ListShards@.</span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- The minimum value you can specify for this parameter is 1, and the</span><span>
@@ -437,28 +437,28 @@ $sel:streamName:ListShards' :: ListShards -&gt; Maybe Text
 -&gt; (ListShards -&gt; Maybe Natural -&gt; ListShards)
 -&gt; Lens ListShards ListShards (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202788"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202797"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListShards' :: ListShards -&gt; Maybe Natural
-</span><a href="#local-6989586621679202788"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679202788"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202787"><span class="annot"><span class="annottext">s :: ListShards
-</span><a href="#local-6989586621679202787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202786"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679202786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
-</span><a href="#local-6989586621679202787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListShards' :: Maybe Natural
+</span><a href="#local-6989586621679202797"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202797"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202796"><span class="annot"><span class="annottext">s :: ListShards
+</span><a href="#local-6989586621679202796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202795"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679202795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShards
+</span><a href="#local-6989586621679202796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListShards' :: Maybe Natural
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AmaxResults%3AListShards%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679202786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-269"></span><span>  </span><span id="local-6989586621679202782"><span class="annot"><span class="annottext">page :: ListShards -&gt; AWSResponse ListShards -&gt; Maybe ListShards
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679202780"><span class="annot"><span class="annottext">ListShards
-</span><a href="#local-6989586621679202780"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202779"><span class="annot"><span class="annottext">AWSResponse ListShards
-</span><a href="#local-6989586621679202779"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679202791"><span class="annot"><span class="annottext">page :: ListShards -&gt; AWSResponse ListShards -&gt; Maybe ListShards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679202789"><span class="annot"><span class="annottext">ListShards
+</span><a href="#local-6989586621679202789"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679202788"><span class="annot"><span class="annottext">AWSResponse ListShards
+</span><a href="#local-6989586621679202788"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-270"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-271"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListShards
 ListShardsResponse
-</span><a href="#local-6989586621679202779"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679202788"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">ListShardsResponse
 -&gt; Getting (First Text) ListShardsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -484,7 +484,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-276"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListShards
 ListShardsResponse
-</span><a href="#local-6989586621679202779"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679202788"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">ListShardsResponse
 -&gt; Getting (First [Shard]) ListShardsResponse [Shard]
 -&gt; Maybe [Shard]
@@ -514,7 +514,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-282"></span><span>        </span><span class="annot"><span class="annottext">ListShards
-</span><a href="#local-6989586621679202780"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679202789"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-283"></span><span>          </span><span class="annot"><span class="annottext">ListShards -&gt; (ListShards -&gt; ListShards) -&gt; ListShards
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -527,7 +527,7 @@ Lens ListShards ListShards (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListShards
 ListShardsResponse
-</span><a href="#local-6989586621679202779"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679202788"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-285"></span><span>          </span><span class="annot"><span class="annottext">ListShardsResponse
 -&gt; Getting (First Text) ListShardsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -547,12 +547,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-288"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span><span>
-</span><span id="line-289"></span><span>  </span><span id="local-6989586621679202770"><span class="annot"><span class="annottext">request :: ListShards -&gt; Request ListShards
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679202779"><span class="annot"><span class="annottext">request :: ListShards -&gt; Request ListShards
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListShards -&gt; Request ListShards
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-290"></span><span>  </span><span id="local-6989586621679202766"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679202775"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListShards
 -&gt; ClientResponse ClientBody
@@ -576,10 +576,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-292"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202763"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202763"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202762"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679202762"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202761"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202772"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202772"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202771"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202771"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202770"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202770"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-293"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Shard] -&gt; Int -&gt; ListShardsResponse
 </span><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-var">ListShardsResponse'</span></a></span><span>
 </span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Shard] -&gt; Int -&gt; ListShardsResponse)
@@ -587,7 +587,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Shard] -&gt; Int -&gt; ListShardsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679202770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -596,7 +596,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListShardsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Shard]))
+</span><a href="#local-6989586621679202770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Shard]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Shards&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Shard]))
@@ -613,15 +613,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202763"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202772"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
-</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202752"><span id="local-6989586621679202754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span></span></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202761"><span id="local-6989586621679202763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span></span></span><span>
 </span><span id="line-300"></span><span>
-</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span></span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-304"></span><span>  </span><span id="local-6989586621679202745"><span class="annot"><span class="annottext">toHeaders :: ListShards -&gt; ResponseHeaders
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621679202754"><span class="annot"><span class="annottext">toHeaders :: ListShards -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-305"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListShards -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -648,9 +648,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-315"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-316"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-317"></span><span>
-</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202735"><span id="local-6989586621679202737"><span id="local-6989586621679202739"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-319"></span><span>  </span><span id="local-6989586621679202733"><span class="annot"><span class="annottext">toJSON :: ListShards -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202726"><span id="local-6989586621679202727"><span id="local-6989586621679202728"><span id="local-6989586621679202729"><span id="local-6989586621679202730"><span id="local-6989586621679202731"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202744"><span id="local-6989586621679202746"><span id="local-6989586621679202748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679202742"><span class="annot"><span class="annottext">toJSON :: ListShards -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards%27"><span class="hs-identifier hs-type">ListShards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202735"><span id="local-6989586621679202736"><span id="local-6989586621679202737"><span id="local-6989586621679202738"><span id="local-6989586621679202739"><span id="local-6989586621679202740"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe POSIX
 Maybe ShardFilter
@@ -666,7 +666,7 @@ $sel:streamCreationTimestamp:ListShards' :: ListShards -&gt; Maybe POSIX
 $sel:exclusiveStartShardId:ListShards' :: ListShards -&gt; Maybe Text
 $sel:nextToken:ListShards' :: ListShards -&gt; Maybe Text
 $sel:shardFilter:ListShards' :: ListShards -&gt; Maybe ShardFilter
-</span><a href="#local-6989586621679202726"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679202735"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-321"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -678,14 +678,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ShardFilter -&gt; Pair) -&gt; Maybe ShardFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ShardFilter
-</span><a href="#local-6989586621679202731"><span class="hs-identifier hs-var">shardFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679202740"><span class="hs-identifier hs-var">shardFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-323"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202730"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679202739"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-324"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExclusiveStartShardId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -693,7 +693,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-325"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202729"><span class="hs-identifier hs-var">exclusiveStartShardId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679202738"><span class="hs-identifier hs-var">exclusiveStartShardId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-326"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamCreationTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -701,33 +701,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-327"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679202728"><span class="hs-identifier hs-var">streamCreationTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679202737"><span class="hs-identifier hs-var">streamCreationTimestamp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-328"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202727"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679202736"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-329"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679202726"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679202735"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-330"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-331"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
 </span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-334"></span><span>  </span><span id="local-6989586621679202720"><span class="annot"><span class="annottext">toPath :: ListShards -&gt; ByteString
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679202729"><span class="annot"><span class="annottext">toPath :: ListShards -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListShards -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-335"></span><span>
 </span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShards"><span class="hs-identifier hs-type">ListShards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-337"></span><span>  </span><span id="local-6989586621679202716"><span class="annot"><span class="annottext">toQuery :: ListShards -&gt; QueryString
+</span><span id="line-337"></span><span>  </span><span id="local-6989586621679202725"><span class="annot"><span class="annottext">toQuery :: ListShards -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListShards -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -735,7 +735,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-338"></span><span>
 </span><span id="line-339"></span><span class="hs-comment">-- | /See:/ 'newListShardsResponse' smart constructor.</span><span>
-</span><span id="line-340"></span><span id="local-6989586621679202713"><span id="local-6989586621679202714"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListShardsResponse"><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-var">ListShardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListShardsResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-var">ListShardsResponse'</span></a></span></span><span>
+</span><span id="line-340"></span><span id="local-6989586621679202722"><span id="local-6989586621679202723"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListShardsResponse"><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-var">ListShardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListShardsResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-var">ListShardsResponse'</span></a></span></span><span>
 </span><span id="line-341"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the number of shards in the data stream is greater than the default</span><span>
 </span><span id="line-342"></span><span>    </span><span class="hs-comment">-- value for the @MaxResults@ parameter, or if you explicitly specify a</span><span>
 </span><span id="line-343"></span><span>    </span><span class="hs-comment">-- value for @MaxResults@ that is less than the number of shards in the</span><span>
@@ -762,7 +762,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-362"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListShardsResponse%27"><span class="annot"><span class="annottext">ListShardsResponse -&gt; Int
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AhttpStatus%3AListShardsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-363"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-364"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202706"><span id="local-6989586621679202708"><span class="annot"><span class="annottext">ListShardsResponse -&gt; ListShardsResponse -&gt; Bool
+</span><span id="line-364"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202715"><span id="local-6989586621679202717"><span class="annot"><span class="annottext">ListShardsResponse -&gt; ListShardsResponse -&gt; Bool
 (ListShardsResponse -&gt; ListShardsResponse -&gt; Bool)
 -&gt; (ListShardsResponse -&gt; ListShardsResponse -&gt; Bool)
 -&gt; Eq ListShardsResponse
@@ -771,7 +771,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListShardsResponse -&gt; ListShardsResponse -&gt; Bool
 == :: ListShardsResponse -&gt; ListShardsResponse -&gt; Bool
 $c== :: ListShardsResponse -&gt; ListShardsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202698"><span id="local-6989586621679202700"><span id="local-6989586621679202702"><span id="local-6989586621679202704"><span class="annot"><span class="annottext">ReadPrec [ListShardsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202707"><span id="local-6989586621679202709"><span id="local-6989586621679202711"><span id="local-6989586621679202713"><span class="annot"><span class="annottext">ReadPrec [ListShardsResponse]
 ReadPrec ListShardsResponse
 Int -&gt; ReadS ListShardsResponse
 ReadS [ListShardsResponse]
@@ -791,7 +791,7 @@ readList :: ReadS [ListShardsResponse]
 $creadList :: ReadS [ListShardsResponse]
 readsPrec :: Int -&gt; ReadS ListShardsResponse
 $creadsPrec :: Int -&gt; ReadS ListShardsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202692"><span id="local-6989586621679202694"><span id="local-6989586621679202696"><span class="annot"><span class="annottext">Int -&gt; ListShardsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202701"><span id="local-6989586621679202703"><span id="local-6989586621679202705"><span class="annot"><span class="annottext">Int -&gt; ListShardsResponse -&gt; ShowS
 [ListShardsResponse] -&gt; ShowS
 ListShardsResponse -&gt; String
 (Int -&gt; ListShardsResponse -&gt; ShowS)
@@ -851,8 +851,8 @@ $cfrom :: forall x. ListShardsResponse -&gt; Rep ListShardsResponse x
 </span><span id="line-397"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-398"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span><span>
 </span><span id="line-399"></span><span id="newListShardsResponse"><span class="annot"><span class="annottext">newListShardsResponse :: Int -&gt; ListShardsResponse
-</span><a href="Network.AWS.Kinesis.ListShards.html#newListShardsResponse"><span class="hs-identifier hs-var hs-var">newListShardsResponse</span></a></span></span><span> </span><span id="local-6989586621679202689"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202689"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.ListShards.html#newListShardsResponse"><span class="hs-identifier hs-var hs-var">newListShardsResponse</span></a></span></span><span> </span><span id="local-6989586621679202698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-400"></span><span>  </span><span class="annot"><span class="annottext">ListShardsResponse' :: Maybe Text -&gt; Maybe [Shard] -&gt; Int -&gt; ListShardsResponse
 </span><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span>
 </span><span id="line-401"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListShardsResponse' :: Maybe Text
@@ -865,7 +865,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-403"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListShardsResponse' :: Int
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AhttpStatus%3AListShardsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202689"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679202698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-404"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-405"></span><span>
 </span><span id="line-406"></span><span class="hs-comment">-- | When the number of shards in the data stream is greater than the default</span><span>
@@ -888,16 +888,16 @@ forall a. Maybe a
 -&gt; (ListShardsResponse -&gt; Maybe Text -&gt; ListShardsResponse)
 -&gt; Lens' ListShardsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202688"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202697"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListShardsResponse' :: ListShardsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679202688"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202688"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202687"><span class="annot"><span class="annottext">s :: ListShardsResponse
-</span><a href="#local-6989586621679202687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202686"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShardsResponse
-</span><a href="#local-6989586621679202687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListShardsResponse' :: Maybe Text
+</span><a href="#local-6989586621679202697"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202697"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202696"><span class="annot"><span class="annottext">s :: ListShardsResponse
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202695"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShardsResponse
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListShardsResponse' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AnextToken%3AListShardsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-421"></span><span>
 </span><span id="line-422"></span><span class="hs-comment">-- | An array of JSON objects. Each object represents one shard and specifies</span><span>
 </span><span id="line-423"></span><span class="hs-comment">-- the IDs of the shard, the shard\'s parent, and the shard that\'s</span><span>
@@ -911,16 +911,16 @@ $sel:nextToken:ListShardsResponse' :: ListShardsResponse -&gt; Maybe Text
 -&gt; (ListShardsResponse -&gt; Maybe [Shard] -&gt; ListShardsResponse)
 -&gt; Lens' ListShardsResponse (Maybe [Shard])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202685"><span class="annot"><span class="annottext">Maybe [Shard]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202694"><span class="annot"><span class="annottext">Maybe [Shard]
 shards :: Maybe [Shard]
 $sel:shards:ListShardsResponse' :: ListShardsResponse -&gt; Maybe [Shard]
-</span><a href="#local-6989586621679202685"><span class="hs-identifier hs-var hs-var">shards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Shard]
-</span><a href="#local-6989586621679202685"><span class="hs-identifier hs-var">shards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202684"><span class="annot"><span class="annottext">s :: ListShardsResponse
-</span><a href="#local-6989586621679202684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202683"><span class="annot"><span class="annottext">Maybe [Shard]
-</span><a href="#local-6989586621679202683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShardsResponse
-</span><a href="#local-6989586621679202684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shards:ListShardsResponse' :: Maybe [Shard]
+</span><a href="#local-6989586621679202694"><span class="hs-identifier hs-var hs-var">shards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Shard]
+</span><a href="#local-6989586621679202694"><span class="hs-identifier hs-var">shards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202693"><span class="annot"><span class="annottext">s :: ListShardsResponse
+</span><a href="#local-6989586621679202693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202692"><span class="annot"><span class="annottext">Maybe [Shard]
+</span><a href="#local-6989586621679202692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShardsResponse
+</span><a href="#local-6989586621679202693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shards:ListShardsResponse' :: Maybe [Shard]
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3Ashards%3AListShardsResponse%27"><span class="hs-identifier hs-var">shards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Shard]
-</span><a href="#local-6989586621679202683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Shard] -&gt; f (Maybe [Shard]))
+</span><a href="#local-6989586621679202692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Shard] -&gt; f (Maybe [Shard]))
  -&gt; ListShardsResponse -&gt; f ListShardsResponse)
 -&gt; ((Maybe [Shard] -&gt; f (Maybe [Shard]))
     -&gt; Maybe [Shard] -&gt; f (Maybe [Shard]))
@@ -945,16 +945,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListShardsResponse -&gt; Int -&gt; ListShardsResponse)
 -&gt; Lens ListShardsResponse ListShardsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202681"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202690"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListShardsResponse' :: ListShardsResponse -&gt; Int
-</span><a href="#local-6989586621679202681"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202681"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202680"><span class="annot"><span class="annottext">s :: ListShardsResponse
-</span><a href="#local-6989586621679202680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202679"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShardsResponse
-</span><a href="#local-6989586621679202680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListShardsResponse' :: Int
+</span><a href="#local-6989586621679202690"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202690"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202689"><span class="annot"><span class="annottext">s :: ListShardsResponse
+</span><a href="#local-6989586621679202689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse%27"><span class="hs-identifier hs-type">ListShardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202688"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListShardsResponse
+</span><a href="#local-6989586621679202689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListShardsResponse' :: Int
 </span><a href="Network.AWS.Kinesis.ListShards.html#%24sel%3AhttpStatus%3AListShardsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-433"></span><span>
-</span><span id="line-434"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span></span><span>
+</span><span id="line-434"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.ListShards.html#ListShardsResponse"><span class="hs-identifier hs-type">ListShardsResponse</span></a></span></span><span>
 </span><span id="line-435"></span></pre></body></html>

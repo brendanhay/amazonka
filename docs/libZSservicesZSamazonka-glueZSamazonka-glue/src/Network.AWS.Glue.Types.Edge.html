@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- workflow graph.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEdge' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679685543"><span id="local-6989586621679685544"></span></span><span class="hs-keyword">data</span><span> </span><span id="Edge"><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-var">Edge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Edge%27"><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-var">Edge'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679685552"><span id="local-6989586621679685553"></span></span><span class="hs-keyword">data</span><span> </span><span id="Edge"><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-var">Edge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Edge%27"><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-var">Edge'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique of the node within the workflow where the edge starts.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsourceId%3AEdge%27"><span class="annot"><span class="annottext">Edge -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.Edge.html#%24sel%3AsourceId%3AEdge%27"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,14 +35,14 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdestinationId%3AEdge%27"><span class="annot"><span class="annottext">Edge -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.Edge.html#%24sel%3AdestinationId%3AEdge%27"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679685536"><span id="local-6989586621679685538"><span class="annot"><span class="annottext">Edge -&gt; Edge -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679685545"><span id="local-6989586621679685547"><span class="annot"><span class="annottext">Edge -&gt; Edge -&gt; Bool
 (Edge -&gt; Edge -&gt; Bool) -&gt; (Edge -&gt; Edge -&gt; Bool) -&gt; Eq Edge
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Edge -&gt; Edge -&gt; Bool
 $c/= :: Edge -&gt; Edge -&gt; Bool
 == :: Edge -&gt; Edge -&gt; Bool
 $c== :: Edge -&gt; Edge -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685527"><span id="local-6989586621679685529"><span id="local-6989586621679685531"><span id="local-6989586621679685533"><span class="annot"><span class="annottext">ReadPrec [Edge]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685536"><span id="local-6989586621679685538"><span id="local-6989586621679685540"><span id="local-6989586621679685542"><span class="annot"><span class="annottext">ReadPrec [Edge]
 ReadPrec Edge
 Int -&gt; ReadS Edge
 ReadS [Edge]
@@ -59,7 +59,7 @@ readList :: ReadS [Edge]
 $creadList :: ReadS [Edge]
 readsPrec :: Int -&gt; ReadS Edge
 $creadsPrec :: Int -&gt; ReadS Edge
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685520"><span id="local-6989586621679685522"><span id="local-6989586621679685524"><span class="annot"><span class="annottext">Int -&gt; Edge -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679685529"><span id="local-6989586621679685531"><span id="local-6989586621679685533"><span class="annot"><span class="annottext">Int -&gt; Edge -&gt; ShowS
 [Edge] -&gt; ShowS
 Edge -&gt; String
 (Int -&gt; Edge -&gt; ShowS)
@@ -116,16 +116,16 @@ forall a. Maybe a
 -&gt; (Edge -&gt; Maybe Text -&gt; Edge)
 -&gt; Lens Edge Edge (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685511"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685520"><span class="annot"><span class="annottext">Maybe Text
 sourceId :: Maybe Text
 $sel:sourceId:Edge' :: Edge -&gt; Maybe Text
-</span><a href="#local-6989586621679685511"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685511"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685510"><span class="annot"><span class="annottext">s :: Edge
-</span><a href="#local-6989586621679685510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685509"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
-</span><a href="#local-6989586621679685510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceId:Edge' :: Maybe Text
+</span><a href="#local-6989586621679685520"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679685520"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685519"><span class="annot"><span class="annottext">s :: Edge
+</span><a href="#local-6989586621679685519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685518"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679685518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
+</span><a href="#local-6989586621679685519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceId:Edge' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Edge.html#%24sel%3AsourceId%3AEdge%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679685518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The unique of the node within the workflow where the edge ends.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#edge_destinationId"><span class="hs-identifier hs-type">edge_destinationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -134,47 +134,47 @@ $sel:sourceId:Edge' :: Edge -&gt; Maybe Text
 -&gt; (Edge -&gt; Maybe Text -&gt; Edge)
 -&gt; Lens Edge Edge (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685507"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679685516"><span class="annot"><span class="annottext">Maybe Text
 destinationId :: Maybe Text
 $sel:destinationId:Edge' :: Edge -&gt; Maybe Text
-</span><a href="#local-6989586621679685507"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685507"><span class="hs-identifier hs-var">destinationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685506"><span class="annot"><span class="annottext">s :: Edge
-</span><a href="#local-6989586621679685506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685505"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
-</span><a href="#local-6989586621679685506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationId:Edge' :: Maybe Text
+</span><a href="#local-6989586621679685516"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679685516"><span class="hs-identifier hs-var">destinationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679685515"><span class="annot"><span class="annottext">s :: Edge
+</span><a href="#local-6989586621679685515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679685514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679685514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
+</span><a href="#local-6989586621679685515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationId:Edge' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Edge.html#%24sel%3AdestinationId%3AEdge%27"><span class="hs-identifier hs-var">destinationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679685505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679685514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685502"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679685500"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Edge
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685511"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679685509"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Edge
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Edge) -&gt; Value -&gt; Parser Edge
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Edge&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679685497"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679685506"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679685506"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Edge
 </span><a href="Network.AWS.Glue.Types.Edge.html#Edge%27"><span class="hs-identifier hs-var">Edge'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Edge)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Edge)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679685506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Edge) -&gt; Parser (Maybe Text) -&gt; Parser Edge
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679685497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679685506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DestinationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685491"><span id="local-6989586621679685493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685500"><span id="local-6989586621679685502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679685497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

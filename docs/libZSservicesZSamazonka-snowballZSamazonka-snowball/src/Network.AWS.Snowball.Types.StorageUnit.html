@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679225991"><span id="local-6989586621679225992"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StorageUnit"><span class="annot"><a href="Network.AWS.Snowball.Types.StorageUnit.html#StorageUnit"><span class="hs-identifier hs-var">StorageUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageUnit%27"><span class="annot"><a href="Network.AWS.Snowball.Types.StorageUnit.html#StorageUnit%27"><span class="hs-identifier hs-var">StorageUnit'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679226000"><span id="local-6989586621679226001"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StorageUnit"><span class="annot"><a href="Network.AWS.Snowball.Types.StorageUnit.html#StorageUnit"><span class="hs-identifier hs-var">StorageUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageUnit%27"><span class="annot"><a href="Network.AWS.Snowball.Types.StorageUnit.html#StorageUnit%27"><span class="hs-identifier hs-var">StorageUnit'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStorageUnit"><span class="annot"><span class="annottext">StorageUnit -&gt; Text
 </span><a href="Network.AWS.Snowball.Types.StorageUnit.html#fromStorageUnit"><span class="hs-identifier hs-var hs-var">fromStorageUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225983"><span id="local-6989586621679225985"><span id="local-6989586621679225987"><span class="annot"><span class="annottext">Int -&gt; StorageUnit -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225992"><span id="local-6989586621679225994"><span id="local-6989586621679225996"><span class="annot"><span class="annottext">Int -&gt; StorageUnit -&gt; ShowS
 [StorageUnit] -&gt; ShowS
 StorageUnit -&gt; String
 (Int -&gt; StorageUnit -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: StorageUnit -&gt; String
 showsPrec :: Int -&gt; StorageUnit -&gt; ShowS
 $cshowsPrec :: Int -&gt; StorageUnit -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679225974"><span id="local-6989586621679225976"><span id="local-6989586621679225978"><span id="local-6989586621679225980"><span class="annot"><span class="annottext">ReadPrec [StorageUnit]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679225983"><span id="local-6989586621679225985"><span id="local-6989586621679225987"><span id="local-6989586621679225989"><span class="annot"><span class="annottext">ReadPrec [StorageUnit]
 ReadPrec StorageUnit
 Int -&gt; ReadS StorageUnit
 ReadS [StorageUnit]
@@ -71,7 +71,7 @@ $creadList :: ReadS [StorageUnit]
 readsPrec :: Int -&gt; ReadS StorageUnit
 $creadsPrec :: Int -&gt; ReadS StorageUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679225969"><span id="local-6989586621679225971"><span class="annot"><span class="annottext">StorageUnit -&gt; StorageUnit -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679225978"><span id="local-6989586621679225980"><span class="annot"><span class="annottext">StorageUnit -&gt; StorageUnit -&gt; Bool
 (StorageUnit -&gt; StorageUnit -&gt; Bool)
 -&gt; (StorageUnit -&gt; StorageUnit -&gt; Bool) -&gt; Eq StorageUnit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: StorageUnit -&gt; StorageUnit -&gt; Bool
 == :: StorageUnit -&gt; StorageUnit -&gt; Bool
 $c== :: StorageUnit -&gt; StorageUnit -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679225953"><span id="local-6989586621679225955"><span id="local-6989586621679225957"><span id="local-6989586621679225959"><span id="local-6989586621679225961"><span id="local-6989586621679225963"><span id="local-6989586621679225965"><span class="annot"><span class="annottext">Eq StorageUnit
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679225962"><span id="local-6989586621679225964"><span id="local-6989586621679225966"><span id="local-6989586621679225968"><span id="local-6989586621679225970"><span id="local-6989586621679225972"><span id="local-6989586621679225974"><span class="annot"><span class="annottext">Eq StorageUnit
 Eq StorageUnit
 -&gt; (StorageUnit -&gt; StorageUnit -&gt; Ordering)
 -&gt; (StorageUnit -&gt; StorageUnit -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. StorageUnit -&gt; Rep StorageUnit x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225945"><span id="local-6989586621679225947"><span class="annot"><span class="annottext">Int -&gt; StorageUnit -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225954"><span id="local-6989586621679225956"><span class="annot"><span class="annottext">Int -&gt; StorageUnit -&gt; Int
 StorageUnit -&gt; Int
 (Int -&gt; StorageUnit -&gt; Int)
 -&gt; (StorageUnit -&gt; Int) -&gt; Hashable StorageUnit
@@ -141,49 +141,49 @@ $chash :: StorageUnit -&gt; Int
 hashWithSalt :: Int -&gt; StorageUnit -&gt; Int
 $chashWithSalt :: Int -&gt; StorageUnit -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679225942"><span class="annot"><span class="annottext">StorageUnit -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679225951"><span class="annot"><span class="annottext">StorageUnit -&gt; ()
 (StorageUnit -&gt; ()) -&gt; NFData StorageUnit
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StorageUnit -&gt; ()
 $crnf :: StorageUnit -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679225939"><span class="annot"><span class="annottext">Text -&gt; Either String StorageUnit
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679225948"><span class="annot"><span class="annottext">Text -&gt; Either String StorageUnit
 (Text -&gt; Either String StorageUnit) -&gt; FromText StorageUnit
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StorageUnit
 $cfromText :: Text -&gt; Either String StorageUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679225936"><span class="annot"><span class="annottext">StorageUnit -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679225945"><span class="annot"><span class="annottext">StorageUnit -&gt; Text
 (StorageUnit -&gt; Text) -&gt; ToText StorageUnit
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StorageUnit -&gt; Text
 $ctoText :: StorageUnit -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679225933"><span class="annot"><span class="annottext">StorageUnit -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679225942"><span class="annot"><span class="annottext">StorageUnit -&gt; ByteString
 (StorageUnit -&gt; ByteString) -&gt; ToByteString StorageUnit
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StorageUnit -&gt; ByteString
 $ctoBS :: StorageUnit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679225930"><span class="annot"><span class="annottext">StorageUnit -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679225939"><span class="annot"><span class="annottext">StorageUnit -&gt; ByteStringBuilder
 (StorageUnit -&gt; ByteStringBuilder) -&gt; ToLog StorageUnit
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StorageUnit -&gt; ByteStringBuilder
 $cbuild :: StorageUnit -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679225927"><span class="annot"><span class="annottext">HeaderName -&gt; StorageUnit -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679225936"><span class="annot"><span class="annottext">HeaderName -&gt; StorageUnit -&gt; [Header]
 (HeaderName -&gt; StorageUnit -&gt; [Header]) -&gt; ToHeader StorageUnit
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StorageUnit -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StorageUnit -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679225924"><span class="annot"><span class="annottext">StorageUnit -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679225933"><span class="annot"><span class="annottext">StorageUnit -&gt; QueryString
 (StorageUnit -&gt; QueryString) -&gt; ToQuery StorageUnit
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StorageUnit -&gt; QueryString
 $ctoQuery :: StorageUnit -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679225919"><span id="local-6989586621679225921"><span class="annot"><span class="annottext">Value -&gt; Parser [StorageUnit]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679225928"><span id="local-6989586621679225930"><span class="annot"><span class="annottext">Value -&gt; Parser [StorageUnit]
 Value -&gt; Parser StorageUnit
 (Value -&gt; Parser StorageUnit)
 -&gt; (Value -&gt; Parser [StorageUnit]) -&gt; FromJSON StorageUnit
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [StorageUnit]
 parseJSON :: Value -&gt; Parser StorageUnit
 $cparseJSON :: Value -&gt; Parser StorageUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679225914"><span id="local-6989586621679225916"><span class="annot"><span class="annottext">FromJSONKeyFunction [StorageUnit]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679225923"><span id="local-6989586621679225925"><span class="annot"><span class="annottext">FromJSONKeyFunction [StorageUnit]
 FromJSONKeyFunction StorageUnit
 FromJSONKeyFunction StorageUnit
 -&gt; FromJSONKeyFunction [StorageUnit] -&gt; FromJSONKey StorageUnit
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StorageUnit]
 fromJSONKey :: FromJSONKeyFunction StorageUnit
 $cfromJSONKey :: FromJSONKeyFunction StorageUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679225905"><span id="local-6989586621679225907"><span id="local-6989586621679225909"><span id="local-6989586621679225911"><span class="annot"><span class="annottext">[StorageUnit] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679225914"><span id="local-6989586621679225916"><span id="local-6989586621679225918"><span id="local-6989586621679225920"><span class="annot"><span class="annottext">[StorageUnit] -&gt; Encoding
 [StorageUnit] -&gt; Value
 StorageUnit -&gt; Encoding
 StorageUnit -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: StorageUnit -&gt; Encoding
 toJSON :: StorageUnit -&gt; Value
 $ctoJSON :: StorageUnit -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679225900"><span id="local-6989586621679225902"><span class="annot"><span class="annottext">ToJSONKeyFunction [StorageUnit]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679225909"><span id="local-6989586621679225911"><span class="annot"><span class="annottext">ToJSONKeyFunction [StorageUnit]
 ToJSONKeyFunction StorageUnit
 ToJSONKeyFunction StorageUnit
 -&gt; ToJSONKeyFunction [StorageUnit] -&gt; ToJSONKey StorageUnit
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StorageUnit]
 toJSONKey :: ToJSONKeyFunction StorageUnit
 $ctoJSONKey :: ToJSONKeyFunction StorageUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679225897"><span class="annot"><span class="annottext">[Node] -&gt; Either String StorageUnit
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679225906"><span class="annot"><span class="annottext">[Node] -&gt; Either String StorageUnit
 ([Node] -&gt; Either String StorageUnit) -&gt; FromXML StorageUnit
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StorageUnit
 $cparseXML :: [Node] -&gt; Either String StorageUnit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679225894"><span class="annot"><span class="annottext">StorageUnit -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679225903"><span class="annot"><span class="annottext">StorageUnit -&gt; XML
 (StorageUnit -&gt; XML) -&gt; ToXML StorageUnit
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StorageUnit -&gt; XML

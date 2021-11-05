@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateFilter' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679316157"><span id="local-6989586621679316158"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFilter"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-var">UpdateFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFilter%27"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-var">UpdateFilter'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679316166"><span id="local-6989586621679316167"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFilter"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-var">UpdateFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFilter%27"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-var">UpdateFilter'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the criteria to be used in the filter for querying findings.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AfindingCriteria%3AUpdateFilter%27"><span class="annot"><span class="annottext">UpdateFilter -&gt; Maybe FindingCriteria
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AfindingCriteria%3AUpdateFilter%27"><span class="hs-identifier hs-var hs-var">findingCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingCriteria.html#FindingCriteria"><span class="hs-identifier hs-type">FindingCriteria</span></a></span><span class="hs-special">,</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AfilterName%3AUpdateFilter%27"><span class="annot"><span class="annottext">UpdateFilter -&gt; Text
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AfilterName%3AUpdateFilter%27"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316146"><span id="local-6989586621679316148"><span class="annot"><span class="annottext">UpdateFilter -&gt; UpdateFilter -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316155"><span id="local-6989586621679316157"><span class="annot"><span class="annottext">UpdateFilter -&gt; UpdateFilter -&gt; Bool
 (UpdateFilter -&gt; UpdateFilter -&gt; Bool)
 -&gt; (UpdateFilter -&gt; UpdateFilter -&gt; Bool) -&gt; Eq UpdateFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateFilter -&gt; UpdateFilter -&gt; Bool
 == :: UpdateFilter -&gt; UpdateFilter -&gt; Bool
 $c== :: UpdateFilter -&gt; UpdateFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316137"><span id="local-6989586621679316139"><span id="local-6989586621679316141"><span id="local-6989586621679316143"><span class="annot"><span class="annottext">ReadPrec [UpdateFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316146"><span id="local-6989586621679316148"><span id="local-6989586621679316150"><span id="local-6989586621679316152"><span class="annot"><span class="annottext">ReadPrec [UpdateFilter]
 ReadPrec UpdateFilter
 Int -&gt; ReadS UpdateFilter
 ReadS [UpdateFilter]
@@ -104,7 +104,7 @@ readList :: ReadS [UpdateFilter]
 $creadList :: ReadS [UpdateFilter]
 readsPrec :: Int -&gt; ReadS UpdateFilter
 $creadsPrec :: Int -&gt; ReadS UpdateFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316130"><span id="local-6989586621679316132"><span id="local-6989586621679316134"><span class="annot"><span class="annottext">Int -&gt; UpdateFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316139"><span id="local-6989586621679316141"><span id="local-6989586621679316143"><span class="annot"><span class="annottext">Int -&gt; UpdateFilter -&gt; ShowS
 [UpdateFilter] -&gt; ShowS
 UpdateFilter -&gt; String
 (Int -&gt; UpdateFilter -&gt; ShowS)
@@ -160,9 +160,9 @@ $cfrom :: forall x. UpdateFilter -&gt; Rep UpdateFilter x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span>
 </span><span id="line-104"></span><span id="newUpdateFilter"><span class="annot"><span class="annottext">newUpdateFilter :: Text -&gt; Text -&gt; UpdateFilter
-</span><a href="Network.AWS.GuardDuty.UpdateFilter.html#newUpdateFilter"><span class="hs-identifier hs-var hs-var">newUpdateFilter</span></a></span></span><span> </span><span id="local-6989586621679316125"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316125"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679316124"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316124"><span class="hs-identifier hs-var">pFilterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.UpdateFilter.html#newUpdateFilter"><span class="hs-identifier hs-var hs-var">newUpdateFilter</span></a></span></span><span> </span><span id="local-6989586621679316134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316134"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679316133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316133"><span class="hs-identifier hs-var">pFilterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">UpdateFilter' :: Maybe FindingCriteria
 -&gt; Maybe FilterAction
 -&gt; Maybe Text
@@ -189,10 +189,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectorId:UpdateFilter' :: Text
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AdetectorId%3AUpdateFilter%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316125"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316134"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterName:UpdateFilter' :: Text
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AfilterName%3AUpdateFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316124"><span class="hs-identifier hs-var">pFilterName_</span></a></span><span>
+</span><a href="#local-6989586621679316133"><span class="hs-identifier hs-var">pFilterName_</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | Represents the criteria to be used in the filter for querying findings.</span><span>
@@ -207,16 +207,16 @@ forall a. Maybe a
      (Maybe FindingCriteria)
      (Maybe FindingCriteria)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316121"><span class="annot"><span class="annottext">Maybe FindingCriteria
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316130"><span class="annot"><span class="annottext">Maybe FindingCriteria
 findingCriteria :: Maybe FindingCriteria
 $sel:findingCriteria:UpdateFilter' :: UpdateFilter -&gt; Maybe FindingCriteria
-</span><a href="#local-6989586621679316121"><span class="hs-identifier hs-var hs-var">findingCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindingCriteria
-</span><a href="#local-6989586621679316121"><span class="hs-identifier hs-var">findingCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316120"><span class="annot"><span class="annottext">s :: UpdateFilter
-</span><a href="#local-6989586621679316120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316119"><span class="annot"><span class="annottext">Maybe FindingCriteria
-</span><a href="#local-6989586621679316119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
-</span><a href="#local-6989586621679316120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingCriteria:UpdateFilter' :: Maybe FindingCriteria
+</span><a href="#local-6989586621679316130"><span class="hs-identifier hs-var hs-var">findingCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindingCriteria
+</span><a href="#local-6989586621679316130"><span class="hs-identifier hs-var">findingCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316129"><span class="annot"><span class="annottext">s :: UpdateFilter
+</span><a href="#local-6989586621679316129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316128"><span class="annot"><span class="annottext">Maybe FindingCriteria
+</span><a href="#local-6989586621679316128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
+</span><a href="#local-6989586621679316129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingCriteria:UpdateFilter' :: Maybe FindingCriteria
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AfindingCriteria%3AUpdateFilter%27"><span class="hs-identifier hs-var">findingCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingCriteria
-</span><a href="#local-6989586621679316119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Specifies the action that is to be applied to the findings that match</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- the filter.</span><span>
@@ -228,16 +228,16 @@ $sel:findingCriteria:UpdateFilter' :: UpdateFilter -&gt; Maybe FindingCriteria
 -&gt; Lens
      UpdateFilter UpdateFilter (Maybe FilterAction) (Maybe FilterAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316118"><span class="annot"><span class="annottext">Maybe FilterAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316127"><span class="annot"><span class="annottext">Maybe FilterAction
 action :: Maybe FilterAction
 $sel:action:UpdateFilter' :: UpdateFilter -&gt; Maybe FilterAction
-</span><a href="#local-6989586621679316118"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterAction
-</span><a href="#local-6989586621679316118"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316117"><span class="annot"><span class="annottext">s :: UpdateFilter
-</span><a href="#local-6989586621679316117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316116"><span class="annot"><span class="annottext">Maybe FilterAction
-</span><a href="#local-6989586621679316116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
-</span><a href="#local-6989586621679316117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:UpdateFilter' :: Maybe FilterAction
+</span><a href="#local-6989586621679316127"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterAction
+</span><a href="#local-6989586621679316127"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316126"><span class="annot"><span class="annottext">s :: UpdateFilter
+</span><a href="#local-6989586621679316126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316125"><span class="annot"><span class="annottext">Maybe FilterAction
+</span><a href="#local-6989586621679316125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
+</span><a href="#local-6989586621679316126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:UpdateFilter' :: Maybe FilterAction
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3Aaction%3AUpdateFilter%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterAction
-</span><a href="#local-6989586621679316116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The description of the filter.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#updateFilter_description"><span class="hs-identifier hs-type">updateFilter_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -246,16 +246,16 @@ $sel:action:UpdateFilter' :: UpdateFilter -&gt; Maybe FilterAction
 -&gt; (UpdateFilter -&gt; Maybe Text -&gt; UpdateFilter)
 -&gt; Lens UpdateFilter UpdateFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316115"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316124"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateFilter' :: UpdateFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679316115"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316115"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316114"><span class="annot"><span class="annottext">s :: UpdateFilter
-</span><a href="#local-6989586621679316114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316113"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
-</span><a href="#local-6989586621679316114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateFilter' :: Maybe Text
+</span><a href="#local-6989586621679316124"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316124"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316123"><span class="annot"><span class="annottext">s :: UpdateFilter
+</span><a href="#local-6989586621679316123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316122"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
+</span><a href="#local-6989586621679316123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateFilter' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3Adescription%3AUpdateFilter%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | Specifies the position of the filter in the list of current filters.</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- Also specifies the order in which this filter is applied to the</span><span>
@@ -267,16 +267,16 @@ $sel:description:UpdateFilter' :: UpdateFilter -&gt; Maybe Text
 -&gt; (UpdateFilter -&gt; Maybe Natural -&gt; UpdateFilter)
 -&gt; Lens UpdateFilter UpdateFilter (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316112"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316121"><span class="annot"><span class="annottext">Maybe Natural
 rank :: Maybe Natural
 $sel:rank:UpdateFilter' :: UpdateFilter -&gt; Maybe Natural
-</span><a href="#local-6989586621679316112"><span class="hs-identifier hs-var hs-var">rank</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316112"><span class="hs-identifier hs-var">rank</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316111"><span class="annot"><span class="annottext">s :: UpdateFilter
-</span><a href="#local-6989586621679316111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316110"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
-</span><a href="#local-6989586621679316111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rank:UpdateFilter' :: Maybe Natural
+</span><a href="#local-6989586621679316121"><span class="hs-identifier hs-var hs-var">rank</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316121"><span class="hs-identifier hs-var">rank</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316120"><span class="annot"><span class="annottext">s :: UpdateFilter
+</span><a href="#local-6989586621679316120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316119"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
+</span><a href="#local-6989586621679316120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rank:UpdateFilter' :: Maybe Natural
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3Arank%3AUpdateFilter%27"><span class="hs-identifier hs-var">rank</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The unique ID of the detector that specifies the GuardDuty service where</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- you want to update a filter.</span><span>
@@ -286,16 +286,16 @@ $sel:rank:UpdateFilter' :: UpdateFilter -&gt; Maybe Natural
 -&gt; (UpdateFilter -&gt; Text -&gt; UpdateFilter)
 -&gt; Lens UpdateFilter UpdateFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316109"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316118"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:UpdateFilter' :: UpdateFilter -&gt; Text
-</span><a href="#local-6989586621679316109"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316109"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316108"><span class="annot"><span class="annottext">s :: UpdateFilter
-</span><a href="#local-6989586621679316108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316107"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
-</span><a href="#local-6989586621679316108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:UpdateFilter' :: Text
+</span><a href="#local-6989586621679316118"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316118"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316117"><span class="annot"><span class="annottext">s :: UpdateFilter
+</span><a href="#local-6989586621679316117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316116"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
+</span><a href="#local-6989586621679316117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:UpdateFilter' :: Text
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AdetectorId%3AUpdateFilter%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The name of the filter.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#updateFilter_filterName"><span class="hs-identifier hs-type">updateFilter_filterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -304,25 +304,25 @@ $sel:detectorId:UpdateFilter' :: UpdateFilter -&gt; Text
 -&gt; (UpdateFilter -&gt; Text -&gt; UpdateFilter)
 -&gt; Lens UpdateFilter UpdateFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316106"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316115"><span class="annot"><span class="annottext">Text
 filterName :: Text
 $sel:filterName:UpdateFilter' :: UpdateFilter -&gt; Text
-</span><a href="#local-6989586621679316106"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316106"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316105"><span class="annot"><span class="annottext">s :: UpdateFilter
-</span><a href="#local-6989586621679316105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316104"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
-</span><a href="#local-6989586621679316105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:UpdateFilter' :: Text
+</span><a href="#local-6989586621679316115"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316115"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316114"><span class="annot"><span class="annottext">s :: UpdateFilter
+</span><a href="#local-6989586621679316114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilter
+</span><a href="#local-6989586621679316114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:UpdateFilter' :: Text
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AfilterName%3AUpdateFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-type">UpdateFilterResponse</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679316100"><span class="annot"><span class="annottext">request :: UpdateFilter -&gt; Request UpdateFilter
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679316109"><span class="annot"><span class="annottext">request :: UpdateFilter -&gt; Request UpdateFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateFilter -&gt; Request UpdateFilter
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679316096"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679316105"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateFilter
 -&gt; ClientResponse ClientBody
@@ -346,10 +346,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316093"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316093"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316092"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679316092"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316091"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316091"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316102"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316102"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316101"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679316101"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316100"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; UpdateFilterResponse
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-var">UpdateFilterResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; UpdateFilterResponse)
@@ -361,23 +361,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316093"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316102"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateFilterResponse)
 -&gt; Either String Text -&gt; Either String UpdateFilterResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679316100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316083"><span id="local-6989586621679316085"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316092"><span id="local-6989586621679316094"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679316076"><span class="annot"><span class="annottext">toHeaders :: UpdateFilter -&gt; ResponseHeaders
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679316085"><span class="annot"><span class="annottext">toHeaders :: UpdateFilter -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateFilter -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -396,9 +396,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316066"><span id="local-6989586621679316068"><span id="local-6989586621679316070"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679316064"><span class="annot"><span class="annottext">toJSON :: UpdateFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316057"><span id="local-6989586621679316058"><span id="local-6989586621679316059"><span id="local-6989586621679316060"><span id="local-6989586621679316061"><span id="local-6989586621679316062"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316075"><span id="local-6989586621679316077"><span id="local-6989586621679316079"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679316073"><span class="annot"><span class="annottext">toJSON :: UpdateFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316066"><span id="local-6989586621679316067"><span id="local-6989586621679316068"><span id="local-6989586621679316069"><span id="local-6989586621679316070"><span id="local-6989586621679316071"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe FilterAction
 Maybe FindingCriteria
@@ -415,7 +415,7 @@ $sel:rank:UpdateFilter' :: UpdateFilter -&gt; Maybe Natural
 $sel:description:UpdateFilter' :: UpdateFilter -&gt; Maybe Text
 $sel:action:UpdateFilter' :: UpdateFilter -&gt; Maybe FilterAction
 $sel:findingCriteria:UpdateFilter' :: UpdateFilter -&gt; Maybe FindingCriteria
-</span><a href="#local-6989586621679316057"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316066"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -428,34 +428,34 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(FindingCriteria -&gt; Pair) -&gt; Maybe FindingCriteria -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FindingCriteria
-</span><a href="#local-6989586621679316062"><span class="hs-identifier hs-var">findingCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316071"><span class="hs-identifier hs-var">findingCriteria</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FilterAction -&gt; Pair) -&gt; Maybe FilterAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterAction
-</span><a href="#local-6989586621679316061"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316070"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316060"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316069"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rank&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316059"><span class="hs-identifier hs-var">rank</span></a></span><span>
+</span><a href="#local-6989586621679316068"><span class="hs-identifier hs-var">rank</span></a></span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679316051"><span class="annot"><span class="annottext">toPath :: UpdateFilter -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316044"><span id="local-6989586621679316045"><span id="local-6989586621679316046"><span id="local-6989586621679316047"><span id="local-6989586621679316048"><span id="local-6989586621679316049"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679316060"><span class="annot"><span class="annottext">toPath :: UpdateFilter -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter%27"><span class="hs-identifier hs-type">UpdateFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316053"><span id="local-6989586621679316054"><span id="local-6989586621679316055"><span id="local-6989586621679316056"><span id="local-6989586621679316057"><span id="local-6989586621679316058"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe FilterAction
 Maybe FindingCriteria
@@ -472,7 +472,7 @@ $sel:rank:UpdateFilter' :: UpdateFilter -&gt; Maybe Natural
 $sel:description:UpdateFilter' :: UpdateFilter -&gt; Maybe Text
 $sel:action:UpdateFilter' :: UpdateFilter -&gt; Maybe FilterAction
 $sel:findingCriteria:UpdateFilter' :: UpdateFilter -&gt; Maybe FindingCriteria
-</span><a href="#local-6989586621679316044"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316053"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -481,17 +481,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316045"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316054"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/filter/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316044"><span class="hs-identifier hs-var">filterName</span></a></span><span>
+</span><a href="#local-6989586621679316053"><span class="hs-identifier hs-var">filterName</span></a></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilter"><span class="hs-identifier hs-type">UpdateFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679316040"><span class="annot"><span class="annottext">toQuery :: UpdateFilter -&gt; QueryString
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679316049"><span class="annot"><span class="annottext">toQuery :: UpdateFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateFilter -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -499,7 +499,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | /See:/ 'newUpdateFilterResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621679316037"><span id="local-6989586621679316038"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFilterResponse"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-var">UpdateFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFilterResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-var">UpdateFilterResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span id="local-6989586621679316046"><span id="local-6989586621679316047"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFilterResponse"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-var">UpdateFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFilterResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-var">UpdateFilterResponse'</span></a></span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateFilterResponse%27"><span class="annot"><span class="annottext">UpdateFilterResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AhttpStatus%3AUpdateFilterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -507,7 +507,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3Aname%3AUpdateFilterResponse%27"><span class="annot"><span class="annottext">UpdateFilterResponse -&gt; Text
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3Aname%3AUpdateFilterResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316031"><span id="local-6989586621679316033"><span class="annot"><span class="annottext">UpdateFilterResponse -&gt; UpdateFilterResponse -&gt; Bool
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316040"><span id="local-6989586621679316042"><span class="annot"><span class="annottext">UpdateFilterResponse -&gt; UpdateFilterResponse -&gt; Bool
 (UpdateFilterResponse -&gt; UpdateFilterResponse -&gt; Bool)
 -&gt; (UpdateFilterResponse -&gt; UpdateFilterResponse -&gt; Bool)
 -&gt; Eq UpdateFilterResponse
@@ -516,7 +516,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateFilterResponse -&gt; UpdateFilterResponse -&gt; Bool
 == :: UpdateFilterResponse -&gt; UpdateFilterResponse -&gt; Bool
 $c== :: UpdateFilterResponse -&gt; UpdateFilterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316023"><span id="local-6989586621679316025"><span id="local-6989586621679316027"><span id="local-6989586621679316029"><span class="annot"><span class="annottext">ReadPrec [UpdateFilterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316032"><span id="local-6989586621679316034"><span id="local-6989586621679316036"><span id="local-6989586621679316038"><span class="annot"><span class="annottext">ReadPrec [UpdateFilterResponse]
 ReadPrec UpdateFilterResponse
 Int -&gt; ReadS UpdateFilterResponse
 ReadS [UpdateFilterResponse]
@@ -536,7 +536,7 @@ readList :: ReadS [UpdateFilterResponse]
 $creadList :: ReadS [UpdateFilterResponse]
 readsPrec :: Int -&gt; ReadS UpdateFilterResponse
 $creadsPrec :: Int -&gt; ReadS UpdateFilterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316017"><span id="local-6989586621679316019"><span id="local-6989586621679316021"><span class="annot"><span class="annottext">Int -&gt; UpdateFilterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316026"><span id="local-6989586621679316028"><span id="local-6989586621679316030"><span class="annot"><span class="annottext">Int -&gt; UpdateFilterResponse -&gt; ShowS
 [UpdateFilterResponse] -&gt; ShowS
 UpdateFilterResponse -&gt; String
 (Int -&gt; UpdateFilterResponse -&gt; ShowS)
@@ -580,17 +580,17 @@ $cfrom :: forall x. UpdateFilterResponse -&gt; Rep UpdateFilterResponse x
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-type">UpdateFilterResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newUpdateFilterResponse"><span class="annot"><span class="annottext">newUpdateFilterResponse :: Int -&gt; Text -&gt; UpdateFilterResponse
-</span><a href="Network.AWS.GuardDuty.UpdateFilter.html#newUpdateFilterResponse"><span class="hs-identifier hs-var hs-var">newUpdateFilterResponse</span></a></span></span><span> </span><span id="local-6989586621679316014"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316014"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679316013"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316013"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.UpdateFilter.html#newUpdateFilterResponse"><span class="hs-identifier hs-var hs-var">newUpdateFilterResponse</span></a></span></span><span> </span><span id="local-6989586621679316023"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316023"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679316022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316022"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">UpdateFilterResponse' :: Int -&gt; Text -&gt; UpdateFilterResponse
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-type">UpdateFilterResponse'</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFilterResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AhttpStatus%3AUpdateFilterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316014"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316023"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateFilterResponse' :: Text
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3Aname%3AUpdateFilterResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316013"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679316022"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -600,16 +600,16 @@ $cfrom :: forall x. UpdateFilterResponse -&gt; Rep UpdateFilterResponse x
 -&gt; (UpdateFilterResponse -&gt; Int -&gt; UpdateFilterResponse)
 -&gt; Lens UpdateFilterResponse UpdateFilterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-type">UpdateFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316012"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-type">UpdateFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316021"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateFilterResponse' :: UpdateFilterResponse -&gt; Int
-</span><a href="#local-6989586621679316012"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316012"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316011"><span class="annot"><span class="annottext">s :: UpdateFilterResponse
-</span><a href="#local-6989586621679316011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-type">UpdateFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316010"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilterResponse
-</span><a href="#local-6989586621679316011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFilterResponse' :: Int
+</span><a href="#local-6989586621679316021"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316021"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316020"><span class="annot"><span class="annottext">s :: UpdateFilterResponse
+</span><a href="#local-6989586621679316020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-type">UpdateFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316019"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilterResponse
+</span><a href="#local-6989586621679316020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFilterResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3AhttpStatus%3AUpdateFilterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-type">UpdateFilterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-type">UpdateFilterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The name of the filter.</span><span>
 </span><span id="line-229"></span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#updateFilterResponse_name"><span class="hs-identifier hs-type">updateFilterResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-type">UpdateFilterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -618,16 +618,16 @@ $sel:httpStatus:UpdateFilterResponse' :: UpdateFilterResponse -&gt; Int
 -&gt; (UpdateFilterResponse -&gt; Text -&gt; UpdateFilterResponse)
 -&gt; Lens UpdateFilterResponse UpdateFilterResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-type">UpdateFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316009"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-type">UpdateFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316018"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:UpdateFilterResponse' :: UpdateFilterResponse -&gt; Text
-</span><a href="#local-6989586621679316009"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316009"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316008"><span class="annot"><span class="annottext">s :: UpdateFilterResponse
-</span><a href="#local-6989586621679316008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-type">UpdateFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316007"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilterResponse
-</span><a href="#local-6989586621679316008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateFilterResponse' :: Text
+</span><a href="#local-6989586621679316018"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316018"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316017"><span class="annot"><span class="annottext">s :: UpdateFilterResponse
+</span><a href="#local-6989586621679316017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse%27"><span class="hs-identifier hs-type">UpdateFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316016"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFilterResponse
+</span><a href="#local-6989586621679316017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateFilterResponse' :: Text
 </span><a href="Network.AWS.GuardDuty.UpdateFilter.html#%24sel%3Aname%3AUpdateFilterResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679316007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-type">UpdateFilterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-type">UpdateFilterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-type">UpdateFilterResponse</span></a></span></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.UpdateFilter.html#UpdateFilterResponse"><span class="hs-identifier hs-type">UpdateFilterResponse</span></a></span></span><span>
 </span><span id="line-233"></span></pre></body></html>

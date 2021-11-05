@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeGuruReviewer.DescribeCodeReview</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the metadata associated with the code review along with its</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- status.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeGuruReviewer.DescribeCodeReview</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier">DescribeCodeReview</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#newDescribeCodeReview"><span class="hs-identifier">newDescribeCodeReview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#describeCodeReview_codeReviewArn"><span class="hs-identifier">describeCodeReview_codeReviewArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse"><span class="hs-identifier">DescribeCodeReviewResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#newDescribeCodeReviewResponse"><span class="hs-identifier">newDescribeCodeReviewResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#describeCodeReviewResponse_codeReview"><span class="hs-identifier">describeCodeReviewResponse_codeReview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#describeCodeReviewResponse_httpStatus"><span class="hs-identifier">describeCodeReviewResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.html"><span class="hs-identifier">Network.AWS.CodeGuruReviewer.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeCodeReview' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679205227"><span id="local-6989586621679205228"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCodeReview"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-var">DescribeCodeReview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCodeReview%27"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview%27"><span class="hs-identifier hs-var">DescribeCodeReview'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview&gt;</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcodeReviewArn%3ADescribeCodeReview%27"><span class="annot"><span class="annottext">DescribeCodeReview -&gt; Text
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#%24sel%3AcodeReviewArn%3ADescribeCodeReview%27"><span class="hs-identifier hs-var hs-var">codeReviewArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205221"><span id="local-6989586621679205223"><span class="annot"><span class="annottext">DescribeCodeReview -&gt; DescribeCodeReview -&gt; Bool
+(DescribeCodeReview -&gt; DescribeCodeReview -&gt; Bool)
+-&gt; (DescribeCodeReview -&gt; DescribeCodeReview -&gt; Bool)
+-&gt; Eq DescribeCodeReview
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeCodeReview -&gt; DescribeCodeReview -&gt; Bool
+$c/= :: DescribeCodeReview -&gt; DescribeCodeReview -&gt; Bool
+== :: DescribeCodeReview -&gt; DescribeCodeReview -&gt; Bool
+$c== :: DescribeCodeReview -&gt; DescribeCodeReview -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205212"><span id="local-6989586621679205214"><span id="local-6989586621679205216"><span id="local-6989586621679205218"><span class="annot"><span class="annottext">ReadPrec [DescribeCodeReview]
+ReadPrec DescribeCodeReview
+Int -&gt; ReadS DescribeCodeReview
+ReadS [DescribeCodeReview]
+(Int -&gt; ReadS DescribeCodeReview)
+-&gt; ReadS [DescribeCodeReview]
+-&gt; ReadPrec DescribeCodeReview
+-&gt; ReadPrec [DescribeCodeReview]
+-&gt; Read DescribeCodeReview
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeCodeReview]
+$creadListPrec :: ReadPrec [DescribeCodeReview]
+readPrec :: ReadPrec DescribeCodeReview
+$creadPrec :: ReadPrec DescribeCodeReview
+readList :: ReadS [DescribeCodeReview]
+$creadList :: ReadS [DescribeCodeReview]
+readsPrec :: Int -&gt; ReadS DescribeCodeReview
+$creadsPrec :: Int -&gt; ReadS DescribeCodeReview
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205205"><span id="local-6989586621679205207"><span id="local-6989586621679205209"><span class="annot"><span class="annottext">Int -&gt; DescribeCodeReview -&gt; ShowS
+[DescribeCodeReview] -&gt; ShowS
+DescribeCodeReview -&gt; String
+(Int -&gt; DescribeCodeReview -&gt; ShowS)
+-&gt; (DescribeCodeReview -&gt; String)
+-&gt; ([DescribeCodeReview] -&gt; ShowS)
+-&gt; Show DescribeCodeReview
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeCodeReview] -&gt; ShowS
+$cshowList :: [DescribeCodeReview] -&gt; ShowS
+show :: DescribeCodeReview -&gt; String
+$cshow :: DescribeCodeReview -&gt; String
+showsPrec :: Int -&gt; DescribeCodeReview -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeCodeReview -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeCodeReview -&gt; Rep DescribeCodeReview x)
+-&gt; (forall x. Rep DescribeCodeReview x -&gt; DescribeCodeReview)
+-&gt; Generic DescribeCodeReview
+forall x. Rep DescribeCodeReview x -&gt; DescribeCodeReview
+forall x. DescribeCodeReview -&gt; Rep DescribeCodeReview x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeCodeReview x -&gt; DescribeCodeReview
+$cfrom :: forall x. DescribeCodeReview -&gt; Rep DescribeCodeReview x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DescribeCodeReview' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'codeReviewArn', 'describeCodeReview_codeReviewArn' - The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview&gt;</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#newDescribeCodeReview"><span class="hs-identifier hs-type">newDescribeCodeReview</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'codeReviewArn'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span><span>
+</span><span id="line-74"></span><span id="newDescribeCodeReview"><span class="annot"><span class="annottext">newDescribeCodeReview :: Text -&gt; DescribeCodeReview
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#newDescribeCodeReview"><span class="hs-identifier hs-var hs-var">newDescribeCodeReview</span></a></span></span><span> </span><span id="local-6989586621679205200"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205200"><span class="hs-identifier hs-var">pCodeReviewArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DescribeCodeReview' :: Text -&gt; DescribeCodeReview
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview%27"><span class="hs-identifier hs-type">DescribeCodeReview'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:codeReviewArn:DescribeCodeReview' :: Text
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#%24sel%3AcodeReviewArn%3ADescribeCodeReview%27"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205200"><span class="hs-identifier hs-var">pCodeReviewArn_</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview&gt;</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#describeCodeReview_codeReviewArn"><span class="hs-identifier hs-type">describeCodeReview_codeReviewArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="describeCodeReview_codeReviewArn"><span class="annot"><span class="annottext">describeCodeReview_codeReviewArn :: (Text -&gt; f Text) -&gt; DescribeCodeReview -&gt; f DescribeCodeReview
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#describeCodeReview_codeReviewArn"><span class="hs-identifier hs-var hs-var">describeCodeReview_codeReviewArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCodeReview -&gt; Text)
+-&gt; (DescribeCodeReview -&gt; Text -&gt; DescribeCodeReview)
+-&gt; Lens DescribeCodeReview DescribeCodeReview Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview%27"><span class="hs-identifier hs-type">DescribeCodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205197"><span class="annot"><span class="annottext">Text
+codeReviewArn :: Text
+$sel:codeReviewArn:DescribeCodeReview' :: DescribeCodeReview -&gt; Text
+</span><a href="#local-6989586621679205197"><span class="hs-identifier hs-var hs-var">codeReviewArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205197"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205196"><span class="annot"><span class="annottext">s :: DescribeCodeReview
+</span><a href="#local-6989586621679205196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview%27"><span class="hs-identifier hs-type">DescribeCodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205195"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCodeReview
+</span><a href="#local-6989586621679205196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeReviewArn:DescribeCodeReview' :: Text
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#%24sel%3AcodeReviewArn%3ADescribeCodeReview%27"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse"><span class="hs-identifier hs-type">DescribeCodeReviewResponse</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679205191"><span class="annot"><span class="annottext">request :: DescribeCodeReview -&gt; Request DescribeCodeReview
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeCodeReview -&gt; Request DescribeCodeReview
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeGuruReviewer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679205187"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeCodeReview
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeCodeReview)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeCodeReview))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeCodeReview
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeCodeReview)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205184"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205184"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679205183"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679205183"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679205182"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205182"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe CodeReview -&gt; Int -&gt; DescribeCodeReviewResponse
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse%27"><span class="hs-identifier hs-var">DescribeCodeReviewResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CodeReview -&gt; Int -&gt; DescribeCodeReviewResponse)
+-&gt; Either String (Maybe CodeReview)
+-&gt; Either String (Int -&gt; DescribeCodeReviewResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CodeReview)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CodeReview&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeCodeReviewResponse)
+-&gt; Either String Int -&gt; Either String DescribeCodeReviewResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205184"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205174"><span id="local-6989586621679205176"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679205167"><span class="annot"><span class="annottext">toHeaders :: DescribeCodeReview -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeCodeReview -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-109"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-110"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679205161"><span class="annot"><span class="annottext">toPath :: DescribeCodeReview -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview%27"><span class="hs-identifier hs-type">DescribeCodeReview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205159"><span class="annot"><span class="annottext">Text
+codeReviewArn :: Text
+$sel:codeReviewArn:DescribeCodeReview' :: DescribeCodeReview -&gt; Text
+</span><a href="#local-6989586621679205159"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/codereviews/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679205159"><span class="hs-identifier hs-var">codeReviewArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReview"><span class="hs-identifier hs-type">DescribeCodeReview</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679205155"><span class="annot"><span class="annottext">toQuery :: DescribeCodeReview -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeCodeReview -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newDescribeCodeReviewResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679205152"><span id="local-6989586621679205153"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCodeReviewResponse"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse"><span class="hs-identifier hs-var">DescribeCodeReviewResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCodeReviewResponse%27"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse%27"><span class="hs-identifier hs-var">DescribeCodeReviewResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the code review.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AcodeReview%3ADescribeCodeReviewResponse%27"><span class="annot"><span class="annottext">DescribeCodeReviewResponse -&gt; Maybe CodeReview
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#%24sel%3AcodeReview%3ADescribeCodeReviewResponse%27"><span class="hs-identifier hs-var hs-var">codeReview</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCodeReviewResponse%27"><span class="annot"><span class="annottext">DescribeCodeReviewResponse -&gt; Int
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#%24sel%3AhttpStatus%3ADescribeCodeReviewResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205146"><span id="local-6989586621679205148"><span class="annot"><span class="annottext">DescribeCodeReviewResponse -&gt; DescribeCodeReviewResponse -&gt; Bool
+(DescribeCodeReviewResponse -&gt; DescribeCodeReviewResponse -&gt; Bool)
+-&gt; (DescribeCodeReviewResponse
+    -&gt; DescribeCodeReviewResponse -&gt; Bool)
+-&gt; Eq DescribeCodeReviewResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeCodeReviewResponse -&gt; DescribeCodeReviewResponse -&gt; Bool
+$c/= :: DescribeCodeReviewResponse -&gt; DescribeCodeReviewResponse -&gt; Bool
+== :: DescribeCodeReviewResponse -&gt; DescribeCodeReviewResponse -&gt; Bool
+$c== :: DescribeCodeReviewResponse -&gt; DescribeCodeReviewResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205138"><span id="local-6989586621679205140"><span id="local-6989586621679205142"><span id="local-6989586621679205144"><span class="annot"><span class="annottext">ReadPrec [DescribeCodeReviewResponse]
+ReadPrec DescribeCodeReviewResponse
+Int -&gt; ReadS DescribeCodeReviewResponse
+ReadS [DescribeCodeReviewResponse]
+(Int -&gt; ReadS DescribeCodeReviewResponse)
+-&gt; ReadS [DescribeCodeReviewResponse]
+-&gt; ReadPrec DescribeCodeReviewResponse
+-&gt; ReadPrec [DescribeCodeReviewResponse]
+-&gt; Read DescribeCodeReviewResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeCodeReviewResponse]
+$creadListPrec :: ReadPrec [DescribeCodeReviewResponse]
+readPrec :: ReadPrec DescribeCodeReviewResponse
+$creadPrec :: ReadPrec DescribeCodeReviewResponse
+readList :: ReadS [DescribeCodeReviewResponse]
+$creadList :: ReadS [DescribeCodeReviewResponse]
+readsPrec :: Int -&gt; ReadS DescribeCodeReviewResponse
+$creadsPrec :: Int -&gt; ReadS DescribeCodeReviewResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205132"><span id="local-6989586621679205134"><span id="local-6989586621679205136"><span class="annot"><span class="annottext">Int -&gt; DescribeCodeReviewResponse -&gt; ShowS
+[DescribeCodeReviewResponse] -&gt; ShowS
+DescribeCodeReviewResponse -&gt; String
+(Int -&gt; DescribeCodeReviewResponse -&gt; ShowS)
+-&gt; (DescribeCodeReviewResponse -&gt; String)
+-&gt; ([DescribeCodeReviewResponse] -&gt; ShowS)
+-&gt; Show DescribeCodeReviewResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeCodeReviewResponse] -&gt; ShowS
+$cshowList :: [DescribeCodeReviewResponse] -&gt; ShowS
+show :: DescribeCodeReviewResponse -&gt; String
+$cshow :: DescribeCodeReviewResponse -&gt; String
+showsPrec :: Int -&gt; DescribeCodeReviewResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeCodeReviewResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeCodeReviewResponse -&gt; Rep DescribeCodeReviewResponse x)
+-&gt; (forall x.
+    Rep DescribeCodeReviewResponse x -&gt; DescribeCodeReviewResponse)
+-&gt; Generic DescribeCodeReviewResponse
+forall x.
+Rep DescribeCodeReviewResponse x -&gt; DescribeCodeReviewResponse
+forall x.
+DescribeCodeReviewResponse -&gt; Rep DescribeCodeReviewResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeCodeReviewResponse x -&gt; DescribeCodeReviewResponse
+$cfrom :: forall x.
+DescribeCodeReviewResponse -&gt; Rep DescribeCodeReviewResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'DescribeCodeReviewResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'codeReview', 'describeCodeReviewResponse_codeReview' - Information about the code review.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'httpStatus', 'describeCodeReviewResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#newDescribeCodeReviewResponse"><span class="hs-identifier hs-type">newDescribeCodeReviewResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse"><span class="hs-identifier hs-type">DescribeCodeReviewResponse</span></a></span><span>
+</span><span id="line-146"></span><span id="newDescribeCodeReviewResponse"><span class="annot"><span class="annottext">newDescribeCodeReviewResponse :: Int -&gt; DescribeCodeReviewResponse
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#newDescribeCodeReviewResponse"><span class="hs-identifier hs-var hs-var">newDescribeCodeReviewResponse</span></a></span></span><span> </span><span id="local-6989586621679205129"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205129"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DescribeCodeReviewResponse' :: Maybe CodeReview -&gt; Int -&gt; DescribeCodeReviewResponse
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse%27"><span class="hs-identifier hs-type">DescribeCodeReviewResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:codeReview:DescribeCodeReviewResponse' :: Maybe CodeReview
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#%24sel%3AcodeReview%3ADescribeCodeReviewResponse%27"><span class="hs-identifier hs-var">codeReview</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe CodeReview
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCodeReviewResponse' :: Int
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#%24sel%3AhttpStatus%3ADescribeCodeReviewResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205129"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Information about the code review.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#describeCodeReviewResponse_codeReview"><span class="hs-identifier hs-type">describeCodeReviewResponse_codeReview</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse"><span class="hs-identifier hs-type">DescribeCodeReviewResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.CodeReview.html#CodeReview"><span class="hs-identifier hs-type">CodeReview</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="describeCodeReviewResponse_codeReview"><span class="annot"><span class="annottext">describeCodeReviewResponse_codeReview :: (Maybe CodeReview -&gt; f (Maybe CodeReview))
+-&gt; DescribeCodeReviewResponse -&gt; f DescribeCodeReviewResponse
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#describeCodeReviewResponse_codeReview"><span class="hs-identifier hs-var hs-var">describeCodeReviewResponse_codeReview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCodeReviewResponse -&gt; Maybe CodeReview)
+-&gt; (DescribeCodeReviewResponse
+    -&gt; Maybe CodeReview -&gt; DescribeCodeReviewResponse)
+-&gt; Lens
+     DescribeCodeReviewResponse
+     DescribeCodeReviewResponse
+     (Maybe CodeReview)
+     (Maybe CodeReview)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse%27"><span class="hs-identifier hs-type">DescribeCodeReviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205128"><span class="annot"><span class="annottext">Maybe CodeReview
+codeReview :: Maybe CodeReview
+$sel:codeReview:DescribeCodeReviewResponse' :: DescribeCodeReviewResponse -&gt; Maybe CodeReview
+</span><a href="#local-6989586621679205128"><span class="hs-identifier hs-var hs-var">codeReview</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeReview
+</span><a href="#local-6989586621679205128"><span class="hs-identifier hs-var">codeReview</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205127"><span class="annot"><span class="annottext">s :: DescribeCodeReviewResponse
+</span><a href="#local-6989586621679205127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse%27"><span class="hs-identifier hs-type">DescribeCodeReviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205126"><span class="annot"><span class="annottext">Maybe CodeReview
+</span><a href="#local-6989586621679205126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCodeReviewResponse
+</span><a href="#local-6989586621679205127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeReview:DescribeCodeReviewResponse' :: Maybe CodeReview
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#%24sel%3AcodeReview%3ADescribeCodeReviewResponse%27"><span class="hs-identifier hs-var">codeReview</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeReview
+</span><a href="#local-6989586621679205126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse"><span class="hs-identifier hs-type">DescribeCodeReviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#describeCodeReviewResponse_httpStatus"><span class="hs-identifier hs-type">describeCodeReviewResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse"><span class="hs-identifier hs-type">DescribeCodeReviewResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span id="describeCodeReviewResponse_httpStatus"><span class="annot"><span class="annottext">describeCodeReviewResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeCodeReviewResponse -&gt; f DescribeCodeReviewResponse
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#describeCodeReviewResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeCodeReviewResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCodeReviewResponse -&gt; Int)
+-&gt; (DescribeCodeReviewResponse
+    -&gt; Int -&gt; DescribeCodeReviewResponse)
+-&gt; Lens
+     DescribeCodeReviewResponse DescribeCodeReviewResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse%27"><span class="hs-identifier hs-type">DescribeCodeReviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205125"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeCodeReviewResponse' :: DescribeCodeReviewResponse -&gt; Int
+</span><a href="#local-6989586621679205125"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205125"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205124"><span class="annot"><span class="annottext">s :: DescribeCodeReviewResponse
+</span><a href="#local-6989586621679205124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse%27"><span class="hs-identifier hs-type">DescribeCodeReviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205123"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCodeReviewResponse
+</span><a href="#local-6989586621679205124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCodeReviewResponse' :: Int
+</span><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#%24sel%3AhttpStatus%3ADescribeCodeReviewResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679205123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse"><span class="hs-identifier hs-type">DescribeCodeReviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679205121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.DescribeCodeReview.html#DescribeCodeReviewResponse"><span class="hs-identifier hs-type">DescribeCodeReviewResponse</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

@@ -1,0 +1,1089 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Nimble.CreateStudioComponent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a studio component resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Nimble.CreateStudioComponent</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier">CreateStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#newCreateStudioComponent"><span class="hs-identifier">newCreateStudioComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_initializationScripts"><span class="hs-identifier">createStudioComponent_initializationScripts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_clientToken"><span class="hs-identifier">createStudioComponent_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_ec2SecurityGroupIds"><span class="hs-identifier">createStudioComponent_ec2SecurityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_subtype"><span class="hs-identifier">createStudioComponent_subtype</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_scriptParameters"><span class="hs-identifier">createStudioComponent_scriptParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_configuration"><span class="hs-identifier">createStudioComponent_configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_description"><span class="hs-identifier">createStudioComponent_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_tags"><span class="hs-identifier">createStudioComponent_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_studioId"><span class="hs-identifier">createStudioComponent_studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_name"><span class="hs-identifier">createStudioComponent_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_type"><span class="hs-identifier">createStudioComponent_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse"><span class="hs-identifier">CreateStudioComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#newCreateStudioComponentResponse"><span class="hs-identifier">newCreateStudioComponentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponentResponse_studioComponent"><span class="hs-identifier">createStudioComponentResponse_studioComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponentResponse_httpStatus"><span class="hs-identifier">createStudioComponentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.html"><span class="hs-identifier">Network.AWS.Nimble.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The studio components.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newCreateStudioComponent' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679297398"><span id="local-6989586621679297399"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStudioComponent"><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-var">CreateStudioComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStudioComponent%27"><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-var">CreateStudioComponent'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Initialization scripts for studio components.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AinitializationScripts%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent
+-&gt; Maybe [StudioComponentInitializationScript]
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AinitializationScripts%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">initializationScripts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponentInitializationScript.html#StudioComponentInitializationScript"><span class="hs-identifier hs-type">StudioComponentInitializationScript</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AclientToken%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The EC2 security groups that control access to the studio component.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aec2SecurityGroupIds%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Aec2SecurityGroupIds%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">ec2SecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The specific subtype of a studio component.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Asubtype%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; Maybe StudioComponentSubtype
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Asubtype%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">subtype</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponentSubtype.html#StudioComponentSubtype"><span class="hs-identifier hs-type">StudioComponentSubtype</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Parameters for the studio component scripts.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AscriptParameters%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; Maybe [ScriptParameterKeyValue]
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AscriptParameters%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">scriptParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.ScriptParameterKeyValue.html#ScriptParameterKeyValue"><span class="hs-identifier hs-type">ScriptParameterKeyValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The configuration of the studio component, based on component type.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aconfiguration%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; Maybe StudioComponentConfiguration
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Aconfiguration%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponentConfiguration.html#StudioComponentConfiguration"><span class="hs-identifier hs-type">StudioComponentConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adescription%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Adescription%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | A collection of labels, in the form of key:value pairs, that apply to</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- this resource.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Atags%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Atags%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AstudioId%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AstudioId%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The name for the studio component.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3Aname%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Aname%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The type of the studio component.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateStudioComponent%27"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; StudioComponentType
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Atype%27%3ACreateStudioComponent%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier hs-type">StudioComponentType</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297382"><span id="local-6989586621679297384"><span class="annot"><span class="annottext">CreateStudioComponent -&gt; CreateStudioComponent -&gt; Bool
+(CreateStudioComponent -&gt; CreateStudioComponent -&gt; Bool)
+-&gt; (CreateStudioComponent -&gt; CreateStudioComponent -&gt; Bool)
+-&gt; Eq CreateStudioComponent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateStudioComponent -&gt; CreateStudioComponent -&gt; Bool
+$c/= :: CreateStudioComponent -&gt; CreateStudioComponent -&gt; Bool
+== :: CreateStudioComponent -&gt; CreateStudioComponent -&gt; Bool
+$c== :: CreateStudioComponent -&gt; CreateStudioComponent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297373"><span id="local-6989586621679297375"><span id="local-6989586621679297377"><span id="local-6989586621679297379"><span class="annot"><span class="annottext">ReadPrec [CreateStudioComponent]
+ReadPrec CreateStudioComponent
+Int -&gt; ReadS CreateStudioComponent
+ReadS [CreateStudioComponent]
+(Int -&gt; ReadS CreateStudioComponent)
+-&gt; ReadS [CreateStudioComponent]
+-&gt; ReadPrec CreateStudioComponent
+-&gt; ReadPrec [CreateStudioComponent]
+-&gt; Read CreateStudioComponent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateStudioComponent]
+$creadListPrec :: ReadPrec [CreateStudioComponent]
+readPrec :: ReadPrec CreateStudioComponent
+$creadPrec :: ReadPrec CreateStudioComponent
+readList :: ReadS [CreateStudioComponent]
+$creadList :: ReadS [CreateStudioComponent]
+readsPrec :: Int -&gt; ReadS CreateStudioComponent
+$creadsPrec :: Int -&gt; ReadS CreateStudioComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297366"><span id="local-6989586621679297368"><span id="local-6989586621679297370"><span class="annot"><span class="annottext">Int -&gt; CreateStudioComponent -&gt; ShowS
+[CreateStudioComponent] -&gt; ShowS
+CreateStudioComponent -&gt; String
+(Int -&gt; CreateStudioComponent -&gt; ShowS)
+-&gt; (CreateStudioComponent -&gt; String)
+-&gt; ([CreateStudioComponent] -&gt; ShowS)
+-&gt; Show CreateStudioComponent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateStudioComponent] -&gt; ShowS
+$cshowList :: [CreateStudioComponent] -&gt; ShowS
+show :: CreateStudioComponent -&gt; String
+$cshow :: CreateStudioComponent -&gt; String
+showsPrec :: Int -&gt; CreateStudioComponent -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateStudioComponent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateStudioComponent -&gt; Rep CreateStudioComponent x)
+-&gt; (forall x. Rep CreateStudioComponent x -&gt; CreateStudioComponent)
+-&gt; Generic CreateStudioComponent
+forall x. Rep CreateStudioComponent x -&gt; CreateStudioComponent
+forall x. CreateStudioComponent -&gt; Rep CreateStudioComponent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateStudioComponent x -&gt; CreateStudioComponent
+$cfrom :: forall x. CreateStudioComponent -&gt; Rep CreateStudioComponent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Create a value of 'CreateStudioComponent' with all optional fields omitted.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'initializationScripts', 'createStudioComponent_initializationScripts' - Initialization scripts for studio components.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'clientToken', 'createStudioComponent_clientToken' - To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'ec2SecurityGroupIds', 'createStudioComponent_ec2SecurityGroupIds' - The EC2 security groups that control access to the studio component.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'subtype', 'createStudioComponent_subtype' - The specific subtype of a studio component.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'scriptParameters', 'createStudioComponent_scriptParameters' - Parameters for the studio component scripts.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'configuration', 'createStudioComponent_configuration' - The configuration of the studio component, based on component type.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'description', 'createStudioComponent_description' - The description.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'tags', 'createStudioComponent_tags' - A collection of labels, in the form of key:value pairs, that apply to</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- this resource.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'studioId', 'createStudioComponent_studioId' - The studio ID.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'name', 'createStudioComponent_name' - The name for the studio component.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'type'', 'createStudioComponent_type' - The type of the studio component.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#newCreateStudioComponent"><span class="hs-identifier hs-type">newCreateStudioComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'studioId'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier hs-type">StudioComponentType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span>
+</span><span id="line-141"></span><span id="newCreateStudioComponent"><span class="annot"><span class="annottext">newCreateStudioComponent :: Text -&gt; Text -&gt; StudioComponentType -&gt; CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#newCreateStudioComponent"><span class="hs-identifier hs-var hs-var">newCreateStudioComponent</span></a></span></span><span> </span><span id="local-6989586621679297361"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297361"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span id="local-6989586621679297360"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297360"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679297359"><span class="annot"><span class="annottext">StudioComponentType
+</span><a href="#local-6989586621679297359"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">CreateStudioComponent' :: Maybe [StudioComponentInitializationScript]
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe StudioComponentSubtype
+-&gt; Maybe [ScriptParameterKeyValue]
+-&gt; Maybe StudioComponentConfiguration
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; StudioComponentType
+-&gt; CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:initializationScripts:CreateStudioComponent' :: Maybe [StudioComponentInitializationScript]
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AinitializationScripts%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">initializationScripts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Maybe [StudioComponentInitializationScript]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:CreateStudioComponent' :: Maybe Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AclientToken%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:ec2SecurityGroupIds:CreateStudioComponent' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Aec2SecurityGroupIds%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">ec2SecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:subtype:CreateStudioComponent' :: Maybe StudioComponentSubtype
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Asubtype%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">subtype</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponentSubtype
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:scriptParameters:CreateStudioComponent' :: Maybe [ScriptParameterKeyValue]
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AscriptParameters%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">scriptParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScriptParameterKeyValue]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:CreateStudioComponent' :: Maybe StudioComponentConfiguration
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Aconfiguration%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponentConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateStudioComponent' :: Maybe Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Adescription%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateStudioComponent' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Atags%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioId:CreateStudioComponent' :: Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AstudioId%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297361"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateStudioComponent' :: Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Aname%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297360"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':CreateStudioComponent' :: StudioComponentType
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Atype%27%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StudioComponentType
+</span><a href="#local-6989586621679297359"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Initialization scripts for studio components.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_initializationScripts"><span class="hs-identifier hs-type">createStudioComponent_initializationScripts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponentInitializationScript.html#StudioComponentInitializationScript"><span class="hs-identifier hs-type">StudioComponentInitializationScript</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="createStudioComponent_initializationScripts"><span class="annot"><span class="annottext">createStudioComponent_initializationScripts :: (Maybe [StudioComponentInitializationScript]
+ -&gt; f (Maybe [StudioComponentInitializationScript]))
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_initializationScripts"><span class="hs-identifier hs-var hs-var">createStudioComponent_initializationScripts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent
+ -&gt; Maybe [StudioComponentInitializationScript])
+-&gt; (CreateStudioComponent
+    -&gt; Maybe [StudioComponentInitializationScript]
+    -&gt; CreateStudioComponent)
+-&gt; Lens
+     CreateStudioComponent
+     CreateStudioComponent
+     (Maybe [StudioComponentInitializationScript])
+     (Maybe [StudioComponentInitializationScript])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297356"><span class="annot"><span class="annottext">Maybe [StudioComponentInitializationScript]
+initializationScripts :: Maybe [StudioComponentInitializationScript]
+$sel:initializationScripts:CreateStudioComponent' :: CreateStudioComponent
+-&gt; Maybe [StudioComponentInitializationScript]
+</span><a href="#local-6989586621679297356"><span class="hs-identifier hs-var hs-var">initializationScripts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StudioComponentInitializationScript]
+</span><a href="#local-6989586621679297356"><span class="hs-identifier hs-var">initializationScripts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297355"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297354"><span class="annot"><span class="annottext">Maybe [StudioComponentInitializationScript]
+</span><a href="#local-6989586621679297354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initializationScripts:CreateStudioComponent' :: Maybe [StudioComponentInitializationScript]
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AinitializationScripts%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">initializationScripts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StudioComponentInitializationScript]
+</span><a href="#local-6989586621679297354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StudioComponentInitializationScript]
+  -&gt; f (Maybe [StudioComponentInitializationScript]))
+ -&gt; CreateStudioComponent -&gt; f CreateStudioComponent)
+-&gt; ((Maybe [StudioComponentInitializationScript]
+     -&gt; f (Maybe [StudioComponentInitializationScript]))
+    -&gt; Maybe [StudioComponentInitializationScript]
+    -&gt; f (Maybe [StudioComponentInitializationScript]))
+-&gt; (Maybe [StudioComponentInitializationScript]
+    -&gt; f (Maybe [StudioComponentInitializationScript]))
+-&gt; CreateStudioComponent
+-&gt; f CreateStudioComponent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StudioComponentInitializationScript]
+  [StudioComponentInitializationScript]
+  [StudioComponentInitializationScript]
+  [StudioComponentInitializationScript]
+-&gt; Iso
+     (Maybe [StudioComponentInitializationScript])
+     (Maybe [StudioComponentInitializationScript])
+     (Maybe [StudioComponentInitializationScript])
+     (Maybe [StudioComponentInitializationScript])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StudioComponentInitializationScript]
+  [StudioComponentInitializationScript]
+  [StudioComponentInitializationScript]
+  [StudioComponentInitializationScript]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_clientToken"><span class="hs-identifier hs-type">createStudioComponent_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="createStudioComponent_clientToken"><span class="annot"><span class="annottext">createStudioComponent_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_clientToken"><span class="hs-identifier hs-var hs-var">createStudioComponent_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; Maybe Text)
+-&gt; (CreateStudioComponent -&gt; Maybe Text -&gt; CreateStudioComponent)
+-&gt; Lens
+     CreateStudioComponent
+     CreateStudioComponent
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297350"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679297350"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297350"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297349"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateStudioComponent' :: Maybe Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AclientToken%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The EC2 security groups that control access to the studio component.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_ec2SecurityGroupIds"><span class="hs-identifier hs-type">createStudioComponent_ec2SecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="createStudioComponent_ec2SecurityGroupIds"><span class="annot"><span class="annottext">createStudioComponent_ec2SecurityGroupIds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_ec2SecurityGroupIds"><span class="hs-identifier hs-var hs-var">createStudioComponent_ec2SecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; Maybe (NonEmpty Text))
+-&gt; (CreateStudioComponent
+    -&gt; Maybe (NonEmpty Text) -&gt; CreateStudioComponent)
+-&gt; Lens
+     CreateStudioComponent
+     CreateStudioComponent
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297347"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+ec2SecurityGroupIds :: Maybe (NonEmpty Text)
+$sel:ec2SecurityGroupIds:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679297347"><span class="hs-identifier hs-var hs-var">ec2SecurityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679297347"><span class="hs-identifier hs-var">ec2SecurityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297346"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297345"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679297345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2SecurityGroupIds:CreateStudioComponent' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Aec2SecurityGroupIds%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">ec2SecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679297345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; CreateStudioComponent -&gt; f CreateStudioComponent)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateStudioComponent
+-&gt; f CreateStudioComponent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The specific subtype of a studio component.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_subtype"><span class="hs-identifier hs-type">createStudioComponent_subtype</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponentSubtype.html#StudioComponentSubtype"><span class="hs-identifier hs-type">StudioComponentSubtype</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="createStudioComponent_subtype"><span class="annot"><span class="annottext">createStudioComponent_subtype :: (Maybe StudioComponentSubtype -&gt; f (Maybe StudioComponentSubtype))
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_subtype"><span class="hs-identifier hs-var hs-var">createStudioComponent_subtype</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; Maybe StudioComponentSubtype)
+-&gt; (CreateStudioComponent
+    -&gt; Maybe StudioComponentSubtype -&gt; CreateStudioComponent)
+-&gt; Lens
+     CreateStudioComponent
+     CreateStudioComponent
+     (Maybe StudioComponentSubtype)
+     (Maybe StudioComponentSubtype)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297344"><span class="annot"><span class="annottext">Maybe StudioComponentSubtype
+subtype :: Maybe StudioComponentSubtype
+$sel:subtype:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe StudioComponentSubtype
+</span><a href="#local-6989586621679297344"><span class="hs-identifier hs-var hs-var">subtype</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponentSubtype
+</span><a href="#local-6989586621679297344"><span class="hs-identifier hs-var">subtype</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297343"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297342"><span class="annot"><span class="annottext">Maybe StudioComponentSubtype
+</span><a href="#local-6989586621679297342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subtype:CreateStudioComponent' :: Maybe StudioComponentSubtype
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Asubtype%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">subtype</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponentSubtype
+</span><a href="#local-6989586621679297342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Parameters for the studio component scripts.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_scriptParameters"><span class="hs-identifier hs-type">createStudioComponent_scriptParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.ScriptParameterKeyValue.html#ScriptParameterKeyValue"><span class="hs-identifier hs-type">ScriptParameterKeyValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="createStudioComponent_scriptParameters"><span class="annot"><span class="annottext">createStudioComponent_scriptParameters :: (Maybe [ScriptParameterKeyValue]
+ -&gt; f (Maybe [ScriptParameterKeyValue]))
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_scriptParameters"><span class="hs-identifier hs-var hs-var">createStudioComponent_scriptParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; Maybe [ScriptParameterKeyValue])
+-&gt; (CreateStudioComponent
+    -&gt; Maybe [ScriptParameterKeyValue] -&gt; CreateStudioComponent)
+-&gt; Lens
+     CreateStudioComponent
+     CreateStudioComponent
+     (Maybe [ScriptParameterKeyValue])
+     (Maybe [ScriptParameterKeyValue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297341"><span class="annot"><span class="annottext">Maybe [ScriptParameterKeyValue]
+scriptParameters :: Maybe [ScriptParameterKeyValue]
+$sel:scriptParameters:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe [ScriptParameterKeyValue]
+</span><a href="#local-6989586621679297341"><span class="hs-identifier hs-var hs-var">scriptParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScriptParameterKeyValue]
+</span><a href="#local-6989586621679297341"><span class="hs-identifier hs-var">scriptParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297340"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297339"><span class="annot"><span class="annottext">Maybe [ScriptParameterKeyValue]
+</span><a href="#local-6989586621679297339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptParameters:CreateStudioComponent' :: Maybe [ScriptParameterKeyValue]
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AscriptParameters%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">scriptParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScriptParameterKeyValue]
+</span><a href="#local-6989586621679297339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScriptParameterKeyValue]
+  -&gt; f (Maybe [ScriptParameterKeyValue]))
+ -&gt; CreateStudioComponent -&gt; f CreateStudioComponent)
+-&gt; ((Maybe [ScriptParameterKeyValue]
+     -&gt; f (Maybe [ScriptParameterKeyValue]))
+    -&gt; Maybe [ScriptParameterKeyValue]
+    -&gt; f (Maybe [ScriptParameterKeyValue]))
+-&gt; (Maybe [ScriptParameterKeyValue]
+    -&gt; f (Maybe [ScriptParameterKeyValue]))
+-&gt; CreateStudioComponent
+-&gt; f CreateStudioComponent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScriptParameterKeyValue]
+  [ScriptParameterKeyValue]
+  [ScriptParameterKeyValue]
+  [ScriptParameterKeyValue]
+-&gt; Iso
+     (Maybe [ScriptParameterKeyValue])
+     (Maybe [ScriptParameterKeyValue])
+     (Maybe [ScriptParameterKeyValue])
+     (Maybe [ScriptParameterKeyValue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ScriptParameterKeyValue]
+  [ScriptParameterKeyValue]
+  [ScriptParameterKeyValue]
+  [ScriptParameterKeyValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The configuration of the studio component, based on component type.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_configuration"><span class="hs-identifier hs-type">createStudioComponent_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponentConfiguration.html#StudioComponentConfiguration"><span class="hs-identifier hs-type">StudioComponentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="createStudioComponent_configuration"><span class="annot"><span class="annottext">createStudioComponent_configuration :: (Maybe StudioComponentConfiguration
+ -&gt; f (Maybe StudioComponentConfiguration))
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_configuration"><span class="hs-identifier hs-var hs-var">createStudioComponent_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; Maybe StudioComponentConfiguration)
+-&gt; (CreateStudioComponent
+    -&gt; Maybe StudioComponentConfiguration -&gt; CreateStudioComponent)
+-&gt; Lens
+     CreateStudioComponent
+     CreateStudioComponent
+     (Maybe StudioComponentConfiguration)
+     (Maybe StudioComponentConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297338"><span class="annot"><span class="annottext">Maybe StudioComponentConfiguration
+configuration :: Maybe StudioComponentConfiguration
+$sel:configuration:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe StudioComponentConfiguration
+</span><a href="#local-6989586621679297338"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponentConfiguration
+</span><a href="#local-6989586621679297338"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297337"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297336"><span class="annot"><span class="annottext">Maybe StudioComponentConfiguration
+</span><a href="#local-6989586621679297336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:CreateStudioComponent' :: Maybe StudioComponentConfiguration
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Aconfiguration%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponentConfiguration
+</span><a href="#local-6989586621679297336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_description"><span class="hs-identifier hs-type">createStudioComponent_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="createStudioComponent_description"><span class="annot"><span class="annottext">createStudioComponent_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_description"><span class="hs-identifier hs-var hs-var">createStudioComponent_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; Maybe Text)
+-&gt; (CreateStudioComponent -&gt; Maybe Text -&gt; CreateStudioComponent)
+-&gt; Lens
+     CreateStudioComponent
+     CreateStudioComponent
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297335"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe Text
+</span><a href="#local-6989586621679297335"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297335"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297334"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateStudioComponent' :: Maybe Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Adescription%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A collection of labels, in the form of key:value pairs, that apply to</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- this resource.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_tags"><span class="hs-identifier hs-type">createStudioComponent_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="createStudioComponent_tags"><span class="annot"><span class="annottext">createStudioComponent_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_tags"><span class="hs-identifier hs-var hs-var">createStudioComponent_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateStudioComponent
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateStudioComponent)
+-&gt; Lens
+     CreateStudioComponent
+     CreateStudioComponent
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297332"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679297332"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679297332"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297331"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297330"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679297330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateStudioComponent' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Atags%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679297330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateStudioComponent -&gt; f CreateStudioComponent)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateStudioComponent
+-&gt; f CreateStudioComponent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_studioId"><span class="hs-identifier hs-type">createStudioComponent_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-199"></span><span id="createStudioComponent_studioId"><span class="annot"><span class="annottext">createStudioComponent_studioId :: (Text -&gt; f Text)
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_studioId"><span class="hs-identifier hs-var hs-var">createStudioComponent_studioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; Text)
+-&gt; (CreateStudioComponent -&gt; Text -&gt; CreateStudioComponent)
+-&gt; Lens CreateStudioComponent CreateStudioComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297329"><span class="annot"><span class="annottext">Text
+studioId :: Text
+$sel:studioId:CreateStudioComponent' :: CreateStudioComponent -&gt; Text
+</span><a href="#local-6989586621679297329"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297329"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297328"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:CreateStudioComponent' :: Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AstudioId%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The name for the studio component.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_name"><span class="hs-identifier hs-type">createStudioComponent_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-203"></span><span id="createStudioComponent_name"><span class="annot"><span class="annottext">createStudioComponent_name :: (Text -&gt; f Text)
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_name"><span class="hs-identifier hs-var hs-var">createStudioComponent_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; Text)
+-&gt; (CreateStudioComponent -&gt; Text -&gt; CreateStudioComponent)
+-&gt; Lens CreateStudioComponent CreateStudioComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297326"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateStudioComponent' :: CreateStudioComponent -&gt; Text
+</span><a href="#local-6989586621679297326"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297326"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297325"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297324"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateStudioComponent' :: Text
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Aname%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The type of the studio component.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_type"><span class="hs-identifier hs-type">createStudioComponent_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponentType.html#StudioComponentType"><span class="hs-identifier hs-type">StudioComponentType</span></a></span><span>
+</span><span id="line-207"></span><span id="createStudioComponent_type"><span class="annot"><span class="annottext">createStudioComponent_type :: (StudioComponentType -&gt; f StudioComponentType)
+-&gt; CreateStudioComponent -&gt; f CreateStudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponent_type"><span class="hs-identifier hs-var hs-var">createStudioComponent_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponent -&gt; StudioComponentType)
+-&gt; (CreateStudioComponent
+    -&gt; StudioComponentType -&gt; CreateStudioComponent)
+-&gt; Lens
+     CreateStudioComponent
+     CreateStudioComponent
+     StudioComponentType
+     StudioComponentType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297323"><span class="annot"><span class="annottext">StudioComponentType
+type' :: StudioComponentType
+$sel:type':CreateStudioComponent' :: CreateStudioComponent -&gt; StudioComponentType
+</span><a href="#local-6989586621679297323"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioComponentType
+</span><a href="#local-6989586621679297323"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297322"><span class="annot"><span class="annottext">s :: CreateStudioComponent
+</span><a href="#local-6989586621679297322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297321"><span class="annot"><span class="annottext">StudioComponentType
+</span><a href="#local-6989586621679297321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponent
+</span><a href="#local-6989586621679297322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateStudioComponent' :: StudioComponentType
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3Atype%27%3ACreateStudioComponent%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StudioComponentType
+</span><a href="#local-6989586621679297321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-211"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse"><span class="hs-identifier hs-type">CreateStudioComponentResponse</span></a></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679297317"><span class="annot"><span class="annottext">request :: CreateStudioComponent -&gt; Request CreateStudioComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateStudioComponent -&gt; Request CreateStudioComponent
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Nimble.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679297313"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateStudioComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateStudioComponent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateStudioComponent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateStudioComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateStudioComponent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297310"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679297309"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679297309"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679297308"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297308"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe StudioComponent -&gt; Int -&gt; CreateStudioComponentResponse
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse%27"><span class="hs-identifier hs-var">CreateStudioComponentResponse'</span></a></span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StudioComponent -&gt; Int -&gt; CreateStudioComponentResponse)
+-&gt; Either String (Maybe StudioComponent)
+-&gt; Either String (Int -&gt; CreateStudioComponentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe StudioComponent)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;studioComponent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateStudioComponentResponse)
+-&gt; Either String Int -&gt; Either String CreateStudioComponentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297310"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297300"><span id="local-6989586621679297302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span></span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679297293"><span class="annot"><span class="annottext">toHeaders :: CreateStudioComponent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297281"><span id="local-6989586621679297282"><span id="local-6989586621679297283"><span id="local-6989586621679297284"><span id="local-6989586621679297285"><span id="local-6989586621679297286"><span id="local-6989586621679297287"><span id="local-6989586621679297288"><span id="local-6989586621679297289"><span id="local-6989586621679297290"><span id="local-6989586621679297291"><span class="annot"><span class="annottext">Maybe [ScriptParameterKeyValue]
+Maybe [StudioComponentInitializationScript]
+Maybe (NonEmpty Text)
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe StudioComponentConfiguration
+Maybe StudioComponentSubtype
+Text
+StudioComponentType
+type' :: StudioComponentType
+name :: Text
+studioId :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+configuration :: Maybe StudioComponentConfiguration
+scriptParameters :: Maybe [ScriptParameterKeyValue]
+subtype :: Maybe StudioComponentSubtype
+ec2SecurityGroupIds :: Maybe (NonEmpty Text)
+clientToken :: Maybe Text
+initializationScripts :: Maybe [StudioComponentInitializationScript]
+$sel:type':CreateStudioComponent' :: CreateStudioComponent -&gt; StudioComponentType
+$sel:name:CreateStudioComponent' :: CreateStudioComponent -&gt; Text
+$sel:studioId:CreateStudioComponent' :: CreateStudioComponent -&gt; Text
+$sel:tags:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe Text
+$sel:configuration:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe StudioComponentConfiguration
+$sel:scriptParameters:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe [ScriptParameterKeyValue]
+$sel:subtype:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe StudioComponentSubtype
+$sel:ec2SecurityGroupIds:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe (NonEmpty Text)
+$sel:clientToken:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe Text
+$sel:initializationScripts:CreateStudioComponent' :: CreateStudioComponent
+-&gt; Maybe [StudioComponentInitializationScript]
+</span><a href="#local-6989586621679297281"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Client-Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297290"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297273"><span id="local-6989586621679297275"><span id="local-6989586621679297277"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679297271"><span class="annot"><span class="annottext">toJSON :: CreateStudioComponent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297259"><span id="local-6989586621679297260"><span id="local-6989586621679297261"><span id="local-6989586621679297262"><span id="local-6989586621679297263"><span id="local-6989586621679297264"><span id="local-6989586621679297265"><span id="local-6989586621679297266"><span id="local-6989586621679297267"><span id="local-6989586621679297268"><span id="local-6989586621679297269"><span class="annot"><span class="annottext">Maybe [ScriptParameterKeyValue]
+Maybe [StudioComponentInitializationScript]
+Maybe (NonEmpty Text)
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe StudioComponentConfiguration
+Maybe StudioComponentSubtype
+Text
+StudioComponentType
+type' :: StudioComponentType
+name :: Text
+studioId :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+configuration :: Maybe StudioComponentConfiguration
+scriptParameters :: Maybe [ScriptParameterKeyValue]
+subtype :: Maybe StudioComponentSubtype
+ec2SecurityGroupIds :: Maybe (NonEmpty Text)
+clientToken :: Maybe Text
+initializationScripts :: Maybe [StudioComponentInitializationScript]
+$sel:type':CreateStudioComponent' :: CreateStudioComponent -&gt; StudioComponentType
+$sel:name:CreateStudioComponent' :: CreateStudioComponent -&gt; Text
+$sel:studioId:CreateStudioComponent' :: CreateStudioComponent -&gt; Text
+$sel:tags:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe Text
+$sel:configuration:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe StudioComponentConfiguration
+$sel:scriptParameters:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe [ScriptParameterKeyValue]
+$sel:subtype:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe StudioComponentSubtype
+$sel:ec2SecurityGroupIds:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe (NonEmpty Text)
+$sel:clientToken:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe Text
+$sel:initializationScripts:CreateStudioComponent' :: CreateStudioComponent
+-&gt; Maybe [StudioComponentInitializationScript]
+</span><a href="#local-6989586621679297259"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-238"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initializationScripts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [StudioComponentInitializationScript] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>              </span><span class="annot"><span class="annottext">([StudioComponentInitializationScript] -&gt; Pair)
+-&gt; Maybe [StudioComponentInitializationScript] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [StudioComponentInitializationScript]
+</span><a href="#local-6989586621679297269"><span class="hs-identifier hs-var">initializationScripts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ec2SecurityGroupIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679297267"><span class="hs-identifier hs-var">ec2SecurityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subtype&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StudioComponentSubtype -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StudioComponentSubtype -&gt; Pair)
+-&gt; Maybe StudioComponentSubtype -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponentSubtype
+</span><a href="#local-6989586621679297266"><span class="hs-identifier hs-var">subtype</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scriptParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ScriptParameterKeyValue] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>              </span><span class="annot"><span class="annottext">([ScriptParameterKeyValue] -&gt; Pair)
+-&gt; Maybe [ScriptParameterKeyValue] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ScriptParameterKeyValue]
+</span><a href="#local-6989586621679297265"><span class="hs-identifier hs-var">scriptParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StudioComponentConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(StudioComponentConfiguration -&gt; Pair)
+-&gt; Maybe StudioComponentConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponentConfiguration
+</span><a href="#local-6989586621679297264"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297263"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679297262"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297260"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StudioComponentType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StudioComponentType
+</span><a href="#local-6989586621679297259"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679297253"><span class="annot"><span class="annottext">toPath :: CreateStudioComponent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent%27"><span class="hs-identifier hs-type">CreateStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297241"><span id="local-6989586621679297242"><span id="local-6989586621679297243"><span id="local-6989586621679297244"><span id="local-6989586621679297245"><span id="local-6989586621679297246"><span id="local-6989586621679297247"><span id="local-6989586621679297248"><span id="local-6989586621679297249"><span id="local-6989586621679297250"><span id="local-6989586621679297251"><span class="annot"><span class="annottext">Maybe [ScriptParameterKeyValue]
+Maybe [StudioComponentInitializationScript]
+Maybe (NonEmpty Text)
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe StudioComponentConfiguration
+Maybe StudioComponentSubtype
+Text
+StudioComponentType
+type' :: StudioComponentType
+name :: Text
+studioId :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+configuration :: Maybe StudioComponentConfiguration
+scriptParameters :: Maybe [ScriptParameterKeyValue]
+subtype :: Maybe StudioComponentSubtype
+ec2SecurityGroupIds :: Maybe (NonEmpty Text)
+clientToken :: Maybe Text
+initializationScripts :: Maybe [StudioComponentInitializationScript]
+$sel:type':CreateStudioComponent' :: CreateStudioComponent -&gt; StudioComponentType
+$sel:name:CreateStudioComponent' :: CreateStudioComponent -&gt; Text
+$sel:studioId:CreateStudioComponent' :: CreateStudioComponent -&gt; Text
+$sel:tags:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe Text
+$sel:configuration:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe StudioComponentConfiguration
+$sel:scriptParameters:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe [ScriptParameterKeyValue]
+$sel:subtype:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe StudioComponentSubtype
+$sel:ec2SecurityGroupIds:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe (NonEmpty Text)
+$sel:clientToken:CreateStudioComponent' :: CreateStudioComponent -&gt; Maybe Text
+$sel:initializationScripts:CreateStudioComponent' :: CreateStudioComponent
+-&gt; Maybe [StudioComponentInitializationScript]
+</span><a href="#local-6989586621679297241"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-08-01/studios/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297243"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/studio-components&quot;</span></span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponent"><span class="hs-identifier hs-type">CreateStudioComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679297237"><span class="annot"><span class="annottext">toQuery :: CreateStudioComponent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateStudioComponent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | /See:/ 'newCreateStudioComponentResponse' smart constructor.</span><span>
+</span><span id="line-265"></span><span id="local-6989586621679297233"><span id="local-6989586621679297234"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateStudioComponentResponse"><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse"><span class="hs-identifier hs-var">CreateStudioComponentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateStudioComponentResponse%27"><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse%27"><span class="hs-identifier hs-var">CreateStudioComponentResponse'</span></a></span></span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the studio component.</span><span>
+</span><span id="line-267"></span><span>    </span><span id="%24sel%3AstudioComponent%3ACreateStudioComponentResponse%27"><span class="annot"><span class="annottext">CreateStudioComponentResponse -&gt; Maybe StudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AstudioComponent%3ACreateStudioComponentResponse%27"><span class="hs-identifier hs-var hs-var">studioComponent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponent.html#StudioComponent"><span class="hs-identifier hs-type">StudioComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateStudioComponentResponse%27"><span class="annot"><span class="annottext">CreateStudioComponentResponse -&gt; Int
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AhttpStatus%3ACreateStudioComponentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-270"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297227"><span id="local-6989586621679297229"><span class="annot"><span class="annottext">CreateStudioComponentResponse
+-&gt; CreateStudioComponentResponse -&gt; Bool
+(CreateStudioComponentResponse
+ -&gt; CreateStudioComponentResponse -&gt; Bool)
+-&gt; (CreateStudioComponentResponse
+    -&gt; CreateStudioComponentResponse -&gt; Bool)
+-&gt; Eq CreateStudioComponentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateStudioComponentResponse
+-&gt; CreateStudioComponentResponse -&gt; Bool
+$c/= :: CreateStudioComponentResponse
+-&gt; CreateStudioComponentResponse -&gt; Bool
+== :: CreateStudioComponentResponse
+-&gt; CreateStudioComponentResponse -&gt; Bool
+$c== :: CreateStudioComponentResponse
+-&gt; CreateStudioComponentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297219"><span id="local-6989586621679297221"><span id="local-6989586621679297223"><span id="local-6989586621679297225"><span class="annot"><span class="annottext">ReadPrec [CreateStudioComponentResponse]
+ReadPrec CreateStudioComponentResponse
+Int -&gt; ReadS CreateStudioComponentResponse
+ReadS [CreateStudioComponentResponse]
+(Int -&gt; ReadS CreateStudioComponentResponse)
+-&gt; ReadS [CreateStudioComponentResponse]
+-&gt; ReadPrec CreateStudioComponentResponse
+-&gt; ReadPrec [CreateStudioComponentResponse]
+-&gt; Read CreateStudioComponentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateStudioComponentResponse]
+$creadListPrec :: ReadPrec [CreateStudioComponentResponse]
+readPrec :: ReadPrec CreateStudioComponentResponse
+$creadPrec :: ReadPrec CreateStudioComponentResponse
+readList :: ReadS [CreateStudioComponentResponse]
+$creadList :: ReadS [CreateStudioComponentResponse]
+readsPrec :: Int -&gt; ReadS CreateStudioComponentResponse
+$creadsPrec :: Int -&gt; ReadS CreateStudioComponentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297213"><span id="local-6989586621679297215"><span id="local-6989586621679297217"><span class="annot"><span class="annottext">Int -&gt; CreateStudioComponentResponse -&gt; ShowS
+[CreateStudioComponentResponse] -&gt; ShowS
+CreateStudioComponentResponse -&gt; String
+(Int -&gt; CreateStudioComponentResponse -&gt; ShowS)
+-&gt; (CreateStudioComponentResponse -&gt; String)
+-&gt; ([CreateStudioComponentResponse] -&gt; ShowS)
+-&gt; Show CreateStudioComponentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateStudioComponentResponse] -&gt; ShowS
+$cshowList :: [CreateStudioComponentResponse] -&gt; ShowS
+show :: CreateStudioComponentResponse -&gt; String
+$cshow :: CreateStudioComponentResponse -&gt; String
+showsPrec :: Int -&gt; CreateStudioComponentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateStudioComponentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateStudioComponentResponse
+ -&gt; Rep CreateStudioComponentResponse x)
+-&gt; (forall x.
+    Rep CreateStudioComponentResponse x
+    -&gt; CreateStudioComponentResponse)
+-&gt; Generic CreateStudioComponentResponse
+forall x.
+Rep CreateStudioComponentResponse x
+-&gt; CreateStudioComponentResponse
+forall x.
+CreateStudioComponentResponse
+-&gt; Rep CreateStudioComponentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateStudioComponentResponse x
+-&gt; CreateStudioComponentResponse
+$cfrom :: forall x.
+CreateStudioComponentResponse
+-&gt; Rep CreateStudioComponentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- Create a value of 'CreateStudioComponentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- 'studioComponent', 'createStudioComponentResponse_studioComponent' - Information about the studio component.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'httpStatus', 'createStudioComponentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#newCreateStudioComponentResponse"><span class="hs-identifier hs-type">newCreateStudioComponentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse"><span class="hs-identifier hs-type">CreateStudioComponentResponse</span></a></span><span>
+</span><span id="line-288"></span><span id="newCreateStudioComponentResponse"><span class="annot"><span class="annottext">newCreateStudioComponentResponse :: Int -&gt; CreateStudioComponentResponse
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#newCreateStudioComponentResponse"><span class="hs-identifier hs-var hs-var">newCreateStudioComponentResponse</span></a></span></span><span> </span><span id="local-6989586621679297210"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>  </span><span class="annot"><span class="annottext">CreateStudioComponentResponse' :: Maybe StudioComponent -&gt; Int -&gt; CreateStudioComponentResponse
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse%27"><span class="hs-identifier hs-type">CreateStudioComponentResponse'</span></a></span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:studioComponent:CreateStudioComponentResponse' :: Maybe StudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AstudioComponent%3ACreateStudioComponentResponse%27"><span class="hs-identifier hs-var">studioComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">Maybe StudioComponent
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStudioComponentResponse' :: Int
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AhttpStatus%3ACreateStudioComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | Information about the studio component.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponentResponse_studioComponent"><span class="hs-identifier hs-type">createStudioComponentResponse_studioComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse"><span class="hs-identifier hs-type">CreateStudioComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.StudioComponent.html#StudioComponent"><span class="hs-identifier hs-type">StudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="createStudioComponentResponse_studioComponent"><span class="annot"><span class="annottext">createStudioComponentResponse_studioComponent :: (Maybe StudioComponent -&gt; f (Maybe StudioComponent))
+-&gt; CreateStudioComponentResponse -&gt; f CreateStudioComponentResponse
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponentResponse_studioComponent"><span class="hs-identifier hs-var hs-var">createStudioComponentResponse_studioComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponentResponse -&gt; Maybe StudioComponent)
+-&gt; (CreateStudioComponentResponse
+    -&gt; Maybe StudioComponent -&gt; CreateStudioComponentResponse)
+-&gt; Lens
+     CreateStudioComponentResponse
+     CreateStudioComponentResponse
+     (Maybe StudioComponent)
+     (Maybe StudioComponent)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse%27"><span class="hs-identifier hs-type">CreateStudioComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297209"><span class="annot"><span class="annottext">Maybe StudioComponent
+studioComponent :: Maybe StudioComponent
+$sel:studioComponent:CreateStudioComponentResponse' :: CreateStudioComponentResponse -&gt; Maybe StudioComponent
+</span><a href="#local-6989586621679297209"><span class="hs-identifier hs-var hs-var">studioComponent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponent
+</span><a href="#local-6989586621679297209"><span class="hs-identifier hs-var">studioComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297208"><span class="annot"><span class="annottext">s :: CreateStudioComponentResponse
+</span><a href="#local-6989586621679297208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse%27"><span class="hs-identifier hs-type">CreateStudioComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297207"><span class="annot"><span class="annottext">Maybe StudioComponent
+</span><a href="#local-6989586621679297207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponentResponse
+</span><a href="#local-6989586621679297208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioComponent:CreateStudioComponentResponse' :: Maybe StudioComponent
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AstudioComponent%3ACreateStudioComponentResponse%27"><span class="hs-identifier hs-var">studioComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponent
+</span><a href="#local-6989586621679297207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse"><span class="hs-identifier hs-type">CreateStudioComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponentResponse_httpStatus"><span class="hs-identifier hs-type">createStudioComponentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse"><span class="hs-identifier hs-type">CreateStudioComponentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-301"></span><span id="createStudioComponentResponse_httpStatus"><span class="annot"><span class="annottext">createStudioComponentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateStudioComponentResponse -&gt; f CreateStudioComponentResponse
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#createStudioComponentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createStudioComponentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateStudioComponentResponse -&gt; Int)
+-&gt; (CreateStudioComponentResponse
+    -&gt; Int -&gt; CreateStudioComponentResponse)
+-&gt; Lens
+     CreateStudioComponentResponse CreateStudioComponentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse%27"><span class="hs-identifier hs-type">CreateStudioComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297206"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateStudioComponentResponse' :: CreateStudioComponentResponse -&gt; Int
+</span><a href="#local-6989586621679297206"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297206"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297205"><span class="annot"><span class="annottext">s :: CreateStudioComponentResponse
+</span><a href="#local-6989586621679297205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse%27"><span class="hs-identifier hs-type">CreateStudioComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateStudioComponentResponse
+</span><a href="#local-6989586621679297205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateStudioComponentResponse' :: Int
+</span><a href="Network.AWS.Nimble.CreateStudioComponent.html#%24sel%3AhttpStatus%3ACreateStudioComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse"><span class="hs-identifier hs-type">CreateStudioComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.CreateStudioComponent.html#CreateStudioComponentResponse"><span class="hs-identifier hs-type">CreateStudioComponentResponse</span></a></span></span><span>
+</span><span id="line-304"></span></pre></body></html>

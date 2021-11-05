@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Amplify.CreateBackendEnvironment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new backend environment for an Amplify app.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Amplify.CreateBackendEnvironment</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier">CreateBackendEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#newCreateBackendEnvironment"><span class="hs-identifier">newCreateBackendEnvironment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_deploymentArtifacts"><span class="hs-identifier">createBackendEnvironment_deploymentArtifacts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_stackName"><span class="hs-identifier">createBackendEnvironment_stackName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_appId"><span class="hs-identifier">createBackendEnvironment_appId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_environmentName"><span class="hs-identifier">createBackendEnvironment_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse"><span class="hs-identifier">CreateBackendEnvironmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#newCreateBackendEnvironmentResponse"><span class="hs-identifier">newCreateBackendEnvironmentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironmentResponse_httpStatus"><span class="hs-identifier">createBackendEnvironmentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironmentResponse_backendEnvironment"><span class="hs-identifier">createBackendEnvironmentResponse_backendEnvironment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.html"><span class="hs-identifier">Network.AWS.Amplify.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | The request structure for the backend environment create request.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newCreateBackendEnvironment' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679253739"><span id="local-6989586621679253740"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBackendEnvironment"><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-var">CreateBackendEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBackendEnvironment%27"><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-var">CreateBackendEnvironment'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of deployment artifacts.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdeploymentArtifacts%3ACreateBackendEnvironment%27"><span class="annot"><span class="annottext">CreateBackendEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AdeploymentArtifacts%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var hs-var">deploymentArtifacts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The AWS CloudFormation stack name of a backend environment.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AstackName%3ACreateBackendEnvironment%27"><span class="annot"><span class="annottext">CreateBackendEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AstackName%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The unique ID for an Amplify app.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AappId%3ACreateBackendEnvironment%27"><span class="annot"><span class="annottext">CreateBackendEnvironment -&gt; Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AappId%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name for the backend environment.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AenvironmentName%3ACreateBackendEnvironment%27"><span class="annot"><span class="annottext">CreateBackendEnvironment -&gt; Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AenvironmentName%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253730"><span id="local-6989586621679253732"><span class="annot"><span class="annottext">CreateBackendEnvironment -&gt; CreateBackendEnvironment -&gt; Bool
+(CreateBackendEnvironment -&gt; CreateBackendEnvironment -&gt; Bool)
+-&gt; (CreateBackendEnvironment -&gt; CreateBackendEnvironment -&gt; Bool)
+-&gt; Eq CreateBackendEnvironment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateBackendEnvironment -&gt; CreateBackendEnvironment -&gt; Bool
+$c/= :: CreateBackendEnvironment -&gt; CreateBackendEnvironment -&gt; Bool
+== :: CreateBackendEnvironment -&gt; CreateBackendEnvironment -&gt; Bool
+$c== :: CreateBackendEnvironment -&gt; CreateBackendEnvironment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253721"><span id="local-6989586621679253723"><span id="local-6989586621679253725"><span id="local-6989586621679253727"><span class="annot"><span class="annottext">ReadPrec [CreateBackendEnvironment]
+ReadPrec CreateBackendEnvironment
+Int -&gt; ReadS CreateBackendEnvironment
+ReadS [CreateBackendEnvironment]
+(Int -&gt; ReadS CreateBackendEnvironment)
+-&gt; ReadS [CreateBackendEnvironment]
+-&gt; ReadPrec CreateBackendEnvironment
+-&gt; ReadPrec [CreateBackendEnvironment]
+-&gt; Read CreateBackendEnvironment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateBackendEnvironment]
+$creadListPrec :: ReadPrec [CreateBackendEnvironment]
+readPrec :: ReadPrec CreateBackendEnvironment
+$creadPrec :: ReadPrec CreateBackendEnvironment
+readList :: ReadS [CreateBackendEnvironment]
+$creadList :: ReadS [CreateBackendEnvironment]
+readsPrec :: Int -&gt; ReadS CreateBackendEnvironment
+$creadsPrec :: Int -&gt; ReadS CreateBackendEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253714"><span id="local-6989586621679253716"><span id="local-6989586621679253718"><span class="annot"><span class="annottext">Int -&gt; CreateBackendEnvironment -&gt; ShowS
+[CreateBackendEnvironment] -&gt; ShowS
+CreateBackendEnvironment -&gt; String
+(Int -&gt; CreateBackendEnvironment -&gt; ShowS)
+-&gt; (CreateBackendEnvironment -&gt; String)
+-&gt; ([CreateBackendEnvironment] -&gt; ShowS)
+-&gt; Show CreateBackendEnvironment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateBackendEnvironment] -&gt; ShowS
+$cshowList :: [CreateBackendEnvironment] -&gt; ShowS
+show :: CreateBackendEnvironment -&gt; String
+$cshow :: CreateBackendEnvironment -&gt; String
+showsPrec :: Int -&gt; CreateBackendEnvironment -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateBackendEnvironment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateBackendEnvironment -&gt; Rep CreateBackendEnvironment x)
+-&gt; (forall x.
+    Rep CreateBackendEnvironment x -&gt; CreateBackendEnvironment)
+-&gt; Generic CreateBackendEnvironment
+forall x.
+Rep CreateBackendEnvironment x -&gt; CreateBackendEnvironment
+forall x.
+CreateBackendEnvironment -&gt; Rep CreateBackendEnvironment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateBackendEnvironment x -&gt; CreateBackendEnvironment
+$cfrom :: forall x.
+CreateBackendEnvironment -&gt; Rep CreateBackendEnvironment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'CreateBackendEnvironment' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'deploymentArtifacts', 'createBackendEnvironment_deploymentArtifacts' - The name of deployment artifacts.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'stackName', 'createBackendEnvironment_stackName' - The AWS CloudFormation stack name of a backend environment.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'appId', 'createBackendEnvironment_appId' - The unique ID for an Amplify app.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'environmentName', 'createBackendEnvironment_environmentName' - The name for the backend environment.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#newCreateBackendEnvironment"><span class="hs-identifier hs-type">newCreateBackendEnvironment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'appId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'environmentName'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span>
+</span><span id="line-88"></span><span id="newCreateBackendEnvironment"><span class="annot"><span class="annottext">newCreateBackendEnvironment :: Text -&gt; Text -&gt; CreateBackendEnvironment
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#newCreateBackendEnvironment"><span class="hs-identifier hs-var hs-var">newCreateBackendEnvironment</span></a></span></span><span> </span><span id="local-6989586621679253709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253709"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span> </span><span id="local-6989586621679253708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253708"><span class="hs-identifier hs-var">pEnvironmentName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">CreateBackendEnvironment' :: Maybe Text
+-&gt; Maybe Text -&gt; Text -&gt; Text -&gt; CreateBackendEnvironment
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentArtifacts:CreateBackendEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AdeploymentArtifacts%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var">deploymentArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:CreateBackendEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AstackName%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:appId:CreateBackendEnvironment' :: Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AappId%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253709"><span class="hs-identifier hs-var">pAppId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:CreateBackendEnvironment' :: Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AenvironmentName%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253708"><span class="hs-identifier hs-var">pEnvironmentName_</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The name of deployment artifacts.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_deploymentArtifacts"><span class="hs-identifier hs-type">createBackendEnvironment_deploymentArtifacts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="createBackendEnvironment_deploymentArtifacts"><span class="annot"><span class="annottext">createBackendEnvironment_deploymentArtifacts :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateBackendEnvironment -&gt; f CreateBackendEnvironment
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_deploymentArtifacts"><span class="hs-identifier hs-var hs-var">createBackendEnvironment_deploymentArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackendEnvironment -&gt; Maybe Text)
+-&gt; (CreateBackendEnvironment
+    -&gt; Maybe Text -&gt; CreateBackendEnvironment)
+-&gt; Lens
+     CreateBackendEnvironment
+     CreateBackendEnvironment
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253705"><span class="annot"><span class="annottext">Maybe Text
+deploymentArtifacts :: Maybe Text
+$sel:deploymentArtifacts:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679253705"><span class="hs-identifier hs-var hs-var">deploymentArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253705"><span class="hs-identifier hs-var">deploymentArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253704"><span class="annot"><span class="annottext">s :: CreateBackendEnvironment
+</span><a href="#local-6989586621679253704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253703"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackendEnvironment
+</span><a href="#local-6989586621679253704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentArtifacts:CreateBackendEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AdeploymentArtifacts%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var">deploymentArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The AWS CloudFormation stack name of a backend environment.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_stackName"><span class="hs-identifier hs-type">createBackendEnvironment_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="createBackendEnvironment_stackName"><span class="annot"><span class="annottext">createBackendEnvironment_stackName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateBackendEnvironment -&gt; f CreateBackendEnvironment
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_stackName"><span class="hs-identifier hs-var hs-var">createBackendEnvironment_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackendEnvironment -&gt; Maybe Text)
+-&gt; (CreateBackendEnvironment
+    -&gt; Maybe Text -&gt; CreateBackendEnvironment)
+-&gt; Lens
+     CreateBackendEnvironment
+     CreateBackendEnvironment
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253702"><span class="annot"><span class="annottext">Maybe Text
+stackName :: Maybe Text
+$sel:stackName:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679253702"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253702"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253701"><span class="annot"><span class="annottext">s :: CreateBackendEnvironment
+</span><a href="#local-6989586621679253701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253700"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackendEnvironment
+</span><a href="#local-6989586621679253701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:CreateBackendEnvironment' :: Maybe Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AstackName%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The unique ID for an Amplify app.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_appId"><span class="hs-identifier hs-type">createBackendEnvironment_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="createBackendEnvironment_appId"><span class="annot"><span class="annottext">createBackendEnvironment_appId :: (Text -&gt; f Text)
+-&gt; CreateBackendEnvironment -&gt; f CreateBackendEnvironment
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_appId"><span class="hs-identifier hs-var hs-var">createBackendEnvironment_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackendEnvironment -&gt; Text)
+-&gt; (CreateBackendEnvironment -&gt; Text -&gt; CreateBackendEnvironment)
+-&gt; Lens CreateBackendEnvironment CreateBackendEnvironment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253699"><span class="annot"><span class="annottext">Text
+appId :: Text
+$sel:appId:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Text
+</span><a href="#local-6989586621679253699"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253699"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253698"><span class="annot"><span class="annottext">s :: CreateBackendEnvironment
+</span><a href="#local-6989586621679253698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackendEnvironment
+</span><a href="#local-6989586621679253698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:CreateBackendEnvironment' :: Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AappId%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name for the backend environment.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_environmentName"><span class="hs-identifier hs-type">createBackendEnvironment_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="createBackendEnvironment_environmentName"><span class="annot"><span class="annottext">createBackendEnvironment_environmentName :: (Text -&gt; f Text)
+-&gt; CreateBackendEnvironment -&gt; f CreateBackendEnvironment
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironment_environmentName"><span class="hs-identifier hs-var hs-var">createBackendEnvironment_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackendEnvironment -&gt; Text)
+-&gt; (CreateBackendEnvironment -&gt; Text -&gt; CreateBackendEnvironment)
+-&gt; Lens CreateBackendEnvironment CreateBackendEnvironment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253696"><span class="annot"><span class="annottext">Text
+environmentName :: Text
+$sel:environmentName:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Text
+</span><a href="#local-6989586621679253696"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253696"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253695"><span class="annot"><span class="annottext">s :: CreateBackendEnvironment
+</span><a href="#local-6989586621679253695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253694"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackendEnvironment
+</span><a href="#local-6989586621679253695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:CreateBackendEnvironment' :: Text
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AenvironmentName%3ACreateBackendEnvironment%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679253690"><span class="annot"><span class="annottext">request :: CreateBackendEnvironment -&gt; Request CreateBackendEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateBackendEnvironment -&gt; Request CreateBackendEnvironment
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Amplify.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679253686"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateBackendEnvironment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateBackendEnvironment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateBackendEnvironment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateBackendEnvironment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateBackendEnvironment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253683"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253683"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253682"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679253682"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253681"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253681"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; BackendEnvironment -&gt; CreateBackendEnvironmentResponse
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-var">CreateBackendEnvironmentResponse'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; BackendEnvironment -&gt; CreateBackendEnvironmentResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (BackendEnvironment -&gt; CreateBackendEnvironmentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253683"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (BackendEnvironment -&gt; CreateBackendEnvironmentResponse)
+-&gt; Either String BackendEnvironment
+-&gt; Either String CreateBackendEnvironmentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String BackendEnvironment
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;backendEnvironment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253673"><span id="local-6989586621679253675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679253666"><span class="annot"><span class="annottext">toHeaders :: CreateBackendEnvironment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateBackendEnvironment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253656"><span id="local-6989586621679253658"><span id="local-6989586621679253660"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679253654"><span class="annot"><span class="annottext">toJSON :: CreateBackendEnvironment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253649"><span id="local-6989586621679253650"><span id="local-6989586621679253651"><span id="local-6989586621679253652"><span class="annot"><span class="annottext">Maybe Text
+Text
+environmentName :: Text
+appId :: Text
+stackName :: Maybe Text
+deploymentArtifacts :: Maybe Text
+$sel:environmentName:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Text
+$sel:appId:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Text
+$sel:stackName:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Maybe Text
+$sel:deploymentArtifacts:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679253649"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentArtifacts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253652"><span class="hs-identifier hs-var">deploymentArtifacts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253651"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253649"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679253643"><span class="annot"><span class="annottext">toPath :: CreateBackendEnvironment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment%27"><span class="hs-identifier hs-type">CreateBackendEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253638"><span id="local-6989586621679253639"><span id="local-6989586621679253640"><span id="local-6989586621679253641"><span class="annot"><span class="annottext">Maybe Text
+Text
+environmentName :: Text
+appId :: Text
+stackName :: Maybe Text
+deploymentArtifacts :: Maybe Text
+$sel:environmentName:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Text
+$sel:appId:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Text
+$sel:stackName:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Maybe Text
+$sel:deploymentArtifacts:CreateBackendEnvironment' :: CreateBackendEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679253638"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/apps/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253639"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backendenvironments&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironment"><span class="hs-identifier hs-type">CreateBackendEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679253634"><span class="annot"><span class="annottext">toQuery :: CreateBackendEnvironment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateBackendEnvironment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The result structure for the create backend environment request.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- /See:/ 'newCreateBackendEnvironmentResponse' smart constructor.</span><span>
+</span><span id="line-164"></span><span id="local-6989586621679253631"><span id="local-6989586621679253632"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateBackendEnvironmentResponse"><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse"><span class="hs-identifier hs-var">CreateBackendEnvironmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateBackendEnvironmentResponse%27"><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-var">CreateBackendEnvironmentResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateBackendEnvironmentResponse%27"><span class="annot"><span class="annottext">CreateBackendEnvironmentResponse -&gt; Int
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AhttpStatus%3ACreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | Describes the backend environment for an Amplify app.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AbackendEnvironment%3ACreateBackendEnvironmentResponse%27"><span class="annot"><span class="annottext">CreateBackendEnvironmentResponse -&gt; BackendEnvironment
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AbackendEnvironment%3ACreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-var hs-var">backendEnvironment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.BackendEnvironment.html#BackendEnvironment"><span class="hs-identifier hs-type">BackendEnvironment</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253625"><span id="local-6989586621679253627"><span class="annot"><span class="annottext">CreateBackendEnvironmentResponse
+-&gt; CreateBackendEnvironmentResponse -&gt; Bool
+(CreateBackendEnvironmentResponse
+ -&gt; CreateBackendEnvironmentResponse -&gt; Bool)
+-&gt; (CreateBackendEnvironmentResponse
+    -&gt; CreateBackendEnvironmentResponse -&gt; Bool)
+-&gt; Eq CreateBackendEnvironmentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateBackendEnvironmentResponse
+-&gt; CreateBackendEnvironmentResponse -&gt; Bool
+$c/= :: CreateBackendEnvironmentResponse
+-&gt; CreateBackendEnvironmentResponse -&gt; Bool
+== :: CreateBackendEnvironmentResponse
+-&gt; CreateBackendEnvironmentResponse -&gt; Bool
+$c== :: CreateBackendEnvironmentResponse
+-&gt; CreateBackendEnvironmentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253617"><span id="local-6989586621679253619"><span id="local-6989586621679253621"><span id="local-6989586621679253623"><span class="annot"><span class="annottext">ReadPrec [CreateBackendEnvironmentResponse]
+ReadPrec CreateBackendEnvironmentResponse
+Int -&gt; ReadS CreateBackendEnvironmentResponse
+ReadS [CreateBackendEnvironmentResponse]
+(Int -&gt; ReadS CreateBackendEnvironmentResponse)
+-&gt; ReadS [CreateBackendEnvironmentResponse]
+-&gt; ReadPrec CreateBackendEnvironmentResponse
+-&gt; ReadPrec [CreateBackendEnvironmentResponse]
+-&gt; Read CreateBackendEnvironmentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateBackendEnvironmentResponse]
+$creadListPrec :: ReadPrec [CreateBackendEnvironmentResponse]
+readPrec :: ReadPrec CreateBackendEnvironmentResponse
+$creadPrec :: ReadPrec CreateBackendEnvironmentResponse
+readList :: ReadS [CreateBackendEnvironmentResponse]
+$creadList :: ReadS [CreateBackendEnvironmentResponse]
+readsPrec :: Int -&gt; ReadS CreateBackendEnvironmentResponse
+$creadsPrec :: Int -&gt; ReadS CreateBackendEnvironmentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253611"><span id="local-6989586621679253613"><span id="local-6989586621679253615"><span class="annot"><span class="annottext">Int -&gt; CreateBackendEnvironmentResponse -&gt; ShowS
+[CreateBackendEnvironmentResponse] -&gt; ShowS
+CreateBackendEnvironmentResponse -&gt; String
+(Int -&gt; CreateBackendEnvironmentResponse -&gt; ShowS)
+-&gt; (CreateBackendEnvironmentResponse -&gt; String)
+-&gt; ([CreateBackendEnvironmentResponse] -&gt; ShowS)
+-&gt; Show CreateBackendEnvironmentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateBackendEnvironmentResponse] -&gt; ShowS
+$cshowList :: [CreateBackendEnvironmentResponse] -&gt; ShowS
+show :: CreateBackendEnvironmentResponse -&gt; String
+$cshow :: CreateBackendEnvironmentResponse -&gt; String
+showsPrec :: Int -&gt; CreateBackendEnvironmentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateBackendEnvironmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateBackendEnvironmentResponse
+ -&gt; Rep CreateBackendEnvironmentResponse x)
+-&gt; (forall x.
+    Rep CreateBackendEnvironmentResponse x
+    -&gt; CreateBackendEnvironmentResponse)
+-&gt; Generic CreateBackendEnvironmentResponse
+forall x.
+Rep CreateBackendEnvironmentResponse x
+-&gt; CreateBackendEnvironmentResponse
+forall x.
+CreateBackendEnvironmentResponse
+-&gt; Rep CreateBackendEnvironmentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateBackendEnvironmentResponse x
+-&gt; CreateBackendEnvironmentResponse
+$cfrom :: forall x.
+CreateBackendEnvironmentResponse
+-&gt; Rep CreateBackendEnvironmentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Create a value of 'CreateBackendEnvironmentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'httpStatus', 'createBackendEnvironmentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'backendEnvironment', 'createBackendEnvironmentResponse_backendEnvironment' - Describes the backend environment for an Amplify app.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#newCreateBackendEnvironmentResponse"><span class="hs-identifier hs-type">newCreateBackendEnvironmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'backendEnvironment'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.Types.BackendEnvironment.html#BackendEnvironment"><span class="hs-identifier hs-type">BackendEnvironment</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newCreateBackendEnvironmentResponse"><span class="annot"><span class="annottext">newCreateBackendEnvironmentResponse :: Int -&gt; BackendEnvironment -&gt; CreateBackendEnvironmentResponse
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#newCreateBackendEnvironmentResponse"><span class="hs-identifier hs-var hs-var">newCreateBackendEnvironmentResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679253608"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679253607"><span class="annot"><span class="annottext">BackendEnvironment
+</span><a href="#local-6989586621679253607"><span class="hs-identifier hs-var">pBackendEnvironment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">CreateBackendEnvironmentResponse' :: Int -&gt; BackendEnvironment -&gt; CreateBackendEnvironmentResponse
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBackendEnvironmentResponse' :: Int
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AhttpStatus%3ACreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:backendEnvironment:CreateBackendEnvironmentResponse' :: BackendEnvironment
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AbackendEnvironment%3ACreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-var">backendEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BackendEnvironment
+</span><a href="#local-6989586621679253607"><span class="hs-identifier hs-var">pBackendEnvironment_</span></a></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironmentResponse_httpStatus"><span class="hs-identifier hs-type">createBackendEnvironmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span id="createBackendEnvironmentResponse_httpStatus"><span class="annot"><span class="annottext">createBackendEnvironmentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateBackendEnvironmentResponse
+-&gt; f CreateBackendEnvironmentResponse
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironmentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createBackendEnvironmentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackendEnvironmentResponse -&gt; Int)
+-&gt; (CreateBackendEnvironmentResponse
+    -&gt; Int -&gt; CreateBackendEnvironmentResponse)
+-&gt; Lens
+     CreateBackendEnvironmentResponse
+     CreateBackendEnvironmentResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253606"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateBackendEnvironmentResponse' :: CreateBackendEnvironmentResponse -&gt; Int
+</span><a href="#local-6989586621679253606"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253606"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253605"><span class="annot"><span class="annottext">s :: CreateBackendEnvironmentResponse
+</span><a href="#local-6989586621679253605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253604"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackendEnvironmentResponse
+</span><a href="#local-6989586621679253605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateBackendEnvironmentResponse' :: Int
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AhttpStatus%3ACreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | Describes the backend environment for an Amplify app.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironmentResponse_backendEnvironment"><span class="hs-identifier hs-type">createBackendEnvironmentResponse_backendEnvironment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Amplify.Types.BackendEnvironment.html#BackendEnvironment"><span class="hs-identifier hs-type">BackendEnvironment</span></a></span><span>
+</span><span id="line-204"></span><span id="createBackendEnvironmentResponse_backendEnvironment"><span class="annot"><span class="annottext">createBackendEnvironmentResponse_backendEnvironment :: (BackendEnvironment -&gt; f BackendEnvironment)
+-&gt; CreateBackendEnvironmentResponse
+-&gt; f CreateBackendEnvironmentResponse
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#createBackendEnvironmentResponse_backendEnvironment"><span class="hs-identifier hs-var hs-var">createBackendEnvironmentResponse_backendEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateBackendEnvironmentResponse -&gt; BackendEnvironment)
+-&gt; (CreateBackendEnvironmentResponse
+    -&gt; BackendEnvironment -&gt; CreateBackendEnvironmentResponse)
+-&gt; Lens
+     CreateBackendEnvironmentResponse
+     CreateBackendEnvironmentResponse
+     BackendEnvironment
+     BackendEnvironment
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253603"><span class="annot"><span class="annottext">BackendEnvironment
+backendEnvironment :: BackendEnvironment
+$sel:backendEnvironment:CreateBackendEnvironmentResponse' :: CreateBackendEnvironmentResponse -&gt; BackendEnvironment
+</span><a href="#local-6989586621679253603"><span class="hs-identifier hs-var hs-var">backendEnvironment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendEnvironment
+</span><a href="#local-6989586621679253603"><span class="hs-identifier hs-var">backendEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253602"><span class="annot"><span class="annottext">s :: CreateBackendEnvironmentResponse
+</span><a href="#local-6989586621679253602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253601"><span class="annot"><span class="annottext">BackendEnvironment
+</span><a href="#local-6989586621679253601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateBackendEnvironmentResponse
+</span><a href="#local-6989586621679253602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendEnvironment:CreateBackendEnvironmentResponse' :: BackendEnvironment
+</span><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#%24sel%3AbackendEnvironment%3ACreateBackendEnvironmentResponse%27"><span class="hs-identifier hs-var">backendEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BackendEnvironment
+</span><a href="#local-6989586621679253601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679253599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.Amplify.CreateBackendEnvironment.html#CreateBackendEnvironmentResponse"><span class="hs-identifier hs-type">CreateBackendEnvironmentResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- groups for a segment.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSegmentGroupList' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679616536"><span id="local-6989586621679616537"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentGroupList"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-var">SegmentGroupList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentGroupList%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-var">SegmentGroupList'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679616545"><span id="local-6989586621679616546"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentGroupList"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-var">SegmentGroupList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentGroupList%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-var">SegmentGroupList'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how to handle multiple segment groups for the segment. For</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- example, if the segment includes three segment groups, whether the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- resulting segment includes endpoints that match all, any, or none of the</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Agroups%3ASegmentGroupList%27"><span class="annot"><span class="annottext">SegmentGroupList -&gt; Maybe [SegmentGroup]
 </span><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#%24sel%3Agroups%3ASegmentGroupList%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroup.html#SegmentGroup"><span class="hs-identifier hs-type">SegmentGroup</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679616529"><span id="local-6989586621679616531"><span class="annot"><span class="annottext">SegmentGroupList -&gt; SegmentGroupList -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679616538"><span id="local-6989586621679616540"><span class="annot"><span class="annottext">SegmentGroupList -&gt; SegmentGroupList -&gt; Bool
 (SegmentGroupList -&gt; SegmentGroupList -&gt; Bool)
 -&gt; (SegmentGroupList -&gt; SegmentGroupList -&gt; Bool)
 -&gt; Eq SegmentGroupList
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SegmentGroupList -&gt; SegmentGroupList -&gt; Bool
 == :: SegmentGroupList -&gt; SegmentGroupList -&gt; Bool
 $c== :: SegmentGroupList -&gt; SegmentGroupList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616520"><span id="local-6989586621679616522"><span id="local-6989586621679616524"><span id="local-6989586621679616526"><span class="annot"><span class="annottext">ReadPrec [SegmentGroupList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616529"><span id="local-6989586621679616531"><span id="local-6989586621679616533"><span id="local-6989586621679616535"><span class="annot"><span class="annottext">ReadPrec [SegmentGroupList]
 ReadPrec SegmentGroupList
 Int -&gt; ReadS SegmentGroupList
 ReadS [SegmentGroupList]
@@ -70,7 +70,7 @@ readList :: ReadS [SegmentGroupList]
 $creadList :: ReadS [SegmentGroupList]
 readsPrec :: Int -&gt; ReadS SegmentGroupList
 $creadsPrec :: Int -&gt; ReadS SegmentGroupList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616513"><span id="local-6989586621679616515"><span id="local-6989586621679616517"><span class="annot"><span class="annottext">Int -&gt; SegmentGroupList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616522"><span id="local-6989586621679616524"><span id="local-6989586621679616526"><span class="annot"><span class="annottext">Int -&gt; SegmentGroupList -&gt; ShowS
 [SegmentGroupList] -&gt; ShowS
 SegmentGroupList -&gt; String
 (Int -&gt; SegmentGroupList -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; Lens
      SegmentGroupList SegmentGroupList (Maybe Include) (Maybe Include)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616504"><span class="annot"><span class="annottext">Maybe Include
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616513"><span class="annot"><span class="annottext">Maybe Include
 include :: Maybe Include
 $sel:include:SegmentGroupList' :: SegmentGroupList -&gt; Maybe Include
-</span><a href="#local-6989586621679616504"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Include
-</span><a href="#local-6989586621679616504"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616503"><span class="annot"><span class="annottext">s :: SegmentGroupList
-</span><a href="#local-6989586621679616503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616502"><span class="annot"><span class="annottext">Maybe Include
-</span><a href="#local-6989586621679616502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentGroupList
-</span><a href="#local-6989586621679616503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:include:SegmentGroupList' :: Maybe Include
+</span><a href="#local-6989586621679616513"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Include
+</span><a href="#local-6989586621679616513"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616512"><span class="annot"><span class="annottext">s :: SegmentGroupList
+</span><a href="#local-6989586621679616512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616511"><span class="annot"><span class="annottext">Maybe Include
+</span><a href="#local-6989586621679616511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentGroupList
+</span><a href="#local-6989586621679616512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:include:SegmentGroupList' :: Maybe Include
 </span><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#%24sel%3Ainclude%3ASegmentGroupList%27"><span class="hs-identifier hs-var">include</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Include
-</span><a href="#local-6989586621679616502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679616511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | An array that defines the set of segment criteria to evaluate when</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- handling segment groups for the segment.</span><span>
@@ -163,16 +163,16 @@ $sel:include:SegmentGroupList' :: SegmentGroupList -&gt; Maybe Include
      (Maybe [SegmentGroup])
      (Maybe [SegmentGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616500"><span class="annot"><span class="annottext">Maybe [SegmentGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616509"><span class="annot"><span class="annottext">Maybe [SegmentGroup]
 groups :: Maybe [SegmentGroup]
 $sel:groups:SegmentGroupList' :: SegmentGroupList -&gt; Maybe [SegmentGroup]
-</span><a href="#local-6989586621679616500"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SegmentGroup]
-</span><a href="#local-6989586621679616500"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616499"><span class="annot"><span class="annottext">s :: SegmentGroupList
-</span><a href="#local-6989586621679616499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616498"><span class="annot"><span class="annottext">Maybe [SegmentGroup]
-</span><a href="#local-6989586621679616498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentGroupList
-</span><a href="#local-6989586621679616499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:SegmentGroupList' :: Maybe [SegmentGroup]
+</span><a href="#local-6989586621679616509"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SegmentGroup]
+</span><a href="#local-6989586621679616509"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616508"><span class="annot"><span class="annottext">s :: SegmentGroupList
+</span><a href="#local-6989586621679616508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616507"><span class="annot"><span class="annottext">Maybe [SegmentGroup]
+</span><a href="#local-6989586621679616507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentGroupList
+</span><a href="#local-6989586621679616508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:SegmentGroupList' :: Maybe [SegmentGroup]
 </span><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#%24sel%3Agroups%3ASegmentGroupList%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SegmentGroup]
-</span><a href="#local-6989586621679616498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SegmentGroup] -&gt; f (Maybe [SegmentGroup]))
+</span><a href="#local-6989586621679616507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SegmentGroup] -&gt; f (Maybe [SegmentGroup]))
  -&gt; SegmentGroupList -&gt; f SegmentGroupList)
 -&gt; ((Maybe [SegmentGroup] -&gt; f (Maybe [SegmentGroup]))
     -&gt; Maybe [SegmentGroup] -&gt; f (Maybe [SegmentGroup]))
@@ -193,8 +193,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616492"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679616490"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentGroupList
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616501"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679616499"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentGroupList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SegmentGroupList)
@@ -204,8 +204,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SegmentGroupList&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679616487"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679616487"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679616496"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679616496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Include -&gt; Maybe [SegmentGroup] -&gt; SegmentGroupList
 </span><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-var">SegmentGroupList'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Include -&gt; Maybe [SegmentGroup] -&gt; SegmentGroupList)
@@ -213,7 +213,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [SegmentGroup] -&gt; SegmentGroupList)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679616487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Include)
+</span><a href="#local-6989586621679616496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Include)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Include&quot;</span></span><span class="hs-special">)</span><span>
@@ -221,7 +221,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [SegmentGroup]) -&gt; Parser SegmentGroupList
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679616487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SegmentGroup]))
+</span><a href="#local-6989586621679616496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SegmentGroup]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SegmentGroup]))
@@ -232,19 +232,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616480"><span id="local-6989586621679616482"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616489"><span id="local-6989586621679616491"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616469"><span id="local-6989586621679616471"><span id="local-6989586621679616473"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679616467"><span class="annot"><span class="annottext">toJSON :: SegmentGroupList -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616464"><span id="local-6989586621679616465"><span class="annot"><span class="annottext">Maybe [SegmentGroup]
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616478"><span id="local-6989586621679616480"><span id="local-6989586621679616482"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList"><span class="hs-identifier hs-type">SegmentGroupList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679616476"><span class="annot"><span class="annottext">toJSON :: SegmentGroupList -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentGroupList.html#SegmentGroupList%27"><span class="hs-identifier hs-type">SegmentGroupList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616473"><span id="local-6989586621679616474"><span class="annot"><span class="annottext">Maybe [SegmentGroup]
 Maybe Include
 groups :: Maybe [SegmentGroup]
 include :: Maybe Include
 $sel:groups:SegmentGroupList' :: SegmentGroupList -&gt; Maybe [SegmentGroup]
 $sel:include:SegmentGroupList' :: SegmentGroupList -&gt; Maybe Include
-</span><a href="#local-6989586621679616464"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679616473"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -256,14 +256,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Include -&gt; Pair) -&gt; Maybe Include -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Include
-</span><a href="#local-6989586621679616465"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679616474"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SegmentGroup] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SegmentGroup] -&gt; Pair) -&gt; Maybe [SegmentGroup] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SegmentGroup]
-</span><a href="#local-6989586621679616464"><span class="hs-identifier hs-var">groups</span></a></span><span>
+</span><a href="#local-6989586621679616473"><span class="hs-identifier hs-var">groups</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

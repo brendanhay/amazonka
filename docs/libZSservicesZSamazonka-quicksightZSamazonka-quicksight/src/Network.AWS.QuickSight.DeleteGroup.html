@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.DeleteGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes a user group from Amazon QuickSight.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.DeleteGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier">DeleteGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#newDeleteGroup"><span class="hs-identifier">newDeleteGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroup_groupName"><span class="hs-identifier">deleteGroup_groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroup_awsAccountId"><span class="hs-identifier">deleteGroup_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroup_namespace"><span class="hs-identifier">deleteGroup_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier">DeleteGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#newDeleteGroupResponse"><span class="hs-identifier">newDeleteGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroupResponse_requestId"><span class="hs-identifier">deleteGroupResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroupResponse_status"><span class="hs-identifier">deleteGroupResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroup' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679590932"><span id="local-6989586621679590933"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroup"><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-var">DeleteGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroup%27"><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-var">DeleteGroup'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the group that you want to delete.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AgroupName%3ADeleteGroup%27"><span class="annot"><span class="annottext">DeleteGroup -&gt; Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3AgroupName%3ADeleteGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID for the Amazon Web Services account that the group is in.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Currently, you use the ID for the Amazon Web Services account that</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- contains your Amazon QuickSight account.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADeleteGroup%27"><span class="annot"><span class="annottext">DeleteGroup -&gt; Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3AawsAccountId%3ADeleteGroup%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The namespace. Currently, you should set this to @default@.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Anamespace%3ADeleteGroup%27"><span class="annot"><span class="annottext">DeleteGroup -&gt; Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3Anamespace%3ADeleteGroup%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679590924"><span id="local-6989586621679590926"><span class="annot"><span class="annottext">DeleteGroup -&gt; DeleteGroup -&gt; Bool
+(DeleteGroup -&gt; DeleteGroup -&gt; Bool)
+-&gt; (DeleteGroup -&gt; DeleteGroup -&gt; Bool) -&gt; Eq DeleteGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
+$c/= :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
+== :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
+$c== :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679590915"><span id="local-6989586621679590917"><span id="local-6989586621679590919"><span id="local-6989586621679590921"><span class="annot"><span class="annottext">ReadPrec [DeleteGroup]
+ReadPrec DeleteGroup
+Int -&gt; ReadS DeleteGroup
+ReadS [DeleteGroup]
+(Int -&gt; ReadS DeleteGroup)
+-&gt; ReadS [DeleteGroup]
+-&gt; ReadPrec DeleteGroup
+-&gt; ReadPrec [DeleteGroup]
+-&gt; Read DeleteGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGroup]
+$creadListPrec :: ReadPrec [DeleteGroup]
+readPrec :: ReadPrec DeleteGroup
+$creadPrec :: ReadPrec DeleteGroup
+readList :: ReadS [DeleteGroup]
+$creadList :: ReadS [DeleteGroup]
+readsPrec :: Int -&gt; ReadS DeleteGroup
+$creadsPrec :: Int -&gt; ReadS DeleteGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679590908"><span id="local-6989586621679590910"><span id="local-6989586621679590912"><span class="annot"><span class="annottext">Int -&gt; DeleteGroup -&gt; ShowS
+[DeleteGroup] -&gt; ShowS
+DeleteGroup -&gt; String
+(Int -&gt; DeleteGroup -&gt; ShowS)
+-&gt; (DeleteGroup -&gt; String)
+-&gt; ([DeleteGroup] -&gt; ShowS)
+-&gt; Show DeleteGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGroup] -&gt; ShowS
+$cshowList :: [DeleteGroup] -&gt; ShowS
+show :: DeleteGroup -&gt; String
+$cshow :: DeleteGroup -&gt; String
+showsPrec :: Int -&gt; DeleteGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteGroup -&gt; Rep DeleteGroup x)
+-&gt; (forall x. Rep DeleteGroup x -&gt; DeleteGroup)
+-&gt; Generic DeleteGroup
+forall x. Rep DeleteGroup x -&gt; DeleteGroup
+forall x. DeleteGroup -&gt; Rep DeleteGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteGroup x -&gt; DeleteGroup
+$cfrom :: forall x. DeleteGroup -&gt; Rep DeleteGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DeleteGroup' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'groupName', 'deleteGroup_groupName' - The name of the group that you want to delete.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'awsAccountId', 'deleteGroup_awsAccountId' - The ID for the Amazon Web Services account that the group is in.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Currently, you use the ID for the Amazon Web Services account that</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- contains your Amazon QuickSight account.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'namespace', 'deleteGroup_namespace' - The namespace. Currently, you should set this to @default@.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#newDeleteGroup"><span class="hs-identifier hs-type">newDeleteGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'groupName'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'namespace'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span>
+</span><span id="line-87"></span><span id="newDeleteGroup"><span class="annot"><span class="annottext">newDeleteGroup :: Text -&gt; Text -&gt; Text -&gt; DeleteGroup
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#newDeleteGroup"><span class="hs-identifier hs-var hs-var">newDeleteGroup</span></a></span></span><span> </span><span id="local-6989586621679590903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590903"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679590902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590902"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679590901"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590901"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DeleteGroup' :: Text -&gt; Text -&gt; Text -&gt; DeleteGroup
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroup' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3AgroupName%3ADeleteGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590903"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:DeleteGroup' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3AawsAccountId%3ADeleteGroup%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590902"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:DeleteGroup' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3Anamespace%3ADeleteGroup%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590901"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the group that you want to delete.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroup_groupName"><span class="hs-identifier hs-type">deleteGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="deleteGroup_groupName"><span class="annot"><span class="annottext">deleteGroup_groupName :: (Text -&gt; f Text) -&gt; DeleteGroup -&gt; f DeleteGroup
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroup_groupName"><span class="hs-identifier hs-var hs-var">deleteGroup_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGroup -&gt; Text)
+-&gt; (DeleteGroup -&gt; Text -&gt; DeleteGroup)
+-&gt; Lens DeleteGroup DeleteGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679590898"><span class="annot"><span class="annottext">Text
+groupName :: Text
+$sel:groupName:DeleteGroup' :: DeleteGroup -&gt; Text
+</span><a href="#local-6989586621679590898"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590898"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679590897"><span class="annot"><span class="annottext">s :: DeleteGroup
+</span><a href="#local-6989586621679590897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679590896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
+</span><a href="#local-6989586621679590897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroup' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3AgroupName%3ADeleteGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The ID for the Amazon Web Services account that the group is in.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Currently, you use the ID for the Amazon Web Services account that</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- contains your Amazon QuickSight account.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroup_awsAccountId"><span class="hs-identifier hs-type">deleteGroup_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="deleteGroup_awsAccountId"><span class="annot"><span class="annottext">deleteGroup_awsAccountId :: (Text -&gt; f Text) -&gt; DeleteGroup -&gt; f DeleteGroup
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroup_awsAccountId"><span class="hs-identifier hs-var hs-var">deleteGroup_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGroup -&gt; Text)
+-&gt; (DeleteGroup -&gt; Text -&gt; DeleteGroup)
+-&gt; Lens DeleteGroup DeleteGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679590895"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DeleteGroup' :: DeleteGroup -&gt; Text
+</span><a href="#local-6989586621679590895"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590895"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679590894"><span class="annot"><span class="annottext">s :: DeleteGroup
+</span><a href="#local-6989586621679590894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679590893"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
+</span><a href="#local-6989586621679590894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DeleteGroup' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3AawsAccountId%3ADeleteGroup%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The namespace. Currently, you should set this to @default@.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroup_namespace"><span class="hs-identifier hs-type">deleteGroup_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-106"></span><span id="deleteGroup_namespace"><span class="annot"><span class="annottext">deleteGroup_namespace :: (Text -&gt; f Text) -&gt; DeleteGroup -&gt; f DeleteGroup
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroup_namespace"><span class="hs-identifier hs-var hs-var">deleteGroup_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGroup -&gt; Text)
+-&gt; (DeleteGroup -&gt; Text -&gt; DeleteGroup)
+-&gt; Lens DeleteGroup DeleteGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679590892"><span class="annot"><span class="annottext">Text
+namespace :: Text
+$sel:namespace:DeleteGroup' :: DeleteGroup -&gt; Text
+</span><a href="#local-6989586621679590892"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590892"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679590891"><span class="annot"><span class="annottext">s :: DeleteGroup
+</span><a href="#local-6989586621679590891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679590890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
+</span><a href="#local-6989586621679590891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:DeleteGroup' :: Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3Anamespace%3ADeleteGroup%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679590886"><span class="annot"><span class="annottext">request :: DeleteGroup -&gt; Request DeleteGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGroup -&gt; Request DeleteGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679590882"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679590879"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679590879"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679590878"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679590878"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679590877"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679590877"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteGroupResponse
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DeleteGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679590877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteGroupResponse)
+-&gt; Either String Int -&gt; Either String DeleteGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679590879"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679590869"><span id="local-6989586621679590871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679590866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679590862"><span class="annot"><span class="annottext">toHeaders :: DeleteGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679590856"><span class="annot"><span class="annottext">toPath :: DeleteGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679590852"><span id="local-6989586621679590853"><span id="local-6989586621679590854"><span class="annot"><span class="annottext">Text
+namespace :: Text
+awsAccountId :: Text
+groupName :: Text
+$sel:namespace:DeleteGroup' :: DeleteGroup -&gt; Text
+$sel:awsAccountId:DeleteGroup' :: DeleteGroup -&gt; Text
+$sel:groupName:DeleteGroup' :: DeleteGroup -&gt; Text
+</span><a href="#local-6989586621679590852"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590853"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/namespaces/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590852"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/groups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679590854"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679590848"><span class="annot"><span class="annottext">toQuery :: DeleteGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroupResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679590845"><span id="local-6989586621679590846"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupResponse"><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-var">DeleteGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3ArequestId%3ADeleteGroupResponse%27"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3ArequestId%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3Astatus%3ADeleteGroupResponse%27"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3Astatus%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679590839"><span id="local-6989586621679590841"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+(DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool)
+-&gt; (DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool)
+-&gt; Eq DeleteGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+$c/= :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+== :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+$c== :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679590831"><span id="local-6989586621679590833"><span id="local-6989586621679590835"><span id="local-6989586621679590837"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupResponse]
+ReadPrec DeleteGroupResponse
+Int -&gt; ReadS DeleteGroupResponse
+ReadS [DeleteGroupResponse]
+(Int -&gt; ReadS DeleteGroupResponse)
+-&gt; ReadS [DeleteGroupResponse]
+-&gt; ReadPrec DeleteGroupResponse
+-&gt; ReadPrec [DeleteGroupResponse]
+-&gt; Read DeleteGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteGroupResponse]
+$creadListPrec :: ReadPrec [DeleteGroupResponse]
+readPrec :: ReadPrec DeleteGroupResponse
+$creadPrec :: ReadPrec DeleteGroupResponse
+readList :: ReadS [DeleteGroupResponse]
+$creadList :: ReadS [DeleteGroupResponse]
+readsPrec :: Int -&gt; ReadS DeleteGroupResponse
+$creadsPrec :: Int -&gt; ReadS DeleteGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679590825"><span id="local-6989586621679590827"><span id="local-6989586621679590829"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupResponse -&gt; ShowS
+[DeleteGroupResponse] -&gt; ShowS
+DeleteGroupResponse -&gt; String
+(Int -&gt; DeleteGroupResponse -&gt; ShowS)
+-&gt; (DeleteGroupResponse -&gt; String)
+-&gt; ([DeleteGroupResponse] -&gt; ShowS)
+-&gt; Show DeleteGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteGroupResponse] -&gt; ShowS
+$cshowList :: [DeleteGroupResponse] -&gt; ShowS
+show :: DeleteGroupResponse -&gt; String
+$cshow :: DeleteGroupResponse -&gt; String
+showsPrec :: Int -&gt; DeleteGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteGroupResponse -&gt; Rep DeleteGroupResponse x)
+-&gt; (forall x. Rep DeleteGroupResponse x -&gt; DeleteGroupResponse)
+-&gt; Generic DeleteGroupResponse
+forall x. Rep DeleteGroupResponse x -&gt; DeleteGroupResponse
+forall x. DeleteGroupResponse -&gt; Rep DeleteGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteGroupResponse x -&gt; DeleteGroupResponse
+$cfrom :: forall x. DeleteGroupResponse -&gt; Rep DeleteGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'DeleteGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'requestId', 'deleteGroupResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'status', 'deleteGroupResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#newDeleteGroupResponse"><span class="hs-identifier hs-type">newDeleteGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="newDeleteGroupResponse"><span class="annot"><span class="annottext">newDeleteGroupResponse :: Int -&gt; DeleteGroupResponse
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#newDeleteGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679590822"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679590822"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">DeleteGroupResponse' :: Maybe Text -&gt; Int -&gt; DeleteGroupResponse
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DeleteGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3ArequestId%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DeleteGroupResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3Astatus%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679590822"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroupResponse_requestId"><span class="hs-identifier hs-type">deleteGroupResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="deleteGroupResponse_requestId"><span class="annot"><span class="annottext">deleteGroupResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteGroupResponse -&gt; f DeleteGroupResponse
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroupResponse_requestId"><span class="hs-identifier hs-var hs-var">deleteGroupResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGroupResponse -&gt; Maybe Text)
+-&gt; (DeleteGroupResponse -&gt; Maybe Text -&gt; DeleteGroupResponse)
+-&gt; Lens
+     DeleteGroupResponse DeleteGroupResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679590821"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DeleteGroupResponse' :: DeleteGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679590821"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679590821"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679590820"><span class="annot"><span class="annottext">s :: DeleteGroupResponse
+</span><a href="#local-6989586621679590820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679590819"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679590819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupResponse
+</span><a href="#local-6989586621679590820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DeleteGroupResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3ArequestId%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679590819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroupResponse_status"><span class="hs-identifier hs-type">deleteGroupResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span id="deleteGroupResponse_status"><span class="annot"><span class="annottext">deleteGroupResponse_status :: (Int -&gt; f Int) -&gt; DeleteGroupResponse -&gt; f DeleteGroupResponse
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#deleteGroupResponse_status"><span class="hs-identifier hs-var hs-var">deleteGroupResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteGroupResponse -&gt; Int)
+-&gt; (DeleteGroupResponse -&gt; Int -&gt; DeleteGroupResponse)
+-&gt; Lens DeleteGroupResponse DeleteGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679590818"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DeleteGroupResponse' :: DeleteGroupResponse -&gt; Int
+</span><a href="#local-6989586621679590818"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679590818"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679590817"><span class="annot"><span class="annottext">s :: DeleteGroupResponse
+</span><a href="#local-6989586621679590817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-type">DeleteGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679590816"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679590816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupResponse
+</span><a href="#local-6989586621679590817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteGroupResponse' :: Int
+</span><a href="Network.AWS.QuickSight.DeleteGroup.html#%24sel%3Astatus%3ADeleteGroupResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679590816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679590814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span></span><span>
+</span><span id="line-187"></span></pre></body></html>

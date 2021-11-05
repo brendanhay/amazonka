@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DataBrew.StopJobRun</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Stops a particular run of a job.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataBrew.StopJobRun</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier">StopJobRun</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#newStopJobRun"><span class="hs-identifier">newStopJobRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRun_name"><span class="hs-identifier">stopJobRun_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRun_runId"><span class="hs-identifier">stopJobRun_runId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse"><span class="hs-identifier">StopJobRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#newStopJobRunResponse"><span class="hs-identifier">newStopJobRunResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRunResponse_httpStatus"><span class="hs-identifier">stopJobRunResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRunResponse_runId"><span class="hs-identifier">stopJobRunResponse_runId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.html"><span class="hs-identifier">Network.AWS.DataBrew.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newStopJobRun' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679301920"><span id="local-6989586621679301921"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopJobRun"><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-var">StopJobRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopJobRun%27"><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun%27"><span class="hs-identifier hs-var">StopJobRun'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the job to be stopped.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aname%3AStopJobRun%27"><span class="annot"><span class="annottext">StopJobRun -&gt; Text
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3Aname%3AStopJobRun%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ID of the job run to be stopped.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ArunId%3AStopJobRun%27"><span class="annot"><span class="annottext">StopJobRun -&gt; Text
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3ArunId%3AStopJobRun%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301913"><span id="local-6989586621679301915"><span class="annot"><span class="annottext">StopJobRun -&gt; StopJobRun -&gt; Bool
+(StopJobRun -&gt; StopJobRun -&gt; Bool)
+-&gt; (StopJobRun -&gt; StopJobRun -&gt; Bool) -&gt; Eq StopJobRun
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopJobRun -&gt; StopJobRun -&gt; Bool
+$c/= :: StopJobRun -&gt; StopJobRun -&gt; Bool
+== :: StopJobRun -&gt; StopJobRun -&gt; Bool
+$c== :: StopJobRun -&gt; StopJobRun -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301904"><span id="local-6989586621679301906"><span id="local-6989586621679301908"><span id="local-6989586621679301910"><span class="annot"><span class="annottext">ReadPrec [StopJobRun]
+ReadPrec StopJobRun
+Int -&gt; ReadS StopJobRun
+ReadS [StopJobRun]
+(Int -&gt; ReadS StopJobRun)
+-&gt; ReadS [StopJobRun]
+-&gt; ReadPrec StopJobRun
+-&gt; ReadPrec [StopJobRun]
+-&gt; Read StopJobRun
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopJobRun]
+$creadListPrec :: ReadPrec [StopJobRun]
+readPrec :: ReadPrec StopJobRun
+$creadPrec :: ReadPrec StopJobRun
+readList :: ReadS [StopJobRun]
+$creadList :: ReadS [StopJobRun]
+readsPrec :: Int -&gt; ReadS StopJobRun
+$creadsPrec :: Int -&gt; ReadS StopJobRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301897"><span id="local-6989586621679301899"><span id="local-6989586621679301901"><span class="annot"><span class="annottext">Int -&gt; StopJobRun -&gt; ShowS
+[StopJobRun] -&gt; ShowS
+StopJobRun -&gt; String
+(Int -&gt; StopJobRun -&gt; ShowS)
+-&gt; (StopJobRun -&gt; String)
+-&gt; ([StopJobRun] -&gt; ShowS)
+-&gt; Show StopJobRun
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopJobRun] -&gt; ShowS
+$cshowList :: [StopJobRun] -&gt; ShowS
+show :: StopJobRun -&gt; String
+$cshow :: StopJobRun -&gt; String
+showsPrec :: Int -&gt; StopJobRun -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopJobRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopJobRun -&gt; Rep StopJobRun x)
+-&gt; (forall x. Rep StopJobRun x -&gt; StopJobRun) -&gt; Generic StopJobRun
+forall x. Rep StopJobRun x -&gt; StopJobRun
+forall x. StopJobRun -&gt; Rep StopJobRun x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopJobRun x -&gt; StopJobRun
+$cfrom :: forall x. StopJobRun -&gt; Rep StopJobRun x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'StopJobRun' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'name', 'stopJobRun_name' - The name of the job to be stopped.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'runId', 'stopJobRun_runId' - The ID of the job run to be stopped.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#newStopJobRun"><span class="hs-identifier hs-type">newStopJobRun</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'runId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span>
+</span><span id="line-76"></span><span id="newStopJobRun"><span class="annot"><span class="annottext">newStopJobRun :: Text -&gt; Text -&gt; StopJobRun
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#newStopJobRun"><span class="hs-identifier hs-var hs-var">newStopJobRun</span></a></span></span><span> </span><span id="local-6989586621679301892"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301892"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679301891"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301891"><span class="hs-identifier hs-var">pRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">StopJobRun' :: Text -&gt; Text -&gt; StopJobRun
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun%27"><span class="hs-identifier hs-type">StopJobRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopJobRun' :: Text
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3Aname%3AStopJobRun%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301892"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:runId:StopJobRun' :: Text
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3ArunId%3AStopJobRun%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301891"><span class="hs-identifier hs-var">pRunId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The name of the job to be stopped.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRun_name"><span class="hs-identifier hs-type">stopJobRun_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="stopJobRun_name"><span class="annot"><span class="annottext">stopJobRun_name :: (Text -&gt; f Text) -&gt; StopJobRun -&gt; f StopJobRun
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRun_name"><span class="hs-identifier hs-var hs-var">stopJobRun_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopJobRun -&gt; Text)
+-&gt; (StopJobRun -&gt; Text -&gt; StopJobRun)
+-&gt; Lens StopJobRun StopJobRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun%27"><span class="hs-identifier hs-type">StopJobRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301888"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:StopJobRun' :: StopJobRun -&gt; Text
+</span><a href="#local-6989586621679301888"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301888"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301887"><span class="annot"><span class="annottext">s :: StopJobRun
+</span><a href="#local-6989586621679301887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun%27"><span class="hs-identifier hs-type">StopJobRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301886"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJobRun
+</span><a href="#local-6989586621679301887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopJobRun' :: Text
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3Aname%3AStopJobRun%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The ID of the job run to be stopped.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRun_runId"><span class="hs-identifier hs-type">stopJobRun_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="stopJobRun_runId"><span class="annot"><span class="annottext">stopJobRun_runId :: (Text -&gt; f Text) -&gt; StopJobRun -&gt; f StopJobRun
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRun_runId"><span class="hs-identifier hs-var hs-var">stopJobRun_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopJobRun -&gt; Text)
+-&gt; (StopJobRun -&gt; Text -&gt; StopJobRun)
+-&gt; Lens StopJobRun StopJobRun Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun%27"><span class="hs-identifier hs-type">StopJobRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301885"><span class="annot"><span class="annottext">Text
+runId :: Text
+$sel:runId:StopJobRun' :: StopJobRun -&gt; Text
+</span><a href="#local-6989586621679301885"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301885"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301884"><span class="annot"><span class="annottext">s :: StopJobRun
+</span><a href="#local-6989586621679301884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun%27"><span class="hs-identifier hs-type">StopJobRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301883"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJobRun
+</span><a href="#local-6989586621679301884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:StopJobRun' :: Text
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3ArunId%3AStopJobRun%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse"><span class="hs-identifier hs-type">StopJobRunResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679301879"><span class="annot"><span class="annottext">request :: StopJobRun -&gt; Request StopJobRun
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopJobRun -&gt; Request StopJobRun
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DataBrew.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679301875"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopJobRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopJobRun)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StopJobRun))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopJobRun
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopJobRun)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301872"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301872"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679301871"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679301871"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679301870"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301870"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; StopJobRunResponse
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse%27"><span class="hs-identifier hs-var">StopJobRunResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; StopJobRunResponse)
+-&gt; Either String Int -&gt; Either String (Text -&gt; StopJobRunResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301872"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; StopJobRunResponse)
+-&gt; Either String Text -&gt; Either String StopJobRunResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301862"><span id="local-6989586621679301864"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679301855"><span class="annot"><span class="annottext">toHeaders :: StopJobRun -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopJobRun -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-109"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301845"><span id="local-6989586621679301847"><span id="local-6989586621679301849"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679301843"><span class="annot"><span class="annottext">toJSON :: StopJobRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; StopJobRun -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679301838"><span class="annot"><span class="annottext">toPath :: StopJobRun -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun%27"><span class="hs-identifier hs-type">StopJobRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301835"><span id="local-6989586621679301836"><span class="annot"><span class="annottext">Text
+runId :: Text
+name :: Text
+$sel:runId:StopJobRun' :: StopJobRun -&gt; Text
+$sel:name:StopJobRun' :: StopJobRun -&gt; Text
+</span><a href="#local-6989586621679301835"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301836"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/jobRun/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301835"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/stopJobRun&quot;</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRun"><span class="hs-identifier hs-type">StopJobRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679301831"><span class="annot"><span class="annottext">toQuery :: StopJobRun -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopJobRun -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newStopJobRunResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679301828"><span id="local-6989586621679301829"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopJobRunResponse"><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse"><span class="hs-identifier hs-var">StopJobRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopJobRunResponse%27"><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse%27"><span class="hs-identifier hs-var">StopJobRunResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopJobRunResponse%27"><span class="annot"><span class="annottext">StopJobRunResponse -&gt; Int
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3AhttpStatus%3AStopJobRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The ID of the job run that you stopped.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3ArunId%3AStopJobRunResponse%27"><span class="annot"><span class="annottext">StopJobRunResponse -&gt; Text
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3ArunId%3AStopJobRunResponse%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301822"><span id="local-6989586621679301824"><span class="annot"><span class="annottext">StopJobRunResponse -&gt; StopJobRunResponse -&gt; Bool
+(StopJobRunResponse -&gt; StopJobRunResponse -&gt; Bool)
+-&gt; (StopJobRunResponse -&gt; StopJobRunResponse -&gt; Bool)
+-&gt; Eq StopJobRunResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopJobRunResponse -&gt; StopJobRunResponse -&gt; Bool
+$c/= :: StopJobRunResponse -&gt; StopJobRunResponse -&gt; Bool
+== :: StopJobRunResponse -&gt; StopJobRunResponse -&gt; Bool
+$c== :: StopJobRunResponse -&gt; StopJobRunResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301814"><span id="local-6989586621679301816"><span id="local-6989586621679301818"><span id="local-6989586621679301820"><span class="annot"><span class="annottext">ReadPrec [StopJobRunResponse]
+ReadPrec StopJobRunResponse
+Int -&gt; ReadS StopJobRunResponse
+ReadS [StopJobRunResponse]
+(Int -&gt; ReadS StopJobRunResponse)
+-&gt; ReadS [StopJobRunResponse]
+-&gt; ReadPrec StopJobRunResponse
+-&gt; ReadPrec [StopJobRunResponse]
+-&gt; Read StopJobRunResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopJobRunResponse]
+$creadListPrec :: ReadPrec [StopJobRunResponse]
+readPrec :: ReadPrec StopJobRunResponse
+$creadPrec :: ReadPrec StopJobRunResponse
+readList :: ReadS [StopJobRunResponse]
+$creadList :: ReadS [StopJobRunResponse]
+readsPrec :: Int -&gt; ReadS StopJobRunResponse
+$creadsPrec :: Int -&gt; ReadS StopJobRunResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301808"><span id="local-6989586621679301810"><span id="local-6989586621679301812"><span class="annot"><span class="annottext">Int -&gt; StopJobRunResponse -&gt; ShowS
+[StopJobRunResponse] -&gt; ShowS
+StopJobRunResponse -&gt; String
+(Int -&gt; StopJobRunResponse -&gt; ShowS)
+-&gt; (StopJobRunResponse -&gt; String)
+-&gt; ([StopJobRunResponse] -&gt; ShowS)
+-&gt; Show StopJobRunResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopJobRunResponse] -&gt; ShowS
+$cshowList :: [StopJobRunResponse] -&gt; ShowS
+show :: StopJobRunResponse -&gt; String
+$cshow :: StopJobRunResponse -&gt; String
+showsPrec :: Int -&gt; StopJobRunResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopJobRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopJobRunResponse -&gt; Rep StopJobRunResponse x)
+-&gt; (forall x. Rep StopJobRunResponse x -&gt; StopJobRunResponse)
+-&gt; Generic StopJobRunResponse
+forall x. Rep StopJobRunResponse x -&gt; StopJobRunResponse
+forall x. StopJobRunResponse -&gt; Rep StopJobRunResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopJobRunResponse x -&gt; StopJobRunResponse
+$cfrom :: forall x. StopJobRunResponse -&gt; Rep StopJobRunResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'StopJobRunResponse' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'httpStatus', 'stopJobRunResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'runId', 'stopJobRunResponse_runId' - The ID of the job run that you stopped.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#newStopJobRunResponse"><span class="hs-identifier hs-type">newStopJobRunResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'runId'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse"><span class="hs-identifier hs-type">StopJobRunResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newStopJobRunResponse"><span class="annot"><span class="annottext">newStopJobRunResponse :: Int -&gt; Text -&gt; StopJobRunResponse
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#newStopJobRunResponse"><span class="hs-identifier hs-var hs-var">newStopJobRunResponse</span></a></span></span><span> </span><span id="local-6989586621679301805"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679301804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301804"><span class="hs-identifier hs-var">pRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">StopJobRunResponse' :: Int -&gt; Text -&gt; StopJobRunResponse
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse%27"><span class="hs-identifier hs-type">StopJobRunResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StopJobRunResponse' :: Int
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3AhttpStatus%3AStopJobRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:runId:StopJobRunResponse' :: Text
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3ArunId%3AStopJobRunResponse%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301804"><span class="hs-identifier hs-var">pRunId_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRunResponse_httpStatus"><span class="hs-identifier hs-type">stopJobRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse"><span class="hs-identifier hs-type">StopJobRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span id="stopJobRunResponse_httpStatus"><span class="annot"><span class="annottext">stopJobRunResponse_httpStatus :: (Int -&gt; f Int) -&gt; StopJobRunResponse -&gt; f StopJobRunResponse
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRunResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopJobRunResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopJobRunResponse -&gt; Int)
+-&gt; (StopJobRunResponse -&gt; Int -&gt; StopJobRunResponse)
+-&gt; Lens StopJobRunResponse StopJobRunResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse%27"><span class="hs-identifier hs-type">StopJobRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301803"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopJobRunResponse' :: StopJobRunResponse -&gt; Int
+</span><a href="#local-6989586621679301803"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301803"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301802"><span class="annot"><span class="annottext">s :: StopJobRunResponse
+</span><a href="#local-6989586621679301802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse%27"><span class="hs-identifier hs-type">StopJobRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301801"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJobRunResponse
+</span><a href="#local-6989586621679301802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopJobRunResponse' :: Int
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3AhttpStatus%3AStopJobRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679301801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse"><span class="hs-identifier hs-type">StopJobRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The ID of the job run that you stopped.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRunResponse_runId"><span class="hs-identifier hs-type">stopJobRunResponse_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse"><span class="hs-identifier hs-type">StopJobRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-167"></span><span id="stopJobRunResponse_runId"><span class="annot"><span class="annottext">stopJobRunResponse_runId :: (Text -&gt; f Text) -&gt; StopJobRunResponse -&gt; f StopJobRunResponse
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#stopJobRunResponse_runId"><span class="hs-identifier hs-var hs-var">stopJobRunResponse_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopJobRunResponse -&gt; Text)
+-&gt; (StopJobRunResponse -&gt; Text -&gt; StopJobRunResponse)
+-&gt; Lens StopJobRunResponse StopJobRunResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse%27"><span class="hs-identifier hs-type">StopJobRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301800"><span class="annot"><span class="annottext">Text
+runId :: Text
+$sel:runId:StopJobRunResponse' :: StopJobRunResponse -&gt; Text
+</span><a href="#local-6989586621679301800"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301800"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301799"><span class="annot"><span class="annottext">s :: StopJobRunResponse
+</span><a href="#local-6989586621679301799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse%27"><span class="hs-identifier hs-type">StopJobRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301798"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopJobRunResponse
+</span><a href="#local-6989586621679301799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:StopJobRunResponse' :: Text
+</span><a href="Network.AWS.DataBrew.StopJobRun.html#%24sel%3ArunId%3AStopJobRunResponse%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse"><span class="hs-identifier hs-type">StopJobRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.StopJobRun.html#StopJobRunResponse"><span class="hs-identifier hs-type">StopJobRunResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

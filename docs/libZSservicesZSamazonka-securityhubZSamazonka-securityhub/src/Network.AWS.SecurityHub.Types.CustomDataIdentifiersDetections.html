@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.Occurrences.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types.Occurrences</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The list of detected instances of sensitive data.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCustomDataIdentifiersDetections' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679984689"><span id="local-6989586621679984690"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomDataIdentifiersDetections"><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-var">CustomDataIdentifiersDetections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomDataIdentifiersDetections%27"><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">CustomDataIdentifiersDetections'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the sensitive data that was detected.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aoccurrences%3ACustomDataIdentifiersDetections%27"><span class="annot"><span class="annottext">CustomDataIdentifiersDetections -&gt; Maybe Occurrences
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Aoccurrences%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var hs-var">occurrences</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ARN of the custom identifier that was used to detect the sensitive</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aarn%3ACustomDataIdentifiersDetections%27"><span class="annot"><span class="annottext">CustomDataIdentifiersDetections -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Aarn%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The total number of occurrences of sensitive data that were detected.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acount%3ACustomDataIdentifiersDetections%27"><span class="annot"><span class="annottext">CustomDataIdentifiersDetections -&gt; Maybe Integer
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Acount%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | he name of the custom identifier that detected the sensitive data.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aname%3ACustomDataIdentifiersDetections%27"><span class="annot"><span class="annottext">CustomDataIdentifiersDetections -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Aname%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679984680"><span id="local-6989586621679984682"><span class="annot"><span class="annottext">CustomDataIdentifiersDetections
+-&gt; CustomDataIdentifiersDetections -&gt; Bool
+(CustomDataIdentifiersDetections
+ -&gt; CustomDataIdentifiersDetections -&gt; Bool)
+-&gt; (CustomDataIdentifiersDetections
+    -&gt; CustomDataIdentifiersDetections -&gt; Bool)
+-&gt; Eq CustomDataIdentifiersDetections
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomDataIdentifiersDetections
+-&gt; CustomDataIdentifiersDetections -&gt; Bool
+$c/= :: CustomDataIdentifiersDetections
+-&gt; CustomDataIdentifiersDetections -&gt; Bool
+== :: CustomDataIdentifiersDetections
+-&gt; CustomDataIdentifiersDetections -&gt; Bool
+$c== :: CustomDataIdentifiersDetections
+-&gt; CustomDataIdentifiersDetections -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679984671"><span id="local-6989586621679984673"><span id="local-6989586621679984675"><span id="local-6989586621679984677"><span class="annot"><span class="annottext">ReadPrec [CustomDataIdentifiersDetections]
+ReadPrec CustomDataIdentifiersDetections
+Int -&gt; ReadS CustomDataIdentifiersDetections
+ReadS [CustomDataIdentifiersDetections]
+(Int -&gt; ReadS CustomDataIdentifiersDetections)
+-&gt; ReadS [CustomDataIdentifiersDetections]
+-&gt; ReadPrec CustomDataIdentifiersDetections
+-&gt; ReadPrec [CustomDataIdentifiersDetections]
+-&gt; Read CustomDataIdentifiersDetections
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomDataIdentifiersDetections]
+$creadListPrec :: ReadPrec [CustomDataIdentifiersDetections]
+readPrec :: ReadPrec CustomDataIdentifiersDetections
+$creadPrec :: ReadPrec CustomDataIdentifiersDetections
+readList :: ReadS [CustomDataIdentifiersDetections]
+$creadList :: ReadS [CustomDataIdentifiersDetections]
+readsPrec :: Int -&gt; ReadS CustomDataIdentifiersDetections
+$creadsPrec :: Int -&gt; ReadS CustomDataIdentifiersDetections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679984664"><span id="local-6989586621679984666"><span id="local-6989586621679984668"><span class="annot"><span class="annottext">Int -&gt; CustomDataIdentifiersDetections -&gt; ShowS
+[CustomDataIdentifiersDetections] -&gt; ShowS
+CustomDataIdentifiersDetections -&gt; String
+(Int -&gt; CustomDataIdentifiersDetections -&gt; ShowS)
+-&gt; (CustomDataIdentifiersDetections -&gt; String)
+-&gt; ([CustomDataIdentifiersDetections] -&gt; ShowS)
+-&gt; Show CustomDataIdentifiersDetections
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomDataIdentifiersDetections] -&gt; ShowS
+$cshowList :: [CustomDataIdentifiersDetections] -&gt; ShowS
+show :: CustomDataIdentifiersDetections -&gt; String
+$cshow :: CustomDataIdentifiersDetections -&gt; String
+showsPrec :: Int -&gt; CustomDataIdentifiersDetections -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomDataIdentifiersDetections -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CustomDataIdentifiersDetections
+ -&gt; Rep CustomDataIdentifiersDetections x)
+-&gt; (forall x.
+    Rep CustomDataIdentifiersDetections x
+    -&gt; CustomDataIdentifiersDetections)
+-&gt; Generic CustomDataIdentifiersDetections
+forall x.
+Rep CustomDataIdentifiersDetections x
+-&gt; CustomDataIdentifiersDetections
+forall x.
+CustomDataIdentifiersDetections
+-&gt; Rep CustomDataIdentifiersDetections x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CustomDataIdentifiersDetections x
+-&gt; CustomDataIdentifiersDetections
+$cfrom :: forall x.
+CustomDataIdentifiersDetections
+-&gt; Rep CustomDataIdentifiersDetections x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'CustomDataIdentifiersDetections' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'occurrences', 'customDataIdentifiersDetections_occurrences' - Details about the sensitive data that was detected.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'arn', 'customDataIdentifiersDetections_arn' - The ARN of the custom identifier that was used to detect the sensitive</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'count', 'customDataIdentifiersDetections_count' - The total number of occurrences of sensitive data that were detected.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'name', 'customDataIdentifiersDetections_name' - he name of the custom identifier that detected the sensitive data.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#newCustomDataIdentifiersDetections"><span class="hs-identifier hs-type">newCustomDataIdentifiersDetections</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span><span>
+</span><span id="line-61"></span><span id="newCustomDataIdentifiersDetections"><span class="annot"><span class="annottext">newCustomDataIdentifiersDetections :: CustomDataIdentifiersDetections
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#newCustomDataIdentifiersDetections"><span class="hs-identifier hs-var hs-var">newCustomDataIdentifiersDetections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">CustomDataIdentifiersDetections' :: Maybe Occurrences
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; CustomDataIdentifiersDetections
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:occurrences:CustomDataIdentifiersDetections' :: Maybe Occurrences
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Aoccurrences%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">occurrences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Occurrences
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CustomDataIdentifiersDetections' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Aarn%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:CustomDataIdentifiersDetections' :: Maybe Integer
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Acount%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CustomDataIdentifiersDetections' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Aname%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Details about the sensitive data that was detected.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#customDataIdentifiersDetections_occurrences"><span class="hs-identifier hs-type">customDataIdentifiersDetections_occurrences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.Occurrences.html#Occurrences"><span class="hs-identifier hs-type">Occurrences</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="customDataIdentifiersDetections_occurrences"><span class="annot"><span class="annottext">customDataIdentifiersDetections_occurrences :: (Maybe Occurrences -&gt; f (Maybe Occurrences))
+-&gt; CustomDataIdentifiersDetections
+-&gt; f CustomDataIdentifiersDetections
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#customDataIdentifiersDetections_occurrences"><span class="hs-identifier hs-var hs-var">customDataIdentifiersDetections_occurrences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomDataIdentifiersDetections -&gt; Maybe Occurrences)
+-&gt; (CustomDataIdentifiersDetections
+    -&gt; Maybe Occurrences -&gt; CustomDataIdentifiersDetections)
+-&gt; Lens
+     CustomDataIdentifiersDetections
+     CustomDataIdentifiersDetections
+     (Maybe Occurrences)
+     (Maybe Occurrences)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984655"><span class="annot"><span class="annottext">Maybe Occurrences
+occurrences :: Maybe Occurrences
+$sel:occurrences:CustomDataIdentifiersDetections' :: CustomDataIdentifiersDetections -&gt; Maybe Occurrences
+</span><a href="#local-6989586621679984655"><span class="hs-identifier hs-var hs-var">occurrences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Occurrences
+</span><a href="#local-6989586621679984655"><span class="hs-identifier hs-var">occurrences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984654"><span class="annot"><span class="annottext">s :: CustomDataIdentifiersDetections
+</span><a href="#local-6989586621679984654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984653"><span class="annot"><span class="annottext">Maybe Occurrences
+</span><a href="#local-6989586621679984653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomDataIdentifiersDetections
+</span><a href="#local-6989586621679984654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:occurrences:CustomDataIdentifiersDetections' :: Maybe Occurrences
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Aoccurrences%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">occurrences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Occurrences
+</span><a href="#local-6989586621679984653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the custom identifier that was used to detect the sensitive</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#customDataIdentifiersDetections_arn"><span class="hs-identifier hs-type">customDataIdentifiersDetections_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="customDataIdentifiersDetections_arn"><span class="annot"><span class="annottext">customDataIdentifiersDetections_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomDataIdentifiersDetections
+-&gt; f CustomDataIdentifiersDetections
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#customDataIdentifiersDetections_arn"><span class="hs-identifier hs-var hs-var">customDataIdentifiersDetections_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomDataIdentifiersDetections -&gt; Maybe Text)
+-&gt; (CustomDataIdentifiersDetections
+    -&gt; Maybe Text -&gt; CustomDataIdentifiersDetections)
+-&gt; Lens
+     CustomDataIdentifiersDetections
+     CustomDataIdentifiersDetections
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984651"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CustomDataIdentifiersDetections' :: CustomDataIdentifiersDetections -&gt; Maybe Text
+</span><a href="#local-6989586621679984651"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984651"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984650"><span class="annot"><span class="annottext">s :: CustomDataIdentifiersDetections
+</span><a href="#local-6989586621679984650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984649"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomDataIdentifiersDetections
+</span><a href="#local-6989586621679984650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CustomDataIdentifiersDetections' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Aarn%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The total number of occurrences of sensitive data that were detected.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#customDataIdentifiersDetections_count"><span class="hs-identifier hs-type">customDataIdentifiersDetections_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="customDataIdentifiersDetections_count"><span class="annot"><span class="annottext">customDataIdentifiersDetections_count :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; CustomDataIdentifiersDetections
+-&gt; f CustomDataIdentifiersDetections
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#customDataIdentifiersDetections_count"><span class="hs-identifier hs-var hs-var">customDataIdentifiersDetections_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomDataIdentifiersDetections -&gt; Maybe Integer)
+-&gt; (CustomDataIdentifiersDetections
+    -&gt; Maybe Integer -&gt; CustomDataIdentifiersDetections)
+-&gt; Lens
+     CustomDataIdentifiersDetections
+     CustomDataIdentifiersDetections
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984647"><span class="annot"><span class="annottext">Maybe Integer
+count :: Maybe Integer
+$sel:count:CustomDataIdentifiersDetections' :: CustomDataIdentifiersDetections -&gt; Maybe Integer
+</span><a href="#local-6989586621679984647"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679984647"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984646"><span class="annot"><span class="annottext">s :: CustomDataIdentifiersDetections
+</span><a href="#local-6989586621679984646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984645"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679984645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomDataIdentifiersDetections
+</span><a href="#local-6989586621679984646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:CustomDataIdentifiersDetections' :: Maybe Integer
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Acount%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679984645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | he name of the custom identifier that detected the sensitive data.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#customDataIdentifiersDetections_name"><span class="hs-identifier hs-type">customDataIdentifiersDetections_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="customDataIdentifiersDetections_name"><span class="annot"><span class="annottext">customDataIdentifiersDetections_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomDataIdentifiersDetections
+-&gt; f CustomDataIdentifiersDetections
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#customDataIdentifiersDetections_name"><span class="hs-identifier hs-var hs-var">customDataIdentifiersDetections_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomDataIdentifiersDetections -&gt; Maybe Text)
+-&gt; (CustomDataIdentifiersDetections
+    -&gt; Maybe Text -&gt; CustomDataIdentifiersDetections)
+-&gt; Lens
+     CustomDataIdentifiersDetections
+     CustomDataIdentifiersDetections
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984643"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CustomDataIdentifiersDetections' :: CustomDataIdentifiersDetections -&gt; Maybe Text
+</span><a href="#local-6989586621679984643"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984643"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679984642"><span class="annot"><span class="annottext">s :: CustomDataIdentifiersDetections
+</span><a href="#local-6989586621679984642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679984641"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomDataIdentifiersDetections
+</span><a href="#local-6989586621679984642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CustomDataIdentifiersDetections' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#%24sel%3Aname%3ACustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679984638"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679984636"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CustomDataIdentifiersDetections
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CustomDataIdentifiersDetections)
+-&gt; Value
+-&gt; Parser CustomDataIdentifiersDetections
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CustomDataIdentifiersDetections&quot;</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679984633"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Occurrences
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; CustomDataIdentifiersDetections
+</span><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-var">CustomDataIdentifiersDetections'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Occurrences
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; CustomDataIdentifiersDetections)
+-&gt; Parser (Maybe Occurrences)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer -&gt; Maybe Text -&gt; CustomDataIdentifiersDetections)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Occurrences)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Occurrences&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer -&gt; Maybe Text -&gt; CustomDataIdentifiersDetections)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer -&gt; Maybe Text -&gt; CustomDataIdentifiersDetections)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer -&gt; Maybe Text -&gt; CustomDataIdentifiersDetections)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe Text -&gt; CustomDataIdentifiersDetections)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CustomDataIdentifiersDetections)
+-&gt; Parser (Maybe Text) -&gt; Parser CustomDataIdentifiersDetections
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679984633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679984627"><span id="local-6989586621679984629"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679984624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679984616"><span id="local-6989586621679984618"><span id="local-6989586621679984620"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679984614"><span class="annot"><span class="annottext">toJSON :: CustomDataIdentifiersDetections -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.CustomDataIdentifiersDetections.html#CustomDataIdentifiersDetections%27"><span class="hs-identifier hs-type">CustomDataIdentifiersDetections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679984609"><span id="local-6989586621679984610"><span id="local-6989586621679984611"><span id="local-6989586621679984612"><span class="annot"><span class="annottext">Maybe Integer
+Maybe Text
+Maybe Occurrences
+name :: Maybe Text
+count :: Maybe Integer
+arn :: Maybe Text
+occurrences :: Maybe Occurrences
+$sel:name:CustomDataIdentifiersDetections' :: CustomDataIdentifiersDetections -&gt; Maybe Text
+$sel:count:CustomDataIdentifiersDetections' :: CustomDataIdentifiersDetections -&gt; Maybe Integer
+$sel:arn:CustomDataIdentifiersDetections' :: CustomDataIdentifiersDetections -&gt; Maybe Text
+$sel:occurrences:CustomDataIdentifiersDetections' :: CustomDataIdentifiersDetections -&gt; Maybe Occurrences
+</span><a href="#local-6989586621679984609"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Occurrences&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Occurrences -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Occurrences -&gt; Pair) -&gt; Maybe Occurrences -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Occurrences
+</span><a href="#local-6989586621679984612"><span class="hs-identifier hs-var">occurrences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984611"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Count&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679984610"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679984609"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span></pre></body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeGuruReviewer.Types.JobState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeGuruReviewer.Types.JobState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState"><span class="hs-identifier">JobState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Completed"><span class="hs-identifier">JobState_Completed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Deleting"><span class="hs-identifier">JobState_Deleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Failed"><span class="hs-identifier">JobState_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Pending"><span class="hs-identifier">JobState_Pending</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679198295"><span id="local-6989586621679198296"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobState"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState"><span class="hs-identifier hs-var">JobState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobState%27"><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState%27"><span class="hs-identifier hs-var">JobState'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobState"><span class="annot"><span class="annottext">JobState -&gt; Text
+</span><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#fromJobState"><span class="hs-identifier hs-var hs-var">fromJobState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198287"><span id="local-6989586621679198289"><span id="local-6989586621679198291"><span class="annot"><span class="annottext">Int -&gt; JobState -&gt; ShowS
+[JobState] -&gt; ShowS
+JobState -&gt; String
+(Int -&gt; JobState -&gt; ShowS)
+-&gt; (JobState -&gt; String) -&gt; ([JobState] -&gt; ShowS) -&gt; Show JobState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobState] -&gt; ShowS
+$cshowList :: [JobState] -&gt; ShowS
+show :: JobState -&gt; String
+$cshow :: JobState -&gt; String
+showsPrec :: Int -&gt; JobState -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679198278"><span id="local-6989586621679198280"><span id="local-6989586621679198282"><span id="local-6989586621679198284"><span class="annot"><span class="annottext">ReadPrec [JobState]
+ReadPrec JobState
+Int -&gt; ReadS JobState
+ReadS [JobState]
+(Int -&gt; ReadS JobState)
+-&gt; ReadS [JobState]
+-&gt; ReadPrec JobState
+-&gt; ReadPrec [JobState]
+-&gt; Read JobState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobState]
+$creadListPrec :: ReadPrec [JobState]
+readPrec :: ReadPrec JobState
+$creadPrec :: ReadPrec JobState
+readList :: ReadS [JobState]
+$creadList :: ReadS [JobState]
+readsPrec :: Int -&gt; ReadS JobState
+$creadsPrec :: Int -&gt; ReadS JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679198273"><span id="local-6989586621679198275"><span class="annot"><span class="annottext">JobState -&gt; JobState -&gt; Bool
+(JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; Bool) -&gt; Eq JobState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobState -&gt; JobState -&gt; Bool
+$c/= :: JobState -&gt; JobState -&gt; Bool
+== :: JobState -&gt; JobState -&gt; Bool
+$c== :: JobState -&gt; JobState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679198257"><span id="local-6989586621679198259"><span id="local-6989586621679198261"><span id="local-6989586621679198263"><span id="local-6989586621679198265"><span id="local-6989586621679198267"><span id="local-6989586621679198269"><span class="annot"><span class="annottext">Eq JobState
+Eq JobState
+-&gt; (JobState -&gt; JobState -&gt; Ordering)
+-&gt; (JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; Bool)
+-&gt; (JobState -&gt; JobState -&gt; JobState)
+-&gt; (JobState -&gt; JobState -&gt; JobState)
+-&gt; Ord JobState
+JobState -&gt; JobState -&gt; Bool
+JobState -&gt; JobState -&gt; Ordering
+JobState -&gt; JobState -&gt; JobState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: JobState -&gt; JobState -&gt; JobState
+$cmin :: JobState -&gt; JobState -&gt; JobState
+max :: JobState -&gt; JobState -&gt; JobState
+$cmax :: JobState -&gt; JobState -&gt; JobState
+&gt;= :: JobState -&gt; JobState -&gt; Bool
+$c&gt;= :: JobState -&gt; JobState -&gt; Bool
+&gt; :: JobState -&gt; JobState -&gt; Bool
+$c&gt; :: JobState -&gt; JobState -&gt; Bool
+&lt;= :: JobState -&gt; JobState -&gt; Bool
+$c&lt;= :: JobState -&gt; JobState -&gt; Bool
+&lt; :: JobState -&gt; JobState -&gt; Bool
+$c&lt; :: JobState -&gt; JobState -&gt; Bool
+compare :: JobState -&gt; JobState -&gt; Ordering
+$ccompare :: JobState -&gt; JobState -&gt; Ordering
+$cp1Ord :: Eq JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. JobState -&gt; Rep JobState x)
+-&gt; (forall x. Rep JobState x -&gt; JobState) -&gt; Generic JobState
+forall x. Rep JobState x -&gt; JobState
+forall x. JobState -&gt; Rep JobState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobState x -&gt; JobState
+$cfrom :: forall x. JobState -&gt; Rep JobState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679198249"><span id="local-6989586621679198251"><span class="annot"><span class="annottext">Int -&gt; JobState -&gt; Int
+JobState -&gt; Int
+(Int -&gt; JobState -&gt; Int) -&gt; (JobState -&gt; Int) -&gt; Hashable JobState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: JobState -&gt; Int
+$chash :: JobState -&gt; Int
+hashWithSalt :: Int -&gt; JobState -&gt; Int
+$chashWithSalt :: Int -&gt; JobState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679198246"><span class="annot"><span class="annottext">JobState -&gt; ()
+(JobState -&gt; ()) -&gt; NFData JobState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: JobState -&gt; ()
+$crnf :: JobState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679198243"><span class="annot"><span class="annottext">Text -&gt; Either String JobState
+(Text -&gt; Either String JobState) -&gt; FromText JobState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String JobState
+$cfromText :: Text -&gt; Either String JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679198240"><span class="annot"><span class="annottext">JobState -&gt; Text
+(JobState -&gt; Text) -&gt; ToText JobState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: JobState -&gt; Text
+$ctoText :: JobState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679198237"><span class="annot"><span class="annottext">JobState -&gt; ByteString
+(JobState -&gt; ByteString) -&gt; ToByteString JobState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: JobState -&gt; ByteString
+$ctoBS :: JobState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679198234"><span class="annot"><span class="annottext">JobState -&gt; ByteStringBuilder
+(JobState -&gt; ByteStringBuilder) -&gt; ToLog JobState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: JobState -&gt; ByteStringBuilder
+$cbuild :: JobState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679198231"><span class="annot"><span class="annottext">HeaderName -&gt; JobState -&gt; [Header]
+(HeaderName -&gt; JobState -&gt; [Header]) -&gt; ToHeader JobState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; JobState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; JobState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679198228"><span class="annot"><span class="annottext">JobState -&gt; QueryString
+(JobState -&gt; QueryString) -&gt; ToQuery JobState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: JobState -&gt; QueryString
+$ctoQuery :: JobState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679198223"><span id="local-6989586621679198225"><span class="annot"><span class="annottext">Value -&gt; Parser [JobState]
+Value -&gt; Parser JobState
+(Value -&gt; Parser JobState)
+-&gt; (Value -&gt; Parser [JobState]) -&gt; FromJSON JobState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [JobState]
+$cparseJSONList :: Value -&gt; Parser [JobState]
+parseJSON :: Value -&gt; Parser JobState
+$cparseJSON :: Value -&gt; Parser JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679198218"><span id="local-6989586621679198220"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobState]
+FromJSONKeyFunction JobState
+FromJSONKeyFunction JobState
+-&gt; FromJSONKeyFunction [JobState] -&gt; FromJSONKey JobState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [JobState]
+$cfromJSONKeyList :: FromJSONKeyFunction [JobState]
+fromJSONKey :: FromJSONKeyFunction JobState
+$cfromJSONKey :: FromJSONKeyFunction JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679198209"><span id="local-6989586621679198211"><span id="local-6989586621679198213"><span id="local-6989586621679198215"><span class="annot"><span class="annottext">[JobState] -&gt; Encoding
+[JobState] -&gt; Value
+JobState -&gt; Encoding
+JobState -&gt; Value
+(JobState -&gt; Value)
+-&gt; (JobState -&gt; Encoding)
+-&gt; ([JobState] -&gt; Value)
+-&gt; ([JobState] -&gt; Encoding)
+-&gt; ToJSON JobState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [JobState] -&gt; Encoding
+$ctoEncodingList :: [JobState] -&gt; Encoding
+toJSONList :: [JobState] -&gt; Value
+$ctoJSONList :: [JobState] -&gt; Value
+toEncoding :: JobState -&gt; Encoding
+$ctoEncoding :: JobState -&gt; Encoding
+toJSON :: JobState -&gt; Value
+$ctoJSON :: JobState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679198204"><span id="local-6989586621679198206"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobState]
+ToJSONKeyFunction JobState
+ToJSONKeyFunction JobState
+-&gt; ToJSONKeyFunction [JobState] -&gt; ToJSONKey JobState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [JobState]
+$ctoJSONKeyList :: ToJSONKeyFunction [JobState]
+toJSONKey :: ToJSONKeyFunction JobState
+$ctoJSONKey :: ToJSONKeyFunction JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679198201"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobState
+([Node] -&gt; Either String JobState) -&gt; FromXML JobState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String JobState
+$cparseXML :: [Node] -&gt; Either String JobState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679198198"><span class="annot"><span class="annottext">JobState -&gt; XML
+(JobState -&gt; XML) -&gt; ToXML JobState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: JobState -&gt; XML
+$ctoXML :: JobState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Completed"><span class="hs-identifier hs-type">JobState_Completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_Completed"><span id="%24mJobState_Completed"><span id="JobState_Completed"><span class="annot"><span class="annottext">$bJobState_Completed :: JobState
+$mJobState_Completed :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#%24bJobState_Completed"><span class="hs-identifier hs-var hs-var hs-var">JobState_Completed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Completed&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Deleting"><span class="hs-identifier hs-type">JobState_Deleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_Deleting"><span id="%24mJobState_Deleting"><span id="JobState_Deleting"><span class="annot"><span class="annottext">$bJobState_Deleting :: JobState
+$mJobState_Deleting :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#%24bJobState_Deleting"><span class="hs-identifier hs-var hs-var hs-var">JobState_Deleting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deleting&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Failed"><span class="hs-identifier hs-type">JobState_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_Failed"><span id="%24mJobState_Failed"><span id="JobState_Failed"><span class="annot"><span class="annottext">$bJobState_Failed :: JobState
+$mJobState_Failed :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#%24bJobState_Failed"><span class="hs-identifier hs-var hs-var hs-var">JobState_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Pending"><span class="hs-identifier hs-type">JobState_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState"><span class="hs-identifier hs-type">JobState</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobState_Pending"><span id="%24mJobState_Pending"><span id="JobState_Pending"><span class="annot"><span class="annottext">$bJobState_Pending :: JobState
+$mJobState_Pending :: forall r. JobState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#%24bJobState_Pending"><span class="hs-identifier hs-var hs-var hs-var">JobState_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState%27"><span class="hs-identifier hs-type">JobState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Pending&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Completed"><span class="hs-pragma hs-type">JobState_Completed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Deleting"><span class="hs-pragma hs-type">JobState_Deleting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Failed"><span class="hs-pragma hs-type">JobState_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState_Pending"><span class="hs-pragma hs-type">JobState_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeGuruReviewer.Types.JobState.html#JobState%27"><span class="hs-pragma hs-type">JobState'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

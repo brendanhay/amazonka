@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType"><span class="hs-identifier">ValidatePolicyFindingType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_ERROR"><span class="hs-identifier">ValidatePolicyFindingType_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_SECURITY_WARNING"><span class="hs-identifier">ValidatePolicyFindingType_SECURITY_WARNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_SUGGESTION"><span class="hs-identifier">ValidatePolicyFindingType_SUGGESTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_WARNING"><span class="hs-identifier">ValidatePolicyFindingType_WARNING</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679251939"><span id="local-6989586621679251940"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ValidatePolicyFindingType"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType"><span class="hs-identifier hs-var">ValidatePolicyFindingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidatePolicyFindingType%27"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType%27"><span class="hs-identifier hs-var">ValidatePolicyFindingType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromValidatePolicyFindingType"><span class="annot"><span class="annottext">ValidatePolicyFindingType -&gt; Text
+</span><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#fromValidatePolicyFindingType"><span class="hs-identifier hs-var hs-var">fromValidatePolicyFindingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251931"><span id="local-6989586621679251933"><span id="local-6989586621679251935"><span class="annot"><span class="annottext">Int -&gt; ValidatePolicyFindingType -&gt; ShowS
+[ValidatePolicyFindingType] -&gt; ShowS
+ValidatePolicyFindingType -&gt; String
+(Int -&gt; ValidatePolicyFindingType -&gt; ShowS)
+-&gt; (ValidatePolicyFindingType -&gt; String)
+-&gt; ([ValidatePolicyFindingType] -&gt; ShowS)
+-&gt; Show ValidatePolicyFindingType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ValidatePolicyFindingType] -&gt; ShowS
+$cshowList :: [ValidatePolicyFindingType] -&gt; ShowS
+show :: ValidatePolicyFindingType -&gt; String
+$cshow :: ValidatePolicyFindingType -&gt; String
+showsPrec :: Int -&gt; ValidatePolicyFindingType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ValidatePolicyFindingType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679251922"><span id="local-6989586621679251924"><span id="local-6989586621679251926"><span id="local-6989586621679251928"><span class="annot"><span class="annottext">ReadPrec [ValidatePolicyFindingType]
+ReadPrec ValidatePolicyFindingType
+Int -&gt; ReadS ValidatePolicyFindingType
+ReadS [ValidatePolicyFindingType]
+(Int -&gt; ReadS ValidatePolicyFindingType)
+-&gt; ReadS [ValidatePolicyFindingType]
+-&gt; ReadPrec ValidatePolicyFindingType
+-&gt; ReadPrec [ValidatePolicyFindingType]
+-&gt; Read ValidatePolicyFindingType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ValidatePolicyFindingType]
+$creadListPrec :: ReadPrec [ValidatePolicyFindingType]
+readPrec :: ReadPrec ValidatePolicyFindingType
+$creadPrec :: ReadPrec ValidatePolicyFindingType
+readList :: ReadS [ValidatePolicyFindingType]
+$creadList :: ReadS [ValidatePolicyFindingType]
+readsPrec :: Int -&gt; ReadS ValidatePolicyFindingType
+$creadsPrec :: Int -&gt; ReadS ValidatePolicyFindingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679251917"><span id="local-6989586621679251919"><span class="annot"><span class="annottext">ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+(ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool)
+-&gt; (ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool)
+-&gt; Eq ValidatePolicyFindingType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+$c/= :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+== :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+$c== :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679251901"><span id="local-6989586621679251903"><span id="local-6989586621679251905"><span id="local-6989586621679251907"><span id="local-6989586621679251909"><span id="local-6989586621679251911"><span id="local-6989586621679251913"><span class="annot"><span class="annottext">Eq ValidatePolicyFindingType
+Eq ValidatePolicyFindingType
+-&gt; (ValidatePolicyFindingType
+    -&gt; ValidatePolicyFindingType -&gt; Ordering)
+-&gt; (ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool)
+-&gt; (ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool)
+-&gt; (ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool)
+-&gt; (ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool)
+-&gt; (ValidatePolicyFindingType
+    -&gt; ValidatePolicyFindingType -&gt; ValidatePolicyFindingType)
+-&gt; (ValidatePolicyFindingType
+    -&gt; ValidatePolicyFindingType -&gt; ValidatePolicyFindingType)
+-&gt; Ord ValidatePolicyFindingType
+ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Ordering
+ValidatePolicyFindingType
+-&gt; ValidatePolicyFindingType -&gt; ValidatePolicyFindingType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ValidatePolicyFindingType
+-&gt; ValidatePolicyFindingType -&gt; ValidatePolicyFindingType
+$cmin :: ValidatePolicyFindingType
+-&gt; ValidatePolicyFindingType -&gt; ValidatePolicyFindingType
+max :: ValidatePolicyFindingType
+-&gt; ValidatePolicyFindingType -&gt; ValidatePolicyFindingType
+$cmax :: ValidatePolicyFindingType
+-&gt; ValidatePolicyFindingType -&gt; ValidatePolicyFindingType
+&gt;= :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+$c&gt;= :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+&gt; :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+$c&gt; :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+&lt;= :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+$c&lt;= :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+&lt; :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+$c&lt; :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Bool
+compare :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Ordering
+$ccompare :: ValidatePolicyFindingType -&gt; ValidatePolicyFindingType -&gt; Ordering
+$cp1Ord :: Eq ValidatePolicyFindingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ValidatePolicyFindingType -&gt; Rep ValidatePolicyFindingType x)
+-&gt; (forall x.
+    Rep ValidatePolicyFindingType x -&gt; ValidatePolicyFindingType)
+-&gt; Generic ValidatePolicyFindingType
+forall x.
+Rep ValidatePolicyFindingType x -&gt; ValidatePolicyFindingType
+forall x.
+ValidatePolicyFindingType -&gt; Rep ValidatePolicyFindingType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ValidatePolicyFindingType x -&gt; ValidatePolicyFindingType
+$cfrom :: forall x.
+ValidatePolicyFindingType -&gt; Rep ValidatePolicyFindingType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251893"><span id="local-6989586621679251895"><span class="annot"><span class="annottext">Int -&gt; ValidatePolicyFindingType -&gt; Int
+ValidatePolicyFindingType -&gt; Int
+(Int -&gt; ValidatePolicyFindingType -&gt; Int)
+-&gt; (ValidatePolicyFindingType -&gt; Int)
+-&gt; Hashable ValidatePolicyFindingType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ValidatePolicyFindingType -&gt; Int
+$chash :: ValidatePolicyFindingType -&gt; Int
+hashWithSalt :: Int -&gt; ValidatePolicyFindingType -&gt; Int
+$chashWithSalt :: Int -&gt; ValidatePolicyFindingType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679251890"><span class="annot"><span class="annottext">ValidatePolicyFindingType -&gt; ()
+(ValidatePolicyFindingType -&gt; ())
+-&gt; NFData ValidatePolicyFindingType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ValidatePolicyFindingType -&gt; ()
+$crnf :: ValidatePolicyFindingType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679251887"><span class="annot"><span class="annottext">Text -&gt; Either String ValidatePolicyFindingType
+(Text -&gt; Either String ValidatePolicyFindingType)
+-&gt; FromText ValidatePolicyFindingType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ValidatePolicyFindingType
+$cfromText :: Text -&gt; Either String ValidatePolicyFindingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679251884"><span class="annot"><span class="annottext">ValidatePolicyFindingType -&gt; Text
+(ValidatePolicyFindingType -&gt; Text)
+-&gt; ToText ValidatePolicyFindingType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ValidatePolicyFindingType -&gt; Text
+$ctoText :: ValidatePolicyFindingType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679251881"><span class="annot"><span class="annottext">ValidatePolicyFindingType -&gt; ByteString
+(ValidatePolicyFindingType -&gt; ByteString)
+-&gt; ToByteString ValidatePolicyFindingType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ValidatePolicyFindingType -&gt; ByteString
+$ctoBS :: ValidatePolicyFindingType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679251878"><span class="annot"><span class="annottext">ValidatePolicyFindingType -&gt; ByteStringBuilder
+(ValidatePolicyFindingType -&gt; ByteStringBuilder)
+-&gt; ToLog ValidatePolicyFindingType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ValidatePolicyFindingType -&gt; ByteStringBuilder
+$cbuild :: ValidatePolicyFindingType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679251875"><span class="annot"><span class="annottext">HeaderName -&gt; ValidatePolicyFindingType -&gt; [Header]
+(HeaderName -&gt; ValidatePolicyFindingType -&gt; [Header])
+-&gt; ToHeader ValidatePolicyFindingType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ValidatePolicyFindingType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ValidatePolicyFindingType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679251872"><span class="annot"><span class="annottext">ValidatePolicyFindingType -&gt; QueryString
+(ValidatePolicyFindingType -&gt; QueryString)
+-&gt; ToQuery ValidatePolicyFindingType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ValidatePolicyFindingType -&gt; QueryString
+$ctoQuery :: ValidatePolicyFindingType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679251867"><span id="local-6989586621679251869"><span class="annot"><span class="annottext">Value -&gt; Parser [ValidatePolicyFindingType]
+Value -&gt; Parser ValidatePolicyFindingType
+(Value -&gt; Parser ValidatePolicyFindingType)
+-&gt; (Value -&gt; Parser [ValidatePolicyFindingType])
+-&gt; FromJSON ValidatePolicyFindingType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ValidatePolicyFindingType]
+$cparseJSONList :: Value -&gt; Parser [ValidatePolicyFindingType]
+parseJSON :: Value -&gt; Parser ValidatePolicyFindingType
+$cparseJSON :: Value -&gt; Parser ValidatePolicyFindingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679251862"><span id="local-6989586621679251864"><span class="annot"><span class="annottext">FromJSONKeyFunction [ValidatePolicyFindingType]
+FromJSONKeyFunction ValidatePolicyFindingType
+FromJSONKeyFunction ValidatePolicyFindingType
+-&gt; FromJSONKeyFunction [ValidatePolicyFindingType]
+-&gt; FromJSONKey ValidatePolicyFindingType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ValidatePolicyFindingType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ValidatePolicyFindingType]
+fromJSONKey :: FromJSONKeyFunction ValidatePolicyFindingType
+$cfromJSONKey :: FromJSONKeyFunction ValidatePolicyFindingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679251853"><span id="local-6989586621679251855"><span id="local-6989586621679251857"><span id="local-6989586621679251859"><span class="annot"><span class="annottext">[ValidatePolicyFindingType] -&gt; Encoding
+[ValidatePolicyFindingType] -&gt; Value
+ValidatePolicyFindingType -&gt; Encoding
+ValidatePolicyFindingType -&gt; Value
+(ValidatePolicyFindingType -&gt; Value)
+-&gt; (ValidatePolicyFindingType -&gt; Encoding)
+-&gt; ([ValidatePolicyFindingType] -&gt; Value)
+-&gt; ([ValidatePolicyFindingType] -&gt; Encoding)
+-&gt; ToJSON ValidatePolicyFindingType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ValidatePolicyFindingType] -&gt; Encoding
+$ctoEncodingList :: [ValidatePolicyFindingType] -&gt; Encoding
+toJSONList :: [ValidatePolicyFindingType] -&gt; Value
+$ctoJSONList :: [ValidatePolicyFindingType] -&gt; Value
+toEncoding :: ValidatePolicyFindingType -&gt; Encoding
+$ctoEncoding :: ValidatePolicyFindingType -&gt; Encoding
+toJSON :: ValidatePolicyFindingType -&gt; Value
+$ctoJSON :: ValidatePolicyFindingType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679251848"><span id="local-6989586621679251850"><span class="annot"><span class="annottext">ToJSONKeyFunction [ValidatePolicyFindingType]
+ToJSONKeyFunction ValidatePolicyFindingType
+ToJSONKeyFunction ValidatePolicyFindingType
+-&gt; ToJSONKeyFunction [ValidatePolicyFindingType]
+-&gt; ToJSONKey ValidatePolicyFindingType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ValidatePolicyFindingType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ValidatePolicyFindingType]
+toJSONKey :: ToJSONKeyFunction ValidatePolicyFindingType
+$ctoJSONKey :: ToJSONKeyFunction ValidatePolicyFindingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679251845"><span class="annot"><span class="annottext">[Node] -&gt; Either String ValidatePolicyFindingType
+([Node] -&gt; Either String ValidatePolicyFindingType)
+-&gt; FromXML ValidatePolicyFindingType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ValidatePolicyFindingType
+$cparseXML :: [Node] -&gt; Either String ValidatePolicyFindingType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679251842"><span class="annot"><span class="annottext">ValidatePolicyFindingType -&gt; XML
+(ValidatePolicyFindingType -&gt; XML)
+-&gt; ToXML ValidatePolicyFindingType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ValidatePolicyFindingType -&gt; XML
+$ctoXML :: ValidatePolicyFindingType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_ERROR"><span class="hs-identifier hs-type">ValidatePolicyFindingType_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType"><span class="hs-identifier hs-type">ValidatePolicyFindingType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidatePolicyFindingType_ERROR"><span id="%24mValidatePolicyFindingType_ERROR"><span id="ValidatePolicyFindingType_ERROR"><span class="annot"><span class="annottext">$bValidatePolicyFindingType_ERROR :: ValidatePolicyFindingType
+$mValidatePolicyFindingType_ERROR :: forall r.
+ValidatePolicyFindingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#%24bValidatePolicyFindingType_ERROR"><span class="hs-identifier hs-var hs-var hs-var">ValidatePolicyFindingType_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType%27"><span class="hs-identifier hs-type">ValidatePolicyFindingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_SECURITY_WARNING"><span class="hs-identifier hs-type">ValidatePolicyFindingType_SECURITY_WARNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType"><span class="hs-identifier hs-type">ValidatePolicyFindingType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidatePolicyFindingType_SECURITY_WARNING"><span id="%24mValidatePolicyFindingType_SECURITY_WARNING"><span id="ValidatePolicyFindingType_SECURITY_WARNING"><span class="annot"><span class="annottext">$bValidatePolicyFindingType_SECURITY_WARNING :: ValidatePolicyFindingType
+$mValidatePolicyFindingType_SECURITY_WARNING :: forall r.
+ValidatePolicyFindingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#%24bValidatePolicyFindingType_SECURITY_WARNING"><span class="hs-identifier hs-var hs-var hs-var">ValidatePolicyFindingType_SECURITY_WARNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType%27"><span class="hs-identifier hs-type">ValidatePolicyFindingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SECURITY_WARNING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_SUGGESTION"><span class="hs-identifier hs-type">ValidatePolicyFindingType_SUGGESTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType"><span class="hs-identifier hs-type">ValidatePolicyFindingType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidatePolicyFindingType_SUGGESTION"><span id="%24mValidatePolicyFindingType_SUGGESTION"><span id="ValidatePolicyFindingType_SUGGESTION"><span class="annot"><span class="annottext">$bValidatePolicyFindingType_SUGGESTION :: ValidatePolicyFindingType
+$mValidatePolicyFindingType_SUGGESTION :: forall r.
+ValidatePolicyFindingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#%24bValidatePolicyFindingType_SUGGESTION"><span class="hs-identifier hs-var hs-var hs-var">ValidatePolicyFindingType_SUGGESTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType%27"><span class="hs-identifier hs-type">ValidatePolicyFindingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUGGESTION&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_WARNING"><span class="hs-identifier hs-type">ValidatePolicyFindingType_WARNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType"><span class="hs-identifier hs-type">ValidatePolicyFindingType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidatePolicyFindingType_WARNING"><span id="%24mValidatePolicyFindingType_WARNING"><span id="ValidatePolicyFindingType_WARNING"><span class="annot"><span class="annottext">$bValidatePolicyFindingType_WARNING :: ValidatePolicyFindingType
+$mValidatePolicyFindingType_WARNING :: forall r.
+ValidatePolicyFindingType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#%24bValidatePolicyFindingType_WARNING"><span class="hs-identifier hs-var hs-var hs-var">ValidatePolicyFindingType_WARNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType%27"><span class="hs-identifier hs-type">ValidatePolicyFindingType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WARNING&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_ERROR"><span class="hs-pragma hs-type">ValidatePolicyFindingType_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_SECURITY_WARNING"><span class="hs-pragma hs-type">ValidatePolicyFindingType_SECURITY_WARNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_SUGGESTION"><span class="hs-pragma hs-type">ValidatePolicyFindingType_SUGGESTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType_WARNING"><span class="hs-pragma hs-type">ValidatePolicyFindingType_WARNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.ValidatePolicyFindingType.html#ValidatePolicyFindingType%27"><span class="hs-pragma hs-type">ValidatePolicyFindingType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Contains the parameters for accepting the quote.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newAcceptReservedInstancesExchangeQuote' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621681310326"><span id="local-6989586621681310327"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptReservedInstancesExchangeQuote"><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-var">AcceptReservedInstancesExchangeQuote</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptReservedInstancesExchangeQuote%27"><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">AcceptReservedInstancesExchangeQuote'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621681310335"><span id="local-6989586621681310336"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptReservedInstancesExchangeQuote"><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-var">AcceptReservedInstancesExchangeQuote</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptReservedInstancesExchangeQuote%27"><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">AcceptReservedInstancesExchangeQuote'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration of the target Convertible Reserved Instance to</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- exchange for your current Convertible Reserved Instances.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AtargetConfigurations%3AAcceptReservedInstancesExchangeQuote%27"><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote
@@ -69,7 +69,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AreservedInstanceIds%3AAcceptReservedInstancesExchangeQuote%27"><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote -&gt; [Text]
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceIds%3AAcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var hs-var">reservedInstanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681310318"><span id="local-6989586621681310320"><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681310327"><span id="local-6989586621681310329"><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote
 -&gt; AcceptReservedInstancesExchangeQuote -&gt; Bool
 (AcceptReservedInstancesExchangeQuote
  -&gt; AcceptReservedInstancesExchangeQuote -&gt; Bool)
@@ -85,7 +85,7 @@ $c/= :: AcceptReservedInstancesExchangeQuote
 -&gt; AcceptReservedInstancesExchangeQuote -&gt; Bool
 $c== :: AcceptReservedInstancesExchangeQuote
 -&gt; AcceptReservedInstancesExchangeQuote -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681310309"><span id="local-6989586621681310311"><span id="local-6989586621681310313"><span id="local-6989586621681310315"><span class="annot"><span class="annottext">ReadPrec [AcceptReservedInstancesExchangeQuote]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681310318"><span id="local-6989586621681310320"><span id="local-6989586621681310322"><span id="local-6989586621681310324"><span class="annot"><span class="annottext">ReadPrec [AcceptReservedInstancesExchangeQuote]
 ReadPrec AcceptReservedInstancesExchangeQuote
 Int -&gt; ReadS AcceptReservedInstancesExchangeQuote
 ReadS [AcceptReservedInstancesExchangeQuote]
@@ -105,7 +105,7 @@ readList :: ReadS [AcceptReservedInstancesExchangeQuote]
 $creadList :: ReadS [AcceptReservedInstancesExchangeQuote]
 readsPrec :: Int -&gt; ReadS AcceptReservedInstancesExchangeQuote
 $creadsPrec :: Int -&gt; ReadS AcceptReservedInstancesExchangeQuote
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681310302"><span id="local-6989586621681310304"><span id="local-6989586621681310306"><span class="annot"><span class="annottext">Int -&gt; AcceptReservedInstancesExchangeQuote -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681310311"><span id="local-6989586621681310313"><span id="local-6989586621681310315"><span class="annot"><span class="annottext">Int -&gt; AcceptReservedInstancesExchangeQuote -&gt; ShowS
 [AcceptReservedInstancesExchangeQuote] -&gt; ShowS
 AcceptReservedInstancesExchangeQuote -&gt; String
 (Int -&gt; AcceptReservedInstancesExchangeQuote -&gt; ShowS)
@@ -201,17 +201,17 @@ forall a. Monoid a =&gt; a
      (Maybe [TargetConfigurationRequest])
      (Maybe [TargetConfigurationRequest])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310295"><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310304"><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
 targetConfigurations :: Maybe [TargetConfigurationRequest]
 $sel:targetConfigurations:AcceptReservedInstancesExchangeQuote' :: AcceptReservedInstancesExchangeQuote
 -&gt; Maybe [TargetConfigurationRequest]
-</span><a href="#local-6989586621681310295"><span class="hs-identifier hs-var hs-var">targetConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
-</span><a href="#local-6989586621681310295"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310294"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuote
-</span><a href="#local-6989586621681310294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310293"><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
-</span><a href="#local-6989586621681310293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote
-</span><a href="#local-6989586621681310294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetConfigurations:AcceptReservedInstancesExchangeQuote' :: Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681310304"><span class="hs-identifier hs-var hs-var">targetConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681310304"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310303"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681310303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310302"><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681310302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681310303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetConfigurations:AcceptReservedInstancesExchangeQuote' :: Maybe [TargetConfigurationRequest]
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#%24sel%3AtargetConfigurations%3AAcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
-</span><a href="#local-6989586621681310293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetConfigurationRequest]
+</span><a href="#local-6989586621681310302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TargetConfigurationRequest]
   -&gt; f (Maybe [TargetConfigurationRequest]))
  -&gt; AcceptReservedInstancesExchangeQuote
  -&gt; f AcceptReservedInstancesExchangeQuote)
@@ -262,16 +262,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310289"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310298"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:AcceptReservedInstancesExchangeQuote' :: AcceptReservedInstancesExchangeQuote -&gt; Maybe Bool
-</span><a href="#local-6989586621681310289"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681310289"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310288"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuote
-</span><a href="#local-6989586621681310288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310287"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681310287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote
-</span><a href="#local-6989586621681310288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:AcceptReservedInstancesExchangeQuote' :: Maybe Bool
+</span><a href="#local-6989586621681310298"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681310298"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310297"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681310297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310296"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681310296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681310297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:AcceptReservedInstancesExchangeQuote' :: Maybe Bool
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#%24sel%3AdryRun%3AAcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681310287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681310296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The IDs of the Convertible Reserved Instances to exchange for another</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- Convertible Reserved Instance of the same or higher value.</span><span>
@@ -288,16 +288,16 @@ $sel:dryRun:AcceptReservedInstancesExchangeQuote' :: AcceptReservedInstancesExch
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310286"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310295"><span class="annot"><span class="annottext">[Text]
 reservedInstanceIds :: [Text]
 $sel:reservedInstanceIds:AcceptReservedInstancesExchangeQuote' :: AcceptReservedInstancesExchangeQuote -&gt; [Text]
-</span><a href="#local-6989586621681310286"><span class="hs-identifier hs-var hs-var">reservedInstanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681310286"><span class="hs-identifier hs-var">reservedInstanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310285"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuote
-</span><a href="#local-6989586621681310285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310284"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681310284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote
-</span><a href="#local-6989586621681310285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstanceIds:AcceptReservedInstancesExchangeQuote' :: [Text]
+</span><a href="#local-6989586621681310295"><span class="hs-identifier hs-var hs-var">reservedInstanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681310295"><span class="hs-identifier hs-var">reservedInstanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310294"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681310294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310293"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681310293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuote
+</span><a href="#local-6989586621681310294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstanceIds:AcceptReservedInstancesExchangeQuote' :: [Text]
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#%24sel%3AreservedInstanceIds%3AAcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-var">reservedInstanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681310284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621681310293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; AcceptReservedInstancesExchangeQuote
  -&gt; f AcceptReservedInstancesExchangeQuote)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
@@ -316,7 +316,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621681310280"><span class="annot"><span class="annottext">request :: AcceptReservedInstancesExchangeQuote
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621681310289"><span class="annot"><span class="annottext">request :: AcceptReservedInstancesExchangeQuote
 -&gt; Request AcceptReservedInstancesExchangeQuote
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AcceptReservedInstancesExchangeQuote
@@ -324,7 +324,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621681310276"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621681310285"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AcceptReservedInstancesExchangeQuote
 -&gt; ClientResponse ClientBody
@@ -355,10 +355,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681310273"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681310273"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681310272"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681310272"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681310271"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681310271"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681310282"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681310282"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681310281"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681310281"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681310280"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681310280"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; AcceptReservedInstancesExchangeQuoteResponse
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; AcceptReservedInstancesExchangeQuoteResponse)
@@ -367,7 +367,7 @@ MonadResource m =&gt;
      String (Int -&gt; AcceptReservedInstancesExchangeQuoteResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681310271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681310280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exchangeId&quot;</span></span><span class="hs-special">)</span><span>
@@ -380,22 +380,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681310273"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681310282"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621681310263"><span id="local-6989586621681310265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621681310272"><span id="local-6989586621681310274"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621681310260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621681310269"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621681310256"><span class="annot"><span class="annottext">toHeaders :: AcceptReservedInstancesExchangeQuote -&gt; ResponseHeaders
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621681310265"><span class="annot"><span class="annottext">toHeaders :: AcceptReservedInstancesExchangeQuote -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; AcceptReservedInstancesExchangeQuote -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -407,7 +407,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621681310251"><span class="annot"><span class="annottext">toPath :: AcceptReservedInstancesExchangeQuote -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621681310260"><span class="annot"><span class="annottext">toPath :: AcceptReservedInstancesExchangeQuote -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AcceptReservedInstancesExchangeQuote -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -417,8 +417,8 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621681310247"><span class="annot"><span class="annottext">toQuery :: AcceptReservedInstancesExchangeQuote -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310243"><span id="local-6989586621681310244"><span id="local-6989586621681310245"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681310256"><span class="annot"><span class="annottext">toQuery :: AcceptReservedInstancesExchangeQuote -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuote%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuote'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310252"><span id="local-6989586621681310253"><span id="local-6989586621681310254"><span class="annot"><span class="annottext">[Text]
 Maybe Bool
 Maybe [TargetConfigurationRequest]
 reservedInstanceIds :: [Text]
@@ -428,7 +428,7 @@ $sel:reservedInstanceIds:AcceptReservedInstancesExchangeQuote' :: AcceptReserved
 $sel:dryRun:AcceptReservedInstancesExchangeQuote' :: AcceptReservedInstancesExchangeQuote -&gt; Maybe Bool
 $sel:targetConfigurations:AcceptReservedInstancesExchangeQuote' :: AcceptReservedInstancesExchangeQuote
 -&gt; Maybe [TargetConfigurationRequest]
-</span><a href="#local-6989586621681310243"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681310252"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -459,13 +459,13 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [TargetConfigurationRequest] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TargetConfigurationRequest]
-</span><a href="#local-6989586621681310245"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span>
+</span><a href="#local-6989586621681310254"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681310244"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681310253"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
@@ -474,13 +474,13 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReservedInstanceId&quot;</span></span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681310243"><span class="hs-identifier hs-var">reservedInstanceIds</span></a></span><span>
+</span><a href="#local-6989586621681310252"><span class="hs-identifier hs-var">reservedInstanceIds</span></a></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The result of the exchange and whether it was @successful@.</span><span>
 </span><span id="line-174"></span><span class="hs-comment">--</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- /See:/ 'newAcceptReservedInstancesExchangeQuoteResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621681310239"><span id="local-6989586621681310240"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptReservedInstancesExchangeQuoteResponse"><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-var">AcceptReservedInstancesExchangeQuoteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptReservedInstancesExchangeQuoteResponse%27"><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621681310248"><span id="local-6989586621681310249"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptReservedInstancesExchangeQuoteResponse"><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-var">AcceptReservedInstancesExchangeQuoteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptReservedInstancesExchangeQuoteResponse%27"><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the successful exchange.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AexchangeId%3AAcceptReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuoteResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#%24sel%3AexchangeId%3AAcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">exchangeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -488,7 +488,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAcceptReservedInstancesExchangeQuoteResponse%27"><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuoteResponse -&gt; Int
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#%24sel%3AhttpStatus%3AAcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681310233"><span id="local-6989586621681310235"><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuoteResponse
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681310242"><span id="local-6989586621681310244"><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuoteResponse
 -&gt; AcceptReservedInstancesExchangeQuoteResponse -&gt; Bool
 (AcceptReservedInstancesExchangeQuoteResponse
  -&gt; AcceptReservedInstancesExchangeQuoteResponse -&gt; Bool)
@@ -504,7 +504,7 @@ $c/= :: AcceptReservedInstancesExchangeQuoteResponse
 -&gt; AcceptReservedInstancesExchangeQuoteResponse -&gt; Bool
 $c== :: AcceptReservedInstancesExchangeQuoteResponse
 -&gt; AcceptReservedInstancesExchangeQuoteResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681310225"><span id="local-6989586621681310227"><span id="local-6989586621681310229"><span id="local-6989586621681310231"><span class="annot"><span class="annottext">ReadPrec [AcceptReservedInstancesExchangeQuoteResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681310234"><span id="local-6989586621681310236"><span id="local-6989586621681310238"><span id="local-6989586621681310240"><span class="annot"><span class="annottext">ReadPrec [AcceptReservedInstancesExchangeQuoteResponse]
 ReadPrec AcceptReservedInstancesExchangeQuoteResponse
 Int -&gt; ReadS AcceptReservedInstancesExchangeQuoteResponse
 ReadS [AcceptReservedInstancesExchangeQuoteResponse]
@@ -524,7 +524,7 @@ readList :: ReadS [AcceptReservedInstancesExchangeQuoteResponse]
 $creadList :: ReadS [AcceptReservedInstancesExchangeQuoteResponse]
 readsPrec :: Int -&gt; ReadS AcceptReservedInstancesExchangeQuoteResponse
 $creadsPrec :: Int -&gt; ReadS AcceptReservedInstancesExchangeQuoteResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681310219"><span id="local-6989586621681310221"><span id="local-6989586621681310223"><span class="annot"><span class="annottext">Int -&gt; AcceptReservedInstancesExchangeQuoteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681310228"><span id="local-6989586621681310230"><span id="local-6989586621681310232"><span class="annot"><span class="annottext">Int -&gt; AcceptReservedInstancesExchangeQuoteResponse -&gt; ShowS
 [AcceptReservedInstancesExchangeQuoteResponse] -&gt; ShowS
 AcceptReservedInstancesExchangeQuoteResponse -&gt; String
 (Int -&gt; AcceptReservedInstancesExchangeQuoteResponse -&gt; ShowS)
@@ -579,8 +579,8 @@ AcceptReservedInstancesExchangeQuoteResponse
 </span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse</span></a></span><span>
 </span><span id="line-199"></span><span id="newAcceptReservedInstancesExchangeQuoteResponse"><span class="annot"><span class="annottext">newAcceptReservedInstancesExchangeQuoteResponse :: Int -&gt; AcceptReservedInstancesExchangeQuoteResponse
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#newAcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-var hs-var">newAcceptReservedInstancesExchangeQuoteResponse</span></a></span></span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621681310216"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681310216"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621681310225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681310225"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuoteResponse' :: Maybe Text -&gt; Int -&gt; AcceptReservedInstancesExchangeQuoteResponse
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:exchangeId:AcceptReservedInstancesExchangeQuoteResponse' :: Maybe Text
@@ -590,7 +590,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptReservedInstancesExchangeQuoteResponse' :: Int
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#%24sel%3AhttpStatus%3AAcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681310216"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681310225"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The ID of the successful exchange.</span><span>
@@ -607,16 +607,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310215"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310224"><span class="annot"><span class="annottext">Maybe Text
 exchangeId :: Maybe Text
 $sel:exchangeId:AcceptReservedInstancesExchangeQuoteResponse' :: AcceptReservedInstancesExchangeQuoteResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681310215"><span class="hs-identifier hs-var hs-var">exchangeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681310215"><span class="hs-identifier hs-var">exchangeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310214"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuoteResponse
-</span><a href="#local-6989586621681310214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310213"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681310213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuoteResponse
-</span><a href="#local-6989586621681310214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exchangeId:AcceptReservedInstancesExchangeQuoteResponse' :: Maybe Text
+</span><a href="#local-6989586621681310224"><span class="hs-identifier hs-var hs-var">exchangeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681310224"><span class="hs-identifier hs-var">exchangeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310223"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681310223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681310222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681310223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exchangeId:AcceptReservedInstancesExchangeQuoteResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#%24sel%3AexchangeId%3AAcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">exchangeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681310213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681310222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#acceptReservedInstancesExchangeQuoteResponse_httpStatus"><span class="hs-identifier hs-type">acceptReservedInstancesExchangeQuoteResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -632,18 +632,18 @@ $sel:exchangeId:AcceptReservedInstancesExchangeQuoteResponse' :: AcceptReservedI
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310212"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681310221"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AcceptReservedInstancesExchangeQuoteResponse' :: AcceptReservedInstancesExchangeQuoteResponse -&gt; Int
-</span><a href="#local-6989586621681310212"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681310212"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310211"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuoteResponse
-</span><a href="#local-6989586621681310211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310210"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681310210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuoteResponse
-</span><a href="#local-6989586621681310211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptReservedInstancesExchangeQuoteResponse' :: Int
+</span><a href="#local-6989586621681310221"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681310221"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681310220"><span class="annot"><span class="annottext">s :: AcceptReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681310220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681310219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681310219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptReservedInstancesExchangeQuoteResponse
+</span><a href="#local-6989586621681310220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptReservedInstancesExchangeQuoteResponse' :: Int
 </span><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#%24sel%3AhttpStatus%3AAcceptReservedInstancesExchangeQuoteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681310210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681310219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621681310208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621681310217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AcceptReservedInstancesExchangeQuote.html#AcceptReservedInstancesExchangeQuoteResponse"><span class="hs-identifier hs-type">AcceptReservedInstancesExchangeQuoteResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

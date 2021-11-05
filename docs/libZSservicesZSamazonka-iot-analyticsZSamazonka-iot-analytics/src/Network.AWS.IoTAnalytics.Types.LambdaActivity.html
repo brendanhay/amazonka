@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An activity that runs a Lambda function to modify the message.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLambdaActivity' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679256616"><span id="local-6989586621679256617"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaActivity"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-var">LambdaActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaActivity%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-var">LambdaActivity'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679256625"><span id="local-6989586621679256626"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaActivity"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-var">LambdaActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaActivity%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-var">LambdaActivity'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The next activity in the pipeline.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Anext%3ALambdaActivity%27"><span class="annot"><span class="annottext">LambdaActivity -&gt; Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#%24sel%3Anext%3ALambdaActivity%27"><span class="hs-identifier hs-var hs-var">next</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AbatchSize%3ALambdaActivity%27"><span class="annot"><span class="annottext">LambdaActivity -&gt; Natural
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#%24sel%3AbatchSize%3ALambdaActivity%27"><span class="hs-identifier hs-var hs-var">batchSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256607"><span id="local-6989586621679256609"><span class="annot"><span class="annottext">LambdaActivity -&gt; LambdaActivity -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256616"><span id="local-6989586621679256618"><span class="annot"><span class="annottext">LambdaActivity -&gt; LambdaActivity -&gt; Bool
 (LambdaActivity -&gt; LambdaActivity -&gt; Bool)
 -&gt; (LambdaActivity -&gt; LambdaActivity -&gt; Bool) -&gt; Eq LambdaActivity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LambdaActivity -&gt; LambdaActivity -&gt; Bool
 == :: LambdaActivity -&gt; LambdaActivity -&gt; Bool
 $c== :: LambdaActivity -&gt; LambdaActivity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256598"><span id="local-6989586621679256600"><span id="local-6989586621679256602"><span id="local-6989586621679256604"><span class="annot"><span class="annottext">ReadPrec [LambdaActivity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256607"><span id="local-6989586621679256609"><span id="local-6989586621679256611"><span id="local-6989586621679256613"><span class="annot"><span class="annottext">ReadPrec [LambdaActivity]
 ReadPrec LambdaActivity
 Int -&gt; ReadS LambdaActivity
 ReadS [LambdaActivity]
@@ -72,7 +72,7 @@ readList :: ReadS [LambdaActivity]
 $creadList :: ReadS [LambdaActivity]
 readsPrec :: Int -&gt; ReadS LambdaActivity
 $creadsPrec :: Int -&gt; ReadS LambdaActivity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256591"><span id="local-6989586621679256593"><span id="local-6989586621679256595"><span class="annot"><span class="annottext">Int -&gt; LambdaActivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256600"><span id="local-6989586621679256602"><span id="local-6989586621679256604"><span class="annot"><span class="annottext">Int -&gt; LambdaActivity -&gt; ShowS
 [LambdaActivity] -&gt; ShowS
 LambdaActivity -&gt; String
 (Int -&gt; LambdaActivity -&gt; ShowS)
@@ -126,10 +126,10 @@ $cfrom :: forall x. LambdaActivity -&gt; Rep LambdaActivity x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span>
 </span><span id="line-72"></span><span id="newLambdaActivity"><span class="annot"><span class="annottext">newLambdaActivity :: Text -&gt; Text -&gt; Natural -&gt; LambdaActivity
-</span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#newLambdaActivity"><span class="hs-identifier hs-var hs-var">newLambdaActivity</span></a></span></span><span> </span><span id="local-6989586621679256585"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679256584"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">pLambdaName_</span></a></span></span><span> </span><span id="local-6989586621679256583"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">pBatchSize_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#newLambdaActivity"><span class="hs-identifier hs-var hs-var">newLambdaActivity</span></a></span></span><span> </span><span id="local-6989586621679256594"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256594"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679256593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256593"><span class="hs-identifier hs-var">pLambdaName_</span></a></span></span><span> </span><span id="local-6989586621679256592"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256592"><span class="hs-identifier hs-var">pBatchSize_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">LambdaActivity' :: Maybe Text -&gt; Text -&gt; Text -&gt; Natural -&gt; LambdaActivity
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:next:LambdaActivity' :: Maybe Text
@@ -138,13 +138,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:LambdaActivity' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#%24sel%3Aname%3ALambdaActivity%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256594"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaName:LambdaActivity' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#%24sel%3AlambdaName%3ALambdaActivity%27"><span class="hs-identifier hs-var">lambdaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">pLambdaName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256593"><span class="hs-identifier hs-var">pLambdaName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:batchSize:LambdaActivity' :: Natural
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#%24sel%3AbatchSize%3ALambdaActivity%27"><span class="hs-identifier hs-var">batchSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">pBatchSize_</span></a></span><span>
+</span><a href="#local-6989586621679256592"><span class="hs-identifier hs-var">pBatchSize_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The next activity in the pipeline.</span><span>
@@ -155,16 +155,16 @@ forall a. Maybe a
 -&gt; (LambdaActivity -&gt; Maybe Text -&gt; LambdaActivity)
 -&gt; Lens LambdaActivity LambdaActivity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256579"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256588"><span class="annot"><span class="annottext">Maybe Text
 next :: Maybe Text
 $sel:next:LambdaActivity' :: LambdaActivity -&gt; Maybe Text
-</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var hs-var">next</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var">next</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256578"><span class="annot"><span class="annottext">s :: LambdaActivity
-</span><a href="#local-6989586621679256578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256577"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaActivity
-</span><a href="#local-6989586621679256578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:next:LambdaActivity' :: Maybe Text
+</span><a href="#local-6989586621679256588"><span class="hs-identifier hs-var hs-var">next</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256588"><span class="hs-identifier hs-var">next</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256587"><span class="annot"><span class="annottext">s :: LambdaActivity
+</span><a href="#local-6989586621679256587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256586"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaActivity
+</span><a href="#local-6989586621679256587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:next:LambdaActivity' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#%24sel%3Anext%3ALambdaActivity%27"><span class="hs-identifier hs-var">next</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The name of the lambda activity.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#lambdaActivity_name"><span class="hs-identifier hs-type">lambdaActivity_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -173,16 +173,16 @@ $sel:next:LambdaActivity' :: LambdaActivity -&gt; Maybe Text
 -&gt; (LambdaActivity -&gt; Text -&gt; LambdaActivity)
 -&gt; Lens LambdaActivity LambdaActivity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256575"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256584"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:LambdaActivity' :: LambdaActivity -&gt; Text
-</span><a href="#local-6989586621679256575"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256575"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256574"><span class="annot"><span class="annottext">s :: LambdaActivity
-</span><a href="#local-6989586621679256574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256573"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaActivity
-</span><a href="#local-6989586621679256574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LambdaActivity' :: Text
+</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256583"><span class="annot"><span class="annottext">s :: LambdaActivity
+</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256582"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaActivity
+</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LambdaActivity' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#%24sel%3Aname%3ALambdaActivity%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The name of the Lambda function that is run on the message.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#lambdaActivity_lambdaName"><span class="hs-identifier hs-type">lambdaActivity_lambdaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -191,16 +191,16 @@ $sel:name:LambdaActivity' :: LambdaActivity -&gt; Text
 -&gt; (LambdaActivity -&gt; Text -&gt; LambdaActivity)
 -&gt; Lens LambdaActivity LambdaActivity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256571"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256580"><span class="annot"><span class="annottext">Text
 lambdaName :: Text
 $sel:lambdaName:LambdaActivity' :: LambdaActivity -&gt; Text
-</span><a href="#local-6989586621679256571"><span class="hs-identifier hs-var hs-var">lambdaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256571"><span class="hs-identifier hs-var">lambdaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256570"><span class="annot"><span class="annottext">s :: LambdaActivity
-</span><a href="#local-6989586621679256570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256569"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaActivity
-</span><a href="#local-6989586621679256570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaName:LambdaActivity' :: Text
+</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var hs-var">lambdaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var">lambdaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256579"><span class="annot"><span class="annottext">s :: LambdaActivity
+</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaActivity
+</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaName:LambdaActivity' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#%24sel%3AlambdaName%3ALambdaActivity%27"><span class="hs-identifier hs-var">lambdaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The number of messages passed to the Lambda function for processing.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
@@ -213,19 +213,19 @@ $sel:lambdaName:LambdaActivity' :: LambdaActivity -&gt; Text
 -&gt; (LambdaActivity -&gt; Natural -&gt; LambdaActivity)
 -&gt; Lens LambdaActivity LambdaActivity Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256567"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256576"><span class="annot"><span class="annottext">Natural
 batchSize :: Natural
 $sel:batchSize:LambdaActivity' :: LambdaActivity -&gt; Natural
-</span><a href="#local-6989586621679256567"><span class="hs-identifier hs-var hs-var">batchSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256567"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256566"><span class="annot"><span class="annottext">s :: LambdaActivity
-</span><a href="#local-6989586621679256566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256565"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaActivity
-</span><a href="#local-6989586621679256566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchSize:LambdaActivity' :: Natural
+</span><a href="#local-6989586621679256576"><span class="hs-identifier hs-var hs-var">batchSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256576"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256575"><span class="annot"><span class="annottext">s :: LambdaActivity
+</span><a href="#local-6989586621679256575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256574"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaActivity
+</span><a href="#local-6989586621679256575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchSize:LambdaActivity' :: Natural
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#%24sel%3AbatchSize%3ALambdaActivity%27"><span class="hs-identifier hs-var">batchSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256562"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679256560"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaActivity
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256571"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679256569"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaActivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LambdaActivity)
@@ -235,8 +235,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LambdaActivity&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256557"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256557"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256566"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256566"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; Natural -&gt; LambdaActivity
 </span><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-var">LambdaActivity'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; Natural -&gt; LambdaActivity)
@@ -244,7 +244,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Natural -&gt; LambdaActivity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679256566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;next&quot;</span></span><span class="hs-special">)</span><span>
@@ -252,7 +252,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Natural -&gt; LambdaActivity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679256566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -260,7 +260,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Natural -&gt; LambdaActivity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679256566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lambdaName&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,19 +268,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser LambdaActivity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256557"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679256566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;batchSize&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256550"><span id="local-6989586621679256552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256559"><span id="local-6989586621679256561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256539"><span id="local-6989586621679256541"><span id="local-6989586621679256543"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679256537"><span class="annot"><span class="annottext">toJSON :: LambdaActivity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256532"><span id="local-6989586621679256533"><span id="local-6989586621679256534"><span id="local-6989586621679256535"><span class="annot"><span class="annottext">Natural
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256548"><span id="local-6989586621679256550"><span id="local-6989586621679256552"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity"><span class="hs-identifier hs-type">LambdaActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679256546"><span class="annot"><span class="annottext">toJSON :: LambdaActivity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LambdaActivity.html#LambdaActivity%27"><span class="hs-identifier hs-type">LambdaActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256541"><span id="local-6989586621679256542"><span id="local-6989586621679256543"><span id="local-6989586621679256544"><span class="annot"><span class="annottext">Natural
 Maybe Text
 Text
 batchSize :: Natural
@@ -291,7 +291,7 @@ $sel:batchSize:LambdaActivity' :: LambdaActivity -&gt; Natural
 $sel:lambdaName:LambdaActivity' :: LambdaActivity -&gt; Text
 $sel:name:LambdaActivity' :: LambdaActivity -&gt; Text
 $sel:next:LambdaActivity' :: LambdaActivity -&gt; Maybe Text
-</span><a href="#local-6989586621679256532"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256541"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -303,28 +303,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256535"><span class="hs-identifier hs-var">next</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256544"><span class="hs-identifier hs-var">next</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256534"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256543"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lambdaName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256533"><span class="hs-identifier hs-var">lambdaName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256542"><span class="hs-identifier hs-var">lambdaName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;batchSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256532"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256541"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span></pre></body></html>

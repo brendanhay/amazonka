@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681088429"><span id="local-6989586621681088430"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvailabilityZoneOptInStatus"><span class="annot"><a href="Network.AWS.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus"><span class="hs-identifier hs-var">AvailabilityZoneOptInStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZoneOptInStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus%27"><span class="hs-identifier hs-var">AvailabilityZoneOptInStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681088438"><span id="local-6989586621681088439"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvailabilityZoneOptInStatus"><span class="annot"><a href="Network.AWS.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus"><span class="hs-identifier hs-var">AvailabilityZoneOptInStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZoneOptInStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.AvailabilityZoneOptInStatus.html#AvailabilityZoneOptInStatus%27"><span class="hs-identifier hs-var">AvailabilityZoneOptInStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvailabilityZoneOptInStatus"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AvailabilityZoneOptInStatus.html#fromAvailabilityZoneOptInStatus"><span class="hs-identifier hs-var hs-var">fromAvailabilityZoneOptInStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088421"><span id="local-6989586621681088423"><span id="local-6989586621681088425"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZoneOptInStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088430"><span id="local-6989586621681088432"><span id="local-6989586621681088434"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZoneOptInStatus -&gt; ShowS
 [AvailabilityZoneOptInStatus] -&gt; ShowS
 AvailabilityZoneOptInStatus -&gt; String
 (Int -&gt; AvailabilityZoneOptInStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AvailabilityZoneOptInStatus -&gt; String
 showsPrec :: Int -&gt; AvailabilityZoneOptInStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AvailabilityZoneOptInStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681088412"><span id="local-6989586621681088414"><span id="local-6989586621681088416"><span id="local-6989586621681088418"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZoneOptInStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681088421"><span id="local-6989586621681088423"><span id="local-6989586621681088425"><span id="local-6989586621681088427"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZoneOptInStatus]
 ReadPrec AvailabilityZoneOptInStatus
 Int -&gt; ReadS AvailabilityZoneOptInStatus
 ReadS [AvailabilityZoneOptInStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AvailabilityZoneOptInStatus]
 readsPrec :: Int -&gt; ReadS AvailabilityZoneOptInStatus
 $creadsPrec :: Int -&gt; ReadS AvailabilityZoneOptInStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681088407"><span id="local-6989586621681088409"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681088416"><span id="local-6989586621681088418"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
 (AvailabilityZoneOptInStatus
  -&gt; AvailabilityZoneOptInStatus -&gt; Bool)
 -&gt; (AvailabilityZoneOptInStatus
@@ -86,7 +86,7 @@ $c/= :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
 == :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
 $c== :: AvailabilityZoneOptInStatus -&gt; AvailabilityZoneOptInStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681088391"><span id="local-6989586621681088393"><span id="local-6989586621681088395"><span id="local-6989586621681088397"><span id="local-6989586621681088399"><span id="local-6989586621681088401"><span id="local-6989586621681088403"><span class="annot"><span class="annottext">Eq AvailabilityZoneOptInStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681088400"><span id="local-6989586621681088402"><span id="local-6989586621681088404"><span id="local-6989586621681088406"><span id="local-6989586621681088408"><span id="local-6989586621681088410"><span id="local-6989586621681088412"><span class="annot"><span class="annottext">Eq AvailabilityZoneOptInStatus
 Eq AvailabilityZoneOptInStatus
 -&gt; (AvailabilityZoneOptInStatus
     -&gt; AvailabilityZoneOptInStatus -&gt; Ordering)
@@ -158,7 +158,7 @@ AvailabilityZoneOptInStatus -&gt; Rep AvailabilityZoneOptInStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088383"><span id="local-6989586621681088385"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZoneOptInStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088392"><span id="local-6989586621681088394"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZoneOptInStatus -&gt; Int
 AvailabilityZoneOptInStatus -&gt; Int
 (Int -&gt; AvailabilityZoneOptInStatus -&gt; Int)
 -&gt; (AvailabilityZoneOptInStatus -&gt; Int)
@@ -169,56 +169,56 @@ $chash :: AvailabilityZoneOptInStatus -&gt; Int
 hashWithSalt :: Int -&gt; AvailabilityZoneOptInStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AvailabilityZoneOptInStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681088380"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681088389"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; ()
 (AvailabilityZoneOptInStatus -&gt; ())
 -&gt; NFData AvailabilityZoneOptInStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AvailabilityZoneOptInStatus -&gt; ()
 $crnf :: AvailabilityZoneOptInStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681088377"><span class="annot"><span class="annottext">Text -&gt; Either String AvailabilityZoneOptInStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681088386"><span class="annot"><span class="annottext">Text -&gt; Either String AvailabilityZoneOptInStatus
 (Text -&gt; Either String AvailabilityZoneOptInStatus)
 -&gt; FromText AvailabilityZoneOptInStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AvailabilityZoneOptInStatus
 $cfromText :: Text -&gt; Either String AvailabilityZoneOptInStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681088374"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681088383"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; Text
 (AvailabilityZoneOptInStatus -&gt; Text)
 -&gt; ToText AvailabilityZoneOptInStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AvailabilityZoneOptInStatus -&gt; Text
 $ctoText :: AvailabilityZoneOptInStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681088371"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681088380"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; ByteString
 (AvailabilityZoneOptInStatus -&gt; ByteString)
 -&gt; ToByteString AvailabilityZoneOptInStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AvailabilityZoneOptInStatus -&gt; ByteString
 $ctoBS :: AvailabilityZoneOptInStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681088368"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681088377"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; ByteStringBuilder
 (AvailabilityZoneOptInStatus -&gt; ByteStringBuilder)
 -&gt; ToLog AvailabilityZoneOptInStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AvailabilityZoneOptInStatus -&gt; ByteStringBuilder
 $cbuild :: AvailabilityZoneOptInStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681088365"><span class="annot"><span class="annottext">HeaderName -&gt; AvailabilityZoneOptInStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681088374"><span class="annot"><span class="annottext">HeaderName -&gt; AvailabilityZoneOptInStatus -&gt; [Header]
 (HeaderName -&gt; AvailabilityZoneOptInStatus -&gt; [Header])
 -&gt; ToHeader AvailabilityZoneOptInStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AvailabilityZoneOptInStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AvailabilityZoneOptInStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681088362"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681088371"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; QueryString
 (AvailabilityZoneOptInStatus -&gt; QueryString)
 -&gt; ToQuery AvailabilityZoneOptInStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AvailabilityZoneOptInStatus -&gt; QueryString
 $ctoQuery :: AvailabilityZoneOptInStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681088357"><span id="local-6989586621681088359"><span class="annot"><span class="annottext">Value -&gt; Parser [AvailabilityZoneOptInStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681088366"><span id="local-6989586621681088368"><span class="annot"><span class="annottext">Value -&gt; Parser [AvailabilityZoneOptInStatus]
 Value -&gt; Parser AvailabilityZoneOptInStatus
 (Value -&gt; Parser AvailabilityZoneOptInStatus)
 -&gt; (Value -&gt; Parser [AvailabilityZoneOptInStatus])
@@ -230,7 +230,7 @@ $cparseJSONList :: Value -&gt; Parser [AvailabilityZoneOptInStatus]
 parseJSON :: Value -&gt; Parser AvailabilityZoneOptInStatus
 $cparseJSON :: Value -&gt; Parser AvailabilityZoneOptInStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681088352"><span id="local-6989586621681088354"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvailabilityZoneOptInStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681088361"><span id="local-6989586621681088363"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvailabilityZoneOptInStatus]
 FromJSONKeyFunction AvailabilityZoneOptInStatus
 FromJSONKeyFunction AvailabilityZoneOptInStatus
 -&gt; FromJSONKeyFunction [AvailabilityZoneOptInStatus]
@@ -242,7 +242,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AvailabilityZoneOptInStatus]
 fromJSONKey :: FromJSONKeyFunction AvailabilityZoneOptInStatus
 $cfromJSONKey :: FromJSONKeyFunction AvailabilityZoneOptInStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681088343"><span id="local-6989586621681088345"><span id="local-6989586621681088347"><span id="local-6989586621681088349"><span class="annot"><span class="annottext">[AvailabilityZoneOptInStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681088352"><span id="local-6989586621681088354"><span id="local-6989586621681088356"><span id="local-6989586621681088358"><span class="annot"><span class="annottext">[AvailabilityZoneOptInStatus] -&gt; Encoding
 [AvailabilityZoneOptInStatus] -&gt; Value
 AvailabilityZoneOptInStatus -&gt; Encoding
 AvailabilityZoneOptInStatus -&gt; Value
@@ -266,7 +266,7 @@ $ctoEncoding :: AvailabilityZoneOptInStatus -&gt; Encoding
 toJSON :: AvailabilityZoneOptInStatus -&gt; Value
 $ctoJSON :: AvailabilityZoneOptInStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681088338"><span id="local-6989586621681088340"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvailabilityZoneOptInStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681088347"><span id="local-6989586621681088349"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvailabilityZoneOptInStatus]
 ToJSONKeyFunction AvailabilityZoneOptInStatus
 ToJSONKeyFunction AvailabilityZoneOptInStatus
 -&gt; ToJSONKeyFunction [AvailabilityZoneOptInStatus]
@@ -278,14 +278,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AvailabilityZoneOptInStatus]
 toJSONKey :: ToJSONKeyFunction AvailabilityZoneOptInStatus
 $ctoJSONKey :: ToJSONKeyFunction AvailabilityZoneOptInStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681088335"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvailabilityZoneOptInStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681088344"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvailabilityZoneOptInStatus
 ([Node] -&gt; Either String AvailabilityZoneOptInStatus)
 -&gt; FromXML AvailabilityZoneOptInStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AvailabilityZoneOptInStatus
 $cparseXML :: [Node] -&gt; Either String AvailabilityZoneOptInStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681088332"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681088341"><span class="annot"><span class="annottext">AvailabilityZoneOptInStatus -&gt; XML
 (AvailabilityZoneOptInStatus -&gt; XML)
 -&gt; ToXML AvailabilityZoneOptInStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

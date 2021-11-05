@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains a list of cookie names.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCookieNames' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679388747"><span id="local-6989586621679388748"></span></span><span class="hs-keyword">data</span><span> </span><span id="CookieNames"><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-var">CookieNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CookieNames%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-var">CookieNames'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679388756"><span id="local-6989586621679388757"></span></span><span class="hs-keyword">data</span><span> </span><span id="CookieNames"><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-var">CookieNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CookieNames%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-var">CookieNames'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of cookie names.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aitems%3ACookieNames%27"><span class="annot"><span class="annottext">CookieNames -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.CookieNames.html#%24sel%3Aitems%3ACookieNames%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aquantity%3ACookieNames%27"><span class="annot"><span class="annottext">CookieNames -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.CookieNames.html#%24sel%3Aquantity%3ACookieNames%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388740"><span id="local-6989586621679388742"><span class="annot"><span class="annottext">CookieNames -&gt; CookieNames -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388749"><span id="local-6989586621679388751"><span class="annot"><span class="annottext">CookieNames -&gt; CookieNames -&gt; Bool
 (CookieNames -&gt; CookieNames -&gt; Bool)
 -&gt; (CookieNames -&gt; CookieNames -&gt; Bool) -&gt; Eq CookieNames
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CookieNames -&gt; CookieNames -&gt; Bool
 == :: CookieNames -&gt; CookieNames -&gt; Bool
 $c== :: CookieNames -&gt; CookieNames -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388731"><span id="local-6989586621679388733"><span id="local-6989586621679388735"><span id="local-6989586621679388737"><span class="annot"><span class="annottext">ReadPrec [CookieNames]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388740"><span id="local-6989586621679388742"><span id="local-6989586621679388744"><span id="local-6989586621679388746"><span class="annot"><span class="annottext">ReadPrec [CookieNames]
 ReadPrec CookieNames
 Int -&gt; ReadS CookieNames
 ReadS [CookieNames]
@@ -62,7 +62,7 @@ readList :: ReadS [CookieNames]
 $creadList :: ReadS [CookieNames]
 readsPrec :: Int -&gt; ReadS CookieNames
 $creadsPrec :: Int -&gt; ReadS CookieNames
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388724"><span id="local-6989586621679388726"><span id="local-6989586621679388728"><span class="annot"><span class="annottext">Int -&gt; CookieNames -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388733"><span id="local-6989586621679388735"><span id="local-6989586621679388737"><span class="annot"><span class="annottext">Int -&gt; CookieNames -&gt; ShowS
 [CookieNames] -&gt; ShowS
 CookieNames -&gt; String
 (Int -&gt; CookieNames -&gt; ShowS)
@@ -104,8 +104,8 @@ $cfrom :: forall x. CookieNames -&gt; Rep CookieNames x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span><span>
 </span><span id="line-52"></span><span id="newCookieNames"><span class="annot"><span class="annottext">newCookieNames :: Int -&gt; CookieNames
-</span><a href="Network.AWS.CloudFront.Types.CookieNames.html#newCookieNames"><span class="hs-identifier hs-var hs-var">newCookieNames</span></a></span></span><span> </span><span id="local-6989586621679388718"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388718"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.CookieNames.html#newCookieNames"><span class="hs-identifier hs-var hs-var">newCookieNames</span></a></span></span><span> </span><span id="local-6989586621679388727"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388727"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">CookieNames' :: Maybe [Text] -&gt; Int -&gt; CookieNames
 </span><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:CookieNames' :: Maybe [Text]
@@ -114,7 +114,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:CookieNames' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CookieNames.html#%24sel%3Aquantity%3ACookieNames%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388718"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679388727"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | A list of cookie names.</span><span>
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (CookieNames -&gt; Maybe [Text] -&gt; CookieNames)
 -&gt; Lens CookieNames CookieNames (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388714"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388723"><span class="annot"><span class="annottext">Maybe [Text]
 items :: Maybe [Text]
 $sel:items:CookieNames' :: CookieNames -&gt; Maybe [Text]
-</span><a href="#local-6989586621679388714"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388714"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388713"><span class="annot"><span class="annottext">s :: CookieNames
-</span><a href="#local-6989586621679388713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388712"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookieNames
-</span><a href="#local-6989586621679388713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:CookieNames' :: Maybe [Text]
+</span><a href="#local-6989586621679388723"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679388723"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388722"><span class="annot"><span class="annottext">s :: CookieNames
+</span><a href="#local-6989586621679388722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388721"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679388721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookieNames
+</span><a href="#local-6989586621679388722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:CookieNames' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.CookieNames.html#%24sel%3Aitems%3ACookieNames%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679388721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CookieNames -&gt; f CookieNames)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -157,21 +157,21 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CookieNames -&gt; Int -&gt; CookieNames)
 -&gt; Lens CookieNames CookieNames Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388707"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388716"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:CookieNames' :: CookieNames -&gt; Int
-</span><a href="#local-6989586621679388707"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388707"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388706"><span class="annot"><span class="annottext">s :: CookieNames
-</span><a href="#local-6989586621679388706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388705"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookieNames
-</span><a href="#local-6989586621679388706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:CookieNames' :: Int
+</span><a href="#local-6989586621679388716"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388716"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388715"><span class="annot"><span class="annottext">s :: CookieNames
+</span><a href="#local-6989586621679388715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388714"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CookieNames
+</span><a href="#local-6989586621679388715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:CookieNames' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CookieNames.html#%24sel%3Aquantity%3ACookieNames%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679388702"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CookieNames
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679388700"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388700"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679388711"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CookieNames
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679388709"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679388709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Int -&gt; CookieNames
 </span><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-var">CookieNames'</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Int -&gt; CookieNames)
@@ -179,7 +179,7 @@ $sel:quantity:CookieNames' :: CookieNames -&gt; Int
 -&gt; Either String (Int -&gt; CookieNames)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679388709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -205,24 +205,24 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Int -&gt; Either String CookieNames
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679388700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679388709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388690"><span id="local-6989586621679388692"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388699"><span id="local-6989586621679388701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames"><span class="hs-identifier hs-type">CookieNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679388683"><span class="annot"><span class="annottext">toXML :: CookieNames -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388680"><span id="local-6989586621679388681"><span class="annot"><span class="annottext">Int
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679388692"><span class="annot"><span class="annottext">toXML :: CookieNames -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CookieNames.html#CookieNames%27"><span class="hs-identifier hs-type">CookieNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388689"><span id="local-6989586621679388690"><span class="annot"><span class="annottext">Int
 Maybe [Text]
 quantity :: Int
 items :: Maybe [Text]
 $sel:quantity:CookieNames' :: CookieNames -&gt; Int
 $sel:items:CookieNames' :: CookieNames -&gt; Maybe [Text]
-</span><a href="#local-6989586621679388680"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388689"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -238,11 +238,11 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; XML) -&gt; Maybe [Text] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388681"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388690"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388680"><span class="hs-identifier hs-var">quantity</span></a></span><span>
+</span><a href="#local-6989586621679388689"><span class="hs-identifier hs-var">quantity</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span></pre></body></html>

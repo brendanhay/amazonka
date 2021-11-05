@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeNotificationConfigurations' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679341856"><span id="local-6989586621679341857"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNotificationConfigurations"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-var">DescribeNotificationConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNotificationConfigurations%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-var">DescribeNotificationConfigurations'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679341865"><span id="local-6989586621679341866"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNotificationConfigurations"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-var">DescribeNotificationConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNotificationConfigurations%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-var">DescribeNotificationConfigurations'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AautoScalingGroupNames%3ADescribeNotificationConfigurations%27"><span class="annot"><span class="annottext">DescribeNotificationConfigurations -&gt; Maybe [Text]
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AautoScalingGroupNames%3ADescribeNotificationConfigurations%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeNotificationConfigurations%27"><span class="annot"><span class="annottext">DescribeNotificationConfigurations -&gt; Maybe Int
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AmaxRecords%3ADescribeNotificationConfigurations%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341848"><span id="local-6989586621679341850"><span class="annot"><span class="annottext">DescribeNotificationConfigurations
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341857"><span id="local-6989586621679341859"><span class="annot"><span class="annottext">DescribeNotificationConfigurations
 -&gt; DescribeNotificationConfigurations -&gt; Bool
 (DescribeNotificationConfigurations
  -&gt; DescribeNotificationConfigurations -&gt; Bool)
@@ -82,7 +82,7 @@ $c/= :: DescribeNotificationConfigurations
 -&gt; DescribeNotificationConfigurations -&gt; Bool
 $c== :: DescribeNotificationConfigurations
 -&gt; DescribeNotificationConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341839"><span id="local-6989586621679341841"><span id="local-6989586621679341843"><span id="local-6989586621679341845"><span class="annot"><span class="annottext">ReadPrec [DescribeNotificationConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341848"><span id="local-6989586621679341850"><span id="local-6989586621679341852"><span id="local-6989586621679341854"><span class="annot"><span class="annottext">ReadPrec [DescribeNotificationConfigurations]
 ReadPrec DescribeNotificationConfigurations
 Int -&gt; ReadS DescribeNotificationConfigurations
 ReadS [DescribeNotificationConfigurations]
@@ -102,7 +102,7 @@ readList :: ReadS [DescribeNotificationConfigurations]
 $creadList :: ReadS [DescribeNotificationConfigurations]
 readsPrec :: Int -&gt; ReadS DescribeNotificationConfigurations
 $creadsPrec :: Int -&gt; ReadS DescribeNotificationConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341832"><span id="local-6989586621679341834"><span id="local-6989586621679341836"><span class="annot"><span class="annottext">Int -&gt; DescribeNotificationConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341841"><span id="local-6989586621679341843"><span id="local-6989586621679341845"><span class="annot"><span class="annottext">Int -&gt; DescribeNotificationConfigurations -&gt; ShowS
 [DescribeNotificationConfigurations] -&gt; ShowS
 DescribeNotificationConfigurations -&gt; String
 (Int -&gt; DescribeNotificationConfigurations -&gt; ShowS)
@@ -191,16 +191,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341826"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341835"><span class="annot"><span class="annottext">Maybe [Text]
 autoScalingGroupNames :: Maybe [Text]
 $sel:autoScalingGroupNames:DescribeNotificationConfigurations' :: DescribeNotificationConfigurations -&gt; Maybe [Text]
-</span><a href="#local-6989586621679341826"><span class="hs-identifier hs-var hs-var">autoScalingGroupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341826"><span class="hs-identifier hs-var">autoScalingGroupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341825"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurations
-</span><a href="#local-6989586621679341825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341824"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurations
-</span><a href="#local-6989586621679341825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupNames:DescribeNotificationConfigurations' :: Maybe [Text]
+</span><a href="#local-6989586621679341835"><span class="hs-identifier hs-var hs-var">autoScalingGroupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341835"><span class="hs-identifier hs-var">autoScalingGroupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341834"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurations
+</span><a href="#local-6989586621679341834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341833"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurations
+</span><a href="#local-6989586621679341834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupNames:DescribeNotificationConfigurations' :: Maybe [Text]
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AautoScalingGroupNames%3ADescribeNotificationConfigurations%27"><span class="hs-identifier hs-var">autoScalingGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679341833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeNotificationConfigurations
  -&gt; f DescribeNotificationConfigurations)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -233,16 +233,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341820"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341829"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeNotificationConfigurations' :: DescribeNotificationConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679341820"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341820"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341819"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurations
-</span><a href="#local-6989586621679341819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341818"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurations
-</span><a href="#local-6989586621679341819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeNotificationConfigurations' :: Maybe Text
+</span><a href="#local-6989586621679341829"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341829"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341828"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurations
+</span><a href="#local-6989586621679341828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurations
+</span><a href="#local-6989586621679341828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeNotificationConfigurations' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AnextToken%3ADescribeNotificationConfigurations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The maximum number of items to return with this call. The default value</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- is @50@ and the maximum value is @100@.</span><span>
@@ -259,33 +259,33 @@ $sel:nextToken:DescribeNotificationConfigurations' :: DescribeNotificationConfig
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341817"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341826"><span class="annot"><span class="annottext">Maybe Int
 maxRecords :: Maybe Int
 $sel:maxRecords:DescribeNotificationConfigurations' :: DescribeNotificationConfigurations -&gt; Maybe Int
-</span><a href="#local-6989586621679341817"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341817"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341816"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurations
-</span><a href="#local-6989586621679341816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341815"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurations
-</span><a href="#local-6989586621679341816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeNotificationConfigurations' :: Maybe Int
+</span><a href="#local-6989586621679341826"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341826"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341825"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurations
+</span><a href="#local-6989586621679341825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341824"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurations
+</span><a href="#local-6989586621679341825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeNotificationConfigurations' :: Maybe Int
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AmaxRecords%3ADescribeNotificationConfigurations%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679341811"><span class="annot"><span class="annottext">page :: DescribeNotificationConfigurations
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679341820"><span class="annot"><span class="annottext">page :: DescribeNotificationConfigurations
 -&gt; AWSResponse DescribeNotificationConfigurations
 -&gt; Maybe DescribeNotificationConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679341809"><span class="annot"><span class="annottext">DescribeNotificationConfigurations
-</span><a href="#local-6989586621679341809"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679341808"><span class="annot"><span class="annottext">AWSResponse DescribeNotificationConfigurations
-</span><a href="#local-6989586621679341808"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679341818"><span class="annot"><span class="annottext">DescribeNotificationConfigurations
+</span><a href="#local-6989586621679341818"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679341817"><span class="annot"><span class="annottext">AWSResponse DescribeNotificationConfigurations
+</span><a href="#local-6989586621679341817"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNotificationConfigurations
 DescribeNotificationConfigurationsResponse
-</span><a href="#local-6989586621679341808"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679341817"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
 -&gt; Getting
      (First Text) DescribeNotificationConfigurationsResponse Text
@@ -317,7 +317,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNotificationConfigurations
 DescribeNotificationConfigurationsResponse
-</span><a href="#local-6989586621679341808"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679341817"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
 -&gt; Getting
      [NotificationConfiguration]
@@ -349,7 +349,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">DescribeNotificationConfigurations
-</span><a href="#local-6989586621679341809"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679341818"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">DescribeNotificationConfigurations
 -&gt; (DescribeNotificationConfigurations
     -&gt; DescribeNotificationConfigurations)
@@ -373,7 +373,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNotificationConfigurations
 DescribeNotificationConfigurationsResponse
-</span><a href="#local-6989586621679341808"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679341817"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
 -&gt; Getting
      (First Text) DescribeNotificationConfigurationsResponse Text
@@ -404,7 +404,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679341798"><span class="annot"><span class="annottext">request :: DescribeNotificationConfigurations
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679341807"><span class="annot"><span class="annottext">request :: DescribeNotificationConfigurations
 -&gt; Request DescribeNotificationConfigurations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeNotificationConfigurations
@@ -412,7 +412,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679341794"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679341803"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeNotificationConfigurations
 -&gt; ClientResponse ClientBody
@@ -445,10 +445,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeNotificationConfigurationsResult&quot;</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341791"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341791"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341790"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679341790"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341789"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679341789"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341800"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341800"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341799"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679341799"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341798"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679341798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Int
 -&gt; [NotificationConfiguration]
@@ -466,7 +466,7 @@ Text
       -&gt; DescribeNotificationConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679341789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679341798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -486,7 +486,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341791"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341800"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
   ([NotificationConfiguration]
@@ -495,7 +495,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String DescribeNotificationConfigurationsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679341789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679341798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotificationConfigurations&quot;</span></span><span>
@@ -516,18 +516,18 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679341779"><span id="local-6989586621679341781"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679341788"><span id="local-6989586621679341790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679341776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679341785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679341772"><span class="annot"><span class="annottext">toHeaders :: DescribeNotificationConfigurations -&gt; ResponseHeaders
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679341781"><span class="annot"><span class="annottext">toHeaders :: DescribeNotificationConfigurations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeNotificationConfigurations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -539,7 +539,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679341767"><span class="annot"><span class="annottext">toPath :: DescribeNotificationConfigurations -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679341776"><span class="annot"><span class="annottext">toPath :: DescribeNotificationConfigurations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeNotificationConfigurations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -549,8 +549,8 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations"><span class="hs-identifier hs-type">DescribeNotificationConfigurations</span></a></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679341763"><span class="annot"><span class="annottext">toQuery :: DescribeNotificationConfigurations -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341759"><span id="local-6989586621679341760"><span id="local-6989586621679341761"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679341772"><span class="annot"><span class="annottext">toQuery :: DescribeNotificationConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurations%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341768"><span id="local-6989586621679341769"><span id="local-6989586621679341770"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
 maxRecords :: Maybe Int
@@ -559,7 +559,7 @@ autoScalingGroupNames :: Maybe [Text]
 $sel:maxRecords:DescribeNotificationConfigurations' :: DescribeNotificationConfigurations -&gt; Maybe Int
 $sel:nextToken:DescribeNotificationConfigurations' :: DescribeNotificationConfigurations -&gt; Maybe Text
 $sel:autoScalingGroupNames:DescribeNotificationConfigurations' :: DescribeNotificationConfigurations -&gt; Maybe [Text]
-</span><a href="#local-6989586621679341759"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679341768"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -593,22 +593,22 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-187"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341761"><span class="hs-identifier hs-var">autoScalingGroupNames</span></a></span><span>
+</span><a href="#local-6989586621679341770"><span class="hs-identifier hs-var">autoScalingGroupNames</span></a></span><span>
 </span><span id="line-188"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341760"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341769"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341759"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
+</span><a href="#local-6989586621679341768"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newDescribeNotificationConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-194"></span><span id="local-6989586621679341755"><span id="local-6989586621679341756"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNotificationConfigurationsResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-var">DescribeNotificationConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNotificationConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeNotificationConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span id="local-6989586621679341764"><span id="local-6989586621679341765"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNotificationConfigurationsResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-var">DescribeNotificationConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNotificationConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-var">DescribeNotificationConfigurationsResponse'</span></a></span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that indicates that the response contains more items than can</span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-comment">-- be returned in a single response. To receive additional items, specify</span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-comment">-- this string for the @NextToken@ value when requesting the next set of</span><span>
@@ -623,7 +623,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 -&gt; [NotificationConfiguration]
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AnotificationConfigurations%3ADescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">notificationConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-204"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341748"><span id="local-6989586621679341750"><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341757"><span id="local-6989586621679341759"><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
 -&gt; DescribeNotificationConfigurationsResponse -&gt; Bool
 (DescribeNotificationConfigurationsResponse
  -&gt; DescribeNotificationConfigurationsResponse -&gt; Bool)
@@ -639,7 +639,7 @@ $c/= :: DescribeNotificationConfigurationsResponse
 -&gt; DescribeNotificationConfigurationsResponse -&gt; Bool
 $c== :: DescribeNotificationConfigurationsResponse
 -&gt; DescribeNotificationConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341740"><span id="local-6989586621679341742"><span id="local-6989586621679341744"><span id="local-6989586621679341746"><span class="annot"><span class="annottext">ReadPrec [DescribeNotificationConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341749"><span id="local-6989586621679341751"><span id="local-6989586621679341753"><span id="local-6989586621679341755"><span class="annot"><span class="annottext">ReadPrec [DescribeNotificationConfigurationsResponse]
 ReadPrec DescribeNotificationConfigurationsResponse
 Int -&gt; ReadS DescribeNotificationConfigurationsResponse
 ReadS [DescribeNotificationConfigurationsResponse]
@@ -659,7 +659,7 @@ readList :: ReadS [DescribeNotificationConfigurationsResponse]
 $creadList :: ReadS [DescribeNotificationConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeNotificationConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeNotificationConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341734"><span id="local-6989586621679341736"><span id="local-6989586621679341738"><span class="annot"><span class="annottext">Int -&gt; DescribeNotificationConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341743"><span id="local-6989586621679341745"><span id="local-6989586621679341747"><span class="annot"><span class="annottext">Int -&gt; DescribeNotificationConfigurationsResponse -&gt; ShowS
 [DescribeNotificationConfigurationsResponse] -&gt; ShowS
 DescribeNotificationConfigurationsResponse -&gt; String
 (Int -&gt; DescribeNotificationConfigurationsResponse -&gt; ShowS)
@@ -719,8 +719,8 @@ DescribeNotificationConfigurationsResponse
 </span><span id="line-226"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span>
 </span><span id="line-227"></span><span id="newDescribeNotificationConfigurationsResponse"><span class="annot"><span class="annottext">newDescribeNotificationConfigurationsResponse :: Int -&gt; DescribeNotificationConfigurationsResponse
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#newDescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeNotificationConfigurationsResponse</span></a></span></span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679341731"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679341740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse' :: Maybe Text
 -&gt; Int
 -&gt; [NotificationConfiguration]
@@ -733,7 +733,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNotificationConfigurationsResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AhttpStatus%3ADescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">$sel:notificationConfigurations:DescribeNotificationConfigurationsResponse' :: [NotificationConfiguration]
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AnotificationConfigurations%3ADescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-var">notificationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">[NotificationConfiguration]
@@ -754,16 +754,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; DescribeNotificationConfigurationsResponse)
 -&gt; Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341730"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341739"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeNotificationConfigurationsResponse' :: DescribeNotificationConfigurationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679341730"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341730"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341729"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurationsResponse
-</span><a href="#local-6989586621679341729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341728"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
-</span><a href="#local-6989586621679341729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeNotificationConfigurationsResponse' :: Maybe Text
+</span><a href="#local-6989586621679341739"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341739"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341738"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurationsResponse
+</span><a href="#local-6989586621679341738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341737"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
+</span><a href="#local-6989586621679341738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeNotificationConfigurationsResponse' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AnextToken%3ADescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-245"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#describeNotificationConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">describeNotificationConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -779,16 +779,16 @@ $sel:nextToken:DescribeNotificationConfigurationsResponse' :: DescribeNotificati
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341727"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341736"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeNotificationConfigurationsResponse' :: DescribeNotificationConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679341727"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341727"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341726"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurationsResponse
-</span><a href="#local-6989586621679341726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341725"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
-</span><a href="#local-6989586621679341726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNotificationConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679341736"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341736"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341735"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurationsResponse
+</span><a href="#local-6989586621679341735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341734"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
+</span><a href="#local-6989586621679341735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNotificationConfigurationsResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AhttpStatus%3ADescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The notification configurations.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#describeNotificationConfigurationsResponse_notificationConfigurations"><span class="hs-identifier hs-type">describeNotificationConfigurationsResponse_notificationConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">]</span><span>
@@ -804,17 +804,17 @@ $sel:httpStatus:DescribeNotificationConfigurationsResponse' :: DescribeNotificat
      DescribeNotificationConfigurationsResponse
      [NotificationConfiguration]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341724"><span class="annot"><span class="annottext">[NotificationConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341733"><span class="annot"><span class="annottext">[NotificationConfiguration]
 notificationConfigurations :: [NotificationConfiguration]
 $sel:notificationConfigurations:DescribeNotificationConfigurationsResponse' :: DescribeNotificationConfigurationsResponse
 -&gt; [NotificationConfiguration]
-</span><a href="#local-6989586621679341724"><span class="hs-identifier hs-var hs-var">notificationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[NotificationConfiguration]
-</span><a href="#local-6989586621679341724"><span class="hs-identifier hs-var">notificationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341723"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurationsResponse
-</span><a href="#local-6989586621679341723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341722"><span class="annot"><span class="annottext">[NotificationConfiguration]
-</span><a href="#local-6989586621679341722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
-</span><a href="#local-6989586621679341723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfigurations:DescribeNotificationConfigurationsResponse' :: [NotificationConfiguration]
+</span><a href="#local-6989586621679341733"><span class="hs-identifier hs-var hs-var">notificationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[NotificationConfiguration]
+</span><a href="#local-6989586621679341733"><span class="hs-identifier hs-var">notificationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341732"><span class="annot"><span class="annottext">s :: DescribeNotificationConfigurationsResponse
+</span><a href="#local-6989586621679341732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341731"><span class="annot"><span class="annottext">[NotificationConfiguration]
+</span><a href="#local-6989586621679341731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNotificationConfigurationsResponse
+</span><a href="#local-6989586621679341732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfigurations:DescribeNotificationConfigurationsResponse' :: [NotificationConfiguration]
 </span><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#%24sel%3AnotificationConfigurations%3ADescribeNotificationConfigurationsResponse%27"><span class="hs-identifier hs-var">notificationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[NotificationConfiguration]
-</span><a href="#local-6989586621679341722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([NotificationConfiguration] -&gt; f [NotificationConfiguration])
+</span><a href="#local-6989586621679341731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([NotificationConfiguration] -&gt; f [NotificationConfiguration])
  -&gt; DescribeNotificationConfigurationsResponse
  -&gt; f DescribeNotificationConfigurationsResponse)
 -&gt; (([NotificationConfiguration] -&gt; f [NotificationConfiguration])
@@ -829,6 +829,6 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621679341720"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679341729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeNotificationConfigurations.html#DescribeNotificationConfigurationsResponse"><span class="hs-identifier hs-type">DescribeNotificationConfigurationsResponse</span></a></span></span><span>
 </span><span id="line-255"></span></pre></body></html>

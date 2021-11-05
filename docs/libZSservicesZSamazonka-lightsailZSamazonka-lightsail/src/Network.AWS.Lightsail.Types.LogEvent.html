@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a database log event.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLogEvent' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679615521"><span id="local-6989586621679615522"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogEvent"><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-var">LogEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogEvent%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-var">LogEvent'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679615530"><span id="local-6989586621679615531"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogEvent"><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-var">LogEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogEvent%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-var">LogEvent'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp when the database log event was created.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreatedAt%3ALogEvent%27"><span class="annot"><span class="annottext">LogEvent -&gt; Maybe POSIX
 </span><a href="Network.AWS.Lightsail.Types.LogEvent.html#%24sel%3AcreatedAt%3ALogEvent%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3ALogEvent%27"><span class="annot"><span class="annottext">LogEvent -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.LogEvent.html#%24sel%3Amessage%3ALogEvent%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679615514"><span id="local-6989586621679615516"><span class="annot"><span class="annottext">LogEvent -&gt; LogEvent -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679615523"><span id="local-6989586621679615525"><span class="annot"><span class="annottext">LogEvent -&gt; LogEvent -&gt; Bool
 (LogEvent -&gt; LogEvent -&gt; Bool)
 -&gt; (LogEvent -&gt; LogEvent -&gt; Bool) -&gt; Eq LogEvent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LogEvent -&gt; LogEvent -&gt; Bool
 == :: LogEvent -&gt; LogEvent -&gt; Bool
 $c== :: LogEvent -&gt; LogEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679615505"><span id="local-6989586621679615507"><span id="local-6989586621679615509"><span id="local-6989586621679615511"><span class="annot"><span class="annottext">ReadPrec [LogEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679615514"><span id="local-6989586621679615516"><span id="local-6989586621679615518"><span id="local-6989586621679615520"><span class="annot"><span class="annottext">ReadPrec [LogEvent]
 ReadPrec LogEvent
 Int -&gt; ReadS LogEvent
 ReadS [LogEvent]
@@ -62,7 +62,7 @@ readList :: ReadS [LogEvent]
 $creadList :: ReadS [LogEvent]
 readsPrec :: Int -&gt; ReadS LogEvent
 $creadsPrec :: Int -&gt; ReadS LogEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679615498"><span id="local-6989586621679615500"><span id="local-6989586621679615502"><span class="annot"><span class="annottext">Int -&gt; LogEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679615507"><span id="local-6989586621679615509"><span id="local-6989586621679615511"><span class="annot"><span class="annottext">Int -&gt; LogEvent -&gt; ShowS
 [LogEvent] -&gt; ShowS
 LogEvent -&gt; String
 (Int -&gt; LogEvent -&gt; ShowS)
@@ -119,16 +119,16 @@ forall a. Maybe a
 -&gt; (LogEvent -&gt; Maybe POSIX -&gt; LogEvent)
 -&gt; Lens LogEvent LogEvent (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-type">LogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615489"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-type">LogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615498"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:LogEvent' :: LogEvent -&gt; Maybe POSIX
-</span><a href="#local-6989586621679615489"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679615489"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615488"><span class="annot"><span class="annottext">s :: LogEvent
-</span><a href="#local-6989586621679615488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-type">LogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615487"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679615487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogEvent
-</span><a href="#local-6989586621679615488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:LogEvent' :: Maybe POSIX
+</span><a href="#local-6989586621679615498"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679615498"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615497"><span class="annot"><span class="annottext">s :: LogEvent
+</span><a href="#local-6989586621679615497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-type">LogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615496"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679615496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogEvent
+</span><a href="#local-6989586621679615497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:LogEvent' :: Maybe POSIX
 </span><a href="Network.AWS.Lightsail.Types.LogEvent.html#%24sel%3AcreatedAt%3ALogEvent%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679615487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; LogEvent -&gt; f LogEvent)
+</span><a href="#local-6989586621679615496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; LogEvent -&gt; f LogEvent)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -151,34 +151,34 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (LogEvent -&gt; Maybe Text -&gt; LogEvent)
 -&gt; Lens LogEvent LogEvent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-type">LogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615482"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-type">LogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679615491"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:LogEvent' :: LogEvent -&gt; Maybe Text
-</span><a href="#local-6989586621679615482"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679615482"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615481"><span class="annot"><span class="annottext">s :: LogEvent
-</span><a href="#local-6989586621679615481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-type">LogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615480"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679615480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogEvent
-</span><a href="#local-6989586621679615481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:LogEvent' :: Maybe Text
+</span><a href="#local-6989586621679615491"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679615491"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679615490"><span class="annot"><span class="annottext">s :: LogEvent
+</span><a href="#local-6989586621679615490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-type">LogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679615489"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679615489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogEvent
+</span><a href="#local-6989586621679615490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:LogEvent' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.LogEvent.html#%24sel%3Amessage%3ALogEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679615480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679615489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615477"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679615475"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogEvent
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615486"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679615484"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser LogEvent) -&gt; Value -&gt; Parser LogEvent
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LogEvent&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679615472"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615472"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679615481"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679615481"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Text -&gt; LogEvent
 </span><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent%27"><span class="hs-identifier hs-var">LogEvent'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Text -&gt; LogEvent)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; LogEvent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679615481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,13 +186,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser LogEvent
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679615472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679615481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615466"><span id="local-6989586621679615468"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615475"><span id="local-6989586621679615477"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615463"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679615472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.LogEvent.html#LogEvent"><span class="hs-identifier hs-type">LogEvent</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEvents.Types.DetectorModelVersionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEvents.Types.DetectorModelVersionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus"><span class="hs-identifier">DetectorModelVersionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_ACTIVATING"><span class="hs-identifier">DetectorModelVersionStatus_ACTIVATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_ACTIVE"><span class="hs-identifier">DetectorModelVersionStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_DEPRECATED"><span class="hs-identifier">DetectorModelVersionStatus_DEPRECATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_DRAFT"><span class="hs-identifier">DetectorModelVersionStatus_DRAFT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_FAILED"><span class="hs-identifier">DetectorModelVersionStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_INACTIVE"><span class="hs-identifier">DetectorModelVersionStatus_INACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_PAUSED"><span class="hs-identifier">DetectorModelVersionStatus_PAUSED</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679240001"><span id="local-6989586621679240002"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DetectorModelVersionStatus"><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus"><span class="hs-identifier hs-var">DetectorModelVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectorModelVersionStatus%27"><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus%27"><span class="hs-identifier hs-var">DetectorModelVersionStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDetectorModelVersionStatus"><span class="annot"><span class="annottext">DetectorModelVersionStatus -&gt; Text
+</span><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#fromDetectorModelVersionStatus"><span class="hs-identifier hs-var hs-var">fromDetectorModelVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239993"><span id="local-6989586621679239995"><span id="local-6989586621679239997"><span class="annot"><span class="annottext">Int -&gt; DetectorModelVersionStatus -&gt; ShowS
+[DetectorModelVersionStatus] -&gt; ShowS
+DetectorModelVersionStatus -&gt; String
+(Int -&gt; DetectorModelVersionStatus -&gt; ShowS)
+-&gt; (DetectorModelVersionStatus -&gt; String)
+-&gt; ([DetectorModelVersionStatus] -&gt; ShowS)
+-&gt; Show DetectorModelVersionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectorModelVersionStatus] -&gt; ShowS
+$cshowList :: [DetectorModelVersionStatus] -&gt; ShowS
+show :: DetectorModelVersionStatus -&gt; String
+$cshow :: DetectorModelVersionStatus -&gt; String
+showsPrec :: Int -&gt; DetectorModelVersionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectorModelVersionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679239984"><span id="local-6989586621679239986"><span id="local-6989586621679239988"><span id="local-6989586621679239990"><span class="annot"><span class="annottext">ReadPrec [DetectorModelVersionStatus]
+ReadPrec DetectorModelVersionStatus
+Int -&gt; ReadS DetectorModelVersionStatus
+ReadS [DetectorModelVersionStatus]
+(Int -&gt; ReadS DetectorModelVersionStatus)
+-&gt; ReadS [DetectorModelVersionStatus]
+-&gt; ReadPrec DetectorModelVersionStatus
+-&gt; ReadPrec [DetectorModelVersionStatus]
+-&gt; Read DetectorModelVersionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DetectorModelVersionStatus]
+$creadListPrec :: ReadPrec [DetectorModelVersionStatus]
+readPrec :: ReadPrec DetectorModelVersionStatus
+$creadPrec :: ReadPrec DetectorModelVersionStatus
+readList :: ReadS [DetectorModelVersionStatus]
+$creadList :: ReadS [DetectorModelVersionStatus]
+readsPrec :: Int -&gt; ReadS DetectorModelVersionStatus
+$creadsPrec :: Int -&gt; ReadS DetectorModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679239979"><span id="local-6989586621679239981"><span class="annot"><span class="annottext">DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+(DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool)
+-&gt; (DetectorModelVersionStatus
+    -&gt; DetectorModelVersionStatus -&gt; Bool)
+-&gt; Eq DetectorModelVersionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+$c/= :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+== :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+$c== :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679239963"><span id="local-6989586621679239965"><span id="local-6989586621679239967"><span id="local-6989586621679239969"><span id="local-6989586621679239971"><span id="local-6989586621679239973"><span id="local-6989586621679239975"><span class="annot"><span class="annottext">Eq DetectorModelVersionStatus
+Eq DetectorModelVersionStatus
+-&gt; (DetectorModelVersionStatus
+    -&gt; DetectorModelVersionStatus -&gt; Ordering)
+-&gt; (DetectorModelVersionStatus
+    -&gt; DetectorModelVersionStatus -&gt; Bool)
+-&gt; (DetectorModelVersionStatus
+    -&gt; DetectorModelVersionStatus -&gt; Bool)
+-&gt; (DetectorModelVersionStatus
+    -&gt; DetectorModelVersionStatus -&gt; Bool)
+-&gt; (DetectorModelVersionStatus
+    -&gt; DetectorModelVersionStatus -&gt; Bool)
+-&gt; (DetectorModelVersionStatus
+    -&gt; DetectorModelVersionStatus -&gt; DetectorModelVersionStatus)
+-&gt; (DetectorModelVersionStatus
+    -&gt; DetectorModelVersionStatus -&gt; DetectorModelVersionStatus)
+-&gt; Ord DetectorModelVersionStatus
+DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+DetectorModelVersionStatus
+-&gt; DetectorModelVersionStatus -&gt; Ordering
+DetectorModelVersionStatus
+-&gt; DetectorModelVersionStatus -&gt; DetectorModelVersionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DetectorModelVersionStatus
+-&gt; DetectorModelVersionStatus -&gt; DetectorModelVersionStatus
+$cmin :: DetectorModelVersionStatus
+-&gt; DetectorModelVersionStatus -&gt; DetectorModelVersionStatus
+max :: DetectorModelVersionStatus
+-&gt; DetectorModelVersionStatus -&gt; DetectorModelVersionStatus
+$cmax :: DetectorModelVersionStatus
+-&gt; DetectorModelVersionStatus -&gt; DetectorModelVersionStatus
+&gt;= :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+$c&gt;= :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+&gt; :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+$c&gt; :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+&lt;= :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+$c&lt;= :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+&lt; :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+$c&lt; :: DetectorModelVersionStatus -&gt; DetectorModelVersionStatus -&gt; Bool
+compare :: DetectorModelVersionStatus
+-&gt; DetectorModelVersionStatus -&gt; Ordering
+$ccompare :: DetectorModelVersionStatus
+-&gt; DetectorModelVersionStatus -&gt; Ordering
+$cp1Ord :: Eq DetectorModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DetectorModelVersionStatus -&gt; Rep DetectorModelVersionStatus x)
+-&gt; (forall x.
+    Rep DetectorModelVersionStatus x -&gt; DetectorModelVersionStatus)
+-&gt; Generic DetectorModelVersionStatus
+forall x.
+Rep DetectorModelVersionStatus x -&gt; DetectorModelVersionStatus
+forall x.
+DetectorModelVersionStatus -&gt; Rep DetectorModelVersionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DetectorModelVersionStatus x -&gt; DetectorModelVersionStatus
+$cfrom :: forall x.
+DetectorModelVersionStatus -&gt; Rep DetectorModelVersionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239955"><span id="local-6989586621679239957"><span class="annot"><span class="annottext">Int -&gt; DetectorModelVersionStatus -&gt; Int
+DetectorModelVersionStatus -&gt; Int
+(Int -&gt; DetectorModelVersionStatus -&gt; Int)
+-&gt; (DetectorModelVersionStatus -&gt; Int)
+-&gt; Hashable DetectorModelVersionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DetectorModelVersionStatus -&gt; Int
+$chash :: DetectorModelVersionStatus -&gt; Int
+hashWithSalt :: Int -&gt; DetectorModelVersionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DetectorModelVersionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679239952"><span class="annot"><span class="annottext">DetectorModelVersionStatus -&gt; ()
+(DetectorModelVersionStatus -&gt; ())
+-&gt; NFData DetectorModelVersionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DetectorModelVersionStatus -&gt; ()
+$crnf :: DetectorModelVersionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679239949"><span class="annot"><span class="annottext">Text -&gt; Either String DetectorModelVersionStatus
+(Text -&gt; Either String DetectorModelVersionStatus)
+-&gt; FromText DetectorModelVersionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DetectorModelVersionStatus
+$cfromText :: Text -&gt; Either String DetectorModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679239946"><span class="annot"><span class="annottext">DetectorModelVersionStatus -&gt; Text
+(DetectorModelVersionStatus -&gt; Text)
+-&gt; ToText DetectorModelVersionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DetectorModelVersionStatus -&gt; Text
+$ctoText :: DetectorModelVersionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679239943"><span class="annot"><span class="annottext">DetectorModelVersionStatus -&gt; ByteString
+(DetectorModelVersionStatus -&gt; ByteString)
+-&gt; ToByteString DetectorModelVersionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DetectorModelVersionStatus -&gt; ByteString
+$ctoBS :: DetectorModelVersionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679239940"><span class="annot"><span class="annottext">DetectorModelVersionStatus -&gt; ByteStringBuilder
+(DetectorModelVersionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog DetectorModelVersionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DetectorModelVersionStatus -&gt; ByteStringBuilder
+$cbuild :: DetectorModelVersionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679239937"><span class="annot"><span class="annottext">HeaderName -&gt; DetectorModelVersionStatus -&gt; [Header]
+(HeaderName -&gt; DetectorModelVersionStatus -&gt; [Header])
+-&gt; ToHeader DetectorModelVersionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DetectorModelVersionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DetectorModelVersionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679239934"><span class="annot"><span class="annottext">DetectorModelVersionStatus -&gt; QueryString
+(DetectorModelVersionStatus -&gt; QueryString)
+-&gt; ToQuery DetectorModelVersionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DetectorModelVersionStatus -&gt; QueryString
+$ctoQuery :: DetectorModelVersionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679239929"><span id="local-6989586621679239931"><span class="annot"><span class="annottext">Value -&gt; Parser [DetectorModelVersionStatus]
+Value -&gt; Parser DetectorModelVersionStatus
+(Value -&gt; Parser DetectorModelVersionStatus)
+-&gt; (Value -&gt; Parser [DetectorModelVersionStatus])
+-&gt; FromJSON DetectorModelVersionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DetectorModelVersionStatus]
+$cparseJSONList :: Value -&gt; Parser [DetectorModelVersionStatus]
+parseJSON :: Value -&gt; Parser DetectorModelVersionStatus
+$cparseJSON :: Value -&gt; Parser DetectorModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679239924"><span id="local-6989586621679239926"><span class="annot"><span class="annottext">FromJSONKeyFunction [DetectorModelVersionStatus]
+FromJSONKeyFunction DetectorModelVersionStatus
+FromJSONKeyFunction DetectorModelVersionStatus
+-&gt; FromJSONKeyFunction [DetectorModelVersionStatus]
+-&gt; FromJSONKey DetectorModelVersionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DetectorModelVersionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DetectorModelVersionStatus]
+fromJSONKey :: FromJSONKeyFunction DetectorModelVersionStatus
+$cfromJSONKey :: FromJSONKeyFunction DetectorModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679239915"><span id="local-6989586621679239917"><span id="local-6989586621679239919"><span id="local-6989586621679239921"><span class="annot"><span class="annottext">[DetectorModelVersionStatus] -&gt; Encoding
+[DetectorModelVersionStatus] -&gt; Value
+DetectorModelVersionStatus -&gt; Encoding
+DetectorModelVersionStatus -&gt; Value
+(DetectorModelVersionStatus -&gt; Value)
+-&gt; (DetectorModelVersionStatus -&gt; Encoding)
+-&gt; ([DetectorModelVersionStatus] -&gt; Value)
+-&gt; ([DetectorModelVersionStatus] -&gt; Encoding)
+-&gt; ToJSON DetectorModelVersionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DetectorModelVersionStatus] -&gt; Encoding
+$ctoEncodingList :: [DetectorModelVersionStatus] -&gt; Encoding
+toJSONList :: [DetectorModelVersionStatus] -&gt; Value
+$ctoJSONList :: [DetectorModelVersionStatus] -&gt; Value
+toEncoding :: DetectorModelVersionStatus -&gt; Encoding
+$ctoEncoding :: DetectorModelVersionStatus -&gt; Encoding
+toJSON :: DetectorModelVersionStatus -&gt; Value
+$ctoJSON :: DetectorModelVersionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679239910"><span id="local-6989586621679239912"><span class="annot"><span class="annottext">ToJSONKeyFunction [DetectorModelVersionStatus]
+ToJSONKeyFunction DetectorModelVersionStatus
+ToJSONKeyFunction DetectorModelVersionStatus
+-&gt; ToJSONKeyFunction [DetectorModelVersionStatus]
+-&gt; ToJSONKey DetectorModelVersionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DetectorModelVersionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DetectorModelVersionStatus]
+toJSONKey :: ToJSONKeyFunction DetectorModelVersionStatus
+$ctoJSONKey :: ToJSONKeyFunction DetectorModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679239907"><span class="annot"><span class="annottext">[Node] -&gt; Either String DetectorModelVersionStatus
+([Node] -&gt; Either String DetectorModelVersionStatus)
+-&gt; FromXML DetectorModelVersionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DetectorModelVersionStatus
+$cparseXML :: [Node] -&gt; Either String DetectorModelVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679239904"><span class="annot"><span class="annottext">DetectorModelVersionStatus -&gt; XML
+(DetectorModelVersionStatus -&gt; XML)
+-&gt; ToXML DetectorModelVersionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DetectorModelVersionStatus -&gt; XML
+$ctoXML :: DetectorModelVersionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_ACTIVATING"><span class="hs-identifier hs-type">DetectorModelVersionStatus_ACTIVATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus"><span class="hs-identifier hs-type">DetectorModelVersionStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorModelVersionStatus_ACTIVATING"><span id="%24mDetectorModelVersionStatus_ACTIVATING"><span id="DetectorModelVersionStatus_ACTIVATING"><span class="annot"><span class="annottext">$bDetectorModelVersionStatus_ACTIVATING :: DetectorModelVersionStatus
+$mDetectorModelVersionStatus_ACTIVATING :: forall r.
+DetectorModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#%24bDetectorModelVersionStatus_ACTIVATING"><span class="hs-identifier hs-var hs-var hs-var">DetectorModelVersionStatus_ACTIVATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus%27"><span class="hs-identifier hs-type">DetectorModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVATING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_ACTIVE"><span class="hs-identifier hs-type">DetectorModelVersionStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus"><span class="hs-identifier hs-type">DetectorModelVersionStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorModelVersionStatus_ACTIVE"><span id="%24mDetectorModelVersionStatus_ACTIVE"><span id="DetectorModelVersionStatus_ACTIVE"><span class="annot"><span class="annottext">$bDetectorModelVersionStatus_ACTIVE :: DetectorModelVersionStatus
+$mDetectorModelVersionStatus_ACTIVE :: forall r.
+DetectorModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#%24bDetectorModelVersionStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">DetectorModelVersionStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus%27"><span class="hs-identifier hs-type">DetectorModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_DEPRECATED"><span class="hs-identifier hs-type">DetectorModelVersionStatus_DEPRECATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus"><span class="hs-identifier hs-type">DetectorModelVersionStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorModelVersionStatus_DEPRECATED"><span id="%24mDetectorModelVersionStatus_DEPRECATED"><span id="DetectorModelVersionStatus_DEPRECATED"><span class="annot"><span class="annottext">$bDetectorModelVersionStatus_DEPRECATED :: DetectorModelVersionStatus
+$mDetectorModelVersionStatus_DEPRECATED :: forall r.
+DetectorModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#%24bDetectorModelVersionStatus_DEPRECATED"><span class="hs-identifier hs-var hs-var hs-var">DetectorModelVersionStatus_DEPRECATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus%27"><span class="hs-identifier hs-type">DetectorModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEPRECATED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_DRAFT"><span class="hs-identifier hs-type">DetectorModelVersionStatus_DRAFT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus"><span class="hs-identifier hs-type">DetectorModelVersionStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorModelVersionStatus_DRAFT"><span id="%24mDetectorModelVersionStatus_DRAFT"><span id="DetectorModelVersionStatus_DRAFT"><span class="annot"><span class="annottext">$bDetectorModelVersionStatus_DRAFT :: DetectorModelVersionStatus
+$mDetectorModelVersionStatus_DRAFT :: forall r.
+DetectorModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#%24bDetectorModelVersionStatus_DRAFT"><span class="hs-identifier hs-var hs-var hs-var">DetectorModelVersionStatus_DRAFT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus%27"><span class="hs-identifier hs-type">DetectorModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DRAFT&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_FAILED"><span class="hs-identifier hs-type">DetectorModelVersionStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus"><span class="hs-identifier hs-type">DetectorModelVersionStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorModelVersionStatus_FAILED"><span id="%24mDetectorModelVersionStatus_FAILED"><span id="DetectorModelVersionStatus_FAILED"><span class="annot"><span class="annottext">$bDetectorModelVersionStatus_FAILED :: DetectorModelVersionStatus
+$mDetectorModelVersionStatus_FAILED :: forall r.
+DetectorModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#%24bDetectorModelVersionStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DetectorModelVersionStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus%27"><span class="hs-identifier hs-type">DetectorModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_INACTIVE"><span class="hs-identifier hs-type">DetectorModelVersionStatus_INACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus"><span class="hs-identifier hs-type">DetectorModelVersionStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorModelVersionStatus_INACTIVE"><span id="%24mDetectorModelVersionStatus_INACTIVE"><span id="DetectorModelVersionStatus_INACTIVE"><span class="annot"><span class="annottext">$bDetectorModelVersionStatus_INACTIVE :: DetectorModelVersionStatus
+$mDetectorModelVersionStatus_INACTIVE :: forall r.
+DetectorModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#%24bDetectorModelVersionStatus_INACTIVE"><span class="hs-identifier hs-var hs-var hs-var">DetectorModelVersionStatus_INACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus%27"><span class="hs-identifier hs-type">DetectorModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INACTIVE&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_PAUSED"><span class="hs-identifier hs-type">DetectorModelVersionStatus_PAUSED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus"><span class="hs-identifier hs-type">DetectorModelVersionStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorModelVersionStatus_PAUSED"><span id="%24mDetectorModelVersionStatus_PAUSED"><span id="DetectorModelVersionStatus_PAUSED"><span class="annot"><span class="annottext">$bDetectorModelVersionStatus_PAUSED :: DetectorModelVersionStatus
+$mDetectorModelVersionStatus_PAUSED :: forall r.
+DetectorModelVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#%24bDetectorModelVersionStatus_PAUSED"><span class="hs-identifier hs-var hs-var hs-var">DetectorModelVersionStatus_PAUSED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus%27"><span class="hs-identifier hs-type">DetectorModelVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PAUSED&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_ACTIVATING"><span class="hs-pragma hs-type">DetectorModelVersionStatus_ACTIVATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_ACTIVE"><span class="hs-pragma hs-type">DetectorModelVersionStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_DEPRECATED"><span class="hs-pragma hs-type">DetectorModelVersionStatus_DEPRECATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_DRAFT"><span class="hs-pragma hs-type">DetectorModelVersionStatus_DRAFT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_FAILED"><span class="hs-pragma hs-type">DetectorModelVersionStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_INACTIVE"><span class="hs-pragma hs-type">DetectorModelVersionStatus_INACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus_PAUSED"><span class="hs-pragma hs-type">DetectorModelVersionStatus_PAUSED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorModelVersionStatus.html#DetectorModelVersionStatus%27"><span class="hs-pragma hs-type">DetectorModelVersionStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

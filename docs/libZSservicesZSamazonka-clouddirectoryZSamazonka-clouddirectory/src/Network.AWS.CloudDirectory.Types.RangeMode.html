@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679327608"><span id="local-6989586621679327609"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RangeMode"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RangeMode.html#RangeMode"><span class="hs-identifier hs-var">RangeMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RangeMode%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RangeMode.html#RangeMode%27"><span class="hs-identifier hs-var">RangeMode'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679327617"><span id="local-6989586621679327618"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RangeMode"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RangeMode.html#RangeMode"><span class="hs-identifier hs-var">RangeMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RangeMode%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RangeMode.html#RangeMode%27"><span class="hs-identifier hs-var">RangeMode'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRangeMode"><span class="annot"><span class="annottext">RangeMode -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.Types.RangeMode.html#fromRangeMode"><span class="hs-identifier hs-var hs-var">fromRangeMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327600"><span id="local-6989586621679327602"><span id="local-6989586621679327604"><span class="annot"><span class="annottext">Int -&gt; RangeMode -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327609"><span id="local-6989586621679327611"><span id="local-6989586621679327613"><span class="annot"><span class="annottext">Int -&gt; RangeMode -&gt; ShowS
 [RangeMode] -&gt; ShowS
 RangeMode -&gt; String
 (Int -&gt; RangeMode -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: RangeMode -&gt; String
 showsPrec :: Int -&gt; RangeMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; RangeMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679327591"><span id="local-6989586621679327593"><span id="local-6989586621679327595"><span id="local-6989586621679327597"><span class="annot"><span class="annottext">ReadPrec [RangeMode]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679327600"><span id="local-6989586621679327602"><span id="local-6989586621679327604"><span id="local-6989586621679327606"><span class="annot"><span class="annottext">ReadPrec [RangeMode]
 ReadPrec RangeMode
 Int -&gt; ReadS RangeMode
 ReadS [RangeMode]
@@ -75,7 +75,7 @@ $creadList :: ReadS [RangeMode]
 readsPrec :: Int -&gt; ReadS RangeMode
 $creadsPrec :: Int -&gt; ReadS RangeMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679327586"><span id="local-6989586621679327588"><span class="annot"><span class="annottext">RangeMode -&gt; RangeMode -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679327595"><span id="local-6989586621679327597"><span class="annot"><span class="annottext">RangeMode -&gt; RangeMode -&gt; Bool
 (RangeMode -&gt; RangeMode -&gt; Bool)
 -&gt; (RangeMode -&gt; RangeMode -&gt; Bool) -&gt; Eq RangeMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: RangeMode -&gt; RangeMode -&gt; Bool
 == :: RangeMode -&gt; RangeMode -&gt; Bool
 $c== :: RangeMode -&gt; RangeMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679327570"><span id="local-6989586621679327572"><span id="local-6989586621679327574"><span id="local-6989586621679327576"><span id="local-6989586621679327578"><span id="local-6989586621679327580"><span id="local-6989586621679327582"><span class="annot"><span class="annottext">Eq RangeMode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679327579"><span id="local-6989586621679327581"><span id="local-6989586621679327583"><span id="local-6989586621679327585"><span id="local-6989586621679327587"><span id="local-6989586621679327589"><span id="local-6989586621679327591"><span class="annot"><span class="annottext">Eq RangeMode
 Eq RangeMode
 -&gt; (RangeMode -&gt; RangeMode -&gt; Ordering)
 -&gt; (RangeMode -&gt; RangeMode -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. RangeMode -&gt; Rep RangeMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327562"><span id="local-6989586621679327564"><span class="annot"><span class="annottext">Int -&gt; RangeMode -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327571"><span id="local-6989586621679327573"><span class="annot"><span class="annottext">Int -&gt; RangeMode -&gt; Int
 RangeMode -&gt; Int
 (Int -&gt; RangeMode -&gt; Int)
 -&gt; (RangeMode -&gt; Int) -&gt; Hashable RangeMode
@@ -144,49 +144,49 @@ $chash :: RangeMode -&gt; Int
 hashWithSalt :: Int -&gt; RangeMode -&gt; Int
 $chashWithSalt :: Int -&gt; RangeMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327559"><span class="annot"><span class="annottext">RangeMode -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327568"><span class="annot"><span class="annottext">RangeMode -&gt; ()
 (RangeMode -&gt; ()) -&gt; NFData RangeMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RangeMode -&gt; ()
 $crnf :: RangeMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327556"><span class="annot"><span class="annottext">Text -&gt; Either String RangeMode
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327565"><span class="annot"><span class="annottext">Text -&gt; Either String RangeMode
 (Text -&gt; Either String RangeMode) -&gt; FromText RangeMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RangeMode
 $cfromText :: Text -&gt; Either String RangeMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327553"><span class="annot"><span class="annottext">RangeMode -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327562"><span class="annot"><span class="annottext">RangeMode -&gt; Text
 (RangeMode -&gt; Text) -&gt; ToText RangeMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RangeMode -&gt; Text
 $ctoText :: RangeMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327550"><span class="annot"><span class="annottext">RangeMode -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327559"><span class="annot"><span class="annottext">RangeMode -&gt; ByteString
 (RangeMode -&gt; ByteString) -&gt; ToByteString RangeMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RangeMode -&gt; ByteString
 $ctoBS :: RangeMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327547"><span class="annot"><span class="annottext">RangeMode -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327556"><span class="annot"><span class="annottext">RangeMode -&gt; ByteStringBuilder
 (RangeMode -&gt; ByteStringBuilder) -&gt; ToLog RangeMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RangeMode -&gt; ByteStringBuilder
 $cbuild :: RangeMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327544"><span class="annot"><span class="annottext">HeaderName -&gt; RangeMode -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327553"><span class="annot"><span class="annottext">HeaderName -&gt; RangeMode -&gt; [Header]
 (HeaderName -&gt; RangeMode -&gt; [Header]) -&gt; ToHeader RangeMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RangeMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RangeMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327541"><span class="annot"><span class="annottext">RangeMode -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327550"><span class="annot"><span class="annottext">RangeMode -&gt; QueryString
 (RangeMode -&gt; QueryString) -&gt; ToQuery RangeMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RangeMode -&gt; QueryString
 $ctoQuery :: RangeMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327536"><span id="local-6989586621679327538"><span class="annot"><span class="annottext">Value -&gt; Parser [RangeMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327545"><span id="local-6989586621679327547"><span class="annot"><span class="annottext">Value -&gt; Parser [RangeMode]
 Value -&gt; Parser RangeMode
 (Value -&gt; Parser RangeMode)
 -&gt; (Value -&gt; Parser [RangeMode]) -&gt; FromJSON RangeMode
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [RangeMode]
 parseJSON :: Value -&gt; Parser RangeMode
 $cparseJSON :: Value -&gt; Parser RangeMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327531"><span id="local-6989586621679327533"><span class="annot"><span class="annottext">FromJSONKeyFunction [RangeMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327540"><span id="local-6989586621679327542"><span class="annot"><span class="annottext">FromJSONKeyFunction [RangeMode]
 FromJSONKeyFunction RangeMode
 FromJSONKeyFunction RangeMode
 -&gt; FromJSONKeyFunction [RangeMode] -&gt; FromJSONKey RangeMode
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RangeMode]
 fromJSONKey :: FromJSONKeyFunction RangeMode
 $cfromJSONKey :: FromJSONKeyFunction RangeMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327522"><span id="local-6989586621679327524"><span id="local-6989586621679327526"><span id="local-6989586621679327528"><span class="annot"><span class="annottext">[RangeMode] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327531"><span id="local-6989586621679327533"><span id="local-6989586621679327535"><span id="local-6989586621679327537"><span class="annot"><span class="annottext">[RangeMode] -&gt; Encoding
 [RangeMode] -&gt; Value
 RangeMode -&gt; Encoding
 RangeMode -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: RangeMode -&gt; Encoding
 toJSON :: RangeMode -&gt; Value
 $ctoJSON :: RangeMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679327517"><span id="local-6989586621679327519"><span class="annot"><span class="annottext">ToJSONKeyFunction [RangeMode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679327526"><span id="local-6989586621679327528"><span class="annot"><span class="annottext">ToJSONKeyFunction [RangeMode]
 ToJSONKeyFunction RangeMode
 ToJSONKeyFunction RangeMode
 -&gt; ToJSONKeyFunction [RangeMode] -&gt; ToJSONKey RangeMode
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RangeMode]
 toJSONKey :: ToJSONKeyFunction RangeMode
 $ctoJSONKey :: ToJSONKeyFunction RangeMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679327514"><span class="annot"><span class="annottext">[Node] -&gt; Either String RangeMode
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679327523"><span class="annot"><span class="annottext">[Node] -&gt; Either String RangeMode
 ([Node] -&gt; Either String RangeMode) -&gt; FromXML RangeMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RangeMode
 $cparseXML :: [Node] -&gt; Either String RangeMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679327511"><span class="annot"><span class="annottext">RangeMode -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679327520"><span class="annot"><span class="annottext">RangeMode -&gt; XML
 (RangeMode -&gt; XML) -&gt; ToXML RangeMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RangeMode -&gt; XML

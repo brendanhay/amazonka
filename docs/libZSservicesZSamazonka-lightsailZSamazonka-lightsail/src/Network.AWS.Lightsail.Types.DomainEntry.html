@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a domain recordset entry.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDomainEntry' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679610177"><span id="local-6989586621679610178"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainEntry"><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-var">DomainEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-var">DomainEntry'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679610186"><span id="local-6989586621679610187"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainEntry"><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-var">DomainEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-var">DomainEntry'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @true@, specifies whether the domain entry is an alias used by the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Lightsail load balancer. You can include an alias (A type) record in</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- your request, which points to a load balancer DNS name and routes</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Atarget%3ADomainEntry%27"><span class="annot"><span class="annottext">DomainEntry -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DomainEntry.html#%24sel%3Atarget%3ADomainEntry%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610166"><span id="local-6989586621679610168"><span class="annot"><span class="annottext">DomainEntry -&gt; DomainEntry -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610175"><span id="local-6989586621679610177"><span class="annot"><span class="annottext">DomainEntry -&gt; DomainEntry -&gt; Bool
 (DomainEntry -&gt; DomainEntry -&gt; Bool)
 -&gt; (DomainEntry -&gt; DomainEntry -&gt; Bool) -&gt; Eq DomainEntry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DomainEntry -&gt; DomainEntry -&gt; Bool
 == :: DomainEntry -&gt; DomainEntry -&gt; Bool
 $c== :: DomainEntry -&gt; DomainEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610157"><span id="local-6989586621679610159"><span id="local-6989586621679610161"><span id="local-6989586621679610163"><span class="annot"><span class="annottext">ReadPrec [DomainEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610166"><span id="local-6989586621679610168"><span id="local-6989586621679610170"><span id="local-6989586621679610172"><span class="annot"><span class="annottext">ReadPrec [DomainEntry]
 ReadPrec DomainEntry
 Int -&gt; ReadS DomainEntry
 ReadS [DomainEntry]
@@ -110,7 +110,7 @@ readList :: ReadS [DomainEntry]
 $creadList :: ReadS [DomainEntry]
 readsPrec :: Int -&gt; ReadS DomainEntry
 $creadsPrec :: Int -&gt; ReadS DomainEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610150"><span id="local-6989586621679610152"><span id="local-6989586621679610154"><span class="annot"><span class="annottext">Int -&gt; DomainEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610159"><span id="local-6989586621679610161"><span id="local-6989586621679610163"><span class="annot"><span class="annottext">Int -&gt; DomainEntry -&gt; ShowS
 [DomainEntry] -&gt; ShowS
 DomainEntry -&gt; String
 (Int -&gt; DomainEntry -&gt; ShowS)
@@ -239,16 +239,16 @@ forall a. Maybe a
 -&gt; (DomainEntry -&gt; Maybe Bool -&gt; DomainEntry)
 -&gt; Lens DomainEntry DomainEntry (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610141"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610150"><span class="annot"><span class="annottext">Maybe Bool
 isAlias :: Maybe Bool
 $sel:isAlias:DomainEntry' :: DomainEntry -&gt; Maybe Bool
-</span><a href="#local-6989586621679610141"><span class="hs-identifier hs-var hs-var">isAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679610141"><span class="hs-identifier hs-var">isAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610140"><span class="annot"><span class="annottext">s :: DomainEntry
-</span><a href="#local-6989586621679610140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610139"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679610139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679610140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isAlias:DomainEntry' :: Maybe Bool
+</span><a href="#local-6989586621679610150"><span class="hs-identifier hs-var hs-var">isAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679610150"><span class="hs-identifier hs-var">isAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610149"><span class="annot"><span class="annottext">s :: DomainEntry
+</span><a href="#local-6989586621679610149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610148"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679610148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679610149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isAlias:DomainEntry' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.DomainEntry.html#%24sel%3AisAlias%3ADomainEntry%27"><span class="hs-identifier hs-var">isAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679610139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The name of the domain.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#domainEntry_name"><span class="hs-identifier hs-type">domainEntry_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -257,16 +257,16 @@ $sel:isAlias:DomainEntry' :: DomainEntry -&gt; Maybe Bool
 -&gt; (DomainEntry -&gt; Maybe Text -&gt; DomainEntry)
 -&gt; Lens DomainEntry DomainEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610137"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610146"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:DomainEntry' :: DomainEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679610137"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610137"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610136"><span class="annot"><span class="annottext">s :: DomainEntry
-</span><a href="#local-6989586621679610136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610135"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679610136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DomainEntry' :: Maybe Text
+</span><a href="#local-6989586621679610146"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610146"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610145"><span class="annot"><span class="annottext">s :: DomainEntry
+</span><a href="#local-6989586621679610145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679610145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DomainEntry' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DomainEntry.html#%24sel%3Aname%3ADomainEntry%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The ID of the domain recordset entry.</span><span>
 </span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#domainEntry_id"><span class="hs-identifier hs-type">domainEntry_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -275,16 +275,16 @@ $sel:name:DomainEntry' :: DomainEntry -&gt; Maybe Text
 -&gt; (DomainEntry -&gt; Maybe Text -&gt; DomainEntry)
 -&gt; Lens DomainEntry DomainEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610133"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610142"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:DomainEntry' :: DomainEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679610133"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610133"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610132"><span class="annot"><span class="annottext">s :: DomainEntry
-</span><a href="#local-6989586621679610132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610131"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679610132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DomainEntry' :: Maybe Text
+</span><a href="#local-6989586621679610142"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610142"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610141"><span class="annot"><span class="annottext">s :: DomainEntry
+</span><a href="#local-6989586621679610141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610140"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679610141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DomainEntry' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DomainEntry.html#%24sel%3Aid%3ADomainEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | (Deprecated) The options for the domain entry.</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
@@ -301,16 +301,16 @@ $sel:id:DomainEntry' :: DomainEntry -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610129"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610138"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 options :: Maybe (HashMap Text Text)
 $sel:options:DomainEntry' :: DomainEntry -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679610129"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679610129"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610128"><span class="annot"><span class="annottext">s :: DomainEntry
-</span><a href="#local-6989586621679610128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610127"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679610127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679610128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:DomainEntry' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679610138"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679610138"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610137"><span class="annot"><span class="annottext">s :: DomainEntry
+</span><a href="#local-6989586621679610137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610136"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679610136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679610137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:DomainEntry' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Lightsail.Types.DomainEntry.html#%24sel%3Aoptions%3ADomainEntry%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679610127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679610136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; DomainEntry -&gt; f DomainEntry)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -366,16 +366,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DomainEntry -&gt; Maybe Text -&gt; DomainEntry)
 -&gt; Lens DomainEntry DomainEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610122"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610131"><span class="annot"><span class="annottext">Maybe Text
 type' :: Maybe Text
 $sel:type':DomainEntry' :: DomainEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679610122"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610122"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610121"><span class="annot"><span class="annottext">s :: DomainEntry
-</span><a href="#local-6989586621679610121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610120"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679610121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DomainEntry' :: Maybe Text
+</span><a href="#local-6989586621679610131"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610131"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610130"><span class="annot"><span class="annottext">s :: DomainEntry
+</span><a href="#local-6989586621679610130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610129"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679610130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DomainEntry' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DomainEntry.html#%24sel%3Atype%27%3ADomainEntry%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The target IP address (e.g., @192.0.2.0@), or AWS name server (e.g.,</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- @ns-111.awsdns-22.com.@).</span><span>
@@ -394,19 +394,19 @@ $sel:type':DomainEntry' :: DomainEntry -&gt; Maybe Text
 -&gt; (DomainEntry -&gt; Maybe Text -&gt; DomainEntry)
 -&gt; Lens DomainEntry DomainEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610118"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610127"><span class="annot"><span class="annottext">Maybe Text
 target :: Maybe Text
 $sel:target:DomainEntry' :: DomainEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679610118"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610118"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610117"><span class="annot"><span class="annottext">s :: DomainEntry
-</span><a href="#local-6989586621679610117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610116"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
-</span><a href="#local-6989586621679610117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:DomainEntry' :: Maybe Text
+</span><a href="#local-6989586621679610127"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610127"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610126"><span class="annot"><span class="annottext">s :: DomainEntry
+</span><a href="#local-6989586621679610126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610125"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEntry
+</span><a href="#local-6989586621679610126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:DomainEntry' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.DomainEntry.html#%24sel%3Atarget%3ADomainEntry%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610113"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679610111"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainEntry
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610122"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679610120"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DomainEntry) -&gt; Value -&gt; Parser DomainEntry
@@ -414,8 +414,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DomainEntry&quot;</span></span><span>
-</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679610108"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679610117"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610117"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -441,7 +441,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DomainEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679610117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;isAlias&quot;</span></span><span class="hs-special">)</span><span>
@@ -461,7 +461,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DomainEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679610117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -477,7 +477,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679610117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
@@ -488,7 +488,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; DomainEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679610117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;options&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -501,7 +501,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; DomainEntry)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679610117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
@@ -509,19 +509,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser DomainEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679610117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;target&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610101"><span id="local-6989586621679610103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610110"><span id="local-6989586621679610112"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span></span></span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span></span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610090"><span id="local-6989586621679610092"><span id="local-6989586621679610094"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679610088"><span class="annot"><span class="annottext">toJSON :: DomainEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610081"><span id="local-6989586621679610082"><span id="local-6989586621679610083"><span id="local-6989586621679610084"><span id="local-6989586621679610085"><span id="local-6989586621679610086"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610099"><span id="local-6989586621679610101"><span id="local-6989586621679610103"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry"><span class="hs-identifier hs-type">DomainEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679610097"><span class="annot"><span class="annottext">toJSON :: DomainEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.DomainEntry.html#DomainEntry%27"><span class="hs-identifier hs-type">DomainEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610090"><span id="local-6989586621679610091"><span id="local-6989586621679610092"><span id="local-6989586621679610093"><span id="local-6989586621679610094"><span id="local-6989586621679610095"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe (HashMap Text Text)
 target :: Maybe Text
@@ -536,7 +536,7 @@ $sel:options:DomainEntry' :: DomainEntry -&gt; Maybe (HashMap Text Text)
 $sel:id:DomainEntry' :: DomainEntry -&gt; Maybe Text
 $sel:name:DomainEntry' :: DomainEntry -&gt; Maybe Text
 $sel:isAlias:DomainEntry' :: DomainEntry -&gt; Maybe Bool
-</span><a href="#local-6989586621679610081"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679610090"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -548,21 +548,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679610086"><span class="hs-identifier hs-var">isAlias</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610095"><span class="hs-identifier hs-var">isAlias</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610085"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610094"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610084"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610093"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;options&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -570,21 +570,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679610083"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610092"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610082"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610091"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679610081"><span class="hs-identifier hs-var">target</span></a></span><span>
+</span><a href="#local-6989586621679610090"><span class="hs-identifier hs-var">target</span></a></span><span>
 </span><span id="line-236"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-237"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span></pre></body></html>

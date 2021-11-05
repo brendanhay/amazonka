@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the root volume for a WorkSpace bundle.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRootStorage' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679273289"><span id="local-6989586621679273290"></span></span><span class="hs-keyword">data</span><span> </span><span id="RootStorage"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-var">RootStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RootStorage%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage%27"><span class="hs-identifier hs-var">RootStorage'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679273298"><span id="local-6989586621679273299"></span></span><span class="hs-keyword">data</span><span> </span><span id="RootStorage"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-var">RootStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RootStorage%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage%27"><span class="hs-identifier hs-var">RootStorage'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the root volume.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Acapacity%3ARootStorage%27"><span class="annot"><span class="annottext">RootStorage -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#%24sel%3Acapacity%3ARootStorage%27"><span class="hs-identifier hs-var hs-var">capacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273283"><span id="local-6989586621679273285"><span class="annot"><span class="annottext">RootStorage -&gt; RootStorage -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273292"><span id="local-6989586621679273294"><span class="annot"><span class="annottext">RootStorage -&gt; RootStorage -&gt; Bool
 (RootStorage -&gt; RootStorage -&gt; Bool)
 -&gt; (RootStorage -&gt; RootStorage -&gt; Bool) -&gt; Eq RootStorage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RootStorage -&gt; RootStorage -&gt; Bool
 == :: RootStorage -&gt; RootStorage -&gt; Bool
 $c== :: RootStorage -&gt; RootStorage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273274"><span id="local-6989586621679273276"><span id="local-6989586621679273278"><span id="local-6989586621679273280"><span class="annot"><span class="annottext">ReadPrec [RootStorage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273283"><span id="local-6989586621679273285"><span id="local-6989586621679273287"><span id="local-6989586621679273289"><span class="annot"><span class="annottext">ReadPrec [RootStorage]
 ReadPrec RootStorage
 Int -&gt; ReadS RootStorage
 ReadS [RootStorage]
@@ -59,7 +59,7 @@ readList :: ReadS [RootStorage]
 $creadList :: ReadS [RootStorage]
 readsPrec :: Int -&gt; ReadS RootStorage
 $creadsPrec :: Int -&gt; ReadS RootStorage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273267"><span id="local-6989586621679273269"><span id="local-6989586621679273271"><span class="annot"><span class="annottext">Int -&gt; RootStorage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273276"><span id="local-6989586621679273278"><span id="local-6989586621679273280"><span class="annot"><span class="annottext">Int -&gt; RootStorage -&gt; ShowS
 [RootStorage] -&gt; ShowS
 RootStorage -&gt; String
 (Int -&gt; RootStorage -&gt; ShowS)
@@ -111,19 +111,19 @@ forall a. Maybe a
 -&gt; (RootStorage -&gt; Maybe Text -&gt; RootStorage)
 -&gt; Lens RootStorage RootStorage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage%27"><span class="hs-identifier hs-type">RootStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273258"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage%27"><span class="hs-identifier hs-type">RootStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273267"><span class="annot"><span class="annottext">Maybe Text
 capacity :: Maybe Text
 $sel:capacity:RootStorage' :: RootStorage -&gt; Maybe Text
-</span><a href="#local-6989586621679273258"><span class="hs-identifier hs-var hs-var">capacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273258"><span class="hs-identifier hs-var">capacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273257"><span class="annot"><span class="annottext">s :: RootStorage
-</span><a href="#local-6989586621679273257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage%27"><span class="hs-identifier hs-type">RootStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273256"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootStorage
-</span><a href="#local-6989586621679273257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacity:RootStorage' :: Maybe Text
+</span><a href="#local-6989586621679273267"><span class="hs-identifier hs-var hs-var">capacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273267"><span class="hs-identifier hs-var">capacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273266"><span class="annot"><span class="annottext">s :: RootStorage
+</span><a href="#local-6989586621679273266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage%27"><span class="hs-identifier hs-type">RootStorage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273265"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RootStorage
+</span><a href="#local-6989586621679273266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacity:RootStorage' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#%24sel%3Acapacity%3ARootStorage%27"><span class="hs-identifier hs-var">capacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273253"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679273251"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RootStorage
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273262"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679273260"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RootStorage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RootStorage) -&gt; Value -&gt; Parser RootStorage
@@ -131,29 +131,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RootStorage&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273248"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273248"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273257"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273257"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; RootStorage
 </span><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage%27"><span class="hs-identifier hs-var">RootStorage'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; RootStorage)
 -&gt; Parser (Maybe Text) -&gt; Parser RootStorage
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273248"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679273257"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Capacity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273242"><span id="local-6989586621679273244"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273251"><span id="local-6989586621679273253"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273248"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273231"><span id="local-6989586621679273233"><span id="local-6989586621679273235"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679273229"><span class="annot"><span class="annottext">toJSON :: RootStorage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage%27"><span class="hs-identifier hs-type">RootStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273227"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273240"><span id="local-6989586621679273242"><span id="local-6989586621679273244"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage"><span class="hs-identifier hs-type">RootStorage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679273238"><span class="annot"><span class="annottext">toJSON :: RootStorage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.RootStorage.html#RootStorage%27"><span class="hs-identifier hs-type">RootStorage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273236"><span class="annot"><span class="annottext">Maybe Text
 capacity :: Maybe Text
 $sel:capacity:RootStorage' :: RootStorage -&gt; Maybe Text
-</span><a href="#local-6989586621679273227"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273236"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -165,6 +165,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273227"><span class="hs-identifier hs-var">capacity</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679273236"><span class="hs-identifier hs-var">capacity</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

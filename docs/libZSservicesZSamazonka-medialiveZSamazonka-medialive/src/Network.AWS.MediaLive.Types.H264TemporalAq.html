@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | H264 Temporal Aq</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679882304"><span id="local-6989586621679882305"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264TemporalAq"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264TemporalAq.html#H264TemporalAq"><span class="hs-identifier hs-var">H264TemporalAq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264TemporalAq%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264TemporalAq.html#H264TemporalAq%27"><span class="hs-identifier hs-var">H264TemporalAq'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679882313"><span id="local-6989586621679882314"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264TemporalAq"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264TemporalAq.html#H264TemporalAq"><span class="hs-identifier hs-var">H264TemporalAq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264TemporalAq%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264TemporalAq.html#H264TemporalAq%27"><span class="hs-identifier hs-var">H264TemporalAq'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264TemporalAq"><span class="annot"><span class="annottext">H264TemporalAq -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.H264TemporalAq.html#fromH264TemporalAq"><span class="hs-identifier hs-var hs-var">fromH264TemporalAq</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679882296"><span id="local-6989586621679882298"><span id="local-6989586621679882300"><span class="annot"><span class="annottext">Int -&gt; H264TemporalAq -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679882305"><span id="local-6989586621679882307"><span id="local-6989586621679882309"><span class="annot"><span class="annottext">Int -&gt; H264TemporalAq -&gt; ShowS
 [H264TemporalAq] -&gt; ShowS
 H264TemporalAq -&gt; String
 (Int -&gt; H264TemporalAq -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: H264TemporalAq -&gt; String
 showsPrec :: Int -&gt; H264TemporalAq -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264TemporalAq -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679882287"><span id="local-6989586621679882289"><span id="local-6989586621679882291"><span id="local-6989586621679882293"><span class="annot"><span class="annottext">ReadPrec [H264TemporalAq]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679882296"><span id="local-6989586621679882298"><span id="local-6989586621679882300"><span id="local-6989586621679882302"><span class="annot"><span class="annottext">ReadPrec [H264TemporalAq]
 ReadPrec H264TemporalAq
 Int -&gt; ReadS H264TemporalAq
 ReadS [H264TemporalAq]
@@ -73,7 +73,7 @@ $creadList :: ReadS [H264TemporalAq]
 readsPrec :: Int -&gt; ReadS H264TemporalAq
 $creadsPrec :: Int -&gt; ReadS H264TemporalAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679882282"><span id="local-6989586621679882284"><span class="annot"><span class="annottext">H264TemporalAq -&gt; H264TemporalAq -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679882291"><span id="local-6989586621679882293"><span class="annot"><span class="annottext">H264TemporalAq -&gt; H264TemporalAq -&gt; Bool
 (H264TemporalAq -&gt; H264TemporalAq -&gt; Bool)
 -&gt; (H264TemporalAq -&gt; H264TemporalAq -&gt; Bool) -&gt; Eq H264TemporalAq
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: H264TemporalAq -&gt; H264TemporalAq -&gt; Bool
 == :: H264TemporalAq -&gt; H264TemporalAq -&gt; Bool
 $c== :: H264TemporalAq -&gt; H264TemporalAq -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679882266"><span id="local-6989586621679882268"><span id="local-6989586621679882270"><span id="local-6989586621679882272"><span id="local-6989586621679882274"><span id="local-6989586621679882276"><span id="local-6989586621679882278"><span class="annot"><span class="annottext">Eq H264TemporalAq
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679882275"><span id="local-6989586621679882277"><span id="local-6989586621679882279"><span id="local-6989586621679882281"><span id="local-6989586621679882283"><span id="local-6989586621679882285"><span id="local-6989586621679882287"><span class="annot"><span class="annottext">Eq H264TemporalAq
 Eq H264TemporalAq
 -&gt; (H264TemporalAq -&gt; H264TemporalAq -&gt; Ordering)
 -&gt; (H264TemporalAq -&gt; H264TemporalAq -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. H264TemporalAq -&gt; Rep H264TemporalAq x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679882258"><span id="local-6989586621679882260"><span class="annot"><span class="annottext">Int -&gt; H264TemporalAq -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679882267"><span id="local-6989586621679882269"><span class="annot"><span class="annottext">Int -&gt; H264TemporalAq -&gt; Int
 H264TemporalAq -&gt; Int
 (Int -&gt; H264TemporalAq -&gt; Int)
 -&gt; (H264TemporalAq -&gt; Int) -&gt; Hashable H264TemporalAq
@@ -143,50 +143,50 @@ $chash :: H264TemporalAq -&gt; Int
 hashWithSalt :: Int -&gt; H264TemporalAq -&gt; Int
 $chashWithSalt :: Int -&gt; H264TemporalAq -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679882255"><span class="annot"><span class="annottext">H264TemporalAq -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679882264"><span class="annot"><span class="annottext">H264TemporalAq -&gt; ()
 (H264TemporalAq -&gt; ()) -&gt; NFData H264TemporalAq
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264TemporalAq -&gt; ()
 $crnf :: H264TemporalAq -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679882252"><span class="annot"><span class="annottext">Text -&gt; Either String H264TemporalAq
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679882261"><span class="annot"><span class="annottext">Text -&gt; Either String H264TemporalAq
 (Text -&gt; Either String H264TemporalAq) -&gt; FromText H264TemporalAq
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264TemporalAq
 $cfromText :: Text -&gt; Either String H264TemporalAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679882249"><span class="annot"><span class="annottext">H264TemporalAq -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679882258"><span class="annot"><span class="annottext">H264TemporalAq -&gt; Text
 (H264TemporalAq -&gt; Text) -&gt; ToText H264TemporalAq
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264TemporalAq -&gt; Text
 $ctoText :: H264TemporalAq -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679882246"><span class="annot"><span class="annottext">H264TemporalAq -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679882255"><span class="annot"><span class="annottext">H264TemporalAq -&gt; ByteString
 (H264TemporalAq -&gt; ByteString) -&gt; ToByteString H264TemporalAq
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264TemporalAq -&gt; ByteString
 $ctoBS :: H264TemporalAq -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679882243"><span class="annot"><span class="annottext">H264TemporalAq -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679882252"><span class="annot"><span class="annottext">H264TemporalAq -&gt; ByteStringBuilder
 (H264TemporalAq -&gt; ByteStringBuilder) -&gt; ToLog H264TemporalAq
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264TemporalAq -&gt; ByteStringBuilder
 $cbuild :: H264TemporalAq -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679882240"><span class="annot"><span class="annottext">HeaderName -&gt; H264TemporalAq -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679882249"><span class="annot"><span class="annottext">HeaderName -&gt; H264TemporalAq -&gt; [Header]
 (HeaderName -&gt; H264TemporalAq -&gt; [Header])
 -&gt; ToHeader H264TemporalAq
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264TemporalAq -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264TemporalAq -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679882237"><span class="annot"><span class="annottext">H264TemporalAq -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679882246"><span class="annot"><span class="annottext">H264TemporalAq -&gt; QueryString
 (H264TemporalAq -&gt; QueryString) -&gt; ToQuery H264TemporalAq
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264TemporalAq -&gt; QueryString
 $ctoQuery :: H264TemporalAq -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679882232"><span id="local-6989586621679882234"><span class="annot"><span class="annottext">Value -&gt; Parser [H264TemporalAq]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679882241"><span id="local-6989586621679882243"><span class="annot"><span class="annottext">Value -&gt; Parser [H264TemporalAq]
 Value -&gt; Parser H264TemporalAq
 (Value -&gt; Parser H264TemporalAq)
 -&gt; (Value -&gt; Parser [H264TemporalAq]) -&gt; FromJSON H264TemporalAq
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [H264TemporalAq]
 parseJSON :: Value -&gt; Parser H264TemporalAq
 $cparseJSON :: Value -&gt; Parser H264TemporalAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679882227"><span id="local-6989586621679882229"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264TemporalAq]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679882236"><span id="local-6989586621679882238"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264TemporalAq]
 FromJSONKeyFunction H264TemporalAq
 FromJSONKeyFunction H264TemporalAq
 -&gt; FromJSONKeyFunction [H264TemporalAq]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264TemporalAq]
 fromJSONKey :: FromJSONKeyFunction H264TemporalAq
 $cfromJSONKey :: FromJSONKeyFunction H264TemporalAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679882218"><span id="local-6989586621679882220"><span id="local-6989586621679882222"><span id="local-6989586621679882224"><span class="annot"><span class="annottext">[H264TemporalAq] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679882227"><span id="local-6989586621679882229"><span id="local-6989586621679882231"><span id="local-6989586621679882233"><span class="annot"><span class="annottext">[H264TemporalAq] -&gt; Encoding
 [H264TemporalAq] -&gt; Value
 H264TemporalAq -&gt; Encoding
 H264TemporalAq -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: H264TemporalAq -&gt; Encoding
 toJSON :: H264TemporalAq -&gt; Value
 $ctoJSON :: H264TemporalAq -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679882213"><span id="local-6989586621679882215"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264TemporalAq]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679882222"><span id="local-6989586621679882224"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264TemporalAq]
 ToJSONKeyFunction H264TemporalAq
 ToJSONKeyFunction H264TemporalAq
 -&gt; ToJSONKeyFunction [H264TemporalAq] -&gt; ToJSONKey H264TemporalAq
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264TemporalAq]
 toJSONKey :: ToJSONKeyFunction H264TemporalAq
 $ctoJSONKey :: ToJSONKeyFunction H264TemporalAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679882210"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264TemporalAq
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679882219"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264TemporalAq
 ([Node] -&gt; Either String H264TemporalAq) -&gt; FromXML H264TemporalAq
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264TemporalAq
 $cparseXML :: [Node] -&gt; Either String H264TemporalAq
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679882207"><span class="annot"><span class="annottext">H264TemporalAq -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679882216"><span class="annot"><span class="annottext">H264TemporalAq -&gt; XML
 (H264TemporalAq -&gt; XML) -&gt; ToXML H264TemporalAq
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264TemporalAq -&gt; XML

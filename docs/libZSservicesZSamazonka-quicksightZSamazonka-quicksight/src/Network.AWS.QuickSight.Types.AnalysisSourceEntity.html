@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.AnalysisSourceEntity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.AnalysisSourceEntity</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceTemplate.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.AnalysisSourceTemplate</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The source entity of an analysis.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAnalysisSourceEntity' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679553057"><span id="local-6989586621679553058"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalysisSourceEntity"><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity"><span class="hs-identifier hs-var">AnalysisSourceEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisSourceEntity%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity%27"><span class="hs-identifier hs-var">AnalysisSourceEntity'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The source template for the source entity of the analysis.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsourceTemplate%3AAnalysisSourceEntity%27"><span class="annot"><span class="annottext">AnalysisSourceEntity -&gt; Maybe AnalysisSourceTemplate
+</span><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#%24sel%3AsourceTemplate%3AAnalysisSourceEntity%27"><span class="hs-identifier hs-var hs-var">sourceTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553051"><span id="local-6989586621679553053"><span class="annot"><span class="annottext">AnalysisSourceEntity -&gt; AnalysisSourceEntity -&gt; Bool
+(AnalysisSourceEntity -&gt; AnalysisSourceEntity -&gt; Bool)
+-&gt; (AnalysisSourceEntity -&gt; AnalysisSourceEntity -&gt; Bool)
+-&gt; Eq AnalysisSourceEntity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalysisSourceEntity -&gt; AnalysisSourceEntity -&gt; Bool
+$c/= :: AnalysisSourceEntity -&gt; AnalysisSourceEntity -&gt; Bool
+== :: AnalysisSourceEntity -&gt; AnalysisSourceEntity -&gt; Bool
+$c== :: AnalysisSourceEntity -&gt; AnalysisSourceEntity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553042"><span id="local-6989586621679553044"><span id="local-6989586621679553046"><span id="local-6989586621679553048"><span class="annot"><span class="annottext">ReadPrec [AnalysisSourceEntity]
+ReadPrec AnalysisSourceEntity
+Int -&gt; ReadS AnalysisSourceEntity
+ReadS [AnalysisSourceEntity]
+(Int -&gt; ReadS AnalysisSourceEntity)
+-&gt; ReadS [AnalysisSourceEntity]
+-&gt; ReadPrec AnalysisSourceEntity
+-&gt; ReadPrec [AnalysisSourceEntity]
+-&gt; Read AnalysisSourceEntity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalysisSourceEntity]
+$creadListPrec :: ReadPrec [AnalysisSourceEntity]
+readPrec :: ReadPrec AnalysisSourceEntity
+$creadPrec :: ReadPrec AnalysisSourceEntity
+readList :: ReadS [AnalysisSourceEntity]
+$creadList :: ReadS [AnalysisSourceEntity]
+readsPrec :: Int -&gt; ReadS AnalysisSourceEntity
+$creadsPrec :: Int -&gt; ReadS AnalysisSourceEntity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553035"><span id="local-6989586621679553037"><span id="local-6989586621679553039"><span class="annot"><span class="annottext">Int -&gt; AnalysisSourceEntity -&gt; ShowS
+[AnalysisSourceEntity] -&gt; ShowS
+AnalysisSourceEntity -&gt; String
+(Int -&gt; AnalysisSourceEntity -&gt; ShowS)
+-&gt; (AnalysisSourceEntity -&gt; String)
+-&gt; ([AnalysisSourceEntity] -&gt; ShowS)
+-&gt; Show AnalysisSourceEntity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalysisSourceEntity] -&gt; ShowS
+$cshowList :: [AnalysisSourceEntity] -&gt; ShowS
+show :: AnalysisSourceEntity -&gt; String
+$cshow :: AnalysisSourceEntity -&gt; String
+showsPrec :: Int -&gt; AnalysisSourceEntity -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalysisSourceEntity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AnalysisSourceEntity -&gt; Rep AnalysisSourceEntity x)
+-&gt; (forall x. Rep AnalysisSourceEntity x -&gt; AnalysisSourceEntity)
+-&gt; Generic AnalysisSourceEntity
+forall x. Rep AnalysisSourceEntity x -&gt; AnalysisSourceEntity
+forall x. AnalysisSourceEntity -&gt; Rep AnalysisSourceEntity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnalysisSourceEntity x -&gt; AnalysisSourceEntity
+$cfrom :: forall x. AnalysisSourceEntity -&gt; Rep AnalysisSourceEntity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'AnalysisSourceEntity' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'sourceTemplate', 'analysisSourceEntity_sourceTemplate' - The source template for the source entity of the analysis.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#newAnalysisSourceEntity"><span class="hs-identifier hs-type">newAnalysisSourceEntity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity"><span class="hs-identifier hs-type">AnalysisSourceEntity</span></a></span><span>
+</span><span id="line-47"></span><span id="newAnalysisSourceEntity"><span class="annot"><span class="annottext">newAnalysisSourceEntity :: AnalysisSourceEntity
+</span><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#newAnalysisSourceEntity"><span class="hs-identifier hs-var hs-var">newAnalysisSourceEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">AnalysisSourceEntity' :: Maybe AnalysisSourceTemplate -&gt; AnalysisSourceEntity
+</span><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity%27"><span class="hs-identifier hs-type">AnalysisSourceEntity'</span></a></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceTemplate:AnalysisSourceEntity' :: Maybe AnalysisSourceTemplate
+</span><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#%24sel%3AsourceTemplate%3AAnalysisSourceEntity%27"><span class="hs-identifier hs-var">sourceTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><span class="annottext">Maybe AnalysisSourceTemplate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | The source template for the source entity of the analysis.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#analysisSourceEntity_sourceTemplate"><span class="hs-identifier hs-type">analysisSourceEntity_sourceTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity"><span class="hs-identifier hs-type">AnalysisSourceEntity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span id="analysisSourceEntity_sourceTemplate"><span class="annot"><span class="annottext">analysisSourceEntity_sourceTemplate :: (Maybe AnalysisSourceTemplate -&gt; f (Maybe AnalysisSourceTemplate))
+-&gt; AnalysisSourceEntity -&gt; f AnalysisSourceEntity
+</span><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#analysisSourceEntity_sourceTemplate"><span class="hs-identifier hs-var hs-var">analysisSourceEntity_sourceTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSourceEntity -&gt; Maybe AnalysisSourceTemplate)
+-&gt; (AnalysisSourceEntity
+    -&gt; Maybe AnalysisSourceTemplate -&gt; AnalysisSourceEntity)
+-&gt; Lens
+     AnalysisSourceEntity
+     AnalysisSourceEntity
+     (Maybe AnalysisSourceTemplate)
+     (Maybe AnalysisSourceTemplate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity%27"><span class="hs-identifier hs-type">AnalysisSourceEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553026"><span class="annot"><span class="annottext">Maybe AnalysisSourceTemplate
+sourceTemplate :: Maybe AnalysisSourceTemplate
+$sel:sourceTemplate:AnalysisSourceEntity' :: AnalysisSourceEntity -&gt; Maybe AnalysisSourceTemplate
+</span><a href="#local-6989586621679553026"><span class="hs-identifier hs-var hs-var">sourceTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnalysisSourceTemplate
+</span><a href="#local-6989586621679553026"><span class="hs-identifier hs-var">sourceTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553025"><span class="annot"><span class="annottext">s :: AnalysisSourceEntity
+</span><a href="#local-6989586621679553025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity%27"><span class="hs-identifier hs-type">AnalysisSourceEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553024"><span class="annot"><span class="annottext">Maybe AnalysisSourceTemplate
+</span><a href="#local-6989586621679553024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSourceEntity
+</span><a href="#local-6989586621679553025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceTemplate:AnalysisSourceEntity' :: Maybe AnalysisSourceTemplate
+</span><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#%24sel%3AsourceTemplate%3AAnalysisSourceEntity%27"><span class="hs-identifier hs-var">sourceTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalysisSourceTemplate
+</span><a href="#local-6989586621679553024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity"><span class="hs-identifier hs-type">AnalysisSourceEntity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553020"><span id="local-6989586621679553022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity"><span class="hs-identifier hs-type">AnalysisSourceEntity</span></a></span></span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity"><span class="hs-identifier hs-type">AnalysisSourceEntity</span></a></span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553009"><span id="local-6989586621679553011"><span id="local-6989586621679553013"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity"><span class="hs-identifier hs-type">AnalysisSourceEntity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679553007"><span class="annot"><span class="annottext">toJSON :: AnalysisSourceEntity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AnalysisSourceEntity.html#AnalysisSourceEntity%27"><span class="hs-identifier hs-type">AnalysisSourceEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553005"><span class="annot"><span class="annottext">Maybe AnalysisSourceTemplate
+sourceTemplate :: Maybe AnalysisSourceTemplate
+$sel:sourceTemplate:AnalysisSourceEntity' :: AnalysisSourceEntity -&gt; Maybe AnalysisSourceTemplate
+</span><a href="#local-6989586621679553005"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-65"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnalysisSourceTemplate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>              </span><span class="annot"><span class="annottext">(AnalysisSourceTemplate -&gt; Pair)
+-&gt; Maybe AnalysisSourceTemplate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AnalysisSourceTemplate
+</span><a href="#local-6989586621679553005"><span class="hs-identifier hs-var">sourceTemplate</span></a></span><span>
+</span><span id="line-67"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span></pre></body></html>

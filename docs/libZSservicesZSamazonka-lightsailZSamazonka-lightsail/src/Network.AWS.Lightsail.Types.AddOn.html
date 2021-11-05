@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an add-on that is enabled for an Amazon Lightsail resource.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAddOn' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679603759"><span id="local-6989586621679603760"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddOn"><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-var">AddOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddOn%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-var">AddOn'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679603768"><span id="local-6989586621679603769"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddOn"><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-var">AddOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddOn%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-var">AddOn'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the add-on.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Astatus%3AAddOn%27"><span class="annot"><span class="annottext">AddOn -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.AddOn.html#%24sel%3Astatus%3AAddOn%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -52,14 +52,14 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Aname%3AAddOn%27"><span class="annot"><span class="annottext">AddOn -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.AddOn.html#%24sel%3Aname%3AAddOn%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603750"><span id="local-6989586621679603752"><span class="annot"><span class="annottext">AddOn -&gt; AddOn -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603759"><span id="local-6989586621679603761"><span class="annot"><span class="annottext">AddOn -&gt; AddOn -&gt; Bool
 (AddOn -&gt; AddOn -&gt; Bool) -&gt; (AddOn -&gt; AddOn -&gt; Bool) -&gt; Eq AddOn
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: AddOn -&gt; AddOn -&gt; Bool
 $c/= :: AddOn -&gt; AddOn -&gt; Bool
 == :: AddOn -&gt; AddOn -&gt; Bool
 $c== :: AddOn -&gt; AddOn -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603741"><span id="local-6989586621679603743"><span id="local-6989586621679603745"><span id="local-6989586621679603747"><span class="annot"><span class="annottext">ReadPrec [AddOn]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603750"><span id="local-6989586621679603752"><span id="local-6989586621679603754"><span id="local-6989586621679603756"><span class="annot"><span class="annottext">ReadPrec [AddOn]
 ReadPrec AddOn
 Int -&gt; ReadS AddOn
 ReadS [AddOn]
@@ -79,7 +79,7 @@ readList :: ReadS [AddOn]
 $creadList :: ReadS [AddOn]
 readsPrec :: Int -&gt; ReadS AddOn
 $creadsPrec :: Int -&gt; ReadS AddOn
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603734"><span id="local-6989586621679603736"><span id="local-6989586621679603738"><span class="annot"><span class="annottext">Int -&gt; AddOn -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603743"><span id="local-6989586621679603745"><span id="local-6989586621679603747"><span class="annot"><span class="annottext">Int -&gt; AddOn -&gt; ShowS
 [AddOn] -&gt; ShowS
 AddOn -&gt; String
 (Int -&gt; AddOn -&gt; ShowS)
@@ -160,16 +160,16 @@ forall a. Maybe a
 -&gt; (AddOn -&gt; Maybe Text -&gt; AddOn)
 -&gt; Lens AddOn AddOn (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603725"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603734"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:AddOn' :: AddOn -&gt; Maybe Text
-</span><a href="#local-6989586621679603725"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603725"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603724"><span class="annot"><span class="annottext">s :: AddOn
-</span><a href="#local-6989586621679603724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603723"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddOn
-</span><a href="#local-6989586621679603724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AddOn' :: Maybe Text
+</span><a href="#local-6989586621679603734"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603734"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603733"><span class="annot"><span class="annottext">s :: AddOn
+</span><a href="#local-6989586621679603733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603732"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddOn
+</span><a href="#local-6989586621679603733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AddOn' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.AddOn.html#%24sel%3Astatus%3AAddOn%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The next daily time an automatic snapshot will be created.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
@@ -184,16 +184,16 @@ $sel:status:AddOn' :: AddOn -&gt; Maybe Text
 -&gt; (AddOn -&gt; Maybe Text -&gt; AddOn)
 -&gt; Lens AddOn AddOn (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603721"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603730"><span class="annot"><span class="annottext">Maybe Text
 nextSnapshotTimeOfDay :: Maybe Text
 $sel:nextSnapshotTimeOfDay:AddOn' :: AddOn -&gt; Maybe Text
-</span><a href="#local-6989586621679603721"><span class="hs-identifier hs-var hs-var">nextSnapshotTimeOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603721"><span class="hs-identifier hs-var">nextSnapshotTimeOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603720"><span class="annot"><span class="annottext">s :: AddOn
-</span><a href="#local-6989586621679603720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603719"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddOn
-</span><a href="#local-6989586621679603720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextSnapshotTimeOfDay:AddOn' :: Maybe Text
+</span><a href="#local-6989586621679603730"><span class="hs-identifier hs-var hs-var">nextSnapshotTimeOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603730"><span class="hs-identifier hs-var">nextSnapshotTimeOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603729"><span class="annot"><span class="annottext">s :: AddOn
+</span><a href="#local-6989586621679603729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddOn
+</span><a href="#local-6989586621679603729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextSnapshotTimeOfDay:AddOn' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.AddOn.html#%24sel%3AnextSnapshotTimeOfDay%3AAddOn%27"><span class="hs-identifier hs-var">nextSnapshotTimeOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The daily time when an automatic snapshot is created.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
@@ -208,16 +208,16 @@ $sel:nextSnapshotTimeOfDay:AddOn' :: AddOn -&gt; Maybe Text
 -&gt; (AddOn -&gt; Maybe Text -&gt; AddOn)
 -&gt; Lens AddOn AddOn (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603717"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603726"><span class="annot"><span class="annottext">Maybe Text
 snapshotTimeOfDay :: Maybe Text
 $sel:snapshotTimeOfDay:AddOn' :: AddOn -&gt; Maybe Text
-</span><a href="#local-6989586621679603717"><span class="hs-identifier hs-var hs-var">snapshotTimeOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603717"><span class="hs-identifier hs-var">snapshotTimeOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603716"><span class="annot"><span class="annottext">s :: AddOn
-</span><a href="#local-6989586621679603716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603715"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddOn
-</span><a href="#local-6989586621679603716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotTimeOfDay:AddOn' :: Maybe Text
+</span><a href="#local-6989586621679603726"><span class="hs-identifier hs-var hs-var">snapshotTimeOfDay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603726"><span class="hs-identifier hs-var">snapshotTimeOfDay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603725"><span class="annot"><span class="annottext">s :: AddOn
+</span><a href="#local-6989586621679603725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603724"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddOn
+</span><a href="#local-6989586621679603725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotTimeOfDay:AddOn' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.AddOn.html#%24sel%3AsnapshotTimeOfDay%3AAddOn%27"><span class="hs-identifier hs-var">snapshotTimeOfDay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The name of the add-on.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#addOn_name"><span class="hs-identifier hs-type">addOn_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -226,27 +226,27 @@ $sel:snapshotTimeOfDay:AddOn' :: AddOn -&gt; Maybe Text
 -&gt; (AddOn -&gt; Maybe Text -&gt; AddOn)
 -&gt; Lens AddOn AddOn (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603713"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603722"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:AddOn' :: AddOn -&gt; Maybe Text
-</span><a href="#local-6989586621679603713"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603713"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603712"><span class="annot"><span class="annottext">s :: AddOn
-</span><a href="#local-6989586621679603712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603711"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddOn
-</span><a href="#local-6989586621679603712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AddOn' :: Maybe Text
+</span><a href="#local-6989586621679603722"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603722"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603721"><span class="annot"><span class="annottext">s :: AddOn
+</span><a href="#local-6989586621679603721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-type">AddOn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603720"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddOn
+</span><a href="#local-6989586621679603721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AddOn' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.AddOn.html#%24sel%3Aname%3AAddOn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603708"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679603706"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AddOn
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603717"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679603715"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AddOn
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser AddOn) -&gt; Value -&gt; Parser AddOn
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AddOn&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603703"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603703"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603712"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603712"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AddOn
 </span><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn%27"><span class="hs-identifier hs-var">AddOn'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AddOn)
@@ -254,7 +254,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AddOn)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
@@ -263,7 +263,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AddOn)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextSnapshotTimeOfDay&quot;</span></span><span class="hs-special">)</span><span>
@@ -271,20 +271,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AddOn)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;snapshotTimeOfDay&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AddOn) -&gt; Parser (Maybe Text) -&gt; Parser AddOn
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603697"><span id="local-6989586621679603699"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603706"><span id="local-6989586621679603708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AddOn.html#AddOn"><span class="hs-identifier hs-type">AddOn</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

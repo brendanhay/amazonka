@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an elastic GPU.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newElasticGpuSpecificationResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681102811"><span id="local-6989586621681102812"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticGpuSpecificationResponse"><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse"><span class="hs-identifier hs-var">ElasticGpuSpecificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticGpuSpecificationResponse%27"><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse%27"><span class="hs-identifier hs-var">ElasticGpuSpecificationResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681102820"><span id="local-6989586621681102821"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticGpuSpecificationResponse"><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse"><span class="hs-identifier hs-var">ElasticGpuSpecificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticGpuSpecificationResponse%27"><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse%27"><span class="hs-identifier hs-var">ElasticGpuSpecificationResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The elastic GPU type.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Atype%27%3AElasticGpuSpecificationResponse%27"><span class="annot"><span class="annottext">ElasticGpuSpecificationResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#%24sel%3Atype%27%3AElasticGpuSpecificationResponse%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681102805"><span id="local-6989586621681102807"><span class="annot"><span class="annottext">ElasticGpuSpecificationResponse
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681102814"><span id="local-6989586621681102816"><span class="annot"><span class="annottext">ElasticGpuSpecificationResponse
 -&gt; ElasticGpuSpecificationResponse -&gt; Bool
 (ElasticGpuSpecificationResponse
  -&gt; ElasticGpuSpecificationResponse -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: ElasticGpuSpecificationResponse
 -&gt; ElasticGpuSpecificationResponse -&gt; Bool
 $c== :: ElasticGpuSpecificationResponse
 -&gt; ElasticGpuSpecificationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102796"><span id="local-6989586621681102798"><span id="local-6989586621681102800"><span id="local-6989586621681102802"><span class="annot"><span class="annottext">ReadPrec [ElasticGpuSpecificationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102805"><span id="local-6989586621681102807"><span id="local-6989586621681102809"><span id="local-6989586621681102811"><span class="annot"><span class="annottext">ReadPrec [ElasticGpuSpecificationResponse]
 ReadPrec ElasticGpuSpecificationResponse
 Int -&gt; ReadS ElasticGpuSpecificationResponse
 ReadS [ElasticGpuSpecificationResponse]
@@ -68,7 +68,7 @@ readList :: ReadS [ElasticGpuSpecificationResponse]
 $creadList :: ReadS [ElasticGpuSpecificationResponse]
 readsPrec :: Int -&gt; ReadS ElasticGpuSpecificationResponse
 $creadsPrec :: Int -&gt; ReadS ElasticGpuSpecificationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102789"><span id="local-6989586621681102791"><span id="local-6989586621681102793"><span class="annot"><span class="annottext">Int -&gt; ElasticGpuSpecificationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102798"><span id="local-6989586621681102800"><span id="local-6989586621681102802"><span class="annot"><span class="annottext">Int -&gt; ElasticGpuSpecificationResponse -&gt; ShowS
 [ElasticGpuSpecificationResponse] -&gt; ShowS
 ElasticGpuSpecificationResponse -&gt; String
 (Int -&gt; ElasticGpuSpecificationResponse -&gt; ShowS)
@@ -142,21 +142,21 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse%27"><span class="hs-identifier hs-type">ElasticGpuSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102780"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse%27"><span class="hs-identifier hs-type">ElasticGpuSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102789"><span class="annot"><span class="annottext">Maybe Text
 type' :: Maybe Text
 $sel:type':ElasticGpuSpecificationResponse' :: ElasticGpuSpecificationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681102780"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102780"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102779"><span class="annot"><span class="annottext">s :: ElasticGpuSpecificationResponse
-</span><a href="#local-6989586621681102779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse%27"><span class="hs-identifier hs-type">ElasticGpuSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102778"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticGpuSpecificationResponse
-</span><a href="#local-6989586621681102779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ElasticGpuSpecificationResponse' :: Maybe Text
+</span><a href="#local-6989586621681102789"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681102789"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102788"><span class="annot"><span class="annottext">s :: ElasticGpuSpecificationResponse
+</span><a href="#local-6989586621681102788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse%27"><span class="hs-identifier hs-type">ElasticGpuSpecificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681102787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticGpuSpecificationResponse
+</span><a href="#local-6989586621681102788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ElasticGpuSpecificationResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#%24sel%3Atype%27%3AElasticGpuSpecificationResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681102778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse"><span class="hs-identifier hs-type">ElasticGpuSpecificationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681102787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse"><span class="hs-identifier hs-type">ElasticGpuSpecificationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse"><span class="hs-identifier hs-type">ElasticGpuSpecificationResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621681102775"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ElasticGpuSpecificationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681102773"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621681102784"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ElasticGpuSpecificationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681102782"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681102782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; ElasticGpuSpecificationResponse
 </span><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse%27"><span class="hs-identifier hs-var">ElasticGpuSpecificationResponse'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ElasticGpuSpecificationResponse)
@@ -164,16 +164,16 @@ $sel:type':ElasticGpuSpecificationResponse' :: ElasticGpuSpecificationResponse -
 -&gt; Either String ElasticGpuSpecificationResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681102773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681102782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621681102767"><span id="local-6989586621681102769"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621681102776"><span id="local-6989586621681102778"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse"><span class="hs-identifier hs-type">ElasticGpuSpecificationResponse</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621681102764"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681102773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.ElasticGpuSpecificationResponse.html#ElasticGpuSpecificationResponse"><span class="hs-identifier hs-type">ElasticGpuSpecificationResponse</span></a></span></span><span>
 </span><span id="line-69"></span></pre></body></html>

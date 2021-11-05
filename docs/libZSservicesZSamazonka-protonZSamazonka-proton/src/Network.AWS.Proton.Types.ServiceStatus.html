@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Proton.Types.ServiceStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Proton.Types.ServiceStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier">ServiceStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_ACTIVE"><span class="hs-identifier">ServiceStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED"><span class="hs-identifier">ServiceStatus_CREATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE"><span class="hs-identifier">ServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED_CLEANUP_FAILED"><span class="hs-identifier">ServiceStatus_CREATE_FAILED_CLEANUP_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS"><span class="hs-identifier">ServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_IN_PROGRESS"><span class="hs-identifier">ServiceStatus_CREATE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_DELETE_FAILED"><span class="hs-identifier">ServiceStatus_DELETE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_DELETE_IN_PROGRESS"><span class="hs-identifier">ServiceStatus_DELETE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED"><span class="hs-identifier">ServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED"><span class="hs-identifier">ServiceStatus_UPDATE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE"><span class="hs-identifier">ServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED_CLEANUP_FAILED"><span class="hs-identifier">ServiceStatus_UPDATE_FAILED_CLEANUP_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS"><span class="hs-identifier">ServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_IN_PROGRESS"><span class="hs-identifier">ServiceStatus_UPDATE_IN_PROGRESS</span></a></span><span>
+</span><span id="line-37"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679263783"><span id="local-6989586621679263784"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceStatus"><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-var">ServiceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceStatus%27"><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-var">ServiceStatus'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceStatus"><span class="annot"><span class="annottext">ServiceStatus -&gt; Text
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#fromServiceStatus"><span class="hs-identifier hs-var hs-var">fromServiceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263775"><span id="local-6989586621679263777"><span id="local-6989586621679263779"><span class="annot"><span class="annottext">Int -&gt; ServiceStatus -&gt; ShowS
+[ServiceStatus] -&gt; ShowS
+ServiceStatus -&gt; String
+(Int -&gt; ServiceStatus -&gt; ShowS)
+-&gt; (ServiceStatus -&gt; String)
+-&gt; ([ServiceStatus] -&gt; ShowS)
+-&gt; Show ServiceStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServiceStatus] -&gt; ShowS
+$cshowList :: [ServiceStatus] -&gt; ShowS
+show :: ServiceStatus -&gt; String
+$cshow :: ServiceStatus -&gt; String
+showsPrec :: Int -&gt; ServiceStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServiceStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679263766"><span id="local-6989586621679263768"><span id="local-6989586621679263770"><span id="local-6989586621679263772"><span class="annot"><span class="annottext">ReadPrec [ServiceStatus]
+ReadPrec ServiceStatus
+Int -&gt; ReadS ServiceStatus
+ReadS [ServiceStatus]
+(Int -&gt; ReadS ServiceStatus)
+-&gt; ReadS [ServiceStatus]
+-&gt; ReadPrec ServiceStatus
+-&gt; ReadPrec [ServiceStatus]
+-&gt; Read ServiceStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServiceStatus]
+$creadListPrec :: ReadPrec [ServiceStatus]
+readPrec :: ReadPrec ServiceStatus
+$creadPrec :: ReadPrec ServiceStatus
+readList :: ReadS [ServiceStatus]
+$creadList :: ReadS [ServiceStatus]
+readsPrec :: Int -&gt; ReadS ServiceStatus
+$creadsPrec :: Int -&gt; ReadS ServiceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679263761"><span id="local-6989586621679263763"><span class="annot"><span class="annottext">ServiceStatus -&gt; ServiceStatus -&gt; Bool
+(ServiceStatus -&gt; ServiceStatus -&gt; Bool)
+-&gt; (ServiceStatus -&gt; ServiceStatus -&gt; Bool) -&gt; Eq ServiceStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+$c/= :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+== :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+$c== :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679263745"><span id="local-6989586621679263747"><span id="local-6989586621679263749"><span id="local-6989586621679263751"><span id="local-6989586621679263753"><span id="local-6989586621679263755"><span id="local-6989586621679263757"><span class="annot"><span class="annottext">Eq ServiceStatus
+Eq ServiceStatus
+-&gt; (ServiceStatus -&gt; ServiceStatus -&gt; Ordering)
+-&gt; (ServiceStatus -&gt; ServiceStatus -&gt; Bool)
+-&gt; (ServiceStatus -&gt; ServiceStatus -&gt; Bool)
+-&gt; (ServiceStatus -&gt; ServiceStatus -&gt; Bool)
+-&gt; (ServiceStatus -&gt; ServiceStatus -&gt; Bool)
+-&gt; (ServiceStatus -&gt; ServiceStatus -&gt; ServiceStatus)
+-&gt; (ServiceStatus -&gt; ServiceStatus -&gt; ServiceStatus)
+-&gt; Ord ServiceStatus
+ServiceStatus -&gt; ServiceStatus -&gt; Bool
+ServiceStatus -&gt; ServiceStatus -&gt; Ordering
+ServiceStatus -&gt; ServiceStatus -&gt; ServiceStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ServiceStatus -&gt; ServiceStatus -&gt; ServiceStatus
+$cmin :: ServiceStatus -&gt; ServiceStatus -&gt; ServiceStatus
+max :: ServiceStatus -&gt; ServiceStatus -&gt; ServiceStatus
+$cmax :: ServiceStatus -&gt; ServiceStatus -&gt; ServiceStatus
+&gt;= :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+$c&gt;= :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+&gt; :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+$c&gt; :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+&lt;= :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+$c&lt;= :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+&lt; :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+$c&lt; :: ServiceStatus -&gt; ServiceStatus -&gt; Bool
+compare :: ServiceStatus -&gt; ServiceStatus -&gt; Ordering
+$ccompare :: ServiceStatus -&gt; ServiceStatus -&gt; Ordering
+$cp1Ord :: Eq ServiceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ServiceStatus -&gt; Rep ServiceStatus x)
+-&gt; (forall x. Rep ServiceStatus x -&gt; ServiceStatus)
+-&gt; Generic ServiceStatus
+forall x. Rep ServiceStatus x -&gt; ServiceStatus
+forall x. ServiceStatus -&gt; Rep ServiceStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ServiceStatus x -&gt; ServiceStatus
+$cfrom :: forall x. ServiceStatus -&gt; Rep ServiceStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263737"><span id="local-6989586621679263739"><span class="annot"><span class="annottext">Int -&gt; ServiceStatus -&gt; Int
+ServiceStatus -&gt; Int
+(Int -&gt; ServiceStatus -&gt; Int)
+-&gt; (ServiceStatus -&gt; Int) -&gt; Hashable ServiceStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ServiceStatus -&gt; Int
+$chash :: ServiceStatus -&gt; Int
+hashWithSalt :: Int -&gt; ServiceStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ServiceStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679263734"><span class="annot"><span class="annottext">ServiceStatus -&gt; ()
+(ServiceStatus -&gt; ()) -&gt; NFData ServiceStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ServiceStatus -&gt; ()
+$crnf :: ServiceStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679263731"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceStatus
+(Text -&gt; Either String ServiceStatus) -&gt; FromText ServiceStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ServiceStatus
+$cfromText :: Text -&gt; Either String ServiceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679263728"><span class="annot"><span class="annottext">ServiceStatus -&gt; Text
+(ServiceStatus -&gt; Text) -&gt; ToText ServiceStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ServiceStatus -&gt; Text
+$ctoText :: ServiceStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679263725"><span class="annot"><span class="annottext">ServiceStatus -&gt; ByteString
+(ServiceStatus -&gt; ByteString) -&gt; ToByteString ServiceStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ServiceStatus -&gt; ByteString
+$ctoBS :: ServiceStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679263722"><span class="annot"><span class="annottext">ServiceStatus -&gt; ByteStringBuilder
+(ServiceStatus -&gt; ByteStringBuilder) -&gt; ToLog ServiceStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ServiceStatus -&gt; ByteStringBuilder
+$cbuild :: ServiceStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679263719"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceStatus -&gt; [Header]
+(HeaderName -&gt; ServiceStatus -&gt; [Header]) -&gt; ToHeader ServiceStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ServiceStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ServiceStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679263716"><span class="annot"><span class="annottext">ServiceStatus -&gt; QueryString
+(ServiceStatus -&gt; QueryString) -&gt; ToQuery ServiceStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ServiceStatus -&gt; QueryString
+$ctoQuery :: ServiceStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679263711"><span id="local-6989586621679263713"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceStatus]
+Value -&gt; Parser ServiceStatus
+(Value -&gt; Parser ServiceStatus)
+-&gt; (Value -&gt; Parser [ServiceStatus]) -&gt; FromJSON ServiceStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ServiceStatus]
+$cparseJSONList :: Value -&gt; Parser [ServiceStatus]
+parseJSON :: Value -&gt; Parser ServiceStatus
+$cparseJSON :: Value -&gt; Parser ServiceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679263706"><span id="local-6989586621679263708"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceStatus]
+FromJSONKeyFunction ServiceStatus
+FromJSONKeyFunction ServiceStatus
+-&gt; FromJSONKeyFunction [ServiceStatus] -&gt; FromJSONKey ServiceStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ServiceStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ServiceStatus]
+fromJSONKey :: FromJSONKeyFunction ServiceStatus
+$cfromJSONKey :: FromJSONKeyFunction ServiceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679263697"><span id="local-6989586621679263699"><span id="local-6989586621679263701"><span id="local-6989586621679263703"><span class="annot"><span class="annottext">[ServiceStatus] -&gt; Encoding
+[ServiceStatus] -&gt; Value
+ServiceStatus -&gt; Encoding
+ServiceStatus -&gt; Value
+(ServiceStatus -&gt; Value)
+-&gt; (ServiceStatus -&gt; Encoding)
+-&gt; ([ServiceStatus] -&gt; Value)
+-&gt; ([ServiceStatus] -&gt; Encoding)
+-&gt; ToJSON ServiceStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ServiceStatus] -&gt; Encoding
+$ctoEncodingList :: [ServiceStatus] -&gt; Encoding
+toJSONList :: [ServiceStatus] -&gt; Value
+$ctoJSONList :: [ServiceStatus] -&gt; Value
+toEncoding :: ServiceStatus -&gt; Encoding
+$ctoEncoding :: ServiceStatus -&gt; Encoding
+toJSON :: ServiceStatus -&gt; Value
+$ctoJSON :: ServiceStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679263692"><span id="local-6989586621679263694"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceStatus]
+ToJSONKeyFunction ServiceStatus
+ToJSONKeyFunction ServiceStatus
+-&gt; ToJSONKeyFunction [ServiceStatus] -&gt; ToJSONKey ServiceStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ServiceStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ServiceStatus]
+toJSONKey :: ToJSONKeyFunction ServiceStatus
+$ctoJSONKey :: ToJSONKeyFunction ServiceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679263689"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceStatus
+([Node] -&gt; Either String ServiceStatus) -&gt; FromXML ServiceStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ServiceStatus
+$cparseXML :: [Node] -&gt; Either String ServiceStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679263686"><span class="annot"><span class="annottext">ServiceStatus -&gt; XML
+(ServiceStatus -&gt; XML) -&gt; ToXML ServiceStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ServiceStatus -&gt; XML
+$ctoXML :: ServiceStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_ACTIVE"><span class="hs-identifier hs-type">ServiceStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_ACTIVE"><span id="%24mServiceStatus_ACTIVE"><span id="ServiceStatus_ACTIVE"><span class="annot"><span class="annottext">$bServiceStatus_ACTIVE :: ServiceStatus
+$mServiceStatus_ACTIVE :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED"><span class="hs-identifier hs-type">ServiceStatus_CREATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_CREATE_FAILED"><span id="%24mServiceStatus_CREATE_FAILED"><span id="ServiceStatus_CREATE_FAILED"><span class="annot"><span class="annottext">$bServiceStatus_CREATE_FAILED :: ServiceStatus
+$mServiceStatus_CREATE_FAILED :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_CREATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_CREATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE"><span class="hs-identifier hs-type">ServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE"><span id="%24mServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE"><span id="ServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE"><span class="annot"><span class="annottext">$bServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE :: ServiceStatus
+$mServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED_CLEANUP_COMPLETE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED_CLEANUP_FAILED"><span class="hs-identifier hs-type">ServiceStatus_CREATE_FAILED_CLEANUP_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_CREATE_FAILED_CLEANUP_FAILED"><span id="%24mServiceStatus_CREATE_FAILED_CLEANUP_FAILED"><span id="ServiceStatus_CREATE_FAILED_CLEANUP_FAILED"><span class="annot"><span class="annottext">$bServiceStatus_CREATE_FAILED_CLEANUP_FAILED :: ServiceStatus
+$mServiceStatus_CREATE_FAILED_CLEANUP_FAILED :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_CREATE_FAILED_CLEANUP_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_CREATE_FAILED_CLEANUP_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED_CLEANUP_FAILED&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS"><span class="hs-identifier hs-type">ServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS"><span id="%24mServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS"><span id="ServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS"><span class="annot"><span class="annottext">$bServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS :: ServiceStatus
+$mServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_FAILED_CLEANUP_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_IN_PROGRESS"><span class="hs-identifier hs-type">ServiceStatus_CREATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_CREATE_IN_PROGRESS"><span id="%24mServiceStatus_CREATE_IN_PROGRESS"><span id="ServiceStatus_CREATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bServiceStatus_CREATE_IN_PROGRESS :: ServiceStatus
+$mServiceStatus_CREATE_IN_PROGRESS :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_CREATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_CREATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_DELETE_FAILED"><span class="hs-identifier hs-type">ServiceStatus_DELETE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_DELETE_FAILED"><span id="%24mServiceStatus_DELETE_FAILED"><span id="ServiceStatus_DELETE_FAILED"><span class="annot"><span class="annottext">$bServiceStatus_DELETE_FAILED :: ServiceStatus
+$mServiceStatus_DELETE_FAILED :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_DELETE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_DELETE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_DELETE_IN_PROGRESS"><span class="hs-identifier hs-type">ServiceStatus_DELETE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_DELETE_IN_PROGRESS"><span id="%24mServiceStatus_DELETE_IN_PROGRESS"><span id="ServiceStatus_DELETE_IN_PROGRESS"><span class="annot"><span class="annottext">$bServiceStatus_DELETE_IN_PROGRESS :: ServiceStatus
+$mServiceStatus_DELETE_IN_PROGRESS :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_DELETE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_DELETE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED"><span class="hs-identifier hs-type">ServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED"><span id="%24mServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED"><span id="ServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED"><span class="annot"><span class="annottext">$bServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED :: ServiceStatus
+$mServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_COMPLETE_CLEANUP_FAILED&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED"><span class="hs-identifier hs-type">ServiceStatus_UPDATE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_UPDATE_FAILED"><span id="%24mServiceStatus_UPDATE_FAILED"><span id="ServiceStatus_UPDATE_FAILED"><span class="annot"><span class="annottext">$bServiceStatus_UPDATE_FAILED :: ServiceStatus
+$mServiceStatus_UPDATE_FAILED :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_UPDATE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_UPDATE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_FAILED&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE"><span class="hs-identifier hs-type">ServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE"><span id="%24mServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE"><span id="ServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE"><span class="annot"><span class="annottext">$bServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE :: ServiceStatus
+$mServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_FAILED_CLEANUP_COMPLETE&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED_CLEANUP_FAILED"><span class="hs-identifier hs-type">ServiceStatus_UPDATE_FAILED_CLEANUP_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_UPDATE_FAILED_CLEANUP_FAILED"><span id="%24mServiceStatus_UPDATE_FAILED_CLEANUP_FAILED"><span id="ServiceStatus_UPDATE_FAILED_CLEANUP_FAILED"><span class="annot"><span class="annottext">$bServiceStatus_UPDATE_FAILED_CLEANUP_FAILED :: ServiceStatus
+$mServiceStatus_UPDATE_FAILED_CLEANUP_FAILED :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_UPDATE_FAILED_CLEANUP_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_UPDATE_FAILED_CLEANUP_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_FAILED_CLEANUP_FAILED&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS"><span class="hs-identifier hs-type">ServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS"><span id="%24mServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS"><span id="ServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS"><span class="annot"><span class="annottext">$bServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS :: ServiceStatus
+$mServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_FAILED_CLEANUP_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_IN_PROGRESS"><span class="hs-identifier hs-type">ServiceStatus_UPDATE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus"><span class="hs-identifier hs-type">ServiceStatus</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceStatus_UPDATE_IN_PROGRESS"><span id="%24mServiceStatus_UPDATE_IN_PROGRESS"><span id="ServiceStatus_UPDATE_IN_PROGRESS"><span class="annot"><span class="annottext">$bServiceStatus_UPDATE_IN_PROGRESS :: ServiceStatus
+$mServiceStatus_UPDATE_IN_PROGRESS :: forall r. ServiceStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Proton.Types.ServiceStatus.html#%24bServiceStatus_UPDATE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">ServiceStatus_UPDATE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-identifier hs-type">ServiceStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_ACTIVE"><span class="hs-pragma hs-type">ServiceStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED"><span class="hs-pragma hs-type">ServiceStatus_CREATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE"><span class="hs-pragma hs-type">ServiceStatus_CREATE_FAILED_CLEANUP_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED_CLEANUP_FAILED"><span class="hs-pragma hs-type">ServiceStatus_CREATE_FAILED_CLEANUP_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS"><span class="hs-pragma hs-type">ServiceStatus_CREATE_FAILED_CLEANUP_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_CREATE_IN_PROGRESS"><span class="hs-pragma hs-type">ServiceStatus_CREATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_DELETE_FAILED"><span class="hs-pragma hs-type">ServiceStatus_DELETE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_DELETE_IN_PROGRESS"><span class="hs-pragma hs-type">ServiceStatus_DELETE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED"><span class="hs-pragma hs-type">ServiceStatus_UPDATE_COMPLETE_CLEANUP_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED"><span class="hs-pragma hs-type">ServiceStatus_UPDATE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE"><span class="hs-pragma hs-type">ServiceStatus_UPDATE_FAILED_CLEANUP_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED_CLEANUP_FAILED"><span class="hs-pragma hs-type">ServiceStatus_UPDATE_FAILED_CLEANUP_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS"><span class="hs-pragma hs-type">ServiceStatus_UPDATE_FAILED_CLEANUP_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus_UPDATE_IN_PROGRESS"><span class="hs-pragma hs-type">ServiceStatus_UPDATE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.Proton.Types.ServiceStatus.html#ServiceStatus%27"><span class="hs-pragma hs-type">ServiceStatus'</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-131"></span></pre></body></html>

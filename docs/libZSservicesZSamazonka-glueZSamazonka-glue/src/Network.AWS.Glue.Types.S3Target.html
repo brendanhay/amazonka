@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies a data store in Amazon Simple Storage Service (Amazon S3).</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newS3Target' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679696354"><span id="local-6989586621679696355"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Target"><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-var">S3Target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Target%27"><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-var">S3Target'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679696363"><span id="local-6989586621679696364"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Target"><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-var">S3Target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Target%27"><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-var">S3Target'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path to the Amazon S3 target.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Apath%3AS3Target%27"><span class="annot"><span class="annottext">S3Target -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.S3Target.html#%24sel%3Apath%3AS3Target%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AdlqEventQueueArn%3AS3Target%27"><span class="annot"><span class="annottext">S3Target -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.S3Target.html#%24sel%3AdlqEventQueueArn%3AS3Target%27"><span class="hs-identifier hs-var hs-var">dlqEventQueueArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679696343"><span id="local-6989586621679696345"><span class="annot"><span class="annottext">S3Target -&gt; S3Target -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679696352"><span id="local-6989586621679696354"><span class="annot"><span class="annottext">S3Target -&gt; S3Target -&gt; Bool
 (S3Target -&gt; S3Target -&gt; Bool)
 -&gt; (S3Target -&gt; S3Target -&gt; Bool) -&gt; Eq S3Target
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Target -&gt; S3Target -&gt; Bool
 == :: S3Target -&gt; S3Target -&gt; Bool
 $c== :: S3Target -&gt; S3Target -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696334"><span id="local-6989586621679696336"><span id="local-6989586621679696338"><span id="local-6989586621679696340"><span class="annot"><span class="annottext">ReadPrec [S3Target]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696343"><span id="local-6989586621679696345"><span id="local-6989586621679696347"><span id="local-6989586621679696349"><span class="annot"><span class="annottext">ReadPrec [S3Target]
 ReadPrec S3Target
 Int -&gt; ReadS S3Target
 ReadS [S3Target]
@@ -81,7 +81,7 @@ readList :: ReadS [S3Target]
 $creadList :: ReadS [S3Target]
 readsPrec :: Int -&gt; ReadS S3Target
 $creadsPrec :: Int -&gt; ReadS S3Target
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696327"><span id="local-6989586621679696329"><span id="local-6989586621679696331"><span class="annot"><span class="annottext">Int -&gt; S3Target -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696336"><span id="local-6989586621679696338"><span id="local-6989586621679696340"><span class="annot"><span class="annottext">Int -&gt; S3Target -&gt; ShowS
 [S3Target] -&gt; ShowS
 S3Target -&gt; String
 (Int -&gt; S3Target -&gt; ShowS)
@@ -175,16 +175,16 @@ forall a. Maybe a
 -&gt; (S3Target -&gt; Maybe Text -&gt; S3Target)
 -&gt; Lens S3Target S3Target (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696318"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696327"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:S3Target' :: S3Target -&gt; Maybe Text
-</span><a href="#local-6989586621679696318"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696318"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696317"><span class="annot"><span class="annottext">s :: S3Target
-</span><a href="#local-6989586621679696317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696316"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
-</span><a href="#local-6989586621679696317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:S3Target' :: Maybe Text
+</span><a href="#local-6989586621679696327"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696327"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696326"><span class="annot"><span class="annottext">s :: S3Target
+</span><a href="#local-6989586621679696326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696325"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
+</span><a href="#local-6989586621679696326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:S3Target' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.S3Target.html#%24sel%3Apath%3AS3Target%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679696325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | Sets the number of files in each leaf folder to be crawled when crawling</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- sample files in a dataset. If not set, all the files are crawled. A</span><span>
@@ -195,16 +195,16 @@ $sel:path:S3Target' :: S3Target -&gt; Maybe Text
 -&gt; (S3Target -&gt; Maybe Int -&gt; S3Target)
 -&gt; Lens S3Target S3Target (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696314"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696323"><span class="annot"><span class="annottext">Maybe Int
 sampleSize :: Maybe Int
 $sel:sampleSize:S3Target' :: S3Target -&gt; Maybe Int
-</span><a href="#local-6989586621679696314"><span class="hs-identifier hs-var hs-var">sampleSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679696314"><span class="hs-identifier hs-var">sampleSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696313"><span class="annot"><span class="annottext">s :: S3Target
-</span><a href="#local-6989586621679696313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696312"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679696312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
-</span><a href="#local-6989586621679696313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleSize:S3Target' :: Maybe Int
+</span><a href="#local-6989586621679696323"><span class="hs-identifier hs-var hs-var">sampleSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679696323"><span class="hs-identifier hs-var">sampleSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696322"><span class="annot"><span class="annottext">s :: S3Target
+</span><a href="#local-6989586621679696322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696321"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679696321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
+</span><a href="#local-6989586621679696322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleSize:S3Target' :: Maybe Int
 </span><a href="Network.AWS.Glue.Types.S3Target.html#%24sel%3AsampleSize%3AS3Target%27"><span class="hs-identifier hs-var">sampleSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679696312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679696321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The name of a connection which allows a job or crawler to access data in</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon</span><span>
@@ -215,16 +215,16 @@ $sel:sampleSize:S3Target' :: S3Target -&gt; Maybe Int
 -&gt; (S3Target -&gt; Maybe Text -&gt; S3Target)
 -&gt; Lens S3Target S3Target (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696310"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696319"><span class="annot"><span class="annottext">Maybe Text
 connectionName :: Maybe Text
 $sel:connectionName:S3Target' :: S3Target -&gt; Maybe Text
-</span><a href="#local-6989586621679696310"><span class="hs-identifier hs-var hs-var">connectionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696310"><span class="hs-identifier hs-var">connectionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696309"><span class="annot"><span class="annottext">s :: S3Target
-</span><a href="#local-6989586621679696309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696308"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
-</span><a href="#local-6989586621679696309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionName:S3Target' :: Maybe Text
+</span><a href="#local-6989586621679696319"><span class="hs-identifier hs-var hs-var">connectionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696319"><span class="hs-identifier hs-var">connectionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696318"><span class="annot"><span class="annottext">s :: S3Target
+</span><a href="#local-6989586621679696318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696317"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
+</span><a href="#local-6989586621679696318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionName:S3Target' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.S3Target.html#%24sel%3AconnectionName%3AS3Target%27"><span class="hs-identifier hs-var">connectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679696317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | A list of glob patterns used to exclude from the crawl. For more</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- information, see</span><span>
@@ -235,16 +235,16 @@ $sel:connectionName:S3Target' :: S3Target -&gt; Maybe Text
 -&gt; (S3Target -&gt; Maybe [Text] -&gt; S3Target)
 -&gt; Lens S3Target S3Target (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696306"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696315"><span class="annot"><span class="annottext">Maybe [Text]
 exclusions :: Maybe [Text]
 $sel:exclusions:S3Target' :: S3Target -&gt; Maybe [Text]
-</span><a href="#local-6989586621679696306"><span class="hs-identifier hs-var hs-var">exclusions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679696306"><span class="hs-identifier hs-var">exclusions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696305"><span class="annot"><span class="annottext">s :: S3Target
-</span><a href="#local-6989586621679696305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696304"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679696304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
-</span><a href="#local-6989586621679696305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusions:S3Target' :: Maybe [Text]
+</span><a href="#local-6989586621679696315"><span class="hs-identifier hs-var hs-var">exclusions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679696315"><span class="hs-identifier hs-var">exclusions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696314"><span class="annot"><span class="annottext">s :: S3Target
+</span><a href="#local-6989586621679696314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696313"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679696313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
+</span><a href="#local-6989586621679696314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusions:S3Target' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.S3Target.html#%24sel%3Aexclusions%3AS3Target%27"><span class="hs-identifier hs-var">exclusions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679696304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; S3Target -&gt; f S3Target)
+</span><a href="#local-6989586621679696313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; S3Target -&gt; f S3Target)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -267,16 +267,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (S3Target -&gt; Maybe Text -&gt; S3Target)
 -&gt; Lens S3Target S3Target (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696299"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696308"><span class="annot"><span class="annottext">Maybe Text
 eventQueueArn :: Maybe Text
 $sel:eventQueueArn:S3Target' :: S3Target -&gt; Maybe Text
-</span><a href="#local-6989586621679696299"><span class="hs-identifier hs-var hs-var">eventQueueArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696299"><span class="hs-identifier hs-var">eventQueueArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696298"><span class="annot"><span class="annottext">s :: S3Target
-</span><a href="#local-6989586621679696298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696297"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
-</span><a href="#local-6989586621679696298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventQueueArn:S3Target' :: Maybe Text
+</span><a href="#local-6989586621679696308"><span class="hs-identifier hs-var hs-var">eventQueueArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696308"><span class="hs-identifier hs-var">eventQueueArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696307"><span class="annot"><span class="annottext">s :: S3Target
+</span><a href="#local-6989586621679696307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696306"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
+</span><a href="#local-6989586621679696307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventQueueArn:S3Target' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.S3Target.html#%24sel%3AeventQueueArn%3AS3Target%27"><span class="hs-identifier hs-var">eventQueueArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679696306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | A valid Amazon dead-letter SQS ARN. For example,</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- @arn:aws:sqs:region:account:deadLetterQueue@.</span><span>
@@ -286,27 +286,27 @@ $sel:eventQueueArn:S3Target' :: S3Target -&gt; Maybe Text
 -&gt; (S3Target -&gt; Maybe Text -&gt; S3Target)
 -&gt; Lens S3Target S3Target (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696295"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696304"><span class="annot"><span class="annottext">Maybe Text
 dlqEventQueueArn :: Maybe Text
 $sel:dlqEventQueueArn:S3Target' :: S3Target -&gt; Maybe Text
-</span><a href="#local-6989586621679696295"><span class="hs-identifier hs-var hs-var">dlqEventQueueArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696295"><span class="hs-identifier hs-var">dlqEventQueueArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696294"><span class="annot"><span class="annottext">s :: S3Target
-</span><a href="#local-6989586621679696294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696293"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
-</span><a href="#local-6989586621679696294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dlqEventQueueArn:S3Target' :: Maybe Text
+</span><a href="#local-6989586621679696304"><span class="hs-identifier hs-var hs-var">dlqEventQueueArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696304"><span class="hs-identifier hs-var">dlqEventQueueArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696303"><span class="annot"><span class="annottext">s :: S3Target
+</span><a href="#local-6989586621679696303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696302"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679696302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Target
+</span><a href="#local-6989586621679696303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dlqEventQueueArn:S3Target' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.S3Target.html#%24sel%3AdlqEventQueueArn%3AS3Target%27"><span class="hs-identifier hs-var">dlqEventQueueArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679696302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696290"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679696288"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Target
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696299"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679696297"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Target
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser S3Target) -&gt; Value -&gt; Parser S3Target
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3Target&quot;</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679696285"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696285"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679696294"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
@@ -332,7 +332,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; S3Target)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679696294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,7 +349,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; S3Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679696294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SampleSize&quot;</span></span><span class="hs-special">)</span><span>
@@ -360,7 +360,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; S3Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679696294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionName&quot;</span></span><span class="hs-special">)</span><span>
@@ -369,7 +369,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; S3Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679696294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Exclusions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -382,7 +382,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; S3Target)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679696294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventQueueArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -390,19 +390,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser S3Target
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679696285"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679696294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DlqEventQueueArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696278"><span id="local-6989586621679696280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696287"><span id="local-6989586621679696289"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696267"><span id="local-6989586621679696269"><span id="local-6989586621679696271"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679696265"><span class="annot"><span class="annottext">toJSON :: S3Target -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696258"><span id="local-6989586621679696259"><span id="local-6989586621679696260"><span id="local-6989586621679696261"><span id="local-6989586621679696262"><span id="local-6989586621679696263"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696276"><span id="local-6989586621679696278"><span id="local-6989586621679696280"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679696274"><span class="annot"><span class="annottext">toJSON :: S3Target -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target%27"><span class="hs-identifier hs-type">S3Target'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696267"><span id="local-6989586621679696268"><span id="local-6989586621679696269"><span id="local-6989586621679696270"><span id="local-6989586621679696271"><span id="local-6989586621679696272"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
 dlqEventQueueArn :: Maybe Text
@@ -417,7 +417,7 @@ $sel:exclusions:S3Target' :: S3Target -&gt; Maybe [Text]
 $sel:connectionName:S3Target' :: S3Target -&gt; Maybe Text
 $sel:sampleSize:S3Target' :: S3Target -&gt; Maybe Int
 $sel:path:S3Target' :: S3Target -&gt; Maybe Text
-</span><a href="#local-6989586621679696258"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679696267"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -429,14 +429,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696263"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679696272"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SampleSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679696262"><span class="hs-identifier hs-var">sampleSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679696271"><span class="hs-identifier hs-var">sampleSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -444,21 +444,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696261"><span class="hs-identifier hs-var">connectionName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679696270"><span class="hs-identifier hs-var">connectionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Exclusions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679696260"><span class="hs-identifier hs-var">exclusions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679696269"><span class="hs-identifier hs-var">exclusions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventQueueArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696259"><span class="hs-identifier hs-var">eventQueueArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679696268"><span class="hs-identifier hs-var">eventQueueArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DlqEventQueueArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -466,7 +466,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679696258"><span class="hs-identifier hs-var">dlqEventQueueArn</span></a></span><span>
+</span><a href="#local-6989586621679696267"><span class="hs-identifier hs-var">dlqEventQueueArn</span></a></span><span>
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span></pre></body></html>

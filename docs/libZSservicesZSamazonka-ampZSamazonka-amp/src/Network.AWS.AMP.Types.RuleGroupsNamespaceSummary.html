@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AMP.Types.RuleGroupsNamespaceSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AMP.Types.RuleGroupsNamespaceSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.html"><span class="hs-identifier">Network.AWS.AMP.Types.RuleGroupsNamespaceStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents a summary of the rule groups namespace.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRuleGroupsNamespaceSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679170972"><span id="local-6989586621679170973"></span></span><span class="hs-keyword">data</span><span> </span><span id="RuleGroupsNamespaceSummary"><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-var">RuleGroupsNamespaceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleGroupsNamespaceSummary%27"><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">RuleGroupsNamespaceSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags of this rule groups namespace.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Atags%3ARuleGroupsNamespaceSummary%27"><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Atags%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this rule groups namespace.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aarn%3ARuleGroupsNamespaceSummary%27"><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary -&gt; Text
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Aarn%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time when the rule groups namespace was created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreatedAt%3ARuleGroupsNamespaceSummary%27"><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary -&gt; POSIX
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3AcreatedAt%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The time when the rule groups namespace was modified.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmodifiedAt%3ARuleGroupsNamespaceSummary%27"><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary -&gt; POSIX
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3AmodifiedAt%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var hs-var">modifiedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The rule groups namespace name.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3ARuleGroupsNamespaceSummary%27"><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary -&gt; Text
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Aname%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The status of rule groups namespace.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Astatus%3ARuleGroupsNamespaceSummary%27"><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary -&gt; RuleGroupsNamespaceStatus
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Astatus%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.html#RuleGroupsNamespaceStatus"><span class="hs-identifier hs-type">RuleGroupsNamespaceStatus</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170961"><span id="local-6989586621679170963"><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary -&gt; RuleGroupsNamespaceSummary -&gt; Bool
+(RuleGroupsNamespaceSummary -&gt; RuleGroupsNamespaceSummary -&gt; Bool)
+-&gt; (RuleGroupsNamespaceSummary
+    -&gt; RuleGroupsNamespaceSummary -&gt; Bool)
+-&gt; Eq RuleGroupsNamespaceSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RuleGroupsNamespaceSummary -&gt; RuleGroupsNamespaceSummary -&gt; Bool
+$c/= :: RuleGroupsNamespaceSummary -&gt; RuleGroupsNamespaceSummary -&gt; Bool
+== :: RuleGroupsNamespaceSummary -&gt; RuleGroupsNamespaceSummary -&gt; Bool
+$c== :: RuleGroupsNamespaceSummary -&gt; RuleGroupsNamespaceSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170952"><span id="local-6989586621679170954"><span id="local-6989586621679170956"><span id="local-6989586621679170958"><span class="annot"><span class="annottext">ReadPrec [RuleGroupsNamespaceSummary]
+ReadPrec RuleGroupsNamespaceSummary
+Int -&gt; ReadS RuleGroupsNamespaceSummary
+ReadS [RuleGroupsNamespaceSummary]
+(Int -&gt; ReadS RuleGroupsNamespaceSummary)
+-&gt; ReadS [RuleGroupsNamespaceSummary]
+-&gt; ReadPrec RuleGroupsNamespaceSummary
+-&gt; ReadPrec [RuleGroupsNamespaceSummary]
+-&gt; Read RuleGroupsNamespaceSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RuleGroupsNamespaceSummary]
+$creadListPrec :: ReadPrec [RuleGroupsNamespaceSummary]
+readPrec :: ReadPrec RuleGroupsNamespaceSummary
+$creadPrec :: ReadPrec RuleGroupsNamespaceSummary
+readList :: ReadS [RuleGroupsNamespaceSummary]
+$creadList :: ReadS [RuleGroupsNamespaceSummary]
+readsPrec :: Int -&gt; ReadS RuleGroupsNamespaceSummary
+$creadsPrec :: Int -&gt; ReadS RuleGroupsNamespaceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170945"><span id="local-6989586621679170947"><span id="local-6989586621679170949"><span class="annot"><span class="annottext">Int -&gt; RuleGroupsNamespaceSummary -&gt; ShowS
+[RuleGroupsNamespaceSummary] -&gt; ShowS
+RuleGroupsNamespaceSummary -&gt; String
+(Int -&gt; RuleGroupsNamespaceSummary -&gt; ShowS)
+-&gt; (RuleGroupsNamespaceSummary -&gt; String)
+-&gt; ([RuleGroupsNamespaceSummary] -&gt; ShowS)
+-&gt; Show RuleGroupsNamespaceSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RuleGroupsNamespaceSummary] -&gt; ShowS
+$cshowList :: [RuleGroupsNamespaceSummary] -&gt; ShowS
+show :: RuleGroupsNamespaceSummary -&gt; String
+$cshow :: RuleGroupsNamespaceSummary -&gt; String
+showsPrec :: Int -&gt; RuleGroupsNamespaceSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; RuleGroupsNamespaceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RuleGroupsNamespaceSummary -&gt; Rep RuleGroupsNamespaceSummary x)
+-&gt; (forall x.
+    Rep RuleGroupsNamespaceSummary x -&gt; RuleGroupsNamespaceSummary)
+-&gt; Generic RuleGroupsNamespaceSummary
+forall x.
+Rep RuleGroupsNamespaceSummary x -&gt; RuleGroupsNamespaceSummary
+forall x.
+RuleGroupsNamespaceSummary -&gt; Rep RuleGroupsNamespaceSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RuleGroupsNamespaceSummary x -&gt; RuleGroupsNamespaceSummary
+$cfrom :: forall x.
+RuleGroupsNamespaceSummary -&gt; Rep RuleGroupsNamespaceSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'RuleGroupsNamespaceSummary' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'tags', 'ruleGroupsNamespaceSummary_tags' - The tags of this rule groups namespace.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'arn', 'ruleGroupsNamespaceSummary_arn' - The Amazon Resource Name (ARN) of this rule groups namespace.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'createdAt', 'ruleGroupsNamespaceSummary_createdAt' - The time when the rule groups namespace was created.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'modifiedAt', 'ruleGroupsNamespaceSummary_modifiedAt' - The time when the rule groups namespace was modified.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'name', 'ruleGroupsNamespaceSummary_name' - The rule groups namespace name.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'status', 'ruleGroupsNamespaceSummary_status' - The status of rule groups namespace.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#newRuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">newRuleGroupsNamespaceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'createdAt'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'modifiedAt'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.html#RuleGroupsNamespaceStatus"><span class="hs-identifier hs-type">RuleGroupsNamespaceStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span>
+</span><span id="line-77"></span><span id="newRuleGroupsNamespaceSummary"><span class="annot"><span class="annottext">newRuleGroupsNamespaceSummary :: Text
+-&gt; UTCTime
+-&gt; UTCTime
+-&gt; Text
+-&gt; RuleGroupsNamespaceStatus
+-&gt; RuleGroupsNamespaceSummary
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#newRuleGroupsNamespaceSummary"><span class="hs-identifier hs-var hs-var">newRuleGroupsNamespaceSummary</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679170939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170939"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679170938"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679170938"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679170937"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679170937"><span class="hs-identifier hs-var">pModifiedAt_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679170936"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170936"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679170935"><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679170935"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary' :: Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; POSIX
+-&gt; POSIX
+-&gt; Text
+-&gt; RuleGroupsNamespaceStatus
+-&gt; RuleGroupsNamespaceSummary
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:RuleGroupsNamespaceSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Atags%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:RuleGroupsNamespaceSummary' :: Text
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Aarn%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170939"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:RuleGroupsNamespaceSummary' :: POSIX
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3AcreatedAt%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679170938"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:modifiedAt:RuleGroupsNamespaceSummary' :: POSIX
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3AmodifiedAt%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">modifiedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679170937"><span class="hs-identifier hs-var">pModifiedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:RuleGroupsNamespaceSummary' :: Text
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Aname%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170936"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:RuleGroupsNamespaceSummary' :: RuleGroupsNamespaceStatus
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Astatus%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679170935"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The tags of this rule groups namespace.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_tags"><span class="hs-identifier hs-type">ruleGroupsNamespaceSummary_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="ruleGroupsNamespaceSummary_tags"><span class="annot"><span class="annottext">ruleGroupsNamespaceSummary_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; RuleGroupsNamespaceSummary -&gt; f RuleGroupsNamespaceSummary
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_tags"><span class="hs-identifier hs-var hs-var">ruleGroupsNamespaceSummary_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleGroupsNamespaceSummary -&gt; Maybe (HashMap Text Text))
+-&gt; (RuleGroupsNamespaceSummary
+    -&gt; Maybe (HashMap Text Text) -&gt; RuleGroupsNamespaceSummary)
+-&gt; Lens
+     RuleGroupsNamespaceSummary
+     RuleGroupsNamespaceSummary
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170929"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:RuleGroupsNamespaceSummary' :: RuleGroupsNamespaceSummary -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679170929"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679170929"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170928"><span class="annot"><span class="annottext">s :: RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170927"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679170927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RuleGroupsNamespaceSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Atags%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679170927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; RuleGroupsNamespaceSummary -&gt; f RuleGroupsNamespaceSummary)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; RuleGroupsNamespaceSummary
+-&gt; f RuleGroupsNamespaceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of this rule groups namespace.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_arn"><span class="hs-identifier hs-type">ruleGroupsNamespaceSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="ruleGroupsNamespaceSummary_arn"><span class="annot"><span class="annottext">ruleGroupsNamespaceSummary_arn :: (Text -&gt; f Text)
+-&gt; RuleGroupsNamespaceSummary -&gt; f RuleGroupsNamespaceSummary
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_arn"><span class="hs-identifier hs-var hs-var">ruleGroupsNamespaceSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleGroupsNamespaceSummary -&gt; Text)
+-&gt; (RuleGroupsNamespaceSummary
+    -&gt; Text -&gt; RuleGroupsNamespaceSummary)
+-&gt; Lens
+     RuleGroupsNamespaceSummary RuleGroupsNamespaceSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170922"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:RuleGroupsNamespaceSummary' :: RuleGroupsNamespaceSummary -&gt; Text
+</span><a href="#local-6989586621679170922"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170922"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170921"><span class="annot"><span class="annottext">s :: RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170920"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:RuleGroupsNamespaceSummary' :: Text
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Aarn%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The time when the rule groups namespace was created.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_createdAt"><span class="hs-identifier hs-type">ruleGroupsNamespaceSummary_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-102"></span><span id="ruleGroupsNamespaceSummary_createdAt"><span class="annot"><span class="annottext">ruleGroupsNamespaceSummary_createdAt :: (UTCTime -&gt; f UTCTime)
+-&gt; RuleGroupsNamespaceSummary -&gt; f RuleGroupsNamespaceSummary
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_createdAt"><span class="hs-identifier hs-var hs-var">ruleGroupsNamespaceSummary_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleGroupsNamespaceSummary -&gt; POSIX)
+-&gt; (RuleGroupsNamespaceSummary
+    -&gt; POSIX -&gt; RuleGroupsNamespaceSummary)
+-&gt; Lens
+     RuleGroupsNamespaceSummary RuleGroupsNamespaceSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170918"><span class="annot"><span class="annottext">POSIX
+createdAt :: POSIX
+$sel:createdAt:RuleGroupsNamespaceSummary' :: RuleGroupsNamespaceSummary -&gt; POSIX
+</span><a href="#local-6989586621679170918"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679170918"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170917"><span class="annot"><span class="annottext">s :: RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170916"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679170916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:RuleGroupsNamespaceSummary' :: POSIX
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3AcreatedAt%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679170916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; RuleGroupsNamespaceSummary -&gt; f RuleGroupsNamespaceSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; RuleGroupsNamespaceSummary
+-&gt; f RuleGroupsNamespaceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The time when the rule groups namespace was modified.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_modifiedAt"><span class="hs-identifier hs-type">ruleGroupsNamespaceSummary_modifiedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-106"></span><span id="ruleGroupsNamespaceSummary_modifiedAt"><span class="annot"><span class="annottext">ruleGroupsNamespaceSummary_modifiedAt :: (UTCTime -&gt; f UTCTime)
+-&gt; RuleGroupsNamespaceSummary -&gt; f RuleGroupsNamespaceSummary
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_modifiedAt"><span class="hs-identifier hs-var hs-var">ruleGroupsNamespaceSummary_modifiedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleGroupsNamespaceSummary -&gt; POSIX)
+-&gt; (RuleGroupsNamespaceSummary
+    -&gt; POSIX -&gt; RuleGroupsNamespaceSummary)
+-&gt; Lens
+     RuleGroupsNamespaceSummary RuleGroupsNamespaceSummary POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170914"><span class="annot"><span class="annottext">POSIX
+modifiedAt :: POSIX
+$sel:modifiedAt:RuleGroupsNamespaceSummary' :: RuleGroupsNamespaceSummary -&gt; POSIX
+</span><a href="#local-6989586621679170914"><span class="hs-identifier hs-var hs-var">modifiedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679170914"><span class="hs-identifier hs-var">modifiedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170913"><span class="annot"><span class="annottext">s :: RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170912"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679170912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modifiedAt:RuleGroupsNamespaceSummary' :: POSIX
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3AmodifiedAt%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">modifiedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679170912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; RuleGroupsNamespaceSummary -&gt; f RuleGroupsNamespaceSummary)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; RuleGroupsNamespaceSummary
+-&gt; f RuleGroupsNamespaceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The rule groups namespace name.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_name"><span class="hs-identifier hs-type">ruleGroupsNamespaceSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span id="ruleGroupsNamespaceSummary_name"><span class="annot"><span class="annottext">ruleGroupsNamespaceSummary_name :: (Text -&gt; f Text)
+-&gt; RuleGroupsNamespaceSummary -&gt; f RuleGroupsNamespaceSummary
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_name"><span class="hs-identifier hs-var hs-var">ruleGroupsNamespaceSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleGroupsNamespaceSummary -&gt; Text)
+-&gt; (RuleGroupsNamespaceSummary
+    -&gt; Text -&gt; RuleGroupsNamespaceSummary)
+-&gt; Lens
+     RuleGroupsNamespaceSummary RuleGroupsNamespaceSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170910"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:RuleGroupsNamespaceSummary' :: RuleGroupsNamespaceSummary -&gt; Text
+</span><a href="#local-6989586621679170910"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170910"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170909"><span class="annot"><span class="annottext">s :: RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170908"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RuleGroupsNamespaceSummary' :: Text
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Aname%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The status of rule groups namespace.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_status"><span class="hs-identifier hs-type">ruleGroupsNamespaceSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceStatus.html#RuleGroupsNamespaceStatus"><span class="hs-identifier hs-type">RuleGroupsNamespaceStatus</span></a></span><span>
+</span><span id="line-114"></span><span id="ruleGroupsNamespaceSummary_status"><span class="annot"><span class="annottext">ruleGroupsNamespaceSummary_status :: (RuleGroupsNamespaceStatus -&gt; f RuleGroupsNamespaceStatus)
+-&gt; RuleGroupsNamespaceSummary -&gt; f RuleGroupsNamespaceSummary
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#ruleGroupsNamespaceSummary_status"><span class="hs-identifier hs-var hs-var">ruleGroupsNamespaceSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleGroupsNamespaceSummary -&gt; RuleGroupsNamespaceStatus)
+-&gt; (RuleGroupsNamespaceSummary
+    -&gt; RuleGroupsNamespaceStatus -&gt; RuleGroupsNamespaceSummary)
+-&gt; Lens
+     RuleGroupsNamespaceSummary
+     RuleGroupsNamespaceSummary
+     RuleGroupsNamespaceStatus
+     RuleGroupsNamespaceStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170906"><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+status :: RuleGroupsNamespaceStatus
+$sel:status:RuleGroupsNamespaceSummary' :: RuleGroupsNamespaceSummary -&gt; RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679170906"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679170906"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170905"><span class="annot"><span class="annottext">s :: RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170904"><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679170904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceSummary
+</span><a href="#local-6989586621679170905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:RuleGroupsNamespaceSummary' :: RuleGroupsNamespaceStatus
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#%24sel%3Astatus%3ARuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleGroupsNamespaceStatus
+</span><a href="#local-6989586621679170904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170901"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679170899"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RuleGroupsNamespaceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RuleGroupsNamespaceSummary)
+-&gt; Value
+-&gt; Parser RuleGroupsNamespaceSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RuleGroupsNamespaceSummary&quot;</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170896"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170896"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; POSIX
+-&gt; POSIX
+-&gt; Text
+-&gt; RuleGroupsNamespaceStatus
+-&gt; RuleGroupsNamespaceSummary
+</span><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary%27"><span class="hs-identifier hs-var">RuleGroupsNamespaceSummary'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Text
+ -&gt; POSIX
+ -&gt; POSIX
+ -&gt; Text
+ -&gt; RuleGroupsNamespaceStatus
+ -&gt; RuleGroupsNamespaceSummary)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Text
+      -&gt; POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; RuleGroupsNamespaceStatus
+      -&gt; RuleGroupsNamespaceSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; RuleGroupsNamespaceStatus
+   -&gt; RuleGroupsNamespaceSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (POSIX
+      -&gt; POSIX
+      -&gt; Text
+      -&gt; RuleGroupsNamespaceStatus
+      -&gt; RuleGroupsNamespaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; POSIX
+   -&gt; Text
+   -&gt; RuleGroupsNamespaceStatus
+   -&gt; RuleGroupsNamespaceSummary)
+-&gt; Parser POSIX
+-&gt; Parser
+     (POSIX
+      -&gt; Text -&gt; RuleGroupsNamespaceStatus -&gt; RuleGroupsNamespaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (POSIX
+   -&gt; Text -&gt; RuleGroupsNamespaceStatus -&gt; RuleGroupsNamespaceSummary)
+-&gt; Parser POSIX
+-&gt; Parser
+     (Text -&gt; RuleGroupsNamespaceStatus -&gt; RuleGroupsNamespaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modifiedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; RuleGroupsNamespaceStatus -&gt; RuleGroupsNamespaceSummary)
+-&gt; Parser Text
+-&gt; Parser (RuleGroupsNamespaceStatus -&gt; RuleGroupsNamespaceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (RuleGroupsNamespaceStatus -&gt; RuleGroupsNamespaceSummary)
+-&gt; Parser RuleGroupsNamespaceStatus
+-&gt; Parser RuleGroupsNamespaceSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RuleGroupsNamespaceStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170888"><span id="local-6989586621679170890"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AMP.Types.RuleGroupsNamespaceSummary.html#RuleGroupsNamespaceSummary"><span class="hs-identifier hs-type">RuleGroupsNamespaceSummary</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

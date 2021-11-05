@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SSMContacts.Types.ContactChannel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSMContacts.Types.ContactChannel</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ActivationStatus.html"><span class="hs-identifier">Network.AWS.SSMContacts.Types.ActivationStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ChannelType.html"><span class="hs-identifier">Network.AWS.SSMContacts.Types.ChannelType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannelAddress.html"><span class="hs-identifier">Network.AWS.SSMContacts.Types.ContactChannelAddress</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The method that Incident Manager uses to engage a contact.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newContactChannel' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679195933"><span id="local-6989586621679195934"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContactChannel"><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-var">ContactChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactChannel%27"><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-var">ContactChannel'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the contact channel. Incident Manager supports three contact</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- methods:</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   SMS</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   VOICE</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   EMAIL</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atype%27%3AContactChannel%27"><span class="annot"><span class="annottext">ContactChannel -&gt; Maybe ChannelType
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3Atype%27%3AContactChannel%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact channel.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcontactChannelArn%3AContactChannel%27"><span class="annot"><span class="annottext">ContactChannel -&gt; Text
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AcontactChannelArn%3AContactChannel%27"><span class="hs-identifier hs-var hs-var">contactChannelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ARN of the contact that contains the contact channel.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcontactArn%3AContactChannel%27"><span class="annot"><span class="annottext">ContactChannel -&gt; Text
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AcontactArn%3AContactChannel%27"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the contact channel.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aname%3AContactChannel%27"><span class="annot"><span class="annottext">ContactChannel -&gt; Text
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3Aname%3AContactChannel%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The details that Incident Manager uses when trying to engage the contact</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdeliveryAddress%3AContactChannel%27"><span class="annot"><span class="annottext">ContactChannel -&gt; ContactChannelAddress
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AdeliveryAddress%3AContactChannel%27"><span class="hs-identifier hs-var hs-var">deliveryAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannelAddress.html#ContactChannelAddress"><span class="hs-identifier hs-type">ContactChannelAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A Boolean value describing if the contact channel has been activated or</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- not. If the contact channel isn\'t activated, Incident Manager can\'t</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- engage the contact through it.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AactivationStatus%3AContactChannel%27"><span class="annot"><span class="annottext">ContactChannel -&gt; ActivationStatus
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AactivationStatus%3AContactChannel%27"><span class="hs-identifier hs-var hs-var">activationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ActivationStatus.html#ActivationStatus"><span class="hs-identifier hs-type">ActivationStatus</span></a></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195922"><span id="local-6989586621679195924"><span class="annot"><span class="annottext">ContactChannel -&gt; ContactChannel -&gt; Bool
+(ContactChannel -&gt; ContactChannel -&gt; Bool)
+-&gt; (ContactChannel -&gt; ContactChannel -&gt; Bool) -&gt; Eq ContactChannel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContactChannel -&gt; ContactChannel -&gt; Bool
+$c/= :: ContactChannel -&gt; ContactChannel -&gt; Bool
+== :: ContactChannel -&gt; ContactChannel -&gt; Bool
+$c== :: ContactChannel -&gt; ContactChannel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195913"><span id="local-6989586621679195915"><span id="local-6989586621679195917"><span id="local-6989586621679195919"><span class="annot"><span class="annottext">ReadPrec [ContactChannel]
+ReadPrec ContactChannel
+Int -&gt; ReadS ContactChannel
+ReadS [ContactChannel]
+(Int -&gt; ReadS ContactChannel)
+-&gt; ReadS [ContactChannel]
+-&gt; ReadPrec ContactChannel
+-&gt; ReadPrec [ContactChannel]
+-&gt; Read ContactChannel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContactChannel]
+$creadListPrec :: ReadPrec [ContactChannel]
+readPrec :: ReadPrec ContactChannel
+$creadPrec :: ReadPrec ContactChannel
+readList :: ReadS [ContactChannel]
+$creadList :: ReadS [ContactChannel]
+readsPrec :: Int -&gt; ReadS ContactChannel
+$creadsPrec :: Int -&gt; ReadS ContactChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195906"><span id="local-6989586621679195908"><span id="local-6989586621679195910"><span class="annot"><span class="annottext">Int -&gt; ContactChannel -&gt; ShowS
+[ContactChannel] -&gt; ShowS
+ContactChannel -&gt; String
+(Int -&gt; ContactChannel -&gt; ShowS)
+-&gt; (ContactChannel -&gt; String)
+-&gt; ([ContactChannel] -&gt; ShowS)
+-&gt; Show ContactChannel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContactChannel] -&gt; ShowS
+$cshowList :: [ContactChannel] -&gt; ShowS
+show :: ContactChannel -&gt; String
+$cshow :: ContactChannel -&gt; String
+showsPrec :: Int -&gt; ContactChannel -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContactChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ContactChannel -&gt; Rep ContactChannel x)
+-&gt; (forall x. Rep ContactChannel x -&gt; ContactChannel)
+-&gt; Generic ContactChannel
+forall x. Rep ContactChannel x -&gt; ContactChannel
+forall x. ContactChannel -&gt; Rep ContactChannel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContactChannel x -&gt; ContactChannel
+$cfrom :: forall x. ContactChannel -&gt; Rep ContactChannel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'ContactChannel' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'type'', 'contactChannel_type' - The type of the contact channel. Incident Manager supports three contact</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- methods:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -   SMS</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -   VOICE</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -   EMAIL</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'contactChannelArn', 'contactChannel_contactChannelArn' - The Amazon Resource Name (ARN) of the contact channel.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'contactArn', 'contactChannel_contactArn' - The ARN of the contact that contains the contact channel.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'name', 'contactChannel_name' - The name of the contact channel.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'deliveryAddress', 'contactChannel_deliveryAddress' - The details that Incident Manager uses when trying to engage the contact</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'activationStatus', 'contactChannel_activationStatus' - A Boolean value describing if the contact channel has been activated or</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- not. If the contact channel isn\'t activated, Incident Manager can\'t</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- engage the contact through it.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#newContactChannel"><span class="hs-identifier hs-type">newContactChannel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'contactChannelArn'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'contactArn'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'deliveryAddress'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannelAddress.html#ContactChannelAddress"><span class="hs-identifier hs-type">ContactChannelAddress</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'activationStatus'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ActivationStatus.html#ActivationStatus"><span class="hs-identifier hs-type">ActivationStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span>
+</span><span id="line-99"></span><span id="newContactChannel"><span class="annot"><span class="annottext">newContactChannel :: Text
+-&gt; Text
+-&gt; Text
+-&gt; ContactChannelAddress
+-&gt; ActivationStatus
+-&gt; ContactChannel
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#newContactChannel"><span class="hs-identifier hs-var hs-var">newContactChannel</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679195900"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195900"><span class="hs-identifier hs-var">pContactChannelArn_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679195899"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195899"><span class="hs-identifier hs-var">pContactArn_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679195898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195898"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679195897"><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679195897"><span class="hs-identifier hs-var">pDeliveryAddress_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679195896"><span class="annot"><span class="annottext">ActivationStatus
+</span><a href="#local-6989586621679195896"><span class="hs-identifier hs-var">pActivationStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ContactChannel' :: Maybe ChannelType
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ContactChannelAddress
+-&gt; ActivationStatus
+-&gt; ContactChannel
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':ContactChannel' :: Maybe ChannelType
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3Atype%27%3AContactChannel%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:contactChannelArn:ContactChannel' :: Text
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AcontactChannelArn%3AContactChannel%27"><span class="hs-identifier hs-var">contactChannelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195900"><span class="hs-identifier hs-var">pContactChannelArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:contactArn:ContactChannel' :: Text
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AcontactArn%3AContactChannel%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195899"><span class="hs-identifier hs-var">pContactArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:ContactChannel' :: Text
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3Aname%3AContactChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195898"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:deliveryAddress:ContactChannel' :: ContactChannelAddress
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AdeliveryAddress%3AContactChannel%27"><span class="hs-identifier hs-var">deliveryAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679195897"><span class="hs-identifier hs-var">pDeliveryAddress_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:activationStatus:ContactChannel' :: ActivationStatus
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AactivationStatus%3AContactChannel%27"><span class="hs-identifier hs-var">activationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivationStatus
+</span><a href="#local-6989586621679195896"><span class="hs-identifier hs-var">pActivationStatus_</span></a></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The type of the contact channel. Incident Manager supports three contact</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- methods:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   SMS</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   VOICE</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   EMAIL</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_type"><span class="hs-identifier hs-type">contactChannel_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ChannelType.html#ChannelType"><span class="hs-identifier hs-type">ChannelType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="contactChannel_type"><span class="annot"><span class="annottext">contactChannel_type :: (Maybe ChannelType -&gt; f (Maybe ChannelType))
+-&gt; ContactChannel -&gt; f ContactChannel
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_type"><span class="hs-identifier hs-var hs-var">contactChannel_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactChannel -&gt; Maybe ChannelType)
+-&gt; (ContactChannel -&gt; Maybe ChannelType -&gt; ContactChannel)
+-&gt; Lens
+     ContactChannel
+     ContactChannel
+     (Maybe ChannelType)
+     (Maybe ChannelType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195892"><span class="annot"><span class="annottext">Maybe ChannelType
+type' :: Maybe ChannelType
+$sel:type':ContactChannel' :: ContactChannel -&gt; Maybe ChannelType
+</span><a href="#local-6989586621679195892"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelType
+</span><a href="#local-6989586621679195892"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195891"><span class="annot"><span class="annottext">s :: ContactChannel
+</span><a href="#local-6989586621679195891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195890"><span class="annot"><span class="annottext">Maybe ChannelType
+</span><a href="#local-6989586621679195890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactChannel
+</span><a href="#local-6989586621679195891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ContactChannel' :: Maybe ChannelType
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3Atype%27%3AContactChannel%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelType
+</span><a href="#local-6989586621679195890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the contact channel.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_contactChannelArn"><span class="hs-identifier hs-type">contactChannel_contactChannelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="contactChannel_contactChannelArn"><span class="annot"><span class="annottext">contactChannel_contactChannelArn :: (Text -&gt; f Text) -&gt; ContactChannel -&gt; f ContactChannel
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_contactChannelArn"><span class="hs-identifier hs-var hs-var">contactChannel_contactChannelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactChannel -&gt; Text)
+-&gt; (ContactChannel -&gt; Text -&gt; ContactChannel)
+-&gt; Lens ContactChannel ContactChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195888"><span class="annot"><span class="annottext">Text
+contactChannelArn :: Text
+$sel:contactChannelArn:ContactChannel' :: ContactChannel -&gt; Text
+</span><a href="#local-6989586621679195888"><span class="hs-identifier hs-var hs-var">contactChannelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195888"><span class="hs-identifier hs-var">contactChannelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195887"><span class="annot"><span class="annottext">s :: ContactChannel
+</span><a href="#local-6989586621679195887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195886"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactChannel
+</span><a href="#local-6989586621679195887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactChannelArn:ContactChannel' :: Text
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AcontactChannelArn%3AContactChannel%27"><span class="hs-identifier hs-var">contactChannelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The ARN of the contact that contains the contact channel.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_contactArn"><span class="hs-identifier hs-type">contactChannel_contactArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="contactChannel_contactArn"><span class="annot"><span class="annottext">contactChannel_contactArn :: (Text -&gt; f Text) -&gt; ContactChannel -&gt; f ContactChannel
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_contactArn"><span class="hs-identifier hs-var hs-var">contactChannel_contactArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactChannel -&gt; Text)
+-&gt; (ContactChannel -&gt; Text -&gt; ContactChannel)
+-&gt; Lens ContactChannel ContactChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195884"><span class="annot"><span class="annottext">Text
+contactArn :: Text
+$sel:contactArn:ContactChannel' :: ContactChannel -&gt; Text
+</span><a href="#local-6989586621679195884"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195884"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195883"><span class="annot"><span class="annottext">s :: ContactChannel
+</span><a href="#local-6989586621679195883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195882"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactChannel
+</span><a href="#local-6989586621679195883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactArn:ContactChannel' :: Text
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AcontactArn%3AContactChannel%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The name of the contact channel.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_name"><span class="hs-identifier hs-type">contactChannel_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="contactChannel_name"><span class="annot"><span class="annottext">contactChannel_name :: (Text -&gt; f Text) -&gt; ContactChannel -&gt; f ContactChannel
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_name"><span class="hs-identifier hs-var hs-var">contactChannel_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactChannel -&gt; Text)
+-&gt; (ContactChannel -&gt; Text -&gt; ContactChannel)
+-&gt; Lens ContactChannel ContactChannel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195880"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:ContactChannel' :: ContactChannel -&gt; Text
+</span><a href="#local-6989586621679195880"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195880"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195879"><span class="annot"><span class="annottext">s :: ContactChannel
+</span><a href="#local-6989586621679195879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195878"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactChannel
+</span><a href="#local-6989586621679195879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ContactChannel' :: Text
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3Aname%3AContactChannel%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679195878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The details that Incident Manager uses when trying to engage the contact</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- channel.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_deliveryAddress"><span class="hs-identifier hs-type">contactChannel_deliveryAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannelAddress.html#ContactChannelAddress"><span class="hs-identifier hs-type">ContactChannelAddress</span></a></span><span>
+</span><span id="line-140"></span><span id="contactChannel_deliveryAddress"><span class="annot"><span class="annottext">contactChannel_deliveryAddress :: (ContactChannelAddress -&gt; f ContactChannelAddress)
+-&gt; ContactChannel -&gt; f ContactChannel
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_deliveryAddress"><span class="hs-identifier hs-var hs-var">contactChannel_deliveryAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactChannel -&gt; ContactChannelAddress)
+-&gt; (ContactChannel -&gt; ContactChannelAddress -&gt; ContactChannel)
+-&gt; Lens
+     ContactChannel
+     ContactChannel
+     ContactChannelAddress
+     ContactChannelAddress
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195876"><span class="annot"><span class="annottext">ContactChannelAddress
+deliveryAddress :: ContactChannelAddress
+$sel:deliveryAddress:ContactChannel' :: ContactChannel -&gt; ContactChannelAddress
+</span><a href="#local-6989586621679195876"><span class="hs-identifier hs-var hs-var">deliveryAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679195876"><span class="hs-identifier hs-var">deliveryAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195875"><span class="annot"><span class="annottext">s :: ContactChannel
+</span><a href="#local-6989586621679195875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195874"><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679195874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactChannel
+</span><a href="#local-6989586621679195875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryAddress:ContactChannel' :: ContactChannelAddress
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AdeliveryAddress%3AContactChannel%27"><span class="hs-identifier hs-var">deliveryAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactChannelAddress
+</span><a href="#local-6989586621679195874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | A Boolean value describing if the contact channel has been activated or</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- not. If the contact channel isn\'t activated, Incident Manager can\'t</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- engage the contact through it.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_activationStatus"><span class="hs-identifier hs-type">contactChannel_activationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ActivationStatus.html#ActivationStatus"><span class="hs-identifier hs-type">ActivationStatus</span></a></span><span>
+</span><span id="line-146"></span><span id="contactChannel_activationStatus"><span class="annot"><span class="annottext">contactChannel_activationStatus :: (ActivationStatus -&gt; f ActivationStatus)
+-&gt; ContactChannel -&gt; f ContactChannel
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#contactChannel_activationStatus"><span class="hs-identifier hs-var hs-var">contactChannel_activationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactChannel -&gt; ActivationStatus)
+-&gt; (ContactChannel -&gt; ActivationStatus -&gt; ContactChannel)
+-&gt; Lens
+     ContactChannel ContactChannel ActivationStatus ActivationStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195872"><span class="annot"><span class="annottext">ActivationStatus
+activationStatus :: ActivationStatus
+$sel:activationStatus:ContactChannel' :: ContactChannel -&gt; ActivationStatus
+</span><a href="#local-6989586621679195872"><span class="hs-identifier hs-var hs-var">activationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivationStatus
+</span><a href="#local-6989586621679195872"><span class="hs-identifier hs-var">activationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195871"><span class="annot"><span class="annottext">s :: ContactChannel
+</span><a href="#local-6989586621679195871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-type">ContactChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195870"><span class="annot"><span class="annottext">ActivationStatus
+</span><a href="#local-6989586621679195870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactChannel
+</span><a href="#local-6989586621679195871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activationStatus:ContactChannel' :: ActivationStatus
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#%24sel%3AactivationStatus%3AContactChannel%27"><span class="hs-identifier hs-var">activationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivationStatus
+</span><a href="#local-6989586621679195870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195867"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679195865"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContactChannel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ContactChannel)
+-&gt; Value
+-&gt; Parser ContactChannel
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ContactChannel&quot;</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195862"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195862"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe ChannelType
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ContactChannelAddress
+-&gt; ActivationStatus
+-&gt; ContactChannel
+</span><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel%27"><span class="hs-identifier hs-var">ContactChannel'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ChannelType
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ContactChannelAddress
+ -&gt; ActivationStatus
+ -&gt; ContactChannel)
+-&gt; Parser (Maybe ChannelType)
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ContactChannelAddress
+      -&gt; ActivationStatus
+      -&gt; ContactChannel)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ContactChannelAddress
+   -&gt; ActivationStatus
+   -&gt; ContactChannel)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; ContactChannelAddress
+      -&gt; ActivationStatus
+      -&gt; ContactChannel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactChannelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; ContactChannelAddress
+   -&gt; ActivationStatus
+   -&gt; ContactChannel)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; ContactChannelAddress -&gt; ActivationStatus -&gt; ContactChannel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContactArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; ContactChannelAddress -&gt; ActivationStatus -&gt; ContactChannel)
+-&gt; Parser Text
+-&gt; Parser
+     (ContactChannelAddress -&gt; ActivationStatus -&gt; ContactChannel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (ContactChannelAddress -&gt; ActivationStatus -&gt; ContactChannel)
+-&gt; Parser ContactChannelAddress
+-&gt; Parser (ActivationStatus -&gt; ContactChannel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ContactChannelAddress
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (ActivationStatus -&gt; ContactChannel)
+-&gt; Parser ActivationStatus -&gt; Parser ContactChannel
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActivationStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActivationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195855"><span id="local-6989586621679195857"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSMContacts.Types.ContactChannel.html#ContactChannel"><span class="hs-identifier hs-type">ContactChannel</span></a></span></span><span>
+</span><span id="line-165"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681092320"><span id="local-6989586621681092321"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CapacityReservationTenancy"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationTenancy.html#CapacityReservationTenancy"><span class="hs-identifier hs-var">CapacityReservationTenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityReservationTenancy%27"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationTenancy.html#CapacityReservationTenancy%27"><span class="hs-identifier hs-var">CapacityReservationTenancy'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681092329"><span id="local-6989586621681092330"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CapacityReservationTenancy"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationTenancy.html#CapacityReservationTenancy"><span class="hs-identifier hs-var">CapacityReservationTenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityReservationTenancy%27"><span class="annot"><a href="Network.AWS.EC2.Types.CapacityReservationTenancy.html#CapacityReservationTenancy%27"><span class="hs-identifier hs-var">CapacityReservationTenancy'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCapacityReservationTenancy"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; Text
 </span><a href="Network.AWS.EC2.Types.CapacityReservationTenancy.html#fromCapacityReservationTenancy"><span class="hs-identifier hs-var hs-var">fromCapacityReservationTenancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681092312"><span id="local-6989586621681092314"><span id="local-6989586621681092316"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationTenancy -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681092321"><span id="local-6989586621681092323"><span id="local-6989586621681092325"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationTenancy -&gt; ShowS
 [CapacityReservationTenancy] -&gt; ShowS
 CapacityReservationTenancy -&gt; String
 (Int -&gt; CapacityReservationTenancy -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CapacityReservationTenancy -&gt; String
 showsPrec :: Int -&gt; CapacityReservationTenancy -&gt; ShowS
 $cshowsPrec :: Int -&gt; CapacityReservationTenancy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681092303"><span id="local-6989586621681092305"><span id="local-6989586621681092307"><span id="local-6989586621681092309"><span class="annot"><span class="annottext">ReadPrec [CapacityReservationTenancy]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681092312"><span id="local-6989586621681092314"><span id="local-6989586621681092316"><span id="local-6989586621681092318"><span class="annot"><span class="annottext">ReadPrec [CapacityReservationTenancy]
 ReadPrec CapacityReservationTenancy
 Int -&gt; ReadS CapacityReservationTenancy
 ReadS [CapacityReservationTenancy]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CapacityReservationTenancy]
 readsPrec :: Int -&gt; ReadS CapacityReservationTenancy
 $creadsPrec :: Int -&gt; ReadS CapacityReservationTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681092298"><span id="local-6989586621681092300"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; CapacityReservationTenancy -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681092307"><span id="local-6989586621681092309"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; CapacityReservationTenancy -&gt; Bool
 (CapacityReservationTenancy -&gt; CapacityReservationTenancy -&gt; Bool)
 -&gt; (CapacityReservationTenancy
     -&gt; CapacityReservationTenancy -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: CapacityReservationTenancy -&gt; CapacityReservationTenancy -&gt; Bool
 == :: CapacityReservationTenancy -&gt; CapacityReservationTenancy -&gt; Bool
 $c== :: CapacityReservationTenancy -&gt; CapacityReservationTenancy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681092282"><span id="local-6989586621681092284"><span id="local-6989586621681092286"><span id="local-6989586621681092288"><span id="local-6989586621681092290"><span id="local-6989586621681092292"><span id="local-6989586621681092294"><span class="annot"><span class="annottext">Eq CapacityReservationTenancy
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681092291"><span id="local-6989586621681092293"><span id="local-6989586621681092295"><span id="local-6989586621681092297"><span id="local-6989586621681092299"><span id="local-6989586621681092301"><span id="local-6989586621681092303"><span class="annot"><span class="annottext">Eq CapacityReservationTenancy
 Eq CapacityReservationTenancy
 -&gt; (CapacityReservationTenancy
     -&gt; CapacityReservationTenancy -&gt; Ordering)
@@ -156,7 +156,7 @@ CapacityReservationTenancy -&gt; Rep CapacityReservationTenancy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681092274"><span id="local-6989586621681092276"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationTenancy -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681092283"><span id="local-6989586621681092285"><span class="annot"><span class="annottext">Int -&gt; CapacityReservationTenancy -&gt; Int
 CapacityReservationTenancy -&gt; Int
 (Int -&gt; CapacityReservationTenancy -&gt; Int)
 -&gt; (CapacityReservationTenancy -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: CapacityReservationTenancy -&gt; Int
 hashWithSalt :: Int -&gt; CapacityReservationTenancy -&gt; Int
 $chashWithSalt :: Int -&gt; CapacityReservationTenancy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681092271"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681092280"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; ()
 (CapacityReservationTenancy -&gt; ())
 -&gt; NFData CapacityReservationTenancy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CapacityReservationTenancy -&gt; ()
 $crnf :: CapacityReservationTenancy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681092268"><span class="annot"><span class="annottext">Text -&gt; Either String CapacityReservationTenancy
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681092277"><span class="annot"><span class="annottext">Text -&gt; Either String CapacityReservationTenancy
 (Text -&gt; Either String CapacityReservationTenancy)
 -&gt; FromText CapacityReservationTenancy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CapacityReservationTenancy
 $cfromText :: Text -&gt; Either String CapacityReservationTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681092265"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681092274"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; Text
 (CapacityReservationTenancy -&gt; Text)
 -&gt; ToText CapacityReservationTenancy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CapacityReservationTenancy -&gt; Text
 $ctoText :: CapacityReservationTenancy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681092262"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681092271"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; ByteString
 (CapacityReservationTenancy -&gt; ByteString)
 -&gt; ToByteString CapacityReservationTenancy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CapacityReservationTenancy -&gt; ByteString
 $ctoBS :: CapacityReservationTenancy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681092259"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681092268"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; ByteStringBuilder
 (CapacityReservationTenancy -&gt; ByteStringBuilder)
 -&gt; ToLog CapacityReservationTenancy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CapacityReservationTenancy -&gt; ByteStringBuilder
 $cbuild :: CapacityReservationTenancy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681092256"><span class="annot"><span class="annottext">HeaderName -&gt; CapacityReservationTenancy -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681092265"><span class="annot"><span class="annottext">HeaderName -&gt; CapacityReservationTenancy -&gt; [Header]
 (HeaderName -&gt; CapacityReservationTenancy -&gt; [Header])
 -&gt; ToHeader CapacityReservationTenancy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CapacityReservationTenancy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CapacityReservationTenancy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681092253"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681092262"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; QueryString
 (CapacityReservationTenancy -&gt; QueryString)
 -&gt; ToQuery CapacityReservationTenancy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CapacityReservationTenancy -&gt; QueryString
 $ctoQuery :: CapacityReservationTenancy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681092248"><span id="local-6989586621681092250"><span class="annot"><span class="annottext">Value -&gt; Parser [CapacityReservationTenancy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681092257"><span id="local-6989586621681092259"><span class="annot"><span class="annottext">Value -&gt; Parser [CapacityReservationTenancy]
 Value -&gt; Parser CapacityReservationTenancy
 (Value -&gt; Parser CapacityReservationTenancy)
 -&gt; (Value -&gt; Parser [CapacityReservationTenancy])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [CapacityReservationTenancy]
 parseJSON :: Value -&gt; Parser CapacityReservationTenancy
 $cparseJSON :: Value -&gt; Parser CapacityReservationTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681092243"><span id="local-6989586621681092245"><span class="annot"><span class="annottext">FromJSONKeyFunction [CapacityReservationTenancy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681092252"><span id="local-6989586621681092254"><span class="annot"><span class="annottext">FromJSONKeyFunction [CapacityReservationTenancy]
 FromJSONKeyFunction CapacityReservationTenancy
 FromJSONKeyFunction CapacityReservationTenancy
 -&gt; FromJSONKeyFunction [CapacityReservationTenancy]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CapacityReservationTenancy]
 fromJSONKey :: FromJSONKeyFunction CapacityReservationTenancy
 $cfromJSONKey :: FromJSONKeyFunction CapacityReservationTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681092234"><span id="local-6989586621681092236"><span id="local-6989586621681092238"><span id="local-6989586621681092240"><span class="annot"><span class="annottext">[CapacityReservationTenancy] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681092243"><span id="local-6989586621681092245"><span id="local-6989586621681092247"><span id="local-6989586621681092249"><span class="annot"><span class="annottext">[CapacityReservationTenancy] -&gt; Encoding
 [CapacityReservationTenancy] -&gt; Value
 CapacityReservationTenancy -&gt; Encoding
 CapacityReservationTenancy -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: CapacityReservationTenancy -&gt; Encoding
 toJSON :: CapacityReservationTenancy -&gt; Value
 $ctoJSON :: CapacityReservationTenancy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681092229"><span id="local-6989586621681092231"><span class="annot"><span class="annottext">ToJSONKeyFunction [CapacityReservationTenancy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681092238"><span id="local-6989586621681092240"><span class="annot"><span class="annottext">ToJSONKeyFunction [CapacityReservationTenancy]
 ToJSONKeyFunction CapacityReservationTenancy
 ToJSONKeyFunction CapacityReservationTenancy
 -&gt; ToJSONKeyFunction [CapacityReservationTenancy]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CapacityReservationTenancy]
 toJSONKey :: ToJSONKeyFunction CapacityReservationTenancy
 $ctoJSONKey :: ToJSONKeyFunction CapacityReservationTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681092226"><span class="annot"><span class="annottext">[Node] -&gt; Either String CapacityReservationTenancy
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681092235"><span class="annot"><span class="annottext">[Node] -&gt; Either String CapacityReservationTenancy
 ([Node] -&gt; Either String CapacityReservationTenancy)
 -&gt; FromXML CapacityReservationTenancy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CapacityReservationTenancy
 $cparseXML :: [Node] -&gt; Either String CapacityReservationTenancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681092223"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681092232"><span class="annot"><span class="annottext">CapacityReservationTenancy -&gt; XML
 (CapacityReservationTenancy -&gt; XML)
 -&gt; ToXML CapacityReservationTenancy
 forall a. (a -&gt; XML) -&gt; ToXML a

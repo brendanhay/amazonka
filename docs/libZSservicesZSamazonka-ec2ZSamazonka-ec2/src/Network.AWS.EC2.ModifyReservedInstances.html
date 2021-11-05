@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-comment">-- | Contains the parameters for ModifyReservedInstances.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newModifyReservedInstances' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621681218075"><span id="local-6989586621681218076"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyReservedInstances"><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-var">ModifyReservedInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyReservedInstances%27"><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-var">ModifyReservedInstances'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621681218084"><span id="local-6989586621681218085"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyReservedInstances"><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-var">ModifyReservedInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyReservedInstances%27"><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-var">ModifyReservedInstances'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, case-sensitive token you provide to ensure idempotency of your</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- modification request. For more information, see</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency&gt;.</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AtargetConfigurations%3AModifyReservedInstances%27"><span class="annot"><span class="annottext">ModifyReservedInstances -&gt; [ReservedInstancesConfiguration]
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#%24sel%3AtargetConfigurations%3AModifyReservedInstances%27"><span class="hs-identifier hs-var hs-var">targetConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.ReservedInstancesConfiguration.html#ReservedInstancesConfiguration"><span class="hs-identifier hs-type">ReservedInstancesConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681218067"><span id="local-6989586621681218069"><span class="annot"><span class="annottext">ModifyReservedInstances -&gt; ModifyReservedInstances -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681218076"><span id="local-6989586621681218078"><span class="annot"><span class="annottext">ModifyReservedInstances -&gt; ModifyReservedInstances -&gt; Bool
 (ModifyReservedInstances -&gt; ModifyReservedInstances -&gt; Bool)
 -&gt; (ModifyReservedInstances -&gt; ModifyReservedInstances -&gt; Bool)
 -&gt; Eq ModifyReservedInstances
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyReservedInstances -&gt; ModifyReservedInstances -&gt; Bool
 == :: ModifyReservedInstances -&gt; ModifyReservedInstances -&gt; Bool
 $c== :: ModifyReservedInstances -&gt; ModifyReservedInstances -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218058"><span id="local-6989586621681218060"><span id="local-6989586621681218062"><span id="local-6989586621681218064"><span class="annot"><span class="annottext">ReadPrec [ModifyReservedInstances]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218067"><span id="local-6989586621681218069"><span id="local-6989586621681218071"><span id="local-6989586621681218073"><span class="annot"><span class="annottext">ReadPrec [ModifyReservedInstances]
 ReadPrec ModifyReservedInstances
 Int -&gt; ReadS ModifyReservedInstances
 ReadS [ModifyReservedInstances]
@@ -100,7 +100,7 @@ readList :: ReadS [ModifyReservedInstances]
 $creadList :: ReadS [ModifyReservedInstances]
 readsPrec :: Int -&gt; ReadS ModifyReservedInstances
 $creadsPrec :: Int -&gt; ReadS ModifyReservedInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218051"><span id="local-6989586621681218053"><span id="local-6989586621681218055"><span class="annot"><span class="annottext">Int -&gt; ModifyReservedInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218060"><span id="local-6989586621681218062"><span id="local-6989586621681218064"><span class="annot"><span class="annottext">Int -&gt; ModifyReservedInstances -&gt; ShowS
 [ModifyReservedInstances] -&gt; ShowS
 ModifyReservedInstances -&gt; String
 (Int -&gt; ModifyReservedInstances -&gt; ShowS)
@@ -182,16 +182,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218044"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218053"><span class="annot"><span class="annottext">Maybe Text
 clientToken :: Maybe Text
 $sel:clientToken:ModifyReservedInstances' :: ModifyReservedInstances -&gt; Maybe Text
-</span><a href="#local-6989586621681218044"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681218044"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218043"><span class="annot"><span class="annottext">s :: ModifyReservedInstances
-</span><a href="#local-6989586621681218043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218042"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681218042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstances
-</span><a href="#local-6989586621681218043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:ModifyReservedInstances' :: Maybe Text
+</span><a href="#local-6989586621681218053"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681218053"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218052"><span class="annot"><span class="annottext">s :: ModifyReservedInstances
+</span><a href="#local-6989586621681218052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681218051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstances
+</span><a href="#local-6989586621681218052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:ModifyReservedInstances' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#%24sel%3AclientToken%3AModifyReservedInstances%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681218042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681218051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The IDs of the Reserved Instances to modify.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#modifyReservedInstances_reservedInstancesIds"><span class="hs-identifier hs-type">modifyReservedInstances_reservedInstancesIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -202,16 +202,16 @@ $sel:clientToken:ModifyReservedInstances' :: ModifyReservedInstances -&gt; Maybe
 -&gt; Lens
      ModifyReservedInstances ModifyReservedInstances [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218041"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218050"><span class="annot"><span class="annottext">[Text]
 reservedInstancesIds :: [Text]
 $sel:reservedInstancesIds:ModifyReservedInstances' :: ModifyReservedInstances -&gt; [Text]
-</span><a href="#local-6989586621681218041"><span class="hs-identifier hs-var hs-var">reservedInstancesIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681218041"><span class="hs-identifier hs-var">reservedInstancesIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218040"><span class="annot"><span class="annottext">s :: ModifyReservedInstances
-</span><a href="#local-6989586621681218040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218039"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681218039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstances
-</span><a href="#local-6989586621681218040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesIds:ModifyReservedInstances' :: [Text]
+</span><a href="#local-6989586621681218050"><span class="hs-identifier hs-var hs-var">reservedInstancesIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681218050"><span class="hs-identifier hs-var">reservedInstancesIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218049"><span class="annot"><span class="annottext">s :: ModifyReservedInstances
+</span><a href="#local-6989586621681218049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218048"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681218048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstances
+</span><a href="#local-6989586621681218049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesIds:ModifyReservedInstances' :: [Text]
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#%24sel%3AreservedInstancesIds%3AModifyReservedInstances%27"><span class="hs-identifier hs-var">reservedInstancesIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681218039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621681218048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ModifyReservedInstances -&gt; f ModifyReservedInstances)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -236,16 +236,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      [ReservedInstancesConfiguration]
      [ReservedInstancesConfiguration]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218036"><span class="annot"><span class="annottext">[ReservedInstancesConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218045"><span class="annot"><span class="annottext">[ReservedInstancesConfiguration]
 targetConfigurations :: [ReservedInstancesConfiguration]
 $sel:targetConfigurations:ModifyReservedInstances' :: ModifyReservedInstances -&gt; [ReservedInstancesConfiguration]
-</span><a href="#local-6989586621681218036"><span class="hs-identifier hs-var hs-var">targetConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReservedInstancesConfiguration]
-</span><a href="#local-6989586621681218036"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218035"><span class="annot"><span class="annottext">s :: ModifyReservedInstances
-</span><a href="#local-6989586621681218035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218034"><span class="annot"><span class="annottext">[ReservedInstancesConfiguration]
-</span><a href="#local-6989586621681218034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstances
-</span><a href="#local-6989586621681218035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetConfigurations:ModifyReservedInstances' :: [ReservedInstancesConfiguration]
+</span><a href="#local-6989586621681218045"><span class="hs-identifier hs-var hs-var">targetConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReservedInstancesConfiguration]
+</span><a href="#local-6989586621681218045"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218044"><span class="annot"><span class="annottext">s :: ModifyReservedInstances
+</span><a href="#local-6989586621681218044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218043"><span class="annot"><span class="annottext">[ReservedInstancesConfiguration]
+</span><a href="#local-6989586621681218043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstances
+</span><a href="#local-6989586621681218044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetConfigurations:ModifyReservedInstances' :: [ReservedInstancesConfiguration]
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#%24sel%3AtargetConfigurations%3AModifyReservedInstances%27"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReservedInstancesConfiguration]
-</span><a href="#local-6989586621681218034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReservedInstancesConfiguration]
+</span><a href="#local-6989586621681218043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReservedInstancesConfiguration]
   -&gt; f [ReservedInstancesConfiguration])
  -&gt; ModifyReservedInstances -&gt; f ModifyReservedInstances)
 -&gt; (([ReservedInstancesConfiguration]
@@ -268,13 +268,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621681218030"><span class="annot"><span class="annottext">request :: ModifyReservedInstances -&gt; Request ModifyReservedInstances
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681218039"><span class="annot"><span class="annottext">request :: ModifyReservedInstances -&gt; Request ModifyReservedInstances
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ModifyReservedInstances -&gt; Request ModifyReservedInstances
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621681218026"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681218035"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyReservedInstances
 -&gt; ClientResponse ClientBody
@@ -300,10 +300,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681218023"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681218023"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681218022"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681218022"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681218021"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681218021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681218032"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681218032"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681218031"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681218031"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681218030"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681218030"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; ModifyReservedInstancesResponse
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-var">ModifyReservedInstancesResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; ModifyReservedInstancesResponse)
@@ -311,7 +311,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ModifyReservedInstancesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681218021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681218030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reservedInstancesModificationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -324,15 +324,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681218023"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681218032"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681218013"><span id="local-6989586621681218015"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681218022"><span id="local-6989586621681218024"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681218010"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681218019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621681218006"><span class="annot"><span class="annottext">toHeaders :: ModifyReservedInstances -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621681218015"><span class="annot"><span class="annottext">toHeaders :: ModifyReservedInstances -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyReservedInstances -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -340,15 +340,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621681218001"><span class="annot"><span class="annottext">toPath :: ModifyReservedInstances -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621681218010"><span class="annot"><span class="annottext">toPath :: ModifyReservedInstances -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyReservedInstances -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances"><span class="hs-identifier hs-type">ModifyReservedInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621681217997"><span class="annot"><span class="annottext">toQuery :: ModifyReservedInstances -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217993"><span id="local-6989586621681217994"><span id="local-6989586621681217995"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621681218006"><span class="annot"><span class="annottext">toQuery :: ModifyReservedInstances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstances%27"><span class="hs-identifier hs-type">ModifyReservedInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218002"><span id="local-6989586621681218003"><span id="local-6989586621681218004"><span class="annot"><span class="annottext">[Text]
 [ReservedInstancesConfiguration]
 Maybe Text
 targetConfigurations :: [ReservedInstancesConfiguration]
@@ -357,7 +357,7 @@ clientToken :: Maybe Text
 $sel:targetConfigurations:ModifyReservedInstances' :: ModifyReservedInstances -&gt; [ReservedInstancesConfiguration]
 $sel:reservedInstancesIds:ModifyReservedInstances' :: ModifyReservedInstances -&gt; [Text]
 $sel:clientToken:ModifyReservedInstances' :: ModifyReservedInstances -&gt; Maybe Text
-</span><a href="#local-6989586621681217993"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681218002"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -377,7 +377,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217995"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681218004"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
@@ -386,7 +386,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReservedInstancesId&quot;</span></span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681217994"><span class="hs-identifier hs-var">reservedInstancesIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681218003"><span class="hs-identifier hs-var">reservedInstancesIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [ReservedInstancesConfiguration] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
@@ -395,13 +395,13 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReservedInstancesConfigurationSetItemType&quot;</span></span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">[ReservedInstancesConfiguration]
-</span><a href="#local-6989586621681217993"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span>
+</span><a href="#local-6989586621681218002"><span class="hs-identifier hs-var">targetConfigurations</span></a></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | Contains the output of ModifyReservedInstances.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- /See:/ 'newModifyReservedInstancesResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621681217989"><span id="local-6989586621681217990"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyReservedInstancesResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-var">ModifyReservedInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyReservedInstancesResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-var">ModifyReservedInstancesResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621681217998"><span id="local-6989586621681217999"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyReservedInstancesResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-var">ModifyReservedInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyReservedInstancesResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-var">ModifyReservedInstancesResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID for the modification.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AreservedInstancesModificationId%3AModifyReservedInstancesResponse%27"><span class="annot"><span class="annottext">ModifyReservedInstancesResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#%24sel%3AreservedInstancesModificationId%3AModifyReservedInstancesResponse%27"><span class="hs-identifier hs-var hs-var">reservedInstancesModificationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -409,7 +409,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyReservedInstancesResponse%27"><span class="annot"><span class="annottext">ModifyReservedInstancesResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#%24sel%3AhttpStatus%3AModifyReservedInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681217983"><span id="local-6989586621681217985"><span class="annot"><span class="annottext">ModifyReservedInstancesResponse
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681217992"><span id="local-6989586621681217994"><span class="annot"><span class="annottext">ModifyReservedInstancesResponse
 -&gt; ModifyReservedInstancesResponse -&gt; Bool
 (ModifyReservedInstancesResponse
  -&gt; ModifyReservedInstancesResponse -&gt; Bool)
@@ -425,7 +425,7 @@ $c/= :: ModifyReservedInstancesResponse
 -&gt; ModifyReservedInstancesResponse -&gt; Bool
 $c== :: ModifyReservedInstancesResponse
 -&gt; ModifyReservedInstancesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681217975"><span id="local-6989586621681217977"><span id="local-6989586621681217979"><span id="local-6989586621681217981"><span class="annot"><span class="annottext">ReadPrec [ModifyReservedInstancesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681217984"><span id="local-6989586621681217986"><span id="local-6989586621681217988"><span id="local-6989586621681217990"><span class="annot"><span class="annottext">ReadPrec [ModifyReservedInstancesResponse]
 ReadPrec ModifyReservedInstancesResponse
 Int -&gt; ReadS ModifyReservedInstancesResponse
 ReadS [ModifyReservedInstancesResponse]
@@ -445,7 +445,7 @@ readList :: ReadS [ModifyReservedInstancesResponse]
 $creadList :: ReadS [ModifyReservedInstancesResponse]
 readsPrec :: Int -&gt; ReadS ModifyReservedInstancesResponse
 $creadsPrec :: Int -&gt; ReadS ModifyReservedInstancesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681217969"><span id="local-6989586621681217971"><span id="local-6989586621681217973"><span class="annot"><span class="annottext">Int -&gt; ModifyReservedInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681217978"><span id="local-6989586621681217980"><span id="local-6989586621681217982"><span class="annot"><span class="annottext">Int -&gt; ModifyReservedInstancesResponse -&gt; ShowS
 [ModifyReservedInstancesResponse] -&gt; ShowS
 ModifyReservedInstancesResponse -&gt; String
 (Int -&gt; ModifyReservedInstancesResponse -&gt; ShowS)
@@ -499,8 +499,8 @@ ModifyReservedInstancesResponse
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newModifyReservedInstancesResponse"><span class="annot"><span class="annottext">newModifyReservedInstancesResponse :: Int -&gt; ModifyReservedInstancesResponse
-</span><a href="Network.AWS.EC2.ModifyReservedInstances.html#newModifyReservedInstancesResponse"><span class="hs-identifier hs-var hs-var">newModifyReservedInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621681217966"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ModifyReservedInstances.html#newModifyReservedInstancesResponse"><span class="hs-identifier hs-var hs-var">newModifyReservedInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621681217975"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681217975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">ModifyReservedInstancesResponse' :: Maybe Text -&gt; Int -&gt; ModifyReservedInstancesResponse
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse'</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reservedInstancesModificationId:ModifyReservedInstancesResponse' :: Maybe Text
@@ -510,7 +510,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyReservedInstancesResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#%24sel%3AhttpStatus%3AModifyReservedInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681217975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The ID for the modification.</span><span>
@@ -527,16 +527,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217965"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217974"><span class="annot"><span class="annottext">Maybe Text
 reservedInstancesModificationId :: Maybe Text
 $sel:reservedInstancesModificationId:ModifyReservedInstancesResponse' :: ModifyReservedInstancesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681217965"><span class="hs-identifier hs-var hs-var">reservedInstancesModificationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217965"><span class="hs-identifier hs-var">reservedInstancesModificationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217964"><span class="annot"><span class="annottext">s :: ModifyReservedInstancesResponse
-</span><a href="#local-6989586621681217964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217963"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstancesResponse
-</span><a href="#local-6989586621681217964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesModificationId:ModifyReservedInstancesResponse' :: Maybe Text
+</span><a href="#local-6989586621681217974"><span class="hs-identifier hs-var hs-var">reservedInstancesModificationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681217974"><span class="hs-identifier hs-var">reservedInstancesModificationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217973"><span class="annot"><span class="annottext">s :: ModifyReservedInstancesResponse
+</span><a href="#local-6989586621681217973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217972"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681217972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstancesResponse
+</span><a href="#local-6989586621681217973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedInstancesModificationId:ModifyReservedInstancesResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#%24sel%3AreservedInstancesModificationId%3AModifyReservedInstancesResponse%27"><span class="hs-identifier hs-var">reservedInstancesModificationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681217963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681217972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#modifyReservedInstancesResponse_httpStatus"><span class="hs-identifier hs-type">modifyReservedInstancesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -552,18 +552,18 @@ $sel:reservedInstancesModificationId:ModifyReservedInstancesResponse' :: ModifyR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217962"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681217971"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyReservedInstancesResponse' :: ModifyReservedInstancesResponse -&gt; Int
-</span><a href="#local-6989586621681217962"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217962"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217961"><span class="annot"><span class="annottext">s :: ModifyReservedInstancesResponse
-</span><a href="#local-6989586621681217961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217960"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstancesResponse
-</span><a href="#local-6989586621681217961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyReservedInstancesResponse' :: Int
+</span><a href="#local-6989586621681217971"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681217971"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681217970"><span class="annot"><span class="annottext">s :: ModifyReservedInstancesResponse
+</span><a href="#local-6989586621681217970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse%27"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681217969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681217969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReservedInstancesResponse
+</span><a href="#local-6989586621681217970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyReservedInstancesResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyReservedInstances.html#%24sel%3AhttpStatus%3AModifyReservedInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681217960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681217969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621681217958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621681217967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyReservedInstances.html#ModifyReservedInstancesResponse"><span class="hs-identifier hs-type">ModifyReservedInstancesResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

@@ -30,12 +30,12 @@
 </span><span id="line-30"></span><span class="hs-comment">-- or new version of a launch template is created.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newValidationWarning' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621681179430"><span id="local-6989586621681179431"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValidationWarning"><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning"><span class="hs-identifier hs-var">ValidationWarning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidationWarning%27"><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning%27"><span class="hs-identifier hs-var">ValidationWarning'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681179439"><span id="local-6989586621681179440"></span></span><span class="hs-keyword">data</span><span> </span><span id="ValidationWarning"><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning"><span class="hs-identifier hs-var">ValidationWarning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidationWarning%27"><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning%27"><span class="hs-identifier hs-var">ValidationWarning'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error codes and error messages.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aerrors%3AValidationWarning%27"><span class="annot"><span class="annottext">ValidationWarning -&gt; Maybe [ValidationError]
 </span><a href="Network.AWS.EC2.Types.ValidationWarning.html#%24sel%3Aerrors%3AValidationWarning%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationError.html#ValidationError"><span class="hs-identifier hs-type">ValidationError</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681179424"><span id="local-6989586621681179426"><span class="annot"><span class="annottext">ValidationWarning -&gt; ValidationWarning -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681179433"><span id="local-6989586621681179435"><span class="annot"><span class="annottext">ValidationWarning -&gt; ValidationWarning -&gt; Bool
 (ValidationWarning -&gt; ValidationWarning -&gt; Bool)
 -&gt; (ValidationWarning -&gt; ValidationWarning -&gt; Bool)
 -&gt; Eq ValidationWarning
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ValidationWarning -&gt; ValidationWarning -&gt; Bool
 == :: ValidationWarning -&gt; ValidationWarning -&gt; Bool
 $c== :: ValidationWarning -&gt; ValidationWarning -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179415"><span id="local-6989586621681179417"><span id="local-6989586621681179419"><span id="local-6989586621681179421"><span class="annot"><span class="annottext">ReadPrec [ValidationWarning]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179424"><span id="local-6989586621681179426"><span id="local-6989586621681179428"><span id="local-6989586621681179430"><span class="annot"><span class="annottext">ReadPrec [ValidationWarning]
 ReadPrec ValidationWarning
 Int -&gt; ReadS ValidationWarning
 ReadS [ValidationWarning]
@@ -64,7 +64,7 @@ readList :: ReadS [ValidationWarning]
 $creadList :: ReadS [ValidationWarning]
 readsPrec :: Int -&gt; ReadS ValidationWarning
 $creadsPrec :: Int -&gt; ReadS ValidationWarning
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179408"><span id="local-6989586621681179410"><span id="local-6989586621681179412"><span class="annot"><span class="annottext">Int -&gt; ValidationWarning -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681179417"><span id="local-6989586621681179419"><span id="local-6989586621681179421"><span class="annot"><span class="annottext">Int -&gt; ValidationWarning -&gt; ShowS
 [ValidationWarning] -&gt; ShowS
 ValidationWarning -&gt; String
 (Int -&gt; ValidationWarning -&gt; ShowS)
@@ -122,16 +122,16 @@ forall a. Maybe a
      (Maybe [ValidationError])
      (Maybe [ValidationError])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning%27"><span class="hs-identifier hs-type">ValidationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179399"><span class="annot"><span class="annottext">Maybe [ValidationError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning%27"><span class="hs-identifier hs-type">ValidationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681179408"><span class="annot"><span class="annottext">Maybe [ValidationError]
 errors :: Maybe [ValidationError]
 $sel:errors:ValidationWarning' :: ValidationWarning -&gt; Maybe [ValidationError]
-</span><a href="#local-6989586621681179399"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ValidationError]
-</span><a href="#local-6989586621681179399"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179398"><span class="annot"><span class="annottext">s :: ValidationWarning
-</span><a href="#local-6989586621681179398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning%27"><span class="hs-identifier hs-type">ValidationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179397"><span class="annot"><span class="annottext">Maybe [ValidationError]
-</span><a href="#local-6989586621681179397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidationWarning
-</span><a href="#local-6989586621681179398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:ValidationWarning' :: Maybe [ValidationError]
+</span><a href="#local-6989586621681179408"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ValidationError]
+</span><a href="#local-6989586621681179408"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681179407"><span class="annot"><span class="annottext">s :: ValidationWarning
+</span><a href="#local-6989586621681179407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning%27"><span class="hs-identifier hs-type">ValidationWarning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681179406"><span class="annot"><span class="annottext">Maybe [ValidationError]
+</span><a href="#local-6989586621681179406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidationWarning
+</span><a href="#local-6989586621681179407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:ValidationWarning' :: Maybe [ValidationError]
 </span><a href="Network.AWS.EC2.Types.ValidationWarning.html#%24sel%3Aerrors%3AValidationWarning%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ValidationError]
-</span><a href="#local-6989586621681179397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning"><span class="hs-identifier hs-type">ValidationWarning</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ValidationError] -&gt; f (Maybe [ValidationError]))
+</span><a href="#local-6989586621681179406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning"><span class="hs-identifier hs-type">ValidationWarning</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ValidationError] -&gt; f (Maybe [ValidationError]))
  -&gt; ValidationWarning -&gt; f ValidationWarning)
 -&gt; ((Maybe [ValidationError] -&gt; f (Maybe [ValidationError]))
     -&gt; Maybe [ValidationError] -&gt; f (Maybe [ValidationError]))
@@ -161,9 +161,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning"><span class="hs-identifier hs-type">ValidationWarning</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621681179391"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ValidationWarning
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681179389"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681179389"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621681179400"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ValidationWarning
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681179398"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681179398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe [ValidationError] -&gt; ValidationWarning
 </span><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning%27"><span class="hs-identifier hs-var">ValidationWarning'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [ValidationError] -&gt; ValidationWarning)
@@ -171,7 +171,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Either String ValidationWarning
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681179389"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681179398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -194,7 +194,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681179380"><span id="local-6989586621681179382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning"><span class="hs-identifier hs-type">ValidationWarning</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681179389"><span id="local-6989586621681179391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning"><span class="hs-identifier hs-type">ValidationWarning</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681179377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning"><span class="hs-identifier hs-type">ValidationWarning</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681179386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ValidationWarning.html#ValidationWarning"><span class="hs-identifier hs-type">ValidationWarning</span></a></span></span><span>
 </span><span id="line-67"></span></pre></body></html>

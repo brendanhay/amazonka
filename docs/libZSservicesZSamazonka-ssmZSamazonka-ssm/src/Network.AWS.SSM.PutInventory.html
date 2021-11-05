@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newPutInventory' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679828383"><span id="local-6989586621679828384"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInventory"><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-var">PutInventory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInventory%27"><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-var">PutInventory'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679828392"><span id="local-6989586621679828393"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInventory"><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-var">PutInventory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInventory%27"><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-var">PutInventory'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An instance ID where you want to add or update inventory items.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AinstanceId%3APutInventory%27"><span class="annot"><span class="annottext">PutInventory -&gt; Text
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3AinstanceId%3APutInventory%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aitems%3APutInventory%27"><span class="annot"><span class="annottext">PutInventory -&gt; NonEmpty InventoryItem
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3Aitems%3APutInventory%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828376"><span id="local-6989586621679828378"><span class="annot"><span class="annottext">PutInventory -&gt; PutInventory -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828385"><span id="local-6989586621679828387"><span class="annot"><span class="annottext">PutInventory -&gt; PutInventory -&gt; Bool
 (PutInventory -&gt; PutInventory -&gt; Bool)
 -&gt; (PutInventory -&gt; PutInventory -&gt; Bool) -&gt; Eq PutInventory
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutInventory -&gt; PutInventory -&gt; Bool
 == :: PutInventory -&gt; PutInventory -&gt; Bool
 $c== :: PutInventory -&gt; PutInventory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828367"><span id="local-6989586621679828369"><span id="local-6989586621679828371"><span id="local-6989586621679828373"><span class="annot"><span class="annottext">ReadPrec [PutInventory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828376"><span id="local-6989586621679828378"><span id="local-6989586621679828380"><span id="local-6989586621679828382"><span class="annot"><span class="annottext">ReadPrec [PutInventory]
 ReadPrec PutInventory
 Int -&gt; ReadS PutInventory
 ReadS [PutInventory]
@@ -86,7 +86,7 @@ readList :: ReadS [PutInventory]
 $creadList :: ReadS [PutInventory]
 readsPrec :: Int -&gt; ReadS PutInventory
 $creadsPrec :: Int -&gt; ReadS PutInventory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828360"><span id="local-6989586621679828362"><span id="local-6989586621679828364"><span class="annot"><span class="annottext">Int -&gt; PutInventory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828369"><span id="local-6989586621679828371"><span id="local-6989586621679828373"><span class="annot"><span class="annottext">Int -&gt; PutInventory -&gt; ShowS
 [PutInventory] -&gt; ShowS
 PutInventory -&gt; String
 (Int -&gt; PutInventory -&gt; ShowS)
@@ -130,14 +130,14 @@ $cfrom :: forall x. PutInventory -&gt; Rep PutInventory x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span>
 </span><span id="line-78"></span><span id="newPutInventory"><span class="annot"><span class="annottext">newPutInventory :: Text -&gt; NonEmpty InventoryItem -&gt; PutInventory
-</span><a href="Network.AWS.SSM.PutInventory.html#newPutInventory"><span class="hs-identifier hs-var hs-var">newPutInventory</span></a></span></span><span> </span><span id="local-6989586621679828355"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828355"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679828354"><span class="annot"><span class="annottext">NonEmpty InventoryItem
-</span><a href="#local-6989586621679828354"><span class="hs-identifier hs-var">pItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.PutInventory.html#newPutInventory"><span class="hs-identifier hs-var hs-var">newPutInventory</span></a></span></span><span> </span><span id="local-6989586621679828364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828364"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679828363"><span class="annot"><span class="annottext">NonEmpty InventoryItem
+</span><a href="#local-6989586621679828363"><span class="hs-identifier hs-var">pItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">PutInventory' :: Text -&gt; NonEmpty InventoryItem -&gt; PutInventory
 </span><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:PutInventory' :: Text
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3AinstanceId%3APutInventory%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828355"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828364"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:items:PutInventory' :: NonEmpty InventoryItem
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3Aitems%3APutInventory%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty InventoryItem) (Identity (NonEmpty InventoryItem))
 -&gt; Tagged
@@ -150,7 +150,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty InventoryItem -&gt; NonEmpty InventoryItem
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryItem
-</span><a href="#local-6989586621679828354"><span class="hs-identifier hs-var">pItems_</span></a></span><span>
+</span><a href="#local-6989586621679828363"><span class="hs-identifier hs-var">pItems_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | An instance ID where you want to add or update inventory items.</span><span>
@@ -160,16 +160,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (PutInventory -&gt; Text -&gt; PutInventory)
 -&gt; Lens PutInventory PutInventory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828349"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828358"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:PutInventory' :: PutInventory -&gt; Text
-</span><a href="#local-6989586621679828349"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828349"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828348"><span class="annot"><span class="annottext">s :: PutInventory
-</span><a href="#local-6989586621679828348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828347"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInventory
-</span><a href="#local-6989586621679828348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:PutInventory' :: Text
+</span><a href="#local-6989586621679828358"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828358"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828357"><span class="annot"><span class="annottext">s :: PutInventory
+</span><a href="#local-6989586621679828357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828356"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679828356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInventory
+</span><a href="#local-6989586621679828357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:PutInventory' :: Text
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3AinstanceId%3APutInventory%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The inventory items that you want to add or update on instances.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#putInventory_items"><span class="hs-identifier hs-type">putInventory_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryItem.html#InventoryItem"><span class="hs-identifier hs-type">InventoryItem</span></a></span><span class="hs-special">)</span><span>
@@ -183,16 +183,16 @@ $sel:instanceId:PutInventory' :: PutInventory -&gt; Text
      (NonEmpty InventoryItem)
      (NonEmpty InventoryItem)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828346"><span class="annot"><span class="annottext">NonEmpty InventoryItem
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828355"><span class="annot"><span class="annottext">NonEmpty InventoryItem
 items :: NonEmpty InventoryItem
 $sel:items:PutInventory' :: PutInventory -&gt; NonEmpty InventoryItem
-</span><a href="#local-6989586621679828346"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryItem
-</span><a href="#local-6989586621679828346"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828345"><span class="annot"><span class="annottext">s :: PutInventory
-</span><a href="#local-6989586621679828345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828344"><span class="annot"><span class="annottext">NonEmpty InventoryItem
-</span><a href="#local-6989586621679828344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInventory
-</span><a href="#local-6989586621679828345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:PutInventory' :: NonEmpty InventoryItem
+</span><a href="#local-6989586621679828355"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryItem
+</span><a href="#local-6989586621679828355"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828354"><span class="annot"><span class="annottext">s :: PutInventory
+</span><a href="#local-6989586621679828354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828353"><span class="annot"><span class="annottext">NonEmpty InventoryItem
+</span><a href="#local-6989586621679828353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInventory
+</span><a href="#local-6989586621679828354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:PutInventory' :: NonEmpty InventoryItem
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3Aitems%3APutInventory%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryItem
-</span><a href="#local-6989586621679828344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty InventoryItem -&gt; f (NonEmpty InventoryItem))
+</span><a href="#local-6989586621679828353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty InventoryItem -&gt; f (NonEmpty InventoryItem))
  -&gt; PutInventory -&gt; f PutInventory)
 -&gt; ((NonEmpty InventoryItem -&gt; f (NonEmpty InventoryItem))
     -&gt; NonEmpty InventoryItem -&gt; f (NonEmpty InventoryItem))
@@ -207,12 +207,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-type">PutInventoryResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679828339"><span class="annot"><span class="annottext">request :: PutInventory -&gt; Request PutInventory
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679828348"><span class="annot"><span class="annottext">request :: PutInventory -&gt; Request PutInventory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutInventory -&gt; Request PutInventory
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679828335"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679828344"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutInventory
 -&gt; ClientResponse ClientBody
@@ -236,10 +236,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679828332"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828332"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679828331"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679828331"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679828330"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679828330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679828341"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828341"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679828340"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679828340"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679828339"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679828339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; PutInventoryResponse
 </span><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-var">PutInventoryResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; PutInventoryResponse)
@@ -247,7 +247,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutInventoryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679828330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679828339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,15 +259,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828332"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828341"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828322"><span id="local-6989586621679828324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828331"><span id="local-6989586621679828333"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679828315"><span class="annot"><span class="annottext">toHeaders :: PutInventory -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679828324"><span class="annot"><span class="annottext">toHeaders :: PutInventory -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutInventory -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -292,15 +292,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828305"><span id="local-6989586621679828307"><span id="local-6989586621679828309"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679828303"><span class="annot"><span class="annottext">toJSON :: PutInventory -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828300"><span id="local-6989586621679828301"><span class="annot"><span class="annottext">NonEmpty InventoryItem
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828314"><span id="local-6989586621679828316"><span id="local-6989586621679828318"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679828312"><span class="annot"><span class="annottext">toJSON :: PutInventory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory%27"><span class="hs-identifier hs-type">PutInventory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828309"><span id="local-6989586621679828310"><span class="annot"><span class="annottext">NonEmpty InventoryItem
 Text
 items :: NonEmpty InventoryItem
 instanceId :: Text
 $sel:items:PutInventory' :: PutInventory -&gt; NonEmpty InventoryItem
 $sel:instanceId:PutInventory' :: PutInventory -&gt; Text
-</span><a href="#local-6989586621679828300"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679828309"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -312,26 +312,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679828301"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679828310"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty InventoryItem -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryItem
-</span><a href="#local-6989586621679828300"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828309"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679828294"><span class="annot"><span class="annottext">toPath :: PutInventory -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679828303"><span class="annot"><span class="annottext">toPath :: PutInventory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutInventory -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventory"><span class="hs-identifier hs-type">PutInventory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679828290"><span class="annot"><span class="annottext">toQuery :: PutInventory -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679828299"><span class="annot"><span class="annottext">toQuery :: PutInventory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutInventory -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -339,7 +339,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newPutInventoryResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679828287"><span id="local-6989586621679828288"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInventoryResponse"><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-var">PutInventoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInventoryResponse%27"><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-var">PutInventoryResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679828296"><span id="local-6989586621679828297"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInventoryResponse"><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-var">PutInventoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInventoryResponse%27"><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-var">PutInventoryResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the request.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3Amessage%3APutInventoryResponse%27"><span class="annot"><span class="annottext">PutInventoryResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3Amessage%3APutInventoryResponse%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -347,7 +347,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutInventoryResponse%27"><span class="annot"><span class="annottext">PutInventoryResponse -&gt; Int
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3AhttpStatus%3APutInventoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828281"><span id="local-6989586621679828283"><span class="annot"><span class="annottext">PutInventoryResponse -&gt; PutInventoryResponse -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679828290"><span id="local-6989586621679828292"><span class="annot"><span class="annottext">PutInventoryResponse -&gt; PutInventoryResponse -&gt; Bool
 (PutInventoryResponse -&gt; PutInventoryResponse -&gt; Bool)
 -&gt; (PutInventoryResponse -&gt; PutInventoryResponse -&gt; Bool)
 -&gt; Eq PutInventoryResponse
@@ -356,7 +356,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutInventoryResponse -&gt; PutInventoryResponse -&gt; Bool
 == :: PutInventoryResponse -&gt; PutInventoryResponse -&gt; Bool
 $c== :: PutInventoryResponse -&gt; PutInventoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828273"><span id="local-6989586621679828275"><span id="local-6989586621679828277"><span id="local-6989586621679828279"><span class="annot"><span class="annottext">ReadPrec [PutInventoryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828282"><span id="local-6989586621679828284"><span id="local-6989586621679828286"><span id="local-6989586621679828288"><span class="annot"><span class="annottext">ReadPrec [PutInventoryResponse]
 ReadPrec PutInventoryResponse
 Int -&gt; ReadS PutInventoryResponse
 ReadS [PutInventoryResponse]
@@ -376,7 +376,7 @@ readList :: ReadS [PutInventoryResponse]
 $creadList :: ReadS [PutInventoryResponse]
 readsPrec :: Int -&gt; ReadS PutInventoryResponse
 $creadsPrec :: Int -&gt; ReadS PutInventoryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828267"><span id="local-6989586621679828269"><span id="local-6989586621679828271"><span class="annot"><span class="annottext">Int -&gt; PutInventoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679828276"><span id="local-6989586621679828278"><span id="local-6989586621679828280"><span class="annot"><span class="annottext">Int -&gt; PutInventoryResponse -&gt; ShowS
 [PutInventoryResponse] -&gt; ShowS
 PutInventoryResponse -&gt; String
 (Int -&gt; PutInventoryResponse -&gt; ShowS)
@@ -418,8 +418,8 @@ $cfrom :: forall x. PutInventoryResponse -&gt; Rep PutInventoryResponse x
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-type">PutInventoryResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newPutInventoryResponse"><span class="annot"><span class="annottext">newPutInventoryResponse :: Int -&gt; PutInventoryResponse
-</span><a href="Network.AWS.SSM.PutInventory.html#newPutInventoryResponse"><span class="hs-identifier hs-var hs-var">newPutInventoryResponse</span></a></span></span><span> </span><span id="local-6989586621679828264"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.PutInventory.html#newPutInventoryResponse"><span class="hs-identifier hs-var hs-var">newPutInventoryResponse</span></a></span></span><span> </span><span id="local-6989586621679828273"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828273"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">PutInventoryResponse' :: Maybe Text -&gt; Int -&gt; PutInventoryResponse
 </span><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-type">PutInventoryResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:PutInventoryResponse' :: Maybe Text
@@ -428,7 +428,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutInventoryResponse' :: Int
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3AhttpStatus%3APutInventoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828264"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679828273"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | Information about the request.</span><span>
@@ -440,16 +440,16 @@ forall a. Maybe a
 -&gt; Lens
      PutInventoryResponse PutInventoryResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-type">PutInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828263"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-type">PutInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828272"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:PutInventoryResponse' :: PutInventoryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679828263"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828263"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828262"><span class="annot"><span class="annottext">s :: PutInventoryResponse
-</span><a href="#local-6989586621679828262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-type">PutInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828261"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInventoryResponse
-</span><a href="#local-6989586621679828262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:PutInventoryResponse' :: Maybe Text
+</span><a href="#local-6989586621679828272"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828272"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828271"><span class="annot"><span class="annottext">s :: PutInventoryResponse
+</span><a href="#local-6989586621679828271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-type">PutInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828270"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679828270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInventoryResponse
+</span><a href="#local-6989586621679828271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:PutInventoryResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3Amessage%3APutInventoryResponse%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679828261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-type">PutInventoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-type">PutInventoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#putInventoryResponse_httpStatus"><span class="hs-identifier hs-type">putInventoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-type">PutInventoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -458,16 +458,16 @@ $sel:message:PutInventoryResponse' :: PutInventoryResponse -&gt; Maybe Text
 -&gt; (PutInventoryResponse -&gt; Int -&gt; PutInventoryResponse)
 -&gt; Lens PutInventoryResponse PutInventoryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-type">PutInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828260"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-type">PutInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679828269"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutInventoryResponse' :: PutInventoryResponse -&gt; Int
-</span><a href="#local-6989586621679828260"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828260"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828259"><span class="annot"><span class="annottext">s :: PutInventoryResponse
-</span><a href="#local-6989586621679828259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-type">PutInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828258"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInventoryResponse
-</span><a href="#local-6989586621679828259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutInventoryResponse' :: Int
+</span><a href="#local-6989586621679828269"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828269"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679828268"><span class="annot"><span class="annottext">s :: PutInventoryResponse
+</span><a href="#local-6989586621679828268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse%27"><span class="hs-identifier hs-type">PutInventoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679828267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679828267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInventoryResponse
+</span><a href="#local-6989586621679828268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutInventoryResponse' :: Int
 </span><a href="Network.AWS.SSM.PutInventory.html#%24sel%3AhttpStatus%3APutInventoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679828258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-type">PutInventoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679828267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-type">PutInventoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-type">PutInventoryResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679828265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.PutInventory.html#PutInventoryResponse"><span class="hs-identifier hs-type">PutInventoryResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

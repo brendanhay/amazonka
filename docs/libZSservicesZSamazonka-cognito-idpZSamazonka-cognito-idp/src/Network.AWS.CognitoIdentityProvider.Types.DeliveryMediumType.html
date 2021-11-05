@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679427014"><span id="local-6989586621679427015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliveryMediumType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType"><span class="hs-identifier hs-var">DeliveryMediumType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryMediumType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType%27"><span class="hs-identifier hs-var">DeliveryMediumType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679427023"><span id="local-6989586621679427024"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliveryMediumType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType"><span class="hs-identifier hs-var">DeliveryMediumType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryMediumType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType%27"><span class="hs-identifier hs-var">DeliveryMediumType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeliveryMediumType"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType.html#fromDeliveryMediumType"><span class="hs-identifier hs-var hs-var">fromDeliveryMediumType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427006"><span id="local-6989586621679427008"><span id="local-6989586621679427010"><span class="annot"><span class="annottext">Int -&gt; DeliveryMediumType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427015"><span id="local-6989586621679427017"><span id="local-6989586621679427019"><span class="annot"><span class="annottext">Int -&gt; DeliveryMediumType -&gt; ShowS
 [DeliveryMediumType] -&gt; ShowS
 DeliveryMediumType -&gt; String
 (Int -&gt; DeliveryMediumType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DeliveryMediumType -&gt; String
 showsPrec :: Int -&gt; DeliveryMediumType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeliveryMediumType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679426997"><span id="local-6989586621679426999"><span id="local-6989586621679427001"><span id="local-6989586621679427003"><span class="annot"><span class="annottext">ReadPrec [DeliveryMediumType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679427006"><span id="local-6989586621679427008"><span id="local-6989586621679427010"><span id="local-6989586621679427012"><span class="annot"><span class="annottext">ReadPrec [DeliveryMediumType]
 ReadPrec DeliveryMediumType
 Int -&gt; ReadS DeliveryMediumType
 ReadS [DeliveryMediumType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DeliveryMediumType]
 readsPrec :: Int -&gt; ReadS DeliveryMediumType
 $creadsPrec :: Int -&gt; ReadS DeliveryMediumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679426992"><span id="local-6989586621679426994"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; DeliveryMediumType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427001"><span id="local-6989586621679427003"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; DeliveryMediumType -&gt; Bool
 (DeliveryMediumType -&gt; DeliveryMediumType -&gt; Bool)
 -&gt; (DeliveryMediumType -&gt; DeliveryMediumType -&gt; Bool)
 -&gt; Eq DeliveryMediumType
@@ -82,7 +82,7 @@ $c/= :: DeliveryMediumType -&gt; DeliveryMediumType -&gt; Bool
 == :: DeliveryMediumType -&gt; DeliveryMediumType -&gt; Bool
 $c== :: DeliveryMediumType -&gt; DeliveryMediumType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679426976"><span id="local-6989586621679426978"><span id="local-6989586621679426980"><span id="local-6989586621679426982"><span id="local-6989586621679426984"><span id="local-6989586621679426986"><span id="local-6989586621679426988"><span class="annot"><span class="annottext">Eq DeliveryMediumType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679426985"><span id="local-6989586621679426987"><span id="local-6989586621679426989"><span id="local-6989586621679426991"><span id="local-6989586621679426993"><span id="local-6989586621679426995"><span id="local-6989586621679426997"><span class="annot"><span class="annottext">Eq DeliveryMediumType
 Eq DeliveryMediumType
 -&gt; (DeliveryMediumType -&gt; DeliveryMediumType -&gt; Ordering)
 -&gt; (DeliveryMediumType -&gt; DeliveryMediumType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DeliveryMediumType -&gt; Rep DeliveryMediumType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426968"><span id="local-6989586621679426970"><span class="annot"><span class="annottext">Int -&gt; DeliveryMediumType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426977"><span id="local-6989586621679426979"><span class="annot"><span class="annottext">Int -&gt; DeliveryMediumType -&gt; Int
 DeliveryMediumType -&gt; Int
 (Int -&gt; DeliveryMediumType -&gt; Int)
 -&gt; (DeliveryMediumType -&gt; Int) -&gt; Hashable DeliveryMediumType
@@ -143,53 +143,53 @@ $chash :: DeliveryMediumType -&gt; Int
 hashWithSalt :: Int -&gt; DeliveryMediumType -&gt; Int
 $chashWithSalt :: Int -&gt; DeliveryMediumType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679426965"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679426974"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; ()
 (DeliveryMediumType -&gt; ()) -&gt; NFData DeliveryMediumType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeliveryMediumType -&gt; ()
 $crnf :: DeliveryMediumType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679426962"><span class="annot"><span class="annottext">Text -&gt; Either String DeliveryMediumType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679426971"><span class="annot"><span class="annottext">Text -&gt; Either String DeliveryMediumType
 (Text -&gt; Either String DeliveryMediumType)
 -&gt; FromText DeliveryMediumType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeliveryMediumType
 $cfromText :: Text -&gt; Either String DeliveryMediumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679426959"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679426968"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; Text
 (DeliveryMediumType -&gt; Text) -&gt; ToText DeliveryMediumType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeliveryMediumType -&gt; Text
 $ctoText :: DeliveryMediumType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679426956"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679426965"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; ByteString
 (DeliveryMediumType -&gt; ByteString)
 -&gt; ToByteString DeliveryMediumType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeliveryMediumType -&gt; ByteString
 $ctoBS :: DeliveryMediumType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679426953"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679426962"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; ByteStringBuilder
 (DeliveryMediumType -&gt; ByteStringBuilder)
 -&gt; ToLog DeliveryMediumType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeliveryMediumType -&gt; ByteStringBuilder
 $cbuild :: DeliveryMediumType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679426950"><span class="annot"><span class="annottext">HeaderName -&gt; DeliveryMediumType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679426959"><span class="annot"><span class="annottext">HeaderName -&gt; DeliveryMediumType -&gt; [Header]
 (HeaderName -&gt; DeliveryMediumType -&gt; [Header])
 -&gt; ToHeader DeliveryMediumType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeliveryMediumType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeliveryMediumType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679426947"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679426956"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; QueryString
 (DeliveryMediumType -&gt; QueryString) -&gt; ToQuery DeliveryMediumType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeliveryMediumType -&gt; QueryString
 $ctoQuery :: DeliveryMediumType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679426942"><span id="local-6989586621679426944"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliveryMediumType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679426951"><span id="local-6989586621679426953"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliveryMediumType]
 Value -&gt; Parser DeliveryMediumType
 (Value -&gt; Parser DeliveryMediumType)
 -&gt; (Value -&gt; Parser [DeliveryMediumType])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [DeliveryMediumType]
 parseJSON :: Value -&gt; Parser DeliveryMediumType
 $cparseJSON :: Value -&gt; Parser DeliveryMediumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679426937"><span id="local-6989586621679426939"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliveryMediumType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679426946"><span id="local-6989586621679426948"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliveryMediumType]
 FromJSONKeyFunction DeliveryMediumType
 FromJSONKeyFunction DeliveryMediumType
 -&gt; FromJSONKeyFunction [DeliveryMediumType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeliveryMediumType]
 fromJSONKey :: FromJSONKeyFunction DeliveryMediumType
 $cfromJSONKey :: FromJSONKeyFunction DeliveryMediumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679426928"><span id="local-6989586621679426930"><span id="local-6989586621679426932"><span id="local-6989586621679426934"><span class="annot"><span class="annottext">[DeliveryMediumType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679426937"><span id="local-6989586621679426939"><span id="local-6989586621679426941"><span id="local-6989586621679426943"><span class="annot"><span class="annottext">[DeliveryMediumType] -&gt; Encoding
 [DeliveryMediumType] -&gt; Value
 DeliveryMediumType -&gt; Encoding
 DeliveryMediumType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: DeliveryMediumType -&gt; Encoding
 toJSON :: DeliveryMediumType -&gt; Value
 $ctoJSON :: DeliveryMediumType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679426923"><span id="local-6989586621679426925"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliveryMediumType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679426932"><span id="local-6989586621679426934"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliveryMediumType]
 ToJSONKeyFunction DeliveryMediumType
 ToJSONKeyFunction DeliveryMediumType
 -&gt; ToJSONKeyFunction [DeliveryMediumType]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeliveryMediumType]
 toJSONKey :: ToJSONKeyFunction DeliveryMediumType
 $ctoJSONKey :: ToJSONKeyFunction DeliveryMediumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679426920"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliveryMediumType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679426929"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliveryMediumType
 ([Node] -&gt; Either String DeliveryMediumType)
 -&gt; FromXML DeliveryMediumType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeliveryMediumType
 $cparseXML :: [Node] -&gt; Either String DeliveryMediumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679426917"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679426926"><span class="annot"><span class="annottext">DeliveryMediumType -&gt; XML
 (DeliveryMediumType -&gt; XML) -&gt; ToXML DeliveryMediumType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeliveryMediumType -&gt; XML

@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The configuration of an ML Detect Security Profile.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMachineLearningDetectionConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679789916"><span id="local-6989586621679789917"></span></span><span class="hs-keyword">data</span><span> </span><span id="MachineLearningDetectionConfig"><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-var">MachineLearningDetectionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MachineLearningDetectionConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-var">MachineLearningDetectionConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679789925"><span id="local-6989586621679789926"></span></span><span class="hs-keyword">data</span><span> </span><span id="MachineLearningDetectionConfig"><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-var">MachineLearningDetectionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MachineLearningDetectionConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-var">MachineLearningDetectionConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sensitivity of anomalous behavior evaluation. Can be @Low@,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @Medium@, or @High@.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AconfidenceLevel%3AMachineLearningDetectionConfig%27"><span class="annot"><span class="annottext">MachineLearningDetectionConfig -&gt; ConfidenceLevel
 </span><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#%24sel%3AconfidenceLevel%3AMachineLearningDetectionConfig%27"><span class="hs-identifier hs-var hs-var">confidenceLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ConfidenceLevel.html#ConfidenceLevel"><span class="hs-identifier hs-type">ConfidenceLevel</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789910"><span id="local-6989586621679789912"><span class="annot"><span class="annottext">MachineLearningDetectionConfig
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789919"><span id="local-6989586621679789921"><span class="annot"><span class="annottext">MachineLearningDetectionConfig
 -&gt; MachineLearningDetectionConfig -&gt; Bool
 (MachineLearningDetectionConfig
  -&gt; MachineLearningDetectionConfig -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: MachineLearningDetectionConfig
 -&gt; MachineLearningDetectionConfig -&gt; Bool
 $c== :: MachineLearningDetectionConfig
 -&gt; MachineLearningDetectionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789901"><span id="local-6989586621679789903"><span id="local-6989586621679789905"><span id="local-6989586621679789907"><span class="annot"><span class="annottext">ReadPrec [MachineLearningDetectionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789910"><span id="local-6989586621679789912"><span id="local-6989586621679789914"><span id="local-6989586621679789916"><span class="annot"><span class="annottext">ReadPrec [MachineLearningDetectionConfig]
 ReadPrec MachineLearningDetectionConfig
 Int -&gt; ReadS MachineLearningDetectionConfig
 ReadS [MachineLearningDetectionConfig]
@@ -69,7 +69,7 @@ readList :: ReadS [MachineLearningDetectionConfig]
 $creadList :: ReadS [MachineLearningDetectionConfig]
 readsPrec :: Int -&gt; ReadS MachineLearningDetectionConfig
 $creadsPrec :: Int -&gt; ReadS MachineLearningDetectionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789894"><span id="local-6989586621679789896"><span id="local-6989586621679789898"><span class="annot"><span class="annottext">Int -&gt; MachineLearningDetectionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789903"><span id="local-6989586621679789905"><span id="local-6989586621679789907"><span class="annot"><span class="annottext">Int -&gt; MachineLearningDetectionConfig -&gt; ShowS
 [MachineLearningDetectionConfig] -&gt; ShowS
 MachineLearningDetectionConfig -&gt; String
 (Int -&gt; MachineLearningDetectionConfig -&gt; ShowS)
@@ -122,14 +122,14 @@ MachineLearningDetectionConfig
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ConfidenceLevel.html#ConfidenceLevel"><span class="hs-identifier hs-type">ConfidenceLevel</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span><span>
 </span><span id="line-51"></span><span id="newMachineLearningDetectionConfig"><span class="annot"><span class="annottext">newMachineLearningDetectionConfig :: ConfidenceLevel -&gt; MachineLearningDetectionConfig
-</span><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#newMachineLearningDetectionConfig"><span class="hs-identifier hs-var hs-var">newMachineLearningDetectionConfig</span></a></span></span><span> </span><span id="local-6989586621679789888"><span class="annot"><span class="annottext">ConfidenceLevel
-</span><a href="#local-6989586621679789888"><span class="hs-identifier hs-var">pConfidenceLevel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#newMachineLearningDetectionConfig"><span class="hs-identifier hs-var hs-var">newMachineLearningDetectionConfig</span></a></span></span><span> </span><span id="local-6989586621679789897"><span class="annot"><span class="annottext">ConfidenceLevel
+</span><a href="#local-6989586621679789897"><span class="hs-identifier hs-var">pConfidenceLevel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">MachineLearningDetectionConfig' :: ConfidenceLevel -&gt; MachineLearningDetectionConfig
 </span><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-type">MachineLearningDetectionConfig'</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:confidenceLevel:MachineLearningDetectionConfig' :: ConfidenceLevel
 </span><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#%24sel%3AconfidenceLevel%3AMachineLearningDetectionConfig%27"><span class="hs-identifier hs-var">confidenceLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">ConfidenceLevel
-</span><a href="#local-6989586621679789888"><span class="hs-identifier hs-var">pConfidenceLevel_</span></a></span><span>
+</span><a href="#local-6989586621679789897"><span class="hs-identifier hs-var">pConfidenceLevel_</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | The sensitivity of anomalous behavior evaluation. Can be @Low@,</span><span>
@@ -147,19 +147,19 @@ MachineLearningDetectionConfig
      ConfidenceLevel
      ConfidenceLevel
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-type">MachineLearningDetectionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789884"><span class="annot"><span class="annottext">ConfidenceLevel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-type">MachineLearningDetectionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789893"><span class="annot"><span class="annottext">ConfidenceLevel
 confidenceLevel :: ConfidenceLevel
 $sel:confidenceLevel:MachineLearningDetectionConfig' :: MachineLearningDetectionConfig -&gt; ConfidenceLevel
-</span><a href="#local-6989586621679789884"><span class="hs-identifier hs-var hs-var">confidenceLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfidenceLevel
-</span><a href="#local-6989586621679789884"><span class="hs-identifier hs-var">confidenceLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789883"><span class="annot"><span class="annottext">s :: MachineLearningDetectionConfig
-</span><a href="#local-6989586621679789883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-type">MachineLearningDetectionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789882"><span class="annot"><span class="annottext">ConfidenceLevel
-</span><a href="#local-6989586621679789882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MachineLearningDetectionConfig
-</span><a href="#local-6989586621679789883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidenceLevel:MachineLearningDetectionConfig' :: ConfidenceLevel
+</span><a href="#local-6989586621679789893"><span class="hs-identifier hs-var hs-var">confidenceLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfidenceLevel
+</span><a href="#local-6989586621679789893"><span class="hs-identifier hs-var">confidenceLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789892"><span class="annot"><span class="annottext">s :: MachineLearningDetectionConfig
+</span><a href="#local-6989586621679789892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-type">MachineLearningDetectionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789891"><span class="annot"><span class="annottext">ConfidenceLevel
+</span><a href="#local-6989586621679789891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MachineLearningDetectionConfig
+</span><a href="#local-6989586621679789892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidenceLevel:MachineLearningDetectionConfig' :: ConfidenceLevel
 </span><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#%24sel%3AconfidenceLevel%3AMachineLearningDetectionConfig%27"><span class="hs-identifier hs-var">confidenceLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfidenceLevel
-</span><a href="#local-6989586621679789882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789879"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679789877"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MachineLearningDetectionConfig
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789888"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679789886"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MachineLearningDetectionConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MachineLearningDetectionConfig)
@@ -169,34 +169,34 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MachineLearningDetectionConfig&quot;</span></span><span>
-</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679789874"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679789874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679789883"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679789883"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">ConfidenceLevel -&gt; MachineLearningDetectionConfig
 </span><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-var">MachineLearningDetectionConfig'</span></a></span><span>
 </span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">(ConfidenceLevel -&gt; MachineLearningDetectionConfig)
 -&gt; Parser ConfidenceLevel -&gt; Parser MachineLearningDetectionConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679789874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ConfidenceLevel
+</span><a href="#local-6989586621679789883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ConfidenceLevel
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;confidenceLevel&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679789868"><span id="local-6989586621679789870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679789877"><span id="local-6989586621679789879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679789865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679789874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789857"><span id="local-6989586621679789859"><span id="local-6989586621679789861"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679789855"><span class="annot"><span class="annottext">toJSON :: MachineLearningDetectionConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-type">MachineLearningDetectionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789853"><span class="annot"><span class="annottext">ConfidenceLevel
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789866"><span id="local-6989586621679789868"><span id="local-6989586621679789870"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig"><span class="hs-identifier hs-type">MachineLearningDetectionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679789864"><span class="annot"><span class="annottext">toJSON :: MachineLearningDetectionConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MachineLearningDetectionConfig.html#MachineLearningDetectionConfig%27"><span class="hs-identifier hs-type">MachineLearningDetectionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789862"><span class="annot"><span class="annottext">ConfidenceLevel
 confidenceLevel :: ConfidenceLevel
 $sel:confidenceLevel:MachineLearningDetectionConfig' :: MachineLearningDetectionConfig -&gt; ConfidenceLevel
-</span><a href="#local-6989586621679789853"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679789862"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -209,7 +209,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;confidenceLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConfidenceLevel -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ConfidenceLevel
-</span><a href="#local-6989586621679789853"><span class="hs-identifier hs-var">confidenceLevel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789862"><span class="hs-identifier hs-var">confidenceLevel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span></pre></body></html>

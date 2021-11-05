@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- by Amazon Lex.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInputContext' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679311126"><span id="local-6989586621679311127"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputContext"><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-var">InputContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputContext%27"><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-var">InputContext'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679311135"><span id="local-6989586621679311136"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputContext"><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-var">InputContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputContext%27"><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-var">InputContext'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the context.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3AInputContext%27"><span class="annot"><span class="annottext">InputContext -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.InputContext.html#%24sel%3Aname%3AInputContext%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311120"><span id="local-6989586621679311122"><span class="annot"><span class="annottext">InputContext -&gt; InputContext -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311129"><span id="local-6989586621679311131"><span class="annot"><span class="annottext">InputContext -&gt; InputContext -&gt; Bool
 (InputContext -&gt; InputContext -&gt; Bool)
 -&gt; (InputContext -&gt; InputContext -&gt; Bool) -&gt; Eq InputContext
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputContext -&gt; InputContext -&gt; Bool
 == :: InputContext -&gt; InputContext -&gt; Bool
 $c== :: InputContext -&gt; InputContext -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311111"><span id="local-6989586621679311113"><span id="local-6989586621679311115"><span id="local-6989586621679311117"><span class="annot"><span class="annottext">ReadPrec [InputContext]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311120"><span id="local-6989586621679311122"><span id="local-6989586621679311124"><span id="local-6989586621679311126"><span class="annot"><span class="annottext">ReadPrec [InputContext]
 ReadPrec InputContext
 Int -&gt; ReadS InputContext
 ReadS [InputContext]
@@ -60,7 +60,7 @@ readList :: ReadS [InputContext]
 $creadList :: ReadS [InputContext]
 readsPrec :: Int -&gt; ReadS InputContext
 $creadsPrec :: Int -&gt; ReadS InputContext
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311104"><span id="local-6989586621679311106"><span id="local-6989586621679311108"><span class="annot"><span class="annottext">Int -&gt; InputContext -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311113"><span id="local-6989586621679311115"><span id="local-6989586621679311117"><span class="annot"><span class="annottext">Int -&gt; InputContext -&gt; ShowS
 [InputContext] -&gt; ShowS
 InputContext -&gt; String
 (Int -&gt; InputContext -&gt; ShowS)
@@ -100,11 +100,11 @@ $cfrom :: forall x. InputContext -&gt; Rep InputContext x
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span><span>
 </span><span id="line-49"></span><span id="newInputContext"><span class="annot"><span class="annottext">newInputContext :: Text -&gt; InputContext
-</span><a href="Network.AWS.LexModels.Types.InputContext.html#newInputContext"><span class="hs-identifier hs-var hs-var">newInputContext</span></a></span></span><span> </span><span id="local-6989586621679311098"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311098"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputContext' :: Text -&gt; InputContext
+</span><a href="Network.AWS.LexModels.Types.InputContext.html#newInputContext"><span class="hs-identifier hs-var hs-var">newInputContext</span></a></span></span><span> </span><span id="local-6989586621679311107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311107"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputContext' :: Text -&gt; InputContext
 </span><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-type">InputContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputContext' :: Text
 </span><a href="Network.AWS.LexModels.Types.InputContext.html#%24sel%3Aname%3AInputContext%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311098"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679311107"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | The name of the context.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#inputContext_name"><span class="hs-identifier hs-type">inputContext_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -113,19 +113,19 @@ $cfrom :: forall x. InputContext -&gt; Rep InputContext x
 -&gt; (InputContext -&gt; Text -&gt; InputContext)
 -&gt; Lens InputContext InputContext Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-type">InputContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311094"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-type">InputContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311103"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:InputContext' :: InputContext -&gt; Text
-</span><a href="#local-6989586621679311094"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311094"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311093"><span class="annot"><span class="annottext">s :: InputContext
-</span><a href="#local-6989586621679311093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-type">InputContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311092"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputContext
-</span><a href="#local-6989586621679311093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputContext' :: Text
+</span><a href="#local-6989586621679311103"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311103"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311102"><span class="annot"><span class="annottext">s :: InputContext
+</span><a href="#local-6989586621679311102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-type">InputContext'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311101"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputContext
+</span><a href="#local-6989586621679311102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InputContext' :: Text
 </span><a href="Network.AWS.LexModels.Types.InputContext.html#%24sel%3Aname%3AInputContext%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311089"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679311087"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputContext
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311098"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679311096"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputContext
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputContext) -&gt; Value -&gt; Parser InputContext
@@ -133,26 +133,26 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputContext&quot;</span></span><span>
-</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311084"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311084"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputContext
+</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311093"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311093"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputContext
 </span><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-var">InputContext'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; InputContext) -&gt; Parser Text -&gt; Parser InputContext
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311084"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679311093"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311078"><span id="local-6989586621679311080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311087"><span id="local-6989586621679311089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311067"><span id="local-6989586621679311069"><span id="local-6989586621679311071"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679311065"><span class="annot"><span class="annottext">toJSON :: InputContext -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-type">InputContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311063"><span class="annot"><span class="annottext">Text
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311076"><span id="local-6989586621679311078"><span id="local-6989586621679311080"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext"><span class="hs-identifier hs-type">InputContext</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679311074"><span class="annot"><span class="annottext">toJSON :: InputContext -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.InputContext.html#InputContext%27"><span class="hs-identifier hs-type">InputContext'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311072"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:InputContext' :: InputContext -&gt; Text
-</span><a href="#local-6989586621679311063"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311072"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -164,6 +164,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311063"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679311072"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

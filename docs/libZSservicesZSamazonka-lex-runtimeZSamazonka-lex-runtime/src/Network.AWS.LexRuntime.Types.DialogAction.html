@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- previous state.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newDialogAction' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679174055"><span id="local-6989586621679174056"></span></span><span class="hs-keyword">data</span><span> </span><span id="DialogAction"><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-var">DialogAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DialogAction%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-var">DialogAction'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679174064"><span id="local-6989586621679174065"></span></span><span class="hs-keyword">data</span><span> </span><span id="DialogAction"><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-var">DialogAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DialogAction%27"><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-var">DialogAction'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Map of the slots that have been gathered and their values.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aslots%3ADialogAction%27"><span class="annot"><span class="annottext">DialogAction -&gt; Maybe (Sensitive (HashMap Text Text))
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3Aslots%3ADialogAction%27"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3Atype%27%3ADialogAction%27"><span class="annot"><span class="annottext">DialogAction -&gt; DialogActionType
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3Atype%27%3ADialogAction%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogActionType.html#DialogActionType"><span class="hs-identifier hs-type">DialogActionType</span></a></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174043"><span id="local-6989586621679174045"><span class="annot"><span class="annottext">DialogAction -&gt; DialogAction -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174052"><span id="local-6989586621679174054"><span class="annot"><span class="annottext">DialogAction -&gt; DialogAction -&gt; Bool
 (DialogAction -&gt; DialogAction -&gt; Bool)
 -&gt; (DialogAction -&gt; DialogAction -&gt; Bool) -&gt; Eq DialogAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DialogAction -&gt; DialogAction -&gt; Bool
 == :: DialogAction -&gt; DialogAction -&gt; Bool
 $c== :: DialogAction -&gt; DialogAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174036"><span id="local-6989586621679174038"><span id="local-6989586621679174040"><span class="annot"><span class="annottext">Int -&gt; DialogAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174045"><span id="local-6989586621679174047"><span id="local-6989586621679174049"><span class="annot"><span class="annottext">Int -&gt; DialogAction -&gt; ShowS
 [DialogAction] -&gt; ShowS
 DialogAction -&gt; String
 (Int -&gt; DialogAction -&gt; ShowS)
@@ -188,8 +188,8 @@ $cfrom :: forall x. DialogAction -&gt; Rep DialogAction x
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogActionType.html#DialogActionType"><span class="hs-identifier hs-type">DialogActionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span>
 </span><span id="line-151"></span><span id="newDialogAction"><span class="annot"><span class="annottext">newDialogAction :: DialogActionType -&gt; DialogAction
-</span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#newDialogAction"><span class="hs-identifier hs-var hs-var">newDialogAction</span></a></span></span><span> </span><span id="local-6989586621679174030"><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679174030"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#newDialogAction"><span class="hs-identifier hs-var hs-var">newDialogAction</span></a></span></span><span> </span><span id="local-6989586621679174039"><span class="annot"><span class="annottext">DialogActionType
+</span><a href="#local-6989586621679174039"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">DialogAction' :: Maybe (Sensitive (HashMap Text Text))
 -&gt; Maybe Text
 -&gt; Maybe FulfillmentState
@@ -225,7 +225,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':DialogAction' :: DialogActionType
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3Atype%27%3ADialogAction%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679174030"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679174039"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | Map of the slots that have been gathered and their values.</span><span>
@@ -241,16 +241,16 @@ forall a. Maybe a
      (Maybe (Sensitive (HashMap Text Text)))
      (Maybe (Sensitive (HashMap Text Text)))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174026"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174035"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
 slots :: Maybe (Sensitive (HashMap Text Text))
 $sel:slots:DialogAction' :: DialogAction -&gt; Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679174026"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679174026"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174025"><span class="annot"><span class="annottext">s :: DialogAction
-</span><a href="#local-6989586621679174025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174024"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679174024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
-</span><a href="#local-6989586621679174025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:DialogAction' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679174035"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679174035"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174034"><span class="annot"><span class="annottext">s :: DialogAction
+</span><a href="#local-6989586621679174034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174033"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679174033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
+</span><a href="#local-6989586621679174034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:DialogAction' :: Maybe (Sensitive (HashMap Text Text))
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3Aslots%3ADialogAction%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679174024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679174033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
   -&gt; f (Maybe (Sensitive (HashMap Text Text))))
  -&gt; DialogAction -&gt; f DialogAction)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -320,16 +320,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DialogAction -&gt; Maybe Text -&gt; DialogAction)
 -&gt; Lens DialogAction DialogAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174018"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174027"><span class="annot"><span class="annottext">Maybe Text
 intentName :: Maybe Text
 $sel:intentName:DialogAction' :: DialogAction -&gt; Maybe Text
-</span><a href="#local-6989586621679174018"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174018"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174017"><span class="annot"><span class="annottext">s :: DialogAction
-</span><a href="#local-6989586621679174017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174016"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
-</span><a href="#local-6989586621679174017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentName:DialogAction' :: Maybe Text
+</span><a href="#local-6989586621679174027"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174027"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174026"><span class="annot"><span class="annottext">s :: DialogAction
+</span><a href="#local-6989586621679174026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
+</span><a href="#local-6989586621679174026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentName:DialogAction' :: Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3AintentName%3ADialogAction%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The fulfillment state of the intent. The possible values are:</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
@@ -353,16 +353,16 @@ $sel:intentName:DialogAction' :: DialogAction -&gt; Maybe Text
      (Maybe FulfillmentState)
      (Maybe FulfillmentState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174014"><span class="annot"><span class="annottext">Maybe FulfillmentState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174023"><span class="annot"><span class="annottext">Maybe FulfillmentState
 fulfillmentState :: Maybe FulfillmentState
 $sel:fulfillmentState:DialogAction' :: DialogAction -&gt; Maybe FulfillmentState
-</span><a href="#local-6989586621679174014"><span class="hs-identifier hs-var hs-var">fulfillmentState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
-</span><a href="#local-6989586621679174014"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174013"><span class="annot"><span class="annottext">s :: DialogAction
-</span><a href="#local-6989586621679174013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174012"><span class="annot"><span class="annottext">Maybe FulfillmentState
-</span><a href="#local-6989586621679174012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
-</span><a href="#local-6989586621679174013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fulfillmentState:DialogAction' :: Maybe FulfillmentState
+</span><a href="#local-6989586621679174023"><span class="hs-identifier hs-var hs-var">fulfillmentState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
+</span><a href="#local-6989586621679174023"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174022"><span class="annot"><span class="annottext">s :: DialogAction
+</span><a href="#local-6989586621679174022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174021"><span class="annot"><span class="annottext">Maybe FulfillmentState
+</span><a href="#local-6989586621679174021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
+</span><a href="#local-6989586621679174022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fulfillmentState:DialogAction' :: Maybe FulfillmentState
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3AfulfillmentState%3ADialogAction%27"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
-</span><a href="#local-6989586621679174012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | -   @PlainText@ - The message contains plain UTF-8 text.</span><span>
 </span><span id="line-185"></span><span class="hs-comment">--</span><span>
@@ -384,16 +384,16 @@ $sel:fulfillmentState:DialogAction' :: DialogAction -&gt; Maybe FulfillmentState
      (Maybe MessageFormatType)
      (Maybe MessageFormatType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174010"><span class="annot"><span class="annottext">Maybe MessageFormatType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174019"><span class="annot"><span class="annottext">Maybe MessageFormatType
 messageFormat :: Maybe MessageFormatType
 $sel:messageFormat:DialogAction' :: DialogAction -&gt; Maybe MessageFormatType
-</span><a href="#local-6989586621679174010"><span class="hs-identifier hs-var hs-var">messageFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatType
-</span><a href="#local-6989586621679174010"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174009"><span class="annot"><span class="annottext">s :: DialogAction
-</span><a href="#local-6989586621679174009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174008"><span class="annot"><span class="annottext">Maybe MessageFormatType
-</span><a href="#local-6989586621679174008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
-</span><a href="#local-6989586621679174009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageFormat:DialogAction' :: Maybe MessageFormatType
+</span><a href="#local-6989586621679174019"><span class="hs-identifier hs-var hs-var">messageFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatType
+</span><a href="#local-6989586621679174019"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174018"><span class="annot"><span class="annottext">s :: DialogAction
+</span><a href="#local-6989586621679174018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174017"><span class="annot"><span class="annottext">Maybe MessageFormatType
+</span><a href="#local-6989586621679174017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
+</span><a href="#local-6989586621679174018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageFormat:DialogAction' :: Maybe MessageFormatType
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3AmessageFormat%3ADialogAction%27"><span class="hs-identifier hs-var">messageFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatType
-</span><a href="#local-6989586621679174008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The message that should be shown to the user. If you don\'t specify a</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- message, Amazon Lex will use the message configured for the intent.</span><span>
@@ -407,16 +407,16 @@ $sel:messageFormat:DialogAction' :: DialogAction -&gt; Maybe MessageFormatType
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174006"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174015"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 message :: Maybe (Sensitive Text)
 $sel:message:DialogAction' :: DialogAction -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174006"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174006"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174005"><span class="annot"><span class="annottext">s :: DialogAction
-</span><a href="#local-6989586621679174005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174004"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
-</span><a href="#local-6989586621679174005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:DialogAction' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174015"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174015"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174014"><span class="annot"><span class="annottext">s :: DialogAction
+</span><a href="#local-6989586621679174014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174013"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
+</span><a href="#local-6989586621679174014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:DialogAction' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3Amessage%3ADialogAction%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679174013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; DialogAction -&gt; f DialogAction)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -444,16 +444,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (DialogAction -&gt; Maybe Text -&gt; DialogAction)
 -&gt; Lens DialogAction DialogAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174002"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174011"><span class="annot"><span class="annottext">Maybe Text
 slotToElicit :: Maybe Text
 $sel:slotToElicit:DialogAction' :: DialogAction -&gt; Maybe Text
-</span><a href="#local-6989586621679174002"><span class="hs-identifier hs-var hs-var">slotToElicit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174002"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174001"><span class="annot"><span class="annottext">s :: DialogAction
-</span><a href="#local-6989586621679174001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174000"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
-</span><a href="#local-6989586621679174001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotToElicit:DialogAction' :: Maybe Text
+</span><a href="#local-6989586621679174011"><span class="hs-identifier hs-var hs-var">slotToElicit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174011"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174010"><span class="annot"><span class="annottext">s :: DialogAction
+</span><a href="#local-6989586621679174010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174009"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
+</span><a href="#local-6989586621679174010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotToElicit:DialogAction' :: Maybe Text
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3AslotToElicit%3ADialogAction%27"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The next action that the bot should take in its interaction with the</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- user. The possible values are:</span><span>
@@ -480,19 +480,19 @@ $sel:slotToElicit:DialogAction' :: DialogAction -&gt; Maybe Text
 -&gt; (DialogAction -&gt; DialogActionType -&gt; DialogAction)
 -&gt; Lens DialogAction DialogAction DialogActionType DialogActionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173998"><span class="annot"><span class="annottext">DialogActionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174007"><span class="annot"><span class="annottext">DialogActionType
 type' :: DialogActionType
 $sel:type':DialogAction' :: DialogAction -&gt; DialogActionType
-</span><a href="#local-6989586621679173998"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173998"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679173997"><span class="annot"><span class="annottext">s :: DialogAction
-</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679173996"><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
-</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DialogAction' :: DialogActionType
+</span><a href="#local-6989586621679174007"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogActionType
+</span><a href="#local-6989586621679174007"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174006"><span class="annot"><span class="annottext">s :: DialogAction
+</span><a href="#local-6989586621679174006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174005"><span class="annot"><span class="annottext">DialogActionType
+</span><a href="#local-6989586621679174005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DialogAction
+</span><a href="#local-6989586621679174006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DialogAction' :: DialogActionType
 </span><a href="Network.AWS.LexRuntime.Types.DialogAction.html#%24sel%3Atype%27%3ADialogAction%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173993"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679173991"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DialogAction
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174002"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679174000"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DialogAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DialogAction) -&gt; Value -&gt; Parser DialogAction
@@ -500,8 +500,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DialogAction&quot;</span></span><span>
-</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173988"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173988"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679173997"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
 -&gt; Maybe Text
 -&gt; Maybe FulfillmentState
@@ -530,7 +530,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DialogAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (Sensitive (HashMap Text Text))))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -559,7 +559,7 @@ forall a. Monoid a =&gt; a
       -&gt; DialogAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;intentName&quot;</span></span><span class="hs-special">)</span><span>
@@ -579,7 +579,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DialogAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FulfillmentState)
+</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FulfillmentState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fulfillmentState&quot;</span></span><span class="hs-special">)</span><span>
@@ -595,7 +595,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; DialogActionType -&gt; DialogAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MessageFormatType)
+</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MessageFormatType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;messageFormat&quot;</span></span><span class="hs-special">)</span><span>
@@ -606,7 +606,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; DialogActionType -&gt; DialogAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
@@ -614,7 +614,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (DialogActionType -&gt; DialogAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slotToElicit&quot;</span></span><span class="hs-special">)</span><span>
@@ -622,19 +622,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser DialogActionType -&gt; Parser DialogAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679173988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DialogActionType
+</span><a href="#local-6989586621679173997"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DialogActionType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173980"><span id="local-6989586621679173982"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span></span></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173989"><span id="local-6989586621679173991"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span></span></span><span>
 </span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span></span><span>
 </span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173969"><span id="local-6989586621679173971"><span id="local-6989586621679173973"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679173967"><span class="annot"><span class="annottext">toJSON :: DialogAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173959"><span id="local-6989586621679173960"><span id="local-6989586621679173961"><span id="local-6989586621679173962"><span id="local-6989586621679173963"><span id="local-6989586621679173964"><span id="local-6989586621679173965"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679173978"><span id="local-6989586621679173980"><span id="local-6989586621679173982"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction"><span class="hs-identifier hs-type">DialogAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679173976"><span class="annot"><span class="annottext">toJSON :: DialogAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexRuntime.Types.DialogAction.html#DialogAction%27"><span class="hs-identifier hs-type">DialogAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173968"><span id="local-6989586621679173969"><span id="local-6989586621679173970"><span id="local-6989586621679173971"><span id="local-6989586621679173972"><span id="local-6989586621679173973"><span id="local-6989586621679173974"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Text)
 Maybe (Sensitive (HashMap Text Text))
 Maybe FulfillmentState
@@ -654,7 +654,7 @@ $sel:messageFormat:DialogAction' :: DialogAction -&gt; Maybe MessageFormatType
 $sel:fulfillmentState:DialogAction' :: DialogAction -&gt; Maybe FulfillmentState
 $sel:intentName:DialogAction' :: DialogAction -&gt; Maybe Text
 $sel:slots:DialogAction' :: DialogAction -&gt; Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679173959"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679173968"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -667,14 +667,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (Sensitive (HashMap Text Text)) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
-</span><a href="#local-6989586621679173965"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679173974"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;intentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173964"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679173973"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fulfillmentState&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FulfillmentState -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -682,7 +682,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">(FulfillmentState -&gt; Pair) -&gt; Maybe FulfillmentState -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FulfillmentState
-</span><a href="#local-6989586621679173963"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679173972"><span class="hs-identifier hs-var">fulfillmentState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;messageFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MessageFormatType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -690,28 +690,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MessageFormatType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatType
-</span><a href="#local-6989586621679173962"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679173971"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679173961"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679173970"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slotToElicit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679173960"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679173969"><span class="hs-identifier hs-var">slotToElicit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DialogActionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DialogActionType
-</span><a href="#local-6989586621679173959"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679173968"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span></pre></body></html>

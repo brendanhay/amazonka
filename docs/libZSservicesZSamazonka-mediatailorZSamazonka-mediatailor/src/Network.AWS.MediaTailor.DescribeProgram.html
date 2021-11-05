@@ -1,0 +1,903 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaTailor.DescribeProgram</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the properties of the requested program.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaTailor.DescribeProgram</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier">DescribeProgram</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#newDescribeProgram"><span class="hs-identifier">newDescribeProgram</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgram_channelName"><span class="hs-identifier">describeProgram_channelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgram_programName"><span class="hs-identifier">describeProgram_programName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier">DescribeProgramResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#newDescribeProgramResponse"><span class="hs-identifier">newDescribeProgramResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_creationTime"><span class="hs-identifier">describeProgramResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_sourceLocationName"><span class="hs-identifier">describeProgramResponse_sourceLocationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_arn"><span class="hs-identifier">describeProgramResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_programName"><span class="hs-identifier">describeProgramResponse_programName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_adBreaks"><span class="hs-identifier">describeProgramResponse_adBreaks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_channelName"><span class="hs-identifier">describeProgramResponse_channelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_scheduledStartTime"><span class="hs-identifier">describeProgramResponse_scheduledStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_vodSourceName"><span class="hs-identifier">describeProgramResponse_vodSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_httpStatus"><span class="hs-identifier">describeProgramResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeProgram' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679274533"><span id="local-6989586621679274534"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeProgram"><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-var">DescribeProgram</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeProgram%27"><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram%27"><span class="hs-identifier hs-var">DescribeProgram'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the channel you are working on.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AchannelName%3ADescribeProgram%27"><span class="annot"><span class="annottext">DescribeProgram -&gt; Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AchannelName%3ADescribeProgram%27"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The identifier for the program you are working on.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AprogramName%3ADescribeProgram%27"><span class="annot"><span class="annottext">DescribeProgram -&gt; Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AprogramName%3ADescribeProgram%27"><span class="hs-identifier hs-var hs-var">programName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274526"><span id="local-6989586621679274528"><span class="annot"><span class="annottext">DescribeProgram -&gt; DescribeProgram -&gt; Bool
+(DescribeProgram -&gt; DescribeProgram -&gt; Bool)
+-&gt; (DescribeProgram -&gt; DescribeProgram -&gt; Bool)
+-&gt; Eq DescribeProgram
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeProgram -&gt; DescribeProgram -&gt; Bool
+$c/= :: DescribeProgram -&gt; DescribeProgram -&gt; Bool
+== :: DescribeProgram -&gt; DescribeProgram -&gt; Bool
+$c== :: DescribeProgram -&gt; DescribeProgram -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274517"><span id="local-6989586621679274519"><span id="local-6989586621679274521"><span id="local-6989586621679274523"><span class="annot"><span class="annottext">ReadPrec [DescribeProgram]
+ReadPrec DescribeProgram
+Int -&gt; ReadS DescribeProgram
+ReadS [DescribeProgram]
+(Int -&gt; ReadS DescribeProgram)
+-&gt; ReadS [DescribeProgram]
+-&gt; ReadPrec DescribeProgram
+-&gt; ReadPrec [DescribeProgram]
+-&gt; Read DescribeProgram
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeProgram]
+$creadListPrec :: ReadPrec [DescribeProgram]
+readPrec :: ReadPrec DescribeProgram
+$creadPrec :: ReadPrec DescribeProgram
+readList :: ReadS [DescribeProgram]
+$creadList :: ReadS [DescribeProgram]
+readsPrec :: Int -&gt; ReadS DescribeProgram
+$creadsPrec :: Int -&gt; ReadS DescribeProgram
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274510"><span id="local-6989586621679274512"><span id="local-6989586621679274514"><span class="annot"><span class="annottext">Int -&gt; DescribeProgram -&gt; ShowS
+[DescribeProgram] -&gt; ShowS
+DescribeProgram -&gt; String
+(Int -&gt; DescribeProgram -&gt; ShowS)
+-&gt; (DescribeProgram -&gt; String)
+-&gt; ([DescribeProgram] -&gt; ShowS)
+-&gt; Show DescribeProgram
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeProgram] -&gt; ShowS
+$cshowList :: [DescribeProgram] -&gt; ShowS
+show :: DescribeProgram -&gt; String
+$cshow :: DescribeProgram -&gt; String
+showsPrec :: Int -&gt; DescribeProgram -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeProgram -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeProgram -&gt; Rep DescribeProgram x)
+-&gt; (forall x. Rep DescribeProgram x -&gt; DescribeProgram)
+-&gt; Generic DescribeProgram
+forall x. Rep DescribeProgram x -&gt; DescribeProgram
+forall x. DescribeProgram -&gt; Rep DescribeProgram x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeProgram x -&gt; DescribeProgram
+$cfrom :: forall x. DescribeProgram -&gt; Rep DescribeProgram x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DescribeProgram' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'channelName', 'describeProgram_channelName' - The identifier for the channel you are working on.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'programName', 'describeProgram_programName' - The identifier for the program you are working on.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#newDescribeProgram"><span class="hs-identifier hs-type">newDescribeProgram</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'channelName'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'programName'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span>
+</span><span id="line-83"></span><span id="newDescribeProgram"><span class="annot"><span class="annottext">newDescribeProgram :: Text -&gt; Text -&gt; DescribeProgram
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#newDescribeProgram"><span class="hs-identifier hs-var hs-var">newDescribeProgram</span></a></span></span><span> </span><span id="local-6989586621679274505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274505"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span id="local-6989586621679274504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274504"><span class="hs-identifier hs-var">pProgramName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">DescribeProgram' :: Text -&gt; Text -&gt; DescribeProgram
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram%27"><span class="hs-identifier hs-type">DescribeProgram'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelName:DescribeProgram' :: Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AchannelName%3ADescribeProgram%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274505"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:programName:DescribeProgram' :: Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AprogramName%3ADescribeProgram%27"><span class="hs-identifier hs-var">programName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274504"><span class="hs-identifier hs-var">pProgramName_</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The identifier for the channel you are working on.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgram_channelName"><span class="hs-identifier hs-type">describeProgram_channelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-91"></span><span id="describeProgram_channelName"><span class="annot"><span class="annottext">describeProgram_channelName :: (Text -&gt; f Text) -&gt; DescribeProgram -&gt; f DescribeProgram
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgram_channelName"><span class="hs-identifier hs-var hs-var">describeProgram_channelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgram -&gt; Text)
+-&gt; (DescribeProgram -&gt; Text -&gt; DescribeProgram)
+-&gt; Lens DescribeProgram DescribeProgram Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram%27"><span class="hs-identifier hs-type">DescribeProgram'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274501"><span class="annot"><span class="annottext">Text
+channelName :: Text
+$sel:channelName:DescribeProgram' :: DescribeProgram -&gt; Text
+</span><a href="#local-6989586621679274501"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274501"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274500"><span class="annot"><span class="annottext">s :: DescribeProgram
+</span><a href="#local-6989586621679274500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram%27"><span class="hs-identifier hs-type">DescribeProgram'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274499"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgram
+</span><a href="#local-6989586621679274500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:DescribeProgram' :: Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AchannelName%3ADescribeProgram%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The identifier for the program you are working on.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgram_programName"><span class="hs-identifier hs-type">describeProgram_programName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="describeProgram_programName"><span class="annot"><span class="annottext">describeProgram_programName :: (Text -&gt; f Text) -&gt; DescribeProgram -&gt; f DescribeProgram
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgram_programName"><span class="hs-identifier hs-var hs-var">describeProgram_programName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgram -&gt; Text)
+-&gt; (DescribeProgram -&gt; Text -&gt; DescribeProgram)
+-&gt; Lens DescribeProgram DescribeProgram Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram%27"><span class="hs-identifier hs-type">DescribeProgram'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274498"><span class="annot"><span class="annottext">Text
+programName :: Text
+$sel:programName:DescribeProgram' :: DescribeProgram -&gt; Text
+</span><a href="#local-6989586621679274498"><span class="hs-identifier hs-var hs-var">programName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274498"><span class="hs-identifier hs-var">programName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274497"><span class="annot"><span class="annottext">s :: DescribeProgram
+</span><a href="#local-6989586621679274497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram%27"><span class="hs-identifier hs-type">DescribeProgram'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274496"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgram
+</span><a href="#local-6989586621679274497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programName:DescribeProgram' :: Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AprogramName%3ADescribeProgram%27"><span class="hs-identifier hs-var">programName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679274492"><span class="annot"><span class="annottext">request :: DescribeProgram -&gt; Request DescribeProgram
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeProgram -&gt; Request DescribeProgram
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaTailor.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679274488"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeProgram
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeProgram)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeProgram))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeProgram
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeProgram)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274485"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274485"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274484"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679274484"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274483"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AdBreak]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-var">DescribeProgramResponse'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [AdBreak]
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeProgramResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [AdBreak]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeProgramResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [AdBreak]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeProgramResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [AdBreak]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeProgramResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceLocationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [AdBreak]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeProgramResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [AdBreak]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeProgramResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [AdBreak]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeProgramResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [AdBreak]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeProgramResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgramName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [AdBreak]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeProgramResponse)
+-&gt; Either String (Maybe [AdBreak])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; DescribeProgramResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AdBreak]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdBreaks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AdBreak]))
+-&gt; Maybe [AdBreak] -&gt; Either String (Maybe [AdBreak])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AdBreak]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; DescribeProgramResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; DescribeProgramResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; DescribeProgramResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeProgramResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduledStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeProgramResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeProgramResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VodSourceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeProgramResponse)
+-&gt; Either String Int -&gt; Either String DescribeProgramResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274485"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274474"><span id="local-6989586621679274476"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679274467"><span class="annot"><span class="annottext">toHeaders :: DescribeProgram -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeProgram -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-128"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679274461"><span class="annot"><span class="annottext">toPath :: DescribeProgram -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram%27"><span class="hs-identifier hs-type">DescribeProgram'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274458"><span id="local-6989586621679274459"><span class="annot"><span class="annottext">Text
+programName :: Text
+channelName :: Text
+$sel:programName:DescribeProgram' :: DescribeProgram -&gt; Text
+$sel:channelName:DescribeProgram' :: DescribeProgram -&gt; Text
+</span><a href="#local-6989586621679274458"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channel/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274459"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/program/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274458"><span class="hs-identifier hs-var">programName</span></a></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgram"><span class="hs-identifier hs-type">DescribeProgram</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679274454"><span class="annot"><span class="annottext">toQuery :: DescribeProgram -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeProgram -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newDescribeProgramResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679274451"><span id="local-6989586621679274452"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeProgramResponse"><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-var">DescribeProgramResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeProgramResponse%27"><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-var">DescribeProgramResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp of when the program was created.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AcreationTime%3ADescribeProgramResponse%27"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AcreationTime%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The source location name.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AsourceLocationName%3ADescribeProgramResponse%27"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AsourceLocationName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var hs-var">sourceLocationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The ARN of the program.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3Aarn%3ADescribeProgramResponse%27"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3Aarn%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The name of the program.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AprogramName%3ADescribeProgramResponse%27"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AprogramName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var hs-var">programName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The ad break configuration settings.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AadBreaks%3ADescribeProgramResponse%27"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; Maybe [AdBreak]
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AadBreaks%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var hs-var">adBreaks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.AdBreak.html#AdBreak"><span class="hs-identifier hs-type">AdBreak</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The name of the channel that the program belongs to.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AchannelName%3ADescribeProgramResponse%27"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AchannelName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The date and time that the program is scheduled to start in ISO 8601</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- format and Coordinated Universal Time (UTC). For example, the value</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AscheduledStartTime%3ADescribeProgramResponse%27"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AscheduledStartTime%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var hs-var">scheduledStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The name that\'s used to refer to a VOD source.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AvodSourceName%3ADescribeProgramResponse%27"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AvodSourceName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var hs-var">vodSourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeProgramResponse%27"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; Int
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AhttpStatus%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274438"><span id="local-6989586621679274440"><span class="annot"><span class="annottext">DescribeProgramResponse -&gt; DescribeProgramResponse -&gt; Bool
+(DescribeProgramResponse -&gt; DescribeProgramResponse -&gt; Bool)
+-&gt; (DescribeProgramResponse -&gt; DescribeProgramResponse -&gt; Bool)
+-&gt; Eq DescribeProgramResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeProgramResponse -&gt; DescribeProgramResponse -&gt; Bool
+$c/= :: DescribeProgramResponse -&gt; DescribeProgramResponse -&gt; Bool
+== :: DescribeProgramResponse -&gt; DescribeProgramResponse -&gt; Bool
+$c== :: DescribeProgramResponse -&gt; DescribeProgramResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274430"><span id="local-6989586621679274432"><span id="local-6989586621679274434"><span id="local-6989586621679274436"><span class="annot"><span class="annottext">ReadPrec [DescribeProgramResponse]
+ReadPrec DescribeProgramResponse
+Int -&gt; ReadS DescribeProgramResponse
+ReadS [DescribeProgramResponse]
+(Int -&gt; ReadS DescribeProgramResponse)
+-&gt; ReadS [DescribeProgramResponse]
+-&gt; ReadPrec DescribeProgramResponse
+-&gt; ReadPrec [DescribeProgramResponse]
+-&gt; Read DescribeProgramResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeProgramResponse]
+$creadListPrec :: ReadPrec [DescribeProgramResponse]
+readPrec :: ReadPrec DescribeProgramResponse
+$creadPrec :: ReadPrec DescribeProgramResponse
+readList :: ReadS [DescribeProgramResponse]
+$creadList :: ReadS [DescribeProgramResponse]
+readsPrec :: Int -&gt; ReadS DescribeProgramResponse
+$creadsPrec :: Int -&gt; ReadS DescribeProgramResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274424"><span id="local-6989586621679274426"><span id="local-6989586621679274428"><span class="annot"><span class="annottext">Int -&gt; DescribeProgramResponse -&gt; ShowS
+[DescribeProgramResponse] -&gt; ShowS
+DescribeProgramResponse -&gt; String
+(Int -&gt; DescribeProgramResponse -&gt; ShowS)
+-&gt; (DescribeProgramResponse -&gt; String)
+-&gt; ([DescribeProgramResponse] -&gt; ShowS)
+-&gt; Show DescribeProgramResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeProgramResponse] -&gt; ShowS
+$cshowList :: [DescribeProgramResponse] -&gt; ShowS
+show :: DescribeProgramResponse -&gt; String
+$cshow :: DescribeProgramResponse -&gt; String
+showsPrec :: Int -&gt; DescribeProgramResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeProgramResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeProgramResponse -&gt; Rep DescribeProgramResponse x)
+-&gt; (forall x.
+    Rep DescribeProgramResponse x -&gt; DescribeProgramResponse)
+-&gt; Generic DescribeProgramResponse
+forall x. Rep DescribeProgramResponse x -&gt; DescribeProgramResponse
+forall x. DescribeProgramResponse -&gt; Rep DescribeProgramResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeProgramResponse x -&gt; DescribeProgramResponse
+$cfrom :: forall x. DescribeProgramResponse -&gt; Rep DescribeProgramResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Create a value of 'DescribeProgramResponse' with all optional fields omitted.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'creationTime', 'describeProgramResponse_creationTime' - The timestamp of when the program was created.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'sourceLocationName', 'describeProgramResponse_sourceLocationName' - The source location name.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'arn', 'describeProgramResponse_arn' - The ARN of the program.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'programName', 'describeProgramResponse_programName' - The name of the program.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'adBreaks', 'describeProgramResponse_adBreaks' - The ad break configuration settings.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'channelName', 'describeProgramResponse_channelName' - The name of the channel that the program belongs to.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'scheduledStartTime', 'describeProgramResponse_scheduledStartTime' - The date and time that the program is scheduled to start in ISO 8601</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- format and Coordinated Universal Time (UTC). For example, the value</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'vodSourceName', 'describeProgramResponse_vodSourceName' - The name that\'s used to refer to a VOD source.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'describeProgramResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#newDescribeProgramResponse"><span class="hs-identifier hs-type">newDescribeProgramResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span>
+</span><span id="line-200"></span><span id="newDescribeProgramResponse"><span class="annot"><span class="annottext">newDescribeProgramResponse :: Int -&gt; DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#newDescribeProgramResponse"><span class="hs-identifier hs-var hs-var">newDescribeProgramResponse</span></a></span></span><span> </span><span id="local-6989586621679274421"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274421"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">DescribeProgramResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AdBreak]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DescribeProgramResponse' :: Maybe POSIX
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AcreationTime%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceLocationName:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AsourceLocationName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3Aarn%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:programName:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AprogramName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">programName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:adBreaks:DescribeProgramResponse' :: Maybe [AdBreak]
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AadBreaks%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">adBreaks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdBreak]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelName:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AchannelName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledStartTime:DescribeProgramResponse' :: Maybe POSIX
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AscheduledStartTime%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">scheduledStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:vodSourceName:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AvodSourceName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeProgramResponse' :: Int
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AhttpStatus%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274421"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The timestamp of when the program was created.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_creationTime"><span class="hs-identifier hs-type">describeProgramResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="describeProgramResponse_creationTime"><span class="annot"><span class="annottext">describeProgramResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_creationTime"><span class="hs-identifier hs-var hs-var">describeProgramResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgramResponse -&gt; Maybe POSIX)
+-&gt; (DescribeProgramResponse
+    -&gt; Maybe POSIX -&gt; DescribeProgramResponse)
+-&gt; Lens
+     DescribeProgramResponse
+     DescribeProgramResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274420"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:DescribeProgramResponse' :: DescribeProgramResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679274420"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274420"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274419"><span class="annot"><span class="annottext">s :: DescribeProgramResponse
+</span><a href="#local-6989586621679274419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274418"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgramResponse
+</span><a href="#local-6989586621679274419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribeProgramResponse' :: Maybe POSIX
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AcreationTime%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeProgramResponse
+-&gt; f DescribeProgramResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The source location name.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_sourceLocationName"><span class="hs-identifier hs-type">describeProgramResponse_sourceLocationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="describeProgramResponse_sourceLocationName"><span class="annot"><span class="annottext">describeProgramResponse_sourceLocationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_sourceLocationName"><span class="hs-identifier hs-var hs-var">describeProgramResponse_sourceLocationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgramResponse -&gt; Maybe Text)
+-&gt; (DescribeProgramResponse
+    -&gt; Maybe Text -&gt; DescribeProgramResponse)
+-&gt; Lens
+     DescribeProgramResponse
+     DescribeProgramResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274414"><span class="annot"><span class="annottext">Maybe Text
+sourceLocationName :: Maybe Text
+$sel:sourceLocationName:DescribeProgramResponse' :: DescribeProgramResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679274414"><span class="hs-identifier hs-var hs-var">sourceLocationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274414"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274413"><span class="annot"><span class="annottext">s :: DescribeProgramResponse
+</span><a href="#local-6989586621679274413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274412"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgramResponse
+</span><a href="#local-6989586621679274413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceLocationName:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AsourceLocationName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The ARN of the program.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_arn"><span class="hs-identifier hs-type">describeProgramResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="describeProgramResponse_arn"><span class="annot"><span class="annottext">describeProgramResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_arn"><span class="hs-identifier hs-var hs-var">describeProgramResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgramResponse -&gt; Maybe Text)
+-&gt; (DescribeProgramResponse
+    -&gt; Maybe Text -&gt; DescribeProgramResponse)
+-&gt; Lens
+     DescribeProgramResponse
+     DescribeProgramResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274411"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DescribeProgramResponse' :: DescribeProgramResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679274411"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274411"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274410"><span class="annot"><span class="annottext">s :: DescribeProgramResponse
+</span><a href="#local-6989586621679274410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274409"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgramResponse
+</span><a href="#local-6989586621679274410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3Aarn%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The name of the program.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_programName"><span class="hs-identifier hs-type">describeProgramResponse_programName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="describeProgramResponse_programName"><span class="annot"><span class="annottext">describeProgramResponse_programName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_programName"><span class="hs-identifier hs-var hs-var">describeProgramResponse_programName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgramResponse -&gt; Maybe Text)
+-&gt; (DescribeProgramResponse
+    -&gt; Maybe Text -&gt; DescribeProgramResponse)
+-&gt; Lens
+     DescribeProgramResponse
+     DescribeProgramResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274408"><span class="annot"><span class="annottext">Maybe Text
+programName :: Maybe Text
+$sel:programName:DescribeProgramResponse' :: DescribeProgramResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679274408"><span class="hs-identifier hs-var hs-var">programName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274408"><span class="hs-identifier hs-var">programName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274407"><span class="annot"><span class="annottext">s :: DescribeProgramResponse
+</span><a href="#local-6989586621679274407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274406"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgramResponse
+</span><a href="#local-6989586621679274407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:programName:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AprogramName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">programName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The ad break configuration settings.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_adBreaks"><span class="hs-identifier hs-type">describeProgramResponse_adBreaks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.AdBreak.html#AdBreak"><span class="hs-identifier hs-type">AdBreak</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="describeProgramResponse_adBreaks"><span class="annot"><span class="annottext">describeProgramResponse_adBreaks :: (Maybe [AdBreak] -&gt; f (Maybe [AdBreak]))
+-&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_adBreaks"><span class="hs-identifier hs-var hs-var">describeProgramResponse_adBreaks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgramResponse -&gt; Maybe [AdBreak])
+-&gt; (DescribeProgramResponse
+    -&gt; Maybe [AdBreak] -&gt; DescribeProgramResponse)
+-&gt; Lens
+     DescribeProgramResponse
+     DescribeProgramResponse
+     (Maybe [AdBreak])
+     (Maybe [AdBreak])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274405"><span class="annot"><span class="annottext">Maybe [AdBreak]
+adBreaks :: Maybe [AdBreak]
+$sel:adBreaks:DescribeProgramResponse' :: DescribeProgramResponse -&gt; Maybe [AdBreak]
+</span><a href="#local-6989586621679274405"><span class="hs-identifier hs-var hs-var">adBreaks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdBreak]
+</span><a href="#local-6989586621679274405"><span class="hs-identifier hs-var">adBreaks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274404"><span class="annot"><span class="annottext">s :: DescribeProgramResponse
+</span><a href="#local-6989586621679274404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274403"><span class="annot"><span class="annottext">Maybe [AdBreak]
+</span><a href="#local-6989586621679274403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgramResponse
+</span><a href="#local-6989586621679274404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adBreaks:DescribeProgramResponse' :: Maybe [AdBreak]
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AadBreaks%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">adBreaks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdBreak]
+</span><a href="#local-6989586621679274403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdBreak] -&gt; f (Maybe [AdBreak]))
+ -&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse)
+-&gt; ((Maybe [AdBreak] -&gt; f (Maybe [AdBreak]))
+    -&gt; Maybe [AdBreak] -&gt; f (Maybe [AdBreak]))
+-&gt; (Maybe [AdBreak] -&gt; f (Maybe [AdBreak]))
+-&gt; DescribeProgramResponse
+-&gt; f DescribeProgramResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AdBreak] [AdBreak] [AdBreak] [AdBreak]
+-&gt; Iso
+     (Maybe [AdBreak])
+     (Maybe [AdBreak])
+     (Maybe [AdBreak])
+     (Maybe [AdBreak])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AdBreak] [AdBreak] [AdBreak] [AdBreak]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The name of the channel that the program belongs to.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_channelName"><span class="hs-identifier hs-type">describeProgramResponse_channelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="describeProgramResponse_channelName"><span class="annot"><span class="annottext">describeProgramResponse_channelName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_channelName"><span class="hs-identifier hs-var hs-var">describeProgramResponse_channelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgramResponse -&gt; Maybe Text)
+-&gt; (DescribeProgramResponse
+    -&gt; Maybe Text -&gt; DescribeProgramResponse)
+-&gt; Lens
+     DescribeProgramResponse
+     DescribeProgramResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274401"><span class="annot"><span class="annottext">Maybe Text
+channelName :: Maybe Text
+$sel:channelName:DescribeProgramResponse' :: DescribeProgramResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679274401"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274401"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274400"><span class="annot"><span class="annottext">s :: DescribeProgramResponse
+</span><a href="#local-6989586621679274400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274399"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgramResponse
+</span><a href="#local-6989586621679274400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AchannelName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The date and time that the program is scheduled to start in ISO 8601</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- format and Coordinated Universal Time (UTC). For example, the value</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 2021-03-27T17:48:16.751Z represents March 27, 2021 at 17:48:16.751 UTC.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_scheduledStartTime"><span class="hs-identifier hs-type">describeProgramResponse_scheduledStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="describeProgramResponse_scheduledStartTime"><span class="annot"><span class="annottext">describeProgramResponse_scheduledStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_scheduledStartTime"><span class="hs-identifier hs-var hs-var">describeProgramResponse_scheduledStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgramResponse -&gt; Maybe POSIX)
+-&gt; (DescribeProgramResponse
+    -&gt; Maybe POSIX -&gt; DescribeProgramResponse)
+-&gt; Lens
+     DescribeProgramResponse
+     DescribeProgramResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274398"><span class="annot"><span class="annottext">Maybe POSIX
+scheduledStartTime :: Maybe POSIX
+$sel:scheduledStartTime:DescribeProgramResponse' :: DescribeProgramResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679274398"><span class="hs-identifier hs-var hs-var">scheduledStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274398"><span class="hs-identifier hs-var">scheduledStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274397"><span class="annot"><span class="annottext">s :: DescribeProgramResponse
+</span><a href="#local-6989586621679274397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274396"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgramResponse
+</span><a href="#local-6989586621679274397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledStartTime:DescribeProgramResponse' :: Maybe POSIX
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AscheduledStartTime%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">scheduledStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679274396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeProgramResponse
+-&gt; f DescribeProgramResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The name that\'s used to refer to a VOD source.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_vodSourceName"><span class="hs-identifier hs-type">describeProgramResponse_vodSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="describeProgramResponse_vodSourceName"><span class="annot"><span class="annottext">describeProgramResponse_vodSourceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_vodSourceName"><span class="hs-identifier hs-var hs-var">describeProgramResponse_vodSourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgramResponse -&gt; Maybe Text)
+-&gt; (DescribeProgramResponse
+    -&gt; Maybe Text -&gt; DescribeProgramResponse)
+-&gt; Lens
+     DescribeProgramResponse
+     DescribeProgramResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274395"><span class="annot"><span class="annottext">Maybe Text
+vodSourceName :: Maybe Text
+$sel:vodSourceName:DescribeProgramResponse' :: DescribeProgramResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679274395"><span class="hs-identifier hs-var hs-var">vodSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274395"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274394"><span class="annot"><span class="annottext">s :: DescribeProgramResponse
+</span><a href="#local-6989586621679274394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274393"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgramResponse
+</span><a href="#local-6989586621679274394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vodSourceName:DescribeProgramResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AvodSourceName%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_httpStatus"><span class="hs-identifier hs-type">describeProgramResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-250"></span><span id="describeProgramResponse_httpStatus"><span class="annot"><span class="annottext">describeProgramResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeProgramResponse -&gt; f DescribeProgramResponse
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#describeProgramResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeProgramResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeProgramResponse -&gt; Int)
+-&gt; (DescribeProgramResponse -&gt; Int -&gt; DescribeProgramResponse)
+-&gt; Lens DescribeProgramResponse DescribeProgramResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274392"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeProgramResponse' :: DescribeProgramResponse -&gt; Int
+</span><a href="#local-6989586621679274392"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274392"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274391"><span class="annot"><span class="annottext">s :: DescribeProgramResponse
+</span><a href="#local-6989586621679274391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse%27"><span class="hs-identifier hs-type">DescribeProgramResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274390"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeProgramResponse
+</span><a href="#local-6989586621679274391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeProgramResponse' :: Int
+</span><a href="Network.AWS.MediaTailor.DescribeProgram.html#%24sel%3AhttpStatus%3ADescribeProgramResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.DescribeProgram.html#DescribeProgramResponse"><span class="hs-identifier hs-type">DescribeProgramResponse</span></a></span></span><span>
+</span><span id="line-253"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a state change.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStateReason' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681153304"><span id="local-6989586621681153305"></span></span><span class="hs-keyword">data</span><span> </span><span id="StateReason"><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-var">StateReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateReason%27"><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-var">StateReason'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681153313"><span id="local-6989586621681153314"></span></span><span class="hs-keyword">data</span><span> </span><span id="StateReason"><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-var">StateReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateReason%27"><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-var">StateReason'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason code for the state change.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Acode%3AStateReason%27"><span class="annot"><span class="annottext">StateReason -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.StateReason.html#%24sel%3Acode%3AStateReason%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3Amessage%3AStateReason%27"><span class="annot"><span class="annottext">StateReason -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.StateReason.html#%24sel%3Amessage%3AStateReason%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681153297"><span id="local-6989586621681153299"><span class="annot"><span class="annottext">StateReason -&gt; StateReason -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681153306"><span id="local-6989586621681153308"><span class="annot"><span class="annottext">StateReason -&gt; StateReason -&gt; Bool
 (StateReason -&gt; StateReason -&gt; Bool)
 -&gt; (StateReason -&gt; StateReason -&gt; Bool) -&gt; Eq StateReason
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StateReason -&gt; StateReason -&gt; Bool
 == :: StateReason -&gt; StateReason -&gt; Bool
 $c== :: StateReason -&gt; StateReason -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681153288"><span id="local-6989586621681153290"><span id="local-6989586621681153292"><span id="local-6989586621681153294"><span class="annot"><span class="annottext">ReadPrec [StateReason]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681153297"><span id="local-6989586621681153299"><span id="local-6989586621681153301"><span id="local-6989586621681153303"><span class="annot"><span class="annottext">ReadPrec [StateReason]
 ReadPrec StateReason
 Int -&gt; ReadS StateReason
 ReadS [StateReason]
@@ -104,7 +104,7 @@ readList :: ReadS [StateReason]
 $creadList :: ReadS [StateReason]
 readsPrec :: Int -&gt; ReadS StateReason
 $creadsPrec :: Int -&gt; ReadS StateReason
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681153281"><span id="local-6989586621681153283"><span id="local-6989586621681153285"><span class="annot"><span class="annottext">Int -&gt; StateReason -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681153290"><span id="local-6989586621681153292"><span id="local-6989586621681153294"><span class="annot"><span class="annottext">Int -&gt; StateReason -&gt; ShowS
 [StateReason] -&gt; ShowS
 StateReason -&gt; String
 (Int -&gt; StateReason -&gt; ShowS)
@@ -205,16 +205,16 @@ forall a. Maybe a
 -&gt; (StateReason -&gt; Maybe Text -&gt; StateReason)
 -&gt; Lens StateReason StateReason (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-type">StateReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681153272"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-type">StateReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681153281"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:StateReason' :: StateReason -&gt; Maybe Text
-</span><a href="#local-6989586621681153272"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681153272"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681153271"><span class="annot"><span class="annottext">s :: StateReason
-</span><a href="#local-6989586621681153271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-type">StateReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681153270"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681153270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateReason
-</span><a href="#local-6989586621681153271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:StateReason' :: Maybe Text
+</span><a href="#local-6989586621681153281"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681153281"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681153280"><span class="annot"><span class="annottext">s :: StateReason
+</span><a href="#local-6989586621681153280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-type">StateReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681153279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681153279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateReason
+</span><a href="#local-6989586621681153280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:StateReason' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.StateReason.html#%24sel%3Acode%3AStateReason%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681153270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-type">StateReason</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681153279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-type">StateReason</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The message for the state change.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
@@ -264,21 +264,21 @@ $sel:code:StateReason' :: StateReason -&gt; Maybe Text
 -&gt; (StateReason -&gt; Maybe Text -&gt; StateReason)
 -&gt; Lens StateReason StateReason (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-type">StateReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681153268"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-type">StateReason'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681153277"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:StateReason' :: StateReason -&gt; Maybe Text
-</span><a href="#local-6989586621681153268"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681153268"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681153267"><span class="annot"><span class="annottext">s :: StateReason
-</span><a href="#local-6989586621681153267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-type">StateReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681153266"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681153266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateReason
-</span><a href="#local-6989586621681153267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:StateReason' :: Maybe Text
+</span><a href="#local-6989586621681153277"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681153277"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681153276"><span class="annot"><span class="annottext">s :: StateReason
+</span><a href="#local-6989586621681153276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-type">StateReason'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681153275"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681153275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateReason
+</span><a href="#local-6989586621681153276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:StateReason' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.StateReason.html#%24sel%3Amessage%3AStateReason%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681153266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-type">StateReason</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681153275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-type">StateReason</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-type">StateReason</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621681153263"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StateReason
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681153261"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681153261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621681153272"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StateReason
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681153270"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681153270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; StateReason
 </span><a href="Network.AWS.EC2.Types.StateReason.html#StateReason%27"><span class="hs-identifier hs-var">StateReason'</span></a></span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; StateReason)
@@ -286,7 +286,7 @@ $sel:message:StateReason' :: StateReason -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; StateReason)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681153261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681153270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
@@ -294,12 +294,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String StateReason
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681153261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681153270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681153255"><span id="local-6989586621681153257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-type">StateReason</span></a></span></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681153264"><span id="local-6989586621681153266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-type">StateReason</span></a></span></span></span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681153252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-type">StateReason</span></a></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681153261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StateReason.html#StateReason"><span class="hs-identifier hs-type">StateReason</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

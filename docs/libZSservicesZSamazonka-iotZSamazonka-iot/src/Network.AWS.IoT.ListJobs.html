@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListJobs' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679823859"><span id="local-6989586621679823860"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobs"><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-var">ListJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobs%27"><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-var">ListJobs'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679823868"><span id="local-6989586621679823869"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobs"><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-var">ListJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobs%27"><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-var">ListJobs'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional filter that lets you search for jobs that have the specified</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- status.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Astatus%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe JobStatus
@@ -97,7 +97,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AtargetSelection%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe TargetSelection
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AtargetSelection%3AListJobs%27"><span class="hs-identifier hs-var hs-var">targetSelection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TargetSelection.html#TargetSelection"><span class="hs-identifier hs-type">TargetSelection</span></a></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823847"><span id="local-6989586621679823849"><span class="annot"><span class="annottext">ListJobs -&gt; ListJobs -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823856"><span id="local-6989586621679823858"><span class="annot"><span class="annottext">ListJobs -&gt; ListJobs -&gt; Bool
 (ListJobs -&gt; ListJobs -&gt; Bool)
 -&gt; (ListJobs -&gt; ListJobs -&gt; Bool) -&gt; Eq ListJobs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobs -&gt; ListJobs -&gt; Bool
 == :: ListJobs -&gt; ListJobs -&gt; Bool
 $c== :: ListJobs -&gt; ListJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823838"><span id="local-6989586621679823840"><span id="local-6989586621679823842"><span id="local-6989586621679823844"><span class="annot"><span class="annottext">ReadPrec [ListJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823847"><span id="local-6989586621679823849"><span id="local-6989586621679823851"><span id="local-6989586621679823853"><span class="annot"><span class="annottext">ReadPrec [ListJobs]
 ReadPrec ListJobs
 Int -&gt; ReadS ListJobs
 ReadS [ListJobs]
@@ -125,7 +125,7 @@ readList :: ReadS [ListJobs]
 $creadList :: ReadS [ListJobs]
 readsPrec :: Int -&gt; ReadS ListJobs
 $creadsPrec :: Int -&gt; ReadS ListJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823831"><span id="local-6989586621679823833"><span id="local-6989586621679823835"><span class="annot"><span class="annottext">Int -&gt; ListJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823840"><span id="local-6989586621679823842"><span id="local-6989586621679823844"><span class="annot"><span class="annottext">Int -&gt; ListJobs -&gt; ShowS
 [ListJobs] -&gt; ShowS
 ListJobs -&gt; String
 (Int -&gt; ListJobs -&gt; ShowS)
@@ -234,16 +234,16 @@ forall a. Maybe a
 -&gt; (ListJobs -&gt; Maybe JobStatus -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs (Maybe JobStatus) (Maybe JobStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823825"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823834"><span class="annot"><span class="annottext">Maybe JobStatus
 status :: Maybe JobStatus
 $sel:status:ListJobs' :: ListJobs -&gt; Maybe JobStatus
-</span><a href="#local-6989586621679823825"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679823825"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823824"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679823824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823823"><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679823823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679823824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListJobs' :: Maybe JobStatus
+</span><a href="#local-6989586621679823834"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679823834"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823833"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679823833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823832"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679823832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679823833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListJobs' :: Maybe JobStatus
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3Astatus%3AListJobs%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679823823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | A filter that limits the returned jobs to those for the specified group.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#listJobs_thingGroupId"><span class="hs-identifier hs-type">listJobs_thingGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -252,16 +252,16 @@ $sel:status:ListJobs' :: ListJobs -&gt; Maybe JobStatus
 -&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823822"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823831"><span class="annot"><span class="annottext">Maybe Text
 thingGroupId :: Maybe Text
 $sel:thingGroupId:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679823822"><span class="hs-identifier hs-var hs-var">thingGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823822"><span class="hs-identifier hs-var">thingGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823821"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679823821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823820"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679823821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupId:ListJobs' :: Maybe Text
+</span><a href="#local-6989586621679823831"><span class="hs-identifier hs-var hs-var">thingGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823831"><span class="hs-identifier hs-var">thingGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823830"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679823830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679823830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupId:ListJobs' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AthingGroupId%3AListJobs%27"><span class="hs-identifier hs-var">thingGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The namespace used to indicate that a job is a customer-managed job.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
@@ -278,16 +278,16 @@ $sel:thingGroupId:ListJobs' :: ListJobs -&gt; Maybe Text
 -&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823819"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823828"><span class="annot"><span class="annottext">Maybe Text
 namespaceId :: Maybe Text
 $sel:namespaceId:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679823819"><span class="hs-identifier hs-var hs-var">namespaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823819"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823818"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679823818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823817"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679823818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceId:ListJobs' :: Maybe Text
+</span><a href="#local-6989586621679823828"><span class="hs-identifier hs-var hs-var">namespaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823828"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823827"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679823827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679823827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceId:ListJobs' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AnamespaceId%3AListJobs%27"><span class="hs-identifier hs-var">namespaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The token to retrieve the next set of results.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#listJobs_nextToken"><span class="hs-identifier hs-type">listJobs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -296,16 +296,16 @@ $sel:namespaceId:ListJobs' :: ListJobs -&gt; Maybe Text
 -&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823816"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823825"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679823816"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823816"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823815"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679823815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823814"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679823815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobs' :: Maybe Text
+</span><a href="#local-6989586621679823825"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823825"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823824"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679823824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679823824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobs' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AnextToken%3AListJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | A filter that limits the returned jobs to those for the specified group.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#listJobs_thingGroupName"><span class="hs-identifier hs-type">listJobs_thingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -314,16 +314,16 @@ $sel:nextToken:ListJobs' :: ListJobs -&gt; Maybe Text
 -&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823813"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823822"><span class="annot"><span class="annottext">Maybe Text
 thingGroupName :: Maybe Text
 $sel:thingGroupName:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679823813"><span class="hs-identifier hs-var hs-var">thingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823813"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823812"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679823812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823811"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679823812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupName:ListJobs' :: Maybe Text
+</span><a href="#local-6989586621679823822"><span class="hs-identifier hs-var hs-var">thingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823822"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823821"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679823821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679823821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupName:ListJobs' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AthingGroupName%3AListJobs%27"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The maximum number of results to return per request.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#listJobs_maxResults"><span class="hs-identifier hs-type">listJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -332,16 +332,16 @@ $sel:thingGroupName:ListJobs' :: ListJobs -&gt; Maybe Text
 -&gt; (ListJobs -&gt; Maybe Natural -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823810"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823819"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListJobs' :: ListJobs -&gt; Maybe Natural
-</span><a href="#local-6989586621679823810"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823810"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823809"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679823809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823808"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679823809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJobs' :: Maybe Natural
+</span><a href="#local-6989586621679823819"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679823819"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823818"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679823818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823817"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679823817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679823818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJobs' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AmaxResults%3AListJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | Specifies whether the job will continue to run (CONTINUOUS), or will be</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- complete after all those things specified as targets have completed the</span><span>
@@ -357,28 +357,28 @@ $sel:maxResults:ListJobs' :: ListJobs -&gt; Maybe Natural
 -&gt; Lens
      ListJobs ListJobs (Maybe TargetSelection) (Maybe TargetSelection)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823807"><span class="annot"><span class="annottext">Maybe TargetSelection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823816"><span class="annot"><span class="annottext">Maybe TargetSelection
 targetSelection :: Maybe TargetSelection
 $sel:targetSelection:ListJobs' :: ListJobs -&gt; Maybe TargetSelection
-</span><a href="#local-6989586621679823807"><span class="hs-identifier hs-var hs-var">targetSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetSelection
-</span><a href="#local-6989586621679823807"><span class="hs-identifier hs-var">targetSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823806"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679823806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823805"><span class="annot"><span class="annottext">Maybe TargetSelection
-</span><a href="#local-6989586621679823805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679823806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetSelection:ListJobs' :: Maybe TargetSelection
+</span><a href="#local-6989586621679823816"><span class="hs-identifier hs-var hs-var">targetSelection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetSelection
+</span><a href="#local-6989586621679823816"><span class="hs-identifier hs-var">targetSelection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823815"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679823815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823814"><span class="annot"><span class="annottext">Maybe TargetSelection
+</span><a href="#local-6989586621679823814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679823815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetSelection:ListJobs' :: Maybe TargetSelection
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AtargetSelection%3AListJobs%27"><span class="hs-identifier hs-var">targetSelection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetSelection
-</span><a href="#local-6989586621679823805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679823801"><span class="annot"><span class="annottext">page :: ListJobs -&gt; AWSResponse ListJobs -&gt; Maybe ListJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679823799"><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679823799"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679823798"><span class="annot"><span class="annottext">AWSResponse ListJobs
-</span><a href="#local-6989586621679823798"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679823810"><span class="annot"><span class="annottext">page :: ListJobs -&gt; AWSResponse ListJobs -&gt; Maybe ListJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679823808"><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679823808"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679823807"><span class="annot"><span class="annottext">AWSResponse ListJobs
+</span><a href="#local-6989586621679823807"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-188"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobs
 ListJobsResponse
-</span><a href="#local-6989586621679823798"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679823807"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">ListJobsResponse
 -&gt; Getting (First Text) ListJobsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -404,7 +404,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-193"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobs
 ListJobsResponse
-</span><a href="#local-6989586621679823798"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679823807"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">ListJobsResponse
 -&gt; Getting (First [JobSummary]) ListJobsResponse [JobSummary]
 -&gt; Maybe [JobSummary]
@@ -438,7 +438,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679823799"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679823808"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">ListJobs -&gt; (ListJobs -&gt; ListJobs) -&gt; ListJobs
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -451,7 +451,7 @@ Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobs
 ListJobsResponse
-</span><a href="#local-6989586621679823798"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679823807"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">ListJobsResponse
 -&gt; Getting (First Text) ListJobsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -471,12 +471,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-205"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679823788"><span class="annot"><span class="annottext">request :: ListJobs -&gt; Request ListJobs
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679823797"><span class="annot"><span class="annottext">request :: ListJobs -&gt; Request ListJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListJobs -&gt; Request ListJobs
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679823784"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679823793"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListJobs
 -&gt; ClientResponse ClientBody
@@ -500,10 +500,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679823781"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823781"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679823780"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679823780"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679823779"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823779"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679823790"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823790"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679823789"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679823789"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679823788"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679823788"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">Maybe [JobSummary] -&gt; Maybe Text -&gt; Int -&gt; ListJobsResponse
 </span><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-var">ListJobsResponse'</span></a></span><span>
 </span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [JobSummary] -&gt; Maybe Text -&gt; Int -&gt; ListJobsResponse)
@@ -511,7 +511,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823779"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [JobSummary]))
+</span><a href="#local-6989586621679823788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [JobSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [JobSummary]))
@@ -525,7 +525,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListJobsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823779"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679823788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -537,15 +537,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823781"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823790"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823770"><span id="local-6989586621679823772"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823779"><span id="local-6989586621679823781"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span></span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679823763"><span class="annot"><span class="annottext">toHeaders :: ListJobs -&gt; ResponseHeaders
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679823772"><span class="annot"><span class="annottext">toHeaders :: ListJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListJobs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -553,15 +553,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679823758"><span class="annot"><span class="annottext">toPath :: ListJobs -&gt; ByteString
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679823767"><span class="annot"><span class="annottext">toPath :: ListJobs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListJobs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/jobs&quot;</span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679823754"><span class="annot"><span class="annottext">toQuery :: ListJobs -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823746"><span id="local-6989586621679823747"><span id="local-6989586621679823748"><span id="local-6989586621679823749"><span id="local-6989586621679823750"><span id="local-6989586621679823751"><span id="local-6989586621679823752"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679823763"><span class="annot"><span class="annottext">toQuery :: ListJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823755"><span id="local-6989586621679823756"><span id="local-6989586621679823757"><span id="local-6989586621679823758"><span id="local-6989586621679823759"><span id="local-6989586621679823760"><span id="local-6989586621679823761"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe JobStatus
 Maybe TargetSelection
@@ -579,7 +579,7 @@ $sel:nextToken:ListJobs' :: ListJobs -&gt; Maybe Text
 $sel:namespaceId:ListJobs' :: ListJobs -&gt; Maybe Text
 $sel:thingGroupId:ListJobs' :: ListJobs -&gt; Maybe Text
 $sel:status:ListJobs' :: ListJobs -&gt; Maybe JobStatus
-</span><a href="#local-6989586621679823746"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679823755"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -587,41 +587,41 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe JobStatus -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679823752"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679823761"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;thingGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823751"><span class="hs-identifier hs-var">thingGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679823760"><span class="hs-identifier hs-var">thingGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;namespaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823750"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679823759"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823749"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679823758"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;thingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823748"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679823757"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823747"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679823756"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;targetSelection&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TargetSelection -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TargetSelection
-</span><a href="#local-6989586621679823746"><span class="hs-identifier hs-var">targetSelection</span></a></span><span>
+</span><a href="#local-6989586621679823755"><span class="hs-identifier hs-var">targetSelection</span></a></span><span>
 </span><span id="line-236"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | /See:/ 'newListJobsResponse' smart constructor.</span><span>
-</span><span id="line-239"></span><span id="local-6989586621679823743"><span id="local-6989586621679823744"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsResponse"><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-var">ListJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-var">ListJobsResponse'</span></a></span></span><span>
+</span><span id="line-239"></span><span id="local-6989586621679823752"><span id="local-6989586621679823753"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsResponse"><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-var">ListJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-var">ListJobsResponse'</span></a></span></span><span>
 </span><span id="line-240"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of jobs.</span><span>
 </span><span id="line-241"></span><span>    </span><span id="%24sel%3Ajobs%3AListJobsResponse%27"><span class="annot"><span class="annottext">ListJobsResponse -&gt; Maybe [JobSummary]
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3Ajobs%3AListJobsResponse%27"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.JobSummary.html#JobSummary"><span class="hs-identifier hs-type">JobSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -633,7 +633,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-246"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="annot"><span class="annottext">ListJobsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-247"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-248"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823736"><span id="local-6989586621679823738"><span class="annot"><span class="annottext">ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
+</span><span id="line-248"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823745"><span id="local-6989586621679823747"><span class="annot"><span class="annottext">ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
 (ListJobsResponse -&gt; ListJobsResponse -&gt; Bool)
 -&gt; (ListJobsResponse -&gt; ListJobsResponse -&gt; Bool)
 -&gt; Eq ListJobsResponse
@@ -642,7 +642,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
 == :: ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
 $c== :: ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823728"><span id="local-6989586621679823730"><span id="local-6989586621679823732"><span id="local-6989586621679823734"><span class="annot"><span class="annottext">ReadPrec [ListJobsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823737"><span id="local-6989586621679823739"><span id="local-6989586621679823741"><span id="local-6989586621679823743"><span class="annot"><span class="annottext">ReadPrec [ListJobsResponse]
 ReadPrec ListJobsResponse
 Int -&gt; ReadS ListJobsResponse
 ReadS [ListJobsResponse]
@@ -662,7 +662,7 @@ readList :: ReadS [ListJobsResponse]
 $creadList :: ReadS [ListJobsResponse]
 readsPrec :: Int -&gt; ReadS ListJobsResponse
 $creadsPrec :: Int -&gt; ReadS ListJobsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823722"><span id="local-6989586621679823724"><span id="local-6989586621679823726"><span class="annot"><span class="annottext">Int -&gt; ListJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823731"><span id="local-6989586621679823733"><span id="local-6989586621679823735"><span class="annot"><span class="annottext">Int -&gt; ListJobsResponse -&gt; ShowS
 [ListJobsResponse] -&gt; ShowS
 ListJobsResponse -&gt; String
 (Int -&gt; ListJobsResponse -&gt; ShowS)
@@ -707,8 +707,8 @@ $cfrom :: forall x. ListJobsResponse -&gt; Rep ListJobsResponse x
 </span><span id="line-266"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-267"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span>
 </span><span id="line-268"></span><span id="newListJobsResponse"><span class="annot"><span class="annottext">newListJobsResponse :: Int -&gt; ListJobsResponse
-</span><a href="Network.AWS.IoT.ListJobs.html#newListJobsResponse"><span class="hs-identifier hs-var hs-var">newListJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679823719"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823719"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListJobs.html#newListJobsResponse"><span class="hs-identifier hs-var hs-var">newListJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679823728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-269"></span><span>  </span><span class="annot"><span class="annottext">ListJobsResponse' :: Maybe [JobSummary] -&gt; Maybe Text -&gt; Int -&gt; ListJobsResponse
 </span><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span>
 </span><span id="line-270"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobs:ListJobsResponse' :: Maybe [JobSummary]
@@ -721,7 +721,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823719"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679823728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-273"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | A list of jobs.</span><span>
@@ -732,16 +732,16 @@ forall a. Maybe a
 -&gt; (ListJobsResponse -&gt; Maybe [JobSummary] -&gt; ListJobsResponse)
 -&gt; Lens' ListJobsResponse (Maybe [JobSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823718"><span class="annot"><span class="annottext">Maybe [JobSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823727"><span class="annot"><span class="annottext">Maybe [JobSummary]
 jobs :: Maybe [JobSummary]
 $sel:jobs:ListJobsResponse' :: ListJobsResponse -&gt; Maybe [JobSummary]
-</span><a href="#local-6989586621679823718"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobSummary]
-</span><a href="#local-6989586621679823718"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823717"><span class="annot"><span class="annottext">s :: ListJobsResponse
-</span><a href="#local-6989586621679823717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823716"><span class="annot"><span class="annottext">Maybe [JobSummary]
-</span><a href="#local-6989586621679823716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
-</span><a href="#local-6989586621679823717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:ListJobsResponse' :: Maybe [JobSummary]
+</span><a href="#local-6989586621679823727"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobSummary]
+</span><a href="#local-6989586621679823727"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823726"><span class="annot"><span class="annottext">s :: ListJobsResponse
+</span><a href="#local-6989586621679823726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823725"><span class="annot"><span class="annottext">Maybe [JobSummary]
+</span><a href="#local-6989586621679823725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
+</span><a href="#local-6989586621679823726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:ListJobsResponse' :: Maybe [JobSummary]
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3Ajobs%3AListJobsResponse%27"><span class="hs-identifier hs-var">jobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobSummary]
-</span><a href="#local-6989586621679823716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobSummary] -&gt; f (Maybe [JobSummary]))
+</span><a href="#local-6989586621679823725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobSummary] -&gt; f (Maybe [JobSummary]))
  -&gt; ListJobsResponse -&gt; f ListJobsResponse)
 -&gt; ((Maybe [JobSummary] -&gt; f (Maybe [JobSummary]))
     -&gt; Maybe [JobSummary] -&gt; f (Maybe [JobSummary]))
@@ -771,16 +771,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListJobsResponse -&gt; Maybe Text -&gt; ListJobsResponse)
 -&gt; Lens' ListJobsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823713"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823722"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListJobsResponse' :: ListJobsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679823713"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823713"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823712"><span class="annot"><span class="annottext">s :: ListJobsResponse
-</span><a href="#local-6989586621679823712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823711"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
-</span><a href="#local-6989586621679823712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobsResponse' :: Maybe Text
+</span><a href="#local-6989586621679823722"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823722"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823721"><span class="annot"><span class="annottext">s :: ListJobsResponse
+</span><a href="#local-6989586621679823721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823720"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
+</span><a href="#local-6989586621679823721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobsResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AnextToken%3AListJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-285"></span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#listJobsResponse_httpStatus"><span class="hs-identifier hs-type">listJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -789,16 +789,16 @@ $sel:nextToken:ListJobsResponse' :: ListJobsResponse -&gt; Maybe Text
 -&gt; (ListJobsResponse -&gt; Int -&gt; ListJobsResponse)
 -&gt; Lens ListJobsResponse ListJobsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823710"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823719"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListJobsResponse' :: ListJobsResponse -&gt; Int
-</span><a href="#local-6989586621679823710"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823710"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823709"><span class="annot"><span class="annottext">s :: ListJobsResponse
-</span><a href="#local-6989586621679823709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823708"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
-</span><a href="#local-6989586621679823709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsResponse' :: Int
+</span><a href="#local-6989586621679823719"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823719"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823718"><span class="annot"><span class="annottext">s :: ListJobsResponse
+</span><a href="#local-6989586621679823718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823717"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
+</span><a href="#local-6989586621679823718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListJobs.html#%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-287"></span><span>
-</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823715"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span></span><span>
 </span><span id="line-289"></span></pre></body></html>

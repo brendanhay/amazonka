@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679398560"><span id="local-6989586621679398561"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CopyOption"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CopyOption.html#CopyOption"><span class="hs-identifier hs-var">CopyOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyOption%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CopyOption.html#CopyOption%27"><span class="hs-identifier hs-var">CopyOption'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679398569"><span id="local-6989586621679398570"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CopyOption"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CopyOption.html#CopyOption"><span class="hs-identifier hs-var">CopyOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyOption%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.CopyOption.html#CopyOption%27"><span class="hs-identifier hs-var">CopyOption'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCopyOption"><span class="annot"><span class="annottext">CopyOption -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.CopyOption.html#fromCopyOption"><span class="hs-identifier hs-var hs-var">fromCopyOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398552"><span id="local-6989586621679398554"><span id="local-6989586621679398556"><span class="annot"><span class="annottext">Int -&gt; CopyOption -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398561"><span id="local-6989586621679398563"><span id="local-6989586621679398565"><span class="annot"><span class="annottext">Int -&gt; CopyOption -&gt; ShowS
 [CopyOption] -&gt; ShowS
 CopyOption -&gt; String
 (Int -&gt; CopyOption -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: CopyOption -&gt; String
 showsPrec :: Int -&gt; CopyOption -&gt; ShowS
 $cshowsPrec :: Int -&gt; CopyOption -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679398543"><span id="local-6989586621679398545"><span id="local-6989586621679398547"><span id="local-6989586621679398549"><span class="annot"><span class="annottext">ReadPrec [CopyOption]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679398552"><span id="local-6989586621679398554"><span id="local-6989586621679398556"><span id="local-6989586621679398558"><span class="annot"><span class="annottext">ReadPrec [CopyOption]
 ReadPrec CopyOption
 Int -&gt; ReadS CopyOption
 ReadS [CopyOption]
@@ -71,7 +71,7 @@ $creadList :: ReadS [CopyOption]
 readsPrec :: Int -&gt; ReadS CopyOption
 $creadsPrec :: Int -&gt; ReadS CopyOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679398538"><span id="local-6989586621679398540"><span class="annot"><span class="annottext">CopyOption -&gt; CopyOption -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679398547"><span id="local-6989586621679398549"><span class="annot"><span class="annottext">CopyOption -&gt; CopyOption -&gt; Bool
 (CopyOption -&gt; CopyOption -&gt; Bool)
 -&gt; (CopyOption -&gt; CopyOption -&gt; Bool) -&gt; Eq CopyOption
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: CopyOption -&gt; CopyOption -&gt; Bool
 == :: CopyOption -&gt; CopyOption -&gt; Bool
 $c== :: CopyOption -&gt; CopyOption -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679398522"><span id="local-6989586621679398524"><span id="local-6989586621679398526"><span id="local-6989586621679398528"><span id="local-6989586621679398530"><span id="local-6989586621679398532"><span id="local-6989586621679398534"><span class="annot"><span class="annottext">Eq CopyOption
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679398531"><span id="local-6989586621679398533"><span id="local-6989586621679398535"><span id="local-6989586621679398537"><span id="local-6989586621679398539"><span id="local-6989586621679398541"><span id="local-6989586621679398543"><span class="annot"><span class="annottext">Eq CopyOption
 Eq CopyOption
 -&gt; (CopyOption -&gt; CopyOption -&gt; Ordering)
 -&gt; (CopyOption -&gt; CopyOption -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. CopyOption -&gt; Rep CopyOption x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398514"><span id="local-6989586621679398516"><span class="annot"><span class="annottext">Int -&gt; CopyOption -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679398523"><span id="local-6989586621679398525"><span class="annot"><span class="annottext">Int -&gt; CopyOption -&gt; Int
 CopyOption -&gt; Int
 (Int -&gt; CopyOption -&gt; Int)
 -&gt; (CopyOption -&gt; Int) -&gt; Hashable CopyOption
@@ -140,49 +140,49 @@ $chash :: CopyOption -&gt; Int
 hashWithSalt :: Int -&gt; CopyOption -&gt; Int
 $chashWithSalt :: Int -&gt; CopyOption -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679398511"><span class="annot"><span class="annottext">CopyOption -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679398520"><span class="annot"><span class="annottext">CopyOption -&gt; ()
 (CopyOption -&gt; ()) -&gt; NFData CopyOption
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CopyOption -&gt; ()
 $crnf :: CopyOption -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679398508"><span class="annot"><span class="annottext">Text -&gt; Either String CopyOption
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679398517"><span class="annot"><span class="annottext">Text -&gt; Either String CopyOption
 (Text -&gt; Either String CopyOption) -&gt; FromText CopyOption
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CopyOption
 $cfromText :: Text -&gt; Either String CopyOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679398505"><span class="annot"><span class="annottext">CopyOption -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679398514"><span class="annot"><span class="annottext">CopyOption -&gt; Text
 (CopyOption -&gt; Text) -&gt; ToText CopyOption
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CopyOption -&gt; Text
 $ctoText :: CopyOption -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679398502"><span class="annot"><span class="annottext">CopyOption -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679398511"><span class="annot"><span class="annottext">CopyOption -&gt; ByteString
 (CopyOption -&gt; ByteString) -&gt; ToByteString CopyOption
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CopyOption -&gt; ByteString
 $ctoBS :: CopyOption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398499"><span class="annot"><span class="annottext">CopyOption -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679398508"><span class="annot"><span class="annottext">CopyOption -&gt; ByteStringBuilder
 (CopyOption -&gt; ByteStringBuilder) -&gt; ToLog CopyOption
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CopyOption -&gt; ByteStringBuilder
 $cbuild :: CopyOption -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398496"><span class="annot"><span class="annottext">HeaderName -&gt; CopyOption -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679398505"><span class="annot"><span class="annottext">HeaderName -&gt; CopyOption -&gt; [Header]
 (HeaderName -&gt; CopyOption -&gt; [Header]) -&gt; ToHeader CopyOption
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CopyOption -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CopyOption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398493"><span class="annot"><span class="annottext">CopyOption -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679398502"><span class="annot"><span class="annottext">CopyOption -&gt; QueryString
 (CopyOption -&gt; QueryString) -&gt; ToQuery CopyOption
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CopyOption -&gt; QueryString
 $ctoQuery :: CopyOption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398488"><span id="local-6989586621679398490"><span class="annot"><span class="annottext">Value -&gt; Parser [CopyOption]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679398497"><span id="local-6989586621679398499"><span class="annot"><span class="annottext">Value -&gt; Parser [CopyOption]
 Value -&gt; Parser CopyOption
 (Value -&gt; Parser CopyOption)
 -&gt; (Value -&gt; Parser [CopyOption]) -&gt; FromJSON CopyOption
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [CopyOption]
 parseJSON :: Value -&gt; Parser CopyOption
 $cparseJSON :: Value -&gt; Parser CopyOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398483"><span id="local-6989586621679398485"><span class="annot"><span class="annottext">FromJSONKeyFunction [CopyOption]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679398492"><span id="local-6989586621679398494"><span class="annot"><span class="annottext">FromJSONKeyFunction [CopyOption]
 FromJSONKeyFunction CopyOption
 FromJSONKeyFunction CopyOption
 -&gt; FromJSONKeyFunction [CopyOption] -&gt; FromJSONKey CopyOption
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CopyOption]
 fromJSONKey :: FromJSONKeyFunction CopyOption
 $cfromJSONKey :: FromJSONKeyFunction CopyOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398474"><span id="local-6989586621679398476"><span id="local-6989586621679398478"><span id="local-6989586621679398480"><span class="annot"><span class="annottext">[CopyOption] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679398483"><span id="local-6989586621679398485"><span id="local-6989586621679398487"><span id="local-6989586621679398489"><span class="annot"><span class="annottext">[CopyOption] -&gt; Encoding
 [CopyOption] -&gt; Value
 CopyOption -&gt; Encoding
 CopyOption -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: CopyOption -&gt; Encoding
 toJSON :: CopyOption -&gt; Value
 $ctoJSON :: CopyOption -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398469"><span id="local-6989586621679398471"><span class="annot"><span class="annottext">ToJSONKeyFunction [CopyOption]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679398478"><span id="local-6989586621679398480"><span class="annot"><span class="annottext">ToJSONKeyFunction [CopyOption]
 ToJSONKeyFunction CopyOption
 ToJSONKeyFunction CopyOption
 -&gt; ToJSONKeyFunction [CopyOption] -&gt; ToJSONKey CopyOption
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CopyOption]
 toJSONKey :: ToJSONKeyFunction CopyOption
 $ctoJSONKey :: ToJSONKeyFunction CopyOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398466"><span class="annot"><span class="annottext">[Node] -&gt; Either String CopyOption
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679398475"><span class="annot"><span class="annottext">[Node] -&gt; Either String CopyOption
 ([Node] -&gt; Either String CopyOption) -&gt; FromXML CopyOption
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CopyOption
 $cparseXML :: [Node] -&gt; Either String CopyOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398463"><span class="annot"><span class="annottext">CopyOption -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679398472"><span class="annot"><span class="annottext">CopyOption -&gt; XML
 (CopyOption -&gt; XML) -&gt; ToXML CopyOption
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CopyOption -&gt; XML

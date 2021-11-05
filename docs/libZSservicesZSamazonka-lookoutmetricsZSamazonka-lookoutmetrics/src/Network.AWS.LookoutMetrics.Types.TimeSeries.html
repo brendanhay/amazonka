@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LookoutMetrics.Types.TimeSeries</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.TimeSeries</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionNameValue.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types.DimensionNameValue</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Details about a metric. A metric is an aggregation of the values of a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- measure for a dimension value, such as /availability/ in the /us-east-1/</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Region.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTimeSeries' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679225348"><span id="local-6989586621679225349"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeSeries"><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-var">TimeSeries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeSeries%27"><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries%27"><span class="hs-identifier hs-var">TimeSeries'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the metric.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtimeSeriesId%3ATimeSeries%27"><span class="annot"><span class="annottext">TimeSeries -&gt; Text
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#%24sel%3AtimeSeriesId%3ATimeSeries%27"><span class="hs-identifier hs-var hs-var">timeSeriesId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The dimensions of the metric.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdimensionList%3ATimeSeries%27"><span class="annot"><span class="annottext">TimeSeries -&gt; [DimensionNameValue]
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#%24sel%3AdimensionList%3ATimeSeries%27"><span class="hs-identifier hs-var hs-var">dimensionList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionNameValue.html#DimensionNameValue"><span class="hs-identifier hs-type">DimensionNameValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The values for the metric.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmetricValueList%3ATimeSeries%27"><span class="annot"><span class="annottext">TimeSeries -&gt; [Double]
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#%24sel%3AmetricValueList%3ATimeSeries%27"><span class="hs-identifier hs-var hs-var">metricValueList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225340"><span id="local-6989586621679225342"><span class="annot"><span class="annottext">TimeSeries -&gt; TimeSeries -&gt; Bool
+(TimeSeries -&gt; TimeSeries -&gt; Bool)
+-&gt; (TimeSeries -&gt; TimeSeries -&gt; Bool) -&gt; Eq TimeSeries
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TimeSeries -&gt; TimeSeries -&gt; Bool
+$c/= :: TimeSeries -&gt; TimeSeries -&gt; Bool
+== :: TimeSeries -&gt; TimeSeries -&gt; Bool
+$c== :: TimeSeries -&gt; TimeSeries -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225331"><span id="local-6989586621679225333"><span id="local-6989586621679225335"><span id="local-6989586621679225337"><span class="annot"><span class="annottext">ReadPrec [TimeSeries]
+ReadPrec TimeSeries
+Int -&gt; ReadS TimeSeries
+ReadS [TimeSeries]
+(Int -&gt; ReadS TimeSeries)
+-&gt; ReadS [TimeSeries]
+-&gt; ReadPrec TimeSeries
+-&gt; ReadPrec [TimeSeries]
+-&gt; Read TimeSeries
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TimeSeries]
+$creadListPrec :: ReadPrec [TimeSeries]
+readPrec :: ReadPrec TimeSeries
+$creadPrec :: ReadPrec TimeSeries
+readList :: ReadS [TimeSeries]
+$creadList :: ReadS [TimeSeries]
+readsPrec :: Int -&gt; ReadS TimeSeries
+$creadsPrec :: Int -&gt; ReadS TimeSeries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225324"><span id="local-6989586621679225326"><span id="local-6989586621679225328"><span class="annot"><span class="annottext">Int -&gt; TimeSeries -&gt; ShowS
+[TimeSeries] -&gt; ShowS
+TimeSeries -&gt; String
+(Int -&gt; TimeSeries -&gt; ShowS)
+-&gt; (TimeSeries -&gt; String)
+-&gt; ([TimeSeries] -&gt; ShowS)
+-&gt; Show TimeSeries
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TimeSeries] -&gt; ShowS
+$cshowList :: [TimeSeries] -&gt; ShowS
+show :: TimeSeries -&gt; String
+$cshow :: TimeSeries -&gt; String
+showsPrec :: Int -&gt; TimeSeries -&gt; ShowS
+$cshowsPrec :: Int -&gt; TimeSeries -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TimeSeries -&gt; Rep TimeSeries x)
+-&gt; (forall x. Rep TimeSeries x -&gt; TimeSeries) -&gt; Generic TimeSeries
+forall x. Rep TimeSeries x -&gt; TimeSeries
+forall x. TimeSeries -&gt; Rep TimeSeries x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TimeSeries x -&gt; TimeSeries
+$cfrom :: forall x. TimeSeries -&gt; Rep TimeSeries x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'TimeSeries' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'timeSeriesId', 'timeSeries_timeSeriesId' - The ID of the metric.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'dimensionList', 'timeSeries_dimensionList' - The dimensions of the metric.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'metricValueList', 'timeSeries_metricValueList' - The values for the metric.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#newTimeSeries"><span class="hs-identifier hs-type">newTimeSeries</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'timeSeriesId'</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span><span>
+</span><span id="line-59"></span><span id="newTimeSeries"><span class="annot"><span class="annottext">newTimeSeries :: Text -&gt; TimeSeries
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#newTimeSeries"><span class="hs-identifier hs-var hs-var">newTimeSeries</span></a></span></span><span> </span><span id="local-6989586621679225318"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225318"><span class="hs-identifier hs-var">pTimeSeriesId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">TimeSeries' :: Text -&gt; [DimensionNameValue] -&gt; [Double] -&gt; TimeSeries
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries%27"><span class="hs-identifier hs-type">TimeSeries'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timeSeriesId:TimeSeries' :: Text
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#%24sel%3AtimeSeriesId%3ATimeSeries%27"><span class="hs-identifier hs-var">timeSeriesId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225318"><span class="hs-identifier hs-var">pTimeSeriesId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensionList:TimeSeries' :: [DimensionNameValue]
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#%24sel%3AdimensionList%3ATimeSeries%27"><span class="hs-identifier hs-var">dimensionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DimensionNameValue]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricValueList:TimeSeries' :: [Double]
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#%24sel%3AmetricValueList%3ATimeSeries%27"><span class="hs-identifier hs-var">metricValueList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Double]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The ID of the metric.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#timeSeries_timeSeriesId"><span class="hs-identifier hs-type">timeSeries_timeSeriesId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span id="timeSeries_timeSeriesId"><span class="annot"><span class="annottext">timeSeries_timeSeriesId :: (Text -&gt; f Text) -&gt; TimeSeries -&gt; f TimeSeries
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#timeSeries_timeSeriesId"><span class="hs-identifier hs-var hs-var">timeSeries_timeSeriesId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSeries -&gt; Text)
+-&gt; (TimeSeries -&gt; Text -&gt; TimeSeries)
+-&gt; Lens TimeSeries TimeSeries Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries%27"><span class="hs-identifier hs-type">TimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225314"><span class="annot"><span class="annottext">Text
+timeSeriesId :: Text
+$sel:timeSeriesId:TimeSeries' :: TimeSeries -&gt; Text
+</span><a href="#local-6989586621679225314"><span class="hs-identifier hs-var hs-var">timeSeriesId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225314"><span class="hs-identifier hs-var">timeSeriesId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225313"><span class="annot"><span class="annottext">s :: TimeSeries
+</span><a href="#local-6989586621679225313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries%27"><span class="hs-identifier hs-type">TimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225312"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSeries
+</span><a href="#local-6989586621679225313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeSeriesId:TimeSeries' :: Text
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#%24sel%3AtimeSeriesId%3ATimeSeries%27"><span class="hs-identifier hs-var">timeSeriesId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The dimensions of the metric.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#timeSeries_dimensionList"><span class="hs-identifier hs-type">timeSeries_dimensionList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.DimensionNameValue.html#DimensionNameValue"><span class="hs-identifier hs-type">DimensionNameValue</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span id="timeSeries_dimensionList"><span class="annot"><span class="annottext">timeSeries_dimensionList :: ([DimensionNameValue] -&gt; f [DimensionNameValue])
+-&gt; TimeSeries -&gt; f TimeSeries
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#timeSeries_dimensionList"><span class="hs-identifier hs-var hs-var">timeSeries_dimensionList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSeries -&gt; [DimensionNameValue])
+-&gt; (TimeSeries -&gt; [DimensionNameValue] -&gt; TimeSeries)
+-&gt; Lens
+     TimeSeries TimeSeries [DimensionNameValue] [DimensionNameValue]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries%27"><span class="hs-identifier hs-type">TimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225310"><span class="annot"><span class="annottext">[DimensionNameValue]
+dimensionList :: [DimensionNameValue]
+$sel:dimensionList:TimeSeries' :: TimeSeries -&gt; [DimensionNameValue]
+</span><a href="#local-6989586621679225310"><span class="hs-identifier hs-var hs-var">dimensionList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DimensionNameValue]
+</span><a href="#local-6989586621679225310"><span class="hs-identifier hs-var">dimensionList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225309"><span class="annot"><span class="annottext">s :: TimeSeries
+</span><a href="#local-6989586621679225309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries%27"><span class="hs-identifier hs-type">TimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225308"><span class="annot"><span class="annottext">[DimensionNameValue]
+</span><a href="#local-6989586621679225308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSeries
+</span><a href="#local-6989586621679225309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionList:TimeSeries' :: [DimensionNameValue]
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#%24sel%3AdimensionList%3ATimeSeries%27"><span class="hs-identifier hs-var">dimensionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DimensionNameValue]
+</span><a href="#local-6989586621679225308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DimensionNameValue] -&gt; f [DimensionNameValue])
+ -&gt; TimeSeries -&gt; f TimeSeries)
+-&gt; (([DimensionNameValue] -&gt; f [DimensionNameValue])
+    -&gt; [DimensionNameValue] -&gt; f [DimensionNameValue])
+-&gt; ([DimensionNameValue] -&gt; f [DimensionNameValue])
+-&gt; TimeSeries
+-&gt; f TimeSeries
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DimensionNameValue] -&gt; f [DimensionNameValue])
+-&gt; [DimensionNameValue] -&gt; f [DimensionNameValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The values for the metric.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#timeSeries_metricValueList"><span class="hs-identifier hs-type">timeSeries_metricValueList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">]</span><span>
+</span><span id="line-76"></span><span id="timeSeries_metricValueList"><span class="annot"><span class="annottext">timeSeries_metricValueList :: ([Double] -&gt; f [Double]) -&gt; TimeSeries -&gt; f TimeSeries
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#timeSeries_metricValueList"><span class="hs-identifier hs-var hs-var">timeSeries_metricValueList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimeSeries -&gt; [Double])
+-&gt; (TimeSeries -&gt; [Double] -&gt; TimeSeries)
+-&gt; Lens TimeSeries TimeSeries [Double] [Double]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries%27"><span class="hs-identifier hs-type">TimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225304"><span class="annot"><span class="annottext">[Double]
+metricValueList :: [Double]
+$sel:metricValueList:TimeSeries' :: TimeSeries -&gt; [Double]
+</span><a href="#local-6989586621679225304"><span class="hs-identifier hs-var hs-var">metricValueList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Double]
+</span><a href="#local-6989586621679225304"><span class="hs-identifier hs-var">metricValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225303"><span class="annot"><span class="annottext">s :: TimeSeries
+</span><a href="#local-6989586621679225303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries%27"><span class="hs-identifier hs-type">TimeSeries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225302"><span class="annot"><span class="annottext">[Double]
+</span><a href="#local-6989586621679225302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeSeries
+</span><a href="#local-6989586621679225303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricValueList:TimeSeries' :: [Double]
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#%24sel%3AmetricValueList%3ATimeSeries%27"><span class="hs-identifier hs-var">metricValueList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Double]
+</span><a href="#local-6989586621679225302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Double] -&gt; f [Double]) -&gt; TimeSeries -&gt; f TimeSeries)
+-&gt; (([Double] -&gt; f [Double]) -&gt; [Double] -&gt; f [Double])
+-&gt; ([Double] -&gt; f [Double])
+-&gt; TimeSeries
+-&gt; f TimeSeries
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Double] -&gt; f [Double]) -&gt; [Double] -&gt; f [Double]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225299"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679225297"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeSeries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TimeSeries) -&gt; Value -&gt; Parser TimeSeries
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TimeSeries&quot;</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225294"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; [DimensionNameValue] -&gt; [Double] -&gt; TimeSeries
+</span><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries%27"><span class="hs-identifier hs-var">TimeSeries'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; [DimensionNameValue] -&gt; [Double] -&gt; TimeSeries)
+-&gt; Parser Text
+-&gt; Parser ([DimensionNameValue] -&gt; [Double] -&gt; TimeSeries)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimeSeriesId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser ([DimensionNameValue] -&gt; [Double] -&gt; TimeSeries)
+-&gt; Parser [DimensionNameValue] -&gt; Parser ([Double] -&gt; TimeSeries)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [DimensionNameValue])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DimensionList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [DimensionNameValue])
+-&gt; [DimensionNameValue] -&gt; Parser [DimensionNameValue]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[DimensionNameValue]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Double] -&gt; TimeSeries)
+-&gt; Parser [Double] -&gt; Parser TimeSeries
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Double])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricValueList&quot;</span></span><span>
+</span><span id="line-87"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [Double]) -&gt; [Double] -&gt; Parser [Double]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Double]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-88"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225286"><span id="local-6989586621679225288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimeSeries.html#TimeSeries"><span class="hs-identifier hs-type">TimeSeries</span></a></span></span><span>
+</span><span id="line-94"></span></pre></body></html>

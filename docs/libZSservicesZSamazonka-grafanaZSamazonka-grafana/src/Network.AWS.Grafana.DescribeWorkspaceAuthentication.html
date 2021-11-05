@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Grafana.DescribeWorkspaceAuthentication</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Displays information about the authentication methods used in one Amazon</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Managed Grafana workspace.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Grafana.DescribeWorkspaceAuthentication</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier">DescribeWorkspaceAuthentication</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#newDescribeWorkspaceAuthentication"><span class="hs-identifier">newDescribeWorkspaceAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#describeWorkspaceAuthentication_workspaceId"><span class="hs-identifier">describeWorkspaceAuthentication_workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse"><span class="hs-identifier">DescribeWorkspaceAuthenticationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#newDescribeWorkspaceAuthenticationResponse"><span class="hs-identifier">newDescribeWorkspaceAuthenticationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#describeWorkspaceAuthenticationResponse_httpStatus"><span class="hs-identifier">describeWorkspaceAuthenticationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#describeWorkspaceAuthenticationResponse_authentication"><span class="hs-identifier">describeWorkspaceAuthenticationResponse_authentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.html"><span class="hs-identifier">Network.AWS.Grafana.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeWorkspaceAuthentication' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679188532"><span id="local-6989586621679188533"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeWorkspaceAuthentication"><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-var">DescribeWorkspaceAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeWorkspaceAuthentication%27"><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication%27"><span class="hs-identifier hs-var">DescribeWorkspaceAuthentication'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the workspace to return authentication information about.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AworkspaceId%3ADescribeWorkspaceAuthentication%27"><span class="annot"><span class="annottext">DescribeWorkspaceAuthentication -&gt; Text
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#%24sel%3AworkspaceId%3ADescribeWorkspaceAuthentication%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188526"><span id="local-6989586621679188528"><span class="annot"><span class="annottext">DescribeWorkspaceAuthentication
+-&gt; DescribeWorkspaceAuthentication -&gt; Bool
+(DescribeWorkspaceAuthentication
+ -&gt; DescribeWorkspaceAuthentication -&gt; Bool)
+-&gt; (DescribeWorkspaceAuthentication
+    -&gt; DescribeWorkspaceAuthentication -&gt; Bool)
+-&gt; Eq DescribeWorkspaceAuthentication
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeWorkspaceAuthentication
+-&gt; DescribeWorkspaceAuthentication -&gt; Bool
+$c/= :: DescribeWorkspaceAuthentication
+-&gt; DescribeWorkspaceAuthentication -&gt; Bool
+== :: DescribeWorkspaceAuthentication
+-&gt; DescribeWorkspaceAuthentication -&gt; Bool
+$c== :: DescribeWorkspaceAuthentication
+-&gt; DescribeWorkspaceAuthentication -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188517"><span id="local-6989586621679188519"><span id="local-6989586621679188521"><span id="local-6989586621679188523"><span class="annot"><span class="annottext">ReadPrec [DescribeWorkspaceAuthentication]
+ReadPrec DescribeWorkspaceAuthentication
+Int -&gt; ReadS DescribeWorkspaceAuthentication
+ReadS [DescribeWorkspaceAuthentication]
+(Int -&gt; ReadS DescribeWorkspaceAuthentication)
+-&gt; ReadS [DescribeWorkspaceAuthentication]
+-&gt; ReadPrec DescribeWorkspaceAuthentication
+-&gt; ReadPrec [DescribeWorkspaceAuthentication]
+-&gt; Read DescribeWorkspaceAuthentication
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeWorkspaceAuthentication]
+$creadListPrec :: ReadPrec [DescribeWorkspaceAuthentication]
+readPrec :: ReadPrec DescribeWorkspaceAuthentication
+$creadPrec :: ReadPrec DescribeWorkspaceAuthentication
+readList :: ReadS [DescribeWorkspaceAuthentication]
+$creadList :: ReadS [DescribeWorkspaceAuthentication]
+readsPrec :: Int -&gt; ReadS DescribeWorkspaceAuthentication
+$creadsPrec :: Int -&gt; ReadS DescribeWorkspaceAuthentication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188510"><span id="local-6989586621679188512"><span id="local-6989586621679188514"><span class="annot"><span class="annottext">Int -&gt; DescribeWorkspaceAuthentication -&gt; ShowS
+[DescribeWorkspaceAuthentication] -&gt; ShowS
+DescribeWorkspaceAuthentication -&gt; String
+(Int -&gt; DescribeWorkspaceAuthentication -&gt; ShowS)
+-&gt; (DescribeWorkspaceAuthentication -&gt; String)
+-&gt; ([DescribeWorkspaceAuthentication] -&gt; ShowS)
+-&gt; Show DescribeWorkspaceAuthentication
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeWorkspaceAuthentication] -&gt; ShowS
+$cshowList :: [DescribeWorkspaceAuthentication] -&gt; ShowS
+show :: DescribeWorkspaceAuthentication -&gt; String
+$cshow :: DescribeWorkspaceAuthentication -&gt; String
+showsPrec :: Int -&gt; DescribeWorkspaceAuthentication -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeWorkspaceAuthentication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeWorkspaceAuthentication
+ -&gt; Rep DescribeWorkspaceAuthentication x)
+-&gt; (forall x.
+    Rep DescribeWorkspaceAuthentication x
+    -&gt; DescribeWorkspaceAuthentication)
+-&gt; Generic DescribeWorkspaceAuthentication
+forall x.
+Rep DescribeWorkspaceAuthentication x
+-&gt; DescribeWorkspaceAuthentication
+forall x.
+DescribeWorkspaceAuthentication
+-&gt; Rep DescribeWorkspaceAuthentication x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeWorkspaceAuthentication x
+-&gt; DescribeWorkspaceAuthentication
+$cfrom :: forall x.
+DescribeWorkspaceAuthentication
+-&gt; Rep DescribeWorkspaceAuthentication x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DescribeWorkspaceAuthentication' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'workspaceId', 'describeWorkspaceAuthentication_workspaceId' - The ID of the workspace to return authentication information about.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#newDescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">newDescribeWorkspaceAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'workspaceId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span><span>
+</span><span id="line-70"></span><span id="newDescribeWorkspaceAuthentication"><span class="annot"><span class="annottext">newDescribeWorkspaceAuthentication :: Text -&gt; DescribeWorkspaceAuthentication
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#newDescribeWorkspaceAuthentication"><span class="hs-identifier hs-var hs-var">newDescribeWorkspaceAuthentication</span></a></span></span><span> </span><span id="local-6989586621679188505"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188505"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DescribeWorkspaceAuthentication' :: Text -&gt; DescribeWorkspaceAuthentication
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication%27"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workspaceId:DescribeWorkspaceAuthentication' :: Text
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#%24sel%3AworkspaceId%3ADescribeWorkspaceAuthentication%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188505"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The ID of the workspace to return authentication information about.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#describeWorkspaceAuthentication_workspaceId"><span class="hs-identifier hs-type">describeWorkspaceAuthentication_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="describeWorkspaceAuthentication_workspaceId"><span class="annot"><span class="annottext">describeWorkspaceAuthentication_workspaceId :: (Text -&gt; f Text)
+-&gt; DescribeWorkspaceAuthentication
+-&gt; f DescribeWorkspaceAuthentication
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#describeWorkspaceAuthentication_workspaceId"><span class="hs-identifier hs-var hs-var">describeWorkspaceAuthentication_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeWorkspaceAuthentication -&gt; Text)
+-&gt; (DescribeWorkspaceAuthentication
+    -&gt; Text -&gt; DescribeWorkspaceAuthentication)
+-&gt; Lens
+     DescribeWorkspaceAuthentication
+     DescribeWorkspaceAuthentication
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication%27"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188502"><span class="annot"><span class="annottext">Text
+workspaceId :: Text
+$sel:workspaceId:DescribeWorkspaceAuthentication' :: DescribeWorkspaceAuthentication -&gt; Text
+</span><a href="#local-6989586621679188502"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188502"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188501"><span class="annot"><span class="annottext">s :: DescribeWorkspaceAuthentication
+</span><a href="#local-6989586621679188501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication%27"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188500"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeWorkspaceAuthentication
+</span><a href="#local-6989586621679188501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:DescribeWorkspaceAuthentication' :: Text
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#%24sel%3AworkspaceId%3ADescribeWorkspaceAuthentication%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679188496"><span class="annot"><span class="annottext">request :: DescribeWorkspaceAuthentication
+-&gt; Request DescribeWorkspaceAuthentication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeWorkspaceAuthentication
+-&gt; Request DescribeWorkspaceAuthentication
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Grafana.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679188492"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeWorkspaceAuthentication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeWorkspaceAuthentication)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeWorkspaceAuthentication))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeWorkspaceAuthentication
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribeWorkspaceAuthentication)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188489"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188489"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679188488"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679188488"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679188487"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188487"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; AuthenticationDescription
+-&gt; DescribeWorkspaceAuthenticationResponse
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-var">DescribeWorkspaceAuthenticationResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; AuthenticationDescription
+ -&gt; DescribeWorkspaceAuthenticationResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (AuthenticationDescription
+      -&gt; DescribeWorkspaceAuthenticationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188489"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (AuthenticationDescription
+   -&gt; DescribeWorkspaceAuthenticationResponse)
+-&gt; Either String AuthenticationDescription
+-&gt; Either String DescribeWorkspaceAuthenticationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String AuthenticationDescription
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authentication&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679188479"><span id="local-6989586621679188481"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679188476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679188472"><span class="annot"><span class="annottext">toHeaders :: DescribeWorkspaceAuthentication -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeWorkspaceAuthentication -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679188466"><span class="annot"><span class="annottext">toPath :: DescribeWorkspaceAuthentication -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication%27"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188464"><span class="annot"><span class="annottext">Text
+workspaceId :: Text
+$sel:workspaceId:DescribeWorkspaceAuthentication' :: DescribeWorkspaceAuthentication -&gt; Text
+</span><a href="#local-6989586621679188464"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workspaces/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188464"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/authentication&quot;</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthentication"><span class="hs-identifier hs-type">DescribeWorkspaceAuthentication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679188460"><span class="annot"><span class="annottext">toQuery :: DescribeWorkspaceAuthentication -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeWorkspaceAuthentication -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDescribeWorkspaceAuthenticationResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679188457"><span id="local-6989586621679188458"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeWorkspaceAuthenticationResponse"><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-var">DescribeWorkspaceAuthenticationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeWorkspaceAuthenticationResponse%27"><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-var">DescribeWorkspaceAuthenticationResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeWorkspaceAuthenticationResponse%27"><span class="annot"><span class="annottext">DescribeWorkspaceAuthenticationResponse -&gt; Int
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#%24sel%3AhttpStatus%3ADescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | A structure containing information about the authentication methods used</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- in the workspace.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3Aauthentication%3ADescribeWorkspaceAuthenticationResponse%27"><span class="annot"><span class="annottext">DescribeWorkspaceAuthenticationResponse
+-&gt; AuthenticationDescription
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#%24sel%3Aauthentication%3ADescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-var hs-var">authentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.AuthenticationDescription.html#AuthenticationDescription"><span class="hs-identifier hs-type">AuthenticationDescription</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188451"><span id="local-6989586621679188453"><span class="annot"><span class="annottext">DescribeWorkspaceAuthenticationResponse
+-&gt; DescribeWorkspaceAuthenticationResponse -&gt; Bool
+(DescribeWorkspaceAuthenticationResponse
+ -&gt; DescribeWorkspaceAuthenticationResponse -&gt; Bool)
+-&gt; (DescribeWorkspaceAuthenticationResponse
+    -&gt; DescribeWorkspaceAuthenticationResponse -&gt; Bool)
+-&gt; Eq DescribeWorkspaceAuthenticationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeWorkspaceAuthenticationResponse
+-&gt; DescribeWorkspaceAuthenticationResponse -&gt; Bool
+$c/= :: DescribeWorkspaceAuthenticationResponse
+-&gt; DescribeWorkspaceAuthenticationResponse -&gt; Bool
+== :: DescribeWorkspaceAuthenticationResponse
+-&gt; DescribeWorkspaceAuthenticationResponse -&gt; Bool
+$c== :: DescribeWorkspaceAuthenticationResponse
+-&gt; DescribeWorkspaceAuthenticationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188443"><span id="local-6989586621679188445"><span id="local-6989586621679188447"><span id="local-6989586621679188449"><span class="annot"><span class="annottext">ReadPrec [DescribeWorkspaceAuthenticationResponse]
+ReadPrec DescribeWorkspaceAuthenticationResponse
+Int -&gt; ReadS DescribeWorkspaceAuthenticationResponse
+ReadS [DescribeWorkspaceAuthenticationResponse]
+(Int -&gt; ReadS DescribeWorkspaceAuthenticationResponse)
+-&gt; ReadS [DescribeWorkspaceAuthenticationResponse]
+-&gt; ReadPrec DescribeWorkspaceAuthenticationResponse
+-&gt; ReadPrec [DescribeWorkspaceAuthenticationResponse]
+-&gt; Read DescribeWorkspaceAuthenticationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeWorkspaceAuthenticationResponse]
+$creadListPrec :: ReadPrec [DescribeWorkspaceAuthenticationResponse]
+readPrec :: ReadPrec DescribeWorkspaceAuthenticationResponse
+$creadPrec :: ReadPrec DescribeWorkspaceAuthenticationResponse
+readList :: ReadS [DescribeWorkspaceAuthenticationResponse]
+$creadList :: ReadS [DescribeWorkspaceAuthenticationResponse]
+readsPrec :: Int -&gt; ReadS DescribeWorkspaceAuthenticationResponse
+$creadsPrec :: Int -&gt; ReadS DescribeWorkspaceAuthenticationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188437"><span id="local-6989586621679188439"><span id="local-6989586621679188441"><span class="annot"><span class="annottext">Int -&gt; DescribeWorkspaceAuthenticationResponse -&gt; ShowS
+[DescribeWorkspaceAuthenticationResponse] -&gt; ShowS
+DescribeWorkspaceAuthenticationResponse -&gt; String
+(Int -&gt; DescribeWorkspaceAuthenticationResponse -&gt; ShowS)
+-&gt; (DescribeWorkspaceAuthenticationResponse -&gt; String)
+-&gt; ([DescribeWorkspaceAuthenticationResponse] -&gt; ShowS)
+-&gt; Show DescribeWorkspaceAuthenticationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeWorkspaceAuthenticationResponse] -&gt; ShowS
+$cshowList :: [DescribeWorkspaceAuthenticationResponse] -&gt; ShowS
+show :: DescribeWorkspaceAuthenticationResponse -&gt; String
+$cshow :: DescribeWorkspaceAuthenticationResponse -&gt; String
+showsPrec :: Int -&gt; DescribeWorkspaceAuthenticationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeWorkspaceAuthenticationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeWorkspaceAuthenticationResponse
+ -&gt; Rep DescribeWorkspaceAuthenticationResponse x)
+-&gt; (forall x.
+    Rep DescribeWorkspaceAuthenticationResponse x
+    -&gt; DescribeWorkspaceAuthenticationResponse)
+-&gt; Generic DescribeWorkspaceAuthenticationResponse
+forall x.
+Rep DescribeWorkspaceAuthenticationResponse x
+-&gt; DescribeWorkspaceAuthenticationResponse
+forall x.
+DescribeWorkspaceAuthenticationResponse
+-&gt; Rep DescribeWorkspaceAuthenticationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeWorkspaceAuthenticationResponse x
+-&gt; DescribeWorkspaceAuthenticationResponse
+$cfrom :: forall x.
+DescribeWorkspaceAuthenticationResponse
+-&gt; Rep DescribeWorkspaceAuthenticationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'DescribeWorkspaceAuthenticationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'describeWorkspaceAuthenticationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'authentication', 'describeWorkspaceAuthenticationResponse_authentication' - A structure containing information about the authentication methods used</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- in the workspace.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#newDescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-type">newDescribeWorkspaceAuthenticationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'authentication'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.Types.AuthenticationDescription.html#AuthenticationDescription"><span class="hs-identifier hs-type">AuthenticationDescription</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newDescribeWorkspaceAuthenticationResponse"><span class="annot"><span class="annottext">newDescribeWorkspaceAuthenticationResponse :: Int
+-&gt; AuthenticationDescription
+-&gt; DescribeWorkspaceAuthenticationResponse
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#newDescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-var hs-var">newDescribeWorkspaceAuthenticationResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679188434"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679188433"><span class="annot"><span class="annottext">AuthenticationDescription
+</span><a href="#local-6989586621679188433"><span class="hs-identifier hs-var">pAuthentication_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">DescribeWorkspaceAuthenticationResponse' :: Int
+-&gt; AuthenticationDescription
+-&gt; DescribeWorkspaceAuthenticationResponse
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeWorkspaceAuthenticationResponse' :: Int
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#%24sel%3AhttpStatus%3ADescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:authentication:DescribeWorkspaceAuthenticationResponse' :: AuthenticationDescription
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#%24sel%3Aauthentication%3ADescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-var">authentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationDescription
+</span><a href="#local-6989586621679188433"><span class="hs-identifier hs-var">pAuthentication_</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#describeWorkspaceAuthenticationResponse_httpStatus"><span class="hs-identifier hs-type">describeWorkspaceAuthenticationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span id="describeWorkspaceAuthenticationResponse_httpStatus"><span class="annot"><span class="annottext">describeWorkspaceAuthenticationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeWorkspaceAuthenticationResponse
+-&gt; f DescribeWorkspaceAuthenticationResponse
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#describeWorkspaceAuthenticationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeWorkspaceAuthenticationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeWorkspaceAuthenticationResponse -&gt; Int)
+-&gt; (DescribeWorkspaceAuthenticationResponse
+    -&gt; Int -&gt; DescribeWorkspaceAuthenticationResponse)
+-&gt; Lens
+     DescribeWorkspaceAuthenticationResponse
+     DescribeWorkspaceAuthenticationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188432"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeWorkspaceAuthenticationResponse' :: DescribeWorkspaceAuthenticationResponse -&gt; Int
+</span><a href="#local-6989586621679188432"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188432"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188431"><span class="annot"><span class="annottext">s :: DescribeWorkspaceAuthenticationResponse
+</span><a href="#local-6989586621679188431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188430"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeWorkspaceAuthenticationResponse
+</span><a href="#local-6989586621679188431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeWorkspaceAuthenticationResponse' :: Int
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#%24sel%3AhttpStatus%3ADescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679188430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | A structure containing information about the authentication methods used</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- in the workspace.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#describeWorkspaceAuthenticationResponse_authentication"><span class="hs-identifier hs-type">describeWorkspaceAuthenticationResponse_authentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.AuthenticationDescription.html#AuthenticationDescription"><span class="hs-identifier hs-type">AuthenticationDescription</span></a></span><span>
+</span><span id="line-173"></span><span id="describeWorkspaceAuthenticationResponse_authentication"><span class="annot"><span class="annottext">describeWorkspaceAuthenticationResponse_authentication :: (AuthenticationDescription -&gt; f AuthenticationDescription)
+-&gt; DescribeWorkspaceAuthenticationResponse
+-&gt; f DescribeWorkspaceAuthenticationResponse
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#describeWorkspaceAuthenticationResponse_authentication"><span class="hs-identifier hs-var hs-var">describeWorkspaceAuthenticationResponse_authentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeWorkspaceAuthenticationResponse
+ -&gt; AuthenticationDescription)
+-&gt; (DescribeWorkspaceAuthenticationResponse
+    -&gt; AuthenticationDescription
+    -&gt; DescribeWorkspaceAuthenticationResponse)
+-&gt; Lens
+     DescribeWorkspaceAuthenticationResponse
+     DescribeWorkspaceAuthenticationResponse
+     AuthenticationDescription
+     AuthenticationDescription
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188429"><span class="annot"><span class="annottext">AuthenticationDescription
+authentication :: AuthenticationDescription
+$sel:authentication:DescribeWorkspaceAuthenticationResponse' :: DescribeWorkspaceAuthenticationResponse
+-&gt; AuthenticationDescription
+</span><a href="#local-6989586621679188429"><span class="hs-identifier hs-var hs-var">authentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationDescription
+</span><a href="#local-6989586621679188429"><span class="hs-identifier hs-var">authentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188428"><span class="annot"><span class="annottext">s :: DescribeWorkspaceAuthenticationResponse
+</span><a href="#local-6989586621679188428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188427"><span class="annot"><span class="annottext">AuthenticationDescription
+</span><a href="#local-6989586621679188427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeWorkspaceAuthenticationResponse
+</span><a href="#local-6989586621679188428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authentication:DescribeWorkspaceAuthenticationResponse' :: AuthenticationDescription
+</span><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#%24sel%3Aauthentication%3ADescribeWorkspaceAuthenticationResponse%27"><span class="hs-identifier hs-var">authentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AuthenticationDescription
+</span><a href="#local-6989586621679188427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679188425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.DescribeWorkspaceAuthentication.html#DescribeWorkspaceAuthenticationResponse"><span class="hs-identifier hs-type">DescribeWorkspaceAuthenticationResponse</span></a></span></span><span>
+</span><span id="line-178"></span></pre></body></html>

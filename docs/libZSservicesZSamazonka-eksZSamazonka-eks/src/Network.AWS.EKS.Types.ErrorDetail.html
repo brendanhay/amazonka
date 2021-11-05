@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing an error when an asynchronous operation fails.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newErrorDetail' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679265516"><span id="local-6989586621679265517"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDetail"><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-var">ErrorDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDetail%27"><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-var">ErrorDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679265525"><span id="local-6989586621679265526"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDetail"><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-var">ErrorDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDetail%27"><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-var">ErrorDetail'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional field that contains the resource IDs associated with the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- error.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AresourceIds%3AErrorDetail%27"><span class="annot"><span class="annottext">ErrorDetail -&gt; Maybe [Text]
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AerrorMessage%3AErrorDetail%27"><span class="annot"><span class="annottext">ErrorDetail -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.ErrorDetail.html#%24sel%3AerrorMessage%3AErrorDetail%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265508"><span id="local-6989586621679265510"><span class="annot"><span class="annottext">ErrorDetail -&gt; ErrorDetail -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265517"><span id="local-6989586621679265519"><span class="annot"><span class="annottext">ErrorDetail -&gt; ErrorDetail -&gt; Bool
 (ErrorDetail -&gt; ErrorDetail -&gt; Bool)
 -&gt; (ErrorDetail -&gt; ErrorDetail -&gt; Bool) -&gt; Eq ErrorDetail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ErrorDetail -&gt; ErrorDetail -&gt; Bool
 == :: ErrorDetail -&gt; ErrorDetail -&gt; Bool
 $c== :: ErrorDetail -&gt; ErrorDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265499"><span id="local-6989586621679265501"><span id="local-6989586621679265503"><span id="local-6989586621679265505"><span class="annot"><span class="annottext">ReadPrec [ErrorDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265508"><span id="local-6989586621679265510"><span id="local-6989586621679265512"><span id="local-6989586621679265514"><span class="annot"><span class="annottext">ReadPrec [ErrorDetail]
 ReadPrec ErrorDetail
 Int -&gt; ReadS ErrorDetail
 ReadS [ErrorDetail]
@@ -89,7 +89,7 @@ readList :: ReadS [ErrorDetail]
 $creadList :: ReadS [ErrorDetail]
 readsPrec :: Int -&gt; ReadS ErrorDetail
 $creadsPrec :: Int -&gt; ReadS ErrorDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265492"><span id="local-6989586621679265494"><span id="local-6989586621679265496"><span class="annot"><span class="annottext">Int -&gt; ErrorDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265501"><span id="local-6989586621679265503"><span id="local-6989586621679265505"><span class="annot"><span class="annottext">Int -&gt; ErrorDetail -&gt; ShowS
 [ErrorDetail] -&gt; ShowS
 ErrorDetail -&gt; String
 (Int -&gt; ErrorDetail -&gt; ShowS)
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; (ErrorDetail -&gt; Maybe [Text] -&gt; ErrorDetail)
 -&gt; Lens ErrorDetail ErrorDetail (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265483"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265492"><span class="annot"><span class="annottext">Maybe [Text]
 resourceIds :: Maybe [Text]
 $sel:resourceIds:ErrorDetail' :: ErrorDetail -&gt; Maybe [Text]
-</span><a href="#local-6989586621679265483"><span class="hs-identifier hs-var hs-var">resourceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265483"><span class="hs-identifier hs-var">resourceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265482"><span class="annot"><span class="annottext">s :: ErrorDetail
-</span><a href="#local-6989586621679265482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265481"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
-</span><a href="#local-6989586621679265482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIds:ErrorDetail' :: Maybe [Text]
+</span><a href="#local-6989586621679265492"><span class="hs-identifier hs-var hs-var">resourceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679265492"><span class="hs-identifier hs-var">resourceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265491"><span class="annot"><span class="annottext">s :: ErrorDetail
+</span><a href="#local-6989586621679265491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265490"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679265490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
+</span><a href="#local-6989586621679265491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIds:ErrorDetail' :: Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.ErrorDetail.html#%24sel%3AresourceIds%3AErrorDetail%27"><span class="hs-identifier hs-var">resourceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679265490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ErrorDetail -&gt; f ErrorDetail)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -236,16 +236,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ErrorDetail ErrorDetail (Maybe EKSErrorCode) (Maybe EKSErrorCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265476"><span class="annot"><span class="annottext">Maybe EKSErrorCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265485"><span class="annot"><span class="annottext">Maybe EKSErrorCode
 errorCode :: Maybe EKSErrorCode
 $sel:errorCode:ErrorDetail' :: ErrorDetail -&gt; Maybe EKSErrorCode
-</span><a href="#local-6989586621679265476"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EKSErrorCode
-</span><a href="#local-6989586621679265476"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265475"><span class="annot"><span class="annottext">s :: ErrorDetail
-</span><a href="#local-6989586621679265475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265474"><span class="annot"><span class="annottext">Maybe EKSErrorCode
-</span><a href="#local-6989586621679265474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
-</span><a href="#local-6989586621679265475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:ErrorDetail' :: Maybe EKSErrorCode
+</span><a href="#local-6989586621679265485"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EKSErrorCode
+</span><a href="#local-6989586621679265485"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265484"><span class="annot"><span class="annottext">s :: ErrorDetail
+</span><a href="#local-6989586621679265484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265483"><span class="annot"><span class="annottext">Maybe EKSErrorCode
+</span><a href="#local-6989586621679265483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
+</span><a href="#local-6989586621679265484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:ErrorDetail' :: Maybe EKSErrorCode
 </span><a href="Network.AWS.EKS.Types.ErrorDetail.html#%24sel%3AerrorCode%3AErrorDetail%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EKSErrorCode
-</span><a href="#local-6989586621679265474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | A more complete description of the error.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#errorDetail_errorMessage"><span class="hs-identifier hs-type">errorDetail_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -254,19 +254,19 @@ $sel:errorCode:ErrorDetail' :: ErrorDetail -&gt; Maybe EKSErrorCode
 -&gt; (ErrorDetail -&gt; Maybe Text -&gt; ErrorDetail)
 -&gt; Lens ErrorDetail ErrorDetail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265472"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265481"><span class="annot"><span class="annottext">Maybe Text
 errorMessage :: Maybe Text
 $sel:errorMessage:ErrorDetail' :: ErrorDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679265472"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265472"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265471"><span class="annot"><span class="annottext">s :: ErrorDetail
-</span><a href="#local-6989586621679265471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265470"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
-</span><a href="#local-6989586621679265471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:ErrorDetail' :: Maybe Text
+</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265480"><span class="annot"><span class="annottext">s :: ErrorDetail
+</span><a href="#local-6989586621679265480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-type">ErrorDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDetail
+</span><a href="#local-6989586621679265480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:ErrorDetail' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.ErrorDetail.html#%24sel%3AerrorMessage%3AErrorDetail%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265467"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679265465"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorDetail
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265476"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679265474"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ErrorDetail) -&gt; Value -&gt; Parser ErrorDetail
@@ -274,8 +274,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ErrorDetail&quot;</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265462"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265462"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265471"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265471"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe EKSErrorCode -&gt; Maybe Text -&gt; ErrorDetail
 </span><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail%27"><span class="hs-identifier hs-var">ErrorDetail'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe EKSErrorCode -&gt; Maybe Text -&gt; ErrorDetail)
@@ -283,7 +283,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe EKSErrorCode -&gt; Maybe Text -&gt; ErrorDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679265471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -297,7 +297,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; ErrorDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EKSErrorCode)
+</span><a href="#local-6989586621679265471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EKSErrorCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -305,13 +305,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ErrorDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679265471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265455"><span id="local-6989586621679265457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265464"><span id="local-6989586621679265466"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

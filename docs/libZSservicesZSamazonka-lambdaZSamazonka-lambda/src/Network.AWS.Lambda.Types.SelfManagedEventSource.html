@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The self-managed Apache Kafka cluster for your event source.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSelfManagedEventSource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679298891"><span id="local-6989586621679298892"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelfManagedEventSource"><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-var">SelfManagedEventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelfManagedEventSource%27"><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource%27"><span class="hs-identifier hs-var">SelfManagedEventSource'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679298900"><span id="local-6989586621679298901"></span></span><span class="hs-keyword">data</span><span> </span><span id="SelfManagedEventSource"><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-var">SelfManagedEventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SelfManagedEventSource%27"><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource%27"><span class="hs-identifier hs-var">SelfManagedEventSource'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of bootstrap servers for your Kafka brokers in the following</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- format:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @\&quot;KAFKA_BOOTSTRAP_SERVERS\&quot;: [\&quot;abc.xyz.com:xxxx\&quot;,\&quot;abc2.xyz.com:xxxx\&quot;]@.</span><span>
@@ -35,7 +35,7 @@
 -&gt; Maybe (HashMap EndPointType (NonEmpty Text))
 </span><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#%24sel%3Aendpoints%3ASelfManagedEventSource%27"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EndPointType.html#EndPointType"><span class="hs-identifier hs-type">EndPointType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298885"><span id="local-6989586621679298887"><span class="annot"><span class="annottext">SelfManagedEventSource -&gt; SelfManagedEventSource -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298894"><span id="local-6989586621679298896"><span class="annot"><span class="annottext">SelfManagedEventSource -&gt; SelfManagedEventSource -&gt; Bool
 (SelfManagedEventSource -&gt; SelfManagedEventSource -&gt; Bool)
 -&gt; (SelfManagedEventSource -&gt; SelfManagedEventSource -&gt; Bool)
 -&gt; Eq SelfManagedEventSource
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SelfManagedEventSource -&gt; SelfManagedEventSource -&gt; Bool
 == :: SelfManagedEventSource -&gt; SelfManagedEventSource -&gt; Bool
 $c== :: SelfManagedEventSource -&gt; SelfManagedEventSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298876"><span id="local-6989586621679298878"><span id="local-6989586621679298880"><span id="local-6989586621679298882"><span class="annot"><span class="annottext">ReadPrec [SelfManagedEventSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298885"><span id="local-6989586621679298887"><span id="local-6989586621679298889"><span id="local-6989586621679298891"><span class="annot"><span class="annottext">ReadPrec [SelfManagedEventSource]
 ReadPrec SelfManagedEventSource
 Int -&gt; ReadS SelfManagedEventSource
 ReadS [SelfManagedEventSource]
@@ -64,7 +64,7 @@ readList :: ReadS [SelfManagedEventSource]
 $creadList :: ReadS [SelfManagedEventSource]
 readsPrec :: Int -&gt; ReadS SelfManagedEventSource
 $creadsPrec :: Int -&gt; ReadS SelfManagedEventSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298869"><span id="local-6989586621679298871"><span id="local-6989586621679298873"><span class="annot"><span class="annottext">Int -&gt; SelfManagedEventSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298878"><span id="local-6989586621679298880"><span id="local-6989586621679298882"><span class="annot"><span class="annottext">Int -&gt; SelfManagedEventSource -&gt; ShowS
 [SelfManagedEventSource] -&gt; ShowS
 SelfManagedEventSource -&gt; String
 (Int -&gt; SelfManagedEventSource -&gt; ShowS)
@@ -134,17 +134,17 @@ forall a. Maybe a
      (Maybe (HashMap EndPointType (NonEmpty Text)))
      (Maybe (HashMap EndPointType (NonEmpty Text)))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource%27"><span class="hs-identifier hs-type">SelfManagedEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298860"><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource%27"><span class="hs-identifier hs-type">SelfManagedEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298869"><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
 endpoints :: Maybe (HashMap EndPointType (NonEmpty Text))
 $sel:endpoints:SelfManagedEventSource' :: SelfManagedEventSource
 -&gt; Maybe (HashMap EndPointType (NonEmpty Text))
-</span><a href="#local-6989586621679298860"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
-</span><a href="#local-6989586621679298860"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298859"><span class="annot"><span class="annottext">s :: SelfManagedEventSource
-</span><a href="#local-6989586621679298859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource%27"><span class="hs-identifier hs-type">SelfManagedEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298858"><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
-</span><a href="#local-6989586621679298858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelfManagedEventSource
-</span><a href="#local-6989586621679298859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoints:SelfManagedEventSource' :: Maybe (HashMap EndPointType (NonEmpty Text))
+</span><a href="#local-6989586621679298869"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
+</span><a href="#local-6989586621679298869"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298868"><span class="annot"><span class="annottext">s :: SelfManagedEventSource
+</span><a href="#local-6989586621679298868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource%27"><span class="hs-identifier hs-type">SelfManagedEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298867"><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
+</span><a href="#local-6989586621679298867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SelfManagedEventSource
+</span><a href="#local-6989586621679298868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoints:SelfManagedEventSource' :: Maybe (HashMap EndPointType (NonEmpty Text))
 </span><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#%24sel%3Aendpoints%3ASelfManagedEventSource%27"><span class="hs-identifier hs-var">endpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
-</span><a href="#local-6989586621679298858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap EndPointType (NonEmpty Text))
+</span><a href="#local-6989586621679298867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap EndPointType (NonEmpty Text))
   -&gt; f (Maybe (HashMap EndPointType (NonEmpty Text))))
  -&gt; SelfManagedEventSource -&gt; f SelfManagedEventSource)
 -&gt; ((Maybe (HashMap EndPointType (NonEmpty Text))
@@ -177,8 +177,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298852"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679298850"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SelfManagedEventSource
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298861"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679298859"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SelfManagedEventSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SelfManagedEventSource)
@@ -188,8 +188,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SelfManagedEventSource&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298847"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298856"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298856"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
 -&gt; SelfManagedEventSource
 </span><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource%27"><span class="hs-identifier hs-var">SelfManagedEventSource'</span></a></span><span>
@@ -199,7 +199,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser SelfManagedEventSource
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe (HashMap EndPointType (NonEmpty Text))))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -213,17 +213,17 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298840"><span id="local-6989586621679298842"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298849"><span id="local-6989586621679298851"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298846"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298829"><span id="local-6989586621679298831"><span id="local-6989586621679298833"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679298827"><span class="annot"><span class="annottext">toJSON :: SelfManagedEventSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource%27"><span class="hs-identifier hs-type">SelfManagedEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298825"><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298838"><span id="local-6989586621679298840"><span id="local-6989586621679298842"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource"><span class="hs-identifier hs-type">SelfManagedEventSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679298836"><span class="annot"><span class="annottext">toJSON :: SelfManagedEventSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.SelfManagedEventSource.html#SelfManagedEventSource%27"><span class="hs-identifier hs-type">SelfManagedEventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298834"><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
 endpoints :: Maybe (HashMap EndPointType (NonEmpty Text))
 $sel:endpoints:SelfManagedEventSource' :: SelfManagedEventSource
 -&gt; Maybe (HashMap EndPointType (NonEmpty Text))
-</span><a href="#local-6989586621679298825"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679298834"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -236,6 +236,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap EndPointType (NonEmpty Text)) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap EndPointType (NonEmpty Text))
-</span><a href="#local-6989586621679298825"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679298834"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

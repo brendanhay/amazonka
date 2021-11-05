@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- components of a pipeline defines the pipeline.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPipelineObject' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679175932"><span id="local-6989586621679175933"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineObject"><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-var">PipelineObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineObject%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-var">PipelineObject'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679175941"><span id="local-6989586621679175942"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineObject"><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-var">PipelineObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineObject%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-var">PipelineObject'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the object.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aid%3APipelineObject%27"><span class="annot"><span class="annottext">PipelineObject -&gt; Text
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#%24sel%3Aid%3APipelineObject%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Afields%3APipelineObject%27"><span class="annot"><span class="annottext">PipelineObject -&gt; [Field]
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#%24sel%3Afields%3APipelineObject%27"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Field.html#Field"><span class="hs-identifier hs-type">Field</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175924"><span id="local-6989586621679175926"><span class="annot"><span class="annottext">PipelineObject -&gt; PipelineObject -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175933"><span id="local-6989586621679175935"><span class="annot"><span class="annottext">PipelineObject -&gt; PipelineObject -&gt; Bool
 (PipelineObject -&gt; PipelineObject -&gt; Bool)
 -&gt; (PipelineObject -&gt; PipelineObject -&gt; Bool) -&gt; Eq PipelineObject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PipelineObject -&gt; PipelineObject -&gt; Bool
 == :: PipelineObject -&gt; PipelineObject -&gt; Bool
 $c== :: PipelineObject -&gt; PipelineObject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175915"><span id="local-6989586621679175917"><span id="local-6989586621679175919"><span id="local-6989586621679175921"><span class="annot"><span class="annottext">ReadPrec [PipelineObject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175924"><span id="local-6989586621679175926"><span id="local-6989586621679175928"><span id="local-6989586621679175930"><span class="annot"><span class="annottext">ReadPrec [PipelineObject]
 ReadPrec PipelineObject
 Int -&gt; ReadS PipelineObject
 ReadS [PipelineObject]
@@ -68,7 +68,7 @@ readList :: ReadS [PipelineObject]
 $creadList :: ReadS [PipelineObject]
 readsPrec :: Int -&gt; ReadS PipelineObject
 $creadsPrec :: Int -&gt; ReadS PipelineObject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175908"><span id="local-6989586621679175910"><span id="local-6989586621679175912"><span class="annot"><span class="annottext">Int -&gt; PipelineObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175917"><span id="local-6989586621679175919"><span id="local-6989586621679175921"><span class="annot"><span class="annottext">Int -&gt; PipelineObject -&gt; ShowS
 [PipelineObject] -&gt; ShowS
 PipelineObject -&gt; String
 (Int -&gt; PipelineObject -&gt; ShowS)
@@ -114,17 +114,17 @@ $cfrom :: forall x. PipelineObject -&gt; Rep PipelineObject x
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span>
 </span><span id="line-61"></span><span id="newPipelineObject"><span class="annot"><span class="annottext">newPipelineObject :: Text -&gt; Text -&gt; PipelineObject
-</span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#newPipelineObject"><span class="hs-identifier hs-var hs-var">newPipelineObject</span></a></span></span><span> </span><span id="local-6989586621679175902"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175902"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679175901"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175901"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#newPipelineObject"><span class="hs-identifier hs-var hs-var">newPipelineObject</span></a></span></span><span> </span><span id="local-6989586621679175911"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175911"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679175910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175910"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">PipelineObject' :: Text -&gt; Text -&gt; [Field] -&gt; PipelineObject
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:PipelineObject' :: Text
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#%24sel%3Aid%3APipelineObject%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175902"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175911"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:PipelineObject' :: Text
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#%24sel%3Aname%3APipelineObject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175901"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175910"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:fields:PipelineObject' :: [Field]
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#%24sel%3Afields%3APipelineObject%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Field]
 forall a. Monoid a =&gt; a
@@ -138,16 +138,16 @@ forall a. Monoid a =&gt; a
 -&gt; (PipelineObject -&gt; Text -&gt; PipelineObject)
 -&gt; Lens PipelineObject PipelineObject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175897"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175906"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:PipelineObject' :: PipelineObject -&gt; Text
-</span><a href="#local-6989586621679175897"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175897"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175896"><span class="annot"><span class="annottext">s :: PipelineObject
-</span><a href="#local-6989586621679175896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175895"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineObject
-</span><a href="#local-6989586621679175896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PipelineObject' :: Text
+</span><a href="#local-6989586621679175906"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175906"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175905"><span class="annot"><span class="annottext">s :: PipelineObject
+</span><a href="#local-6989586621679175905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineObject
+</span><a href="#local-6989586621679175905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PipelineObject' :: Text
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#%24sel%3Aid%3APipelineObject%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the object.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#pipelineObject_name"><span class="hs-identifier hs-type">pipelineObject_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -156,16 +156,16 @@ $sel:id:PipelineObject' :: PipelineObject -&gt; Text
 -&gt; (PipelineObject -&gt; Text -&gt; PipelineObject)
 -&gt; Lens PipelineObject PipelineObject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175893"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175902"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:PipelineObject' :: PipelineObject -&gt; Text
-</span><a href="#local-6989586621679175893"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175893"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175892"><span class="annot"><span class="annottext">s :: PipelineObject
-</span><a href="#local-6989586621679175892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175891"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineObject
-</span><a href="#local-6989586621679175892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PipelineObject' :: Text
+</span><a href="#local-6989586621679175902"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175902"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175901"><span class="annot"><span class="annottext">s :: PipelineObject
+</span><a href="#local-6989586621679175901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175900"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineObject
+</span><a href="#local-6989586621679175901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PipelineObject' :: Text
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#%24sel%3Aname%3APipelineObject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Key-value pairs that define the properties of the object.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#pipelineObject_fields"><span class="hs-identifier hs-type">pipelineObject_fields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Field.html#Field"><span class="hs-identifier hs-type">Field</span></a></span><span class="hs-special">]</span><span>
@@ -174,16 +174,16 @@ $sel:name:PipelineObject' :: PipelineObject -&gt; Text
 -&gt; (PipelineObject -&gt; [Field] -&gt; PipelineObject)
 -&gt; Lens PipelineObject PipelineObject [Field] [Field]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175889"><span class="annot"><span class="annottext">[Field]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175898"><span class="annot"><span class="annottext">[Field]
 fields :: [Field]
 $sel:fields:PipelineObject' :: PipelineObject -&gt; [Field]
-</span><a href="#local-6989586621679175889"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Field]
-</span><a href="#local-6989586621679175889"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175888"><span class="annot"><span class="annottext">s :: PipelineObject
-</span><a href="#local-6989586621679175888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175887"><span class="annot"><span class="annottext">[Field]
-</span><a href="#local-6989586621679175887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineObject
-</span><a href="#local-6989586621679175888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fields:PipelineObject' :: [Field]
+</span><a href="#local-6989586621679175898"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Field]
+</span><a href="#local-6989586621679175898"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175897"><span class="annot"><span class="annottext">s :: PipelineObject
+</span><a href="#local-6989586621679175897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175896"><span class="annot"><span class="annottext">[Field]
+</span><a href="#local-6989586621679175896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineObject
+</span><a href="#local-6989586621679175897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fields:PipelineObject' :: [Field]
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#%24sel%3Afields%3APipelineObject%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Field]
-</span><a href="#local-6989586621679175887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Field] -&gt; f [Field]) -&gt; PipelineObject -&gt; f PipelineObject)
+</span><a href="#local-6989586621679175896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Field] -&gt; f [Field]) -&gt; PipelineObject -&gt; f PipelineObject)
 -&gt; (([Field] -&gt; f [Field]) -&gt; [Field] -&gt; f [Field])
 -&gt; ([Field] -&gt; f [Field])
 -&gt; PipelineObject
@@ -193,8 +193,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175882"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679175880"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineObject
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175891"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679175889"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineObject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelineObject)
@@ -204,15 +204,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelineObject&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175877"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175877"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175886"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; [Field] -&gt; PipelineObject
 </span><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-var">PipelineObject'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; [Field] -&gt; PipelineObject)
 -&gt; Parser Text -&gt; Parser (Text -&gt; [Field] -&gt; PipelineObject)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679175886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
@@ -220,7 +220,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ([Field] -&gt; PipelineObject)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679175886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -228,7 +228,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [Field] -&gt; Parser PipelineObject
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Field])
+</span><a href="#local-6989586621679175886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Field])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Field]) -&gt; [Field] -&gt; Parser [Field]
@@ -238,13 +238,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175869"><span id="local-6989586621679175871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175878"><span id="local-6989586621679175880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175858"><span id="local-6989586621679175860"><span id="local-6989586621679175862"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679175856"><span class="annot"><span class="annottext">toJSON :: PipelineObject -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175852"><span id="local-6989586621679175853"><span id="local-6989586621679175854"><span class="annot"><span class="annottext">[Field]
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175867"><span id="local-6989586621679175869"><span id="local-6989586621679175871"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679175865"><span class="annot"><span class="annottext">toJSON :: PipelineObject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject%27"><span class="hs-identifier hs-type">PipelineObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175861"><span id="local-6989586621679175862"><span id="local-6989586621679175863"><span class="annot"><span class="annottext">[Field]
 Text
 fields :: [Field]
 name :: Text
@@ -252,7 +252,7 @@ id :: Text
 $sel:fields:PipelineObject' :: PipelineObject -&gt; [Field]
 $sel:name:PipelineObject' :: PipelineObject -&gt; Text
 $sel:id:PipelineObject' :: PipelineObject -&gt; Text
-</span><a href="#local-6989586621679175852"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175861"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,21 +264,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175854"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175863"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175853"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175862"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Field] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Field]
-</span><a href="#local-6989586621679175852"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175861"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

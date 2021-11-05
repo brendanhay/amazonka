@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-comment">-- | A request to delete the ClientCertificate resource.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newDeleteClientCertificate' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679389534"><span id="local-6989586621679389535"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClientCertificate"><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-var">DeleteClientCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClientCertificate%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate%27"><span class="hs-identifier hs-var">DeleteClientCertificate'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679389543"><span id="local-6989586621679389544"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClientCertificate"><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-var">DeleteClientCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClientCertificate%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate%27"><span class="hs-identifier hs-var">DeleteClientCertificate'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The identifier of the ClientCertificate resource to be</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- deleted.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AclientCertificateId%3ADeleteClientCertificate%27"><span class="annot"><span class="annottext">DeleteClientCertificate -&gt; Text
 </span><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#%24sel%3AclientCertificateId%3ADeleteClientCertificate%27"><span class="hs-identifier hs-var hs-var">clientCertificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389528"><span id="local-6989586621679389530"><span class="annot"><span class="annottext">DeleteClientCertificate -&gt; DeleteClientCertificate -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389537"><span id="local-6989586621679389539"><span class="annot"><span class="annottext">DeleteClientCertificate -&gt; DeleteClientCertificate -&gt; Bool
 (DeleteClientCertificate -&gt; DeleteClientCertificate -&gt; Bool)
 -&gt; (DeleteClientCertificate -&gt; DeleteClientCertificate -&gt; Bool)
 -&gt; Eq DeleteClientCertificate
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteClientCertificate -&gt; DeleteClientCertificate -&gt; Bool
 == :: DeleteClientCertificate -&gt; DeleteClientCertificate -&gt; Bool
 $c== :: DeleteClientCertificate -&gt; DeleteClientCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389519"><span id="local-6989586621679389521"><span id="local-6989586621679389523"><span id="local-6989586621679389525"><span class="annot"><span class="annottext">ReadPrec [DeleteClientCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389528"><span id="local-6989586621679389530"><span id="local-6989586621679389532"><span id="local-6989586621679389534"><span class="annot"><span class="annottext">ReadPrec [DeleteClientCertificate]
 ReadPrec DeleteClientCertificate
 Int -&gt; ReadS DeleteClientCertificate
 ReadS [DeleteClientCertificate]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteClientCertificate]
 $creadList :: ReadS [DeleteClientCertificate]
 readsPrec :: Int -&gt; ReadS DeleteClientCertificate
 $creadsPrec :: Int -&gt; ReadS DeleteClientCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389512"><span id="local-6989586621679389514"><span id="local-6989586621679389516"><span class="annot"><span class="annottext">Int -&gt; DeleteClientCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389521"><span id="local-6989586621679389523"><span id="local-6989586621679389525"><span class="annot"><span class="annottext">Int -&gt; DeleteClientCertificate -&gt; ShowS
 [DeleteClientCertificate] -&gt; ShowS
 DeleteClientCertificate -&gt; String
 (Int -&gt; DeleteClientCertificate -&gt; ShowS)
@@ -123,14 +123,14 @@ $cfrom :: forall x. DeleteClientCertificate -&gt; Rep DeleteClientCertificate x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteClientCertificate"><span class="annot"><span class="annottext">newDeleteClientCertificate :: Text -&gt; DeleteClientCertificate
-</span><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#newDeleteClientCertificate"><span class="hs-identifier hs-var hs-var">newDeleteClientCertificate</span></a></span></span><span> </span><span id="local-6989586621679389507"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389507"><span class="hs-identifier hs-var">pClientCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#newDeleteClientCertificate"><span class="hs-identifier hs-var hs-var">newDeleteClientCertificate</span></a></span></span><span> </span><span id="local-6989586621679389516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389516"><span class="hs-identifier hs-var">pClientCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteClientCertificate' :: Text -&gt; DeleteClientCertificate
 </span><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate%27"><span class="hs-identifier hs-type">DeleteClientCertificate'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientCertificateId:DeleteClientCertificate' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#%24sel%3AclientCertificateId%3ADeleteClientCertificate%27"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389507"><span class="hs-identifier hs-var">pClientCertificateId_</span></a></span><span>
+</span><a href="#local-6989586621679389516"><span class="hs-identifier hs-var">pClientCertificateId_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | [Required] The identifier of the ClientCertificate resource to be</span><span>
@@ -142,28 +142,28 @@ $cfrom :: forall x. DeleteClientCertificate -&gt; Rep DeleteClientCertificate x
 -&gt; (DeleteClientCertificate -&gt; Text -&gt; DeleteClientCertificate)
 -&gt; Lens DeleteClientCertificate DeleteClientCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate%27"><span class="hs-identifier hs-type">DeleteClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389504"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate%27"><span class="hs-identifier hs-type">DeleteClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389513"><span class="annot"><span class="annottext">Text
 clientCertificateId :: Text
 $sel:clientCertificateId:DeleteClientCertificate' :: DeleteClientCertificate -&gt; Text
-</span><a href="#local-6989586621679389504"><span class="hs-identifier hs-var hs-var">clientCertificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389504"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389503"><span class="annot"><span class="annottext">s :: DeleteClientCertificate
-</span><a href="#local-6989586621679389503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate%27"><span class="hs-identifier hs-type">DeleteClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389502"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClientCertificate
-</span><a href="#local-6989586621679389503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientCertificateId:DeleteClientCertificate' :: Text
+</span><a href="#local-6989586621679389513"><span class="hs-identifier hs-var hs-var">clientCertificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389513"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389512"><span class="annot"><span class="annottext">s :: DeleteClientCertificate
+</span><a href="#local-6989586621679389512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate%27"><span class="hs-identifier hs-type">DeleteClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389511"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClientCertificate
+</span><a href="#local-6989586621679389512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientCertificateId:DeleteClientCertificate' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#%24sel%3AclientCertificateId%3ADeleteClientCertificate%27"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificateResponse"><span class="hs-identifier hs-type">DeleteClientCertificateResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679389498"><span class="annot"><span class="annottext">request :: DeleteClientCertificate -&gt; Request DeleteClientCertificate
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679389507"><span class="annot"><span class="annottext">request :: DeleteClientCertificate -&gt; Request DeleteClientCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteClientCertificate -&gt; Request DeleteClientCertificate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679389494"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679389503"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteClientCertificate
 -&gt; ClientResponse ClientBody
@@ -190,12 +190,12 @@ AWSResponse a
 DeleteClientCertificateResponse
 </span><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificateResponse%27"><span class="hs-identifier hs-var">DeleteClientCertificateResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389487"><span id="local-6989586621679389489"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389496"><span id="local-6989586621679389498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389484"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679389480"><span class="annot"><span class="annottext">toHeaders :: DeleteClientCertificate -&gt; [Header]
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679389489"><span class="annot"><span class="annottext">toHeaders :: DeleteClientCertificate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteClientCertificate -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -213,11 +213,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679389474"><span class="annot"><span class="annottext">toPath :: DeleteClientCertificate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate%27"><span class="hs-identifier hs-type">DeleteClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389472"><span class="annot"><span class="annottext">Text
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679389483"><span class="annot"><span class="annottext">toPath :: DeleteClientCertificate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate%27"><span class="hs-identifier hs-type">DeleteClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389481"><span class="annot"><span class="annottext">Text
 clientCertificateId :: Text
 $sel:clientCertificateId:DeleteClientCertificate' :: DeleteClientCertificate -&gt; Text
-</span><a href="#local-6989586621679389472"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389481"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -226,11 +226,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389472"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span>
+</span><a href="#local-6989586621679389481"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificate"><span class="hs-identifier hs-type">DeleteClientCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679389468"><span class="annot"><span class="annottext">toQuery :: DeleteClientCertificate -&gt; QueryString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679389477"><span class="annot"><span class="annottext">toQuery :: DeleteClientCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteClientCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -238,10 +238,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | /See:/ 'newDeleteClientCertificateResponse' smart constructor.</span><span>
-</span><span id="line-113"></span><span id="local-6989586621679389465"><span id="local-6989586621679389466"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClientCertificateResponse"><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificateResponse"><span class="hs-identifier hs-var">DeleteClientCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClientCertificateResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificateResponse%27"><span class="hs-identifier hs-var">DeleteClientCertificateResponse'</span></a></span></span><span>
+</span><span id="line-113"></span><span id="local-6989586621679389474"><span id="local-6989586621679389475"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClientCertificateResponse"><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificateResponse"><span class="hs-identifier hs-var">DeleteClientCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClientCertificateResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificateResponse%27"><span class="hs-identifier hs-var">DeleteClientCertificateResponse'</span></a></span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389461"><span id="local-6989586621679389463"><span class="annot"><span class="annottext">DeleteClientCertificateResponse
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389470"><span id="local-6989586621679389472"><span class="annot"><span class="annottext">DeleteClientCertificateResponse
 -&gt; DeleteClientCertificateResponse -&gt; Bool
 (DeleteClientCertificateResponse
  -&gt; DeleteClientCertificateResponse -&gt; Bool)
@@ -257,7 +257,7 @@ $c/= :: DeleteClientCertificateResponse
 -&gt; DeleteClientCertificateResponse -&gt; Bool
 $c== :: DeleteClientCertificateResponse
 -&gt; DeleteClientCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389453"><span id="local-6989586621679389455"><span id="local-6989586621679389457"><span id="local-6989586621679389459"><span class="annot"><span class="annottext">ReadPrec [DeleteClientCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389462"><span id="local-6989586621679389464"><span id="local-6989586621679389466"><span id="local-6989586621679389468"><span class="annot"><span class="annottext">ReadPrec [DeleteClientCertificateResponse]
 ReadPrec DeleteClientCertificateResponse
 Int -&gt; ReadS DeleteClientCertificateResponse
 ReadS [DeleteClientCertificateResponse]
@@ -277,7 +277,7 @@ readList :: ReadS [DeleteClientCertificateResponse]
 $creadList :: ReadS [DeleteClientCertificateResponse]
 readsPrec :: Int -&gt; ReadS DeleteClientCertificateResponse
 $creadsPrec :: Int -&gt; ReadS DeleteClientCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389447"><span id="local-6989586621679389449"><span id="local-6989586621679389451"><span class="annot"><span class="annottext">Int -&gt; DeleteClientCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389456"><span id="local-6989586621679389458"><span id="local-6989586621679389460"><span class="annot"><span class="annottext">Int -&gt; DeleteClientCertificateResponse -&gt; ShowS
 [DeleteClientCertificateResponse] -&gt; ShowS
 DeleteClientCertificateResponse -&gt; String
 (Int -&gt; DeleteClientCertificateResponse -&gt; ShowS)
@@ -327,6 +327,6 @@ DeleteClientCertificateResponse
 </span><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificateResponse%27"><span class="hs-identifier hs-var">DeleteClientCertificateResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679389443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679389452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteClientCertificate.html#DeleteClientCertificateResponse"><span class="hs-identifier hs-type">DeleteClientCertificateResponse</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

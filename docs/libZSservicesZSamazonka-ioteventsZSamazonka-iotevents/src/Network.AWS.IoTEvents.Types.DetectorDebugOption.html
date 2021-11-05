@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEvents.Types.DetectorDebugOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEvents.Types.DetectorDebugOption</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The detector model and the specific detectors (instances) for which the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- logging level is given.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDetectorDebugOption' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679239716"><span id="local-6989586621679239717"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectorDebugOption"><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-var">DetectorDebugOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectorDebugOption%27"><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption%27"><span class="hs-identifier hs-var">DetectorDebugOption'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the input attribute key used to create the detector (the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- instance of the detector model).</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AkeyValue%3ADetectorDebugOption%27"><span class="annot"><span class="annottext">DetectorDebugOption -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#%24sel%3AkeyValue%3ADetectorDebugOption%27"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the detector model.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdetectorModelName%3ADetectorDebugOption%27"><span class="annot"><span class="annottext">DetectorDebugOption -&gt; Text
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#%24sel%3AdetectorModelName%3ADetectorDebugOption%27"><span class="hs-identifier hs-var hs-var">detectorModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239709"><span id="local-6989586621679239711"><span class="annot"><span class="annottext">DetectorDebugOption -&gt; DetectorDebugOption -&gt; Bool
+(DetectorDebugOption -&gt; DetectorDebugOption -&gt; Bool)
+-&gt; (DetectorDebugOption -&gt; DetectorDebugOption -&gt; Bool)
+-&gt; Eq DetectorDebugOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectorDebugOption -&gt; DetectorDebugOption -&gt; Bool
+$c/= :: DetectorDebugOption -&gt; DetectorDebugOption -&gt; Bool
+== :: DetectorDebugOption -&gt; DetectorDebugOption -&gt; Bool
+$c== :: DetectorDebugOption -&gt; DetectorDebugOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239700"><span id="local-6989586621679239702"><span id="local-6989586621679239704"><span id="local-6989586621679239706"><span class="annot"><span class="annottext">ReadPrec [DetectorDebugOption]
+ReadPrec DetectorDebugOption
+Int -&gt; ReadS DetectorDebugOption
+ReadS [DetectorDebugOption]
+(Int -&gt; ReadS DetectorDebugOption)
+-&gt; ReadS [DetectorDebugOption]
+-&gt; ReadPrec DetectorDebugOption
+-&gt; ReadPrec [DetectorDebugOption]
+-&gt; Read DetectorDebugOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DetectorDebugOption]
+$creadListPrec :: ReadPrec [DetectorDebugOption]
+readPrec :: ReadPrec DetectorDebugOption
+$creadPrec :: ReadPrec DetectorDebugOption
+readList :: ReadS [DetectorDebugOption]
+$creadList :: ReadS [DetectorDebugOption]
+readsPrec :: Int -&gt; ReadS DetectorDebugOption
+$creadsPrec :: Int -&gt; ReadS DetectorDebugOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239693"><span id="local-6989586621679239695"><span id="local-6989586621679239697"><span class="annot"><span class="annottext">Int -&gt; DetectorDebugOption -&gt; ShowS
+[DetectorDebugOption] -&gt; ShowS
+DetectorDebugOption -&gt; String
+(Int -&gt; DetectorDebugOption -&gt; ShowS)
+-&gt; (DetectorDebugOption -&gt; String)
+-&gt; ([DetectorDebugOption] -&gt; ShowS)
+-&gt; Show DetectorDebugOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectorDebugOption] -&gt; ShowS
+$cshowList :: [DetectorDebugOption] -&gt; ShowS
+show :: DetectorDebugOption -&gt; String
+$cshow :: DetectorDebugOption -&gt; String
+showsPrec :: Int -&gt; DetectorDebugOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectorDebugOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DetectorDebugOption -&gt; Rep DetectorDebugOption x)
+-&gt; (forall x. Rep DetectorDebugOption x -&gt; DetectorDebugOption)
+-&gt; Generic DetectorDebugOption
+forall x. Rep DetectorDebugOption x -&gt; DetectorDebugOption
+forall x. DetectorDebugOption -&gt; Rep DetectorDebugOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DetectorDebugOption x -&gt; DetectorDebugOption
+$cfrom :: forall x. DetectorDebugOption -&gt; Rep DetectorDebugOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'DetectorDebugOption' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'keyValue', 'detectorDebugOption_keyValue' - The value of the input attribute key used to create the detector (the</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- instance of the detector model).</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'detectorModelName', 'detectorDebugOption_detectorModelName' - The name of the detector model.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#newDetectorDebugOption"><span class="hs-identifier hs-type">newDetectorDebugOption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'detectorModelName'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-type">DetectorDebugOption</span></a></span><span>
+</span><span id="line-55"></span><span id="newDetectorDebugOption"><span class="annot"><span class="annottext">newDetectorDebugOption :: Text -&gt; DetectorDebugOption
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#newDetectorDebugOption"><span class="hs-identifier hs-var hs-var">newDetectorDebugOption</span></a></span></span><span> </span><span id="local-6989586621679239687"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239687"><span class="hs-identifier hs-var">pDetectorModelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">DetectorDebugOption' :: Maybe Text -&gt; Text -&gt; DetectorDebugOption
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption%27"><span class="hs-identifier hs-type">DetectorDebugOption'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyValue:DetectorDebugOption' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#%24sel%3AkeyValue%3ADetectorDebugOption%27"><span class="hs-identifier hs-var">keyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectorModelName:DetectorDebugOption' :: Text
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#%24sel%3AdetectorModelName%3ADetectorDebugOption%27"><span class="hs-identifier hs-var">detectorModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239687"><span class="hs-identifier hs-var">pDetectorModelName_</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The value of the input attribute key used to create the detector (the</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- instance of the detector model).</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#detectorDebugOption_keyValue"><span class="hs-identifier hs-type">detectorDebugOption_keyValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-type">DetectorDebugOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="detectorDebugOption_keyValue"><span class="annot"><span class="annottext">detectorDebugOption_keyValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DetectorDebugOption -&gt; f DetectorDebugOption
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#detectorDebugOption_keyValue"><span class="hs-identifier hs-var hs-var">detectorDebugOption_keyValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectorDebugOption -&gt; Maybe Text)
+-&gt; (DetectorDebugOption -&gt; Maybe Text -&gt; DetectorDebugOption)
+-&gt; Lens
+     DetectorDebugOption DetectorDebugOption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption%27"><span class="hs-identifier hs-type">DetectorDebugOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239683"><span class="annot"><span class="annottext">Maybe Text
+keyValue :: Maybe Text
+$sel:keyValue:DetectorDebugOption' :: DetectorDebugOption -&gt; Maybe Text
+</span><a href="#local-6989586621679239683"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239683"><span class="hs-identifier hs-var">keyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239682"><span class="annot"><span class="annottext">s :: DetectorDebugOption
+</span><a href="#local-6989586621679239682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption%27"><span class="hs-identifier hs-type">DetectorDebugOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorDebugOption
+</span><a href="#local-6989586621679239682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyValue:DetectorDebugOption' :: Maybe Text
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#%24sel%3AkeyValue%3ADetectorDebugOption%27"><span class="hs-identifier hs-var">keyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-type">DetectorDebugOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The name of the detector model.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#detectorDebugOption_detectorModelName"><span class="hs-identifier hs-type">detectorDebugOption_detectorModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-type">DetectorDebugOption</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span id="detectorDebugOption_detectorModelName"><span class="annot"><span class="annottext">detectorDebugOption_detectorModelName :: (Text -&gt; f Text) -&gt; DetectorDebugOption -&gt; f DetectorDebugOption
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#detectorDebugOption_detectorModelName"><span class="hs-identifier hs-var hs-var">detectorDebugOption_detectorModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectorDebugOption -&gt; Text)
+-&gt; (DetectorDebugOption -&gt; Text -&gt; DetectorDebugOption)
+-&gt; Lens DetectorDebugOption DetectorDebugOption Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption%27"><span class="hs-identifier hs-type">DetectorDebugOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239679"><span class="annot"><span class="annottext">Text
+detectorModelName :: Text
+$sel:detectorModelName:DetectorDebugOption' :: DetectorDebugOption -&gt; Text
+</span><a href="#local-6989586621679239679"><span class="hs-identifier hs-var hs-var">detectorModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239679"><span class="hs-identifier hs-var">detectorModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239678"><span class="annot"><span class="annottext">s :: DetectorDebugOption
+</span><a href="#local-6989586621679239678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption%27"><span class="hs-identifier hs-type">DetectorDebugOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239677"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorDebugOption
+</span><a href="#local-6989586621679239678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorModelName:DetectorDebugOption' :: Text
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#%24sel%3AdetectorModelName%3ADetectorDebugOption%27"><span class="hs-identifier hs-var">detectorModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-type">DetectorDebugOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239674"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-type">DetectorDebugOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679239672"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DetectorDebugOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DetectorDebugOption)
+-&gt; Value
+-&gt; Parser DetectorDebugOption
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DetectorDebugOption&quot;</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239669"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239669"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; DetectorDebugOption
+</span><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption%27"><span class="hs-identifier hs-var">DetectorDebugOption'</span></a></span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; DetectorDebugOption)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; DetectorDebugOption)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DetectorDebugOption)
+-&gt; Parser Text -&gt; Parser DetectorDebugOption
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239669"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;detectorModelName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239662"><span id="local-6989586621679239664"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-type">DetectorDebugOption</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-type">DetectorDebugOption</span></a></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239651"><span id="local-6989586621679239653"><span id="local-6989586621679239655"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption"><span class="hs-identifier hs-type">DetectorDebugOption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679239649"><span class="annot"><span class="annottext">toJSON :: DetectorDebugOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DetectorDebugOption.html#DetectorDebugOption%27"><span class="hs-identifier hs-type">DetectorDebugOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239646"><span id="local-6989586621679239647"><span class="annot"><span class="annottext">Maybe Text
+Text
+detectorModelName :: Text
+keyValue :: Maybe Text
+$sel:detectorModelName:DetectorDebugOption' :: DetectorDebugOption -&gt; Text
+$sel:keyValue:DetectorDebugOption' :: DetectorDebugOption -&gt; Maybe Text
+</span><a href="#local-6989586621679239646"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239647"><span class="hs-identifier hs-var">keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-90"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;detectorModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679239646"><span class="hs-identifier hs-var">detectorModelName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span></pre></body></html>

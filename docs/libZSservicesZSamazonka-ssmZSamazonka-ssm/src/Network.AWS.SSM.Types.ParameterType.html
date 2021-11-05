@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679806434"><span id="local-6989586621679806435"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParameterType"><span class="annot"><a href="Network.AWS.SSM.Types.ParameterType.html#ParameterType"><span class="hs-identifier hs-var">ParameterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterType%27"><span class="annot"><a href="Network.AWS.SSM.Types.ParameterType.html#ParameterType%27"><span class="hs-identifier hs-var">ParameterType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679806443"><span id="local-6989586621679806444"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParameterType"><span class="annot"><a href="Network.AWS.SSM.Types.ParameterType.html#ParameterType"><span class="hs-identifier hs-var">ParameterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterType%27"><span class="annot"><a href="Network.AWS.SSM.Types.ParameterType.html#ParameterType%27"><span class="hs-identifier hs-var">ParameterType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromParameterType"><span class="annot"><span class="annottext">ParameterType -&gt; Text
 </span><a href="Network.AWS.SSM.Types.ParameterType.html#fromParameterType"><span class="hs-identifier hs-var hs-var">fromParameterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806426"><span id="local-6989586621679806428"><span id="local-6989586621679806430"><span class="annot"><span class="annottext">Int -&gt; ParameterType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806435"><span id="local-6989586621679806437"><span id="local-6989586621679806439"><span class="annot"><span class="annottext">Int -&gt; ParameterType -&gt; ShowS
 [ParameterType] -&gt; ShowS
 ParameterType -&gt; String
 (Int -&gt; ParameterType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ParameterType -&gt; String
 showsPrec :: Int -&gt; ParameterType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ParameterType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679806417"><span id="local-6989586621679806419"><span id="local-6989586621679806421"><span id="local-6989586621679806423"><span class="annot"><span class="annottext">ReadPrec [ParameterType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679806426"><span id="local-6989586621679806428"><span id="local-6989586621679806430"><span id="local-6989586621679806432"><span class="annot"><span class="annottext">ReadPrec [ParameterType]
 ReadPrec ParameterType
 Int -&gt; ReadS ParameterType
 ReadS [ParameterType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ParameterType]
 readsPrec :: Int -&gt; ReadS ParameterType
 $creadsPrec :: Int -&gt; ReadS ParameterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679806412"><span id="local-6989586621679806414"><span class="annot"><span class="annottext">ParameterType -&gt; ParameterType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679806421"><span id="local-6989586621679806423"><span class="annot"><span class="annottext">ParameterType -&gt; ParameterType -&gt; Bool
 (ParameterType -&gt; ParameterType -&gt; Bool)
 -&gt; (ParameterType -&gt; ParameterType -&gt; Bool) -&gt; Eq ParameterType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ParameterType -&gt; ParameterType -&gt; Bool
 == :: ParameterType -&gt; ParameterType -&gt; Bool
 $c== :: ParameterType -&gt; ParameterType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679806396"><span id="local-6989586621679806398"><span id="local-6989586621679806400"><span id="local-6989586621679806402"><span id="local-6989586621679806404"><span id="local-6989586621679806406"><span id="local-6989586621679806408"><span class="annot"><span class="annottext">Eq ParameterType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679806405"><span id="local-6989586621679806407"><span id="local-6989586621679806409"><span id="local-6989586621679806411"><span id="local-6989586621679806413"><span id="local-6989586621679806415"><span id="local-6989586621679806417"><span class="annot"><span class="annottext">Eq ParameterType
 Eq ParameterType
 -&gt; (ParameterType -&gt; ParameterType -&gt; Ordering)
 -&gt; (ParameterType -&gt; ParameterType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ParameterType -&gt; Rep ParameterType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806388"><span id="local-6989586621679806390"><span class="annot"><span class="annottext">Int -&gt; ParameterType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806397"><span id="local-6989586621679806399"><span class="annot"><span class="annottext">Int -&gt; ParameterType -&gt; Int
 ParameterType -&gt; Int
 (Int -&gt; ParameterType -&gt; Int)
 -&gt; (ParameterType -&gt; Int) -&gt; Hashable ParameterType
@@ -143,49 +143,49 @@ $chash :: ParameterType -&gt; Int
 hashWithSalt :: Int -&gt; ParameterType -&gt; Int
 $chashWithSalt :: Int -&gt; ParameterType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679806385"><span class="annot"><span class="annottext">ParameterType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679806394"><span class="annot"><span class="annottext">ParameterType -&gt; ()
 (ParameterType -&gt; ()) -&gt; NFData ParameterType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ParameterType -&gt; ()
 $crnf :: ParameterType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679806382"><span class="annot"><span class="annottext">Text -&gt; Either String ParameterType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679806391"><span class="annot"><span class="annottext">Text -&gt; Either String ParameterType
 (Text -&gt; Either String ParameterType) -&gt; FromText ParameterType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ParameterType
 $cfromText :: Text -&gt; Either String ParameterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679806379"><span class="annot"><span class="annottext">ParameterType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679806388"><span class="annot"><span class="annottext">ParameterType -&gt; Text
 (ParameterType -&gt; Text) -&gt; ToText ParameterType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ParameterType -&gt; Text
 $ctoText :: ParameterType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679806376"><span class="annot"><span class="annottext">ParameterType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679806385"><span class="annot"><span class="annottext">ParameterType -&gt; ByteString
 (ParameterType -&gt; ByteString) -&gt; ToByteString ParameterType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ParameterType -&gt; ByteString
 $ctoBS :: ParameterType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679806373"><span class="annot"><span class="annottext">ParameterType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679806382"><span class="annot"><span class="annottext">ParameterType -&gt; ByteStringBuilder
 (ParameterType -&gt; ByteStringBuilder) -&gt; ToLog ParameterType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ParameterType -&gt; ByteStringBuilder
 $cbuild :: ParameterType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679806370"><span class="annot"><span class="annottext">HeaderName -&gt; ParameterType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679806379"><span class="annot"><span class="annottext">HeaderName -&gt; ParameterType -&gt; [Header]
 (HeaderName -&gt; ParameterType -&gt; [Header]) -&gt; ToHeader ParameterType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ParameterType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ParameterType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679806367"><span class="annot"><span class="annottext">ParameterType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679806376"><span class="annot"><span class="annottext">ParameterType -&gt; QueryString
 (ParameterType -&gt; QueryString) -&gt; ToQuery ParameterType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ParameterType -&gt; QueryString
 $ctoQuery :: ParameterType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679806362"><span id="local-6989586621679806364"><span class="annot"><span class="annottext">Value -&gt; Parser [ParameterType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679806371"><span id="local-6989586621679806373"><span class="annot"><span class="annottext">Value -&gt; Parser [ParameterType]
 Value -&gt; Parser ParameterType
 (Value -&gt; Parser ParameterType)
 -&gt; (Value -&gt; Parser [ParameterType]) -&gt; FromJSON ParameterType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ParameterType]
 parseJSON :: Value -&gt; Parser ParameterType
 $cparseJSON :: Value -&gt; Parser ParameterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679806357"><span id="local-6989586621679806359"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParameterType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679806366"><span id="local-6989586621679806368"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParameterType]
 FromJSONKeyFunction ParameterType
 FromJSONKeyFunction ParameterType
 -&gt; FromJSONKeyFunction [ParameterType] -&gt; FromJSONKey ParameterType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ParameterType]
 fromJSONKey :: FromJSONKeyFunction ParameterType
 $cfromJSONKey :: FromJSONKeyFunction ParameterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679806348"><span id="local-6989586621679806350"><span id="local-6989586621679806352"><span id="local-6989586621679806354"><span class="annot"><span class="annottext">[ParameterType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679806357"><span id="local-6989586621679806359"><span id="local-6989586621679806361"><span id="local-6989586621679806363"><span class="annot"><span class="annottext">[ParameterType] -&gt; Encoding
 [ParameterType] -&gt; Value
 ParameterType -&gt; Encoding
 ParameterType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: ParameterType -&gt; Encoding
 toJSON :: ParameterType -&gt; Value
 $ctoJSON :: ParameterType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679806343"><span id="local-6989586621679806345"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParameterType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679806352"><span id="local-6989586621679806354"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParameterType]
 ToJSONKeyFunction ParameterType
 ToJSONKeyFunction ParameterType
 -&gt; ToJSONKeyFunction [ParameterType] -&gt; ToJSONKey ParameterType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ParameterType]
 toJSONKey :: ToJSONKeyFunction ParameterType
 $ctoJSONKey :: ToJSONKeyFunction ParameterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679806340"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParameterType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679806349"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParameterType
 ([Node] -&gt; Either String ParameterType) -&gt; FromXML ParameterType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ParameterType
 $cparseXML :: [Node] -&gt; Either String ParameterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679806337"><span class="annot"><span class="annottext">ParameterType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679806346"><span class="annot"><span class="annottext">ParameterType -&gt; XML
 (ParameterType -&gt; XML) -&gt; ToXML ParameterType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ParameterType -&gt; XML

@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Forecast.Types.AutoMLOverrideStrategy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Forecast.Types.AutoMLOverrideStrategy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#AutoMLOverrideStrategy"><span class="hs-identifier">AutoMLOverrideStrategy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#AutoMLOverrideStrategy_LatencyOptimized"><span class="hs-identifier">AutoMLOverrideStrategy_LatencyOptimized</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679245436"><span id="local-6989586621679245437"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoMLOverrideStrategy"><span class="annot"><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#AutoMLOverrideStrategy"><span class="hs-identifier hs-var">AutoMLOverrideStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLOverrideStrategy%27"><span class="annot"><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#AutoMLOverrideStrategy%27"><span class="hs-identifier hs-var">AutoMLOverrideStrategy'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoMLOverrideStrategy"><span class="annot"><span class="annottext">AutoMLOverrideStrategy -&gt; Text
+</span><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#fromAutoMLOverrideStrategy"><span class="hs-identifier hs-var hs-var">fromAutoMLOverrideStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245428"><span id="local-6989586621679245430"><span id="local-6989586621679245432"><span class="annot"><span class="annottext">Int -&gt; AutoMLOverrideStrategy -&gt; ShowS
+[AutoMLOverrideStrategy] -&gt; ShowS
+AutoMLOverrideStrategy -&gt; String
+(Int -&gt; AutoMLOverrideStrategy -&gt; ShowS)
+-&gt; (AutoMLOverrideStrategy -&gt; String)
+-&gt; ([AutoMLOverrideStrategy] -&gt; ShowS)
+-&gt; Show AutoMLOverrideStrategy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoMLOverrideStrategy] -&gt; ShowS
+$cshowList :: [AutoMLOverrideStrategy] -&gt; ShowS
+show :: AutoMLOverrideStrategy -&gt; String
+$cshow :: AutoMLOverrideStrategy -&gt; String
+showsPrec :: Int -&gt; AutoMLOverrideStrategy -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoMLOverrideStrategy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679245419"><span id="local-6989586621679245421"><span id="local-6989586621679245423"><span id="local-6989586621679245425"><span class="annot"><span class="annottext">ReadPrec [AutoMLOverrideStrategy]
+ReadPrec AutoMLOverrideStrategy
+Int -&gt; ReadS AutoMLOverrideStrategy
+ReadS [AutoMLOverrideStrategy]
+(Int -&gt; ReadS AutoMLOverrideStrategy)
+-&gt; ReadS [AutoMLOverrideStrategy]
+-&gt; ReadPrec AutoMLOverrideStrategy
+-&gt; ReadPrec [AutoMLOverrideStrategy]
+-&gt; Read AutoMLOverrideStrategy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoMLOverrideStrategy]
+$creadListPrec :: ReadPrec [AutoMLOverrideStrategy]
+readPrec :: ReadPrec AutoMLOverrideStrategy
+$creadPrec :: ReadPrec AutoMLOverrideStrategy
+readList :: ReadS [AutoMLOverrideStrategy]
+$creadList :: ReadS [AutoMLOverrideStrategy]
+readsPrec :: Int -&gt; ReadS AutoMLOverrideStrategy
+$creadsPrec :: Int -&gt; ReadS AutoMLOverrideStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679245414"><span id="local-6989586621679245416"><span class="annot"><span class="annottext">AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+(AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool)
+-&gt; (AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool)
+-&gt; Eq AutoMLOverrideStrategy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+$c/= :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+== :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+$c== :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679245398"><span id="local-6989586621679245400"><span id="local-6989586621679245402"><span id="local-6989586621679245404"><span id="local-6989586621679245406"><span id="local-6989586621679245408"><span id="local-6989586621679245410"><span class="annot"><span class="annottext">Eq AutoMLOverrideStrategy
+Eq AutoMLOverrideStrategy
+-&gt; (AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Ordering)
+-&gt; (AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool)
+-&gt; (AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool)
+-&gt; (AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool)
+-&gt; (AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool)
+-&gt; (AutoMLOverrideStrategy
+    -&gt; AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy)
+-&gt; (AutoMLOverrideStrategy
+    -&gt; AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy)
+-&gt; Ord AutoMLOverrideStrategy
+AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Ordering
+AutoMLOverrideStrategy
+-&gt; AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AutoMLOverrideStrategy
+-&gt; AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy
+$cmin :: AutoMLOverrideStrategy
+-&gt; AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy
+max :: AutoMLOverrideStrategy
+-&gt; AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy
+$cmax :: AutoMLOverrideStrategy
+-&gt; AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy
+&gt;= :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+$c&gt;= :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+&gt; :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+$c&gt; :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+&lt;= :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+$c&lt;= :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+&lt; :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+$c&lt; :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Bool
+compare :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Ordering
+$ccompare :: AutoMLOverrideStrategy -&gt; AutoMLOverrideStrategy -&gt; Ordering
+$cp1Ord :: Eq AutoMLOverrideStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AutoMLOverrideStrategy -&gt; Rep AutoMLOverrideStrategy x)
+-&gt; (forall x.
+    Rep AutoMLOverrideStrategy x -&gt; AutoMLOverrideStrategy)
+-&gt; Generic AutoMLOverrideStrategy
+forall x. Rep AutoMLOverrideStrategy x -&gt; AutoMLOverrideStrategy
+forall x. AutoMLOverrideStrategy -&gt; Rep AutoMLOverrideStrategy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AutoMLOverrideStrategy x -&gt; AutoMLOverrideStrategy
+$cfrom :: forall x. AutoMLOverrideStrategy -&gt; Rep AutoMLOverrideStrategy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245390"><span id="local-6989586621679245392"><span class="annot"><span class="annottext">Int -&gt; AutoMLOverrideStrategy -&gt; Int
+AutoMLOverrideStrategy -&gt; Int
+(Int -&gt; AutoMLOverrideStrategy -&gt; Int)
+-&gt; (AutoMLOverrideStrategy -&gt; Int)
+-&gt; Hashable AutoMLOverrideStrategy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AutoMLOverrideStrategy -&gt; Int
+$chash :: AutoMLOverrideStrategy -&gt; Int
+hashWithSalt :: Int -&gt; AutoMLOverrideStrategy -&gt; Int
+$chashWithSalt :: Int -&gt; AutoMLOverrideStrategy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679245387"><span class="annot"><span class="annottext">AutoMLOverrideStrategy -&gt; ()
+(AutoMLOverrideStrategy -&gt; ()) -&gt; NFData AutoMLOverrideStrategy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AutoMLOverrideStrategy -&gt; ()
+$crnf :: AutoMLOverrideStrategy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679245384"><span class="annot"><span class="annottext">Text -&gt; Either String AutoMLOverrideStrategy
+(Text -&gt; Either String AutoMLOverrideStrategy)
+-&gt; FromText AutoMLOverrideStrategy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AutoMLOverrideStrategy
+$cfromText :: Text -&gt; Either String AutoMLOverrideStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679245381"><span class="annot"><span class="annottext">AutoMLOverrideStrategy -&gt; Text
+(AutoMLOverrideStrategy -&gt; Text) -&gt; ToText AutoMLOverrideStrategy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AutoMLOverrideStrategy -&gt; Text
+$ctoText :: AutoMLOverrideStrategy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245378"><span class="annot"><span class="annottext">AutoMLOverrideStrategy -&gt; ByteString
+(AutoMLOverrideStrategy -&gt; ByteString)
+-&gt; ToByteString AutoMLOverrideStrategy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AutoMLOverrideStrategy -&gt; ByteString
+$ctoBS :: AutoMLOverrideStrategy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245375"><span class="annot"><span class="annottext">AutoMLOverrideStrategy -&gt; ByteStringBuilder
+(AutoMLOverrideStrategy -&gt; ByteStringBuilder)
+-&gt; ToLog AutoMLOverrideStrategy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AutoMLOverrideStrategy -&gt; ByteStringBuilder
+$cbuild :: AutoMLOverrideStrategy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245372"><span class="annot"><span class="annottext">HeaderName -&gt; AutoMLOverrideStrategy -&gt; [Header]
+(HeaderName -&gt; AutoMLOverrideStrategy -&gt; [Header])
+-&gt; ToHeader AutoMLOverrideStrategy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AutoMLOverrideStrategy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AutoMLOverrideStrategy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245369"><span class="annot"><span class="annottext">AutoMLOverrideStrategy -&gt; QueryString
+(AutoMLOverrideStrategy -&gt; QueryString)
+-&gt; ToQuery AutoMLOverrideStrategy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AutoMLOverrideStrategy -&gt; QueryString
+$ctoQuery :: AutoMLOverrideStrategy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245364"><span id="local-6989586621679245366"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoMLOverrideStrategy]
+Value -&gt; Parser AutoMLOverrideStrategy
+(Value -&gt; Parser AutoMLOverrideStrategy)
+-&gt; (Value -&gt; Parser [AutoMLOverrideStrategy])
+-&gt; FromJSON AutoMLOverrideStrategy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AutoMLOverrideStrategy]
+$cparseJSONList :: Value -&gt; Parser [AutoMLOverrideStrategy]
+parseJSON :: Value -&gt; Parser AutoMLOverrideStrategy
+$cparseJSON :: Value -&gt; Parser AutoMLOverrideStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245359"><span id="local-6989586621679245361"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoMLOverrideStrategy]
+FromJSONKeyFunction AutoMLOverrideStrategy
+FromJSONKeyFunction AutoMLOverrideStrategy
+-&gt; FromJSONKeyFunction [AutoMLOverrideStrategy]
+-&gt; FromJSONKey AutoMLOverrideStrategy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AutoMLOverrideStrategy]
+$cfromJSONKeyList :: FromJSONKeyFunction [AutoMLOverrideStrategy]
+fromJSONKey :: FromJSONKeyFunction AutoMLOverrideStrategy
+$cfromJSONKey :: FromJSONKeyFunction AutoMLOverrideStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245350"><span id="local-6989586621679245352"><span id="local-6989586621679245354"><span id="local-6989586621679245356"><span class="annot"><span class="annottext">[AutoMLOverrideStrategy] -&gt; Encoding
+[AutoMLOverrideStrategy] -&gt; Value
+AutoMLOverrideStrategy -&gt; Encoding
+AutoMLOverrideStrategy -&gt; Value
+(AutoMLOverrideStrategy -&gt; Value)
+-&gt; (AutoMLOverrideStrategy -&gt; Encoding)
+-&gt; ([AutoMLOverrideStrategy] -&gt; Value)
+-&gt; ([AutoMLOverrideStrategy] -&gt; Encoding)
+-&gt; ToJSON AutoMLOverrideStrategy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AutoMLOverrideStrategy] -&gt; Encoding
+$ctoEncodingList :: [AutoMLOverrideStrategy] -&gt; Encoding
+toJSONList :: [AutoMLOverrideStrategy] -&gt; Value
+$ctoJSONList :: [AutoMLOverrideStrategy] -&gt; Value
+toEncoding :: AutoMLOverrideStrategy -&gt; Encoding
+$ctoEncoding :: AutoMLOverrideStrategy -&gt; Encoding
+toJSON :: AutoMLOverrideStrategy -&gt; Value
+$ctoJSON :: AutoMLOverrideStrategy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245345"><span id="local-6989586621679245347"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoMLOverrideStrategy]
+ToJSONKeyFunction AutoMLOverrideStrategy
+ToJSONKeyFunction AutoMLOverrideStrategy
+-&gt; ToJSONKeyFunction [AutoMLOverrideStrategy]
+-&gt; ToJSONKey AutoMLOverrideStrategy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AutoMLOverrideStrategy]
+$ctoJSONKeyList :: ToJSONKeyFunction [AutoMLOverrideStrategy]
+toJSONKey :: ToJSONKeyFunction AutoMLOverrideStrategy
+$ctoJSONKey :: ToJSONKeyFunction AutoMLOverrideStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245342"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoMLOverrideStrategy
+([Node] -&gt; Either String AutoMLOverrideStrategy)
+-&gt; FromXML AutoMLOverrideStrategy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AutoMLOverrideStrategy
+$cparseXML :: [Node] -&gt; Either String AutoMLOverrideStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245339"><span class="annot"><span class="annottext">AutoMLOverrideStrategy -&gt; XML
+(AutoMLOverrideStrategy -&gt; XML) -&gt; ToXML AutoMLOverrideStrategy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AutoMLOverrideStrategy -&gt; XML
+$ctoXML :: AutoMLOverrideStrategy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#AutoMLOverrideStrategy_LatencyOptimized"><span class="hs-identifier hs-type">AutoMLOverrideStrategy_LatencyOptimized</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#AutoMLOverrideStrategy"><span class="hs-identifier hs-type">AutoMLOverrideStrategy</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoMLOverrideStrategy_LatencyOptimized"><span id="%24mAutoMLOverrideStrategy_LatencyOptimized"><span id="AutoMLOverrideStrategy_LatencyOptimized"><span class="annot"><span class="annottext">$bAutoMLOverrideStrategy_LatencyOptimized :: AutoMLOverrideStrategy
+$mAutoMLOverrideStrategy_LatencyOptimized :: forall r.
+AutoMLOverrideStrategy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#%24bAutoMLOverrideStrategy_LatencyOptimized"><span class="hs-identifier hs-var hs-var hs-var">AutoMLOverrideStrategy_LatencyOptimized</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#AutoMLOverrideStrategy%27"><span class="hs-identifier hs-type">AutoMLOverrideStrategy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LatencyOptimized&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#AutoMLOverrideStrategy_LatencyOptimized"><span class="hs-pragma hs-type">AutoMLOverrideStrategy_LatencyOptimized</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Forecast.Types.AutoMLOverrideStrategy.html#AutoMLOverrideStrategy%27"><span class="hs-pragma hs-type">AutoMLOverrideStrategy'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

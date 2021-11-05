@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newCreateUserProfile' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679392823"><span id="local-6989586621679392824"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserProfile"><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-var">CreateUserProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserProfile%27"><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-var">CreateUserProfile'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679392832"><span id="local-6989586621679392833"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserProfile"><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-var">CreateUserProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserProfile%27"><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-var">CreateUserProfile'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether users can specify their own SSH public key through the My</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Settings page. For more information, see</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key&gt;.</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AiamUserArn%3ACreateUserProfile%27"><span class="annot"><span class="annottext">CreateUserProfile -&gt; Text
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AiamUserArn%3ACreateUserProfile%27"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392814"><span id="local-6989586621679392816"><span class="annot"><span class="annottext">CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392823"><span id="local-6989586621679392825"><span class="annot"><span class="annottext">CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
 (CreateUserProfile -&gt; CreateUserProfile -&gt; Bool)
 -&gt; (CreateUserProfile -&gt; CreateUserProfile -&gt; Bool)
 -&gt; Eq CreateUserProfile
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
 == :: CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
 $c== :: CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392805"><span id="local-6989586621679392807"><span id="local-6989586621679392809"><span id="local-6989586621679392811"><span class="annot"><span class="annottext">ReadPrec [CreateUserProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392814"><span id="local-6989586621679392816"><span id="local-6989586621679392818"><span id="local-6989586621679392820"><span class="annot"><span class="annottext">ReadPrec [CreateUserProfile]
 ReadPrec CreateUserProfile
 Int -&gt; ReadS CreateUserProfile
 ReadS [CreateUserProfile]
@@ -104,7 +104,7 @@ readList :: ReadS [CreateUserProfile]
 $creadList :: ReadS [CreateUserProfile]
 readsPrec :: Int -&gt; ReadS CreateUserProfile
 $creadsPrec :: Int -&gt; ReadS CreateUserProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392798"><span id="local-6989586621679392800"><span id="local-6989586621679392802"><span class="annot"><span class="annottext">Int -&gt; CreateUserProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392807"><span id="local-6989586621679392809"><span id="local-6989586621679392811"><span class="annot"><span class="annottext">Int -&gt; CreateUserProfile -&gt; ShowS
 [CreateUserProfile] -&gt; ShowS
 CreateUserProfile -&gt; String
 (Int -&gt; CreateUserProfile -&gt; ShowS)
@@ -156,8 +156,8 @@ $cfrom :: forall x. CreateUserProfile -&gt; Rep CreateUserProfile x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span>
 </span><span id="line-101"></span><span id="newCreateUserProfile"><span class="annot"><span class="annottext">newCreateUserProfile :: Text -&gt; CreateUserProfile
-</span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#newCreateUserProfile"><span class="hs-identifier hs-var hs-var">newCreateUserProfile</span></a></span></span><span> </span><span id="local-6989586621679392793"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392793"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#newCreateUserProfile"><span class="hs-identifier hs-var hs-var">newCreateUserProfile</span></a></span></span><span> </span><span id="local-6989586621679392802"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392802"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">CreateUserProfile' :: Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; CreateUserProfile
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowSelfManagement:CreateUserProfile' :: Maybe Bool
@@ -175,7 +175,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamUserArn:CreateUserProfile' :: Text
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AiamUserArn%3ACreateUserProfile%27"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392793"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span><span>
+</span><a href="#local-6989586621679392802"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | Whether users can specify their own SSH public key through the My</span><span>
@@ -189,16 +189,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateUserProfile CreateUserProfile (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392790"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392799"><span class="annot"><span class="annottext">Maybe Bool
 allowSelfManagement :: Maybe Bool
 $sel:allowSelfManagement:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Bool
-</span><a href="#local-6989586621679392790"><span class="hs-identifier hs-var hs-var">allowSelfManagement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679392790"><span class="hs-identifier hs-var">allowSelfManagement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392789"><span class="annot"><span class="annottext">s :: CreateUserProfile
-</span><a href="#local-6989586621679392789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392788"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679392788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
-</span><a href="#local-6989586621679392789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowSelfManagement:CreateUserProfile' :: Maybe Bool
+</span><a href="#local-6989586621679392799"><span class="hs-identifier hs-var hs-var">allowSelfManagement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679392799"><span class="hs-identifier hs-var">allowSelfManagement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392798"><span class="annot"><span class="annottext">s :: CreateUserProfile
+</span><a href="#local-6989586621679392798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392797"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679392797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
+</span><a href="#local-6989586621679392798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowSelfManagement:CreateUserProfile' :: Maybe Bool
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AallowSelfManagement%3ACreateUserProfile%27"><span class="hs-identifier hs-var">allowSelfManagement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679392788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The user\'s public SSH key.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#createUserProfile_sshPublicKey"><span class="hs-identifier hs-type">createUserProfile_sshPublicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -209,16 +209,16 @@ $sel:allowSelfManagement:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Boo
 -&gt; Lens
      CreateUserProfile CreateUserProfile (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392787"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392796"><span class="annot"><span class="annottext">Maybe Text
 sshPublicKey :: Maybe Text
 $sel:sshPublicKey:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Text
-</span><a href="#local-6989586621679392787"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392787"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392786"><span class="annot"><span class="annottext">s :: CreateUserProfile
-</span><a href="#local-6989586621679392786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392785"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
-</span><a href="#local-6989586621679392786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshPublicKey:CreateUserProfile' :: Maybe Text
+</span><a href="#local-6989586621679392796"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392796"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392795"><span class="annot"><span class="annottext">s :: CreateUserProfile
+</span><a href="#local-6989586621679392795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392794"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
+</span><a href="#local-6989586621679392795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshPublicKey:CreateUserProfile' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AsshPublicKey%3ACreateUserProfile%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- [0-9], \'-\', and \'_\'. If the specified name includes other</span><span>
@@ -233,16 +233,16 @@ $sel:sshPublicKey:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Text
 -&gt; Lens
      CreateUserProfile CreateUserProfile (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392784"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392793"><span class="annot"><span class="annottext">Maybe Text
 sshUsername :: Maybe Text
 $sel:sshUsername:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Text
-</span><a href="#local-6989586621679392784"><span class="hs-identifier hs-var hs-var">sshUsername</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392784"><span class="hs-identifier hs-var">sshUsername</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392783"><span class="annot"><span class="annottext">s :: CreateUserProfile
-</span><a href="#local-6989586621679392783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392782"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
-</span><a href="#local-6989586621679392783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshUsername:CreateUserProfile' :: Maybe Text
+</span><a href="#local-6989586621679392793"><span class="hs-identifier hs-var hs-var">sshUsername</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392793"><span class="hs-identifier hs-var">sshUsername</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392792"><span class="annot"><span class="annottext">s :: CreateUserProfile
+</span><a href="#local-6989586621679392792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
+</span><a href="#local-6989586621679392792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshUsername:CreateUserProfile' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AsshUsername%3ACreateUserProfile%27"><span class="hs-identifier hs-var">sshUsername</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The user\'s IAM ARN; this can also be a federated user\'s ARN.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#createUserProfile_iamUserArn"><span class="hs-identifier hs-type">createUserProfile_iamUserArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -251,27 +251,27 @@ $sel:sshUsername:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Text
 -&gt; (CreateUserProfile -&gt; Text -&gt; CreateUserProfile)
 -&gt; Lens CreateUserProfile CreateUserProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392781"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392790"><span class="annot"><span class="annottext">Text
 iamUserArn :: Text
 $sel:iamUserArn:CreateUserProfile' :: CreateUserProfile -&gt; Text
-</span><a href="#local-6989586621679392781"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392781"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392780"><span class="annot"><span class="annottext">s :: CreateUserProfile
-</span><a href="#local-6989586621679392780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392779"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
-</span><a href="#local-6989586621679392780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:CreateUserProfile' :: Text
+</span><a href="#local-6989586621679392790"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392790"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392789"><span class="annot"><span class="annottext">s :: CreateUserProfile
+</span><a href="#local-6989586621679392789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392788"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
+</span><a href="#local-6989586621679392789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:CreateUserProfile' :: Text
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AiamUserArn%3ACreateUserProfile%27"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679392775"><span class="annot"><span class="annottext">request :: CreateUserProfile -&gt; Request CreateUserProfile
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679392784"><span class="annot"><span class="annottext">request :: CreateUserProfile -&gt; Request CreateUserProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateUserProfile -&gt; Request CreateUserProfile
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679392771"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679392780"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateUserProfile
 -&gt; ClientResponse ClientBody
@@ -297,10 +297,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392768"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392768"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392767"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679392767"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392766"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679392766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392777"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392776"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679392776"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392775"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392775"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateUserProfileResponse
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-var">CreateUserProfileResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateUserProfileResponse)
@@ -308,7 +308,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateUserProfileResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679392766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679392775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IamUserArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,15 +320,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392768"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392777"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392758"><span id="local-6989586621679392760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392767"><span id="local-6989586621679392769"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392764"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679392751"><span class="annot"><span class="annottext">toHeaders :: CreateUserProfile -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679392760"><span class="annot"><span class="annottext">toHeaders :: CreateUserProfile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateUserProfile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -355,9 +355,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392741"><span id="local-6989586621679392743"><span id="local-6989586621679392745"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679392739"><span class="annot"><span class="annottext">toJSON :: CreateUserProfile -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392734"><span id="local-6989586621679392735"><span id="local-6989586621679392736"><span id="local-6989586621679392737"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392750"><span id="local-6989586621679392752"><span id="local-6989586621679392754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679392748"><span class="annot"><span class="annottext">toJSON :: CreateUserProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392743"><span id="local-6989586621679392744"><span id="local-6989586621679392745"><span id="local-6989586621679392746"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 iamUserArn :: Text
@@ -368,7 +368,7 @@ $sel:iamUserArn:CreateUserProfile' :: CreateUserProfile -&gt; Text
 $sel:sshUsername:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Text
 $sel:sshPublicKey:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Text
 $sel:allowSelfManagement:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Bool
-</span><a href="#local-6989586621679392734"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679392743"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -381,40 +381,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679392737"><span class="hs-identifier hs-var">allowSelfManagement</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392746"><span class="hs-identifier hs-var">allowSelfManagement</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SshPublicKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392736"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392745"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SshUsername&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392735"><span class="hs-identifier hs-var">sshUsername</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392744"><span class="hs-identifier hs-var">sshUsername</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IamUserArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392734"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392743"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679392728"><span class="annot"><span class="annottext">toPath :: CreateUserProfile -&gt; ByteString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679392737"><span class="annot"><span class="annottext">toPath :: CreateUserProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateUserProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679392724"><span class="annot"><span class="annottext">toQuery :: CreateUserProfile -&gt; QueryString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679392733"><span class="annot"><span class="annottext">toQuery :: CreateUserProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateUserProfile -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -424,7 +424,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-182"></span><span class="hs-comment">-- | Contains the response to a @CreateUserProfile@ request.</span><span>
 </span><span id="line-183"></span><span class="hs-comment">--</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- /See:/ 'newCreateUserProfileResponse' smart constructor.</span><span>
-</span><span id="line-185"></span><span id="local-6989586621679392721"><span id="local-6989586621679392722"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserProfileResponse"><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-var">CreateUserProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserProfileResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-var">CreateUserProfileResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span id="local-6989586621679392730"><span id="local-6989586621679392731"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserProfileResponse"><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-var">CreateUserProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserProfileResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-var">CreateUserProfileResponse'</span></a></span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user\'s IAM ARN.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AiamUserArn%3ACreateUserProfileResponse%27"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AiamUserArn%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -432,7 +432,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateUserProfileResponse%27"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AhttpStatus%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392715"><span id="local-6989586621679392717"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392724"><span id="local-6989586621679392726"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
 (CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool)
 -&gt; (CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool)
 -&gt; Eq CreateUserProfileResponse
@@ -441,7 +441,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
 == :: CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
 $c== :: CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392707"><span id="local-6989586621679392709"><span id="local-6989586621679392711"><span id="local-6989586621679392713"><span class="annot"><span class="annottext">ReadPrec [CreateUserProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392716"><span id="local-6989586621679392718"><span id="local-6989586621679392720"><span id="local-6989586621679392722"><span class="annot"><span class="annottext">ReadPrec [CreateUserProfileResponse]
 ReadPrec CreateUserProfileResponse
 Int -&gt; ReadS CreateUserProfileResponse
 ReadS [CreateUserProfileResponse]
@@ -461,7 +461,7 @@ readList :: ReadS [CreateUserProfileResponse]
 $creadList :: ReadS [CreateUserProfileResponse]
 readsPrec :: Int -&gt; ReadS CreateUserProfileResponse
 $creadsPrec :: Int -&gt; ReadS CreateUserProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392701"><span id="local-6989586621679392703"><span id="local-6989586621679392705"><span class="annot"><span class="annottext">Int -&gt; CreateUserProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392710"><span id="local-6989586621679392712"><span id="local-6989586621679392714"><span class="annot"><span class="annottext">Int -&gt; CreateUserProfileResponse -&gt; ShowS
 [CreateUserProfileResponse] -&gt; ShowS
 CreateUserProfileResponse -&gt; String
 (Int -&gt; CreateUserProfileResponse -&gt; ShowS)
@@ -509,8 +509,8 @@ CreateUserProfileResponse -&gt; Rep CreateUserProfileResponse x
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span>
 </span><span id="line-208"></span><span id="newCreateUserProfileResponse"><span class="annot"><span class="annottext">newCreateUserProfileResponse :: Int -&gt; CreateUserProfileResponse
-</span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#newCreateUserProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateUserProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679392698"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#newCreateUserProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateUserProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679392707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">CreateUserProfileResponse' :: Maybe Text -&gt; Int -&gt; CreateUserProfileResponse
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iamUserArn:CreateUserProfileResponse' :: Maybe Text
@@ -520,7 +520,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserProfileResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AhttpStatus%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679392707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The user\'s IAM ARN.</span><span>
@@ -536,16 +536,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392697"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392706"><span class="annot"><span class="annottext">Maybe Text
 iamUserArn :: Maybe Text
 $sel:iamUserArn:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679392697"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392697"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392696"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
-</span><a href="#local-6989586621679392696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392695"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
-</span><a href="#local-6989586621679392696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:CreateUserProfileResponse' :: Maybe Text
+</span><a href="#local-6989586621679392706"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392706"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392705"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
+</span><a href="#local-6989586621679392705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392704"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
+</span><a href="#local-6989586621679392705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:CreateUserProfileResponse' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AiamUserArn%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679392695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#createUserProfileResponse_httpStatus"><span class="hs-identifier hs-type">createUserProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -555,16 +555,16 @@ $sel:iamUserArn:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Ma
 -&gt; (CreateUserProfileResponse -&gt; Int -&gt; CreateUserProfileResponse)
 -&gt; Lens CreateUserProfileResponse CreateUserProfileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392694"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392703"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Int
-</span><a href="#local-6989586621679392694"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392694"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392693"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
-</span><a href="#local-6989586621679392693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392692"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
-</span><a href="#local-6989586621679392693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserProfileResponse' :: Int
+</span><a href="#local-6989586621679392703"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392703"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392702"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
+</span><a href="#local-6989586621679392702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392701"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
+</span><a href="#local-6989586621679392702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserProfileResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.CreateUserProfile.html#%24sel%3AhttpStatus%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392690"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span></span><span>
 </span><span id="line-224"></span></pre></body></html>

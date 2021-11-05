@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newGetObjectTagging' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679572499"><span id="local-6989586621679572500"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectTagging"><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-var">GetObjectTagging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectTagging%27"><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-var">GetObjectTagging'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679572508"><span id="local-6989586621679572509"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectTagging"><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-var">GetObjectTagging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectTagging%27"><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-var">GetObjectTagging'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The versionId of the object for which to get the tagging information.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AversionId%3AGetObjectTagging%27"><span class="annot"><span class="annottext">GetObjectTagging -&gt; Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AversionId%3AGetObjectTagging%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">,</span><span>
@@ -110,7 +110,7 @@
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3Akey%3AGetObjectTagging%27"><span class="annot"><span class="annottext">GetObjectTagging -&gt; ObjectKey
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3Akey%3AGetObjectTagging%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572489"><span id="local-6989586621679572491"><span class="annot"><span class="annottext">GetObjectTagging -&gt; GetObjectTagging -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572498"><span id="local-6989586621679572500"><span class="annot"><span class="annottext">GetObjectTagging -&gt; GetObjectTagging -&gt; Bool
 (GetObjectTagging -&gt; GetObjectTagging -&gt; Bool)
 -&gt; (GetObjectTagging -&gt; GetObjectTagging -&gt; Bool)
 -&gt; Eq GetObjectTagging
@@ -119,7 +119,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetObjectTagging -&gt; GetObjectTagging -&gt; Bool
 == :: GetObjectTagging -&gt; GetObjectTagging -&gt; Bool
 $c== :: GetObjectTagging -&gt; GetObjectTagging -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572480"><span id="local-6989586621679572482"><span id="local-6989586621679572484"><span id="local-6989586621679572486"><span class="annot"><span class="annottext">ReadPrec [GetObjectTagging]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572489"><span id="local-6989586621679572491"><span id="local-6989586621679572493"><span id="local-6989586621679572495"><span class="annot"><span class="annottext">ReadPrec [GetObjectTagging]
 ReadPrec GetObjectTagging
 Int -&gt; ReadS GetObjectTagging
 ReadS [GetObjectTagging]
@@ -139,7 +139,7 @@ readList :: ReadS [GetObjectTagging]
 $creadList :: ReadS [GetObjectTagging]
 readsPrec :: Int -&gt; ReadS GetObjectTagging
 $creadsPrec :: Int -&gt; ReadS GetObjectTagging
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572473"><span id="local-6989586621679572475"><span id="local-6989586621679572477"><span class="annot"><span class="annottext">Int -&gt; GetObjectTagging -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572482"><span id="local-6989586621679572484"><span id="local-6989586621679572486"><span class="annot"><span class="annottext">Int -&gt; GetObjectTagging -&gt; ShowS
 [GetObjectTagging] -&gt; ShowS
 GetObjectTagging -&gt; String
 (Int -&gt; GetObjectTagging -&gt; ShowS)
@@ -211,9 +211,9 @@ $cfrom :: forall x. GetObjectTagging -&gt; Rep GetObjectTagging x
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span>
 </span><span id="line-155"></span><span id="newGetObjectTagging"><span class="annot"><span class="annottext">newGetObjectTagging :: BucketName -&gt; ObjectKey -&gt; GetObjectTagging
-</span><a href="Network.AWS.S3.GetObjectTagging.html#newGetObjectTagging"><span class="hs-identifier hs-var hs-var">newGetObjectTagging</span></a></span></span><span> </span><span id="local-6989586621679572468"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572468"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679572467"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679572467"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetObjectTagging.html#newGetObjectTagging"><span class="hs-identifier hs-var hs-var">newGetObjectTagging</span></a></span></span><span> </span><span id="local-6989586621679572477"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572477"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679572476"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679572476"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">GetObjectTagging' :: Maybe ObjectVersionId
 -&gt; Maybe RequestPayer
 -&gt; Maybe Text
@@ -235,10 +235,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:GetObjectTagging' :: BucketName
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3Abucket%3AGetObjectTagging%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572468"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679572477"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:GetObjectTagging' :: ObjectKey
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3Akey%3AGetObjectTagging%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679572467"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
+</span><a href="#local-6989586621679572476"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The versionId of the object for which to get the tagging information.</span><span>
@@ -253,16 +253,16 @@ forall a. Maybe a
      (Maybe ObjectVersionId)
      (Maybe ObjectVersionId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572464"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572473"><span class="annot"><span class="annottext">Maybe ObjectVersionId
 versionId :: Maybe ObjectVersionId
 $sel:versionId:GetObjectTagging' :: GetObjectTagging -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679572464"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679572464"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572463"><span class="annot"><span class="annottext">s :: GetObjectTagging
-</span><a href="#local-6989586621679572463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572462"><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679572462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
-</span><a href="#local-6989586621679572463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:GetObjectTagging' :: Maybe ObjectVersionId
+</span><a href="#local-6989586621679572473"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679572473"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572472"><span class="annot"><span class="annottext">s :: GetObjectTagging
+</span><a href="#local-6989586621679572472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572471"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679572471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
+</span><a href="#local-6989586621679572472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:GetObjectTagging' :: Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AversionId%3AGetObjectTagging%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679572462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#getObjectTagging_requestPayer"><span class="hs-identifier hs-type">getObjectTagging_requestPayer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RequestPayer.html#RequestPayer"><span class="hs-identifier hs-type">RequestPayer</span></a></span><span class="hs-special">)</span><span>
@@ -276,16 +276,16 @@ $sel:versionId:GetObjectTagging' :: GetObjectTagging -&gt; Maybe ObjectVersionId
      (Maybe RequestPayer)
      (Maybe RequestPayer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572461"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572470"><span class="annot"><span class="annottext">Maybe RequestPayer
 requestPayer :: Maybe RequestPayer
 $sel:requestPayer:GetObjectTagging' :: GetObjectTagging -&gt; Maybe RequestPayer
-</span><a href="#local-6989586621679572461"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679572461"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572460"><span class="annot"><span class="annottext">s :: GetObjectTagging
-</span><a href="#local-6989586621679572460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572459"><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679572459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
-</span><a href="#local-6989586621679572460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:GetObjectTagging' :: Maybe RequestPayer
+</span><a href="#local-6989586621679572470"><span class="hs-identifier hs-var hs-var">requestPayer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679572470"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572469"><span class="annot"><span class="annottext">s :: GetObjectTagging
+</span><a href="#local-6989586621679572469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572468"><span class="annot"><span class="annottext">Maybe RequestPayer
+</span><a href="#local-6989586621679572468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
+</span><a href="#local-6989586621679572469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestPayer:GetObjectTagging' :: Maybe RequestPayer
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3ArequestPayer%3AGetObjectTagging%27"><span class="hs-identifier hs-var">requestPayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679572459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
@@ -297,16 +297,16 @@ $sel:requestPayer:GetObjectTagging' :: GetObjectTagging -&gt; Maybe RequestPayer
 -&gt; (GetObjectTagging -&gt; Maybe Text -&gt; GetObjectTagging)
 -&gt; Lens GetObjectTagging GetObjectTagging (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572458"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572467"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:GetObjectTagging' :: GetObjectTagging -&gt; Maybe Text
-</span><a href="#local-6989586621679572458"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679572458"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572457"><span class="annot"><span class="annottext">s :: GetObjectTagging
-</span><a href="#local-6989586621679572457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572456"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679572456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
-</span><a href="#local-6989586621679572457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectTagging' :: Maybe Text
+</span><a href="#local-6989586621679572467"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572467"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572466"><span class="annot"><span class="annottext">s :: GetObjectTagging
+</span><a href="#local-6989586621679572466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572465"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679572465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
+</span><a href="#local-6989586621679572466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:GetObjectTagging' :: Maybe Text
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AexpectedBucketOwner%3AGetObjectTagging%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679572456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The bucket name containing the object for which to get the tagging</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- information.</span><span>
@@ -336,16 +336,16 @@ $sel:expectedBucketOwner:GetObjectTagging' :: GetObjectTagging -&gt; Maybe Text
 -&gt; (GetObjectTagging -&gt; BucketName -&gt; GetObjectTagging)
 -&gt; Lens GetObjectTagging GetObjectTagging BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572455"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572464"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:GetObjectTagging' :: GetObjectTagging -&gt; BucketName
-</span><a href="#local-6989586621679572455"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572455"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572454"><span class="annot"><span class="annottext">s :: GetObjectTagging
-</span><a href="#local-6989586621679572454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572453"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
-</span><a href="#local-6989586621679572454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetObjectTagging' :: BucketName
+</span><a href="#local-6989586621679572464"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572464"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572463"><span class="annot"><span class="annottext">s :: GetObjectTagging
+</span><a href="#local-6989586621679572463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572462"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679572462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
+</span><a href="#local-6989586621679572463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:GetObjectTagging' :: BucketName
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3Abucket%3AGetObjectTagging%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | Object key for which to get the tagging information.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#getObjectTagging_key"><span class="hs-identifier hs-type">getObjectTagging_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
@@ -355,22 +355,22 @@ $sel:bucket:GetObjectTagging' :: GetObjectTagging -&gt; BucketName
 -&gt; (GetObjectTagging -&gt; ObjectKey -&gt; GetObjectTagging)
 -&gt; Lens GetObjectTagging GetObjectTagging ObjectKey ObjectKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572452"><span class="annot"><span class="annottext">ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572461"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:GetObjectTagging' :: GetObjectTagging -&gt; ObjectKey
-</span><a href="#local-6989586621679572452"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679572452"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572451"><span class="annot"><span class="annottext">s :: GetObjectTagging
-</span><a href="#local-6989586621679572451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572450"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679572450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
-</span><a href="#local-6989586621679572451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:GetObjectTagging' :: ObjectKey
+</span><a href="#local-6989586621679572461"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679572461"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572460"><span class="annot"><span class="annottext">s :: GetObjectTagging
+</span><a href="#local-6989586621679572460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572459"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679572459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTagging
+</span><a href="#local-6989586621679572460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:GetObjectTagging' :: ObjectKey
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3Akey%3AGetObjectTagging%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679572450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-208"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679572446"><span class="annot"><span class="annottext">request :: GetObjectTagging -&gt; Request GetObjectTagging
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679572455"><span class="annot"><span class="annottext">request :: GetObjectTagging -&gt; Request GetObjectTagging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">Request GetObjectTagging -&gt; Request GetObjectTagging
 forall a. Request a -&gt; Request a
@@ -384,7 +384,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679572440"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679572449"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetObjectTagging
 -&gt; ClientResponse ClientBody
@@ -408,10 +408,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679572437"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572437"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679572436"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679572436"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679572435"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679572435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679572446"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679572446"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679572445"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679572445"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679572444"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679572444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe ObjectVersionId -&gt; Int -&gt; [Tag] -&gt; GetObjectTaggingResponse
 </span><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-var">GetObjectTaggingResponse'</span></a></span><span>
 </span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ObjectVersionId -&gt; Int -&gt; [Tag] -&gt; GetObjectTaggingResponse)
@@ -419,7 +419,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [Tag] -&gt; GetObjectTaggingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679572436"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679572445"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; HeaderName -&gt; Either String (Maybe ObjectVersionId)
 forall a.
 FromText a =&gt;
@@ -435,12 +435,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572437"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572446"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Tag] -&gt; GetObjectTaggingResponse)
 -&gt; Either String [Tag] -&gt; Either String GetObjectTaggingResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679572435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679572444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -458,13 +458,13 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-221"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572424"><span id="local-6989586621679572426"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572433"><span id="local-6989586621679572435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span></span></span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679572417"><span class="annot"><span class="annottext">toHeaders :: GetObjectTagging -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572411"><span id="local-6989586621679572412"><span id="local-6989586621679572413"><span id="local-6989586621679572414"><span id="local-6989586621679572415"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679572426"><span class="annot"><span class="annottext">toHeaders :: GetObjectTagging -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572420"><span id="local-6989586621679572421"><span id="local-6989586621679572422"><span id="local-6989586621679572423"><span id="local-6989586621679572424"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 ObjectKey
@@ -479,7 +479,7 @@ $sel:bucket:GetObjectTagging' :: GetObjectTagging -&gt; BucketName
 $sel:expectedBucketOwner:GetObjectTagging' :: GetObjectTagging -&gt; Maybe Text
 $sel:requestPayer:GetObjectTagging' :: GetObjectTagging -&gt; Maybe RequestPayer
 $sel:versionId:GetObjectTagging' :: GetObjectTagging -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679572411"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679572420"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -487,18 +487,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-request-payer&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe RequestPayer -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe RequestPayer
-</span><a href="#local-6989586621679572414"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679572423"><span class="hs-identifier hs-var">requestPayer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
 </span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679572413"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679572422"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-234"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679572407"><span class="annot"><span class="annottext">toPath :: GetObjectTagging -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572401"><span id="local-6989586621679572402"><span id="local-6989586621679572403"><span id="local-6989586621679572404"><span id="local-6989586621679572405"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679572416"><span class="annot"><span class="annottext">toPath :: GetObjectTagging -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572410"><span id="local-6989586621679572411"><span id="local-6989586621679572412"><span id="local-6989586621679572413"><span id="local-6989586621679572414"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 ObjectKey
@@ -513,7 +513,7 @@ $sel:bucket:GetObjectTagging' :: GetObjectTagging -&gt; BucketName
 $sel:expectedBucketOwner:GetObjectTagging' :: GetObjectTagging -&gt; Maybe Text
 $sel:requestPayer:GetObjectTagging' :: GetObjectTagging -&gt; Maybe RequestPayer
 $sel:versionId:GetObjectTagging' :: GetObjectTagging -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679572401"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679572410"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -521,15 +521,15 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679572402"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679572411"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ObjectKey -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679572401"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679572410"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging"><span class="hs-identifier hs-type">GetObjectTagging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679572397"><span class="annot"><span class="annottext">toQuery :: GetObjectTagging -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572391"><span id="local-6989586621679572392"><span id="local-6989586621679572393"><span id="local-6989586621679572394"><span id="local-6989586621679572395"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679572406"><span class="annot"><span class="annottext">toQuery :: GetObjectTagging -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTagging%27"><span class="hs-identifier hs-type">GetObjectTagging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572400"><span id="local-6989586621679572401"><span id="local-6989586621679572402"><span id="local-6989586621679572403"><span id="local-6989586621679572404"><span class="annot"><span class="annottext">Maybe Text
 Maybe ObjectVersionId
 Maybe RequestPayer
 ObjectKey
@@ -544,7 +544,7 @@ $sel:bucket:GetObjectTagging' :: GetObjectTagging -&gt; BucketName
 $sel:expectedBucketOwner:GetObjectTagging' :: GetObjectTagging -&gt; Maybe Text
 $sel:requestPayer:GetObjectTagging' :: GetObjectTagging -&gt; Maybe RequestPayer
 $sel:versionId:GetObjectTagging' :: GetObjectTagging -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679572391"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679572400"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -552,11 +552,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;versionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ObjectVersionId -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679572395"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679572404"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-string">&quot;tagging&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | /See:/ 'newGetObjectTaggingResponse' smart constructor.</span><span>
-</span><span id="line-247"></span><span id="local-6989586621679572388"><span id="local-6989586621679572389"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectTaggingResponse"><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-var">GetObjectTaggingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectTaggingResponse%27"><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-var">GetObjectTaggingResponse'</span></a></span></span><span>
+</span><span id="line-247"></span><span id="local-6989586621679572397"><span id="local-6989586621679572398"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetObjectTaggingResponse"><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-var">GetObjectTaggingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetObjectTaggingResponse%27"><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-var">GetObjectTaggingResponse'</span></a></span></span><span>
 </span><span id="line-248"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The versionId of the object for which you got the tagging information.</span><span>
 </span><span id="line-249"></span><span>    </span><span id="%24sel%3AversionId%3AGetObjectTaggingResponse%27"><span class="annot"><span class="annottext">GetObjectTaggingResponse -&gt; Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AversionId%3AGetObjectTaggingResponse%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">,</span><span>
@@ -567,7 +567,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-253"></span><span>    </span><span id="%24sel%3AtagSet%3AGetObjectTaggingResponse%27"><span class="annot"><span class="annottext">GetObjectTaggingResponse -&gt; [Tag]
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AtagSet%3AGetObjectTaggingResponse%27"><span class="hs-identifier hs-var hs-var">tagSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-254"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-255"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572381"><span id="local-6989586621679572383"><span class="annot"><span class="annottext">GetObjectTaggingResponse -&gt; GetObjectTaggingResponse -&gt; Bool
+</span><span id="line-255"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679572390"><span id="local-6989586621679572392"><span class="annot"><span class="annottext">GetObjectTaggingResponse -&gt; GetObjectTaggingResponse -&gt; Bool
 (GetObjectTaggingResponse -&gt; GetObjectTaggingResponse -&gt; Bool)
 -&gt; (GetObjectTaggingResponse -&gt; GetObjectTaggingResponse -&gt; Bool)
 -&gt; Eq GetObjectTaggingResponse
@@ -576,7 +576,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetObjectTaggingResponse -&gt; GetObjectTaggingResponse -&gt; Bool
 == :: GetObjectTaggingResponse -&gt; GetObjectTaggingResponse -&gt; Bool
 $c== :: GetObjectTaggingResponse -&gt; GetObjectTaggingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572373"><span id="local-6989586621679572375"><span id="local-6989586621679572377"><span id="local-6989586621679572379"><span class="annot"><span class="annottext">ReadPrec [GetObjectTaggingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572382"><span id="local-6989586621679572384"><span id="local-6989586621679572386"><span id="local-6989586621679572388"><span class="annot"><span class="annottext">ReadPrec [GetObjectTaggingResponse]
 ReadPrec GetObjectTaggingResponse
 Int -&gt; ReadS GetObjectTaggingResponse
 ReadS [GetObjectTaggingResponse]
@@ -596,7 +596,7 @@ readList :: ReadS [GetObjectTaggingResponse]
 $creadList :: ReadS [GetObjectTaggingResponse]
 readsPrec :: Int -&gt; ReadS GetObjectTaggingResponse
 $creadsPrec :: Int -&gt; ReadS GetObjectTaggingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572367"><span id="local-6989586621679572369"><span id="local-6989586621679572371"><span class="annot"><span class="annottext">Int -&gt; GetObjectTaggingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679572376"><span id="local-6989586621679572378"><span id="local-6989586621679572380"><span class="annot"><span class="annottext">Int -&gt; GetObjectTaggingResponse -&gt; ShowS
 [GetObjectTaggingResponse] -&gt; ShowS
 GetObjectTaggingResponse -&gt; String
 (Int -&gt; GetObjectTaggingResponse -&gt; ShowS)
@@ -646,8 +646,8 @@ GetObjectTaggingResponse -&gt; Rep GetObjectTaggingResponse x
 </span><span id="line-272"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-273"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span>
 </span><span id="line-274"></span><span id="newGetObjectTaggingResponse"><span class="annot"><span class="annottext">newGetObjectTaggingResponse :: Int -&gt; GetObjectTaggingResponse
-</span><a href="Network.AWS.S3.GetObjectTagging.html#newGetObjectTaggingResponse"><span class="hs-identifier hs-var hs-var">newGetObjectTaggingResponse</span></a></span></span><span> </span><span id="local-6989586621679572364"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572364"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.GetObjectTagging.html#newGetObjectTaggingResponse"><span class="hs-identifier hs-var hs-var">newGetObjectTaggingResponse</span></a></span></span><span> </span><span id="local-6989586621679572373"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679572373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-275"></span><span>  </span><span class="annot"><span class="annottext">GetObjectTaggingResponse' :: Maybe ObjectVersionId -&gt; Int -&gt; [Tag] -&gt; GetObjectTaggingResponse
 </span><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span>
 </span><span id="line-276"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionId:GetObjectTaggingResponse' :: Maybe ObjectVersionId
@@ -657,7 +657,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectTaggingResponse' :: Int
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AhttpStatus%3AGetObjectTaggingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572364"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679572373"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagSet:GetObjectTaggingResponse' :: [Tag]
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AtagSet%3AGetObjectTaggingResponse%27"><span class="hs-identifier hs-var">tagSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -677,16 +677,16 @@ forall a. Monoid a =&gt; a
      (Maybe ObjectVersionId)
      (Maybe ObjectVersionId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572363"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572372"><span class="annot"><span class="annottext">Maybe ObjectVersionId
 versionId :: Maybe ObjectVersionId
 $sel:versionId:GetObjectTaggingResponse' :: GetObjectTaggingResponse -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679572363"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679572363"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572362"><span class="annot"><span class="annottext">s :: GetObjectTaggingResponse
-</span><a href="#local-6989586621679572362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572361"><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679572361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTaggingResponse
-</span><a href="#local-6989586621679572362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:GetObjectTaggingResponse' :: Maybe ObjectVersionId
+</span><a href="#local-6989586621679572372"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679572372"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572371"><span class="annot"><span class="annottext">s :: GetObjectTaggingResponse
+</span><a href="#local-6989586621679572371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572370"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679572370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTaggingResponse
+</span><a href="#local-6989586621679572371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:GetObjectTaggingResponse' :: Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AversionId%3AGetObjectTaggingResponse%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679572361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-287"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#getObjectTaggingResponse_httpStatus"><span class="hs-identifier hs-type">getObjectTaggingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -696,16 +696,16 @@ $sel:versionId:GetObjectTaggingResponse' :: GetObjectTaggingResponse -&gt; Maybe
 -&gt; (GetObjectTaggingResponse -&gt; Int -&gt; GetObjectTaggingResponse)
 -&gt; Lens GetObjectTaggingResponse GetObjectTaggingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572360"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572369"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetObjectTaggingResponse' :: GetObjectTaggingResponse -&gt; Int
-</span><a href="#local-6989586621679572360"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572360"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572359"><span class="annot"><span class="annottext">s :: GetObjectTaggingResponse
-</span><a href="#local-6989586621679572359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572358"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTaggingResponse
-</span><a href="#local-6989586621679572359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectTaggingResponse' :: Int
+</span><a href="#local-6989586621679572369"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679572369"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572368"><span class="annot"><span class="annottext">s :: GetObjectTaggingResponse
+</span><a href="#local-6989586621679572368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572367"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679572367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTaggingResponse
+</span><a href="#local-6989586621679572368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetObjectTaggingResponse' :: Int
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AhttpStatus%3AGetObjectTaggingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679572358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679572367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | Contains the tag set.</span><span>
 </span><span id="line-291"></span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#getObjectTaggingResponse_tagSet"><span class="hs-identifier hs-type">getObjectTaggingResponse_tagSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
@@ -716,16 +716,16 @@ $sel:httpStatus:GetObjectTaggingResponse' :: GetObjectTaggingResponse -&gt; Int
 -&gt; Lens
      GetObjectTaggingResponse GetObjectTaggingResponse [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572357"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679572366"><span class="annot"><span class="annottext">[Tag]
 tagSet :: [Tag]
 $sel:tagSet:GetObjectTaggingResponse' :: GetObjectTaggingResponse -&gt; [Tag]
-</span><a href="#local-6989586621679572357"><span class="hs-identifier hs-var hs-var">tagSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679572357"><span class="hs-identifier hs-var">tagSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572356"><span class="annot"><span class="annottext">s :: GetObjectTaggingResponse
-</span><a href="#local-6989586621679572356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572355"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679572355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTaggingResponse
-</span><a href="#local-6989586621679572356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSet:GetObjectTaggingResponse' :: [Tag]
+</span><a href="#local-6989586621679572366"><span class="hs-identifier hs-var hs-var">tagSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679572366"><span class="hs-identifier hs-var">tagSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679572365"><span class="annot"><span class="annottext">s :: GetObjectTaggingResponse
+</span><a href="#local-6989586621679572365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse%27"><span class="hs-identifier hs-type">GetObjectTaggingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679572364"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679572364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetObjectTaggingResponse
+</span><a href="#local-6989586621679572365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSet:GetObjectTaggingResponse' :: [Tag]
 </span><a href="Network.AWS.S3.GetObjectTagging.html#%24sel%3AtagSet%3AGetObjectTaggingResponse%27"><span class="hs-identifier hs-var">tagSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679572355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
+</span><a href="#local-6989586621679572364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
  -&gt; GetObjectTaggingResponse -&gt; f GetObjectTaggingResponse)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
@@ -736,5 +736,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-293"></span><span>
-</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679572361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.GetObjectTagging.html#GetObjectTaggingResponse"><span class="hs-identifier hs-type">GetObjectTaggingResponse</span></a></span></span><span>
 </span><span id="line-295"></span></pre></body></html>

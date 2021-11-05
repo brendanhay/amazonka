@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- Used as the response element in the DescribeAssessmentRuns action.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newAssessmentRun' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679248939"><span id="local-6989586621679248940"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentRun"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-var">AssessmentRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentRun%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-var">AssessmentRun'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679248948"><span id="local-6989586621679248949"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentRun"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-var">AssessmentRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentRun%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-var">AssessmentRun'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when StartAssessmentRun was called.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AstartedAt%3AAssessmentRun%27"><span class="annot"><span class="annottext">AssessmentRun -&gt; Maybe POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AstartedAt%3AAssessmentRun%27"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AfindingCounts%3AAssessmentRun%27"><span class="annot"><span class="annottext">AssessmentRun -&gt; HashMap Severity Int
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AfindingCounts%3AAssessmentRun%27"><span class="hs-identifier hs-var hs-var">findingCounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Severity.html#Severity"><span class="hs-identifier hs-type">Severity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248919"><span id="local-6989586621679248921"><span class="annot"><span class="annottext">AssessmentRun -&gt; AssessmentRun -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248928"><span id="local-6989586621679248930"><span class="annot"><span class="annottext">AssessmentRun -&gt; AssessmentRun -&gt; Bool
 (AssessmentRun -&gt; AssessmentRun -&gt; Bool)
 -&gt; (AssessmentRun -&gt; AssessmentRun -&gt; Bool) -&gt; Eq AssessmentRun
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssessmentRun -&gt; AssessmentRun -&gt; Bool
 == :: AssessmentRun -&gt; AssessmentRun -&gt; Bool
 $c== :: AssessmentRun -&gt; AssessmentRun -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248910"><span id="local-6989586621679248912"><span id="local-6989586621679248914"><span id="local-6989586621679248916"><span class="annot"><span class="annottext">ReadPrec [AssessmentRun]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248919"><span id="local-6989586621679248921"><span id="local-6989586621679248923"><span id="local-6989586621679248925"><span class="annot"><span class="annottext">ReadPrec [AssessmentRun]
 ReadPrec AssessmentRun
 Int -&gt; ReadS AssessmentRun
 ReadS [AssessmentRun]
@@ -114,7 +114,7 @@ readList :: ReadS [AssessmentRun]
 $creadList :: ReadS [AssessmentRun]
 readsPrec :: Int -&gt; ReadS AssessmentRun
 $creadsPrec :: Int -&gt; ReadS AssessmentRun
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248903"><span id="local-6989586621679248905"><span id="local-6989586621679248907"><span class="annot"><span class="annottext">Int -&gt; AssessmentRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248912"><span id="local-6989586621679248914"><span id="local-6989586621679248916"><span class="annot"><span class="annottext">Int -&gt; AssessmentRun -&gt; ShowS
 [AssessmentRun] -&gt; ShowS
 AssessmentRun -&gt; String
 (Int -&gt; AssessmentRun -&gt; ShowS)
@@ -213,24 +213,24 @@ $cfrom :: forall x. AssessmentRun -&gt; Rep AssessmentRun x
 -&gt; Bool
 -&gt; AssessmentRun
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#newAssessmentRun"><span class="hs-identifier hs-var hs-var">newAssessmentRun</span></a></span></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679248897"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248897"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679248896"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248896"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679248895"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248895"><span class="hs-identifier hs-var">pAssessmentTemplateArn_</span></a></span></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679248894"><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679248894"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679248893"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679248893"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679248892"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679248892"><span class="hs-identifier hs-var">pRulesPackageArns_</span></a></span></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679248891"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679248891"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679248890"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679248890"><span class="hs-identifier hs-var">pStateChangedAt_</span></a></span></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679248889"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679248889"><span class="hs-identifier hs-var">pDataCollected_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679248906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248906"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679248905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248905"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679248904"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248904"><span class="hs-identifier hs-var">pAssessmentTemplateArn_</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679248903"><span class="annot"><span class="annottext">AssessmentRunState
+</span><a href="#local-6989586621679248903"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679248902"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679248902"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679248901"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679248901"><span class="hs-identifier hs-var">pRulesPackageArns_</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679248900"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679248900"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679248899"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679248899"><span class="hs-identifier hs-var">pStateChangedAt_</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679248898"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679248898"><span class="hs-identifier hs-var">pDataCollected_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">AssessmentRun' :: Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Text
@@ -258,19 +258,19 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:AssessmentRun' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3Aarn%3AAssessmentRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248897"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248906"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:AssessmentRun' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3Aname%3AAssessmentRun%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248896"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248905"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:assessmentTemplateArn:AssessmentRun' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AassessmentTemplateArn%3AAssessmentRun%27"><span class="hs-identifier hs-var">assessmentTemplateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248895"><span class="hs-identifier hs-var">pAssessmentTemplateArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248904"><span class="hs-identifier hs-var">pAssessmentTemplateArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">$sel:state:AssessmentRun' :: AssessmentRunState
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3Astate%3AAssessmentRun%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679248894"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248903"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:durationInSeconds:AssessmentRun' :: Natural
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AdurationInSeconds%3AAssessmentRun%27"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679248893"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248902"><span class="hs-identifier hs-var">pDurationInSeconds_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentRun' :: NonEmpty Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3ArulesPackageArns%3AAssessmentRun%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -281,7 +281,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679248892"><span class="hs-identifier hs-var">pRulesPackageArns_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248901"><span class="hs-identifier hs-var">pRulesPackageArns_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:userAttributesForFindings:AssessmentRun' :: [Attribute]
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AuserAttributesForFindings%3AAssessmentRun%27"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Attribute]
 forall a. Monoid a =&gt; a
@@ -294,7 +294,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679248891"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248900"><span class="hs-identifier hs-var">pCreatedAt_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:stateChangedAt:AssessmentRun' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AstateChangedAt%3AAssessmentRun%27"><span class="hs-identifier hs-var">stateChangedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -303,10 +303,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679248890"><span class="hs-identifier hs-var">pStateChangedAt_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248899"><span class="hs-identifier hs-var">pStateChangedAt_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataCollected:AssessmentRun' :: Bool
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AdataCollected%3AAssessmentRun%27"><span class="hs-identifier hs-var">dataCollected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679248889"><span class="hs-identifier hs-var">pDataCollected_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248898"><span class="hs-identifier hs-var">pDataCollected_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:stateChanges:AssessmentRun' :: [AssessmentRunStateChange]
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AstateChanges%3AAssessmentRun%27"><span class="hs-identifier hs-var">stateChanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssessmentRunStateChange]
 forall a. Monoid a =&gt; a
@@ -329,16 +329,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AssessmentRun -&gt; Maybe POSIX -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248882"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248891"><span class="annot"><span class="annottext">Maybe POSIX
 startedAt :: Maybe POSIX
 $sel:startedAt:AssessmentRun' :: AssessmentRun -&gt; Maybe POSIX
-</span><a href="#local-6989586621679248882"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679248882"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248881"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248880"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679248880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:AssessmentRun' :: Maybe POSIX
+</span><a href="#local-6989586621679248891"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679248891"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248890"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248889"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679248889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:AssessmentRun' :: Maybe POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AstartedAt%3AAssessmentRun%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679248880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679248889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AssessmentRun -&gt; f AssessmentRun)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -364,16 +364,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (AssessmentRun -&gt; Maybe POSIX -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248876"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248885"><span class="annot"><span class="annottext">Maybe POSIX
 completedAt :: Maybe POSIX
 $sel:completedAt:AssessmentRun' :: AssessmentRun -&gt; Maybe POSIX
-</span><a href="#local-6989586621679248876"><span class="hs-identifier hs-var hs-var">completedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679248876"><span class="hs-identifier hs-var">completedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248875"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248874"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679248874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completedAt:AssessmentRun' :: Maybe POSIX
+</span><a href="#local-6989586621679248885"><span class="hs-identifier hs-var hs-var">completedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679248885"><span class="hs-identifier hs-var">completedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248884"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248883"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679248883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completedAt:AssessmentRun' :: Maybe POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AcompletedAt%3AAssessmentRun%27"><span class="hs-identifier hs-var">completedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679248874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679248883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AssessmentRun -&gt; f AssessmentRun)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -397,16 +397,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (AssessmentRun -&gt; Text -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248872"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248881"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:AssessmentRun' :: AssessmentRun -&gt; Text
-</span><a href="#local-6989586621679248872"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248872"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248871"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248870"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssessmentRun' :: Text
+</span><a href="#local-6989586621679248881"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248881"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248880"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248879"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssessmentRun' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3Aarn%3AAssessmentRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The auto-generated name for the assessment run.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#assessmentRun_name"><span class="hs-identifier hs-type">assessmentRun_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -415,16 +415,16 @@ $sel:arn:AssessmentRun' :: AssessmentRun -&gt; Text
 -&gt; (AssessmentRun -&gt; Text -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248868"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248877"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:AssessmentRun' :: AssessmentRun -&gt; Text
-</span><a href="#local-6989586621679248868"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248868"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248867"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248866"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssessmentRun' :: Text
+</span><a href="#local-6989586621679248877"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248877"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248876"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248875"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssessmentRun' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3Aname%3AAssessmentRun%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The ARN of the assessment template that is associated with the</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- assessment run.</span><span>
@@ -434,16 +434,16 @@ $sel:name:AssessmentRun' :: AssessmentRun -&gt; Text
 -&gt; (AssessmentRun -&gt; Text -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248864"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248873"><span class="annot"><span class="annottext">Text
 assessmentTemplateArn :: Text
 $sel:assessmentTemplateArn:AssessmentRun' :: AssessmentRun -&gt; Text
-</span><a href="#local-6989586621679248864"><span class="hs-identifier hs-var hs-var">assessmentTemplateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248864"><span class="hs-identifier hs-var">assessmentTemplateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248863"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248862"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTemplateArn:AssessmentRun' :: Text
+</span><a href="#local-6989586621679248873"><span class="hs-identifier hs-var hs-var">assessmentTemplateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248873"><span class="hs-identifier hs-var">assessmentTemplateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248872"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248871"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTemplateArn:AssessmentRun' :: Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AassessmentTemplateArn%3AAssessmentRun%27"><span class="hs-identifier hs-var">assessmentTemplateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The state of the assessment run.</span><span>
 </span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#assessmentRun_state"><span class="hs-identifier hs-type">assessmentRun_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunState.html#AssessmentRunState"><span class="hs-identifier hs-type">AssessmentRunState</span></a></span><span>
@@ -454,16 +454,16 @@ $sel:assessmentTemplateArn:AssessmentRun' :: AssessmentRun -&gt; Text
 -&gt; Lens
      AssessmentRun AssessmentRun AssessmentRunState AssessmentRunState
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248860"><span class="annot"><span class="annottext">AssessmentRunState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248869"><span class="annot"><span class="annottext">AssessmentRunState
 state :: AssessmentRunState
 $sel:state:AssessmentRun' :: AssessmentRun -&gt; AssessmentRunState
-</span><a href="#local-6989586621679248860"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679248860"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248859"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248858"><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679248858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:AssessmentRun' :: AssessmentRunState
+</span><a href="#local-6989586621679248869"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunState
+</span><a href="#local-6989586621679248869"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248868"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248867"><span class="annot"><span class="annottext">AssessmentRunState
+</span><a href="#local-6989586621679248867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:AssessmentRun' :: AssessmentRunState
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3Astate%3AAssessmentRun%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssessmentRunState
-</span><a href="#local-6989586621679248858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The duration of the assessment run.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#assessmentRun_durationInSeconds"><span class="hs-identifier hs-type">assessmentRun_durationInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -472,16 +472,16 @@ $sel:state:AssessmentRun' :: AssessmentRun -&gt; AssessmentRunState
 -&gt; (AssessmentRun -&gt; Natural -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248856"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248865"><span class="annot"><span class="annottext">Natural
 durationInSeconds :: Natural
 $sel:durationInSeconds:AssessmentRun' :: AssessmentRun -&gt; Natural
-</span><a href="#local-6989586621679248856"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679248856"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248855"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248854"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679248854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:AssessmentRun' :: Natural
+</span><a href="#local-6989586621679248865"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679248865"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248864"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248863"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679248863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:AssessmentRun' :: Natural
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AdurationInSeconds%3AAssessmentRun%27"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679248854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The rules packages selected for the assessment run.</span><span>
 </span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#assessmentRun_rulesPackageArns"><span class="hs-identifier hs-type">assessmentRun_rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -491,16 +491,16 @@ $sel:durationInSeconds:AssessmentRun' :: AssessmentRun -&gt; Natural
 -&gt; (AssessmentRun -&gt; NonEmpty Text -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248852"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248861"><span class="annot"><span class="annottext">NonEmpty Text
 rulesPackageArns :: NonEmpty Text
 $sel:rulesPackageArns:AssessmentRun' :: AssessmentRun -&gt; NonEmpty Text
-</span><a href="#local-6989586621679248852"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679248852"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248851"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248850"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679248850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentRun' :: NonEmpty Text
+</span><a href="#local-6989586621679248861"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679248861"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248860"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248859"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679248859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentRun' :: NonEmpty Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3ArulesPackageArns%3AAssessmentRun%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679248850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679248859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; AssessmentRun -&gt; f AssessmentRun)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -521,16 +521,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AssessmentRun -&gt; [Attribute] -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun [Attribute] [Attribute]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248848"><span class="annot"><span class="annottext">[Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248857"><span class="annot"><span class="annottext">[Attribute]
 userAttributesForFindings :: [Attribute]
 $sel:userAttributesForFindings:AssessmentRun' :: AssessmentRun -&gt; [Attribute]
-</span><a href="#local-6989586621679248848"><span class="hs-identifier hs-var hs-var">userAttributesForFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679248848"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248847"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248846"><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679248846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributesForFindings:AssessmentRun' :: [Attribute]
+</span><a href="#local-6989586621679248857"><span class="hs-identifier hs-var hs-var">userAttributesForFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679248857"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248856"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248855"><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679248855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributesForFindings:AssessmentRun' :: [Attribute]
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AuserAttributesForFindings%3AAssessmentRun%27"><span class="hs-identifier hs-var">userAttributesForFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679248846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute])
+</span><a href="#local-6989586621679248855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute])
  -&gt; AssessmentRun -&gt; f AssessmentRun)
 -&gt; (([Attribute] -&gt; f [Attribute]) -&gt; [Attribute] -&gt; f [Attribute])
 -&gt; ([Attribute] -&gt; f [Attribute])
@@ -548,16 +548,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AssessmentRun -&gt; POSIX -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248844"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248853"><span class="annot"><span class="annottext">POSIX
 createdAt :: POSIX
 $sel:createdAt:AssessmentRun' :: AssessmentRun -&gt; POSIX
-</span><a href="#local-6989586621679248844"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679248844"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248843"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248842"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679248842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AssessmentRun' :: POSIX
+</span><a href="#local-6989586621679248853"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679248853"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248852"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248851"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679248851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AssessmentRun' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AcreatedAt%3AAssessmentRun%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679248842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AssessmentRun -&gt; f AssessmentRun)
+</span><a href="#local-6989586621679248851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AssessmentRun -&gt; f AssessmentRun)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; AssessmentRun
@@ -574,16 +574,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (AssessmentRun -&gt; POSIX -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248840"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248849"><span class="annot"><span class="annottext">POSIX
 stateChangedAt :: POSIX
 $sel:stateChangedAt:AssessmentRun' :: AssessmentRun -&gt; POSIX
-</span><a href="#local-6989586621679248840"><span class="hs-identifier hs-var hs-var">stateChangedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679248840"><span class="hs-identifier hs-var">stateChangedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248839"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248838"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679248838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangedAt:AssessmentRun' :: POSIX
+</span><a href="#local-6989586621679248849"><span class="hs-identifier hs-var hs-var">stateChangedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679248849"><span class="hs-identifier hs-var">stateChangedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248848"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248847"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679248847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangedAt:AssessmentRun' :: POSIX
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AstateChangedAt%3AAssessmentRun%27"><span class="hs-identifier hs-var">stateChangedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679248838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AssessmentRun -&gt; f AssessmentRun)
+</span><a href="#local-6989586621679248847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AssessmentRun -&gt; f AssessmentRun)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; AssessmentRun
@@ -601,16 +601,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (AssessmentRun -&gt; Bool -&gt; AssessmentRun)
 -&gt; Lens AssessmentRun AssessmentRun Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248836"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248845"><span class="annot"><span class="annottext">Bool
 dataCollected :: Bool
 $sel:dataCollected:AssessmentRun' :: AssessmentRun -&gt; Bool
-</span><a href="#local-6989586621679248836"><span class="hs-identifier hs-var hs-var">dataCollected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679248836"><span class="hs-identifier hs-var">dataCollected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248835"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248834"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679248834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataCollected:AssessmentRun' :: Bool
+</span><a href="#local-6989586621679248845"><span class="hs-identifier hs-var hs-var">dataCollected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679248845"><span class="hs-identifier hs-var">dataCollected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248844"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248843"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679248843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataCollected:AssessmentRun' :: Bool
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AdataCollected%3AAssessmentRun%27"><span class="hs-identifier hs-var">dataCollected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679248834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | A list of the assessment run state changes.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#assessmentRun_stateChanges"><span class="hs-identifier hs-type">assessmentRun_stateChanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunStateChange.html#AssessmentRunStateChange"><span class="hs-identifier hs-type">AssessmentRunStateChange</span></a></span><span class="hs-special">]</span><span>
@@ -624,16 +624,16 @@ $sel:dataCollected:AssessmentRun' :: AssessmentRun -&gt; Bool
      [AssessmentRunStateChange]
      [AssessmentRunStateChange]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248832"><span class="annot"><span class="annottext">[AssessmentRunStateChange]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248841"><span class="annot"><span class="annottext">[AssessmentRunStateChange]
 stateChanges :: [AssessmentRunStateChange]
 $sel:stateChanges:AssessmentRun' :: AssessmentRun -&gt; [AssessmentRunStateChange]
-</span><a href="#local-6989586621679248832"><span class="hs-identifier hs-var hs-var">stateChanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AssessmentRunStateChange]
-</span><a href="#local-6989586621679248832"><span class="hs-identifier hs-var">stateChanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248831"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248830"><span class="annot"><span class="annottext">[AssessmentRunStateChange]
-</span><a href="#local-6989586621679248830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChanges:AssessmentRun' :: [AssessmentRunStateChange]
+</span><a href="#local-6989586621679248841"><span class="hs-identifier hs-var hs-var">stateChanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AssessmentRunStateChange]
+</span><a href="#local-6989586621679248841"><span class="hs-identifier hs-var">stateChanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248840"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248839"><span class="annot"><span class="annottext">[AssessmentRunStateChange]
+</span><a href="#local-6989586621679248839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChanges:AssessmentRun' :: [AssessmentRunStateChange]
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AstateChanges%3AAssessmentRun%27"><span class="hs-identifier hs-var">stateChanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssessmentRunStateChange]
-</span><a href="#local-6989586621679248830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AssessmentRunStateChange] -&gt; f [AssessmentRunStateChange])
+</span><a href="#local-6989586621679248839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AssessmentRunStateChange] -&gt; f [AssessmentRunStateChange])
  -&gt; AssessmentRun -&gt; f AssessmentRun)
 -&gt; (([AssessmentRunStateChange] -&gt; f [AssessmentRunStateChange])
     -&gt; [AssessmentRunStateChange] -&gt; f [AssessmentRunStateChange])
@@ -659,16 +659,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      [AssessmentRunNotification]
      [AssessmentRunNotification]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248828"><span class="annot"><span class="annottext">[AssessmentRunNotification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248837"><span class="annot"><span class="annottext">[AssessmentRunNotification]
 notifications :: [AssessmentRunNotification]
 $sel:notifications:AssessmentRun' :: AssessmentRun -&gt; [AssessmentRunNotification]
-</span><a href="#local-6989586621679248828"><span class="hs-identifier hs-var hs-var">notifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AssessmentRunNotification]
-</span><a href="#local-6989586621679248828"><span class="hs-identifier hs-var">notifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248827"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248826"><span class="annot"><span class="annottext">[AssessmentRunNotification]
-</span><a href="#local-6989586621679248826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifications:AssessmentRun' :: [AssessmentRunNotification]
+</span><a href="#local-6989586621679248837"><span class="hs-identifier hs-var hs-var">notifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AssessmentRunNotification]
+</span><a href="#local-6989586621679248837"><span class="hs-identifier hs-var">notifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248836"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248835"><span class="annot"><span class="annottext">[AssessmentRunNotification]
+</span><a href="#local-6989586621679248835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifications:AssessmentRun' :: [AssessmentRunNotification]
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3Anotifications%3AAssessmentRun%27"><span class="hs-identifier hs-var">notifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssessmentRunNotification]
-</span><a href="#local-6989586621679248826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AssessmentRunNotification] -&gt; f [AssessmentRunNotification])
+</span><a href="#local-6989586621679248835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AssessmentRunNotification] -&gt; f [AssessmentRunNotification])
  -&gt; AssessmentRun -&gt; f AssessmentRun)
 -&gt; (([AssessmentRunNotification] -&gt; f [AssessmentRunNotification])
     -&gt; [AssessmentRunNotification] -&gt; f [AssessmentRunNotification])
@@ -693,16 +693,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (HashMap Severity Int)
      (HashMap Severity Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248824"><span class="annot"><span class="annottext">HashMap Severity Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248833"><span class="annot"><span class="annottext">HashMap Severity Int
 findingCounts :: HashMap Severity Int
 $sel:findingCounts:AssessmentRun' :: AssessmentRun -&gt; HashMap Severity Int
-</span><a href="#local-6989586621679248824"><span class="hs-identifier hs-var hs-var">findingCounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Severity Int
-</span><a href="#local-6989586621679248824"><span class="hs-identifier hs-var">findingCounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248823"><span class="annot"><span class="annottext">s :: AssessmentRun
-</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248822"><span class="annot"><span class="annottext">HashMap Severity Int
-</span><a href="#local-6989586621679248822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
-</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingCounts:AssessmentRun' :: HashMap Severity Int
+</span><a href="#local-6989586621679248833"><span class="hs-identifier hs-var hs-var">findingCounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Severity Int
+</span><a href="#local-6989586621679248833"><span class="hs-identifier hs-var">findingCounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248832"><span class="annot"><span class="annottext">s :: AssessmentRun
+</span><a href="#local-6989586621679248832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun%27"><span class="hs-identifier hs-type">AssessmentRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248831"><span class="annot"><span class="annottext">HashMap Severity Int
+</span><a href="#local-6989586621679248831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRun
+</span><a href="#local-6989586621679248832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingCounts:AssessmentRun' :: HashMap Severity Int
 </span><a href="Network.AWS.Inspector.Types.AssessmentRun.html#%24sel%3AfindingCounts%3AAssessmentRun%27"><span class="hs-identifier hs-var">findingCounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Severity Int
-</span><a href="#local-6989586621679248822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Severity Int -&gt; f (HashMap Severity Int))
+</span><a href="#local-6989586621679248831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Severity Int -&gt; f (HashMap Severity Int))
  -&gt; AssessmentRun -&gt; f AssessmentRun)
 -&gt; ((HashMap Severity Int -&gt; f (HashMap Severity Int))
     -&gt; HashMap Severity Int -&gt; f (HashMap Severity Int))
@@ -715,8 +715,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248819"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679248817"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentRun
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248828"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679248826"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssessmentRun
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AssessmentRun)
@@ -726,8 +726,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AssessmentRun&quot;</span></span><span>
-</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248814"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248823"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Text
@@ -780,7 +780,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -818,7 +818,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;completedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -854,7 +854,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -888,7 +888,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -920,7 +920,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;assessmentTemplateArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -950,7 +950,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AssessmentRunState
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AssessmentRunState
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
@@ -978,7 +978,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;durationInSeconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -1004,7 +1004,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rulesPackageArns&quot;</span></span><span class="hs-special">)</span><span>
@@ -1028,7 +1028,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Attribute])
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Attribute])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userAttributesForFindings&quot;</span></span><span>
@@ -1056,7 +1056,7 @@ forall a. Monoid a =&gt; a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -1076,7 +1076,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateChangedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -1094,7 +1094,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dataCollected&quot;</span></span><span class="hs-special">)</span><span>
@@ -1109,7 +1109,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; HashMap Severity Int -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AssessmentRunStateChange])
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AssessmentRunStateChange])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateChanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [AssessmentRunStateChange])
@@ -1125,7 +1125,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (HashMap Severity Int -&gt; AssessmentRun)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AssessmentRunNotification])
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AssessmentRunNotification])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;notifications&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [AssessmentRunNotification])
@@ -1139,7 +1139,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (HashMap Severity Int) -&gt; Parser AssessmentRun
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Severity Int))
+</span><a href="#local-6989586621679248823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Severity Int))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;findingCounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Severity Int))
@@ -1150,7 +1150,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248806"><span id="local-6989586621679248808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span></span></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248815"><span id="local-6989586621679248817"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span></span></span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRun.html#AssessmentRun"><span class="hs-identifier hs-type">AssessmentRun</span></a></span></span><span>
 </span><span id="line-260"></span></pre></body></html>

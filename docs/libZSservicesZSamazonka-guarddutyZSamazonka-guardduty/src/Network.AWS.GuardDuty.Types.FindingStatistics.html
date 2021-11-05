@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about finding statistics.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newFindingStatistics' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679296578"><span id="local-6989586621679296579"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingStatistics"><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-var">FindingStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingStatistics%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics%27"><span class="hs-identifier hs-var">FindingStatistics'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679296587"><span id="local-6989586621679296588"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingStatistics"><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-var">FindingStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingStatistics%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics%27"><span class="hs-identifier hs-var">FindingStatistics'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents a map of severity to count statistics for a set of findings.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcountBySeverity%3AFindingStatistics%27"><span class="annot"><span class="annottext">FindingStatistics -&gt; Maybe (HashMap Text Int)
 </span><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#%24sel%3AcountBySeverity%3AFindingStatistics%27"><span class="hs-identifier hs-var hs-var">countBySeverity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296572"><span id="local-6989586621679296574"><span class="annot"><span class="annottext">FindingStatistics -&gt; FindingStatistics -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296581"><span id="local-6989586621679296583"><span class="annot"><span class="annottext">FindingStatistics -&gt; FindingStatistics -&gt; Bool
 (FindingStatistics -&gt; FindingStatistics -&gt; Bool)
 -&gt; (FindingStatistics -&gt; FindingStatistics -&gt; Bool)
 -&gt; Eq FindingStatistics
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FindingStatistics -&gt; FindingStatistics -&gt; Bool
 == :: FindingStatistics -&gt; FindingStatistics -&gt; Bool
 $c== :: FindingStatistics -&gt; FindingStatistics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296563"><span id="local-6989586621679296565"><span id="local-6989586621679296567"><span id="local-6989586621679296569"><span class="annot"><span class="annottext">ReadPrec [FindingStatistics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296572"><span id="local-6989586621679296574"><span id="local-6989586621679296576"><span id="local-6989586621679296578"><span class="annot"><span class="annottext">ReadPrec [FindingStatistics]
 ReadPrec FindingStatistics
 Int -&gt; ReadS FindingStatistics
 ReadS [FindingStatistics]
@@ -60,7 +60,7 @@ readList :: ReadS [FindingStatistics]
 $creadList :: ReadS [FindingStatistics]
 readsPrec :: Int -&gt; ReadS FindingStatistics
 $creadsPrec :: Int -&gt; ReadS FindingStatistics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296556"><span id="local-6989586621679296558"><span id="local-6989586621679296560"><span class="annot"><span class="annottext">Int -&gt; FindingStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296565"><span id="local-6989586621679296567"><span id="local-6989586621679296569"><span class="annot"><span class="annottext">Int -&gt; FindingStatistics -&gt; ShowS
 [FindingStatistics] -&gt; ShowS
 FindingStatistics -&gt; String
 (Int -&gt; FindingStatistics -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Int))
      (Maybe (HashMap Text Int))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics%27"><span class="hs-identifier hs-type">FindingStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296547"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics%27"><span class="hs-identifier hs-type">FindingStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296556"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
 countBySeverity :: Maybe (HashMap Text Int)
 $sel:countBySeverity:FindingStatistics' :: FindingStatistics -&gt; Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679296547"><span class="hs-identifier hs-var hs-var">countBySeverity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679296547"><span class="hs-identifier hs-var">countBySeverity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296546"><span class="annot"><span class="annottext">s :: FindingStatistics
-</span><a href="#local-6989586621679296546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics%27"><span class="hs-identifier hs-type">FindingStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296545"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679296545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingStatistics
-</span><a href="#local-6989586621679296546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:countBySeverity:FindingStatistics' :: Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679296556"><span class="hs-identifier hs-var hs-var">countBySeverity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679296556"><span class="hs-identifier hs-var">countBySeverity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296555"><span class="annot"><span class="annottext">s :: FindingStatistics
+</span><a href="#local-6989586621679296555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics%27"><span class="hs-identifier hs-type">FindingStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296554"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679296554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingStatistics
+</span><a href="#local-6989586621679296555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:countBySeverity:FindingStatistics' :: Maybe (HashMap Text Int)
 </span><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#%24sel%3AcountBySeverity%3AFindingStatistics%27"><span class="hs-identifier hs-var">countBySeverity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679296545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-type">FindingStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
+</span><a href="#local-6989586621679296554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-type">FindingStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
  -&gt; FindingStatistics -&gt; f FindingStatistics)
 -&gt; ((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
     -&gt; Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
@@ -159,8 +159,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296539"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-type">FindingStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679296537"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FindingStatistics
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296548"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-type">FindingStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679296546"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FindingStatistics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FindingStatistics)
@@ -170,15 +170,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FindingStatistics&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679296534"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679296534"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679296543"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int) -&gt; FindingStatistics
 </span><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics%27"><span class="hs-identifier hs-var">FindingStatistics'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Int) -&gt; FindingStatistics)
 -&gt; Parser (Maybe (HashMap Text Int)) -&gt; Parser FindingStatistics
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679296534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Int)))
+</span><a href="#local-6989586621679296543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Int)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;countBySeverity&quot;</span></span><span>
@@ -191,7 +191,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-64"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296527"><span id="local-6989586621679296529"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-type">FindingStatistics</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296536"><span id="local-6989586621679296538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-type">FindingStatistics</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-type">FindingStatistics</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingStatistics.html#FindingStatistics"><span class="hs-identifier hs-type">FindingStatistics</span></a></span></span><span>
 </span><span id="line-70"></span></pre></body></html>

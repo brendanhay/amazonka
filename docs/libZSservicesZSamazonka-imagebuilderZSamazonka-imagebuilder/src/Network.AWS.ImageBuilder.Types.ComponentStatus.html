@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ImageBuilder.Types.ComponentStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImageBuilder.Types.ComponentStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#ComponentStatus"><span class="hs-identifier">ComponentStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#ComponentStatus_DEPRECATED"><span class="hs-identifier">ComponentStatus_DEPRECATED</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679312632"><span id="local-6989586621679312633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComponentStatus"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#ComponentStatus"><span class="hs-identifier hs-var">ComponentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComponentStatus%27"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#ComponentStatus%27"><span class="hs-identifier hs-var">ComponentStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComponentStatus"><span class="annot"><span class="annottext">ComponentStatus -&gt; Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#fromComponentStatus"><span class="hs-identifier hs-var hs-var">fromComponentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679312624"><span id="local-6989586621679312626"><span id="local-6989586621679312628"><span class="annot"><span class="annottext">Int -&gt; ComponentStatus -&gt; ShowS
+[ComponentStatus] -&gt; ShowS
+ComponentStatus -&gt; String
+(Int -&gt; ComponentStatus -&gt; ShowS)
+-&gt; (ComponentStatus -&gt; String)
+-&gt; ([ComponentStatus] -&gt; ShowS)
+-&gt; Show ComponentStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ComponentStatus] -&gt; ShowS
+$cshowList :: [ComponentStatus] -&gt; ShowS
+show :: ComponentStatus -&gt; String
+$cshow :: ComponentStatus -&gt; String
+showsPrec :: Int -&gt; ComponentStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ComponentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679312615"><span id="local-6989586621679312617"><span id="local-6989586621679312619"><span id="local-6989586621679312621"><span class="annot"><span class="annottext">ReadPrec [ComponentStatus]
+ReadPrec ComponentStatus
+Int -&gt; ReadS ComponentStatus
+ReadS [ComponentStatus]
+(Int -&gt; ReadS ComponentStatus)
+-&gt; ReadS [ComponentStatus]
+-&gt; ReadPrec ComponentStatus
+-&gt; ReadPrec [ComponentStatus]
+-&gt; Read ComponentStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ComponentStatus]
+$creadListPrec :: ReadPrec [ComponentStatus]
+readPrec :: ReadPrec ComponentStatus
+$creadPrec :: ReadPrec ComponentStatus
+readList :: ReadS [ComponentStatus]
+$creadList :: ReadS [ComponentStatus]
+readsPrec :: Int -&gt; ReadS ComponentStatus
+$creadsPrec :: Int -&gt; ReadS ComponentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679312610"><span id="local-6989586621679312612"><span class="annot"><span class="annottext">ComponentStatus -&gt; ComponentStatus -&gt; Bool
+(ComponentStatus -&gt; ComponentStatus -&gt; Bool)
+-&gt; (ComponentStatus -&gt; ComponentStatus -&gt; Bool)
+-&gt; Eq ComponentStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+$c/= :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+== :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+$c== :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679312594"><span id="local-6989586621679312596"><span id="local-6989586621679312598"><span id="local-6989586621679312600"><span id="local-6989586621679312602"><span id="local-6989586621679312604"><span id="local-6989586621679312606"><span class="annot"><span class="annottext">Eq ComponentStatus
+Eq ComponentStatus
+-&gt; (ComponentStatus -&gt; ComponentStatus -&gt; Ordering)
+-&gt; (ComponentStatus -&gt; ComponentStatus -&gt; Bool)
+-&gt; (ComponentStatus -&gt; ComponentStatus -&gt; Bool)
+-&gt; (ComponentStatus -&gt; ComponentStatus -&gt; Bool)
+-&gt; (ComponentStatus -&gt; ComponentStatus -&gt; Bool)
+-&gt; (ComponentStatus -&gt; ComponentStatus -&gt; ComponentStatus)
+-&gt; (ComponentStatus -&gt; ComponentStatus -&gt; ComponentStatus)
+-&gt; Ord ComponentStatus
+ComponentStatus -&gt; ComponentStatus -&gt; Bool
+ComponentStatus -&gt; ComponentStatus -&gt; Ordering
+ComponentStatus -&gt; ComponentStatus -&gt; ComponentStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ComponentStatus -&gt; ComponentStatus -&gt; ComponentStatus
+$cmin :: ComponentStatus -&gt; ComponentStatus -&gt; ComponentStatus
+max :: ComponentStatus -&gt; ComponentStatus -&gt; ComponentStatus
+$cmax :: ComponentStatus -&gt; ComponentStatus -&gt; ComponentStatus
+&gt;= :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+$c&gt;= :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+&gt; :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+$c&gt; :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+&lt;= :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+$c&lt;= :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+&lt; :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+$c&lt; :: ComponentStatus -&gt; ComponentStatus -&gt; Bool
+compare :: ComponentStatus -&gt; ComponentStatus -&gt; Ordering
+$ccompare :: ComponentStatus -&gt; ComponentStatus -&gt; Ordering
+$cp1Ord :: Eq ComponentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ComponentStatus -&gt; Rep ComponentStatus x)
+-&gt; (forall x. Rep ComponentStatus x -&gt; ComponentStatus)
+-&gt; Generic ComponentStatus
+forall x. Rep ComponentStatus x -&gt; ComponentStatus
+forall x. ComponentStatus -&gt; Rep ComponentStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ComponentStatus x -&gt; ComponentStatus
+$cfrom :: forall x. ComponentStatus -&gt; Rep ComponentStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679312586"><span id="local-6989586621679312588"><span class="annot"><span class="annottext">Int -&gt; ComponentStatus -&gt; Int
+ComponentStatus -&gt; Int
+(Int -&gt; ComponentStatus -&gt; Int)
+-&gt; (ComponentStatus -&gt; Int) -&gt; Hashable ComponentStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ComponentStatus -&gt; Int
+$chash :: ComponentStatus -&gt; Int
+hashWithSalt :: Int -&gt; ComponentStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ComponentStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679312583"><span class="annot"><span class="annottext">ComponentStatus -&gt; ()
+(ComponentStatus -&gt; ()) -&gt; NFData ComponentStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ComponentStatus -&gt; ()
+$crnf :: ComponentStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679312580"><span class="annot"><span class="annottext">Text -&gt; Either String ComponentStatus
+(Text -&gt; Either String ComponentStatus) -&gt; FromText ComponentStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ComponentStatus
+$cfromText :: Text -&gt; Either String ComponentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679312577"><span class="annot"><span class="annottext">ComponentStatus -&gt; Text
+(ComponentStatus -&gt; Text) -&gt; ToText ComponentStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ComponentStatus -&gt; Text
+$ctoText :: ComponentStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679312574"><span class="annot"><span class="annottext">ComponentStatus -&gt; ByteString
+(ComponentStatus -&gt; ByteString) -&gt; ToByteString ComponentStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ComponentStatus -&gt; ByteString
+$ctoBS :: ComponentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679312571"><span class="annot"><span class="annottext">ComponentStatus -&gt; ByteStringBuilder
+(ComponentStatus -&gt; ByteStringBuilder) -&gt; ToLog ComponentStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ComponentStatus -&gt; ByteStringBuilder
+$cbuild :: ComponentStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679312568"><span class="annot"><span class="annottext">HeaderName -&gt; ComponentStatus -&gt; [Header]
+(HeaderName -&gt; ComponentStatus -&gt; [Header])
+-&gt; ToHeader ComponentStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ComponentStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ComponentStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679312565"><span class="annot"><span class="annottext">ComponentStatus -&gt; QueryString
+(ComponentStatus -&gt; QueryString) -&gt; ToQuery ComponentStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ComponentStatus -&gt; QueryString
+$ctoQuery :: ComponentStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679312560"><span id="local-6989586621679312562"><span class="annot"><span class="annottext">Value -&gt; Parser [ComponentStatus]
+Value -&gt; Parser ComponentStatus
+(Value -&gt; Parser ComponentStatus)
+-&gt; (Value -&gt; Parser [ComponentStatus]) -&gt; FromJSON ComponentStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ComponentStatus]
+$cparseJSONList :: Value -&gt; Parser [ComponentStatus]
+parseJSON :: Value -&gt; Parser ComponentStatus
+$cparseJSON :: Value -&gt; Parser ComponentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679312555"><span id="local-6989586621679312557"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComponentStatus]
+FromJSONKeyFunction ComponentStatus
+FromJSONKeyFunction ComponentStatus
+-&gt; FromJSONKeyFunction [ComponentStatus]
+-&gt; FromJSONKey ComponentStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ComponentStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ComponentStatus]
+fromJSONKey :: FromJSONKeyFunction ComponentStatus
+$cfromJSONKey :: FromJSONKeyFunction ComponentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679312546"><span id="local-6989586621679312548"><span id="local-6989586621679312550"><span id="local-6989586621679312552"><span class="annot"><span class="annottext">[ComponentStatus] -&gt; Encoding
+[ComponentStatus] -&gt; Value
+ComponentStatus -&gt; Encoding
+ComponentStatus -&gt; Value
+(ComponentStatus -&gt; Value)
+-&gt; (ComponentStatus -&gt; Encoding)
+-&gt; ([ComponentStatus] -&gt; Value)
+-&gt; ([ComponentStatus] -&gt; Encoding)
+-&gt; ToJSON ComponentStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ComponentStatus] -&gt; Encoding
+$ctoEncodingList :: [ComponentStatus] -&gt; Encoding
+toJSONList :: [ComponentStatus] -&gt; Value
+$ctoJSONList :: [ComponentStatus] -&gt; Value
+toEncoding :: ComponentStatus -&gt; Encoding
+$ctoEncoding :: ComponentStatus -&gt; Encoding
+toJSON :: ComponentStatus -&gt; Value
+$ctoJSON :: ComponentStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679312541"><span id="local-6989586621679312543"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComponentStatus]
+ToJSONKeyFunction ComponentStatus
+ToJSONKeyFunction ComponentStatus
+-&gt; ToJSONKeyFunction [ComponentStatus] -&gt; ToJSONKey ComponentStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ComponentStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ComponentStatus]
+toJSONKey :: ToJSONKeyFunction ComponentStatus
+$ctoJSONKey :: ToJSONKeyFunction ComponentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679312538"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComponentStatus
+([Node] -&gt; Either String ComponentStatus)
+-&gt; FromXML ComponentStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ComponentStatus
+$cparseXML :: [Node] -&gt; Either String ComponentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679312535"><span class="annot"><span class="annottext">ComponentStatus -&gt; XML
+(ComponentStatus -&gt; XML) -&gt; ToXML ComponentStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ComponentStatus -&gt; XML
+$ctoXML :: ComponentStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#ComponentStatus_DEPRECATED"><span class="hs-identifier hs-type">ComponentStatus_DEPRECATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#ComponentStatus"><span class="hs-identifier hs-type">ComponentStatus</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bComponentStatus_DEPRECATED"><span id="%24mComponentStatus_DEPRECATED"><span id="ComponentStatus_DEPRECATED"><span class="annot"><span class="annottext">$bComponentStatus_DEPRECATED :: ComponentStatus
+$mComponentStatus_DEPRECATED :: forall r. ComponentStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#%24bComponentStatus_DEPRECATED"><span class="hs-identifier hs-var hs-var hs-var">ComponentStatus_DEPRECATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#ComponentStatus%27"><span class="hs-identifier hs-type">ComponentStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEPRECATED&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#ComponentStatus_DEPRECATED"><span class="hs-pragma hs-type">ComponentStatus_DEPRECATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentStatus.html#ComponentStatus%27"><span class="hs-pragma hs-type">ComponentStatus'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

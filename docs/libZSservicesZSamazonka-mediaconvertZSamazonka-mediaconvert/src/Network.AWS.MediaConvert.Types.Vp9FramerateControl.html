@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621680015122"><span id="local-6989586621680015123"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp9FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateControl.html#Vp9FramerateControl"><span class="hs-identifier hs-var">Vp9FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp9FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateControl.html#Vp9FramerateControl%27"><span class="hs-identifier hs-var">Vp9FramerateControl'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621680015131"><span id="local-6989586621680015132"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp9FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateControl.html#Vp9FramerateControl"><span class="hs-identifier hs-var">Vp9FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp9FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp9FramerateControl.html#Vp9FramerateControl%27"><span class="hs-identifier hs-var">Vp9FramerateControl'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVp9FramerateControl"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Vp9FramerateControl.html#fromVp9FramerateControl"><span class="hs-identifier hs-var hs-var">fromVp9FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015114"><span id="local-6989586621680015116"><span id="local-6989586621680015118"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateControl -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015123"><span id="local-6989586621680015125"><span id="local-6989586621680015127"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateControl -&gt; ShowS
 [Vp9FramerateControl] -&gt; ShowS
 Vp9FramerateControl -&gt; String
 (Int -&gt; Vp9FramerateControl -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: Vp9FramerateControl -&gt; String
 showsPrec :: Int -&gt; Vp9FramerateControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Vp9FramerateControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680015105"><span id="local-6989586621680015107"><span id="local-6989586621680015109"><span id="local-6989586621680015111"><span class="annot"><span class="annottext">ReadPrec [Vp9FramerateControl]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680015114"><span id="local-6989586621680015116"><span id="local-6989586621680015118"><span id="local-6989586621680015120"><span class="annot"><span class="annottext">ReadPrec [Vp9FramerateControl]
 ReadPrec Vp9FramerateControl
 Int -&gt; ReadS Vp9FramerateControl
 ReadS [Vp9FramerateControl]
@@ -85,7 +85,7 @@ $creadList :: ReadS [Vp9FramerateControl]
 readsPrec :: Int -&gt; ReadS Vp9FramerateControl
 $creadsPrec :: Int -&gt; ReadS Vp9FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680015100"><span id="local-6989586621680015102"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; Vp9FramerateControl -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680015109"><span id="local-6989586621680015111"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; Vp9FramerateControl -&gt; Bool
 (Vp9FramerateControl -&gt; Vp9FramerateControl -&gt; Bool)
 -&gt; (Vp9FramerateControl -&gt; Vp9FramerateControl -&gt; Bool)
 -&gt; Eq Vp9FramerateControl
@@ -95,7 +95,7 @@ $c/= :: Vp9FramerateControl -&gt; Vp9FramerateControl -&gt; Bool
 == :: Vp9FramerateControl -&gt; Vp9FramerateControl -&gt; Bool
 $c== :: Vp9FramerateControl -&gt; Vp9FramerateControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680015084"><span id="local-6989586621680015086"><span id="local-6989586621680015088"><span id="local-6989586621680015090"><span id="local-6989586621680015092"><span id="local-6989586621680015094"><span id="local-6989586621680015096"><span class="annot"><span class="annottext">Eq Vp9FramerateControl
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680015093"><span id="local-6989586621680015095"><span id="local-6989586621680015097"><span id="local-6989586621680015099"><span id="local-6989586621680015101"><span id="local-6989586621680015103"><span id="local-6989586621680015105"><span class="annot"><span class="annottext">Eq Vp9FramerateControl
 Eq Vp9FramerateControl
 -&gt; (Vp9FramerateControl -&gt; Vp9FramerateControl -&gt; Ordering)
 -&gt; (Vp9FramerateControl -&gt; Vp9FramerateControl -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. Vp9FramerateControl -&gt; Rep Vp9FramerateControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015076"><span id="local-6989586621680015078"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateControl -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015085"><span id="local-6989586621680015087"><span class="annot"><span class="annottext">Int -&gt; Vp9FramerateControl -&gt; Int
 Vp9FramerateControl -&gt; Int
 (Int -&gt; Vp9FramerateControl -&gt; Int)
 -&gt; (Vp9FramerateControl -&gt; Int) -&gt; Hashable Vp9FramerateControl
@@ -158,53 +158,53 @@ $chash :: Vp9FramerateControl -&gt; Int
 hashWithSalt :: Int -&gt; Vp9FramerateControl -&gt; Int
 $chashWithSalt :: Int -&gt; Vp9FramerateControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680015073"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680015082"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; ()
 (Vp9FramerateControl -&gt; ()) -&gt; NFData Vp9FramerateControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Vp9FramerateControl -&gt; ()
 $crnf :: Vp9FramerateControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680015070"><span class="annot"><span class="annottext">Text -&gt; Either String Vp9FramerateControl
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680015079"><span class="annot"><span class="annottext">Text -&gt; Either String Vp9FramerateControl
 (Text -&gt; Either String Vp9FramerateControl)
 -&gt; FromText Vp9FramerateControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Vp9FramerateControl
 $cfromText :: Text -&gt; Either String Vp9FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680015067"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680015076"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; Text
 (Vp9FramerateControl -&gt; Text) -&gt; ToText Vp9FramerateControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Vp9FramerateControl -&gt; Text
 $ctoText :: Vp9FramerateControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680015064"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680015073"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; ByteString
 (Vp9FramerateControl -&gt; ByteString)
 -&gt; ToByteString Vp9FramerateControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Vp9FramerateControl -&gt; ByteString
 $ctoBS :: Vp9FramerateControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680015061"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680015070"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; ByteStringBuilder
 (Vp9FramerateControl -&gt; ByteStringBuilder)
 -&gt; ToLog Vp9FramerateControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Vp9FramerateControl -&gt; ByteStringBuilder
 $cbuild :: Vp9FramerateControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680015058"><span class="annot"><span class="annottext">HeaderName -&gt; Vp9FramerateControl -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680015067"><span class="annot"><span class="annottext">HeaderName -&gt; Vp9FramerateControl -&gt; [Header]
 (HeaderName -&gt; Vp9FramerateControl -&gt; [Header])
 -&gt; ToHeader Vp9FramerateControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Vp9FramerateControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Vp9FramerateControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680015055"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680015064"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; QueryString
 (Vp9FramerateControl -&gt; QueryString) -&gt; ToQuery Vp9FramerateControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Vp9FramerateControl -&gt; QueryString
 $ctoQuery :: Vp9FramerateControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680015050"><span id="local-6989586621680015052"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp9FramerateControl]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680015059"><span id="local-6989586621680015061"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp9FramerateControl]
 Value -&gt; Parser Vp9FramerateControl
 (Value -&gt; Parser Vp9FramerateControl)
 -&gt; (Value -&gt; Parser [Vp9FramerateControl])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [Vp9FramerateControl]
 parseJSON :: Value -&gt; Parser Vp9FramerateControl
 $cparseJSON :: Value -&gt; Parser Vp9FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680015045"><span id="local-6989586621680015047"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp9FramerateControl]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680015054"><span id="local-6989586621680015056"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp9FramerateControl]
 FromJSONKeyFunction Vp9FramerateControl
 FromJSONKeyFunction Vp9FramerateControl
 -&gt; FromJSONKeyFunction [Vp9FramerateControl]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Vp9FramerateControl]
 fromJSONKey :: FromJSONKeyFunction Vp9FramerateControl
 $cfromJSONKey :: FromJSONKeyFunction Vp9FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680015036"><span id="local-6989586621680015038"><span id="local-6989586621680015040"><span id="local-6989586621680015042"><span class="annot"><span class="annottext">[Vp9FramerateControl] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680015045"><span id="local-6989586621680015047"><span id="local-6989586621680015049"><span id="local-6989586621680015051"><span class="annot"><span class="annottext">[Vp9FramerateControl] -&gt; Encoding
 [Vp9FramerateControl] -&gt; Value
 Vp9FramerateControl -&gt; Encoding
 Vp9FramerateControl -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: Vp9FramerateControl -&gt; Encoding
 toJSON :: Vp9FramerateControl -&gt; Value
 $ctoJSON :: Vp9FramerateControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680015031"><span id="local-6989586621680015033"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp9FramerateControl]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680015040"><span id="local-6989586621680015042"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp9FramerateControl]
 ToJSONKeyFunction Vp9FramerateControl
 ToJSONKeyFunction Vp9FramerateControl
 -&gt; ToJSONKeyFunction [Vp9FramerateControl]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Vp9FramerateControl]
 toJSONKey :: ToJSONKeyFunction Vp9FramerateControl
 $ctoJSONKey :: ToJSONKeyFunction Vp9FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680015028"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp9FramerateControl
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680015037"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp9FramerateControl
 ([Node] -&gt; Either String Vp9FramerateControl)
 -&gt; FromXML Vp9FramerateControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Vp9FramerateControl
 $cparseXML :: [Node] -&gt; Either String Vp9FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621680015025"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621680015034"><span class="annot"><span class="annottext">Vp9FramerateControl -&gt; XML
 (Vp9FramerateControl -&gt; XML) -&gt; ToXML Vp9FramerateControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Vp9FramerateControl -&gt; XML

@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newModifyTransitGatewayVpcAttachment' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621681215802"><span id="local-6989586621681215803"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyTransitGatewayVpcAttachment"><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyTransitGatewayVpcAttachment%27"><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachment'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621681215811"><span id="local-6989586621681215812"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyTransitGatewayVpcAttachment"><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyTransitGatewayVpcAttachment%27"><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachment'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of one or more subnets to add. You can specify at most one</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- subnet per Availability Zone.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AaddSubnetIds%3AModifyTransitGatewayVpcAttachment%27"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment -&gt; Maybe [Text]
@@ -73,7 +73,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3AModifyTransitGatewayVpcAttachment%27"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment -&gt; Text
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AtransitGatewayAttachmentId%3AModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681215792"><span id="local-6989586621681215794"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681215801"><span id="local-6989586621681215803"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
 -&gt; ModifyTransitGatewayVpcAttachment -&gt; Bool
 (ModifyTransitGatewayVpcAttachment
  -&gt; ModifyTransitGatewayVpcAttachment -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: ModifyTransitGatewayVpcAttachment
 -&gt; ModifyTransitGatewayVpcAttachment -&gt; Bool
 $c== :: ModifyTransitGatewayVpcAttachment
 -&gt; ModifyTransitGatewayVpcAttachment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215783"><span id="local-6989586621681215785"><span id="local-6989586621681215787"><span id="local-6989586621681215789"><span class="annot"><span class="annottext">ReadPrec [ModifyTransitGatewayVpcAttachment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215792"><span id="local-6989586621681215794"><span id="local-6989586621681215796"><span id="local-6989586621681215798"><span class="annot"><span class="annottext">ReadPrec [ModifyTransitGatewayVpcAttachment]
 ReadPrec ModifyTransitGatewayVpcAttachment
 Int -&gt; ReadS ModifyTransitGatewayVpcAttachment
 ReadS [ModifyTransitGatewayVpcAttachment]
@@ -109,7 +109,7 @@ readList :: ReadS [ModifyTransitGatewayVpcAttachment]
 $creadList :: ReadS [ModifyTransitGatewayVpcAttachment]
 readsPrec :: Int -&gt; ReadS ModifyTransitGatewayVpcAttachment
 $creadsPrec :: Int -&gt; ReadS ModifyTransitGatewayVpcAttachment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215776"><span id="local-6989586621681215778"><span id="local-6989586621681215780"><span class="annot"><span class="annottext">Int -&gt; ModifyTransitGatewayVpcAttachment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215785"><span id="local-6989586621681215787"><span id="local-6989586621681215789"><span class="annot"><span class="annottext">Int -&gt; ModifyTransitGatewayVpcAttachment -&gt; ShowS
 [ModifyTransitGatewayVpcAttachment] -&gt; ShowS
 ModifyTransitGatewayVpcAttachment -&gt; String
 (Int -&gt; ModifyTransitGatewayVpcAttachment -&gt; ShowS)
@@ -174,8 +174,8 @@ ModifyTransitGatewayVpcAttachment
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span>
 </span><span id="line-97"></span><span id="newModifyTransitGatewayVpcAttachment"><span class="annot"><span class="annottext">newModifyTransitGatewayVpcAttachment :: Text -&gt; ModifyTransitGatewayVpcAttachment
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#newModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-var hs-var">newModifyTransitGatewayVpcAttachment</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621681215771"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681215771"><span class="hs-identifier hs-var">pTransitGatewayAttachmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621681215780"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681215780"><span class="hs-identifier hs-var">pTransitGatewayAttachmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment' :: Maybe [Text]
 -&gt; Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
 -&gt; Maybe [Text]
@@ -203,7 +203,7 @@ forall a. Maybe a
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:ModifyTransitGatewayVpcAttachment' :: Text
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AtransitGatewayAttachmentId%3AModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681215771"><span class="hs-identifier hs-var">pTransitGatewayAttachmentId_</span></a></span><span>
+</span><a href="#local-6989586621681215780"><span class="hs-identifier hs-var">pTransitGatewayAttachmentId_</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The IDs of one or more subnets to add. You can specify at most one</span><span>
@@ -221,16 +221,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215768"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215777"><span class="annot"><span class="annottext">Maybe [Text]
 addSubnetIds :: Maybe [Text]
 $sel:addSubnetIds:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayVpcAttachment -&gt; Maybe [Text]
-</span><a href="#local-6989586621681215768"><span class="hs-identifier hs-var hs-var">addSubnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681215768"><span class="hs-identifier hs-var">addSubnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215767"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215766"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681215766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addSubnetIds:ModifyTransitGatewayVpcAttachment' :: Maybe [Text]
+</span><a href="#local-6989586621681215777"><span class="hs-identifier hs-var hs-var">addSubnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681215777"><span class="hs-identifier hs-var">addSubnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215776"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215775"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681215775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addSubnetIds:ModifyTransitGatewayVpcAttachment' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AaddSubnetIds%3AModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-var">addSubnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681215766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681215775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ModifyTransitGatewayVpcAttachment
  -&gt; f ModifyTransitGatewayVpcAttachment)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -265,17 +265,17 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ModifyTransitGatewayVpcAttachmentRequestOptions)
      (Maybe ModifyTransitGatewayVpcAttachmentRequestOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215762"><span class="annot"><span class="annottext">Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215771"><span class="annot"><span class="annottext">Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
 options :: Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
 $sel:options:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayVpcAttachment
 -&gt; Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
-</span><a href="#local-6989586621681215762"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
-</span><a href="#local-6989586621681215762"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215761"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215760"><span class="annot"><span class="annottext">Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
-</span><a href="#local-6989586621681215760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:ModifyTransitGatewayVpcAttachment' :: Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681215771"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681215771"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215770"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215769"><span class="annot"><span class="annottext">Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
+</span><a href="#local-6989586621681215769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:ModifyTransitGatewayVpcAttachment' :: Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3Aoptions%3AModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
-</span><a href="#local-6989586621681215760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The IDs of one or more subnets to remove.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#modifyTransitGatewayVpcAttachment_removeSubnetIds"><span class="hs-identifier hs-type">modifyTransitGatewayVpcAttachment_removeSubnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -291,16 +291,16 @@ $sel:options:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayVpcAttach
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215759"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215768"><span class="annot"><span class="annottext">Maybe [Text]
 removeSubnetIds :: Maybe [Text]
 $sel:removeSubnetIds:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayVpcAttachment -&gt; Maybe [Text]
-</span><a href="#local-6989586621681215759"><span class="hs-identifier hs-var hs-var">removeSubnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681215759"><span class="hs-identifier hs-var">removeSubnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215758"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215757"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681215757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeSubnetIds:ModifyTransitGatewayVpcAttachment' :: Maybe [Text]
+</span><a href="#local-6989586621681215768"><span class="hs-identifier hs-var hs-var">removeSubnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681215768"><span class="hs-identifier hs-var">removeSubnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215767"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215766"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681215766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeSubnetIds:ModifyTransitGatewayVpcAttachment' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AremoveSubnetIds%3AModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-var">removeSubnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681215757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681215766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ModifyTransitGatewayVpcAttachment
  -&gt; f ModifyTransitGatewayVpcAttachment)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -335,16 +335,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215756"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215765"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayVpcAttachment -&gt; Maybe Bool
-</span><a href="#local-6989586621681215756"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681215756"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215755"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215754"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681215754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyTransitGatewayVpcAttachment' :: Maybe Bool
+</span><a href="#local-6989586621681215765"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681215765"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215764"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215763"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681215763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyTransitGatewayVpcAttachment' :: Maybe Bool
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AdryRun%3AModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681215754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The ID of the attachment.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId"><span class="hs-identifier hs-type">modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -360,16 +360,16 @@ $sel:dryRun:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayVpcAttachm
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215753"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215762"><span class="annot"><span class="annottext">Text
 transitGatewayAttachmentId :: Text
 $sel:transitGatewayAttachmentId:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayVpcAttachment -&gt; Text
-</span><a href="#local-6989586621681215753"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681215753"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215752"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215751"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681215751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:ModifyTransitGatewayVpcAttachment' :: Text
+</span><a href="#local-6989586621681215762"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681215762"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215761"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681215760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:ModifyTransitGatewayVpcAttachment' :: Text
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AtransitGatewayAttachmentId%3AModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681215751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -378,7 +378,7 @@ $sel:transitGatewayAttachmentId:ModifyTransitGatewayVpcAttachment' :: ModifyTran
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621681215747"><span class="annot"><span class="annottext">request :: ModifyTransitGatewayVpcAttachment
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621681215756"><span class="annot"><span class="annottext">request :: ModifyTransitGatewayVpcAttachment
 -&gt; Request ModifyTransitGatewayVpcAttachment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ModifyTransitGatewayVpcAttachment
@@ -386,7 +386,7 @@ $sel:transitGatewayAttachmentId:ModifyTransitGatewayVpcAttachment' :: ModifyTran
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621681215743"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621681215752"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyTransitGatewayVpcAttachment
 -&gt; ClientResponse ClientBody
@@ -414,10 +414,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681215740"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681215740"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681215739"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681215739"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681215738"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681215738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681215749"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681215749"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681215748"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681215748"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681215747"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681215747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayVpcAttachment
 -&gt; Int -&gt; ModifyTransitGatewayVpcAttachmentResponse
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span>
@@ -427,7 +427,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ModifyTransitGatewayVpcAttachmentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681215738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitGatewayVpcAttachment)
+</span><a href="#local-6989586621681215747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitGatewayVpcAttachment)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transitGatewayVpcAttachment&quot;</span></span><span class="hs-special">)</span><span>
@@ -440,22 +440,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681215740"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215749"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621681215730"><span id="local-6989586621681215732"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621681215739"><span id="local-6989586621681215741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621681215727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621681215736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621681215723"><span class="annot"><span class="annottext">toHeaders :: ModifyTransitGatewayVpcAttachment -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621681215732"><span class="annot"><span class="annottext">toHeaders :: ModifyTransitGatewayVpcAttachment -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ModifyTransitGatewayVpcAttachment -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -467,7 +467,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621681215718"><span class="annot"><span class="annottext">toPath :: ModifyTransitGatewayVpcAttachment -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681215727"><span class="annot"><span class="annottext">toPath :: ModifyTransitGatewayVpcAttachment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyTransitGatewayVpcAttachment -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -477,8 +477,8 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment</span></a></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621681215714"><span class="annot"><span class="annottext">toQuery :: ModifyTransitGatewayVpcAttachment -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215708"><span id="local-6989586621681215709"><span id="local-6989586621681215710"><span id="local-6989586621681215711"><span id="local-6989586621681215712"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621681215723"><span class="annot"><span class="annottext">toQuery :: ModifyTransitGatewayVpcAttachment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachment%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215717"><span id="local-6989586621681215718"><span id="local-6989586621681215719"><span id="local-6989586621681215720"><span id="local-6989586621681215721"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
 Text
@@ -493,7 +493,7 @@ $sel:removeSubnetIds:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayV
 $sel:options:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayVpcAttachment
 -&gt; Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
 $sel:addSubnetIds:ModifyTransitGatewayVpcAttachment' :: ModifyTransitGatewayVpcAttachment -&gt; Maybe [Text]
-</span><a href="#local-6989586621681215708"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681215717"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -523,7 +523,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681215712"><span class="hs-identifier hs-var">addSubnetIds</span></a></span><span>
+</span><a href="#local-6989586621681215721"><span class="hs-identifier hs-var">addSubnetIds</span></a></span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Options&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -531,7 +531,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModifyTransitGatewayVpcAttachmentRequestOptions
-</span><a href="#local-6989586621681215711"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681215720"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -544,23 +544,23 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681215710"><span class="hs-identifier hs-var">removeSubnetIds</span></a></span><span>
+</span><a href="#local-6989586621681215719"><span class="hs-identifier hs-var">removeSubnetIds</span></a></span><span>
 </span><span id="line-189"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681215709"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681215718"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TransitGatewayAttachmentId&quot;</span></span><span>
 </span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681215708"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span>
+</span><a href="#local-6989586621681215717"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | /See:/ 'newModifyTransitGatewayVpcAttachmentResponse' smart constructor.</span><span>
-</span><span id="line-196"></span><span id="local-6989586621681215704"><span id="local-6989586621681215705"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyTransitGatewayVpcAttachmentResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyTransitGatewayVpcAttachmentResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span id="local-6989586621681215713"><span id="local-6989586621681215714"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyTransitGatewayVpcAttachmentResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyTransitGatewayVpcAttachmentResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-var">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the modified attachment.</span><span>
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3AtransitGatewayVpcAttachment%3AModifyTransitGatewayVpcAttachmentResponse%27"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentResponse
 -&gt; Maybe TransitGatewayVpcAttachment
@@ -569,7 +569,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyTransitGatewayVpcAttachmentResponse%27"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AhttpStatus%3AModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681215698"><span id="local-6989586621681215700"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentResponse
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681215707"><span id="local-6989586621681215709"><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentResponse
 -&gt; ModifyTransitGatewayVpcAttachmentResponse -&gt; Bool
 (ModifyTransitGatewayVpcAttachmentResponse
  -&gt; ModifyTransitGatewayVpcAttachmentResponse -&gt; Bool)
@@ -585,7 +585,7 @@ $c/= :: ModifyTransitGatewayVpcAttachmentResponse
 -&gt; ModifyTransitGatewayVpcAttachmentResponse -&gt; Bool
 $c== :: ModifyTransitGatewayVpcAttachmentResponse
 -&gt; ModifyTransitGatewayVpcAttachmentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215690"><span id="local-6989586621681215692"><span id="local-6989586621681215694"><span id="local-6989586621681215696"><span class="annot"><span class="annottext">ReadPrec [ModifyTransitGatewayVpcAttachmentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215699"><span id="local-6989586621681215701"><span id="local-6989586621681215703"><span id="local-6989586621681215705"><span class="annot"><span class="annottext">ReadPrec [ModifyTransitGatewayVpcAttachmentResponse]
 ReadPrec ModifyTransitGatewayVpcAttachmentResponse
 Int -&gt; ReadS ModifyTransitGatewayVpcAttachmentResponse
 ReadS [ModifyTransitGatewayVpcAttachmentResponse]
@@ -605,7 +605,7 @@ readList :: ReadS [ModifyTransitGatewayVpcAttachmentResponse]
 $creadList :: ReadS [ModifyTransitGatewayVpcAttachmentResponse]
 readsPrec :: Int -&gt; ReadS ModifyTransitGatewayVpcAttachmentResponse
 $creadsPrec :: Int -&gt; ReadS ModifyTransitGatewayVpcAttachmentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215684"><span id="local-6989586621681215686"><span id="local-6989586621681215688"><span class="annot"><span class="annottext">Int -&gt; ModifyTransitGatewayVpcAttachmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215693"><span id="local-6989586621681215695"><span id="local-6989586621681215697"><span class="annot"><span class="annottext">Int -&gt; ModifyTransitGatewayVpcAttachmentResponse -&gt; ShowS
 [ModifyTransitGatewayVpcAttachmentResponse] -&gt; ShowS
 ModifyTransitGatewayVpcAttachmentResponse -&gt; String
 (Int -&gt; ModifyTransitGatewayVpcAttachmentResponse -&gt; ShowS)
@@ -660,8 +660,8 @@ ModifyTransitGatewayVpcAttachmentResponse
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newModifyTransitGatewayVpcAttachmentResponse"><span class="annot"><span class="annottext">newModifyTransitGatewayVpcAttachmentResponse :: Int -&gt; ModifyTransitGatewayVpcAttachmentResponse
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#newModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-var hs-var">newModifyTransitGatewayVpcAttachmentResponse</span></a></span></span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621681215681"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681215681"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621681215690"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681215690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentResponse' :: Maybe TransitGatewayVpcAttachment
 -&gt; Int -&gt; ModifyTransitGatewayVpcAttachmentResponse
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span>
@@ -672,7 +672,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyTransitGatewayVpcAttachmentResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AhttpStatus%3AModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681215681"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681215690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | Information about the modified attachment.</span><span>
@@ -692,17 +692,17 @@ forall a. Maybe a
      (Maybe TransitGatewayVpcAttachment)
      (Maybe TransitGatewayVpcAttachment)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215680"><span class="annot"><span class="annottext">Maybe TransitGatewayVpcAttachment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215689"><span class="annot"><span class="annottext">Maybe TransitGatewayVpcAttachment
 transitGatewayVpcAttachment :: Maybe TransitGatewayVpcAttachment
 $sel:transitGatewayVpcAttachment:ModifyTransitGatewayVpcAttachmentResponse' :: ModifyTransitGatewayVpcAttachmentResponse
 -&gt; Maybe TransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215680"><span class="hs-identifier hs-var hs-var">transitGatewayVpcAttachment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215680"><span class="hs-identifier hs-var">transitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215679"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachmentResponse
-</span><a href="#local-6989586621681215679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215678"><span class="annot"><span class="annottext">Maybe TransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentResponse
-</span><a href="#local-6989586621681215679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayVpcAttachment:ModifyTransitGatewayVpcAttachmentResponse' :: Maybe TransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215689"><span class="hs-identifier hs-var hs-var">transitGatewayVpcAttachment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215689"><span class="hs-identifier hs-var">transitGatewayVpcAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215688"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachmentResponse
+</span><a href="#local-6989586621681215688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215687"><span class="annot"><span class="annottext">Maybe TransitGatewayVpcAttachment
+</span><a href="#local-6989586621681215687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentResponse
+</span><a href="#local-6989586621681215688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayVpcAttachment:ModifyTransitGatewayVpcAttachmentResponse' :: Maybe TransitGatewayVpcAttachment
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AtransitGatewayVpcAttachment%3AModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-var">transitGatewayVpcAttachment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayVpcAttachment
-</span><a href="#local-6989586621681215678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#modifyTransitGatewayVpcAttachmentResponse_httpStatus"><span class="hs-identifier hs-type">modifyTransitGatewayVpcAttachmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -718,18 +718,18 @@ $sel:transitGatewayVpcAttachment:ModifyTransitGatewayVpcAttachmentResponse' :: M
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215677"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215686"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyTransitGatewayVpcAttachmentResponse' :: ModifyTransitGatewayVpcAttachmentResponse -&gt; Int
-</span><a href="#local-6989586621681215677"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681215677"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215676"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachmentResponse
-</span><a href="#local-6989586621681215676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215675"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681215675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentResponse
-</span><a href="#local-6989586621681215676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyTransitGatewayVpcAttachmentResponse' :: Int
+</span><a href="#local-6989586621681215686"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681215686"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215685"><span class="annot"><span class="annottext">s :: ModifyTransitGatewayVpcAttachmentResponse
+</span><a href="#local-6989586621681215685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215684"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681215684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyTransitGatewayVpcAttachmentResponse
+</span><a href="#local-6989586621681215685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyTransitGatewayVpcAttachmentResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#%24sel%3AhttpStatus%3AModifyTransitGatewayVpcAttachmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681215675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621681215673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621681215682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyTransitGatewayVpcAttachment.html#ModifyTransitGatewayVpcAttachmentResponse"><span class="hs-identifier hs-type">ModifyTransitGatewayVpcAttachmentResponse</span></a></span></span><span>
 </span><span id="line-238"></span></pre></body></html>

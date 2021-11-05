@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-comment">-- (SCTE20_PLUS_EMBEDDED). To create a non-compliant output where the</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- embedded captions come first, choose Embedded plus SCTE-20</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- (EMBEDDED_PLUS_SCTE20).</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679947849"><span id="local-6989586621679947850"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaptionDestinationType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-var">CaptionDestinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionDestinationType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-var">CaptionDestinationType'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679947858"><span id="local-6989586621679947859"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaptionDestinationType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-var">CaptionDestinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionDestinationType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-var">CaptionDestinationType'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCaptionDestinationType"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CaptionDestinationType.html#fromCaptionDestinationType"><span class="hs-identifier hs-var hs-var">fromCaptionDestinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947841"><span id="local-6989586621679947843"><span id="local-6989586621679947845"><span class="annot"><span class="annottext">Int -&gt; CaptionDestinationType -&gt; ShowS
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947850"><span id="local-6989586621679947852"><span id="local-6989586621679947854"><span class="annot"><span class="annottext">Int -&gt; CaptionDestinationType -&gt; ShowS
 [CaptionDestinationType] -&gt; ShowS
 CaptionDestinationType -&gt; String
 (Int -&gt; CaptionDestinationType -&gt; ShowS)
@@ -71,7 +71,7 @@ $cshow :: CaptionDestinationType -&gt; String
 showsPrec :: Int -&gt; CaptionDestinationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CaptionDestinationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679947832"><span id="local-6989586621679947834"><span id="local-6989586621679947836"><span id="local-6989586621679947838"><span class="annot"><span class="annottext">ReadPrec [CaptionDestinationType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679947841"><span id="local-6989586621679947843"><span id="local-6989586621679947845"><span id="local-6989586621679947847"><span class="annot"><span class="annottext">ReadPrec [CaptionDestinationType]
 ReadPrec CaptionDestinationType
 Int -&gt; ReadS CaptionDestinationType
 ReadS [CaptionDestinationType]
@@ -92,7 +92,7 @@ $creadList :: ReadS [CaptionDestinationType]
 readsPrec :: Int -&gt; ReadS CaptionDestinationType
 $creadsPrec :: Int -&gt; ReadS CaptionDestinationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679947827"><span id="local-6989586621679947829"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679947836"><span id="local-6989586621679947838"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
 (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool)
 -&gt; (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool)
 -&gt; Eq CaptionDestinationType
@@ -102,7 +102,7 @@ $c/= :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
 == :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
 $c== :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679947811"><span id="local-6989586621679947813"><span id="local-6989586621679947815"><span id="local-6989586621679947817"><span id="local-6989586621679947819"><span id="local-6989586621679947821"><span id="local-6989586621679947823"><span class="annot"><span class="annottext">Eq CaptionDestinationType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679947820"><span id="local-6989586621679947822"><span id="local-6989586621679947824"><span id="local-6989586621679947826"><span id="local-6989586621679947828"><span id="local-6989586621679947830"><span id="local-6989586621679947832"><span class="annot"><span class="annottext">Eq CaptionDestinationType
 Eq CaptionDestinationType
 -&gt; (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Ordering)
 -&gt; (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool)
@@ -161,7 +161,7 @@ $cfrom :: forall x. CaptionDestinationType -&gt; Rep CaptionDestinationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947803"><span id="local-6989586621679947805"><span class="annot"><span class="annottext">Int -&gt; CaptionDestinationType -&gt; Int
+</span><span id="line-64"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947812"><span id="local-6989586621679947814"><span class="annot"><span class="annottext">Int -&gt; CaptionDestinationType -&gt; Int
 CaptionDestinationType -&gt; Int
 (Int -&gt; CaptionDestinationType -&gt; Int)
 -&gt; (CaptionDestinationType -&gt; Int)
@@ -172,54 +172,54 @@ $chash :: CaptionDestinationType -&gt; Int
 hashWithSalt :: Int -&gt; CaptionDestinationType -&gt; Int
 $chashWithSalt :: Int -&gt; CaptionDestinationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679947800"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; ()
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679947809"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; ()
 (CaptionDestinationType -&gt; ()) -&gt; NFData CaptionDestinationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CaptionDestinationType -&gt; ()
 $crnf :: CaptionDestinationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679947797"><span class="annot"><span class="annottext">Text -&gt; Either String CaptionDestinationType
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679947806"><span class="annot"><span class="annottext">Text -&gt; Either String CaptionDestinationType
 (Text -&gt; Either String CaptionDestinationType)
 -&gt; FromText CaptionDestinationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CaptionDestinationType
 $cfromText :: Text -&gt; Either String CaptionDestinationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679947794"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; Text
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679947803"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; Text
 (CaptionDestinationType -&gt; Text) -&gt; ToText CaptionDestinationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CaptionDestinationType -&gt; Text
 $ctoText :: CaptionDestinationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679947791"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; ByteString
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679947800"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; ByteString
 (CaptionDestinationType -&gt; ByteString)
 -&gt; ToByteString CaptionDestinationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CaptionDestinationType -&gt; ByteString
 $ctoBS :: CaptionDestinationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679947788"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; ByteStringBuilder
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679947797"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; ByteStringBuilder
 (CaptionDestinationType -&gt; ByteStringBuilder)
 -&gt; ToLog CaptionDestinationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CaptionDestinationType -&gt; ByteStringBuilder
 $cbuild :: CaptionDestinationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679947785"><span class="annot"><span class="annottext">HeaderName -&gt; CaptionDestinationType -&gt; [Header]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679947794"><span class="annot"><span class="annottext">HeaderName -&gt; CaptionDestinationType -&gt; [Header]
 (HeaderName -&gt; CaptionDestinationType -&gt; [Header])
 -&gt; ToHeader CaptionDestinationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CaptionDestinationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CaptionDestinationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679947782"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; QueryString
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679947791"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; QueryString
 (CaptionDestinationType -&gt; QueryString)
 -&gt; ToQuery CaptionDestinationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CaptionDestinationType -&gt; QueryString
 $ctoQuery :: CaptionDestinationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679947777"><span id="local-6989586621679947779"><span class="annot"><span class="annottext">Value -&gt; Parser [CaptionDestinationType]
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679947786"><span id="local-6989586621679947788"><span class="annot"><span class="annottext">Value -&gt; Parser [CaptionDestinationType]
 Value -&gt; Parser CaptionDestinationType
 (Value -&gt; Parser CaptionDestinationType)
 -&gt; (Value -&gt; Parser [CaptionDestinationType])
@@ -231,7 +231,7 @@ $cparseJSONList :: Value -&gt; Parser [CaptionDestinationType]
 parseJSON :: Value -&gt; Parser CaptionDestinationType
 $cparseJSON :: Value -&gt; Parser CaptionDestinationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679947772"><span id="local-6989586621679947774"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaptionDestinationType]
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679947781"><span id="local-6989586621679947783"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaptionDestinationType]
 FromJSONKeyFunction CaptionDestinationType
 FromJSONKeyFunction CaptionDestinationType
 -&gt; FromJSONKeyFunction [CaptionDestinationType]
@@ -243,7 +243,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CaptionDestinationType]
 fromJSONKey :: FromJSONKeyFunction CaptionDestinationType
 $cfromJSONKey :: FromJSONKeyFunction CaptionDestinationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679947763"><span id="local-6989586621679947765"><span id="local-6989586621679947767"><span id="local-6989586621679947769"><span class="annot"><span class="annottext">[CaptionDestinationType] -&gt; Encoding
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679947772"><span id="local-6989586621679947774"><span id="local-6989586621679947776"><span id="local-6989586621679947778"><span class="annot"><span class="annottext">[CaptionDestinationType] -&gt; Encoding
 [CaptionDestinationType] -&gt; Value
 CaptionDestinationType -&gt; Encoding
 CaptionDestinationType -&gt; Value
@@ -267,7 +267,7 @@ $ctoEncoding :: CaptionDestinationType -&gt; Encoding
 toJSON :: CaptionDestinationType -&gt; Value
 $ctoJSON :: CaptionDestinationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679947758"><span id="local-6989586621679947760"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaptionDestinationType]
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679947767"><span id="local-6989586621679947769"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaptionDestinationType]
 ToJSONKeyFunction CaptionDestinationType
 ToJSONKeyFunction CaptionDestinationType
 -&gt; ToJSONKeyFunction [CaptionDestinationType]
@@ -279,14 +279,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CaptionDestinationType]
 toJSONKey :: ToJSONKeyFunction CaptionDestinationType
 $ctoJSONKey :: ToJSONKeyFunction CaptionDestinationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679947755"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaptionDestinationType
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679947764"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaptionDestinationType
 ([Node] -&gt; Either String CaptionDestinationType)
 -&gt; FromXML CaptionDestinationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CaptionDestinationType
 $cparseXML :: [Node] -&gt; Either String CaptionDestinationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679947752"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; XML
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679947761"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; XML
 (CaptionDestinationType -&gt; XML) -&gt; ToXML CaptionDestinationType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CaptionDestinationType -&gt; XML

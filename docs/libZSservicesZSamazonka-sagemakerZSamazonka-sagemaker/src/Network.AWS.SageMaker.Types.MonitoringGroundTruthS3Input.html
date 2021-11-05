@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The ground truth labels for the dataset used for the monitoring job.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMonitoringGroundTruthS3Input' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680321092"><span id="local-6989586621680321093"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringGroundTruthS3Input"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-var">MonitoringGroundTruthS3Input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringGroundTruthS3Input%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-var">MonitoringGroundTruthS3Input'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680321101"><span id="local-6989586621680321102"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringGroundTruthS3Input"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-var">MonitoringGroundTruthS3Input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringGroundTruthS3Input%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-var">MonitoringGroundTruthS3Input'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The address of the Amazon S3 location of the ground truth labels.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3As3Uri%3AMonitoringGroundTruthS3Input%27"><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#%24sel%3As3Uri%3AMonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680321086"><span id="local-6989586621680321088"><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680321095"><span id="local-6989586621680321097"><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
 -&gt; MonitoringGroundTruthS3Input -&gt; Bool
 (MonitoringGroundTruthS3Input
  -&gt; MonitoringGroundTruthS3Input -&gt; Bool)
@@ -47,7 +47,7 @@ $c/= :: MonitoringGroundTruthS3Input
 -&gt; MonitoringGroundTruthS3Input -&gt; Bool
 $c== :: MonitoringGroundTruthS3Input
 -&gt; MonitoringGroundTruthS3Input -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321077"><span id="local-6989586621680321079"><span id="local-6989586621680321081"><span id="local-6989586621680321083"><span class="annot"><span class="annottext">ReadPrec [MonitoringGroundTruthS3Input]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321086"><span id="local-6989586621680321088"><span id="local-6989586621680321090"><span id="local-6989586621680321092"><span class="annot"><span class="annottext">ReadPrec [MonitoringGroundTruthS3Input]
 ReadPrec MonitoringGroundTruthS3Input
 Int -&gt; ReadS MonitoringGroundTruthS3Input
 ReadS [MonitoringGroundTruthS3Input]
@@ -67,7 +67,7 @@ readList :: ReadS [MonitoringGroundTruthS3Input]
 $creadList :: ReadS [MonitoringGroundTruthS3Input]
 readsPrec :: Int -&gt; ReadS MonitoringGroundTruthS3Input
 $creadsPrec :: Int -&gt; ReadS MonitoringGroundTruthS3Input
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321070"><span id="local-6989586621680321072"><span id="local-6989586621680321074"><span class="annot"><span class="annottext">Int -&gt; MonitoringGroundTruthS3Input -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680321079"><span id="local-6989586621680321081"><span id="local-6989586621680321083"><span class="annot"><span class="annottext">Int -&gt; MonitoringGroundTruthS3Input -&gt; ShowS
 [MonitoringGroundTruthS3Input] -&gt; ShowS
 MonitoringGroundTruthS3Input -&gt; String
 (Int -&gt; MonitoringGroundTruthS3Input -&gt; ShowS)
@@ -134,19 +134,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321061"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321070"><span class="annot"><span class="annottext">Maybe Text
 s3Uri :: Maybe Text
 $sel:s3Uri:MonitoringGroundTruthS3Input' :: MonitoringGroundTruthS3Input -&gt; Maybe Text
-</span><a href="#local-6989586621680321061"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321061"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321060"><span class="annot"><span class="annottext">s :: MonitoringGroundTruthS3Input
-</span><a href="#local-6989586621680321060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321059"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
-</span><a href="#local-6989586621680321060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:MonitoringGroundTruthS3Input' :: Maybe Text
+</span><a href="#local-6989586621680321070"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321070"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680321069"><span class="annot"><span class="annottext">s :: MonitoringGroundTruthS3Input
+</span><a href="#local-6989586621680321069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680321068"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680321068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringGroundTruthS3Input
+</span><a href="#local-6989586621680321069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:MonitoringGroundTruthS3Input' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#%24sel%3As3Uri%3AMonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680321068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321056"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621680321054"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringGroundTruthS3Input
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321065"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621680321063"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoringGroundTruthS3Input
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonitoringGroundTruthS3Input)
@@ -156,32 +156,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonitoringGroundTruthS3Input&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680321051"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680321060"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680321060"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; MonitoringGroundTruthS3Input
 </span><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-var">MonitoringGroundTruthS3Input'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; MonitoringGroundTruthS3Input)
 -&gt; Parser (Maybe Text) -&gt; Parser MonitoringGroundTruthS3Input
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680321051"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680321060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621680321045"><span id="local-6989586621680321047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621680321054"><span id="local-6989586621680321056"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321034"><span id="local-6989586621680321036"><span id="local-6989586621680321038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621680321032"><span class="annot"><span class="annottext">toJSON :: MonitoringGroundTruthS3Input -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321030"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680321043"><span id="local-6989586621680321045"><span id="local-6989586621680321047"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621680321041"><span class="annot"><span class="annottext">toJSON :: MonitoringGroundTruthS3Input -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input.html#MonitoringGroundTruthS3Input%27"><span class="hs-identifier hs-type">MonitoringGroundTruthS3Input'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680321039"><span class="annot"><span class="annottext">Maybe Text
 s3Uri :: Maybe Text
 $sel:s3Uri:MonitoringGroundTruthS3Input' :: MonitoringGroundTruthS3Input -&gt; Maybe Text
-</span><a href="#local-6989586621680321030"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680321039"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -193,6 +193,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680321030"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680321039"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

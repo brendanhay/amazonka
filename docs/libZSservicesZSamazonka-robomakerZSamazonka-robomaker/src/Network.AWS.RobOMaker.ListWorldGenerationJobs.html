@@ -1,0 +1,808 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.ListWorldGenerationJobs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists world generator jobs.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.ListWorldGenerationJobs</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#newListWorldGenerationJobs"><span class="hs-identifier">newListWorldGenerationJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_filters"><span class="hs-identifier">listWorldGenerationJobs_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_nextToken"><span class="hs-identifier">listWorldGenerationJobs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_maxResults"><span class="hs-identifier">listWorldGenerationJobs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier">ListWorldGenerationJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#newListWorldGenerationJobsResponse"><span class="hs-identifier">newListWorldGenerationJobsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_nextToken"><span class="hs-identifier">listWorldGenerationJobsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_httpStatus"><span class="hs-identifier">listWorldGenerationJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_worldGenerationJobSummaries"><span class="hs-identifier">listWorldGenerationJobsResponse_worldGenerationJobSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListWorldGenerationJobs' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679378640"><span id="local-6989586621679378641"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorldGenerationJobs"><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-var">ListWorldGenerationJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorldGenerationJobs%27"><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs%27"><span class="hs-identifier hs-var">ListWorldGenerationJobs'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional filters to limit results. You can use @status@ and</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @templateId@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Afilters%3AListWorldGenerationJobs%27"><span class="annot"><span class="annottext">ListWorldGenerationJobs -&gt; Maybe (NonEmpty Filter)
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3Afilters%3AListWorldGenerationJobs%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- token. To retrieve the next set of results, call</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @ListWorldGenerationJobsRequest@ again and assign that token to the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- request object\'s @nextToken@ parameter. If there are no remaining</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- results, the previous response object\'s NextToken parameter is set to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- null.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3AListWorldGenerationJobs%27"><span class="annot"><span class="annottext">ListWorldGenerationJobs -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AnextToken%3AListWorldGenerationJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | When this parameter is used, @ListWorldGeneratorJobs@ only returns</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @maxResults@ results in a single page along with a @nextToken@ response</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- element. The remaining results of the initial request can be seen by</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- sending another @ListWorldGeneratorJobs@ request with the returned</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @nextToken@ value. This value can be between 1 and 100. If this</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- parameter is not used, then @ListWorldGeneratorJobs@ returns up to 100</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxResults%3AListWorldGenerationJobs%27"><span class="annot"><span class="annottext">ListWorldGenerationJobs -&gt; Maybe Int
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AmaxResults%3AListWorldGenerationJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378632"><span id="local-6989586621679378634"><span class="annot"><span class="annottext">ListWorldGenerationJobs -&gt; ListWorldGenerationJobs -&gt; Bool
+(ListWorldGenerationJobs -&gt; ListWorldGenerationJobs -&gt; Bool)
+-&gt; (ListWorldGenerationJobs -&gt; ListWorldGenerationJobs -&gt; Bool)
+-&gt; Eq ListWorldGenerationJobs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListWorldGenerationJobs -&gt; ListWorldGenerationJobs -&gt; Bool
+$c/= :: ListWorldGenerationJobs -&gt; ListWorldGenerationJobs -&gt; Bool
+== :: ListWorldGenerationJobs -&gt; ListWorldGenerationJobs -&gt; Bool
+$c== :: ListWorldGenerationJobs -&gt; ListWorldGenerationJobs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378623"><span id="local-6989586621679378625"><span id="local-6989586621679378627"><span id="local-6989586621679378629"><span class="annot"><span class="annottext">ReadPrec [ListWorldGenerationJobs]
+ReadPrec ListWorldGenerationJobs
+Int -&gt; ReadS ListWorldGenerationJobs
+ReadS [ListWorldGenerationJobs]
+(Int -&gt; ReadS ListWorldGenerationJobs)
+-&gt; ReadS [ListWorldGenerationJobs]
+-&gt; ReadPrec ListWorldGenerationJobs
+-&gt; ReadPrec [ListWorldGenerationJobs]
+-&gt; Read ListWorldGenerationJobs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListWorldGenerationJobs]
+$creadListPrec :: ReadPrec [ListWorldGenerationJobs]
+readPrec :: ReadPrec ListWorldGenerationJobs
+$creadPrec :: ReadPrec ListWorldGenerationJobs
+readList :: ReadS [ListWorldGenerationJobs]
+$creadList :: ReadS [ListWorldGenerationJobs]
+readsPrec :: Int -&gt; ReadS ListWorldGenerationJobs
+$creadsPrec :: Int -&gt; ReadS ListWorldGenerationJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378616"><span id="local-6989586621679378618"><span id="local-6989586621679378620"><span class="annot"><span class="annottext">Int -&gt; ListWorldGenerationJobs -&gt; ShowS
+[ListWorldGenerationJobs] -&gt; ShowS
+ListWorldGenerationJobs -&gt; String
+(Int -&gt; ListWorldGenerationJobs -&gt; ShowS)
+-&gt; (ListWorldGenerationJobs -&gt; String)
+-&gt; ([ListWorldGenerationJobs] -&gt; ShowS)
+-&gt; Show ListWorldGenerationJobs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListWorldGenerationJobs] -&gt; ShowS
+$cshowList :: [ListWorldGenerationJobs] -&gt; ShowS
+show :: ListWorldGenerationJobs -&gt; String
+$cshow :: ListWorldGenerationJobs -&gt; String
+showsPrec :: Int -&gt; ListWorldGenerationJobs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListWorldGenerationJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListWorldGenerationJobs -&gt; Rep ListWorldGenerationJobs x)
+-&gt; (forall x.
+    Rep ListWorldGenerationJobs x -&gt; ListWorldGenerationJobs)
+-&gt; Generic ListWorldGenerationJobs
+forall x. Rep ListWorldGenerationJobs x -&gt; ListWorldGenerationJobs
+forall x. ListWorldGenerationJobs -&gt; Rep ListWorldGenerationJobs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListWorldGenerationJobs x -&gt; ListWorldGenerationJobs
+$cfrom :: forall x. ListWorldGenerationJobs -&gt; Rep ListWorldGenerationJobs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'ListWorldGenerationJobs' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'filters', 'listWorldGenerationJobs_filters' - Optional filters to limit results. You can use @status@ and</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- @templateId@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'nextToken', 'listWorldGenerationJobs_nextToken' - If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- token. To retrieve the next set of results, call</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- @ListWorldGenerationJobsRequest@ again and assign that token to the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- request object\'s @nextToken@ parameter. If there are no remaining</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- results, the previous response object\'s NextToken parameter is set to</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- null.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'maxResults', 'listWorldGenerationJobs_maxResults' - When this parameter is used, @ListWorldGeneratorJobs@ only returns</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @maxResults@ results in a single page along with a @nextToken@ response</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- element. The remaining results of the initial request can be seen by</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- sending another @ListWorldGeneratorJobs@ request with the returned</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @nextToken@ value. This value can be between 1 and 100. If this</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- parameter is not used, then @ListWorldGeneratorJobs@ returns up to 100</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#newListWorldGenerationJobs"><span class="hs-identifier hs-type">newListWorldGenerationJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span>
+</span><span id="line-106"></span><span id="newListWorldGenerationJobs"><span class="annot"><span class="annottext">newListWorldGenerationJobs :: ListWorldGenerationJobs
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#newListWorldGenerationJobs"><span class="hs-identifier hs-var hs-var">newListWorldGenerationJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">ListWorldGenerationJobs' :: Maybe (NonEmpty Filter)
+-&gt; Maybe Text -&gt; Maybe Int -&gt; ListWorldGenerationJobs
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs%27"><span class="hs-identifier hs-type">ListWorldGenerationJobs'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:ListWorldGenerationJobs' :: Maybe (NonEmpty Filter)
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3Afilters%3AListWorldGenerationJobs%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListWorldGenerationJobs' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AnextToken%3AListWorldGenerationJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListWorldGenerationJobs' :: Maybe Int
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AmaxResults%3AListWorldGenerationJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Optional filters to limit results. You can use @status@ and</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @templateId@.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_filters"><span class="hs-identifier hs-type">listWorldGenerationJobs_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="listWorldGenerationJobs_filters"><span class="annot"><span class="annottext">listWorldGenerationJobs_filters :: (Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+-&gt; ListWorldGenerationJobs -&gt; f ListWorldGenerationJobs
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_filters"><span class="hs-identifier hs-var hs-var">listWorldGenerationJobs_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorldGenerationJobs -&gt; Maybe (NonEmpty Filter))
+-&gt; (ListWorldGenerationJobs
+    -&gt; Maybe (NonEmpty Filter) -&gt; ListWorldGenerationJobs)
+-&gt; Lens
+     ListWorldGenerationJobs
+     ListWorldGenerationJobs
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs%27"><span class="hs-identifier hs-type">ListWorldGenerationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378610"><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+filters :: Maybe (NonEmpty Filter)
+$sel:filters:ListWorldGenerationJobs' :: ListWorldGenerationJobs -&gt; Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679378610"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679378610"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378609"><span class="annot"><span class="annottext">s :: ListWorldGenerationJobs
+</span><a href="#local-6989586621679378609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs%27"><span class="hs-identifier hs-type">ListWorldGenerationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378608"><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679378608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorldGenerationJobs
+</span><a href="#local-6989586621679378609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListWorldGenerationJobs' :: Maybe (NonEmpty Filter)
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3Afilters%3AListWorldGenerationJobs%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679378608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+ -&gt; ListWorldGenerationJobs -&gt; f ListWorldGenerationJobs)
+-&gt; ((Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+    -&gt; Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+-&gt; (Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+-&gt; ListWorldGenerationJobs
+-&gt; f ListWorldGenerationJobs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+-&gt; Iso
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- token. To retrieve the next set of results, call</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- @ListWorldGenerationJobsRequest@ again and assign that token to the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- request object\'s @nextToken@ parameter. If there are no remaining</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- results, the previous response object\'s NextToken parameter is set to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- null.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_nextToken"><span class="hs-identifier hs-type">listWorldGenerationJobs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="listWorldGenerationJobs_nextToken"><span class="annot"><span class="annottext">listWorldGenerationJobs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListWorldGenerationJobs -&gt; f ListWorldGenerationJobs
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_nextToken"><span class="hs-identifier hs-var hs-var">listWorldGenerationJobs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorldGenerationJobs -&gt; Maybe Text)
+-&gt; (ListWorldGenerationJobs
+    -&gt; Maybe Text -&gt; ListWorldGenerationJobs)
+-&gt; Lens
+     ListWorldGenerationJobs
+     ListWorldGenerationJobs
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs%27"><span class="hs-identifier hs-type">ListWorldGenerationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378604"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListWorldGenerationJobs' :: ListWorldGenerationJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679378604"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378604"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378603"><span class="annot"><span class="annottext">s :: ListWorldGenerationJobs
+</span><a href="#local-6989586621679378603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs%27"><span class="hs-identifier hs-type">ListWorldGenerationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorldGenerationJobs
+</span><a href="#local-6989586621679378603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorldGenerationJobs' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AnextToken%3AListWorldGenerationJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | When this parameter is used, @ListWorldGeneratorJobs@ only returns</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @maxResults@ results in a single page along with a @nextToken@ response</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- element. The remaining results of the initial request can be seen by</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- sending another @ListWorldGeneratorJobs@ request with the returned</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- @nextToken@ value. This value can be between 1 and 100. If this</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- parameter is not used, then @ListWorldGeneratorJobs@ returns up to 100</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_maxResults"><span class="hs-identifier hs-type">listWorldGenerationJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="listWorldGenerationJobs_maxResults"><span class="annot"><span class="annottext">listWorldGenerationJobs_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListWorldGenerationJobs -&gt; f ListWorldGenerationJobs
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_maxResults"><span class="hs-identifier hs-var hs-var">listWorldGenerationJobs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorldGenerationJobs -&gt; Maybe Int)
+-&gt; (ListWorldGenerationJobs
+    -&gt; Maybe Int -&gt; ListWorldGenerationJobs)
+-&gt; Lens
+     ListWorldGenerationJobs
+     ListWorldGenerationJobs
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs%27"><span class="hs-identifier hs-type">ListWorldGenerationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378601"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:ListWorldGenerationJobs' :: ListWorldGenerationJobs -&gt; Maybe Int
+</span><a href="#local-6989586621679378601"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679378601"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378600"><span class="annot"><span class="annottext">s :: ListWorldGenerationJobs
+</span><a href="#local-6989586621679378600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs%27"><span class="hs-identifier hs-type">ListWorldGenerationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378599"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679378599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorldGenerationJobs
+</span><a href="#local-6989586621679378600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListWorldGenerationJobs' :: Maybe Int
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AmaxResults%3AListWorldGenerationJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679378599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679378595"><span class="annot"><span class="annottext">page :: ListWorldGenerationJobs
+-&gt; AWSResponse ListWorldGenerationJobs
+-&gt; Maybe ListWorldGenerationJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679378593"><span class="annot"><span class="annottext">ListWorldGenerationJobs
+</span><a href="#local-6989586621679378593"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679378592"><span class="annot"><span class="annottext">AWSResponse ListWorldGenerationJobs
+</span><a href="#local-6989586621679378592"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-141"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListWorldGenerationJobs
+ListWorldGenerationJobsResponse
+</span><a href="#local-6989586621679378592"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse
+-&gt; Getting (First Text) ListWorldGenerationJobsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListWorldGenerationJobsResponse
+-&gt; Const (First Text) ListWorldGenerationJobsResponse
+Lens' ListWorldGenerationJobsResponse (Maybe Text)
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_nextToken"><span class="hs-identifier hs-var">listWorldGenerationJobsResponse_nextToken</span></a></span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListWorldGenerationJobsResponse
+ -&gt; Const (First Text) ListWorldGenerationJobsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListWorldGenerationJobsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-144"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListWorldGenerationJobs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[WorldGenerationJobSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-147"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListWorldGenerationJobs
+ListWorldGenerationJobsResponse
+</span><a href="#local-6989586621679378592"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse
+-&gt; Getting
+     [WorldGenerationJobSummary]
+     ListWorldGenerationJobsResponse
+     [WorldGenerationJobSummary]
+-&gt; [WorldGenerationJobSummary]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting
+  [WorldGenerationJobSummary]
+  ListWorldGenerationJobsResponse
+  [WorldGenerationJobSummary]
+Lens' ListWorldGenerationJobsResponse [WorldGenerationJobSummary]
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_worldGenerationJobSummaries"><span class="hs-identifier hs-var">listWorldGenerationJobsResponse_worldGenerationJobSummaries</span></a></span><span>
+</span><span id="line-149"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListWorldGenerationJobs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">ListWorldGenerationJobs -&gt; Maybe ListWorldGenerationJobs
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListWorldGenerationJobs -&gt; Maybe ListWorldGenerationJobs)
+-&gt; ListWorldGenerationJobs -&gt; Maybe ListWorldGenerationJobs
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ListWorldGenerationJobs
+</span><a href="#local-6989586621679378593"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">ListWorldGenerationJobs
+-&gt; (ListWorldGenerationJobs -&gt; ListWorldGenerationJobs)
+-&gt; ListWorldGenerationJobs
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListWorldGenerationJobs -&gt; Identity ListWorldGenerationJobs
+Lens
+  ListWorldGenerationJobs
+  ListWorldGenerationJobs
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobs_nextToken"><span class="hs-identifier hs-var">listWorldGenerationJobs_nextToken</span></a></span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListWorldGenerationJobs -&gt; Identity ListWorldGenerationJobs)
+-&gt; Maybe Text -&gt; ListWorldGenerationJobs -&gt; ListWorldGenerationJobs
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListWorldGenerationJobs
+ListWorldGenerationJobsResponse
+</span><a href="#local-6989586621679378592"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse
+-&gt; Getting (First Text) ListWorldGenerationJobsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListWorldGenerationJobsResponse
+-&gt; Const (First Text) ListWorldGenerationJobsResponse
+Lens' ListWorldGenerationJobsResponse (Maybe Text)
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_nextToken"><span class="hs-identifier hs-var">listWorldGenerationJobsResponse_nextToken</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListWorldGenerationJobsResponse
+ -&gt; Const (First Text) ListWorldGenerationJobsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListWorldGenerationJobsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-161"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679378582"><span class="annot"><span class="annottext">request :: ListWorldGenerationJobs -&gt; Request ListWorldGenerationJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListWorldGenerationJobs -&gt; Request ListWorldGenerationJobs
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RobOMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679378578"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListWorldGenerationJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListWorldGenerationJobs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListWorldGenerationJobs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListWorldGenerationJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListWorldGenerationJobs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378575"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378575"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679378574"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679378574"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679378573"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int
+-&gt; [WorldGenerationJobSummary]
+-&gt; ListWorldGenerationJobsResponse
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var">ListWorldGenerationJobsResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int
+ -&gt; [WorldGenerationJobSummary]
+ -&gt; ListWorldGenerationJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Int
+      -&gt; [WorldGenerationJobSummary] -&gt; ListWorldGenerationJobsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; [WorldGenerationJobSummary] -&gt; ListWorldGenerationJobsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     ([WorldGenerationJobSummary] -&gt; ListWorldGenerationJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378575"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([WorldGenerationJobSummary] -&gt; ListWorldGenerationJobsResponse)
+-&gt; Either String [WorldGenerationJobSummary]
+-&gt; Either String ListWorldGenerationJobsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [WorldGenerationJobSummary])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;worldGenerationJobSummaries&quot;</span></span><span>
+</span><span id="line-171"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [WorldGenerationJobSummary])
+-&gt; [WorldGenerationJobSummary]
+-&gt; Either String [WorldGenerationJobSummary]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[WorldGenerationJobSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-172"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378564"><span id="local-6989586621679378566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span></span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679378557"><span class="annot"><span class="annottext">toHeaders :: ListWorldGenerationJobs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListWorldGenerationJobs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-186"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378547"><span id="local-6989586621679378549"><span id="local-6989586621679378551"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679378545"><span class="annot"><span class="annottext">toJSON :: ListWorldGenerationJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs%27"><span class="hs-identifier hs-type">ListWorldGenerationJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378541"><span id="local-6989586621679378542"><span id="local-6989586621679378543"><span class="annot"><span class="annottext">Maybe Int
+Maybe (NonEmpty Filter)
+Maybe Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+filters :: Maybe (NonEmpty Filter)
+$sel:maxResults:ListWorldGenerationJobs' :: ListWorldGenerationJobs -&gt; Maybe Int
+$sel:nextToken:ListWorldGenerationJobs' :: ListWorldGenerationJobs -&gt; Maybe Text
+$sel:filters:ListWorldGenerationJobs' :: ListWorldGenerationJobs -&gt; Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679378541"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-194"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Filter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Filter -&gt; Pair) -&gt; Maybe (NonEmpty Filter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679378543"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378542"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679378541"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679378535"><span class="annot"><span class="annottext">toPath :: ListWorldGenerationJobs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListWorldGenerationJobs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/listWorldGenerationJobs&quot;</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobs"><span class="hs-identifier hs-type">ListWorldGenerationJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679378531"><span class="annot"><span class="annottext">toQuery :: ListWorldGenerationJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListWorldGenerationJobs -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | /See:/ 'newListWorldGenerationJobsResponse' smart constructor.</span><span>
+</span><span id="line-207"></span><span id="local-6989586621679378528"><span id="local-6989586621679378529"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorldGenerationJobsResponse"><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-var">ListWorldGenerationJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorldGenerationJobsResponse%27"><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var">ListWorldGenerationJobsResponse'</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- token. To retrieve the next set of results, call</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- @ListWorldGeneratorJobsRequest@ again and assign that token to the</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- request object\'s @nextToken@ parameter. If there are no remaining</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- results, the previous response object\'s NextToken parameter is set to</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- null.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AnextToken%3AListWorldGenerationJobsResponse%27"><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AnextToken%3AListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListWorldGenerationJobsResponse%27"><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse -&gt; Int
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AhttpStatus%3AListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | Summary information for world generator jobs.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AworldGenerationJobSummaries%3AListWorldGenerationJobsResponse%27"><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse -&gt; [WorldGenerationJobSummary]
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AworldGenerationJobSummaries%3AListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var hs-var">worldGenerationJobSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.WorldGenerationJobSummary.html#WorldGenerationJobSummary"><span class="hs-identifier hs-type">WorldGenerationJobSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378521"><span id="local-6989586621679378523"><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse
+-&gt; ListWorldGenerationJobsResponse -&gt; Bool
+(ListWorldGenerationJobsResponse
+ -&gt; ListWorldGenerationJobsResponse -&gt; Bool)
+-&gt; (ListWorldGenerationJobsResponse
+    -&gt; ListWorldGenerationJobsResponse -&gt; Bool)
+-&gt; Eq ListWorldGenerationJobsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListWorldGenerationJobsResponse
+-&gt; ListWorldGenerationJobsResponse -&gt; Bool
+$c/= :: ListWorldGenerationJobsResponse
+-&gt; ListWorldGenerationJobsResponse -&gt; Bool
+== :: ListWorldGenerationJobsResponse
+-&gt; ListWorldGenerationJobsResponse -&gt; Bool
+$c== :: ListWorldGenerationJobsResponse
+-&gt; ListWorldGenerationJobsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378513"><span id="local-6989586621679378515"><span id="local-6989586621679378517"><span id="local-6989586621679378519"><span class="annot"><span class="annottext">ReadPrec [ListWorldGenerationJobsResponse]
+ReadPrec ListWorldGenerationJobsResponse
+Int -&gt; ReadS ListWorldGenerationJobsResponse
+ReadS [ListWorldGenerationJobsResponse]
+(Int -&gt; ReadS ListWorldGenerationJobsResponse)
+-&gt; ReadS [ListWorldGenerationJobsResponse]
+-&gt; ReadPrec ListWorldGenerationJobsResponse
+-&gt; ReadPrec [ListWorldGenerationJobsResponse]
+-&gt; Read ListWorldGenerationJobsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListWorldGenerationJobsResponse]
+$creadListPrec :: ReadPrec [ListWorldGenerationJobsResponse]
+readPrec :: ReadPrec ListWorldGenerationJobsResponse
+$creadPrec :: ReadPrec ListWorldGenerationJobsResponse
+readList :: ReadS [ListWorldGenerationJobsResponse]
+$creadList :: ReadS [ListWorldGenerationJobsResponse]
+readsPrec :: Int -&gt; ReadS ListWorldGenerationJobsResponse
+$creadsPrec :: Int -&gt; ReadS ListWorldGenerationJobsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378507"><span id="local-6989586621679378509"><span id="local-6989586621679378511"><span class="annot"><span class="annottext">Int -&gt; ListWorldGenerationJobsResponse -&gt; ShowS
+[ListWorldGenerationJobsResponse] -&gt; ShowS
+ListWorldGenerationJobsResponse -&gt; String
+(Int -&gt; ListWorldGenerationJobsResponse -&gt; ShowS)
+-&gt; (ListWorldGenerationJobsResponse -&gt; String)
+-&gt; ([ListWorldGenerationJobsResponse] -&gt; ShowS)
+-&gt; Show ListWorldGenerationJobsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListWorldGenerationJobsResponse] -&gt; ShowS
+$cshowList :: [ListWorldGenerationJobsResponse] -&gt; ShowS
+show :: ListWorldGenerationJobsResponse -&gt; String
+$cshow :: ListWorldGenerationJobsResponse -&gt; String
+showsPrec :: Int -&gt; ListWorldGenerationJobsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListWorldGenerationJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListWorldGenerationJobsResponse
+ -&gt; Rep ListWorldGenerationJobsResponse x)
+-&gt; (forall x.
+    Rep ListWorldGenerationJobsResponse x
+    -&gt; ListWorldGenerationJobsResponse)
+-&gt; Generic ListWorldGenerationJobsResponse
+forall x.
+Rep ListWorldGenerationJobsResponse x
+-&gt; ListWorldGenerationJobsResponse
+forall x.
+ListWorldGenerationJobsResponse
+-&gt; Rep ListWorldGenerationJobsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListWorldGenerationJobsResponse x
+-&gt; ListWorldGenerationJobsResponse
+$cfrom :: forall x.
+ListWorldGenerationJobsResponse
+-&gt; Rep ListWorldGenerationJobsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Create a value of 'ListWorldGenerationJobsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'nextToken', 'listWorldGenerationJobsResponse_nextToken' - If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- token. To retrieve the next set of results, call</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- @ListWorldGeneratorJobsRequest@ again and assign that token to the</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- request object\'s @nextToken@ parameter. If there are no remaining</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- results, the previous response object\'s NextToken parameter is set to</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- null.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'httpStatus', 'listWorldGenerationJobsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'worldGenerationJobSummaries', 'listWorldGenerationJobsResponse_worldGenerationJobSummaries' - Summary information for world generator jobs.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#newListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">newListWorldGenerationJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse</span></a></span><span>
+</span><span id="line-246"></span><span id="newListWorldGenerationJobsResponse"><span class="annot"><span class="annottext">newListWorldGenerationJobsResponse :: Int -&gt; ListWorldGenerationJobsResponse
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#newListWorldGenerationJobsResponse"><span class="hs-identifier hs-var hs-var">newListWorldGenerationJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679378504"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378504"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse' :: Maybe Text
+-&gt; Int
+-&gt; [WorldGenerationJobSummary]
+-&gt; ListWorldGenerationJobsResponse
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListWorldGenerationJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AnextToken%3AListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorldGenerationJobsResponse' :: Int
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AhttpStatus%3AListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378504"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:worldGenerationJobSummaries:ListWorldGenerationJobsResponse' :: [WorldGenerationJobSummary]
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AworldGenerationJobSummaries%3AListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var">worldGenerationJobSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">[WorldGenerationJobSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- token. To retrieve the next set of results, call</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- @ListWorldGeneratorJobsRequest@ again and assign that token to the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- request object\'s @nextToken@ parameter. If there are no remaining</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- results, the previous response object\'s NextToken parameter is set to</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- null.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_nextToken"><span class="hs-identifier hs-type">listWorldGenerationJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="listWorldGenerationJobsResponse_nextToken"><span class="annot"><span class="annottext">listWorldGenerationJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListWorldGenerationJobsResponse
+-&gt; f ListWorldGenerationJobsResponse
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listWorldGenerationJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorldGenerationJobsResponse -&gt; Maybe Text)
+-&gt; (ListWorldGenerationJobsResponse
+    -&gt; Maybe Text -&gt; ListWorldGenerationJobsResponse)
+-&gt; Lens' ListWorldGenerationJobsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378503"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListWorldGenerationJobsResponse' :: ListWorldGenerationJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679378503"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378503"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378502"><span class="annot"><span class="annottext">s :: ListWorldGenerationJobsResponse
+</span><a href="#local-6989586621679378502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378501"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse
+</span><a href="#local-6989586621679378502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorldGenerationJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AnextToken%3AListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_httpStatus"><span class="hs-identifier hs-type">listWorldGenerationJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-267"></span><span id="listWorldGenerationJobsResponse_httpStatus"><span class="annot"><span class="annottext">listWorldGenerationJobsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListWorldGenerationJobsResponse
+-&gt; f ListWorldGenerationJobsResponse
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listWorldGenerationJobsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorldGenerationJobsResponse -&gt; Int)
+-&gt; (ListWorldGenerationJobsResponse
+    -&gt; Int -&gt; ListWorldGenerationJobsResponse)
+-&gt; Lens
+     ListWorldGenerationJobsResponse
+     ListWorldGenerationJobsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378500"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListWorldGenerationJobsResponse' :: ListWorldGenerationJobsResponse -&gt; Int
+</span><a href="#local-6989586621679378500"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378500"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378499"><span class="annot"><span class="annottext">s :: ListWorldGenerationJobsResponse
+</span><a href="#local-6989586621679378499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse
+</span><a href="#local-6989586621679378499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorldGenerationJobsResponse' :: Int
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AhttpStatus%3AListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679378498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | Summary information for world generator jobs.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_worldGenerationJobSummaries"><span class="hs-identifier hs-type">listWorldGenerationJobsResponse_worldGenerationJobSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.WorldGenerationJobSummary.html#WorldGenerationJobSummary"><span class="hs-identifier hs-type">WorldGenerationJobSummary</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-271"></span><span id="listWorldGenerationJobsResponse_worldGenerationJobSummaries"><span class="annot"><span class="annottext">listWorldGenerationJobsResponse_worldGenerationJobSummaries :: ([WorldGenerationJobSummary] -&gt; f [WorldGenerationJobSummary])
+-&gt; ListWorldGenerationJobsResponse
+-&gt; f ListWorldGenerationJobsResponse
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#listWorldGenerationJobsResponse_worldGenerationJobSummaries"><span class="hs-identifier hs-var hs-var">listWorldGenerationJobsResponse_worldGenerationJobSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorldGenerationJobsResponse -&gt; [WorldGenerationJobSummary])
+-&gt; (ListWorldGenerationJobsResponse
+    -&gt; [WorldGenerationJobSummary] -&gt; ListWorldGenerationJobsResponse)
+-&gt; Lens'
+     ListWorldGenerationJobsResponse [WorldGenerationJobSummary]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378497"><span class="annot"><span class="annottext">[WorldGenerationJobSummary]
+worldGenerationJobSummaries :: [WorldGenerationJobSummary]
+$sel:worldGenerationJobSummaries:ListWorldGenerationJobsResponse' :: ListWorldGenerationJobsResponse -&gt; [WorldGenerationJobSummary]
+</span><a href="#local-6989586621679378497"><span class="hs-identifier hs-var hs-var">worldGenerationJobSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[WorldGenerationJobSummary]
+</span><a href="#local-6989586621679378497"><span class="hs-identifier hs-var">worldGenerationJobSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378496"><span class="annot"><span class="annottext">s :: ListWorldGenerationJobsResponse
+</span><a href="#local-6989586621679378496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378495"><span class="annot"><span class="annottext">[WorldGenerationJobSummary]
+</span><a href="#local-6989586621679378495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorldGenerationJobsResponse
+</span><a href="#local-6989586621679378496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:worldGenerationJobSummaries:ListWorldGenerationJobsResponse' :: [WorldGenerationJobSummary]
+</span><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#%24sel%3AworldGenerationJobSummaries%3AListWorldGenerationJobsResponse%27"><span class="hs-identifier hs-var">worldGenerationJobSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[WorldGenerationJobSummary]
+</span><a href="#local-6989586621679378495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([WorldGenerationJobSummary] -&gt; f [WorldGenerationJobSummary])
+ -&gt; ListWorldGenerationJobsResponse
+ -&gt; f ListWorldGenerationJobsResponse)
+-&gt; (([WorldGenerationJobSummary] -&gt; f [WorldGenerationJobSummary])
+    -&gt; [WorldGenerationJobSummary] -&gt; f [WorldGenerationJobSummary])
+-&gt; ([WorldGenerationJobSummary] -&gt; f [WorldGenerationJobSummary])
+-&gt; ListWorldGenerationJobsResponse
+-&gt; f ListWorldGenerationJobsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([WorldGenerationJobSummary] -&gt; f [WorldGenerationJobSummary])
+-&gt; [WorldGenerationJobSummary] -&gt; f [WorldGenerationJobSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679378493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListWorldGenerationJobs.html#ListWorldGenerationJobsResponse"><span class="hs-identifier hs-type">ListWorldGenerationJobsResponse</span></a></span></span><span>
+</span><span id="line-276"></span></pre></body></html>

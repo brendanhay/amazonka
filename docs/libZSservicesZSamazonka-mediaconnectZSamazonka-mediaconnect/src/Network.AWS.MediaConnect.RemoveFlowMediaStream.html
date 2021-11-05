@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.RemoveFlowMediaStream</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes a media stream from a flow. This action is only available if the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- media stream is not associated with a source or output.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.RemoveFlowMediaStream</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier">RemoveFlowMediaStream</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#newRemoveFlowMediaStream"><span class="hs-identifier">newRemoveFlowMediaStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStream_flowArn"><span class="hs-identifier">removeFlowMediaStream_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStream_mediaStreamName"><span class="hs-identifier">removeFlowMediaStream_mediaStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier">RemoveFlowMediaStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#newRemoveFlowMediaStreamResponse"><span class="hs-identifier">newRemoveFlowMediaStreamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStreamResponse_mediaStreamName"><span class="hs-identifier">removeFlowMediaStreamResponse_mediaStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStreamResponse_flowArn"><span class="hs-identifier">removeFlowMediaStreamResponse_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStreamResponse_httpStatus"><span class="hs-identifier">removeFlowMediaStreamResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newRemoveFlowMediaStream' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679275889"><span id="local-6989586621679275890"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveFlowMediaStream"><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-var">RemoveFlowMediaStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveFlowMediaStream%27"><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream%27"><span class="hs-identifier hs-var">RemoveFlowMediaStream'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AflowArn%3ARemoveFlowMediaStream%27"><span class="annot"><span class="annottext">RemoveFlowMediaStream -&gt; Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AflowArn%3ARemoveFlowMediaStream%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The name of the media stream that you want to remove.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmediaStreamName%3ARemoveFlowMediaStream%27"><span class="annot"><span class="annottext">RemoveFlowMediaStream -&gt; Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AmediaStreamName%3ARemoveFlowMediaStream%27"><span class="hs-identifier hs-var hs-var">mediaStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275882"><span id="local-6989586621679275884"><span class="annot"><span class="annottext">RemoveFlowMediaStream -&gt; RemoveFlowMediaStream -&gt; Bool
+(RemoveFlowMediaStream -&gt; RemoveFlowMediaStream -&gt; Bool)
+-&gt; (RemoveFlowMediaStream -&gt; RemoveFlowMediaStream -&gt; Bool)
+-&gt; Eq RemoveFlowMediaStream
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveFlowMediaStream -&gt; RemoveFlowMediaStream -&gt; Bool
+$c/= :: RemoveFlowMediaStream -&gt; RemoveFlowMediaStream -&gt; Bool
+== :: RemoveFlowMediaStream -&gt; RemoveFlowMediaStream -&gt; Bool
+$c== :: RemoveFlowMediaStream -&gt; RemoveFlowMediaStream -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275873"><span id="local-6989586621679275875"><span id="local-6989586621679275877"><span id="local-6989586621679275879"><span class="annot"><span class="annottext">ReadPrec [RemoveFlowMediaStream]
+ReadPrec RemoveFlowMediaStream
+Int -&gt; ReadS RemoveFlowMediaStream
+ReadS [RemoveFlowMediaStream]
+(Int -&gt; ReadS RemoveFlowMediaStream)
+-&gt; ReadS [RemoveFlowMediaStream]
+-&gt; ReadPrec RemoveFlowMediaStream
+-&gt; ReadPrec [RemoveFlowMediaStream]
+-&gt; Read RemoveFlowMediaStream
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveFlowMediaStream]
+$creadListPrec :: ReadPrec [RemoveFlowMediaStream]
+readPrec :: ReadPrec RemoveFlowMediaStream
+$creadPrec :: ReadPrec RemoveFlowMediaStream
+readList :: ReadS [RemoveFlowMediaStream]
+$creadList :: ReadS [RemoveFlowMediaStream]
+readsPrec :: Int -&gt; ReadS RemoveFlowMediaStream
+$creadsPrec :: Int -&gt; ReadS RemoveFlowMediaStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275866"><span id="local-6989586621679275868"><span id="local-6989586621679275870"><span class="annot"><span class="annottext">Int -&gt; RemoveFlowMediaStream -&gt; ShowS
+[RemoveFlowMediaStream] -&gt; ShowS
+RemoveFlowMediaStream -&gt; String
+(Int -&gt; RemoveFlowMediaStream -&gt; ShowS)
+-&gt; (RemoveFlowMediaStream -&gt; String)
+-&gt; ([RemoveFlowMediaStream] -&gt; ShowS)
+-&gt; Show RemoveFlowMediaStream
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveFlowMediaStream] -&gt; ShowS
+$cshowList :: [RemoveFlowMediaStream] -&gt; ShowS
+show :: RemoveFlowMediaStream -&gt; String
+$cshow :: RemoveFlowMediaStream -&gt; String
+showsPrec :: Int -&gt; RemoveFlowMediaStream -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveFlowMediaStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RemoveFlowMediaStream -&gt; Rep RemoveFlowMediaStream x)
+-&gt; (forall x. Rep RemoveFlowMediaStream x -&gt; RemoveFlowMediaStream)
+-&gt; Generic RemoveFlowMediaStream
+forall x. Rep RemoveFlowMediaStream x -&gt; RemoveFlowMediaStream
+forall x. RemoveFlowMediaStream -&gt; Rep RemoveFlowMediaStream x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RemoveFlowMediaStream x -&gt; RemoveFlowMediaStream
+$cfrom :: forall x. RemoveFlowMediaStream -&gt; Rep RemoveFlowMediaStream x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'RemoveFlowMediaStream' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'flowArn', 'removeFlowMediaStream_flowArn' - The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'mediaStreamName', 'removeFlowMediaStream_mediaStreamName' - The name of the media stream that you want to remove.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#newRemoveFlowMediaStream"><span class="hs-identifier hs-type">newRemoveFlowMediaStream</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'flowArn'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'mediaStreamName'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span>
+</span><span id="line-78"></span><span id="newRemoveFlowMediaStream"><span class="annot"><span class="annottext">newRemoveFlowMediaStream :: Text -&gt; Text -&gt; RemoveFlowMediaStream
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#newRemoveFlowMediaStream"><span class="hs-identifier hs-var hs-var">newRemoveFlowMediaStream</span></a></span></span><span> </span><span id="local-6989586621679275861"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275861"><span class="hs-identifier hs-var">pFlowArn_</span></a></span></span><span> </span><span id="local-6989586621679275860"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275860"><span class="hs-identifier hs-var">pMediaStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">RemoveFlowMediaStream' :: Text -&gt; Text -&gt; RemoveFlowMediaStream
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream%27"><span class="hs-identifier hs-type">RemoveFlowMediaStream'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:RemoveFlowMediaStream' :: Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AflowArn%3ARemoveFlowMediaStream%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275861"><span class="hs-identifier hs-var">pFlowArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaStreamName:RemoveFlowMediaStream' :: Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AmediaStreamName%3ARemoveFlowMediaStream%27"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275860"><span class="hs-identifier hs-var">pMediaStreamName_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStream_flowArn"><span class="hs-identifier hs-type">removeFlowMediaStream_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="removeFlowMediaStream_flowArn"><span class="annot"><span class="annottext">removeFlowMediaStream_flowArn :: (Text -&gt; f Text)
+-&gt; RemoveFlowMediaStream -&gt; f RemoveFlowMediaStream
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStream_flowArn"><span class="hs-identifier hs-var hs-var">removeFlowMediaStream_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowMediaStream -&gt; Text)
+-&gt; (RemoveFlowMediaStream -&gt; Text -&gt; RemoveFlowMediaStream)
+-&gt; Lens RemoveFlowMediaStream RemoveFlowMediaStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream%27"><span class="hs-identifier hs-type">RemoveFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275857"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:RemoveFlowMediaStream' :: RemoveFlowMediaStream -&gt; Text
+</span><a href="#local-6989586621679275857"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275857"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275856"><span class="annot"><span class="annottext">s :: RemoveFlowMediaStream
+</span><a href="#local-6989586621679275856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream%27"><span class="hs-identifier hs-type">RemoveFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275855"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowMediaStream
+</span><a href="#local-6989586621679275856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:RemoveFlowMediaStream' :: Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AflowArn%3ARemoveFlowMediaStream%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The name of the media stream that you want to remove.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStream_mediaStreamName"><span class="hs-identifier hs-type">removeFlowMediaStream_mediaStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="removeFlowMediaStream_mediaStreamName"><span class="annot"><span class="annottext">removeFlowMediaStream_mediaStreamName :: (Text -&gt; f Text)
+-&gt; RemoveFlowMediaStream -&gt; f RemoveFlowMediaStream
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStream_mediaStreamName"><span class="hs-identifier hs-var hs-var">removeFlowMediaStream_mediaStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowMediaStream -&gt; Text)
+-&gt; (RemoveFlowMediaStream -&gt; Text -&gt; RemoveFlowMediaStream)
+-&gt; Lens RemoveFlowMediaStream RemoveFlowMediaStream Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream%27"><span class="hs-identifier hs-type">RemoveFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275854"><span class="annot"><span class="annottext">Text
+mediaStreamName :: Text
+$sel:mediaStreamName:RemoveFlowMediaStream' :: RemoveFlowMediaStream -&gt; Text
+</span><a href="#local-6989586621679275854"><span class="hs-identifier hs-var hs-var">mediaStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275854"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275853"><span class="annot"><span class="annottext">s :: RemoveFlowMediaStream
+</span><a href="#local-6989586621679275853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream%27"><span class="hs-identifier hs-type">RemoveFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275852"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowMediaStream
+</span><a href="#local-6989586621679275853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaStreamName:RemoveFlowMediaStream' :: Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AmediaStreamName%3ARemoveFlowMediaStream%27"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679275848"><span class="annot"><span class="annottext">request :: RemoveFlowMediaStream -&gt; Request RemoveFlowMediaStream
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemoveFlowMediaStream -&gt; Request RemoveFlowMediaStream
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679275844"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RemoveFlowMediaStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveFlowMediaStream)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RemoveFlowMediaStream))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RemoveFlowMediaStream
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RemoveFlowMediaStream)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275841"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275841"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679275840"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679275840"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679275839"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; RemoveFlowMediaStreamResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">RemoveFlowMediaStreamResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; RemoveFlowMediaStreamResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; RemoveFlowMediaStreamResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaStreamName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; RemoveFlowMediaStreamResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; RemoveFlowMediaStreamResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RemoveFlowMediaStreamResponse)
+-&gt; Either String Int -&gt; Either String RemoveFlowMediaStreamResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275841"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275831"><span id="local-6989586621679275833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679275824"><span class="annot"><span class="annottext">toHeaders :: RemoveFlowMediaStream -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveFlowMediaStream -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-117"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679275818"><span class="annot"><span class="annottext">toPath :: RemoveFlowMediaStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream%27"><span class="hs-identifier hs-type">RemoveFlowMediaStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275815"><span id="local-6989586621679275816"><span class="annot"><span class="annottext">Text
+mediaStreamName :: Text
+flowArn :: Text
+$sel:mediaStreamName:RemoveFlowMediaStream' :: RemoveFlowMediaStream -&gt; Text
+$sel:flowArn:RemoveFlowMediaStream' :: RemoveFlowMediaStream -&gt; Text
+</span><a href="#local-6989586621679275815"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/flows/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275816"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/mediaStreams/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275815"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStream"><span class="hs-identifier hs-type">RemoveFlowMediaStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679275811"><span class="annot"><span class="annottext">toQuery :: RemoveFlowMediaStream -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveFlowMediaStream -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newRemoveFlowMediaStreamResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679275808"><span id="local-6989586621679275809"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveFlowMediaStreamResponse"><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-var">RemoveFlowMediaStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveFlowMediaStreamResponse%27"><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">RemoveFlowMediaStreamResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the media stream that was removed.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AmediaStreamName%3ARemoveFlowMediaStreamResponse%27"><span class="annot"><span class="annottext">RemoveFlowMediaStreamResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AmediaStreamName%3ARemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var hs-var">mediaStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AflowArn%3ARemoveFlowMediaStreamResponse%27"><span class="annot"><span class="annottext">RemoveFlowMediaStreamResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AflowArn%3ARemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveFlowMediaStreamResponse%27"><span class="annot"><span class="annottext">RemoveFlowMediaStreamResponse -&gt; Int
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AhttpStatus%3ARemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275801"><span id="local-6989586621679275803"><span class="annot"><span class="annottext">RemoveFlowMediaStreamResponse
+-&gt; RemoveFlowMediaStreamResponse -&gt; Bool
+(RemoveFlowMediaStreamResponse
+ -&gt; RemoveFlowMediaStreamResponse -&gt; Bool)
+-&gt; (RemoveFlowMediaStreamResponse
+    -&gt; RemoveFlowMediaStreamResponse -&gt; Bool)
+-&gt; Eq RemoveFlowMediaStreamResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RemoveFlowMediaStreamResponse
+-&gt; RemoveFlowMediaStreamResponse -&gt; Bool
+$c/= :: RemoveFlowMediaStreamResponse
+-&gt; RemoveFlowMediaStreamResponse -&gt; Bool
+== :: RemoveFlowMediaStreamResponse
+-&gt; RemoveFlowMediaStreamResponse -&gt; Bool
+$c== :: RemoveFlowMediaStreamResponse
+-&gt; RemoveFlowMediaStreamResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275793"><span id="local-6989586621679275795"><span id="local-6989586621679275797"><span id="local-6989586621679275799"><span class="annot"><span class="annottext">ReadPrec [RemoveFlowMediaStreamResponse]
+ReadPrec RemoveFlowMediaStreamResponse
+Int -&gt; ReadS RemoveFlowMediaStreamResponse
+ReadS [RemoveFlowMediaStreamResponse]
+(Int -&gt; ReadS RemoveFlowMediaStreamResponse)
+-&gt; ReadS [RemoveFlowMediaStreamResponse]
+-&gt; ReadPrec RemoveFlowMediaStreamResponse
+-&gt; ReadPrec [RemoveFlowMediaStreamResponse]
+-&gt; Read RemoveFlowMediaStreamResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RemoveFlowMediaStreamResponse]
+$creadListPrec :: ReadPrec [RemoveFlowMediaStreamResponse]
+readPrec :: ReadPrec RemoveFlowMediaStreamResponse
+$creadPrec :: ReadPrec RemoveFlowMediaStreamResponse
+readList :: ReadS [RemoveFlowMediaStreamResponse]
+$creadList :: ReadS [RemoveFlowMediaStreamResponse]
+readsPrec :: Int -&gt; ReadS RemoveFlowMediaStreamResponse
+$creadsPrec :: Int -&gt; ReadS RemoveFlowMediaStreamResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275787"><span id="local-6989586621679275789"><span id="local-6989586621679275791"><span class="annot"><span class="annottext">Int -&gt; RemoveFlowMediaStreamResponse -&gt; ShowS
+[RemoveFlowMediaStreamResponse] -&gt; ShowS
+RemoveFlowMediaStreamResponse -&gt; String
+(Int -&gt; RemoveFlowMediaStreamResponse -&gt; ShowS)
+-&gt; (RemoveFlowMediaStreamResponse -&gt; String)
+-&gt; ([RemoveFlowMediaStreamResponse] -&gt; ShowS)
+-&gt; Show RemoveFlowMediaStreamResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RemoveFlowMediaStreamResponse] -&gt; ShowS
+$cshowList :: [RemoveFlowMediaStreamResponse] -&gt; ShowS
+show :: RemoveFlowMediaStreamResponse -&gt; String
+$cshow :: RemoveFlowMediaStreamResponse -&gt; String
+showsPrec :: Int -&gt; RemoveFlowMediaStreamResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RemoveFlowMediaStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RemoveFlowMediaStreamResponse
+ -&gt; Rep RemoveFlowMediaStreamResponse x)
+-&gt; (forall x.
+    Rep RemoveFlowMediaStreamResponse x
+    -&gt; RemoveFlowMediaStreamResponse)
+-&gt; Generic RemoveFlowMediaStreamResponse
+forall x.
+Rep RemoveFlowMediaStreamResponse x
+-&gt; RemoveFlowMediaStreamResponse
+forall x.
+RemoveFlowMediaStreamResponse
+-&gt; Rep RemoveFlowMediaStreamResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RemoveFlowMediaStreamResponse x
+-&gt; RemoveFlowMediaStreamResponse
+$cfrom :: forall x.
+RemoveFlowMediaStreamResponse
+-&gt; Rep RemoveFlowMediaStreamResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'RemoveFlowMediaStreamResponse' with all optional fields omitted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'mediaStreamName', 'removeFlowMediaStreamResponse_mediaStreamName' - The name of the media stream that was removed.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'flowArn', 'removeFlowMediaStreamResponse_flowArn' - The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'removeFlowMediaStreamResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#newRemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">newRemoveFlowMediaStreamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newRemoveFlowMediaStreamResponse"><span class="annot"><span class="annottext">newRemoveFlowMediaStreamResponse :: Int -&gt; RemoveFlowMediaStreamResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#newRemoveFlowMediaStreamResponse"><span class="hs-identifier hs-var hs-var">newRemoveFlowMediaStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679275784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">RemoveFlowMediaStreamResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; RemoveFlowMediaStreamResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mediaStreamName:RemoveFlowMediaStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AmediaStreamName%3ARemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:flowArn:RemoveFlowMediaStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AflowArn%3ARemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveFlowMediaStreamResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AhttpStatus%3ARemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275784"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The name of the media stream that was removed.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStreamResponse_mediaStreamName"><span class="hs-identifier hs-type">removeFlowMediaStreamResponse_mediaStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="removeFlowMediaStreamResponse_mediaStreamName"><span class="annot"><span class="annottext">removeFlowMediaStreamResponse_mediaStreamName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveFlowMediaStreamResponse -&gt; f RemoveFlowMediaStreamResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStreamResponse_mediaStreamName"><span class="hs-identifier hs-var hs-var">removeFlowMediaStreamResponse_mediaStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowMediaStreamResponse -&gt; Maybe Text)
+-&gt; (RemoveFlowMediaStreamResponse
+    -&gt; Maybe Text -&gt; RemoveFlowMediaStreamResponse)
+-&gt; Lens
+     RemoveFlowMediaStreamResponse
+     RemoveFlowMediaStreamResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275783"><span class="annot"><span class="annottext">Maybe Text
+mediaStreamName :: Maybe Text
+$sel:mediaStreamName:RemoveFlowMediaStreamResponse' :: RemoveFlowMediaStreamResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679275783"><span class="hs-identifier hs-var hs-var">mediaStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275783"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275782"><span class="annot"><span class="annottext">s :: RemoveFlowMediaStreamResponse
+</span><a href="#local-6989586621679275782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowMediaStreamResponse
+</span><a href="#local-6989586621679275782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaStreamName:RemoveFlowMediaStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AmediaStreamName%3ARemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">mediaStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStreamResponse_flowArn"><span class="hs-identifier hs-type">removeFlowMediaStreamResponse_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="removeFlowMediaStreamResponse_flowArn"><span class="annot"><span class="annottext">removeFlowMediaStreamResponse_flowArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveFlowMediaStreamResponse -&gt; f RemoveFlowMediaStreamResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStreamResponse_flowArn"><span class="hs-identifier hs-var hs-var">removeFlowMediaStreamResponse_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowMediaStreamResponse -&gt; Maybe Text)
+-&gt; (RemoveFlowMediaStreamResponse
+    -&gt; Maybe Text -&gt; RemoveFlowMediaStreamResponse)
+-&gt; Lens
+     RemoveFlowMediaStreamResponse
+     RemoveFlowMediaStreamResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275780"><span class="annot"><span class="annottext">Maybe Text
+flowArn :: Maybe Text
+$sel:flowArn:RemoveFlowMediaStreamResponse' :: RemoveFlowMediaStreamResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679275780"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275780"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275779"><span class="annot"><span class="annottext">s :: RemoveFlowMediaStreamResponse
+</span><a href="#local-6989586621679275779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275778"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowMediaStreamResponse
+</span><a href="#local-6989586621679275779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:RemoveFlowMediaStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AflowArn%3ARemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStreamResponse_httpStatus"><span class="hs-identifier hs-type">removeFlowMediaStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="removeFlowMediaStreamResponse_httpStatus"><span class="annot"><span class="annottext">removeFlowMediaStreamResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RemoveFlowMediaStreamResponse -&gt; f RemoveFlowMediaStreamResponse
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#removeFlowMediaStreamResponse_httpStatus"><span class="hs-identifier hs-var hs-var">removeFlowMediaStreamResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveFlowMediaStreamResponse -&gt; Int)
+-&gt; (RemoveFlowMediaStreamResponse
+    -&gt; Int -&gt; RemoveFlowMediaStreamResponse)
+-&gt; Lens
+     RemoveFlowMediaStreamResponse RemoveFlowMediaStreamResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275777"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RemoveFlowMediaStreamResponse' :: RemoveFlowMediaStreamResponse -&gt; Int
+</span><a href="#local-6989586621679275777"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275777"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275776"><span class="annot"><span class="annottext">s :: RemoveFlowMediaStreamResponse
+</span><a href="#local-6989586621679275776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveFlowMediaStreamResponse
+</span><a href="#local-6989586621679275776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveFlowMediaStreamResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#%24sel%3AhttpStatus%3ARemoveFlowMediaStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.RemoveFlowMediaStream.html#RemoveFlowMediaStreamResponse"><span class="hs-identifier hs-type">RemoveFlowMediaStreamResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

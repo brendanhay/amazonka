@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-comment">-- | A map of the key-value pairs for the resource tag.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newCreateTags' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679229652"><span id="local-6989586621679229653"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTags"><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-var">CreateTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTags%27"><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-var">CreateTags'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679229661"><span id="local-6989586621679229662"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTags"><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-var">CreateTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTags%27"><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-var">CreateTags'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key-value pair for the resource tag.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Atags%3ACreateTags%27"><span class="annot"><span class="annottext">CreateTags -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.MQ.CreateTags.html#%24sel%3Atags%3ACreateTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AresourceArn%3ACreateTags%27"><span class="annot"><span class="annottext">CreateTags -&gt; Text
 </span><a href="Network.AWS.MQ.CreateTags.html#%24sel%3AresourceArn%3ACreateTags%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229645"><span id="local-6989586621679229647"><span class="annot"><span class="annottext">CreateTags -&gt; CreateTags -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229654"><span id="local-6989586621679229656"><span class="annot"><span class="annottext">CreateTags -&gt; CreateTags -&gt; Bool
 (CreateTags -&gt; CreateTags -&gt; Bool)
 -&gt; (CreateTags -&gt; CreateTags -&gt; Bool) -&gt; Eq CreateTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTags -&gt; CreateTags -&gt; Bool
 == :: CreateTags -&gt; CreateTags -&gt; Bool
 $c== :: CreateTags -&gt; CreateTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229636"><span id="local-6989586621679229638"><span id="local-6989586621679229640"><span id="local-6989586621679229642"><span class="annot"><span class="annottext">ReadPrec [CreateTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229645"><span id="local-6989586621679229647"><span id="local-6989586621679229649"><span id="local-6989586621679229651"><span class="annot"><span class="annottext">ReadPrec [CreateTags]
 ReadPrec CreateTags
 Int -&gt; ReadS CreateTags
 ReadS [CreateTags]
@@ -82,7 +82,7 @@ readList :: ReadS [CreateTags]
 $creadList :: ReadS [CreateTags]
 readsPrec :: Int -&gt; ReadS CreateTags
 $creadsPrec :: Int -&gt; ReadS CreateTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229629"><span id="local-6989586621679229631"><span id="local-6989586621679229633"><span class="annot"><span class="annottext">Int -&gt; CreateTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229638"><span id="local-6989586621679229640"><span id="local-6989586621679229642"><span class="annot"><span class="annottext">Int -&gt; CreateTags -&gt; ShowS
 [CreateTags] -&gt; ShowS
 CreateTags -&gt; String
 (Int -&gt; CreateTags -&gt; ShowS)
@@ -123,8 +123,8 @@ $cfrom :: forall x. CreateTags -&gt; Rep CreateTags x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span>
 </span><span id="line-72"></span><span id="newCreateTags"><span class="annot"><span class="annottext">newCreateTags :: Text -&gt; CreateTags
-</span><a href="Network.AWS.MQ.CreateTags.html#newCreateTags"><span class="hs-identifier hs-var hs-var">newCreateTags</span></a></span></span><span> </span><span id="local-6989586621679229624"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229624"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.CreateTags.html#newCreateTags"><span class="hs-identifier hs-var hs-var">newCreateTags</span></a></span></span><span> </span><span id="local-6989586621679229633"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229633"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">CreateTags' :: Maybe (HashMap Text Text) -&gt; Text -&gt; CreateTags
 </span><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateTags' :: Maybe (HashMap Text Text)
@@ -133,7 +133,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:CreateTags' :: Text
 </span><a href="Network.AWS.MQ.CreateTags.html#%24sel%3AresourceArn%3ACreateTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229624"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><a href="#local-6989586621679229633"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The key-value pair for the resource tag.</span><span>
@@ -148,16 +148,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229621"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229630"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:CreateTags' :: CreateTags -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229621"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229621"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229620"><span class="annot"><span class="annottext">s :: CreateTags
-</span><a href="#local-6989586621679229620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229619"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTags
-</span><a href="#local-6989586621679229620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateTags' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229630"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229630"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229629"><span class="annot"><span class="annottext">s :: CreateTags
+</span><a href="#local-6989586621679229629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229628"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTags
+</span><a href="#local-6989586621679229629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateTags' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.MQ.CreateTags.html#%24sel%3Atags%3ACreateTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679229628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CreateTags -&gt; f CreateTags)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -193,25 +193,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateTags -&gt; Text -&gt; CreateTags)
 -&gt; Lens CreateTags CreateTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229615"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229624"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:CreateTags' :: CreateTags -&gt; Text
-</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229614"><span class="annot"><span class="annottext">s :: CreateTags
-</span><a href="#local-6989586621679229614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229613"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTags
-</span><a href="#local-6989586621679229614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:CreateTags' :: Text
+</span><a href="#local-6989586621679229624"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229624"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229623"><span class="annot"><span class="annottext">s :: CreateTags
+</span><a href="#local-6989586621679229623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229622"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTags
+</span><a href="#local-6989586621679229623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:CreateTags' :: Text
 </span><a href="Network.AWS.MQ.CreateTags.html#%24sel%3AresourceArn%3ACreateTags%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679229609"><span class="annot"><span class="annottext">request :: CreateTags -&gt; Request CreateTags
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679229618"><span class="annot"><span class="annottext">request :: CreateTags -&gt; Request CreateTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateTags -&gt; Request CreateTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679229605"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679229614"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateTags
 -&gt; ClientResponse ClientBody
@@ -234,12 +234,12 @@ AWSResponse a
 CreateTagsResponse
 </span><a href="Network.AWS.MQ.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-var">CreateTagsResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229598"><span id="local-6989586621679229600"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229607"><span id="local-6989586621679229609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679229591"><span class="annot"><span class="annottext">toHeaders :: CreateTags -&gt; [Header]
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679229600"><span class="annot"><span class="annottext">toHeaders :: CreateTags -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; CreateTags -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -258,15 +258,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229581"><span id="local-6989586621679229583"><span id="local-6989586621679229585"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679229579"><span class="annot"><span class="annottext">toJSON :: CreateTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229576"><span id="local-6989586621679229577"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229590"><span id="local-6989586621679229592"><span id="local-6989586621679229594"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679229588"><span class="annot"><span class="annottext">toJSON :: CreateTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229585"><span id="local-6989586621679229586"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 resourceArn :: Text
 tags :: Maybe (HashMap Text Text)
 $sel:resourceArn:CreateTags' :: CreateTags -&gt; Text
 $sel:tags:CreateTags' :: CreateTags -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229576"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229585"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -279,18 +279,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229577"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679229586"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679229569"><span class="annot"><span class="annottext">toPath :: CreateTags -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229566"><span id="local-6989586621679229567"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679229578"><span class="annot"><span class="annottext">toPath :: CreateTags -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229575"><span id="local-6989586621679229576"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 resourceArn :: Text
 tags :: Maybe (HashMap Text Text)
 $sel:resourceArn:CreateTags' :: CreateTags -&gt; Text
 $sel:tags:CreateTags' :: CreateTags -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679229566"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229575"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -298,10 +298,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v1/tags/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229566"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679229575"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679229562"><span class="annot"><span class="annottext">toQuery :: CreateTags -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679229571"><span class="annot"><span class="annottext">toQuery :: CreateTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -309,10 +309,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newCreateTagsResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679229559"><span id="local-6989586621679229560"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTagsResponse"><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-var">CreateTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTagsResponse%27"><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-var">CreateTagsResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679229568"><span id="local-6989586621679229569"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTagsResponse"><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-var">CreateTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTagsResponse%27"><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-var">CreateTagsResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229555"><span id="local-6989586621679229557"><span class="annot"><span class="annottext">CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229564"><span id="local-6989586621679229566"><span class="annot"><span class="annottext">CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
 (CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool)
 -&gt; (CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool)
 -&gt; Eq CreateTagsResponse
@@ -321,7 +321,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
 == :: CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
 $c== :: CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229547"><span id="local-6989586621679229549"><span id="local-6989586621679229551"><span id="local-6989586621679229553"><span class="annot"><span class="annottext">ReadPrec [CreateTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229556"><span id="local-6989586621679229558"><span id="local-6989586621679229560"><span id="local-6989586621679229562"><span class="annot"><span class="annottext">ReadPrec [CreateTagsResponse]
 ReadPrec CreateTagsResponse
 Int -&gt; ReadS CreateTagsResponse
 ReadS [CreateTagsResponse]
@@ -341,7 +341,7 @@ readList :: ReadS [CreateTagsResponse]
 $creadList :: ReadS [CreateTagsResponse]
 readsPrec :: Int -&gt; ReadS CreateTagsResponse
 $creadsPrec :: Int -&gt; ReadS CreateTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229541"><span id="local-6989586621679229543"><span id="local-6989586621679229545"><span class="annot"><span class="annottext">Int -&gt; CreateTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229550"><span id="local-6989586621679229552"><span id="local-6989586621679229554"><span class="annot"><span class="annottext">Int -&gt; CreateTagsResponse -&gt; ShowS
 [CreateTagsResponse] -&gt; ShowS
 CreateTagsResponse -&gt; String
 (Int -&gt; CreateTagsResponse -&gt; ShowS)
@@ -377,5 +377,5 @@ $cfrom :: forall x. CreateTagsResponse -&gt; Rep CreateTagsResponse x
 </span><a href="Network.AWS.MQ.CreateTags.html#newCreateTagsResponse"><span class="hs-identifier hs-var hs-var">newCreateTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CreateTagsResponse
 </span><a href="Network.AWS.MQ.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-var">CreateTagsResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span></span><span>
 </span><span id="line-136"></span></pre></body></html>

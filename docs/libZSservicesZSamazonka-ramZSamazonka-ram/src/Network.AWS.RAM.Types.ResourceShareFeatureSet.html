@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RAM.Types.ResourceShareFeatureSet</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RAM.Types.ResourceShareFeatureSet</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet"><span class="hs-identifier">ResourceShareFeatureSet</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet_CREATED_FROM_POLICY"><span class="hs-identifier">ResourceShareFeatureSet_CREATED_FROM_POLICY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet_PROMOTING_TO_STANDARD"><span class="hs-identifier">ResourceShareFeatureSet_PROMOTING_TO_STANDARD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet_STANDARD"><span class="hs-identifier">ResourceShareFeatureSet_STANDARD</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679202124"><span id="local-6989586621679202125"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceShareFeatureSet"><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet"><span class="hs-identifier hs-var">ResourceShareFeatureSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceShareFeatureSet%27"><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet%27"><span class="hs-identifier hs-var">ResourceShareFeatureSet'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceShareFeatureSet"><span class="annot"><span class="annottext">ResourceShareFeatureSet -&gt; Text
+</span><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#fromResourceShareFeatureSet"><span class="hs-identifier hs-var hs-var">fromResourceShareFeatureSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202116"><span id="local-6989586621679202118"><span id="local-6989586621679202120"><span class="annot"><span class="annottext">Int -&gt; ResourceShareFeatureSet -&gt; ShowS
+[ResourceShareFeatureSet] -&gt; ShowS
+ResourceShareFeatureSet -&gt; String
+(Int -&gt; ResourceShareFeatureSet -&gt; ShowS)
+-&gt; (ResourceShareFeatureSet -&gt; String)
+-&gt; ([ResourceShareFeatureSet] -&gt; ShowS)
+-&gt; Show ResourceShareFeatureSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResourceShareFeatureSet] -&gt; ShowS
+$cshowList :: [ResourceShareFeatureSet] -&gt; ShowS
+show :: ResourceShareFeatureSet -&gt; String
+$cshow :: ResourceShareFeatureSet -&gt; String
+showsPrec :: Int -&gt; ResourceShareFeatureSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResourceShareFeatureSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679202107"><span id="local-6989586621679202109"><span id="local-6989586621679202111"><span id="local-6989586621679202113"><span class="annot"><span class="annottext">ReadPrec [ResourceShareFeatureSet]
+ReadPrec ResourceShareFeatureSet
+Int -&gt; ReadS ResourceShareFeatureSet
+ReadS [ResourceShareFeatureSet]
+(Int -&gt; ReadS ResourceShareFeatureSet)
+-&gt; ReadS [ResourceShareFeatureSet]
+-&gt; ReadPrec ResourceShareFeatureSet
+-&gt; ReadPrec [ResourceShareFeatureSet]
+-&gt; Read ResourceShareFeatureSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResourceShareFeatureSet]
+$creadListPrec :: ReadPrec [ResourceShareFeatureSet]
+readPrec :: ReadPrec ResourceShareFeatureSet
+$creadPrec :: ReadPrec ResourceShareFeatureSet
+readList :: ReadS [ResourceShareFeatureSet]
+$creadList :: ReadS [ResourceShareFeatureSet]
+readsPrec :: Int -&gt; ReadS ResourceShareFeatureSet
+$creadsPrec :: Int -&gt; ReadS ResourceShareFeatureSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679202102"><span id="local-6989586621679202104"><span class="annot"><span class="annottext">ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+(ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool)
+-&gt; (ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool)
+-&gt; Eq ResourceShareFeatureSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+$c/= :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+== :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+$c== :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679202086"><span id="local-6989586621679202088"><span id="local-6989586621679202090"><span id="local-6989586621679202092"><span id="local-6989586621679202094"><span id="local-6989586621679202096"><span id="local-6989586621679202098"><span class="annot"><span class="annottext">Eq ResourceShareFeatureSet
+Eq ResourceShareFeatureSet
+-&gt; (ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Ordering)
+-&gt; (ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool)
+-&gt; (ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool)
+-&gt; (ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool)
+-&gt; (ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool)
+-&gt; (ResourceShareFeatureSet
+    -&gt; ResourceShareFeatureSet -&gt; ResourceShareFeatureSet)
+-&gt; (ResourceShareFeatureSet
+    -&gt; ResourceShareFeatureSet -&gt; ResourceShareFeatureSet)
+-&gt; Ord ResourceShareFeatureSet
+ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Ordering
+ResourceShareFeatureSet
+-&gt; ResourceShareFeatureSet -&gt; ResourceShareFeatureSet
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResourceShareFeatureSet
+-&gt; ResourceShareFeatureSet -&gt; ResourceShareFeatureSet
+$cmin :: ResourceShareFeatureSet
+-&gt; ResourceShareFeatureSet -&gt; ResourceShareFeatureSet
+max :: ResourceShareFeatureSet
+-&gt; ResourceShareFeatureSet -&gt; ResourceShareFeatureSet
+$cmax :: ResourceShareFeatureSet
+-&gt; ResourceShareFeatureSet -&gt; ResourceShareFeatureSet
+&gt;= :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+$c&gt;= :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+&gt; :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+$c&gt; :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+&lt;= :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+$c&lt;= :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+&lt; :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+$c&lt; :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Bool
+compare :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Ordering
+$ccompare :: ResourceShareFeatureSet -&gt; ResourceShareFeatureSet -&gt; Ordering
+$cp1Ord :: Eq ResourceShareFeatureSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ResourceShareFeatureSet -&gt; Rep ResourceShareFeatureSet x)
+-&gt; (forall x.
+    Rep ResourceShareFeatureSet x -&gt; ResourceShareFeatureSet)
+-&gt; Generic ResourceShareFeatureSet
+forall x. Rep ResourceShareFeatureSet x -&gt; ResourceShareFeatureSet
+forall x. ResourceShareFeatureSet -&gt; Rep ResourceShareFeatureSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResourceShareFeatureSet x -&gt; ResourceShareFeatureSet
+$cfrom :: forall x. ResourceShareFeatureSet -&gt; Rep ResourceShareFeatureSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202078"><span id="local-6989586621679202080"><span class="annot"><span class="annottext">Int -&gt; ResourceShareFeatureSet -&gt; Int
+ResourceShareFeatureSet -&gt; Int
+(Int -&gt; ResourceShareFeatureSet -&gt; Int)
+-&gt; (ResourceShareFeatureSet -&gt; Int)
+-&gt; Hashable ResourceShareFeatureSet
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResourceShareFeatureSet -&gt; Int
+$chash :: ResourceShareFeatureSet -&gt; Int
+hashWithSalt :: Int -&gt; ResourceShareFeatureSet -&gt; Int
+$chashWithSalt :: Int -&gt; ResourceShareFeatureSet -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679202075"><span class="annot"><span class="annottext">ResourceShareFeatureSet -&gt; ()
+(ResourceShareFeatureSet -&gt; ()) -&gt; NFData ResourceShareFeatureSet
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResourceShareFeatureSet -&gt; ()
+$crnf :: ResourceShareFeatureSet -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679202072"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceShareFeatureSet
+(Text -&gt; Either String ResourceShareFeatureSet)
+-&gt; FromText ResourceShareFeatureSet
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResourceShareFeatureSet
+$cfromText :: Text -&gt; Either String ResourceShareFeatureSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679202069"><span class="annot"><span class="annottext">ResourceShareFeatureSet -&gt; Text
+(ResourceShareFeatureSet -&gt; Text) -&gt; ToText ResourceShareFeatureSet
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResourceShareFeatureSet -&gt; Text
+$ctoText :: ResourceShareFeatureSet -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679202066"><span class="annot"><span class="annottext">ResourceShareFeatureSet -&gt; ByteString
+(ResourceShareFeatureSet -&gt; ByteString)
+-&gt; ToByteString ResourceShareFeatureSet
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResourceShareFeatureSet -&gt; ByteString
+$ctoBS :: ResourceShareFeatureSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202063"><span class="annot"><span class="annottext">ResourceShareFeatureSet -&gt; ByteStringBuilder
+(ResourceShareFeatureSet -&gt; ByteStringBuilder)
+-&gt; ToLog ResourceShareFeatureSet
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResourceShareFeatureSet -&gt; ByteStringBuilder
+$cbuild :: ResourceShareFeatureSet -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202060"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceShareFeatureSet -&gt; [Header]
+(HeaderName -&gt; ResourceShareFeatureSet -&gt; [Header])
+-&gt; ToHeader ResourceShareFeatureSet
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResourceShareFeatureSet -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResourceShareFeatureSet -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202057"><span class="annot"><span class="annottext">ResourceShareFeatureSet -&gt; QueryString
+(ResourceShareFeatureSet -&gt; QueryString)
+-&gt; ToQuery ResourceShareFeatureSet
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResourceShareFeatureSet -&gt; QueryString
+$ctoQuery :: ResourceShareFeatureSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202052"><span id="local-6989586621679202054"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceShareFeatureSet]
+Value -&gt; Parser ResourceShareFeatureSet
+(Value -&gt; Parser ResourceShareFeatureSet)
+-&gt; (Value -&gt; Parser [ResourceShareFeatureSet])
+-&gt; FromJSON ResourceShareFeatureSet
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResourceShareFeatureSet]
+$cparseJSONList :: Value -&gt; Parser [ResourceShareFeatureSet]
+parseJSON :: Value -&gt; Parser ResourceShareFeatureSet
+$cparseJSON :: Value -&gt; Parser ResourceShareFeatureSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202047"><span id="local-6989586621679202049"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceShareFeatureSet]
+FromJSONKeyFunction ResourceShareFeatureSet
+FromJSONKeyFunction ResourceShareFeatureSet
+-&gt; FromJSONKeyFunction [ResourceShareFeatureSet]
+-&gt; FromJSONKey ResourceShareFeatureSet
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResourceShareFeatureSet]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResourceShareFeatureSet]
+fromJSONKey :: FromJSONKeyFunction ResourceShareFeatureSet
+$cfromJSONKey :: FromJSONKeyFunction ResourceShareFeatureSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202038"><span id="local-6989586621679202040"><span id="local-6989586621679202042"><span id="local-6989586621679202044"><span class="annot"><span class="annottext">[ResourceShareFeatureSet] -&gt; Encoding
+[ResourceShareFeatureSet] -&gt; Value
+ResourceShareFeatureSet -&gt; Encoding
+ResourceShareFeatureSet -&gt; Value
+(ResourceShareFeatureSet -&gt; Value)
+-&gt; (ResourceShareFeatureSet -&gt; Encoding)
+-&gt; ([ResourceShareFeatureSet] -&gt; Value)
+-&gt; ([ResourceShareFeatureSet] -&gt; Encoding)
+-&gt; ToJSON ResourceShareFeatureSet
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResourceShareFeatureSet] -&gt; Encoding
+$ctoEncodingList :: [ResourceShareFeatureSet] -&gt; Encoding
+toJSONList :: [ResourceShareFeatureSet] -&gt; Value
+$ctoJSONList :: [ResourceShareFeatureSet] -&gt; Value
+toEncoding :: ResourceShareFeatureSet -&gt; Encoding
+$ctoEncoding :: ResourceShareFeatureSet -&gt; Encoding
+toJSON :: ResourceShareFeatureSet -&gt; Value
+$ctoJSON :: ResourceShareFeatureSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202033"><span id="local-6989586621679202035"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceShareFeatureSet]
+ToJSONKeyFunction ResourceShareFeatureSet
+ToJSONKeyFunction ResourceShareFeatureSet
+-&gt; ToJSONKeyFunction [ResourceShareFeatureSet]
+-&gt; ToJSONKey ResourceShareFeatureSet
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResourceShareFeatureSet]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResourceShareFeatureSet]
+toJSONKey :: ToJSONKeyFunction ResourceShareFeatureSet
+$ctoJSONKey :: ToJSONKeyFunction ResourceShareFeatureSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679202030"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceShareFeatureSet
+([Node] -&gt; Either String ResourceShareFeatureSet)
+-&gt; FromXML ResourceShareFeatureSet
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResourceShareFeatureSet
+$cparseXML :: [Node] -&gt; Either String ResourceShareFeatureSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679202027"><span class="annot"><span class="annottext">ResourceShareFeatureSet -&gt; XML
+(ResourceShareFeatureSet -&gt; XML) -&gt; ToXML ResourceShareFeatureSet
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResourceShareFeatureSet -&gt; XML
+$ctoXML :: ResourceShareFeatureSet -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet_CREATED_FROM_POLICY"><span class="hs-identifier hs-type">ResourceShareFeatureSet_CREATED_FROM_POLICY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet"><span class="hs-identifier hs-type">ResourceShareFeatureSet</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceShareFeatureSet_CREATED_FROM_POLICY"><span id="%24mResourceShareFeatureSet_CREATED_FROM_POLICY"><span id="ResourceShareFeatureSet_CREATED_FROM_POLICY"><span class="annot"><span class="annottext">$bResourceShareFeatureSet_CREATED_FROM_POLICY :: ResourceShareFeatureSet
+$mResourceShareFeatureSet_CREATED_FROM_POLICY :: forall r.
+ResourceShareFeatureSet -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#%24bResourceShareFeatureSet_CREATED_FROM_POLICY"><span class="hs-identifier hs-var hs-var hs-var">ResourceShareFeatureSet_CREATED_FROM_POLICY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet%27"><span class="hs-identifier hs-type">ResourceShareFeatureSet'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATED_FROM_POLICY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet_PROMOTING_TO_STANDARD"><span class="hs-identifier hs-type">ResourceShareFeatureSet_PROMOTING_TO_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet"><span class="hs-identifier hs-type">ResourceShareFeatureSet</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceShareFeatureSet_PROMOTING_TO_STANDARD"><span id="%24mResourceShareFeatureSet_PROMOTING_TO_STANDARD"><span id="ResourceShareFeatureSet_PROMOTING_TO_STANDARD"><span class="annot"><span class="annottext">$bResourceShareFeatureSet_PROMOTING_TO_STANDARD :: ResourceShareFeatureSet
+$mResourceShareFeatureSet_PROMOTING_TO_STANDARD :: forall r.
+ResourceShareFeatureSet -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#%24bResourceShareFeatureSet_PROMOTING_TO_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">ResourceShareFeatureSet_PROMOTING_TO_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet%27"><span class="hs-identifier hs-type">ResourceShareFeatureSet'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROMOTING_TO_STANDARD&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet_STANDARD"><span class="hs-identifier hs-type">ResourceShareFeatureSet_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet"><span class="hs-identifier hs-type">ResourceShareFeatureSet</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResourceShareFeatureSet_STANDARD"><span id="%24mResourceShareFeatureSet_STANDARD"><span id="ResourceShareFeatureSet_STANDARD"><span class="annot"><span class="annottext">$bResourceShareFeatureSet_STANDARD :: ResourceShareFeatureSet
+$mResourceShareFeatureSet_STANDARD :: forall r.
+ResourceShareFeatureSet -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#%24bResourceShareFeatureSet_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">ResourceShareFeatureSet_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet%27"><span class="hs-identifier hs-type">ResourceShareFeatureSet'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STANDARD&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet_CREATED_FROM_POLICY"><span class="hs-pragma hs-type">ResourceShareFeatureSet_CREATED_FROM_POLICY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet_PROMOTING_TO_STANDARD"><span class="hs-pragma hs-type">ResourceShareFeatureSet_PROMOTING_TO_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet_STANDARD"><span class="hs-pragma hs-type">ResourceShareFeatureSet_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.RAM.Types.ResourceShareFeatureSet.html#ResourceShareFeatureSet%27"><span class="hs-pragma hs-type">ResourceShareFeatureSet'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

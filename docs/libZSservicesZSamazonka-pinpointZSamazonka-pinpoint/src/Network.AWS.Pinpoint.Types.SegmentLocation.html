@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Specifies geographical dimension settings for a segment.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSegmentLocation' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679610700"><span id="local-6989586621679610701"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentLocation"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-var">SegmentLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentLocation%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-var">SegmentLocation'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679610709"><span id="local-6989586621679610710"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentLocation"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-var">SegmentLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentLocation%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-var">SegmentLocation'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The country or region code, in ISO 3166-1 alpha-2 format, for the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- segment.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Acountry%3ASegmentLocation%27"><span class="annot"><span class="annottext">SegmentLocation -&gt; Maybe SetDimension
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AgPSPoint%3ASegmentLocation%27"><span class="annot"><span class="annottext">SegmentLocation -&gt; Maybe GPSPointDimension
 </span><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#%24sel%3AgPSPoint%3ASegmentLocation%27"><span class="hs-identifier hs-var hs-var">gPSPoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610693"><span id="local-6989586621679610695"><span class="annot"><span class="annottext">SegmentLocation -&gt; SegmentLocation -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610702"><span id="local-6989586621679610704"><span class="annot"><span class="annottext">SegmentLocation -&gt; SegmentLocation -&gt; Bool
 (SegmentLocation -&gt; SegmentLocation -&gt; Bool)
 -&gt; (SegmentLocation -&gt; SegmentLocation -&gt; Bool)
 -&gt; Eq SegmentLocation
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SegmentLocation -&gt; SegmentLocation -&gt; Bool
 == :: SegmentLocation -&gt; SegmentLocation -&gt; Bool
 $c== :: SegmentLocation -&gt; SegmentLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610684"><span id="local-6989586621679610686"><span id="local-6989586621679610688"><span id="local-6989586621679610690"><span class="annot"><span class="annottext">ReadPrec [SegmentLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610693"><span id="local-6989586621679610695"><span id="local-6989586621679610697"><span id="local-6989586621679610699"><span class="annot"><span class="annottext">ReadPrec [SegmentLocation]
 ReadPrec SegmentLocation
 Int -&gt; ReadS SegmentLocation
 ReadS [SegmentLocation]
@@ -66,7 +66,7 @@ readList :: ReadS [SegmentLocation]
 $creadList :: ReadS [SegmentLocation]
 readsPrec :: Int -&gt; ReadS SegmentLocation
 $creadsPrec :: Int -&gt; ReadS SegmentLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610677"><span id="local-6989586621679610679"><span id="local-6989586621679610681"><span class="annot"><span class="annottext">Int -&gt; SegmentLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610686"><span id="local-6989586621679610688"><span id="local-6989586621679610690"><span class="annot"><span class="annottext">Int -&gt; SegmentLocation -&gt; ShowS
 [SegmentLocation] -&gt; ShowS
 SegmentLocation -&gt; String
 (Int -&gt; SegmentLocation -&gt; ShowS)
@@ -133,16 +133,16 @@ forall a. Maybe a
      (Maybe SetDimension)
      (Maybe SetDimension)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610668"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610677"><span class="annot"><span class="annottext">Maybe SetDimension
 country :: Maybe SetDimension
 $sel:country:SegmentLocation' :: SegmentLocation -&gt; Maybe SetDimension
-</span><a href="#local-6989586621679610668"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
-</span><a href="#local-6989586621679610668"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610667"><span class="annot"><span class="annottext">s :: SegmentLocation
-</span><a href="#local-6989586621679610667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610666"><span class="annot"><span class="annottext">Maybe SetDimension
-</span><a href="#local-6989586621679610666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentLocation
-</span><a href="#local-6989586621679610667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:SegmentLocation' :: Maybe SetDimension
+</span><a href="#local-6989586621679610677"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610677"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610676"><span class="annot"><span class="annottext">s :: SegmentLocation
+</span><a href="#local-6989586621679610676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610675"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679610675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentLocation
+</span><a href="#local-6989586621679610676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:SegmentLocation' :: Maybe SetDimension
 </span><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#%24sel%3Acountry%3ASegmentLocation%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
-</span><a href="#local-6989586621679610666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The GPS location and range for the segment.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#segmentLocation_gPSPoint"><span class="hs-identifier hs-type">segmentLocation_gPSPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSPointDimension.html#GPSPointDimension"><span class="hs-identifier hs-type">GPSPointDimension</span></a></span><span class="hs-special">)</span><span>
@@ -156,19 +156,19 @@ $sel:country:SegmentLocation' :: SegmentLocation -&gt; Maybe SetDimension
      (Maybe GPSPointDimension)
      (Maybe GPSPointDimension)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610664"><span class="annot"><span class="annottext">Maybe GPSPointDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610673"><span class="annot"><span class="annottext">Maybe GPSPointDimension
 gPSPoint :: Maybe GPSPointDimension
 $sel:gPSPoint:SegmentLocation' :: SegmentLocation -&gt; Maybe GPSPointDimension
-</span><a href="#local-6989586621679610664"><span class="hs-identifier hs-var hs-var">gPSPoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GPSPointDimension
-</span><a href="#local-6989586621679610664"><span class="hs-identifier hs-var">gPSPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610663"><span class="annot"><span class="annottext">s :: SegmentLocation
-</span><a href="#local-6989586621679610663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610662"><span class="annot"><span class="annottext">Maybe GPSPointDimension
-</span><a href="#local-6989586621679610662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentLocation
-</span><a href="#local-6989586621679610663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gPSPoint:SegmentLocation' :: Maybe GPSPointDimension
+</span><a href="#local-6989586621679610673"><span class="hs-identifier hs-var hs-var">gPSPoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GPSPointDimension
+</span><a href="#local-6989586621679610673"><span class="hs-identifier hs-var">gPSPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610672"><span class="annot"><span class="annottext">s :: SegmentLocation
+</span><a href="#local-6989586621679610672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610671"><span class="annot"><span class="annottext">Maybe GPSPointDimension
+</span><a href="#local-6989586621679610671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentLocation
+</span><a href="#local-6989586621679610672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gPSPoint:SegmentLocation' :: Maybe GPSPointDimension
 </span><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#%24sel%3AgPSPoint%3ASegmentLocation%27"><span class="hs-identifier hs-var">gPSPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GPSPointDimension
-</span><a href="#local-6989586621679610662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610659"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679610657"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentLocation
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610668"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679610666"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentLocation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SegmentLocation)
@@ -178,8 +178,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SegmentLocation&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679610654"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679610663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679610663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe SetDimension -&gt; Maybe GPSPointDimension -&gt; SegmentLocation
 </span><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-var">SegmentLocation'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SetDimension -&gt; Maybe GPSPointDimension -&gt; SegmentLocation)
@@ -187,7 +187,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe GPSPointDimension -&gt; SegmentLocation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
+</span><a href="#local-6989586621679610663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Country&quot;</span></span><span class="hs-special">)</span><span>
@@ -195,25 +195,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe GPSPointDimension) -&gt; Parser SegmentLocation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679610654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GPSPointDimension)
+</span><a href="#local-6989586621679610663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GPSPointDimension)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GPSPoint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610648"><span id="local-6989586621679610650"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610657"><span id="local-6989586621679610659"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610645"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610637"><span id="local-6989586621679610639"><span id="local-6989586621679610641"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679610635"><span class="annot"><span class="annottext">toJSON :: SegmentLocation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610632"><span id="local-6989586621679610633"><span class="annot"><span class="annottext">Maybe GPSPointDimension
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610646"><span id="local-6989586621679610648"><span id="local-6989586621679610650"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation"><span class="hs-identifier hs-type">SegmentLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679610644"><span class="annot"><span class="annottext">toJSON :: SegmentLocation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentLocation.html#SegmentLocation%27"><span class="hs-identifier hs-type">SegmentLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610641"><span id="local-6989586621679610642"><span class="annot"><span class="annottext">Maybe GPSPointDimension
 Maybe SetDimension
 gPSPoint :: Maybe GPSPointDimension
 country :: Maybe SetDimension
 $sel:gPSPoint:SegmentLocation' :: SegmentLocation -&gt; Maybe GPSPointDimension
 $sel:country:SegmentLocation' :: SegmentLocation -&gt; Maybe SetDimension
-</span><a href="#local-6989586621679610632"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679610641"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -225,7 +225,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; Pair) -&gt; Maybe SetDimension -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
-</span><a href="#local-6989586621679610633"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610642"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GPSPoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GPSPointDimension -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -233,7 +233,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe GPSPointDimension -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GPSPointDimension
-</span><a href="#local-6989586621679610632"><span class="hs-identifier hs-var">gPSPoint</span></a></span><span>
+</span><a href="#local-6989586621679610641"><span class="hs-identifier hs-var">gPSPoint</span></a></span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Represents a condition for a device pool.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRule' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679367285"><span id="local-6989586621679367286"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rule"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-var">Rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rule%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679367294"><span id="local-6989586621679367295"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rule"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-var">Rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rule%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rule\'s stringified attribute. For example, specify the value as</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @\&quot;\\\&quot;abc\\\&quot;\&quot;@.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -120,14 +120,14 @@
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3Avalue%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Rule.html#%24sel%3Avalue%3ARule%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367277"><span id="local-6989586621679367279"><span class="annot"><span class="annottext">Rule -&gt; Rule -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367286"><span id="local-6989586621679367288"><span class="annot"><span class="annottext">Rule -&gt; Rule -&gt; Bool
 (Rule -&gt; Rule -&gt; Bool) -&gt; (Rule -&gt; Rule -&gt; Bool) -&gt; Eq Rule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Rule -&gt; Rule -&gt; Bool
 $c/= :: Rule -&gt; Rule -&gt; Bool
 == :: Rule -&gt; Rule -&gt; Bool
 $c== :: Rule -&gt; Rule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367268"><span id="local-6989586621679367270"><span id="local-6989586621679367272"><span id="local-6989586621679367274"><span class="annot"><span class="annottext">ReadPrec [Rule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367277"><span id="local-6989586621679367279"><span id="local-6989586621679367281"><span id="local-6989586621679367283"><span class="annot"><span class="annottext">ReadPrec [Rule]
 ReadPrec Rule
 Int -&gt; ReadS Rule
 ReadS [Rule]
@@ -144,7 +144,7 @@ readList :: ReadS [Rule]
 $creadList :: ReadS [Rule]
 readsPrec :: Int -&gt; ReadS Rule
 $creadsPrec :: Int -&gt; ReadS Rule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367261"><span id="local-6989586621679367263"><span id="local-6989586621679367265"><span class="annot"><span class="annottext">Int -&gt; Rule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367270"><span id="local-6989586621679367272"><span id="local-6989586621679367274"><span class="annot"><span class="annottext">Int -&gt; Rule -&gt; ShowS
 [Rule] -&gt; ShowS
 Rule -&gt; String
 (Int -&gt; Rule -&gt; ShowS)
@@ -368,16 +368,16 @@ forall a. Maybe a
 -&gt; (Rule -&gt; Maybe DeviceAttribute -&gt; Rule)
 -&gt; Lens Rule Rule (Maybe DeviceAttribute) (Maybe DeviceAttribute)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367252"><span class="annot"><span class="annottext">Maybe DeviceAttribute
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367261"><span class="annot"><span class="annottext">Maybe DeviceAttribute
 attribute :: Maybe DeviceAttribute
 $sel:attribute:Rule' :: Rule -&gt; Maybe DeviceAttribute
-</span><a href="#local-6989586621679367252"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceAttribute
-</span><a href="#local-6989586621679367252"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367251"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679367251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367250"><span class="annot"><span class="annottext">Maybe DeviceAttribute
-</span><a href="#local-6989586621679367250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679367251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:Rule' :: Maybe DeviceAttribute
+</span><a href="#local-6989586621679367261"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceAttribute
+</span><a href="#local-6989586621679367261"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367260"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679367260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367259"><span class="annot"><span class="annottext">Maybe DeviceAttribute
+</span><a href="#local-6989586621679367259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679367260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:Rule' :: Maybe DeviceAttribute
 </span><a href="Network.AWS.DeviceFarm.Types.Rule.html#%24sel%3Aattribute%3ARule%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceAttribute
-</span><a href="#local-6989586621679367250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | Specifies how Device Farm compares the rule\'s attribute to the value.</span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- For the operators that are supported by each attribute, see the</span><span>
@@ -388,16 +388,16 @@ $sel:attribute:Rule' :: Rule -&gt; Maybe DeviceAttribute
 -&gt; (Rule -&gt; Maybe RuleOperator -&gt; Rule)
 -&gt; Lens Rule Rule (Maybe RuleOperator) (Maybe RuleOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367248"><span class="annot"><span class="annottext">Maybe RuleOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367257"><span class="annot"><span class="annottext">Maybe RuleOperator
 operator :: Maybe RuleOperator
 $sel:operator:Rule' :: Rule -&gt; Maybe RuleOperator
-</span><a href="#local-6989586621679367248"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleOperator
-</span><a href="#local-6989586621679367248"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367247"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679367247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367246"><span class="annot"><span class="annottext">Maybe RuleOperator
-</span><a href="#local-6989586621679367246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679367247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:Rule' :: Maybe RuleOperator
+</span><a href="#local-6989586621679367257"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleOperator
+</span><a href="#local-6989586621679367257"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367256"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679367256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367255"><span class="annot"><span class="annottext">Maybe RuleOperator
+</span><a href="#local-6989586621679367255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679367256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:Rule' :: Maybe RuleOperator
 </span><a href="Network.AWS.DeviceFarm.Types.Rule.html#%24sel%3Aoperator%3ARule%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleOperator
-</span><a href="#local-6989586621679367246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- | The rule\'s value.</span><span>
 </span><span id="line-315"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#rule_value"><span class="hs-identifier hs-type">rule_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -406,27 +406,27 @@ $sel:operator:Rule' :: Rule -&gt; Maybe RuleOperator
 -&gt; (Rule -&gt; Maybe Text -&gt; Rule)
 -&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367244"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367253"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:Rule' :: Rule -&gt; Maybe Text
-</span><a href="#local-6989586621679367244"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367244"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367243"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679367243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367242"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679367243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Rule' :: Maybe Text
+</span><a href="#local-6989586621679367253"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367253"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367252"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679367252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367251"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679367252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Rule' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.Types.Rule.html#%24sel%3Avalue%3ARule%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-317"></span><span>
-</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367239"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-319"></span><span>  </span><span id="local-6989586621679367237"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rule
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367248"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679367246"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Rule) -&gt; Value -&gt; Parser Rule
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-321"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span>
-</span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367234"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367234"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367243"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367243"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-323"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeviceAttribute -&gt; Maybe RuleOperator -&gt; Maybe Text -&gt; Rule
 </span><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span><span>
 </span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeviceAttribute -&gt; Maybe RuleOperator -&gt; Maybe Text -&gt; Rule)
@@ -434,7 +434,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe RuleOperator -&gt; Maybe Text -&gt; Rule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceAttribute)
+</span><a href="#local-6989586621679367243"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceAttribute)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attribute&quot;</span></span><span class="hs-special">)</span><span>
@@ -442,26 +442,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe RuleOperator) -&gt; Parser (Maybe Text -&gt; Rule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RuleOperator)
+</span><a href="#local-6989586621679367243"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RuleOperator)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operator&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-326"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Rule) -&gt; Parser (Maybe Text) -&gt; Parser Rule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679367243"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-328"></span><span>
-</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367228"><span id="local-6989586621679367230"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367237"><span id="local-6989586621679367239"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span><span>
 </span><span id="line-330"></span><span>
-</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span>
 </span><span id="line-332"></span><span>
-</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367217"><span id="local-6989586621679367219"><span id="local-6989586621679367221"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-334"></span><span>  </span><span id="local-6989586621679367215"><span class="annot"><span class="annottext">toJSON :: Rule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367211"><span id="local-6989586621679367212"><span id="local-6989586621679367213"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367226"><span id="local-6989586621679367228"><span id="local-6989586621679367230"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679367224"><span class="annot"><span class="annottext">toJSON :: Rule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367220"><span id="local-6989586621679367221"><span id="local-6989586621679367222"><span class="annot"><span class="annottext">Maybe Text
 Maybe DeviceAttribute
 Maybe RuleOperator
 value :: Maybe Text
@@ -470,7 +470,7 @@ attribute :: Maybe DeviceAttribute
 $sel:value:Rule' :: Rule -&gt; Maybe Text
 $sel:operator:Rule' :: Rule -&gt; Maybe RuleOperator
 $sel:attribute:Rule' :: Rule -&gt; Maybe DeviceAttribute
-</span><a href="#local-6989586621679367211"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679367220"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-335"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-336"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -482,21 +482,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DeviceAttribute -&gt; Pair) -&gt; Maybe DeviceAttribute -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeviceAttribute
-</span><a href="#local-6989586621679367213"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367222"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-338"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RuleOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RuleOperator -&gt; Pair) -&gt; Maybe RuleOperator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RuleOperator
-</span><a href="#local-6989586621679367212"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367221"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367211"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><a href="#local-6989586621679367220"><span class="hs-identifier hs-var">value</span></a></span><span>
 </span><span id="line-340"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-341"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-342"></span></pre></body></html>
